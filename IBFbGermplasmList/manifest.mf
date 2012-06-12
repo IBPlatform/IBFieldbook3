@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+OpenIDE-Module: ibfb.germplasmlist.core
+OpenIDE-Module-Localizing-Bundle: ibfb/germplasmlist/core/Bundle.properties
+OpenIDE-Module-Requires: org.openide.windows.WindowManager
+OpenIDE-Module-Specification-Version: 1.0
+

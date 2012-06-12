@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+OpenIDE-Module: ibfb.branding.core
+OpenIDE-Module-Install: ibfb/branding/core/Installer.class
+OpenIDE-Module-Layer: ibfb/branding/core/layer.xml
+OpenIDE-Module-Localizing-Bundle: ibfb/branding/core/Bundle.properties
+OpenIDE-Module-Specification-Version: 1.0
+
