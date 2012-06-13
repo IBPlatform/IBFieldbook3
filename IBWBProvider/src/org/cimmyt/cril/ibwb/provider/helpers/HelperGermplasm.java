@@ -622,4 +622,65 @@ public class HelperGermplasm {
         sb.append("S");
         return sb.toString();
     }
+    
+    public static boolean itsRandom(
+            AppServices appServices,
+            Integer studyId,
+            Integer trial
+            ){
+        String nameStudy = null;
+        String nameTrial = null;
+        String nameEntry = null;
+        String namePlot = null;
+
+        List<Factor> factors = appServices.getMainFactorsByStudyid(studyId);
+        
+        for (Factor factor : factors) {
+            factor = HelperFactor.getFactorFillingFullWhitoutLevels(factor, appServices, 801);
+            String traitScale = factor.getMeasuredin().getTraits().getTrname() + factor.getMeasuredin().getScales().getScname();
+            if (Workbook.STUDY_NAME.equals(Workbook.getStringWithOutBlanks(traitScale))) {
+                nameStudy = factor.getFname();
+            } else if (Workbook.TRIAL_INSTANCE_NUMBER.equals(Workbook.getStringWithOutBlanks(traitScale))) {
+                nameTrial = factor.getFname();
+            } else if (Workbook.GERMPLASM_ENTRY_NUMBER.equals(Workbook.getStringWithOutBlanks(traitScale))) {
+                nameEntry = factor.getFname();
+            } else if (Workbook.FIELD_PLOT_NUMBER.equals(Workbook.getStringWithOutBlanks(traitScale))
+                    || Workbook.FIELD_PLOT_NESTEDNUMBER.equals(Workbook.getStringWithOutBlanks(traitScale))) {
+                namePlot = factor.getFname();
+            }
+        }
+
+        log.info("Asignando nombres de fatorres principales");
+        List<String> factorsKey = new ArrayList<String>();
+        factorsKey.add(nameStudy);
+        factorsKey.add(nameTrial);
+        factorsKey.add(nameEntry);
+        factorsKey.add(namePlot);
+
+        log.info("Asignando nombres de factores de salida");
+        List<String> factorsReturn = new ArrayList<String>();
+        factorsReturn.add(nameTrial);
+        factorsReturn.add(nameEntry);
+        factorsReturn.add(namePlot);
+
+        ResultSet rst = appServices.getTrialRandomization(studyId, trial, factorsKey, factorsReturn, nameTrial);
+        Integer entry = null;
+        Integer plot = null;
+        try {
+            if (rst != null) {
+                while (rst.next()) {
+                    entry = rst.getInt(nameEntry);
+                    plot = rst.getInt(namePlot);
+                    log.info("entry: " + entry + " plot: " + rst.getString(namePlot));
+                    if(entry != plot){
+                      return true;  
+                    }
+                }
+            }
+            return false;
+        } catch (SQLException ex) {
+            log.error("Error al trabajar con el resulset. ", ex);
+            return false;
+        }
+    }
 }
