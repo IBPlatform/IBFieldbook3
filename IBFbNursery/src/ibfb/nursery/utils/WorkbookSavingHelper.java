@@ -91,14 +91,14 @@ public class WorkbookSavingHelper {
 
     private static Condition getConditionTrial() {
         Condition condition = new Condition();
-        condition.setConditionName("TRIAL");
+        condition.setConditionName("OCC");
         condition.setDescription("TRIAL NUMBER");
         condition.setProperty("TRIAL INSTANCE");
         condition.setScale("NUMBER");
         condition.setMethod("ENUMERATED");
         condition.setDataType("N");
         condition.setValue(1);
-        condition.setLabel("TRIAL");
+        condition.setLabel("OCC");
         condition.setInstance(1);
         return condition;
     }
