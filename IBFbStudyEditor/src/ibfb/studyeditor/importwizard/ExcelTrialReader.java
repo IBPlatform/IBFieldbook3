@@ -4,6 +4,7 @@ import ibfb.studyeditor.core.model.ObservationsTableModel;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.List;
 import org.apache.log4j.Logger;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
@@ -17,6 +18,7 @@ public class ExcelTrialReader {
     String fileName = "";
     HSSFSheet sheetDescription;
     HSSFSheet sheetObservation;
+    HSSFSheet sheetData;
     HSSFWorkbook excelBook;
     HSSFCell cellData = null;
     HSSFRow rowData = null;
@@ -26,6 +28,9 @@ public class ExcelTrialReader {
     int obsPlot = -1;
     int trial = 0;
     int instances = 0;
+    int colGIDObs = 0;
+    ArrayList<MatchesClass> matchesArray;
+    ArrayList<String> gids;
 
     public void setFileName(String file) {
         this.fileName = file;
@@ -33,6 +38,96 @@ public class ExcelTrialReader {
 
     public void setInstances(int inst) {
         this.instances = inst;
+    }
+
+    public void readExcelFileCrossInfo() {
+
+        try {
+
+            int colNumber = 0;
+            int rowIndex = 0;
+            InputStream inputStream = new FileInputStream(fileName);
+            excelBook = new HSSFWorkbook(inputStream);
+            sheetData = excelBook.getSheetAt(0);
+            rowData = sheetData.getRow(rowIndex);
+            cellData = rowData.getCell(colNumber);
+
+
+            int colGID = findCol("GID", sheetData);
+
+
+
+            if (colGID == -1) {
+                DialogUtil.displayError("File error, Data sheet. There is not GID column");
+                return;
+            }
+
+            int matches = findMaches(sheetData);
+
+            if (matches > 0) {
+                System.out.println("ok tenemos " + matches + " coincidencias");
+
+            } else {
+                DialogUtil.displayError("Data error, Data sheet. There are not values to import");
+                return;
+            }
+
+            fillGIDs(sheetData, colGID);
+            ObservationsTableModel.setIsFromCrossInfo(true);
+
+            for (int j = 0; j < observationsModel.getRowCount(); j++) {
+
+                Object gid = observationsModel.getValueAt(j, colGIDObs);
+
+                int rowOfGID = findRowForGID(gid.toString());
+
+                System.out.println("GID: " + gid.toString() + "  ROW EXCEL: " + rowOfGID);
+
+                if (rowOfGID >= 0) {
+                    for (int i = 0; i < matchesArray.size(); i++) {
+
+                        HSSFRow fila = sheetData.getRow(rowOfGID + 1);//por encabezados
+                        HSSFCell celda = fila.getCell(matchesArray.get(i).getColCross());
+                        String valor = getStringValueFromCell(celda);
+
+                        observationsModel.setValueAt(valor, j, matchesArray.get(i).getColIBF());
+
+                        //   System.out.println("PAREJAS: " + matchesArray.get(i).getColIBF() + " - " + matchesArray.get(i).getColCross());
+
+                    }
+                } else {
+                    System.out.println(gid.toString() + " NO ENCONTRADO");
+                }
+
+            }
+            ObservationsTableModel.setIsFromCrossInfo(false);
+        } catch (Exception e) {
+            ObservationsTableModel.setIsFromCrossInfo(false);
+            log.error("Error al leer excel ", e);
+        }
+
+    }
+
+    private String getStringValueFromCell(HSSFCell cellData) {
+
+        String cellValue = null;
+
+        switch (cellData.getCellType()) {
+
+            case HSSFCell.CELL_TYPE_STRING:
+                cellValue = cellData.getStringCellValue();
+                break;
+
+            case HSSFCell.CELL_TYPE_NUMERIC:
+                cellValue = String.valueOf((int) cellData.getNumericCellValue());
+                break;
+        }
+
+        if (cellValue == null) {
+            cellValue = "";
+        }
+
+        return cellValue;
     }
 
     public void readExcelFile() {
@@ -91,9 +186,9 @@ public class ExcelTrialReader {
             String entryLabel = observationsModel.getWorkbook().getEntryLabel();
             String plotLabel = observationsModel.getWorkbook().getPlotLabel();
             //int colEntry = findCol("ENTRY");
-            int colEntry = findCol(entryLabel);
+            int colEntry = findCol(entryLabel, sheetObservation);
             //int colPlot = findCol("PLOT");
-            int colPlot = findCol(plotLabel);
+            int colPlot = findCol(plotLabel, sheetObservation);
 
             if (!validaObservationSecciones(colEntry, colPlot)) {
                 log.info("Error en el template. Sheet observations. Mal formato");
@@ -110,11 +205,80 @@ public class ExcelTrialReader {
 
     }
 
-    private int findCol(String title) {
+    private int findMaches(HSSFSheet sheet) {
+
+        int result = 0;
+
+        HSSFRow fila = sheet.getRow(0); //Encabezados
+        int cells = fila.getLastCellNum();
+
+        ArrayList<String> encabezados = new ArrayList<String>();
+        matchesArray = new ArrayList<MatchesClass>();
+
+        for (int i = 0; i < observationsModel.getColumnCount(); i++) {
+            encabezados.add(observationsModel.getColumnName(i).toUpperCase().trim());
+        }
+
+        colGIDObs = encabezados.indexOf("GID");
+
+        for (int i = 0; i < cells; i++) {
+
+            try {
+                HSSFCell celda = fila.getCell(i);
+
+                if (!celda.getStringCellValue().toUpperCase().trim().equals("GID")) {
+
+                    if (encabezados.contains(celda.getStringCellValue().toUpperCase().trim())) {
+                        MatchesClass match = new MatchesClass();
+                        match.setColIBF(encabezados.indexOf(celda.getStringCellValue().toUpperCase().trim()));
+                        match.setColCross(i);
+                        matchesArray.add(match);
+                        result++;
+                    }
+
+                }
+            } catch (Exception ex) {
+                log.error("ERROR EN FINDMACHES", ex);
+            }
+
+
+
+
+        }
+
+        return result;
+    }
+
+    private void fillGIDs(HSSFSheet sheet, int colGID) {
+        try {
+            gids = new ArrayList<String>();
+            int total = sheet.getLastRowNum();
+
+            for (int i = 0; i < total; i++) {
+                HSSFRow fila = sheet.getRow(i + 1);
+                HSSFCell celda = fila.getCell(colGID);
+                int valor = (int) (celda.getNumericCellValue());
+                gids.add(String.valueOf(valor));
+            }
+
+        } catch (Exception ex) {
+            log.error("ERROR EN fillGIDs", ex);
+        }
+
+    }
+
+    private int findRowForGID(String elGID) {
+
+        int result = -1;
+        result = gids.indexOf(elGID);
+        return result;
+    }
+
+    private int findCol(String title, HSSFSheet sheet) {
 
         int result = -1;
 
-        HSSFRow fila = sheetObservation.getRow(0); //Encabezados
+        HSSFRow fila = sheet.getRow(0); //Encabezados
         int cells = fila.getLastCellNum();
 
 
@@ -257,7 +421,7 @@ public class ExcelTrialReader {
         for (int i = 0; i < traits.size(); i++) {//columnas
 
             String trait = traits.get(i).toString();
-            int col = findCol(trait);
+            int col = findCol(trait, sheetObservation);
             int colObs = observationsModel.findColumn(trait);
 
 
@@ -266,7 +430,7 @@ public class ExcelTrialReader {
             String trialLabel = observationsModel.getWorkbook().getTrialLabel();
             String entryLabel = observationsModel.getWorkbook().getEntryLabel();
             String plotLabel = observationsModel.getWorkbook().getPlotLabel();
-            
+
             //obsTrial = observationsModel.findColumn("TRIAL");
             //obsEntry = observationsModel.findColumn("ENTRY");
             //obsPlot = observationsModel.findColumn("PLOT");
@@ -318,7 +482,7 @@ public class ExcelTrialReader {
                                         observationsModel.setValueAt(stringResult, filaObs, colObs);
                                     }
 
-                                
+
                                 }
                             }
                         }

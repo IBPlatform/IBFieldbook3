@@ -194,6 +194,81 @@ public class DesignsClass {
 
     }
 
+    
+     public void runR_alphaWindowsExtra(int treatments, int rep, int blocksize,int seed) {
+
+        String myCSVFile = "alpha.csv";
+        FileWriter fichero = null;
+        PrintWriter pw = null;
+        String path = "";
+
+        //   pathRWD="C:"+File.separator+"R";
+
+        try {
+            File dir = new File(pathRWD);
+            boolean resultado = dir.mkdirs();
+            System.out.println("" + resultado);
+        } catch (Exception e) {
+            System.out.println("ya existe el directorio");
+        }
+
+        try {
+            File miArchivo = new File(pathRWD + File.separator + myCSVFile);
+
+        } catch (Exception e) {
+            System.out.println("error al crear el archivo");
+        }
+
+        try {
+            File miArchivo = new File(pathRWD + File.separator + "alpha.R");
+
+        } catch (Exception e) {
+            System.out.println("error al crear el archivo");
+        }
+
+
+        try {
+
+            fichero = new FileWriter(pathRWD + File.separator + "alpha.R", false);
+            pw = new PrintWriter(fichero);
+            pw.println();
+            pw.println("library(agricolae)");
+            pw.println("library(MASS)");
+            pw.println("t <- 1:" + treatments);
+            pw.println("k <- " + blocksize);
+            pw.println("r <- " + rep);
+            pw.println("s<-t/k");
+            pw.println("planAlpha <- design.alpha(t,k,r,seed="+seed+")"    );
+            pw.println("setwd" + "(\"C:/R\")");
+            pw.println("write.csv(planAlpha,\"" + myCSVFile + "\",row.names=FALSE)");
+
+
+        } catch (FileNotFoundException e) {
+
+            JOptionPane.showMessageDialog(null, "File not found", "ERROR", JOptionPane.ERROR_MESSAGE);
+
+
+        } catch (IOException e) {
+
+            JOptionPane.showMessageDialog(null, "I/O Error", "ERROR", JOptionPane.ERROR_MESSAGE);
+
+
+        } finally {
+            try {
+
+                if (null != fichero) {
+                    fichero.close();
+                }
+            } catch (Exception e2) {
+            }
+        }
+
+
+        ejecutaRforWindows("alpha.R", myCSVFile);
+
+    }
+    
+    
     public void runR_lattice(int trial,int treatments, int rep, int blocksize) {
         String fileName = "lattice" + trial;
         String myCSVFile = fileName + ".csv";
@@ -423,6 +498,8 @@ public class DesignsClass {
         //String file = this.pathRWD + File.separator + myDesign+trial + ".csv";
         String file = this.pathRWD + File.separator + myDesign + ".csv";
 
+       
+        
         try {
             CsvReader csvReader = new CsvReader(file);
             csvReader.readHeaders();
@@ -623,5 +700,26 @@ public class DesignsClass {
             }
         }
         folderMac.delete();
+    }
+
+ 
+
+    public boolean existeArchivo(String myDesign) {
+       
+        boolean existe=false;
+        
+        String file = this.pathRWD + File.separator + myDesign + ".csv";
+        
+        File archivo =new File(file);
+        if(archivo.exists() && archivo.length()>0){
+           
+            existe=true;
+        }else{
+            
+            
+        }
+        
+        
+        return existe;
     }
 }

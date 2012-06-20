@@ -36,7 +36,7 @@ public class ImportData {
     public ImportData(JTable observationsTable, CSVOziel csv, int instan) {
         this.observationsTable = observationsTable;
         this.csv = csv;
-        this.instances=instan;
+        this.instances = instan;
     }
 
     public void launchWizard() {
@@ -55,62 +55,74 @@ public class ImportData {
 
 
         if (!cancelled) {
-            
-          
-            
-           // ImportWizardWizardPanel1 iwvp = (ImportWizardWizardPanel1) panels[0];
-           // ImportWizardVisualPanel1 visualPanel = (ImportWizardVisualPanel1) iwvp.getComponent();
-            
+
+
+
+            // ImportWizardWizardPanel1 iwvp = (ImportWizardWizardPanel1) panels[0];
+            // ImportWizardVisualPanel1 visualPanel = (ImportWizardVisualPanel1) iwvp.getComponent();
+
             //  this.myFile=iwvp.getMyFile();
-                   StudyEditorTopComponent studyEditor = (StudyEditorTopComponent) WindowManager.getDefault().getRegistry().getActivated();
+            StudyEditorTopComponent studyEditor = (StudyEditorTopComponent) WindowManager.getDefault().getRegistry().getActivated();
 
-            this.myFile=studyEditor.trialImportFile;
+            this.myFile = studyEditor.trialImportFile;
 
-           /* if (visualPanel.getjRadioButtonToFieldlog().isSelected()) {
-                
-                importFromFieldroid( this.myFile);
-            } else {
-                importFromExcel( this.myFile);
-            }
-             * 
+            /*
+             * if (visualPanel.getjRadioButtonToFieldlog().isSelected()) {
+             *
+             * importFromFieldroid( this.myFile); } else { importFromExcel(
+             * this.myFile); }
+             *
              */
-            
-            if(studyEditor.opcionImport==0){
-                importFromExcel( this.myFile);
-            }else{
-                importFromFieldroid( this.myFile);
+
+            switch (studyEditor.opcionImport) {
+                case 0:
+                    importFromExcel(this.myFile);
+                    break;
+                case 1:
+                    importFromFieldroid(this.myFile);
+                    break;
+                case 2:
+                    importFromCrossInfo(this.myFile);
+                    break;
+            }
+
+
+
+        }
+    }
+
+    private void launchWizard2() {
+        WizardDescriptor.Iterator iterator = new importingWizardIterator();
+        WizardDescriptor wizardDescriptor = new WizardDescriptor(iterator);
+        // {0} will be replaced by WizardDescriptor.Panel.getComponent().getName()
+        // {1} will be replaced by WizardDescriptor.Iterator.name()
+        wizardDescriptor.setTitleFormat(new MessageFormat("{0} ({1})"));
+        wizardDescriptor.setTitle(NbBundle.getMessage(ImportData.class, "ImportData.title"));
+        Dialog dialog = DialogDisplayer.getDefault().createDialog(wizardDescriptor);
+        dialog.setVisible(true);
+        dialog.toFront();
+        boolean cancelled = wizardDescriptor.getValue() != WizardDescriptor.FINISH_OPTION;
+        if (!cancelled) {
+            StudyEditorTopComponent studyEditor = (StudyEditorTopComponent) WindowManager.getDefault().getRegistry().getActivated();
+
+            this.myFile = studyEditor.trialImportFile;
+            switch (studyEditor.opcionImport) {
+                case 0:
+                    importFromExcel(this.myFile);
+                    break;
+                case 1:
+                    importFromFieldroid(this.myFile);
+                    break;
+                case 2:
+                    importFromCrossInfo(this.myFile);
+                    break;
             }
         }
     }
-    
-    
-    private void launchWizard2(){
-    WizardDescriptor.Iterator iterator = new importingWizardIterator();
-    WizardDescriptor wizardDescriptor = new WizardDescriptor(iterator);
-    // {0} will be replaced by WizardDescriptor.Panel.getComponent().getName()
-    // {1} will be replaced by WizardDescriptor.Iterator.name()
-    wizardDescriptor.setTitleFormat(new MessageFormat("{0} ({1})"));
-    wizardDescriptor.setTitle(NbBundle.getMessage(ImportData.class, "ImportData.title"));
-    Dialog dialog = DialogDisplayer.getDefault().createDialog(wizardDescriptor);
-    dialog.setVisible(true);
-    dialog.toFront();
-    boolean cancelled = wizardDescriptor.getValue() != WizardDescriptor.FINISH_OPTION;
-    if (!cancelled) {
-    StudyEditorTopComponent studyEditor = (StudyEditorTopComponent) WindowManager.getDefault().getRegistry().getActivated();
-
-            this.myFile=studyEditor.trialImportFile;
-             if(studyEditor.opcionImport==0){
-                importFromExcel( this.myFile);
-            }else{
-                importFromFieldroid( this.myFile);
-            }
-    }
-    }
-    
 
     /**
-     * Initialize panels representing individual wizard's steps and sets
-     * various properties for them influencing wizard appearance.
+     * Initialize panels representing individual wizard's steps and sets various
+     * properties for them influencing wizard appearance.
      */
     private WizardDescriptor.Panel[] getPanels() {
         if (panels == null) {
@@ -143,11 +155,10 @@ public class ImportData {
         return panels;
     }
 
- 
     public void importFromFieldroid(File fileToImport) {
         try {
-            
-                    
+
+
             //CSVOziel csv = new CSVOziel(new JTable(), new JList());
             CSVOziel csvFile = new CSVOziel(this.observationsTable, new JList());
 
@@ -156,11 +167,11 @@ public class ImportData {
                 DialogUtil.displayError("The file is invalid");
                 return;
             }
-        
-            
-            
+
+
+
             csvFile.readDATAnew(fileToImport);
-  
+
             DialogUtil.displayInfo(ImportData.class, "ImportData.importsuccess");
         } catch (Exception e) {
             e.printStackTrace();
@@ -177,7 +188,15 @@ public class ImportData {
         myReader.setModel(tableModel);
         myReader.setInstances(instances);
         myReader.readExcelFile();
+    }
 
-
+    public void importFromCrossInfo(File selectedFile) {
+        System.out.println("Starting IMPORT FROM CROSS INFO");
+        ExcelTrialReader myReader = new ExcelTrialReader();
+        myReader.setFileName(selectedFile.toString());
+        ObservationsTableModel tableModel = (ObservationsTableModel) observationsTable.getModel();
+        myReader.setModel(tableModel);
+        myReader.setInstances(instances);
+        myReader.readExcelFileCrossInfo();
     }
 }

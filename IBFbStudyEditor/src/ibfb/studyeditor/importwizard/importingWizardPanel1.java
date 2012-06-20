@@ -55,11 +55,10 @@ public class importingWizardPanel1 implements WizardDescriptor.Panel {
         if (component.jRadioButtonToFieldlog.isSelected()) {
             studyEditor.opcionImport = 1;
 
-        } else {
+        } else if (component.jRadioButtonToExcel.isSelected()) {
             studyEditor.opcionImport = 0;
+        } else {
+            studyEditor.opcionImport = 2;
         }
     }
-
-
-
 }

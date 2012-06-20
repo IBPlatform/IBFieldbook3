@@ -1,4 +1,3 @@
-
 package ibfb.studyeditor.importwizard;
 
 import ibfb.studyexplorer.filters.CSVFiltro;
@@ -10,13 +9,12 @@ import javax.swing.filechooser.FileFilter;
 import org.openide.WizardDescriptor;
 
 public final class importingVisualPanel2 extends JPanel {
-   
+
     private JFileChooser selectorArchivo = new JFileChooser();
     private File nombreArchivo;
     private int opcionFiltro = 0; //0=xls, 1=csv
     static WizardDescriptor wizardDescriptor;
-    
-  
+
     public importingVisualPanel2() {
         initComponents();
     }
@@ -25,20 +23,19 @@ public final class importingVisualPanel2 extends JPanel {
     public String getName() {
         return "Select your destination file";
     }
-    
-         public File getArchivo() {
-         return nombreArchivo;
+
+    public File getArchivo() {
+        return nombreArchivo;
     }
- 
-          public static void setWizardDescriptor(WizardDescriptor wd) {
+
+    public static void setWizardDescriptor(WizardDescriptor wd) {
         wizardDescriptor = wd;
-          }
-   
-          
-         public void setOpcionFiltro(int opcionFiltro) {
+    }
+
+    public void setOpcionFiltro(int opcionFiltro) {
         this.opcionFiltro = opcionFiltro;
     }
- 
+
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -109,8 +106,7 @@ public final class importingVisualPanel2 extends JPanel {
 
         openFile();     }//GEN-LAST:event_jButtonSearchActionPerformed
 
-    
-     private void openFile() {
+    private void openFile() {
         FileFilter[] filtros = new FileFilter[10];
         filtros = selectorArchivo.getChoosableFileFilters();
         for (int i = 0; i < filtros.length; i++) {
@@ -121,12 +117,23 @@ public final class importingVisualPanel2 extends JPanel {
         selectorArchivo.setSelectedFile(archivoNulo);
         selectorArchivo.setFileSelectionMode(JFileChooser.FILES_ONLY);
 
-        if (this.opcionFiltro == 0) {
-            selectorArchivo.addChoosableFileFilter(new ExcelFiltro());
+
+
+        switch (opcionFiltro) {
+            case 0:
+                selectorArchivo.addChoosableFileFilter(new ExcelFiltro());
+                break;
+            case 1:
+                selectorArchivo.addChoosableFileFilter(new CSVFiltro());
+                break;
+            case 2:
+                selectorArchivo.addChoosableFileFilter(new ExcelFiltro());
+                break;
         }
-        if (this.opcionFiltro == 1) {
-            selectorArchivo.addChoosableFileFilter(new CSVFiltro());
-        }
+
+
+
+
 
 
         int resultado = selectorArchivo.showOpenDialog(null);
@@ -135,22 +142,30 @@ public final class importingVisualPanel2 extends JPanel {
         }
 
 
-        if (this.opcionFiltro == 0) {
-            nombreArchivo = selectorArchivo.getSelectedFile();
-            this.jTextArea1.setText(nombreArchivo + ".xls");
+
+
+        switch (opcionFiltro) {
+            case 0:
+                nombreArchivo = selectorArchivo.getSelectedFile();
+                this.jTextArea1.setText(nombreArchivo + ".xls");
+                break;
+            case 1:
+                nombreArchivo = selectorArchivo.getSelectedFile();
+                this.jTextArea1.setText(nombreArchivo + ".csv");
+                break;
+            case 2:
+                nombreArchivo = selectorArchivo.getSelectedFile();
+                this.jTextArea1.setText(nombreArchivo + ".xls");
+                break;
         }
 
 
-        if (this.opcionFiltro == 1) {
-            nombreArchivo = selectorArchivo.getSelectedFile();
-            this.jTextArea1.setText(nombreArchivo + ".csv");
-        }
+
+
 
         wizardDescriptor.doFinishClick();
 
     }
-    
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonSearch;
     private javax.swing.JLabel jLabel1;

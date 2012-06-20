@@ -18,6 +18,7 @@ import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 
 /**
  * Table Model for observations
+ *
  * @author TMSANCHEZ
  */
 public class ObservationsTableModel extends AbstractTableModel {
@@ -36,6 +37,7 @@ public class ObservationsTableModel extends AbstractTableModel {
     public static final String BLOCK = "BLOCKNUMBER";
     public static final String ROW = "";
     public static final String COL = "";
+    public static boolean isFromCrossInfo = false;
     /**
      * Prefix to store header index in map for factors
      */
@@ -49,19 +51,19 @@ public class ObservationsTableModel extends AbstractTableModel {
      */
     private HashMap<String, Integer> headerIndex = new HashMap<String, Integer>();
     /**
-     * List of items containing all headers.  Items in list can be
-     * Factor o Variates
+     * List of items containing all headers. Items in list can be Factor o
+     * Variates
      */
     private List<Object> headers;
     /**
-     * 
+     *
      */
     private List<List<Object>> values;
     private Workbook workbook;
     private List<Variate> variateList;
     /**
-     * Map to store LabelId or VariateId and know which column index is used by this
-     * factor or variate
+     * Map to store LabelId or VariateId and know which column index is used by
+     * this factor or variate
      */
     private HashMap<String, Integer> numericHeaderIndex = new HashMap<String, Integer>();
     /**
@@ -70,8 +72,8 @@ public class ObservationsTableModel extends AbstractTableModel {
     private Map<Integer, Integer> rowsPerTrial = new HashMap<Integer, Integer>();
 
     /**
-     * 
-     * @param headers 
+     *
+     * @param headers
      */
     public ObservationsTableModel(Workbook workbook, List<Variate> variateList) {
         this.workbook = workbook;
@@ -79,6 +81,14 @@ public class ObservationsTableModel extends AbstractTableModel {
         values = new ArrayList<List<Object>>();;
         assignHeaders();
         assignLabelHeaders();
+    }
+
+    public static boolean IsFromCrossInfo() {
+        return isFromCrossInfo;
+    }
+
+    public static void setIsFromCrossInfo(boolean isFromCrossInfo) {
+        ObservationsTableModel.isFromCrossInfo = isFromCrossInfo;
     }
 
     /**
@@ -111,9 +121,9 @@ public class ObservationsTableModel extends AbstractTableModel {
 
             columnIndex++;
         }
-        
+
         // add headers from OtherTreatment factors
-        
+
         // add headers from factor section which are PLOT        
         for (Factor otherFactor : workbook.getOtherFactors()) {
             headers.add(otherFactor);
@@ -125,7 +135,7 @@ public class ObservationsTableModel extends AbstractTableModel {
 
             columnIndex++;
         }
-        
+
         // add headers from factor section which are PLOT        
         for (Factor factor : workbook.getPlotFactors()) {
             headers.add(factor);
@@ -159,9 +169,10 @@ public class ObservationsTableModel extends AbstractTableModel {
     }
 
     /**
-     * It return the column text label.  It check
-     * column index in header List and take the name
-     * according to each different object (Condition, Factor or Variate)
+     * It return the column text label. It check column index in header List and
+     * take the name according to each different object (Condition, Factor or
+     * Variate)
+     *
      * @param column column index
      * @return String text for label or empty String if cannot retrieve text
      */
@@ -192,12 +203,22 @@ public class ObservationsTableModel extends AbstractTableModel {
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
         List<Object> columnList = values.get(rowIndex);
         Object columnObject = headers.get(columnIndex);
-        String columnDataType = ((Variate) columnObject).getDataType();
-        if (isValidValue(aValue, columnDataType)) {
+
+
+        if (IsFromCrossInfo()) {
             columnList.set(columnIndex, aValue);
+
         } else {
-            DialogUtil.display(ObservationsTableModel.class, "observationstable.numericvaluerequired");
+            String columnDataType = ((Variate) columnObject).getDataType();
+            if (isValidValue(aValue, columnDataType)) {
+                columnList.set(columnIndex, aValue);
+            } else {
+                DialogUtil.display(ObservationsTableModel.class, "observationstable.numericvaluerequired");
+            }
         }
+
+
+
     }
 
     private boolean isValidValue(Object aValue, String columnDataType) {
@@ -244,6 +265,7 @@ public class ObservationsTableModel extends AbstractTableModel {
 
     /**
      * Get the column index for header
+     *
      * @param columnName Column name to search
      * @return column index number greater than 0 if found or -1 if not found
      */
@@ -257,7 +279,8 @@ public class ObservationsTableModel extends AbstractTableModel {
 
     /**
      * Add a row to model
-     * @param colValues 
+     *
+     * @param colValues
      */
     public void addRow(List<Object> colValues) {
         values.add(colValues);
@@ -266,7 +289,8 @@ public class ObservationsTableModel extends AbstractTableModel {
 
     /**
      * Add a row to model
-     * @param colValues 
+     *
+     * @param colValues
      */
     public void addRow(Object[] colValues) {
         values.add(Arrays.asList(colValues));
@@ -299,8 +323,9 @@ public class ObservationsTableModel extends AbstractTableModel {
 
     /**
      * Get additional description for headers
+     *
      * @param columnIndex
-     * @return 
+     * @return
      */
     public String getDescriptionForColumn(int columnIndex) {
         StringBuilder description = new StringBuilder();
@@ -335,11 +360,12 @@ public class ObservationsTableModel extends AbstractTableModel {
     }
 
     /**
-     * Return column index for a variate by its variateid
-     * It checks which variate id is stored in map and if check then
-     * retrieves it column index in table
+     * Return column index for a variate by its variateid It checks which
+     * variate id is stored in map and if check then retrieves it column index
+     * in table
+     *
      * @param variateId
-     * @return 
+     * @return
      */
     public int getHeaderIndexForVariate(Integer variateId) {
         int headerIndexForVariate = -1;
@@ -350,20 +376,22 @@ public class ObservationsTableModel extends AbstractTableModel {
 
         return headerIndexForVariate;
     }
-    
+
     /**
      * Return the variate for column index
+     *
      * @param columnIndex column index in header
      * @return The variate for that column or null
      */
     public Variate getVariate(int columnIndex) {
-        Variate variate = (Variate)headers.get(columnIndex);
+        Variate variate = (Variate) headers.get(columnIndex);
         return variate;
     }
 
     /**
      * It count how many different trials are in observations table;
-     * @return 
+     *
+     * @return
      */
     public int getTrialCounter() {
         int trialCounter = 0;
@@ -391,7 +419,8 @@ public class ObservationsTableModel extends AbstractTableModel {
 
     /**
      * Gets a map with number of plot for each row
-     * @return 
+     *
+     * @return
      */
     public Map<Integer, Integer> getRowsPerTrial() {
         int plotColumn = getHeaderIndex(PLOT);
@@ -417,7 +446,7 @@ public class ObservationsTableModel extends AbstractTableModel {
                     if (maxPlot instanceof Integer) {
                         plotValue = (Integer) maxPlot;
                     } else if (maxPlot instanceof String) {
-                        plotValue = Integer.parseInt((String)maxPlot);
+                        plotValue = Integer.parseInt((String) maxPlot);
                     }
                     rowsPerTrial.put(currentTrial, plotValue);
                 }

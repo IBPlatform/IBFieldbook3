@@ -39,15 +39,14 @@ import ibfb.studyeditor.importwizard.importingVisualPanel2;
 import ibfb.studyeditor.importwizard.importingWizardIterator;
 import ibfb.studyeditor.roweditors.ConditionsRowEditor;
 import ibfb.studyeditor.roweditors.ListItemTransferHandler;
+import ibfb.studyeditor.util.Clipboard;
 import ibfb.studyeditor.util.DateUtil;
 import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 import ibfb.studyeditor.util.LookupUtil;
 import ibfb.studyeditor.util.RefreshBrowserHelper;
 import ibfb.traits.traits.TraitsExplorerTopComponent;
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Cursor;
-import java.awt.Dialog;
+import java.awt.*;
+import java.awt.datatransfer.StringSelection;
 import java.io.File;
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -426,6 +425,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         jButtonSaveToExcel = new javax.swing.JButton();
         jButtonCSVTraitsExport1 = new javax.swing.JButton();
         jButtonCSVTraitsImport1 = new javax.swing.JButton();
+        jButtonCopyGID = new javax.swing.JButton();
 
         org.openide.awt.Mnemonics.setLocalizedText(jMenuItem1, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jMenuItem1.text")); // NOI18N
         jMenuItem1.setToolTipText(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jMenuItem1.toolTipText")); // NOI18N
@@ -578,7 +578,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                 .addGroup(JPanelDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanelDataLayout.createSequentialGroup()
                         .addGroup(JPanelDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE)
+                            .addComponent(jTextFieldTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
                             .addComponent(jTextFieldObjective, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE)
                             .addComponent(jTextFieldStudy, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE))
                         .addGap(140, 140, 140))
@@ -632,15 +632,13 @@ public final class StudyEditorTopComponent extends TopComponent {
                         .addGroup(JPanelDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jDateChooserEnd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(6, 6, 6)
                         .addGroup(JPanelDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(JPanelDataLayout.createSequentialGroup()
-                                .addGap(6, 6, 6)
                                 .addComponent(jLabel9)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel11))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelDataLayout.createSequentialGroup()
-                                .addGap(6, 6, 6)
                                 .addComponent(jComboBoxStudyType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextFieldPMKey, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
@@ -673,7 +671,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                 .addGap(33, 33, 33)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 513, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 487, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -772,7 +770,7 @@ public final class StudyEditorTopComponent extends TopComponent {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1049, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1041, Short.MAX_VALUE)
                     .addComponent(jPanel23, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -782,7 +780,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                 .addContainerGap()
                 .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 633, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -871,7 +869,7 @@ public final class StudyEditorTopComponent extends TopComponent {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1049, Short.MAX_VALUE)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1041, Short.MAX_VALUE)
                     .addComponent(jPanel24, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -881,7 +879,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                 .addContainerGap()
                 .addComponent(jPanel24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 633, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -913,14 +911,14 @@ public final class StudyEditorTopComponent extends TopComponent {
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 1049, Short.MAX_VALUE)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 1041, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 712, Short.MAX_VALUE)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 704, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -941,14 +939,14 @@ public final class StudyEditorTopComponent extends TopComponent {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1049, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1041, Short.MAX_VALUE)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1049, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 599, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -982,7 +980,7 @@ public final class StudyEditorTopComponent extends TopComponent {
             }
         });
 
-        jButtonRefreshDesign.setFont(new java.awt.Font("Lucida Grande", 1, 18));
+        jButtonRefreshDesign.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jButtonRefreshDesign.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyeditor/images/sync.png"))); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(jButtonRefreshDesign, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jButtonRefreshDesign.text")); // NOI18N
         jButtonRefreshDesign.setToolTipText(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jButtonRefreshDesign.toolTipText")); // NOI18N
@@ -995,7 +993,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         org.openide.awt.Mnemonics.setLocalizedText(jLabelEntries, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jLabelEntries.text")); // NOI18N
 
         jTextFieldEntries.setEditable(false);
-        jTextFieldEntries.setFont(new java.awt.Font("Lucida Grande", 0, 12));
+        jTextFieldEntries.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
         jTextFieldEntries.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextFieldEntries.setText(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jTextFieldEntries.text")); // NOI18N
 
@@ -1074,7 +1072,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                             .addComponent(jLabel8))
                         .addComponent(jRadioButtonViewAllTrialStudy, javax.swing.GroupLayout.Alignment.TRAILING))
                     .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jPanel14Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabelEntries, jTextFieldEntries});
@@ -1097,7 +1095,7 @@ public final class StudyEditorTopComponent extends TopComponent {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1057, Short.MAX_VALUE)
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -1107,7 +1105,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                 .addContainerGap()
                 .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 593, Short.MAX_VALUE)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 585, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1128,7 +1126,7 @@ public final class StudyEditorTopComponent extends TopComponent {
 
         jPanel9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jButtonSelectTraits.setFont(new java.awt.Font("Lucida Grande", 1, 18));
+        jButtonSelectTraits.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jButtonSelectTraits.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyeditor/images/searchDB.png"))); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(jButtonSelectTraits, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jButtonSelectTraits.text")); // NOI18N
         jButtonSelectTraits.setToolTipText(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jButtonSelectTraits.toolTipText")); // NOI18N
@@ -1138,7 +1136,7 @@ public final class StudyEditorTopComponent extends TopComponent {
             }
         });
 
-        jButtonSync.setFont(new java.awt.Font("Lucida Grande", 1, 18));
+        jButtonSync.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jButtonSync.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyeditor/images/sync.png"))); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(jButtonSync, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jButtonSync.text")); // NOI18N
         jButtonSync.setToolTipText(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jButtonSync.toolTipText")); // NOI18N
@@ -1187,10 +1185,10 @@ public final class StudyEditorTopComponent extends TopComponent {
                 .addContainerGap()
                 .addGroup(jPanelTraitsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelTraitsLayout.createSequentialGroup()
-                        .addComponent(jTextFieldDescription, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
+                        .addComponent(jTextFieldDescription, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE)
                         .addGap(162, 162, 162)
                         .addGroup(jPanelTraitsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldDescriptionSelected, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE)
+                            .addComponent(jTextFieldDescriptionSelected, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
                             .addComponent(jLabel13)))
                     .addGroup(jPanelTraitsLayout.createSequentialGroup()
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1207,7 +1205,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                     .addGroup(jPanelTraitsLayout.createSequentialGroup()
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(pnlSelectList, javax.swing.GroupLayout.DEFAULT_SIZE, 575, Short.MAX_VALUE))
+                        .addComponent(pnlSelectList, javax.swing.GroupLayout.DEFAULT_SIZE, 561, Short.MAX_VALUE))
                     .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelTraitsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1223,11 +1221,11 @@ public final class StudyEditorTopComponent extends TopComponent {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelTraits, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1069, Short.MAX_VALUE)
+            .addComponent(jPanelTraits, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1053, Short.MAX_VALUE)
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelTraits, javax.swing.GroupLayout.DEFAULT_SIZE, 734, Short.MAX_VALUE)
+            .addComponent(jPanelTraits, javax.swing.GroupLayout.DEFAULT_SIZE, 716, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jPanel6.TabConstraints.tabTitle"), jPanel6); // NOI18N
@@ -1317,7 +1315,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextTrialName, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 375, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 276, Short.MAX_VALUE)
                 .addComponent(jRadioButtonAllTrials2)
                 .addContainerGap())
         );
@@ -1387,35 +1385,45 @@ public final class StudyEditorTopComponent extends TopComponent {
             }
         });
 
+        jButtonCopyGID.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyeditor/images/copyGID.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(jButtonCopyGID, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jButtonCopyGID.text")); // NOI18N
+        jButtonCopyGID.setToolTipText(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jButtonCopyGID.toolTipText")); // NOI18N
+        jButtonCopyGID.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonCopyGID.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonCopyGID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCopyGIDActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jButtonCSVTraitsImport1, 0, 0, Short.MAX_VALUE)
-                        .addComponent(btnPrintLabels, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonCSVTraitsExport1, 0, 0, Short.MAX_VALUE))
-                    .addComponent(jButtonSaveToExcel))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonCSVTraitsImport1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonCSVTraitsExport1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonSaveToExcel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnPrintLabels, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jButtonCopyGID, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        jPanel5Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnPrintLabels, jButtonCSVTraitsImport1, jButtonSaveToExcel});
-
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButtonSaveToExcel)
                 .addGap(18, 18, 18)
-                .addComponent(btnPrintLabels)
+                .addComponent(btnPrintLabels, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonCSVTraitsExport1)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonCSVTraitsImport1)
-                .addContainerGap(297, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButtonCopyGID, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel5Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnPrintLabels, jButtonCSVTraitsExport1, jButtonCSVTraitsImport1, jButtonSaveToExcel});
@@ -1429,9 +1437,9 @@ public final class StudyEditorTopComponent extends TopComponent {
                 .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel21Layout.createSequentialGroup()
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 952, Short.MAX_VALUE)))
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel21Layout.setVerticalGroup(
@@ -1440,9 +1448,9 @@ public final class StudyEditorTopComponent extends TopComponent {
                 .addContainerGap()
                 .addComponent(jPanel25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 633, Short.MAX_VALUE)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 633, Short.MAX_VALUE))
+                .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -1450,11 +1458,11 @@ public final class StudyEditorTopComponent extends TopComponent {
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, 1069, Short.MAX_VALUE)
+            .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, 1053, Short.MAX_VALUE)
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, 734, Short.MAX_VALUE)
+            .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, 716, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jPanel10.TabConstraints.tabTitle"), jPanel10); // NOI18N
@@ -1468,7 +1476,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 762, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1579,6 +1587,9 @@ public final class StudyEditorTopComponent extends TopComponent {
         }
 }//GEN-LAST:event_jRadioButtonViewAllTrialStudyItemStateChanged
 
+    private void asignaClipboard() {
+        this.jTableObservations.addKeyListener(new Clipboard((jTableObservations)));
+    }
     private void jTableDesignPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jTableDesignPropertyChange
         if (this.jTableDesign.getCellEditor() != null) {
             jTableDesign.getCellEditor().stopCellEditing();
@@ -1776,7 +1787,7 @@ public final class StudyEditorTopComponent extends TopComponent {
             jTextTrialName.requestFocus();
             return;
         }
-        if (! studyAlreadyExists && trialNameAlreadyExists(jTextTrialName.getText().trim())) {
+        if (!studyAlreadyExists && trialNameAlreadyExists(jTextTrialName.getText().trim())) {
             String message = NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.trialNameAlreadyExists");
             DialogUtil.displayError(message);
             return;
@@ -2076,6 +2087,34 @@ public final class StudyEditorTopComponent extends TopComponent {
         //jButtonSaveToExcel.setEnabled(!jTextTrialName.getText().trim().isEmpty());
     }//GEN-LAST:event_jTextTrialNameKeyReleased
 
+    private void jButtonCopyGIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCopyGIDActionPerformed
+
+        GermplasmEntriesTableModel entriesTableModel = (GermplasmEntriesTableModel) this.jTableEntries.getModel();
+        int colGID = entriesTableModel.findColumn("GID");
+        if (colGID > 0) {
+
+
+            String str = "GID\n";
+
+
+            for (int i = 0; i < entriesTableModel.getRowCount(); i++) {
+                str = str + entriesTableModel.getValueAt(i, colGID).toString() + "\n";
+            }
+
+
+            StringSelection ss = new StringSelection(str);
+            Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
+
+            DialogUtil.display("Data copied");
+
+        } else {
+            DialogUtil.displayError("There is not GID column");
+        }
+
+
+
+    }//GEN-LAST:event_jButtonCopyGIDActionPerformed
+
     @Override
     public void componentOpened() {
     }
@@ -2253,8 +2292,16 @@ public final class StudyEditorTopComponent extends TopComponent {
                     disenios.deleteWDforMac();
                 } else {
                     disenios.runR_alphaWindows(entries, Integer.parseInt(rep), Integer.parseInt(blockSize));
-                    disenios.readAlphaDesign(i + 1, "alpha", tableModel, this.jTableEntries);
-                    disenios.deleteWD(new File("C:" + File.separator + "R"));
+
+                    if (disenios.existeArchivo("alpha")) {
+                        disenios.readAlphaDesign(i + 1, "alpha", tableModel, this.jTableEntries);
+                        disenios.deleteWD(new File("C:" + File.separator + "R"));
+                    } else {
+                        disenios.runR_alphaWindowsExtra(entries, Integer.parseInt(rep), Integer.parseInt(blockSize), 155);
+                        disenios.readAlphaDesign(i + 1, "alpha", tableModel, this.jTableEntries);
+                        disenios.deleteWD(new File("C:" + File.separator + "R"));
+                    }
+
                 }
             } else if (disenio.equals(DesignsClass.LATICE_DESIGN)) {
                 if (OSUtils.isMacOS()) {
@@ -2291,6 +2338,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         this.jTabbedPane1.setSelectedIndex(7);
         changeCursorWaitStatus(false);
         ObservationTableTooltips.assignTooltips(jTableObservations);
+        // asignaClipboard();
     }
 
     private void generateUnreplicatedDesignWithoutRandomization(int trial, ObservationsTableModel model, ArrayList<String> otherFactors, String[][] factorsDesignCad, int totalRep) {
@@ -2542,6 +2590,10 @@ public final class StudyEditorTopComponent extends TopComponent {
                     break;
                 case 1:
                     importData.importFromFieldroid(trialImportFile);
+                    break;
+
+                case 2:
+                    importData.importFromCrossInfo(trialImportFile);
                     break;
             }
             return true;
@@ -2869,6 +2921,7 @@ public final class StudyEditorTopComponent extends TopComponent {
     private javax.swing.ButtonGroup buttonGroupTrInformation;
     private javax.swing.JButton jButtonCSVTraitsExport1;
     private javax.swing.JButton jButtonCSVTraitsImport1;
+    private javax.swing.JButton jButtonCopyGID;
     public static javax.swing.JButton jButtonRefreshDesign;
     private javax.swing.JButton jButtonSaveToExcel;
     public static javax.swing.JButton jButtonSelectTraits;

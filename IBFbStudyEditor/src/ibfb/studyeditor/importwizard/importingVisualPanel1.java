@@ -21,13 +21,20 @@ public final class importingVisualPanel1 extends JPanel {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        jRadioButtonToExcel = new javax.swing.JRadioButton();
+        jRadioButtonCrossInfo = new javax.swing.JRadioButton();
         jRadioButtonToFieldlog = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jRadioButtonToExcel = new javax.swing.JRadioButton();
+        jLabelCrossInfo = new javax.swing.JLabel();
 
-        buttonGroup1.add(jRadioButtonToExcel);
-        org.openide.awt.Mnemonics.setLocalizedText(jRadioButtonToExcel, org.openide.util.NbBundle.getMessage(importingVisualPanel1.class, "importingVisualPanel1.jRadioButtonToExcel.text")); // NOI18N
+        buttonGroup1.add(jRadioButtonCrossInfo);
+        org.openide.awt.Mnemonics.setLocalizedText(jRadioButtonCrossInfo, org.openide.util.NbBundle.getMessage(importingVisualPanel1.class, "importingVisualPanel1.jRadioButtonCrossInfo.text")); // NOI18N
+        jRadioButtonCrossInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonCrossInfoActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(jRadioButtonToFieldlog);
         jRadioButtonToFieldlog.setSelected(true);
@@ -35,6 +42,11 @@ public final class importingVisualPanel1 extends JPanel {
         jRadioButtonToFieldlog.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jRadioButtonToFieldlogItemStateChanged(evt);
+            }
+        });
+        jRadioButtonToFieldlog.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonToFieldlogActionPerformed(evt);
             }
         });
 
@@ -66,43 +78,70 @@ public final class importingVisualPanel1 extends JPanel {
             }
         });
 
+        buttonGroup1.add(jRadioButtonToExcel);
+        org.openide.awt.Mnemonics.setLocalizedText(jRadioButtonToExcel, org.openide.util.NbBundle.getMessage(importingVisualPanel1.class, "importingVisualPanel1.jRadioButtonToExcel.text")); // NOI18N
+        jRadioButtonToExcel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonToExcelActionPerformed(evt);
+            }
+        });
+
+        jLabelCrossInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyeditor/images/crossInfo.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(jLabelCrossInfo, org.openide.util.NbBundle.getMessage(importingVisualPanel1.class, "importingVisualPanel1.jLabelCrossInfo.text")); // NOI18N
+        jLabelCrossInfo.setToolTipText(org.openide.util.NbBundle.getMessage(importingVisualPanel1.class, "importingVisualPanel1.jLabelCrossInfo.toolTipText")); // NOI18N
+        jLabelCrossInfo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelCrossInfoMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabelCrossInfoMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabelCrossInfoMouseEntered(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(108, 108, 108)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jRadioButtonToFieldlog, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+                        .addComponent(jRadioButtonToFieldlog, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(48, 48, 48)
                         .addComponent(jRadioButtonToExcel)
-                        .addGap(130, 130, 130))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                        .addComponent(jRadioButtonCrossInfo)
+                        .addGap(45, 45, 45))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(107, 107, 107)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel3)
-                        .addContainerGap())))
+                        .addGap(58, 58, 58)
+                        .addComponent(jLabelCrossInfo)
+                        .addGap(35, 35, 35))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(52, Short.MAX_VALUE)
-                        .addComponent(jRadioButtonToFieldlog))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jRadioButtonToExcel)))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButtonToFieldlog)
+                    .addComponent(jRadioButtonToExcel)
+                    .addComponent(jRadioButtonCrossInfo))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(48, 48, 48)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(jLabel3)))
-                .addGap(48, 48, 48))
+                        .addComponent(jLabel1)
+                        .addGap(50, 50, 50))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelCrossInfo)
+                            .addComponent(jLabel3))
+                        .addGap(61, 61, 61))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -134,10 +173,36 @@ public final class importingVisualPanel1 extends JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButtonToFieldlogItemStateChanged
 
+    private void jRadioButtonCrossInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonCrossInfoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButtonCrossInfoActionPerformed
+
+    private void jRadioButtonToExcelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonToExcelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButtonToExcelActionPerformed
+
+    private void jLabelCrossInfoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCrossInfoMouseClicked
+        this.jRadioButtonCrossInfo.setSelected(true); 
+    }//GEN-LAST:event_jLabelCrossInfoMouseClicked
+
+    private void jLabelCrossInfoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCrossInfoMouseEntered
+       this.jLabelCrossInfo.setIcon(new ImageIcon(getClass().getResource("/ibfb/studyeditor/images/crossInfo2.png")));  
+    }//GEN-LAST:event_jLabelCrossInfoMouseEntered
+
+    private void jLabelCrossInfoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCrossInfoMouseExited
+             this.jLabelCrossInfo.setIcon(new ImageIcon(getClass().getResource("/ibfb/studyeditor/images/crossInfo.png")));
+    }//GEN-LAST:event_jLabelCrossInfoMouseExited
+
+    private void jRadioButtonToFieldlogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonToFieldlogActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButtonToFieldlogActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabelCrossInfo;
+    public javax.swing.JRadioButton jRadioButtonCrossInfo;
     public javax.swing.JRadioButton jRadioButtonToExcel;
     public javax.swing.JRadioButton jRadioButtonToFieldlog;
     // End of variables declaration//GEN-END:variables
