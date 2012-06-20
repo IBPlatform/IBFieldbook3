@@ -54,52 +54,71 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jScrollPane3" max="32767" attributes="0"/>
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="jScrollPane3" max="32767" attributes="0"/>
+                                  <Component id="jPanel13" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                              <Component id="jSeparator6" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jTabbedPaneFemale" max="32767" attributes="2"/>
                                   <Component id="jPanel6" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jPanel7" max="32767" attributes="0"/>
-                                  <Component id="jTabbedPaneMale" max="32767" attributes="2"/>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                      <Component id="jTabbedPaneMale" max="32767" attributes="2"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="jPanel7" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
-                          <Component id="jPanel13" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="jSeparator6" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="285" pref="285" max="-2" attributes="0"/>
-                              <Component id="jSeparator6" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                              <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="285" pref="285" max="-2" attributes="0"/>
+                                      <Component id="jSeparator6" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
                                   <Component id="jTabbedPaneFemale" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTabbedPaneMale" max="32767" attributes="0"/>
+                                  <Component id="jTabbedPaneMale" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jPanel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jPanel6" alignment="0" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="jPanel7" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="jPanel6" min="-2" pref="28" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
-                          <Component id="jPanel3" alignment="1" min="-2" pref="317" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane3" pref="159" max="32767" attributes="0"/>
+                      <Component id="jScrollPane3" pref="91" max="32767" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jPanel13" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -153,9 +172,9 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="cboGermplasmListMale" pref="301" max="32767" attributes="0"/>
+                                      <Component id="cboGermplasmListMale" pref="307" max="32767" attributes="0"/>
                                   </Group>
-                                  <Component id="jScrollEntriesDbMale" alignment="1" pref="350" max="32767" attributes="0"/>
+                                  <Component id="jScrollEntriesDbMale" alignment="1" pref="358" max="32767" attributes="0"/>
                                   <Component id="btnRemoveMaleDb" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -171,7 +190,7 @@
                                   <Component id="cboGermplasmListMale" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jScrollEntriesDbMale" pref="115" max="32767" attributes="0"/>
+                              <Component id="jScrollEntriesDbMale" pref="177" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnRemoveMaleDb" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -258,11 +277,11 @@
                           <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jScrollEntiresExcelMale" alignment="0" pref="350" max="32767" attributes="2"/>
+                                  <Component id="jScrollEntiresExcelMale" alignment="0" pref="358" max="32767" attributes="2"/>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jScrollPane1" pref="221" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane1" pref="227" max="32767" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jButtonBrowseExcelMale" min="-2" pref="69" max="-2" attributes="0"/>
                                   </Group>
@@ -282,7 +301,7 @@
                                   <Component id="jButtonBrowseExcelMale" alignment="0" max="32767" attributes="1"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jScrollEntiresExcelMale" pref="117" max="32767" attributes="0"/>
+                              <Component id="jScrollEntiresExcelMale" pref="176" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -403,11 +422,11 @@
                           <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jScrollEntriesDbFemale" alignment="1" pref="321" max="32767" attributes="0"/>
+                                  <Component id="jScrollEntriesDbFemale" alignment="1" pref="330" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="cboGermplasmListFemale" pref="272" max="32767" attributes="0"/>
+                                      <Component id="cboGermplasmListFemale" pref="279" max="32767" attributes="0"/>
                                   </Group>
                                   <Component id="btnRemoveFemaleDb" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -424,7 +443,7 @@
                                   <Component id="cboGermplasmListFemale" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jScrollEntriesDbFemale" pref="115" max="32767" attributes="0"/>
+                              <Component id="jScrollEntriesDbFemale" pref="177" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnRemoveFemaleDb" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -512,11 +531,11 @@
                           <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jScrollEntiresExcelFemale" alignment="0" pref="321" max="32767" attributes="2"/>
+                                  <Component id="jScrollEntiresExcelFemale" alignment="0" pref="330" max="32767" attributes="2"/>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jScrollPane2" pref="192" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane2" pref="199" max="32767" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jButtonBrowseExcelFemale" min="-2" pref="69" max="-2" attributes="0"/>
                                   </Group>
@@ -536,7 +555,7 @@
                                   <Component id="jButtonBrowseExcelFemale" alignment="0" max="32767" attributes="1"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jScrollEntiresExcelFemale" pref="117" max="32767" attributes="0"/>
+                              <Component id="jScrollEntiresExcelFemale" pref="176" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnRemoveFemaleExcel" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -629,9 +648,10 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jButtonCross" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="lblNumericFieldWidth" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -661,11 +681,10 @@
                                               <Component id="jTextPrefix" min="-2" pref="57" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <Component id="jButtonLoadExcelScript" min="-2" pref="158" max="-2" attributes="0"/>
-                                      <Component id="jButtonCross" alignment="0" min="-2" pref="158" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
+                              <Component id="jButtonLoadExcelScript" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -1285,7 +1304,7 @@
                           <Component id="jToolBar4" alignment="0" min="-2" max="-2" attributes="1"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jScrollPane7" pref="144" max="32767" attributes="0"/>
+                      <Component id="jScrollPane7" pref="162" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -1325,7 +1344,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jScrollEntriesDbSelect" alignment="1" pref="369" max="32767" attributes="0"/>
+                                  <Component id="jScrollEntriesDbSelect" alignment="1" pref="402" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
@@ -1345,7 +1364,7 @@
                                   <Component id="cboGermplasmListSelect" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jScrollEntriesDbSelect" pref="184" max="32767" attributes="0"/>
+                              <Component id="jScrollEntriesDbSelect" pref="175" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -1422,7 +1441,7 @@
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jScrollPane5" pref="240" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane5" pref="271" max="32767" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jButtonBrowseExcelSelect" min="-2" pref="69" max="-2" attributes="0"/>
                                   </Group>
@@ -1441,7 +1460,7 @@
                                   <Component id="jButtonBrowseExcelSelect" alignment="0" max="32767" attributes="1"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jScrollEntiresExcelSelect" pref="184" max="32767" attributes="0"/>
+                              <Component id="jScrollEntiresExcelSelect" pref="175" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -1530,7 +1549,7 @@
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jScrollPane6" pref="240" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane6" pref="271" max="32767" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jButtonBrowseExcelSelectScript" min="-2" pref="69" max="-2" attributes="0"/>
                                   </Group>
@@ -1549,7 +1568,7 @@
                                   <Component id="jButtonBrowseExcelSelectScript" alignment="0" max="32767" attributes="1"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jScrollEntiresExcelSelectScript" pref="184" max="32767" attributes="0"/>
+                              <Component id="jScrollEntiresExcelSelectScript" pref="175" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
