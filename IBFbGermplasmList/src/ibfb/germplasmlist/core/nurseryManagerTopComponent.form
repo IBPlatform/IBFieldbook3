@@ -171,7 +171,7 @@
                                   <Component id="cboGermplasmListMale" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jScrollEntriesDbMale" pref="118" max="32767" attributes="0"/>
+                              <Component id="jScrollEntriesDbMale" pref="115" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnRemoveMaleDb" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -424,7 +424,7 @@
                                   <Component id="cboGermplasmListFemale" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jScrollEntriesDbFemale" pref="118" max="32767" attributes="0"/>
+                              <Component id="jScrollEntriesDbFemale" pref="115" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnRemoveFemaleDb" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -1228,7 +1228,7 @@
                                       <EmptySpace max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
-                                      <Component id="jTabbedPaneSelect" pref="447" max="32767" attributes="2"/>
+                                      <Component id="jTabbedPaneSelect" max="32767" attributes="2"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jButtonSaveSelectionList" alignment="1" min="-2" pref="75" max="-2" attributes="0"/>
@@ -1285,7 +1285,7 @@
                           <Component id="jToolBar4" alignment="0" min="-2" max="-2" attributes="1"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jScrollPane7" pref="162" max="32767" attributes="0"/>
+                      <Component id="jScrollPane7" pref="144" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -1325,7 +1325,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jScrollEntriesDbSelect" alignment="1" pref="402" max="32767" attributes="0"/>
+                                  <Component id="jScrollEntriesDbSelect" alignment="1" pref="369" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
@@ -1345,7 +1345,7 @@
                                   <Component id="cboGermplasmListSelect" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jScrollEntriesDbSelect" pref="175" max="32767" attributes="0"/>
+                              <Component id="jScrollEntriesDbSelect" pref="184" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -1422,7 +1422,7 @@
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jScrollPane5" pref="271" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane5" pref="240" max="32767" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jButtonBrowseExcelSelect" min="-2" pref="69" max="-2" attributes="0"/>
                                   </Group>
@@ -1441,7 +1441,7 @@
                                   <Component id="jButtonBrowseExcelSelect" alignment="0" max="32767" attributes="1"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jScrollEntiresExcelSelect" pref="175" max="32767" attributes="0"/>
+                              <Component id="jScrollEntiresExcelSelect" pref="184" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -1530,7 +1530,7 @@
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jScrollPane6" pref="271" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane6" pref="240" max="32767" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jButtonBrowseExcelSelectScript" min="-2" pref="69" max="-2" attributes="0"/>
                                   </Group>
@@ -1549,7 +1549,7 @@
                                   <Component id="jButtonBrowseExcelSelectScript" alignment="0" max="32767" attributes="1"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jScrollEntiresExcelSelectScript" pref="175" max="32767" attributes="0"/>
+                              <Component id="jScrollEntiresExcelSelectScript" pref="184" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>

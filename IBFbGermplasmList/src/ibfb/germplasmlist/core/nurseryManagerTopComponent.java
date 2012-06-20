@@ -120,10 +120,10 @@ public final class nurseryManagerTopComponent extends TopComponent {
         this.jButtonSaveCross.setEnabled(false);
         this.jTabbedPane1.setEnabledAt(1, false);
         assignModels();
-
+        
         // by default select other crops
         jComboBoxConvection.setSelectedIndex(2);
-
+        
         checkConvection();
 
     }
