@@ -1773,17 +1773,17 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
                 List<List<Object>> germplasmData = tableModel.getGermplasmData();
                 List<List<Object>> germplasmDataAdvance = tableModelAdvance.getGermplasmData();
 
-                int colEntry = tableModel.findColumn("ENTRY");
+                int colEntry = tableModel.getHeaderIndex(GermplasmEntriesTableModel.ENTRY);
                 if (colEntry < 0) {
                     return;
                 }
 
-                int colDesig = tableModel.findColumn("DESIG");
+                int colDesig = tableModel.getHeaderIndex(GermplasmEntriesTableModel.DESIG);
                 if (colEntry < 0) {
                     return;
                 }
 
-                int colGID = tableModel.findColumn("GID");
+                int colGID = tableModel.getHeaderIndex(GermplasmEntriesTableModel.GID);
                 if (colEntry < 0) {
                     return;
                 }
@@ -1791,7 +1791,7 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
                 int colSelection = 0;
 
                 if (samplesMethod == 1) {
-                    colSelection = modelo.findColumn("PLANTS SELECTED");
+                    colSelection = modelo.getHeaderIndex(GermplasmEntriesTableModel.PLANTS_SELECTED);
                     if (colSelection < 0) {
                         String msgSaving = "PLANTS SELECTED COLUMN IS MISSING";
                         NotifyDescriptor d = new NotifyDescriptor.Message(msgSaving, NotifyDescriptor.ERROR_MESSAGE);
@@ -2100,7 +2100,8 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
         GermplasmEntriesTableModel entriesTableModel = (GermplasmEntriesTableModel) this.jTableEntries.getModel();
         int total = Integer.parseInt(this.jTextFieldEntries.getText());
         int vector[] = randomize(total);
-        int colEntry = entriesTableModel.findColumn("ENTRY");
+        //int colEntry = entriesTableModel.findColumn("ENTRY");
+        int colEntry = entriesTableModel.getHeaderIndex(ObservationsTableModel.ENTRY);
         // ArrayList<Integer> posicionesRandom=giveMeNewPosition(vector);
 
         for (int i = 0; i < total; i++) {
@@ -2500,7 +2501,8 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
         GermplasmEntriesTableModel tableModel = (GermplasmEntriesTableModel) this.jTableEntries.getModel();
         List<List<Object>> germplasmData = tableModel.getGermplasmData();
 
-        int colEntry = tableModel.findColumn("ENTRY");
+        //int colEntry = tableModel.findColumn("ENTRY");
+        int colEntry = tableModel.getHeaderIndex(GermplasmEntriesTableModel.ENTRY);
         if (colEntry < 0) {
             return;
         }

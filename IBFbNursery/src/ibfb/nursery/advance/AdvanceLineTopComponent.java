@@ -549,9 +549,11 @@ public final class AdvanceLineTopComponent extends TopComponent {
         AppServicesProxy.getDefault().appServices().addListnms(listnms);
         List<Listdata> dataList = new ArrayList<Listdata>();
 
-        int gid = findColumn("GID");
-        int desig = findColumn("DESIG");
-        int entryCD = findColumn("ENTRY");
+        GermplasmEntriesTableModel tableModel = (GermplasmEntriesTableModel)jTableEntries.getModel(); 
+        
+        int gid = tableModel.getHeaderIndex(GermplasmEntriesTableModel.GID); //findColumn("GID");
+        int desig = tableModel.getHeaderIndex(GermplasmEntriesTableModel.DESIG);//findColumn("DESIG");
+        int entryCD = tableModel.getHeaderIndex(GermplasmEntriesTableModel.ENTRY);// findColumn("ENTRY");
         
         currentSourceGid = 0;
         

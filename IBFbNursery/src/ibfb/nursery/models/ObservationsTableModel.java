@@ -33,6 +33,7 @@ public class ObservationsTableModel extends AbstractTableModel {
     public static final String COL = "";
     private static final String FACTOR_PREFIX = "FACTOR_";
     private static final String VARIATE_PREFIX = "VARIATE_";
+    public static final String PLANTS_SELECTED = "PLANTSSELECTEDNUMBER";    
     private HashMap<String, Integer> headerIndex = new HashMap<String, Integer>();
     private List<Object> headers;
     private List<List<Object>> values;
@@ -90,6 +91,7 @@ public class ObservationsTableModel extends AbstractTableModel {
         // add headers from selected variates
         for (Variate variate : variateList) {
             headers.add(variate);
+            headerIndex.put(Workbook.getStringWithOutBlanks(variate.getProperty() + variate.getScale()), columnIndex);
             // assisn column index to numeric header only if has a labelid
             if (variate.getVariateId() != null) {
                 numericHeaderIndex.put(VARIATE_PREFIX + variate.getVariateId(), columnIndex);
