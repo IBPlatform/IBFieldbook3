@@ -24,13 +24,14 @@ import org.apache.commons.beanutils.BeanUtils;
 
 /**
  * Helper Class to save Nursery
+ *
  * @author gamaliel
  */
 public class WorkbookSavingHelper {
 
     /*
-     * 
-     * 
+     *
+     *
      */
     public static void saveFieldbook(NurseryEditorTopComponent nurseryEditor) {
         Workbook savingWorkbook = new Workbook();
@@ -111,8 +112,9 @@ public class WorkbookSavingHelper {
 
     /**
      * Get data for study
+     *
      * @param studyEditor
-     * @return 
+     * @return
      */
     private static Study getStudy(NurseryEditorTopComponent nurseryEditor) {
         Study study = new Study();
@@ -141,7 +143,8 @@ public class WorkbookSavingHelper {
 
     /**
      * Get all conditions for study
-     * @return 
+     *
+     * @return
      */
     private static List<Condition> getStudyConditions(NurseryEditorTopComponent nurseryEditor) {
         List<Condition> studyConditions = new ArrayList<Condition>();
@@ -155,8 +158,9 @@ public class WorkbookSavingHelper {
 
     /**
      * Assign Conditions for study where label equals trial
+     *
      * @param studyEditor
-     * @return 
+     * @return
      */
     private static List<Condition> getConditions(NurseryEditorTopComponent nurseryEditor) {
         List<Condition> conditionList = new ArrayList<Condition>();
@@ -172,9 +176,9 @@ public class WorkbookSavingHelper {
     }
 
     /*
-     * Get selected variate from editor.
-     * It checks first selected variates in listbox, then find it
-     * int variates list from template, if found then add it to list
+     * Get selected variate from editor. It checks first selected variates in
+     * listbox, then find it int variates list from template, if found then add
+     * it to list
      */
     public static List<Variate> getSelectedVariates(NurseryEditorTopComponent nurseryEditor) {
         List<Variate> variates = new ArrayList<Variate>();
@@ -184,10 +188,10 @@ public class WorkbookSavingHelper {
     }
 
     /**
-     * 
+     *
      * @param workbook
      * @param traitName
-     * @return 
+     * @return
      */
     private static Variate getSelectedVariate(Workbook workbook, String trait) {
         Variate variate = null;
@@ -207,33 +211,36 @@ public class WorkbookSavingHelper {
 
     /**
      * Get the list of GERMPLASM from editor
+     *
      * @param studyEditor
-     * @return 
+     * @return
      */
     private static List<List<Object>> getGermplasmData(NurseryEditorTopComponent nurseryEditor) {
         GermplasmEntriesTableModel tableModel = (GermplasmEntriesTableModel) nurseryEditor.jTableEntries.getModel();
-        
-        
+
+
         List<List<Object>> tempGermplasmData = tableModel.getGermplasmData();
-        
+
         List<List<Object>> germplasmData = new ArrayList<List<Object>>();
-        
-        for (int row=0; row < tempGermplasmData.size(); row++) {
+
+        for (int row = 0; row < tempGermplasmData.size(); row++) {
             List<Object> originalColumns = tempGermplasmData.get(row);
             List<Object> germplasmColumns = new ArrayList<Object>();
-            for (int col=0; col < nurseryEditor.getMyWorkbook().getEntryFactors().size(); col++) {
-                germplasmColumns.add(originalColumns.get(col));
+            for (int col = 0; col < nurseryEditor.getMyWorkbook().getEntryFactors().size(); col++) {
+                if (col < originalColumns.size()) {
+                    germplasmColumns.add(originalColumns.get(col));
+                }
             }
             germplasmData.add(germplasmColumns);
         }
-        
+
         return germplasmData;
     }
 
     /**
-     * 
+     *
      * @param studyEditor
-     * @return 
+     * @return
      */
     public static List<Constant> getSelectedConstants(NurseryEditorTopComponent nurseryEditor) {
 
@@ -275,10 +282,11 @@ public class WorkbookSavingHelper {
     }
 
     /**
-     * Get study conditions for each instance, this condition list contains filled values
-     * for each factor
+     * Get study conditions for each instance, this condition list contains
+     * filled values for each factor
+     *
      * @param studyEditor
-     * @return 
+     * @return
      */
     private static List<Condition> getConditionsData(NurseryEditorTopComponent nurseryEditor) {
 
@@ -333,16 +341,19 @@ public class WorkbookSavingHelper {
 
         return conditionsData;
 
-        /*  
-        
-        List<Condition> conditionsData = new ArrayList<Condition>();
-        
-        
-        NurseryConditionsTableModel studyConditions = (NurseryConditionsTableModel) nurseryEditor.jTableNurseryConditions.getModel();
-        
-        conditionsData = studyConditions.getNurseryConditions();
-        
-        return conditionsData;*/
+        /*
+         * *
+         * List<Condition> conditionsData = new ArrayList<Condition>();
+         *
+         *
+         * NurseryConditionsTableModel studyConditions =
+         * (NurseryConditionsTableModel)
+         * nurseryEditor.jTableNurseryConditions.getModel();
+         *
+         * conditionsData = studyConditions.getNurseryConditions();
+         *
+         * return conditionsData;
+         */
     }
 
     private static void addAllConstantsDataFromInstance(List<Condition> trialConditions, int instanceCounter, List<Condition> conditionsData) {
@@ -391,19 +402,27 @@ public class WorkbookSavingHelper {
                 }
                 colNumber = model.getHeaderIndex(ObservationsTableModel.REPLICATION);
                 if (colNumber != -1) {
-                    m.setReplication(Integer.parseInt(model.getValueAt(row, colNumber).toString()));
+                    if (model.getValueAt(row, colNumber) != null) {
+                        m.setReplication(Integer.parseInt(model.getValueAt(row, colNumber).toString()));
+                    }
                 }
                 colNumber = model.getHeaderIndex(ObservationsTableModel.BLOCK);
                 if (colNumber != -1) {
-                    m.setBlock(Integer.parseInt(model.getValueAt(row, colNumber).toString()));
+                    if (model.getValueAt(row, colNumber) != null) {
+                        m.setBlock(Integer.parseInt(model.getValueAt(row, colNumber).toString()));
+                    }
                 }
                 colNumber = model.getHeaderIndex(ObservationsTableModel.ROW);
                 if (colNumber != -1) {
-                    m.setRow(Integer.parseInt(model.getValueAt(row, colNumber).toString()));
+                    if (model.getValueAt(row, colNumber) != null) {
+                        m.setRow(Integer.parseInt(model.getValueAt(row, colNumber).toString()));
+                    }
                 }
                 colNumber = model.getHeaderIndex(ObservationsTableModel.COL);
                 if (colNumber != -1) {
-                    m.setColumn(Integer.parseInt(model.getValueAt(row, colNumber).toString()));
+                    if (model.getValueAt(row, colNumber) != null) {
+                        m.setColumn(Integer.parseInt(model.getValueAt(row, colNumber).toString()));
+                    }
                 }
 
                 if (model.getHeaders().get(col) instanceof Variate) {
