@@ -19,6 +19,10 @@ public class GermplasmSearch {
     
     private Germplsm germplsm;
     private Names names;
+    
+    private Germplsm germplsmMale;
+    private Names namesMale;
+    
     private String lid;
     private Integer max;//exacto el maximo
     private String bcid;
@@ -133,6 +137,34 @@ public class GermplasmSearch {
      */
     public void setBcid(String bcid) {
         this.bcid = bcid;
+    }
+
+    /**
+     * @return the germplsmMale
+     */
+    public Germplsm getGermplsmMale() {
+        return germplsmMale;
+    }
+
+    /**
+     * @param germplsmMale the germplsmMale to set
+     */
+    public void setGermplsmMale(Germplsm germplsmMale) {
+        this.germplsmMale = germplsmMale;
+    }
+
+    /**
+     * @return the namesMale
+     */
+    public Names getNamesMale() {
+        return namesMale;
+    }
+
+    /**
+     * @param namesMale the namesMale to set
+     */
+    public void setNamesMale(Names namesMale) {
+        this.namesMale = namesMale;
     }
     
     

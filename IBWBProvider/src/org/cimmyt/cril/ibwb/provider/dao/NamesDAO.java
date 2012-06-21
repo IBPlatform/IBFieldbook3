@@ -181,14 +181,19 @@ public class NamesDAO extends AbstractDAO<Names, Integer> {
             String consecutivo = resultado.substring(cadena.length(), resultado.length());
             StringBuilder sb = new StringBuilder();
             for(char c : consecutivo.toCharArray()){
-                if(c >= 48 || c <= 57 || c == '-'){
+                if(c > 49 && c < 58 || c == '-'){
                     sb.append(c);
                 }else{
+                    sb = new StringBuilder();
                     break;
                 }
             }
-            Integer numeroConsecutivo = Integer.valueOf(sb.toString());
-            return numeroConsecutivo;
+            if(! sb.toString().isEmpty()){
+                Integer numeroConsecutivo = Integer.valueOf(sb.toString());
+                return numeroConsecutivo;
+            }else{
+                return 0;
+            }
         }
     }
     
