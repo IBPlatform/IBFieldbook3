@@ -57,7 +57,7 @@ public final class AdvanceVisualPanel1 extends JPanel {
     
     @Override
     public String getName() {
-        return "Advance nursey";
+        return "Advance nursery";
     }
     
     public void fillComboNumberOfSamplesPerPlot() {
