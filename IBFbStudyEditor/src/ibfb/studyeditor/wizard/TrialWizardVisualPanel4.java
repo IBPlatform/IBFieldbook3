@@ -485,40 +485,7 @@ public final class TrialWizardVisualPanel4 extends JPanel {
         GermplasmEntriesTableModel tableModel = new GermplasmEntriesTableModel(this.myWorkbook.getEntryFactors(), rowList);
         this.jTableEntries.setModel(tableModel);
 
-//        DefaultTableModel modeloTablaEntries = (DefaultTableModel) this.jTableEntries.getModel();
-//        modeloTablaEntries.setColumnCount(0);
-//        modeloTablaEntries.setNumRows(0);
-//
-//        // define column names
-//        for (int i = 0; i < factors.size(); i++) {
-//            if (factors.get(i).getProperty().equals("GERMPLASM ENTRY") || factors.get(i).getProperty().equals("GERMPLASM ID")) {
-//                hayCoincidencias = true;
-//            }
-//        }
-//        if (hayCoincidencias) {
-//            modeloTablaEntries.setNumRows(myList.size());
-//
-//        } else {
-//            return;
-//        }
-//        int totalCol = columnList.size();
-//
-//        // add column names
-//        for (int col = 0; col < totalCol; col++) {
-//
-//            modeloTablaEntries.addColumn(columnList.get(col));
-//            //this.jTableEntries.getColumnModel().getColumn(col).setCellRenderer(tcr);
-//        }
-//
-//        // add values
-//        List<List<Object>> rowList = gat.getMappedColumns(columnList, germplasmList);
-//        for (int row = 0; row < rowList.size(); row++) {
-//            List<Object> columnValues = rowList.get(row);
-//            for (int col = 0; col < columnValues.size(); col++) {
-//                this.jTableEntries.setValueAt(columnValues.get(col), row, col);
-//            }
-//        }
-//
+
         DefaultTableCellRenderer tcr = new DefaultTableCellRenderer();
         tcr.setHorizontalAlignment(SwingConstants.CENTER);
         for (int col = 0; col < this.jTableEntries.getColumnCount(); col++) {
