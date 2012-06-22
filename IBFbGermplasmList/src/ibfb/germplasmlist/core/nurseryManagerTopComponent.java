@@ -1895,7 +1895,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
         ajustaColumnsTable(this.jTableFinalList);
 
         if (this.jTableFinalList.getRowCount() > 0) {
-         //  REMOVER   this.jButtonSaveCross.setEnabled(true);
+       this.jButtonSaveCross.setEnabled(true);
         }
 
     }//GEN-LAST:event_jButtonCrossActionPerformed
@@ -2067,7 +2067,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
             changeCursorWaitStatus(false);
 
             if (this.jTableFinalList.getRowCount() > 0) {
-            //REMOVER     this.jButtonSaveCross.setEnabled(true);
+            this.jButtonSaveCross.setEnabled(true);
             }
 
         } catch (Exception e) {
