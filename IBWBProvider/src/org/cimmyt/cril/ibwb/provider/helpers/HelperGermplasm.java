@@ -498,6 +498,8 @@ public class HelperGermplasm {
             ) {
         Map<String, StudySearch> mapStudySearchs = new HashMap<String, StudySearch>();
         List<StudySearch> listStudySearchs = new ArrayList <StudySearch>();
+        log.info("Extrayendo las diferentes convinaciones de studio y trial para fmale");
+        log.info("Recuperando la organization, program, harvdate y lid");
         for(GermplasmSearch germplasmSearch : listFmale) {
             StudySearch studySearch = mapStudySearchs.get(germplasmSearch.getStudyId() + "|" + germplasmSearch.getTrial());
             if(studySearch == null){
@@ -545,6 +547,8 @@ public class HelperGermplasm {
                 }
             }
         }
+        
+        log.info("Extrayendo las diferentes convinaciones de studio y trial para Male");
         for(GermplasmSearch germplasmSearch : listMale) {
             StudySearch studySearch = mapStudySearchs.get(germplasmSearch.getStudyId() + "|" + germplasmSearch.getTrial());
             if(studySearch == null){
@@ -557,6 +561,8 @@ public class HelperGermplasm {
             }
         }
         
+        log.info("Recuperando lista de factores por estudio y trial detectado para ejecutar"
+                + "query center ");
         List<StudySearch> listStudySearchFound = new ArrayList <StudySearch>();
         for(StudySearch studySearchTemp : listStudySearchs) {
             
@@ -586,11 +592,7 @@ public class HelperGermplasm {
 
                 String traitScale = factor.getMeasuredin().getTraits().getTrname() + factor.getMeasuredin().getScales().getScname();
 
-//                if (Workbook.GERMPLASM_DESIG_DBCV.equals(Workbook.getStringWithOutBlanks(traitScale))
-//                        ) {
-//                    studySearchTemp.setNameDesig( factor.getFname());
-//                } else
-                    if (Workbook.GERMPLASM_GID_DBID.equals(Workbook.getStringWithOutBlanks(traitScale))) {
+                if (Workbook.GERMPLASM_GID_DBID.equals(Workbook.getStringWithOutBlanks(traitScale))) {
                     studySearchTemp.setNameGid(factor.getFname());
                 }
             }
@@ -607,7 +609,6 @@ public class HelperGermplasm {
             factorsReturn.add(studySearchTemp.getNameTrial());
             factorsReturn.add(studySearchTemp.getNameEntry());
             factorsReturn.add(studySearchTemp.getNamePlot());
-//            factorsReturn.add(studySearchTemp.getNameDesig());
             factorsReturn.add(studySearchTemp.getNameGid());
 
             ResultSet rst = appServices.getTrialRandomization(studySearchTemp.getStudyId(), studySearchTemp.getTrial(), factorsKey, factorsReturn, studySearchTemp.getNameTrial());
@@ -617,6 +618,8 @@ public class HelperGermplasm {
             
         }
         
+        log.info("Iterando en los resulset para optener el gid del germoplasma");
+        log.info("Y recuperar los germplasm y los names");
         for(StudySearch studySearchTemp : listStudySearchFound) {
             Integer gidBuscar = null;
             try {
@@ -629,14 +632,11 @@ public class HelperGermplasm {
                                     && germplasmSearchT.getStudyId().equals(studySearchTemp.getStudyId())
                                     && germplasmSearchT.getTrial().equals(studySearchTemp.getTrial())){
                                 gidBuscar = rst.getInt(studySearchTemp.getNameGid());
-                                //log.info("Gid : " + gidBuscar + " Design: " + rst.getString(nameDesig));
                                 log.info("Gid : " + gidBuscar);
                                 log.info("Germplsm gid : " + gidBuscar);
                                 germplasmSearchT.setGermplsm(appServices.getGermplsm(gidBuscar));
                                 germplasmSearchT.setNames(appServices.getNamesByGid(germplasmSearchT.getGermplsm(), false));
                                 germplasmSearchT.setBcid(studySearchTemp.getSb().toString());
-                                
-                                
                             }
                         }
                         for(GermplasmSearch germplasmSearchT : listMale){
@@ -644,13 +644,10 @@ public class HelperGermplasm {
                                     && germplasmSearchT.getStudyId().equals(studySearchTemp.getStudyId())
                                     && germplasmSearchT.getTrial().equals(studySearchTemp.getTrial())){
                                 gidBuscar = rst.getInt(studySearchTemp.getNameGid());
-                                //log.info("Gid : " + gidBuscar + " Design: " + rst.getString(nameDesig));
                                 log.info("Gid : " + gidBuscar);
                                 log.info("Germplsm gid : " + gidBuscar);
                                 germplasmSearchT.setGermplsm(appServices.getGermplsm(gidBuscar));
                                 germplasmSearchT.setNames(appServices.getNamesByGid(germplasmSearchT.getGermplsm(), false));
-                                
-                                
                             }
                         }
                     }
@@ -659,32 +656,18 @@ public class HelperGermplasm {
                 log.error("Error al trabajar con el resulset. ", ex);
             }
         }
-        
+        log.info("Iniciando el proceso de recuperacion de maximos para los fmale");
         for(GermplasmSearch gs : listFmale){
-//            Factor factorLid = appServices.getFactorByStudyidAndFname(gs.getStudyId(), lid);
-//            if(factorLid != null){
-//                factorLid = HelperFactor.getFactorFillingFull(factorLid, appServices, 801);
-//                String levelValue = (String) factorLid.getLevel(gs.getTrial()-1);
-//                if(levelValue != null){
-//                    gs.setLid(levelValue);
-//                }
-//            }
-            if(gs.getGermplsm().getGnpgs() == -1){
-                if(gs.getNames().getNtype() == 1028){
-                    Integer max = appServices.getMaxForSelection(gs.getStudyId(), gs.getNames().getNval(), 1028);
-                    gs.setMax(max);
-                }else{
-                    gs.setMax(0);
-                }
-            }else if (gs.getGermplsm().getGnpgs() == 2){
-                if(gs.getNames().getNtype() == 1027){
-                    Integer max = appServices.getMaxForSelection(gs.getStudyId(), gs.getNames().getNval(), 1027);
-                    gs.setMax(max);
-                }else{
-                    gs.setMax(0);
-                }
+            if(gs.getGermplsm().getGnpgs() == -1 && gs.getNames().getNtype() == 1028){
+                gs.setMax(appServices.getMaxForSelection(gs.getStudyId(), gs.getNames().getNval(), 1028));
+            }else if (gs.getGermplsm().getGnpgs() == 2 && gs.getNames().getNtype() == 1027){
+                Integer max = appServices.getMaxForSelection(gs.getStudyId(), gs.getNames().getNval(), 1027);
+                gs.setMax(max);
+            }else{
+                gs.setMax(0);
             }
         }
+        log.info("seteando los datos del male a los objetos GermplasmSearchFmale");
         for(GermplasmSearch gs : listMale){
             listFmale.get(listMale.indexOf(gs)).setGermplsmMale(gs.getGermplsm());
             listFmale.get(listMale.indexOf(gs)).setNamesMale(gs.getNames());
