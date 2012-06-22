@@ -6,7 +6,6 @@ import ibfb.domain.core.ListOfEntries;
 import ibfb.domain.core.Workbook;
 import ibfb.germplasmlist.filters.ExcelFiltro;
 import ibfb.germplasmlist.models.GermplasmEntriesTableModel;
-import ibfb.germplasmlist.models.GermplasmTransferHandler;
 import ibfb.germplasmlist.models.GermplasmTransferHandlerSelection;
 import ibfb.germplasmlist.models.RemoveGermplasmTransferHandler;
 import ibfb.settings.core.FieldbookSettings;
@@ -21,8 +20,9 @@ import java.awt.Desktop;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
-import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -35,12 +35,15 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.cimmyt.cril.ibwb.api.AppServicesProxy;
 import org.cimmyt.cril.ibwb.commongui.ConvertUtils;
 import org.cimmyt.cril.ibwb.commongui.DialogUtil;
-import org.cimmyt.cril.ibwb.domain.*;
+import org.cimmyt.cril.ibwb.domain.Listdata;
+import org.cimmyt.cril.ibwb.domain.ListdataPK;
+import org.cimmyt.cril.ibwb.domain.Listnms;
+import org.cimmyt.cril.ibwb.domain.Methods;
+import org.cimmyt.cril.ibwb.provider.helpers.GermplasmSearch;
+import org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm;
 import org.netbeans.api.settings.ConvertAsProperties;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
-import org.openide.awt.ActionID;
-import org.openide.awt.ActionReference;
 import org.openide.util.Mutex;
 import org.openide.util.NbBundle.Messages;
 import org.openide.windows.TopComponent;
@@ -100,8 +103,9 @@ public final class nurseryManagerTopComponent extends TopComponent {
     public int MEGA = 9;
     public int CROSSTYPE = 10;
     public int TYPE = 11;
-    private String[] headers = {"ENTRY", "CROSS", "GID", "METHOD", "FDESIG", "FGID", "MDESIG", "MGID"};
-    private String[] headersScript = {"ENTRY", "CROSS", "GID", "METHOD", "FTID", "FOCC", "FENTRY", "FDESIG", "FGID", "MTID", "MOCC", "MENTRY", "MDESIG", "MGID"};
+    private String[] headers = {"ENTRY", "BCID", "CROSS", "GID", "METHOD", "FDESIG", "FGID", "MDESIG", "MGID"};
+    private String[] headersScript = {"ENTRY", "BCID", "CROSS", "GID", "METHOD", "FTID", "FOCC", "FENTRY", "FDESIG", "FGID", "MTID", "MOCC", "MENTRY", "MDESIG", "MGID"};
+    private ArrayList<String> tempListCross;
     /**
      * Methods in Combo box, used to retrieve selected method
      */
@@ -120,10 +124,10 @@ public final class nurseryManagerTopComponent extends TopComponent {
         this.jButtonSaveCross.setEnabled(false);
         this.jTabbedPane1.setEnabledAt(1, false);
         assignModels();
-        
+
         // by default select other crops
         jComboBoxConvection.setSelectedIndex(2);
-        
+
         checkConvection();
 
     }
@@ -1353,7 +1357,8 @@ public final class nurseryManagerTopComponent extends TopComponent {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void saveList() {
+    private void saveList(int option) {//0=croos  1= bcid
+
         changeCursorWaitStatus(true);
 
         Listnms listnms = new Listnms();
@@ -1366,11 +1371,24 @@ public final class nurseryManagerTopComponent extends TopComponent {
         listnms.setListdesc(this.jTextFieldDescription.getText());
         listnms.setLhierarchy(0);
         listnms.setListstatus(1);
+       
         AppServicesProxy.getDefault().appServices().addListnms(listnms);
         List<Listdata> dataList = new ArrayList<Listdata>();
 
+        int desig = 0;
 
-        int desig = findColumn("CROSS");
+        switch (option) {
+            case 0://CROSS
+                desig = findColumn("CROSS");
+                listnms.setListtype(Listnms.LIST_TYPE_HARVEST);
+                break;
+            case 1://BCID
+                desig = findColumn("BCID");
+                listnms.setListtype(Listnms.LIST_TYPE_HARVEST);
+                break;
+        }
+
+
         int entryCD = findColumn("ENTRY");
         int source = findColumn("FDESIG");
         int fgidcol = findColumn("FGID");
@@ -1389,10 +1407,21 @@ public final class nurseryManagerTopComponent extends TopComponent {
 
             listdata.setListdataPK(pk1);
             listdata.setEntryid(i + 1);
-            if (desig > 0) {
-                listdata.setDesig(this.jTableFinalList.getValueAt(i, desig).toString());
-            } else {
-                listdata.setDesig("");
+
+            switch (option) {
+                case 0://CROSS
+                    listdata.setDesig(tempListCross.get(i));
+                    break;
+                case 1://BCID
+                    if (desig > 0) {
+                        listdata.setDesig(this.jTableFinalList.getValueAt(i, desig).toString());
+                    } else {
+                        listdata.setDesig("");
+
+                        break;
+                    }
+
+
             }
             if (entryCD > 0) {
                 listdata.setEntrycd(this.jTableFinalList.getValueAt(i, entryCD).toString());
@@ -1415,35 +1444,25 @@ public final class nurseryManagerTopComponent extends TopComponent {
                 listdata.setGid(0);
             }
 
+
             listdata.setMethodId(selectedMethodId);
-
-
             listdata.setGnpgs(numberOfParents);
 
 
-            // assign paretns
+            // assign parents
             Integer gpdi1 = ConvertUtils.getValueAsInteger(jTableFinalList.getValueAt(i, fgidcol));
             Integer gpdi2 = ConvertUtils.getValueAsInteger(jTableFinalList.getValueAt(i, mgidcol));
 
             listdata.setGpid1(gpdi1);
-
             listdata.setGpid2(gpdi2);
-
-
-
-
             dataList.add(listdata);
 
         }
-
-
-        //Integer loggedUserid = AppServicesProxy.getDefault().appServices().getLoggedUserId();
+        
         Integer loggedUserid = AppServicesProxy.getDefault().appServices().getLoggedUserId(FieldbookSettings.getLocalGmsUserId());
         AppServicesProxy.getDefault().appServices().addNewsGermplasm(listnms, dataList, loggedUserid);
         fillComboListNames();
         openRecentList(listnms);
-
-
 
         changeCursorWaitStatus(false);
 
@@ -1876,7 +1895,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
         ajustaColumnsTable(this.jTableFinalList);
 
         if (this.jTableFinalList.getRowCount() > 0) {
-            this.jButtonSaveCross.setEnabled(true);
+         //  REMOVER   this.jButtonSaveCross.setEnabled(true);
         }
 
     }//GEN-LAST:event_jButtonCrossActionPerformed
@@ -1900,9 +1919,6 @@ public final class nurseryManagerTopComponent extends TopComponent {
     }//GEN-LAST:event_jTableEntriesExcelMalePropertyChange
 
     private void jButtonLoadExcelScriptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoadExcelScriptActionPerformed
-
-
-
 
         FileFilter[] filtros = new FileFilter[10];
         filtros = selectorArchivo.getChoosableFileFilters();
@@ -1937,6 +1953,9 @@ public final class nurseryManagerTopComponent extends TopComponent {
 
     private void processExcelCrossFile(File archivo) {
 
+        List<GermplasmSearch> listFemale = new ArrayList<GermplasmSearch>();
+        List<GermplasmSearch> listMale = new ArrayList<GermplasmSearch>();
+        tempListCross = new ArrayList<String>();
 
         changeCursorWaitStatus(true);
         this.jButtonSaveCross.setEnabled(false);
@@ -1970,9 +1989,6 @@ public final class nurseryManagerTopComponent extends TopComponent {
             while (moreRowsToRead) {
                 rowIndex++;
 
-
-
-
                 rowData = sheet.getRow(rowIndex);
 
                 moreRowsToRead = isMoreRows(rowData);
@@ -2001,49 +2017,49 @@ public final class nurseryManagerTopComponent extends TopComponent {
                 int ment = getIntValueFromCell(cellData);
 
 
-                Germplsm femaGermplsm = AppServicesProxy.getDefault().appServices().getGermplsmByTidTrialPlot(ftid, focc, fent);
-                Germplsm maleGermplsm = AppServicesProxy.getDefault().appServices().getGermplsmByTidTrialPlot(mtid, mocc, ment);
+                GermplasmSearch gsF = new GermplasmSearch();
+                gsF.setStudyId(ftid);
+                gsF.setTrial(focc);
+                gsF.setPlot(fent);
+                listFemale.add(gsF);
 
-                if (femaGermplsm != null && maleGermplsm != null) {
-
-                    Names femalefiltro = new Names(true);
-                    femalefiltro.setGid(femaGermplsm.getGid());
-                    List<Names> flista = AppServicesProxy.getDefault().appServices().getListNames(femalefiltro, 0, 0, false);
-
-                    Names malefiltro = new Names(true);
-                    malefiltro.setGid(maleGermplsm.getGid());
-                    List<Names> mlista = AppServicesProxy.getDefault().appServices().getListNames(malefiltro, 0, 0, false);
-
-
-                    gms++;
-
-                    modelo.setRowCount(gms);
-
-                    String cross = flista.get(0).getNval() + "/" + mlista.get(0).getNval();
-
-                    modelo.setValueAt(gms, gms - 1, 0);//ENTRY
-                    modelo.setValueAt(cross, gms - 1, 1); //CROSS
-                    modelo.setValueAt("Not assigned yet", gms - 1, 2); //GID                        
-                    modelo.setValueAt("SIMPLE CROSS", gms - 1, 3);//METHOD
-
-                    modelo.setValueAt(ftid, gms - 1, 4);//FTID
-                    modelo.setValueAt(focc, gms - 1, 5);//FOCC
-                    modelo.setValueAt(fent, gms - 1, 6);//FENTRY
-                    modelo.setValueAt(flista.get(0).getNval(), gms - 1, 7);//FDESIG
-                    modelo.setValueAt(femaGermplsm.getGid(), gms - 1, 8);//FGID
-
-                    modelo.setValueAt(mtid, gms - 1, 9);//MTID
-                    modelo.setValueAt(mocc, gms - 1, 10);//MOCC
-                    modelo.setValueAt(ment, gms - 1, 11);//MENTRY
-                    modelo.setValueAt(mlista.get(0).getNval(), gms - 1, 12);//MDESIG
-                    modelo.setValueAt(maleGermplsm.getGid(), gms - 1, 13);//MGID
-
-                } else {
-                    System.out.println("GID no encontrado");
-                }
-
+                GermplasmSearch gsM = new GermplasmSearch();
+                gsM.setStudyId(mtid);
+                gsM.setTrial(mocc);
+                gsM.setPlot(ment);
+                listMale.add(gsM);
             }
 
+
+            List<GermplasmSearch> germplasmSearchs = HelperGermplasm.getGermplasmByListStudyTrialPlotCross(AppServicesProxy.getDefault().appServices(), listFemale, listMale);
+
+            for (GermplasmSearch gs : germplasmSearchs) {
+
+                gms++;
+
+                modelo.setRowCount(gms);
+                String crossString = gs.getNames().getNval() + "/" + gs.getNamesMale().getNval();
+                tempListCross.add(crossString);
+                String cross = "<html> <font color='purple'>" + gs.getNames().getNval() + "</font>/</font><font color='blue'>" + gs.getNamesMale().getNval() + " </font> </html>";
+                modelo.setValueAt(gms, gms - 1, 0);//ENTRY
+                modelo.setValueAt(gs.getBcid(), gms - 1, 1);//BCID
+                modelo.setValueAt(cross, gms - 1, 2); //CROSS
+                modelo.setValueAt("Not assigned yet", gms - 1, 3); //GID                        
+                modelo.setValueAt("SIMPLE CROSS", gms - 1, 4);//METHOD
+
+                modelo.setValueAt(listFemale.get(gms - 1).getStudyId(), gms - 1, 5);//FTID
+                modelo.setValueAt(listFemale.get(gms - 1).getTrial(), gms - 1, 6);//FOCC
+                modelo.setValueAt(listFemale.get(gms - 1).getPlot(), gms - 1, 7);//FENTRY
+                modelo.setValueAt(gs.getNames().getNval(), gms - 1, 8);//FDESIG
+                modelo.setValueAt(gs.getNames().getGid(), gms - 1, 9);//FGID
+
+                modelo.setValueAt(listMale.get(gms - 1).getStudyId(), gms - 1, 10);//MTID
+                modelo.setValueAt(listMale.get(gms - 1).getTrial(), gms - 1, 11);//MOCC
+                modelo.setValueAt(listMale.get(gms - 1).getPlot(), gms - 1, 12);//MENTRY
+                modelo.setValueAt(gs.getNamesMale().getNval(), gms - 1, 13);//MDESIG
+                modelo.setValueAt(gs.getNamesMale().getGid(), gms - 1, 14);//MGID
+
+            }
 
             this.jTableFinalList.setModel(modelo);
             ajustaColumnsTable(this.jTableFinalList);
@@ -2051,7 +2067,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
             changeCursorWaitStatus(false);
 
             if (this.jTableFinalList.getRowCount() > 0) {
-                this.jButtonSaveCross.setEnabled(true);
+            //REMOVER     this.jButtonSaveCross.setEnabled(true);
             }
 
         } catch (Exception e) {
@@ -2168,7 +2184,8 @@ public final class nurseryManagerTopComponent extends TopComponent {
         NotifyDescriptor d = new NotifyDescriptor.Confirmation("Do you want to save the germplasm list?", "Save final list",
                 NotifyDescriptor.OK_CANCEL_OPTION);
         if (DialogDisplayer.getDefault().notify(d) == NotifyDescriptor.OK_OPTION) {
-            saveList();
+            saveList(0);//cross
+            saveList(1);//bcid
             NotifyDescriptor d2 = new NotifyDescriptor.Message("Your list was saved!", NotifyDescriptor.INFORMATION_MESSAGE);
             DialogDisplayer.getDefault().notify(d2);
             this.jTextFieldDescription.setText("");
