@@ -7,10 +7,11 @@ package org.cimmyt.cril.ibwb.provider.testsStatic;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
+import org.cimmyt.cril.ibwb.domain.GermplasmSearch;
 import org.cimmyt.cril.ibwb.domain.Germplsm;
 import org.cimmyt.cril.ibwb.domain.Listdata;
 import org.cimmyt.cril.ibwb.domain.ListdataPK;
-import org.cimmyt.cril.ibwb.provider.helpers.GermplasmSearch;
+
 import org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm;
 
 /**

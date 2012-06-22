@@ -10,56 +10,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import org.cimmyt.cril.ibwb.api.AppServices;
-import org.cimmyt.cril.ibwb.domain.Atributs;
-import org.cimmyt.cril.ibwb.domain.Bibrefs;
-import org.cimmyt.cril.ibwb.domain.Changes;
-import org.cimmyt.cril.ibwb.domain.Cntry;
-import org.cimmyt.cril.ibwb.domain.DataC;
-import org.cimmyt.cril.ibwb.domain.DataN;
-import org.cimmyt.cril.ibwb.domain.DataT;
-import org.cimmyt.cril.ibwb.domain.Datattr;
-import org.cimmyt.cril.ibwb.domain.Dmsattr;
-import org.cimmyt.cril.ibwb.domain.Dudflds;
-import org.cimmyt.cril.ibwb.domain.Effect;
-import org.cimmyt.cril.ibwb.domain.Factor;
-import org.cimmyt.cril.ibwb.domain.Georef;
-import org.cimmyt.cril.ibwb.domain.Germplsm;
-import org.cimmyt.cril.ibwb.domain.Institut;
-import org.cimmyt.cril.ibwb.domain.Instln;
-import org.cimmyt.cril.ibwb.domain.LevelC;
-import org.cimmyt.cril.ibwb.domain.LevelN;
-import org.cimmyt.cril.ibwb.domain.LevelT;
-import org.cimmyt.cril.ibwb.domain.Levels;
-import org.cimmyt.cril.ibwb.domain.Listdata;
-import org.cimmyt.cril.ibwb.domain.Listnms;
-import org.cimmyt.cril.ibwb.domain.Location;
-import org.cimmyt.cril.ibwb.domain.Locdes;
-import org.cimmyt.cril.ibwb.domain.Measuredin;
-import org.cimmyt.cril.ibwb.domain.Methods;
-import org.cimmyt.cril.ibwb.domain.Names;
-import org.cimmyt.cril.ibwb.domain.Obsunit;
-import org.cimmyt.cril.ibwb.domain.Oindex;
-import org.cimmyt.cril.ibwb.domain.Persons;
-import org.cimmyt.cril.ibwb.domain.Progntrs;
-import org.cimmyt.cril.ibwb.domain.Represtn;
-import org.cimmyt.cril.ibwb.domain.Scale;
-import org.cimmyt.cril.ibwb.domain.Scales;
-import org.cimmyt.cril.ibwb.domain.Scalecon;
-import org.cimmyt.cril.ibwb.domain.Scaledis;
-import org.cimmyt.cril.ibwb.domain.Scaletab;
-import org.cimmyt.cril.ibwb.domain.Sndivs;
-import org.cimmyt.cril.ibwb.domain.Steffect;
-import org.cimmyt.cril.ibwb.domain.Study;
-import org.cimmyt.cril.ibwb.domain.Tmethod;
-import org.cimmyt.cril.ibwb.domain.TmsMethod;
-import org.cimmyt.cril.ibwb.domain.TmsScaleCon;
-import org.cimmyt.cril.ibwb.domain.TmsScaleDis;
-import org.cimmyt.cril.ibwb.domain.Trait;
-import org.cimmyt.cril.ibwb.domain.Traits;
-import org.cimmyt.cril.ibwb.domain.Udflds;
-import org.cimmyt.cril.ibwb.domain.Users;
-import org.cimmyt.cril.ibwb.domain.Variate;
-import org.cimmyt.cril.ibwb.domain.Veffect;
+import org.cimmyt.cril.ibwb.domain.*;
 import org.cimmyt.cril.ibwb.domain.inventory.InventoryData;
 
 /**
@@ -1320,6 +1271,11 @@ public class IBWBAppServicesMemoryImpl implements AppServices {
 
     @Override
     public Integer getMaxForSelection(Integer studyId, String cadena, Integer ntype) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<GermplasmSearch> getGermplasmByListStudyTrialPlotCross(List<GermplasmSearch> listFmale, List<GermplasmSearch> listMale) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
