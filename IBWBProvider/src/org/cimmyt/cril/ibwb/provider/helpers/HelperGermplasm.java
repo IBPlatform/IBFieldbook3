@@ -661,14 +661,14 @@ public class HelperGermplasm {
         }
         
         for(GermplasmSearch gs : listFmale){
-            Factor factorLid = appServices.getFactorByStudyidAndFname(gs.getStudyId(), lid);
-            if(factorLid != null){
-                factorLid = HelperFactor.getFactorFillingFull(factorLid, appServices, 801);
-                String levelValue = (String) factorLid.getLevel(gs.getTrial()-1);
-                if(levelValue != null){
-                    gs.setLid(levelValue);
-                }
-            }
+//            Factor factorLid = appServices.getFactorByStudyidAndFname(gs.getStudyId(), lid);
+//            if(factorLid != null){
+//                factorLid = HelperFactor.getFactorFillingFull(factorLid, appServices, 801);
+//                String levelValue = (String) factorLid.getLevel(gs.getTrial()-1);
+//                if(levelValue != null){
+//                    gs.setLid(levelValue);
+//                }
+//            }
             if(gs.getGermplsm().getGnpgs() == -1){
                 if(gs.getNames().getNtype() == 1028){
                     Integer max = appServices.getMaxForSelection(gs.getStudyId(), gs.getNames().getNval(), 1028);
@@ -685,11 +685,9 @@ public class HelperGermplasm {
                 }
             }
         }
-        int i = 0;
         for(GermplasmSearch gs : listMale){
             listFmale.get(listMale.indexOf(gs)).setGermplsmMale(gs.getGermplsm());
             listFmale.get(listMale.indexOf(gs)).setNamesMale(gs.getNames());
-            i++;
         }
         return listFmale;
     }
