@@ -99,6 +99,7 @@
             </test-dependencies>
             <public-packages>
                 <package>org.cimmyt.cril.ibwb.provider</package>
+                <package>org.cimmyt.cril.ibwb.provider.helpers</package>
             </public-packages>
         </data>
     </configuration>
