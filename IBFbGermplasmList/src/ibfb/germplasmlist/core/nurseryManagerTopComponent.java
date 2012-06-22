@@ -35,12 +35,7 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.cimmyt.cril.ibwb.api.AppServicesProxy;
 import org.cimmyt.cril.ibwb.commongui.ConvertUtils;
 import org.cimmyt.cril.ibwb.commongui.DialogUtil;
-import org.cimmyt.cril.ibwb.domain.Listdata;
-import org.cimmyt.cril.ibwb.domain.ListdataPK;
-import org.cimmyt.cril.ibwb.domain.Listnms;
-import org.cimmyt.cril.ibwb.domain.Methods;
-import org.cimmyt.cril.ibwb.provider.helpers.GermplasmSearch;
-import org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm;
+import org.cimmyt.cril.ibwb.domain.*;
 import org.netbeans.api.settings.ConvertAsProperties;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
@@ -2031,7 +2026,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
             }
 
 
-            List<GermplasmSearch> germplasmSearchs = HelperGermplasm.getGermplasmByListStudyTrialPlotCross(AppServicesProxy.getDefault().appServices(), listFemale, listMale);
+            List<GermplasmSearch> germplasmSearchs = AppServicesProxy.getDefault().appServices().getGermplasmByListStudyTrialPlotCross(listFemale, listMale);
 
             for (GermplasmSearch gs : germplasmSearchs) {
 
