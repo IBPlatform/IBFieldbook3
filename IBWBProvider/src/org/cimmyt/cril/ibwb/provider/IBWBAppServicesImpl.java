@@ -2149,6 +2149,29 @@ public class IBWBAppServicesImpl implements AppServices {
             return this.serviciosLocal.getTrialRandomization(studyId, trialFactorId, factoresPrincipales, factoresSalida, nombreTrial);
         }
     }
+    
+    public ResultSet getTrialRandomizationFast(
+            Integer studyId,
+            Integer trialFactorId,
+            List<String> factoresPrincipales,
+            List<String> factoresSalida,
+            String nombreTrial) {
+        if (studyId > 0) {
+            return this.serviciosCentral.getTrialRandomizationFast(studyId, trialFactorId, factoresPrincipales, factoresSalida, nombreTrial);
+        } else {
+            return this.serviciosLocal.getTrialRandomizationFast(studyId, trialFactorId, factoresPrincipales, factoresSalida, nombreTrial);
+        }
+    }
+    
+    public StudySearch getListGermplasmAndPlotByStudyidAndTrial(
+            StudySearch studySearch
+            ) {
+        if (studySearch.getStudyId() > 0) {
+            return this.serviciosCentral.getListGermplasmAndPlotByStudyidAndTrial(studySearch);
+        } else {
+            return this.serviciosLocal.getListGermplasmAndPlotByStudyidAndTrial(studySearch);
+        }
+    }
 
     public ResultSet getTrialRandomization(
             Integer studyId,

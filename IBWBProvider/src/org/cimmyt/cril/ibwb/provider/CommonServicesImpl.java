@@ -1910,6 +1910,20 @@ public class CommonServicesImpl implements CommonServices {
             String nombreTrial) {
         return dMSReaderDAO.getTrialRandomization(studyId, trialFactorId, factoresPrincipales, factoresSalida, nombreTrial);
     }
+    
+    public ResultSet getTrialRandomizationFast(
+            Integer studyId,
+            Integer trialFactorId,
+            List<String> factoresPrincipales,
+            List<String> factoresSalida,
+            String nombreTrial) {
+        return dMSReaderDAO.getTrialRandomizationFast(studyId, trialFactorId, factoresPrincipales, factoresSalida, nombreTrial);
+    }
+    
+    public StudySearch getListGermplasmAndPlotByStudyidAndTrial(
+            StudySearch studySearch) {
+        return dMSReaderDAO.getListGermplasmAndPlotByStudyidAndTrial(studySearch);
+    }
 
     public List<Study> getStudysOnlyTrial() {
         return studyDAO.getStudysOnlyTrial();

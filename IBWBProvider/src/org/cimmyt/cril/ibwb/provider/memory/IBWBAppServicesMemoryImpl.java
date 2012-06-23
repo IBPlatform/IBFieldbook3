@@ -1279,6 +1279,14 @@ public class IBWBAppServicesMemoryImpl implements AppServices {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
+    @Override
+    public ResultSet getTrialRandomizationFast(Integer studyId, Integer trialFactorId, List<String> factoresPrincipales, List<String> factoresSalida, String trialNmame) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 
+    @Override
+    public StudySearch getListGermplasmAndPlotByStudyidAndTrial(StudySearch studySearch) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 
 }

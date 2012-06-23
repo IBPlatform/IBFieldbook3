@@ -491,6 +491,21 @@ public class HelperGermplasm {
         return list;
     }
     
+    /**
+     * This method function by
+     * 
+     * @param appServices 
+     * @param listFmale 
+     * @param listMale
+     * @return a List of GermplamsSearch contain
+     * Germplasm(Fmale)
+     * Names(Fmale)
+     * Germplasm(Male)
+     * Names(Male)
+     * BCID
+     * Max for BCID
+     * Locid (Fmale)
+     */
     public static List<GermplasmSearch> getGermplasmByListStudyTrialPlotCross(
             AppServices appServices,
             List<GermplasmSearch> listFmale,
@@ -565,55 +580,7 @@ public class HelperGermplasm {
                 + "query center ");
         List<StudySearch> listStudySearchFound = new ArrayList <StudySearch>();
         for(StudySearch studySearchTemp : listStudySearchs) {
-            
-            List<Factor> factors = appServices.getMainFactorsByStudyid(studySearchTemp.getStudyId());
-            Factor factorEntry = null;
-            for (Factor factor : factors) {
-                factor = HelperFactor.getFactorFillingFullWhitoutLevels(factor, appServices, 801);
-                String traitScale = factor.getMeasuredin().getTraits().getTrname() + factor.getMeasuredin().getScales().getScname();
-                if (Workbook.STUDY_NAME.equals(Workbook.getStringWithOutBlanks(traitScale))) {
-                    studySearchTemp.setNameStudy(factor.getFname());
-                } else if (Workbook.TRIAL_INSTANCE_NUMBER.equals(Workbook.getStringWithOutBlanks(traitScale))) {
-                    studySearchTemp.setNameTrial(factor.getFname());
-                } else if (Workbook.GERMPLASM_ENTRY_NUMBER.equals(Workbook.getStringWithOutBlanks(traitScale))) {
-                    factorEntry = factor;
-                    studySearchTemp.setNameEntry(factor.getFname());
-                } else if (Workbook.FIELD_PLOT_NUMBER.equals(Workbook.getStringWithOutBlanks(traitScale))
-                        || Workbook.FIELD_PLOT_NESTEDNUMBER.equals(Workbook.getStringWithOutBlanks(traitScale))) {
-                    studySearchTemp.setNamePlot(factor.getFname());
-                }
-            }
-            List<Factor> factorsEntry = new ArrayList<Factor>();
-            if (factorEntry != null) {
-                factorsEntry = appServices.getGroupFactorsByStudyidAndFactorid(studySearchTemp.getStudyId(), factorEntry.getFactorid());
-            }
-            for (Factor factor : factorsEntry) {
-                factor = HelperFactor.getFactorFillingFullWhitoutLevels(factor, appServices, 801);
-
-                String traitScale = factor.getMeasuredin().getTraits().getTrname() + factor.getMeasuredin().getScales().getScname();
-
-                if (Workbook.GERMPLASM_GID_DBID.equals(Workbook.getStringWithOutBlanks(traitScale))) {
-                    studySearchTemp.setNameGid(factor.getFname());
-                }
-            }
-
-            log.info("Asignando nombres de fatorres principales");
-            List<String> factorsKey = new ArrayList<String>();
-            factorsKey.add(studySearchTemp.getNameStudy());
-            factorsKey.add(studySearchTemp.getNameTrial());
-            factorsKey.add(studySearchTemp.getNameEntry());
-            factorsKey.add(studySearchTemp.getNamePlot());
-
-            log.info("Asignando nombres de factores de salida");
-            List<String> factorsReturn = new ArrayList<String>();
-            factorsReturn.add(studySearchTemp.getNameTrial());
-            factorsReturn.add(studySearchTemp.getNameEntry());
-            factorsReturn.add(studySearchTemp.getNamePlot());
-            factorsReturn.add(studySearchTemp.getNameGid());
-
-            ResultSet rst = appServices.getTrialRandomization(studySearchTemp.getStudyId(), studySearchTemp.getTrial(), factorsKey, factorsReturn, studySearchTemp.getNameTrial());
-            
-            studySearchTemp.setRst(rst);
+            studySearchTemp = appServices.getListGermplasmAndPlotByStudyidAndTrial(studySearchTemp);
             listStudySearchFound.add(studySearchTemp);
             
         }
@@ -637,6 +604,7 @@ public class HelperGermplasm {
                                 germplasmSearchT.setGermplsm(appServices.getGermplsm(gidBuscar));
                                 germplasmSearchT.setNames(appServices.getNamesByGid(germplasmSearchT.getGermplsm(), false));
                                 germplasmSearchT.setBcid(studySearchTemp.getSb().toString());
+                                germplasmSearchT.setLid(studySearchTemp.getLid());
                             }
                         }
                         for(GermplasmSearch germplasmSearchT : listMale){
