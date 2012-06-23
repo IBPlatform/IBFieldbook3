@@ -1,6 +1,7 @@
 package ibfb.studyeditor.importwizard;
 
 import ibfb.studyeditor.core.StudyEditorTopComponent;
+import ibfb.studyeditor.core.model.GermplasmEntriesTableModel;
 import ibfb.studyeditor.core.model.ObservationsTableModel;
 import ibfb.studyeditor.roweditors.CSVOziel;
 import org.cimmyt.cril.ibwb.commongui.DialogUtil;
@@ -24,6 +25,7 @@ public class ImportData {
 
     private WizardDescriptor.Panel[] panels;
     private JTable observationsTable;
+    private JTable germplasmTable;
     private CSVOziel csv;
     private int instances;
     private File myFile;
@@ -31,6 +33,12 @@ public class ImportData {
     public ImportData(JTable observationsTable, CSVOziel csv) {
         this.observationsTable = observationsTable;
         this.csv = csv;
+    }
+    
+    
+     public ImportData(JTable germplasmTabla) {
+        this.germplasmTable = germplasmTabla;
+  
     }
 
     public ImportData(JTable observationsTable, CSVOziel csv, int instan) {
@@ -198,5 +206,14 @@ public class ImportData {
         myReader.setModel(tableModel);
         myReader.setInstances(instances);
         myReader.readExcelFileCrossInfo();
+    }
+
+    public void importFromCrossInfoToGermplasm(File selectedFile) {
+        System.out.println("Starting IMPORT FROM CROSS INFO TO GERMPLASM");
+        ExcelTrialReader myReader = new ExcelTrialReader();
+        myReader.setFileName(selectedFile.toString());
+        GermplasmEntriesTableModel tableModel=(GermplasmEntriesTableModel) germplasmTable.getModel();               
+        myReader.setGermplasmModel(tableModel);
+        myReader.readExcelFileCrossInfoToGermplasm();
     }
 }

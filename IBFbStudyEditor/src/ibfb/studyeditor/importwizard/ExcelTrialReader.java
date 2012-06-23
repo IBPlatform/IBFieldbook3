@@ -1,5 +1,6 @@
 package ibfb.studyeditor.importwizard;
 
+import ibfb.studyeditor.core.model.GermplasmEntriesTableModel;
 import ibfb.studyeditor.core.model.ObservationsTableModel;
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -23,12 +24,14 @@ public class ExcelTrialReader {
     HSSFCell cellData = null;
     HSSFRow rowData = null;
     ObservationsTableModel observationsModel;
+    GermplasmEntriesTableModel germplasmModel;
     int obsTrial = -1;
     int obsEntry = -1;
     int obsPlot = -1;
     int trial = 0;
     int instances = 0;
     int colGIDObs = 0;
+    int colGIDgsm = 0;
     ArrayList<MatchesClass> matchesArray;
     ArrayList<String> gids;
 
@@ -249,6 +252,56 @@ public class ExcelTrialReader {
         return result;
     }
 
+    
+    
+    
+    private int findMachesForGermplasm(HSSFSheet sheet) {
+
+  
+        int result = 0;
+
+        HSSFRow fila = sheet.getRow(0); //Encabezados
+        int cells = fila.getLastCellNum();
+
+        ArrayList<String> encabezados = new ArrayList<String>();
+        matchesArray = new ArrayList<MatchesClass>();
+
+        for (int i = 0; i < germplasmModel.getColumnCount(); i++) {
+            encabezados.add(germplasmModel.getColumnName(i).toUpperCase().trim());
+        }
+
+        colGIDgsm = encabezados.indexOf("GID");
+
+        for (int i = 0; i < cells; i++) {
+
+            try {
+                HSSFCell celda = fila.getCell(i);
+
+                if (!celda.getStringCellValue().toUpperCase().trim().equals("GID")) {
+
+                    if (encabezados.contains(celda.getStringCellValue().toUpperCase().trim())) {
+                        MatchesClass match = new MatchesClass();
+                        match.setColIBF(encabezados.indexOf(celda.getStringCellValue().toUpperCase().trim()));
+                        match.setColCross(i);
+                        matchesArray.add(match);
+                        result++;
+                    }
+
+                }
+            } catch (Exception ex) {
+                log.error("ERROR EN FINDMACHES", ex);
+            }
+
+
+
+
+        }
+
+        return result;
+    }
+
+    
+    
     private void fillGIDs(HSSFSheet sheet, int colGID) {
         try {
             gids = new ArrayList<String>();
@@ -504,6 +557,11 @@ public class ExcelTrialReader {
     public void setModel(ObservationsTableModel tableModel) {
         this.observationsModel = tableModel;
     }
+    
+    
+    public void setGermplasmModel(GermplasmEntriesTableModel tableModel){
+        this.germplasmModel=tableModel;
+    }
 
     private boolean validaHeadersObservations(int obsTrial, int obsEntry, int obsPlot) {
         if (obsTrial >= 0 && obsEntry >= 0 && obsPlot >= 0) {
@@ -544,5 +602,69 @@ public class ExcelTrialReader {
             }
         }
         return fila;
+    }
+
+    public void readExcelFileCrossInfoToGermplasm() {
+        try {
+
+            int colNumber = 0;
+            int rowIndex = 0;
+            InputStream inputStream = new FileInputStream(fileName);
+            excelBook = new HSSFWorkbook(inputStream);
+            sheetData = excelBook.getSheetAt(0);
+            rowData = sheetData.getRow(rowIndex);
+            cellData = rowData.getCell(colNumber);
+
+
+            int colGID = findCol("GID", sheetData);
+
+            if (colGID == -1) {
+                DialogUtil.displayError("File error, Data sheet. There is not GID column");
+                return;
+            }
+
+            int matches = findMachesForGermplasm(sheetData);
+
+            if (matches > 0) {
+                System.out.println("ok tenemos " + matches + " coincidencias");
+
+            } else {
+                DialogUtil.displayError("Data error, Data sheet. There are not values to import");
+                return;
+            }
+
+            fillGIDs(sheetData, colGID);
+        
+            
+               germplasmModel.setIsFromCrossInfo(true);
+
+            for (int j = 0; j < germplasmModel.getRowCount(); j++) {
+
+                Object gid = germplasmModel.getValueAt(j, colGIDgsm);
+
+                int rowOfGID = findRowForGID(gid.toString());
+
+                
+
+                if (rowOfGID >= 0) {
+                    for (int i = 0; i < matchesArray.size(); i++) {
+
+                        HSSFRow fila = sheetData.getRow(rowOfGID + 1);//por encabezados
+                        HSSFCell celda = fila.getCell(matchesArray.get(i).getColCross());
+                        String valor = getStringValueFromCell(celda);
+
+                        germplasmModel.setValueAt(valor, j, matchesArray.get(i).getColIBF());
+                    }
+                } else {
+                    System.out.println(gid.toString() + " NO ENCONTRADO");
+                }
+
+            }
+           germplasmModel.setIsFromCrossInfo(false);
+        } catch (Exception e) {
+           germplasmModel.setIsFromCrossInfo(false);
+            log.error("Error al leer excel ", e);
+        }
+
     }
 }

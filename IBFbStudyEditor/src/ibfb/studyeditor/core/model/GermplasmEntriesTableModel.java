@@ -5,11 +5,13 @@
 package ibfb.studyeditor.core.model;
 
 import ibfb.domain.core.Factor;
+import ibfb.domain.core.Variate;
 import ibfb.domain.core.Workbook;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
+import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 
 /**
  * Table Model to manage Germplasm Entries
@@ -35,7 +37,7 @@ public class GermplasmEntriesTableModel extends AbstractTableModel {
      * Variates
      */
     private List<Object> headers;
-
+    public static boolean isFromCrossInfo = false;
     /**
      * Default constructor
      */
@@ -44,6 +46,14 @@ public class GermplasmEntriesTableModel extends AbstractTableModel {
         assignHeaders();
     }
 
+     public static boolean IsFromCrossInfo() {
+        return isFromCrossInfo;
+    }
+
+    public static void setIsFromCrossInfo(boolean isFromCrossInfo) {
+        GermplasmEntriesTableModel.isFromCrossInfo = isFromCrossInfo;
+    }
+    
     /**
      * Constructor using headers and data
      *
@@ -126,4 +136,18 @@ public class GermplasmEntriesTableModel extends AbstractTableModel {
         }
         return columnIndex;
     }
+
+
+
+@Override
+    public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
+        
+
+
+    }
+
+
 }
+
+
+

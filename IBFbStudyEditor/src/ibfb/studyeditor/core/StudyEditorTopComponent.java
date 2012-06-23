@@ -44,6 +44,7 @@ import ibfb.studyeditor.util.DateUtil;
 import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 import ibfb.studyeditor.util.LookupUtil;
 import ibfb.studyeditor.util.RefreshBrowserHelper;
+import ibfb.studyexplorer.filters.ExcelFiltro;
 import ibfb.traits.traits.TraitsExplorerTopComponent;
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
@@ -379,6 +380,11 @@ public final class StudyEditorTopComponent extends TopComponent {
         jPanel7 = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
         jTableEntries = new javax.swing.JTable();
+        jPanel13 = new javax.swing.JPanel();
+        jButtonCopyGID = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jLabelTotalGermp = new javax.swing.JLabel();
+        jButtonImportCrossInfo = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTableOtherFactorLabels = new javax.swing.JTable();
@@ -425,7 +431,6 @@ public final class StudyEditorTopComponent extends TopComponent {
         jButtonSaveToExcel = new javax.swing.JButton();
         jButtonCSVTraitsExport1 = new javax.swing.JButton();
         jButtonCSVTraitsImport1 = new javax.swing.JButton();
-        jButtonCopyGID = new javax.swing.JButton();
 
         org.openide.awt.Mnemonics.setLocalizedText(jMenuItem1, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jMenuItem1.text")); // NOI18N
         jMenuItem1.setToolTipText(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jMenuItem1.toolTipText")); // NOI18N
@@ -903,7 +908,71 @@ public final class StudyEditorTopComponent extends TopComponent {
         });
         jTableEntries.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         jTableEntries.getTableHeader().setReorderingAllowed(false);
+        jTableEntries.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jTableEntriesPropertyChange(evt);
+            }
+        });
         jScrollPane6.setViewportView(jTableEntries);
+
+        jButtonCopyGID.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyeditor/images/copyGID.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(jButtonCopyGID, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jButtonCopyGID.text")); // NOI18N
+        jButtonCopyGID.setToolTipText(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jButtonCopyGID.toolTipText")); // NOI18N
+        jButtonCopyGID.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonCopyGID.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonCopyGID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCopyGIDActionPerformed(evt);
+            }
+        });
+
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel5, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jLabel5.text")); // NOI18N
+
+        org.openide.awt.Mnemonics.setLocalizedText(jLabelTotalGermp, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jLabelTotalGermp.text")); // NOI18N
+
+        jButtonImportCrossInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyeditor/images/crossInfoSmall.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(jButtonImportCrossInfo, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jButtonImportCrossInfo.text")); // NOI18N
+        jButtonImportCrossInfo.setToolTipText(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jButtonImportCrossInfo.toolTipText")); // NOI18N
+        jButtonImportCrossInfo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonImportCrossInfo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonImportCrossInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonImportCrossInfoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
+        jPanel13.setLayout(jPanel13Layout);
+        jPanel13Layout.setHorizontalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButtonCopyGID, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(jButtonImportCrossInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelTotalGermp, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(63, 63, 63))
+        );
+        jPanel13Layout.setVerticalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabelTotalGermp))
+                        .addGap(34, 34, 34))
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButtonCopyGID, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+                            .addComponent(jButtonImportCrossInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())))
+        );
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -911,14 +980,18 @@ public final class StudyEditorTopComponent extends TopComponent {
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 1041, Short.MAX_VALUE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 1041, Short.MAX_VALUE)
+                    .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 704, Short.MAX_VALUE)
+                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 611, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1385,17 +1458,6 @@ public final class StudyEditorTopComponent extends TopComponent {
             }
         });
 
-        jButtonCopyGID.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyeditor/images/copyGID.png"))); // NOI18N
-        org.openide.awt.Mnemonics.setLocalizedText(jButtonCopyGID, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jButtonCopyGID.text")); // NOI18N
-        jButtonCopyGID.setToolTipText(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jButtonCopyGID.toolTipText")); // NOI18N
-        jButtonCopyGID.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButtonCopyGID.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButtonCopyGID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCopyGIDActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -1403,11 +1465,10 @@ public final class StudyEditorTopComponent extends TopComponent {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonCSVTraitsImport1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonCSVTraitsImport1, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)
                     .addComponent(jButtonCSVTraitsExport1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonSaveToExcel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnPrintLabels, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jButtonCopyGID, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE))
+                    .addComponent(btnPrintLabels, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -1421,8 +1482,6 @@ public final class StudyEditorTopComponent extends TopComponent {
                 .addComponent(jButtonCSVTraitsExport1)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonCSVTraitsImport1)
-                .addGap(18, 18, 18)
-                .addComponent(jButtonCopyGID, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -2115,6 +2174,35 @@ public final class StudyEditorTopComponent extends TopComponent {
 
     }//GEN-LAST:event_jButtonCopyGIDActionPerformed
 
+    private void jTableEntriesPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jTableEntriesPropertyChange
+       this.jLabelTotalGermp.setText(String.valueOf(this.jTableEntries.getRowCount()));
+    }//GEN-LAST:event_jTableEntriesPropertyChange
+
+    private void jButtonImportCrossInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonImportCrossInfoActionPerformed
+       
+        
+        ImportData importData = new ImportData(jTableEntries);        
+     
+        FileFilter[] filtros = new FileFilter[10];
+        filtros = selectorArchivo.getChoosableFileFilters();
+        for (int i = 0; i < filtros.length; i++) {
+            FileFilter filtro = filtros[i];
+            selectorArchivo.removeChoosableFileFilter(filtro);
+        }
+        File archivoNulo = new File("");
+        selectorArchivo.setSelectedFile(archivoNulo);
+        selectorArchivo.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        selectorArchivo.addChoosableFileFilter(new ExcelFiltro());
+            
+  
+        int resultado = selectorArchivo.showOpenDialog(null);
+        if (resultado == JFileChooser.CANCEL_OPTION) {
+            return;
+        }        
+        importData.importFromCrossInfoToGermplasm(selectorArchivo.getSelectedFile());
+        
+    }//GEN-LAST:event_jButtonImportCrossInfoActionPerformed
+
     @Override
     public void componentOpened() {
     }
@@ -2571,6 +2659,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         csv = new CSVOziel(this.jTableObservations, new JList());
         int instanceCounter = observationsTableModel.getTrialCounter();
         ImportData importData = new ImportData(jTableObservations, csv, instanceCounter);
+    
         WizardDescriptor.Iterator iterator = new importingWizardIterator();
         WizardDescriptor wizardDescriptor = new WizardDescriptor(iterator);
         importingVisualPanel2.setWizardDescriptor(wizardDescriptor);
@@ -2922,6 +3011,7 @@ public final class StudyEditorTopComponent extends TopComponent {
     private javax.swing.JButton jButtonCSVTraitsExport1;
     private javax.swing.JButton jButtonCSVTraitsImport1;
     private javax.swing.JButton jButtonCopyGID;
+    private javax.swing.JButton jButtonImportCrossInfo;
     public static javax.swing.JButton jButtonRefreshDesign;
     private javax.swing.JButton jButtonSaveToExcel;
     public static javax.swing.JButton jButtonSelectTraits;
@@ -2939,12 +3029,14 @@ public final class StudyEditorTopComponent extends TopComponent {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     public javax.swing.JLabel jLabelEntries;
     public javax.swing.JLabel jLabelInstances;
+    private javax.swing.JLabel jLabelTotalGermp;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
@@ -2957,6 +3049,7 @@ public final class StudyEditorTopComponent extends TopComponent {
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel21;
