@@ -1600,6 +1600,17 @@ public interface AppServices {
             String trialNmame
             );
     
+    public ResultSet getTrialRandomizationFast(
+            Integer studyId,
+            Integer trialFactorId,
+            List<String> factoresPrincipales,
+            List<String> factoresSalida,
+            String trialNmame
+            );
+    
+    public StudySearch getListGermplasmAndPlotByStudyidAndTrial(
+            StudySearch studySearch);
+    
  
      //----------------------------------- Inventory Management ---------------------------   
     
