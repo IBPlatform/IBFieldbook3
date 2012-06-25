@@ -83,7 +83,8 @@ public class GermplasmAssigmentToolImpl implements GermplasmAssigmentTool {
 
         for (ListOfEntries entries: germplasmList.getListEntries()) {
             //List<Object> objectValues = entries.getColumnValues(columnList);
-            List<Object> objectValues = entries.getColumnValues(columnListRules);
+            //List<Object> objectValues = entries.getColumnValues(columnListRules);
+            List<Object> objectValues = entries.getColumnValuesFromFactors(localFactors);
             mappedRows.add(objectValues);
         }
 
