@@ -2066,7 +2066,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
             }
 
         } catch (Exception e) {
-
+            e.printStackTrace();
             System.out.println("ERROR: " + e);
             changeCursorWaitStatus(false);
         }
