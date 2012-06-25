@@ -1,6 +1,5 @@
 package ibfb.nursery.advancewizard;
 
-import ibfb.nursery.mainwizard.NurseryVisualPanel2;
 import ibfb.nursery.naming.NamingConvention;
 import ibfb.nursery.persons.SelectLocationPanel;
 import java.util.ArrayList;
@@ -10,8 +9,6 @@ import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.JPanel;
-import org.apache.commons.configuration.ConfigurationException;
-import org.apache.commons.configuration.PropertiesConfiguration;
 import org.cimmyt.cril.ibwb.api.AppServicesProxy;
 import org.cimmyt.cril.ibwb.commongui.ConvertUtils;
 import org.cimmyt.cril.ibwb.domain.Location;

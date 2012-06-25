@@ -1,6 +1,7 @@
 
 package ibfb.nursery.importwizard;
 
+import ibfb.nursery.models.GermplasmEntriesTableModel;
 import ibfb.nursery.models.ObservationsTableModel;
 import ibfb.nursery.utils.CSVOziel;
 import java.awt.Component;
@@ -20,6 +21,7 @@ public class ImportData {
 
     private WizardDescriptor.Panel[] panels;
     private JTable observationsTable;
+    private JTable germplasmTable;
     private CSVOziel csv;
     private int instances;
     private File myFile;
@@ -30,6 +32,11 @@ public class ImportData {
         this.csv = csv;
     }
 
+        public ImportData(JTable germplasmTabla) {
+        this.germplasmTable = germplasmTabla;
+  
+    }
+     
     public ImportData(JTable observationsTable, CSVOziel csv, int instan) {
         this.observationsTable = observationsTable;
         this.csv = csv;
@@ -134,4 +141,14 @@ public class ImportData {
 
 
     }
+    
+     public void importFromCrossInfoToGermplasm(File selectedFile) {
+        System.out.println("Starting IMPORT FROM CROSS INFO TO GERMPLASM");
+        ExcelNurseryReader myReader = new ExcelNurseryReader();
+        myReader.setFileName(selectedFile.toString());
+        GermplasmEntriesTableModel tableModel=(GermplasmEntriesTableModel) germplasmTable.getModel();               
+        myReader.setGermplasmModel(tableModel);
+        myReader.readExcelFileCrossInfoToGermplasm();
+    }
+    
 }

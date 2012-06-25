@@ -1,5 +1,6 @@
 package ibfb.nursery.importwizard;
 
+import ibfb.nursery.models.GermplasmEntriesTableModel;
 import ibfb.nursery.models.ObservationsTableModel;
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -17,13 +18,19 @@ public class ExcelNurseryReader {
     String fileName = "";
     HSSFSheet sheetDescription;
     HSSFSheet sheetObservation;
+    HSSFSheet sheetData;
     HSSFWorkbook excelBook;
     HSSFCell cellData = null;
     HSSFRow rowData = null;
     ObservationsTableModel observationsModel;
+    GermplasmEntriesTableModel germplasmModel;
     int obsEntry = -1;
     int obsPlot = -1;
     int instances = 0;
+    int colGIDObs = 0;
+    int colGIDgsm = 0;
+    ArrayList<MatchesClass> matchesArray;
+    ArrayList<String> gids;
 
     public void setFileName(String file) {
         this.fileName = file;
@@ -31,6 +38,10 @@ public class ExcelNurseryReader {
 
     public void setInstances(int inst) {
         this.instances = inst;
+    }
+
+    public void setGermplasmModel(GermplasmEntriesTableModel tableModel) {
+        this.germplasmModel = tableModel;
     }
 
     public void readExcelFile() {
@@ -379,5 +390,193 @@ public class ExcelNurseryReader {
 
         }
         return fila;
+    }
+
+    private int findMachesForGermplasm(HSSFSheet sheet) {
+
+
+        int result = 0;
+
+        HSSFRow fila = sheet.getRow(0); //Encabezados
+        int cells = fila.getLastCellNum();
+
+        ArrayList<String> encabezados = new ArrayList<String>();
+        matchesArray = new ArrayList<MatchesClass>();
+
+        for (int i = 0; i < germplasmModel.getColumnCount(); i++) {
+            encabezados.add(germplasmModel.getColumnName(i).toUpperCase().trim());
+        }
+
+        colGIDgsm = encabezados.indexOf("GID");
+
+        for (int i = 0; i < cells; i++) {
+
+            try {
+                HSSFCell celda = fila.getCell(i);
+
+                if (!celda.getStringCellValue().toUpperCase().trim().equals("GID")) {
+
+                    if (encabezados.contains(celda.getStringCellValue().toUpperCase().trim())) {
+                        MatchesClass match = new MatchesClass();
+                        match.setColIBF(encabezados.indexOf(celda.getStringCellValue().toUpperCase().trim()));
+                        match.setColCross(i);
+                        matchesArray.add(match);
+                        result++;
+                    }
+
+                }
+            } catch (Exception ex) {
+                log.error("ERROR EN FINDMACHES", ex);
+            }
+
+
+
+
+        }
+
+        return result;
+    }
+
+    public void readExcelFileCrossInfoToGermplasm() {
+        try {
+
+            int colNumber = 0;
+            int rowIndex = 0;
+            InputStream inputStream = new FileInputStream(fileName);
+            excelBook = new HSSFWorkbook(inputStream);
+            sheetData = excelBook.getSheetAt(0);
+            rowData = sheetData.getRow(rowIndex);
+            cellData = rowData.getCell(colNumber);
+
+
+            int colGID = findCol("GID", sheetData);
+
+            if (colGID == -1) {
+                DialogUtil.displayError("File error, Data sheet. There is not GID column");
+                return;
+            }
+
+            int matches = findMachesForGermplasm(sheetData);
+
+            if (matches > 0) {
+                System.out.println("ok tenemos " + matches + " coincidencias");
+
+            } else {
+                DialogUtil.displayError("Data error, Data sheet. There are not values to import");
+                return;
+            }
+
+            fillGIDs(sheetData, colGID);
+
+
+            germplasmModel.setIsFromCrossInfo(true);
+
+            for (int j = 0; j < germplasmModel.getRowCount(); j++) {
+
+                Object gid = germplasmModel.getValueAt(j, colGIDgsm);
+
+                int rowOfGID = findRowForGID(gid.toString());
+
+
+
+                if (rowOfGID >= 0) {
+                    for (int i = 0; i < matchesArray.size(); i++) {
+
+                        HSSFRow fila = sheetData.getRow(rowOfGID + 1);//por encabezados
+                        HSSFCell celda = fila.getCell(matchesArray.get(i).getColCross());
+                        String valor = getStringValueFromCell(celda);
+
+                        germplasmModel.setValueAt(valor, j, matchesArray.get(i).getColIBF());
+                    }
+                } else {
+                    System.out.println(gid.toString() + " NO ENCONTRADO");
+                }
+
+            }
+            germplasmModel.setIsFromCrossInfo(false);
+        } catch (Exception e) {
+            germplasmModel.setIsFromCrossInfo(false);
+            log.error("Error al leer excel ", e);
+        }
+
+    }
+
+    private int findCol(String title, HSSFSheet sheet) {
+
+        int result = -1;
+
+        HSSFRow fila = sheet.getRow(0); //Encabezados
+        int cells = fila.getLastCellNum();
+
+
+        for (int i = 0; i < cells; i++) {
+
+            try {
+
+                HSSFCell celda = fila.getCell(i);
+
+                if (celda.getStringCellValue().equals(title)) {
+                    log.info("Celda " + title + " encontrada en columna " + i);
+                    return i;
+
+                }
+
+            } catch (Exception ex) {
+                log.error("SIN VALOR EN FILA EXCEL", ex);
+            }
+
+
+
+
+        }
+
+        return result;
+    }
+
+    private void fillGIDs(HSSFSheet sheet, int colGID) {
+        try {
+            gids = new ArrayList<String>();
+            int total = sheet.getLastRowNum();
+
+            for (int i = 0; i < total; i++) {
+                HSSFRow fila = sheet.getRow(i + 1);
+                HSSFCell celda = fila.getCell(colGID);
+                int valor = (int) (celda.getNumericCellValue());
+                gids.add(String.valueOf(valor));
+            }
+
+        } catch (Exception ex) {
+            log.error("ERROR EN fillGIDs", ex);
+        }
+
+    }
+
+    private int findRowForGID(String elGID) {
+
+        int result = -1;
+        result = gids.indexOf(elGID);
+        return result;
+    }
+
+    private String getStringValueFromCell(HSSFCell cellData) {
+
+        String cellValue = null;
+
+        switch (cellData.getCellType()) {
+
+            case HSSFCell.CELL_TYPE_STRING:
+                cellValue = cellData.getStringCellValue();
+                break;
+
+            case HSSFCell.CELL_TYPE_NUMERIC:
+                cellValue = String.valueOf((int) cellData.getNumericCellValue());
+                break;
+        }
+
+        if (cellValue == null) {
+            cellValue = "";
+        }
+
+        return cellValue;
     }
 }

@@ -14,7 +14,6 @@ public class GermplasmEntriesTableModel extends AbstractTableModel {
     public static final String ENTRY_CODE = "GERMPLASMENTRYCODE";
     public static final String DESIG = "GERMPLASMIDDBCV";
     public static final String GID = "GERMPLASMIDDBID";
-    
     private boolean hasChecks = false;
     private List<Factor> factorHeaders;
     private List<List<Object>> germplasmData;
@@ -29,11 +28,16 @@ public class GermplasmEntriesTableModel extends AbstractTableModel {
      * To easy retrieving of column indexes
      */
     private HashMap<String, Integer> headerIndex = new HashMap<String, Integer>();
+    public static boolean isFromCrossInfo = false;
     /**
      * List of items containing all headers. Items in list can be Factor o
      * Variates
      */
     private List<Object> headers;
+
+    public static void setIsFromCrossInfo(boolean isFromCrossInfo) {
+        GermplasmEntriesTableModel.isFromCrossInfo = isFromCrossInfo;
+    }
 
     public boolean isEnabledAmount() {
         return enabledAmount;
