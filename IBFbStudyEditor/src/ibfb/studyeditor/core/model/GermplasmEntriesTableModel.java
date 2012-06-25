@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package ibfb.studyeditor.core.model;
 
 import ibfb.domain.core.Factor;
@@ -38,6 +34,7 @@ public class GermplasmEntriesTableModel extends AbstractTableModel {
      */
     private List<Object> headers;
     public static boolean isFromCrossInfo = false;
+
     /**
      * Default constructor
      */
@@ -46,14 +43,14 @@ public class GermplasmEntriesTableModel extends AbstractTableModel {
         assignHeaders();
     }
 
-     public static boolean IsFromCrossInfo() {
+    public static boolean IsFromCrossInfo() {
         return isFromCrossInfo;
     }
 
     public static void setIsFromCrossInfo(boolean isFromCrossInfo) {
         GermplasmEntriesTableModel.isFromCrossInfo = isFromCrossInfo;
     }
-    
+
     /**
      * Constructor using headers and data
      *
@@ -122,10 +119,10 @@ public class GermplasmEntriesTableModel extends AbstractTableModel {
         }
 
     }
-    
 
     /**
      * Get the column index for header
+     *
      * @param columnName Column name to search
      * @return column index number greater than 0 if found or -1 if not found
      */
@@ -137,17 +134,7 @@ public class GermplasmEntriesTableModel extends AbstractTableModel {
         return columnIndex;
     }
 
-
-
-@Override
+    @Override
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
-        
-
-
     }
-
-
 }
-
-
-

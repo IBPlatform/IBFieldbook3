@@ -34,11 +34,10 @@ public class ImportData {
         this.observationsTable = observationsTable;
         this.csv = csv;
     }
-    
-    
-     public ImportData(JTable germplasmTabla) {
+
+    public ImportData(JTable germplasmTabla) {
         this.germplasmTable = germplasmTabla;
-  
+
     }
 
     public ImportData(JTable observationsTable, CSVOziel csv, int instan) {
@@ -212,7 +211,7 @@ public class ImportData {
         System.out.println("Starting IMPORT FROM CROSS INFO TO GERMPLASM");
         ExcelTrialReader myReader = new ExcelTrialReader();
         myReader.setFileName(selectedFile.toString());
-        GermplasmEntriesTableModel tableModel=(GermplasmEntriesTableModel) germplasmTable.getModel();               
+        GermplasmEntriesTableModel tableModel = (GermplasmEntriesTableModel) germplasmTable.getModel();
         myReader.setGermplasmModel(tableModel);
         myReader.readExcelFileCrossInfoToGermplasm();
     }
