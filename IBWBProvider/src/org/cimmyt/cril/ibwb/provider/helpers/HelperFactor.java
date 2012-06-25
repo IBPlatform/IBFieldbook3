@@ -418,6 +418,7 @@ public class HelperFactor {
         Factor factorTemp = new Factor();
         for (List<Object> objectList : germplasmData) {
             for (int i = 0; i < objectList.size(); i++) {
+                if (i < listEntryFactors.size()) {
                 Object value = objectList.get(i);
                 factorTemp = listEntryFactors.get(i);
                 log.info("Saving level for ENTRY factor: " + factorTemp.getFname() + "  with value: " + value);
@@ -451,6 +452,7 @@ public class HelperFactor {
                     levelC.setLevelCPK(levelCPK);
                     serviceLocal.addLevelC(levelC);
                     factorTemp.getLevelsC().add(levelC);
+                }
                 }
             }
             addLevels(factorTemp.getFactorid(), levelNo, serviceLocal);
