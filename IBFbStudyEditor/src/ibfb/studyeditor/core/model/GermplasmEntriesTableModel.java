@@ -42,11 +42,11 @@ public class GermplasmEntriesTableModel extends AbstractTableModel {
         clearTable();
         assignHeaders();
     }
-
+    
     public static boolean IsFromCrossInfo() {
         return isFromCrossInfo;
     }
-
+    
     public static void setIsFromCrossInfo(boolean isFromCrossInfo) {
         GermplasmEntriesTableModel.isFromCrossInfo = isFromCrossInfo;
     }
@@ -63,22 +63,22 @@ public class GermplasmEntriesTableModel extends AbstractTableModel {
         this.germplasmData = germplasmData;
         assignHeaders();
     }
-
+    
     @Override
     public int getRowCount() {
         return germplasmData.size();
     }
-
+    
     @Override
     public int getColumnCount() {
         return factorHeaders.size();
     }
-
+    
     @Override
     public String getColumnName(int column) {
         return factorHeaders.get(column).getFactorName();
     }
-
+    
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         List<Object> columnValues = germplasmData.get(rowIndex);
@@ -87,17 +87,17 @@ public class GermplasmEntriesTableModel extends AbstractTableModel {
         } else {
             return null;
         }
-
+        
     }
-
+    
     public List<Factor> getFactorHeaders() {
         return factorHeaders;
     }
-
+    
     public List<List<Object>> getGermplasmData() {
         return germplasmData;
     }
-
+    
     public void clearTable() {
         factorHeaders = new ArrayList<Factor>();
         germplasmData = new ArrayList<List<Object>>();
@@ -117,7 +117,7 @@ public class GermplasmEntriesTableModel extends AbstractTableModel {
             headerIndex.put(Workbook.getStringWithOutBlanks(factor.getProperty() + factor.getScale()), columnIndex);
             columnIndex++;
         }
-
+        
     }
 
     /**
@@ -133,8 +133,14 @@ public class GermplasmEntriesTableModel extends AbstractTableModel {
         }
         return columnIndex;
     }
-
+    
     @Override
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
+        List<Object> columnValues = germplasmData.get(rowIndex);
+        if (columnIndex < columnValues.size()) {
+            columnValues.set(columnIndex, aValue);
+            
+        }
+        fireTableCellUpdated(rowIndex, columnIndex);
     }
 }
