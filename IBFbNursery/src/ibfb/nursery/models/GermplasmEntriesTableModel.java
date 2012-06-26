@@ -14,6 +14,7 @@ public class GermplasmEntriesTableModel extends AbstractTableModel {
     public static final String ENTRY_CODE = "GERMPLASMENTRYCODE";
     public static final String DESIG = "GERMPLASMIDDBCV";
     public static final String GID = "GERMPLASMIDDBID";
+  //  public static final String BCID = "GERMPLASMBCIDDBID";
     private boolean hasChecks = false;
     private List<Factor> factorHeaders;
     private List<List<Object>> germplasmData;

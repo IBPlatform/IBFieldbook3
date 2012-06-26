@@ -21,10 +21,7 @@ import javax.swing.table.TableModel;
 import org.cimmyt.cril.ibwb.api.AppServicesProxy;
 import org.cimmyt.cril.ibwb.commongui.ConvertUtils;
 import org.cimmyt.cril.ibwb.commongui.DialogUtil;
-import org.cimmyt.cril.ibwb.domain.Germplsm;
-import org.cimmyt.cril.ibwb.domain.Listdata;
-import org.cimmyt.cril.ibwb.domain.ListdataPK;
-import org.cimmyt.cril.ibwb.domain.Listnms;
+import org.cimmyt.cril.ibwb.domain.*;
 import org.netbeans.api.settings.ConvertAsProperties;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
@@ -53,6 +50,7 @@ preferredID = "AdvanceLineTopComponent")
     "HINT_AdvanceLineTopComponent=Advance Nursery"
 })
 public final class AdvanceLineTopComponent extends TopComponent {
+
     private static final int METHOD_UKNOWN_DERIVATE = 31;
     private static final int METHOD_SINGLE_CROSS = 101;
     private static final int METHOD_SINGLE_PLANT = 205;
@@ -61,6 +59,18 @@ public final class AdvanceLineTopComponent extends TopComponent {
     private int COL_DESIG = 1;
     private int COL_GID = 2;
     private Listnms recentSavedList;
+    private List<GermplasmSearch> listToSearchBCID;
+
+    public List<GermplasmSearch> getListToSearchBCID() {
+        return listToSearchBCID;
+    }
+
+    public void setListToSearchBCID(List<GermplasmSearch> listToSearchBCID) {
+        this.listToSearchBCID = listToSearchBCID;
+    }
+    
+    
+    
     /**
      * Method id for advance
      */
@@ -387,11 +397,6 @@ public final class AdvanceLineTopComponent extends TopComponent {
 
         List<Factor> losFactores = factorHeaders;
 
-        //   if(factorHeaders.size()<5){
-        //   losFactores= addColumnsForInventory(factorHeaders); 
-
-        //   }
-
         factores = losFactores;
         GermplasmEntriesTableModel tableModel = new GermplasmEntriesTableModel(losFactores, germplasmData);
         // tableModel.setIsForInventory(true);
@@ -543,14 +548,15 @@ public final class AdvanceLineTopComponent extends TopComponent {
         AppServicesProxy.getDefault().appServices().addListnms(listnms);
         List<Listdata> dataList = new ArrayList<Listdata>();
 
-        GermplasmEntriesTableModel tableModel = (GermplasmEntriesTableModel)jTableEntries.getModel(); 
-        
+        GermplasmEntriesTableModel tableModel = (GermplasmEntriesTableModel) jTableEntries.getModel();
+
+       // int bcid= tableModel.getHeaderIndex(GermplasmEntriesTableModel.BCID); //findColumn("BCID");
         int gid = tableModel.getHeaderIndex(GermplasmEntriesTableModel.GID); //findColumn("GID");
         int desig = tableModel.getHeaderIndex(GermplasmEntriesTableModel.DESIG);//findColumn("DESIG");
         int entryCD = tableModel.getHeaderIndex(GermplasmEntriesTableModel.ENTRY);// findColumn("ENTRY");
-        
+
         currentSourceGid = 0;
-        
+
         for (int index = 0; index < jTableEntries.getRowCount(); index++) {
             Listdata listdata = new Listdata(true);
             ListdataPK pk1 = new ListdataPK(listnms.getListid(), 0);
@@ -642,15 +648,14 @@ public final class AdvanceLineTopComponent extends TopComponent {
         width += 2 * margin;
         col.setPreferredWidth(width);
     }
+   
+    
 
     private void loadListIntoWindow(Listnms lista) {
-
-
-
+        
+       
         //List<Listnms> namesList = AppServicesProxy.getDefault().appServices().getListnmsList();
-
         // Listnms lista13sawyt= AppServicesProxy.getDefault().appServices().getListnms(18235);
-
         //loadListIntoWindow(lista13sawyt);
 
         GermplasmListReader germplasmListReader = new GermplasmListReaderImpl();
@@ -665,7 +670,6 @@ public final class AdvanceLineTopComponent extends TopComponent {
 
             int row = findRow(desig, modeloConGID);
             //System.out.println(germplasmList.getListEntries().get(i).getDesignation() +" /// " +germplasmList.getListEntries().get(i).getGid());
-
             modeloConGID.setValueAt(GID, row, COL_GID);
         }
 
@@ -748,12 +752,12 @@ public final class AdvanceLineTopComponent extends TopComponent {
      */
     private void assignGpid1AndGpid2(Listdata listdata, int gidIndex) {
         Integer sourceGid = sourceGidList.get(gidIndex);
-        boolean searchGermplasm  = false;
-        
+        boolean searchGermplasm = false;
+
         if (sourceGid.intValue() != currentSourceGid) {
             searchGermplasm = true;
         }
-        
+
         if (searchGermplasm) {
             sourceGermplsm = AppServicesProxy.getDefault().appServices().getGermplsm(sourceGid);
             currentSourceGid = sourceGid;
@@ -773,7 +777,7 @@ public final class AdvanceLineTopComponent extends TopComponent {
                     listdata.setGpid1(sourceGid);
                     listdata.setGpid2(0);
                     break;
-               default:
+                default:
                     listdata.setGpid1(sourceGermplsm.getGpid1());
                     listdata.setGpid2(sourceGid);
                     break;

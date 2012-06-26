@@ -44,6 +44,7 @@ import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 import org.cimmyt.cril.ibwb.commongui.select.list.DoubleListPanel;
 import org.cimmyt.cril.ibwb.commongui.select.list.DropTargetCommand;
 import org.cimmyt.cril.ibwb.commongui.select.list.SelectCommand;
+import org.cimmyt.cril.ibwb.domain.GermplasmSearch;
 import org.cimmyt.cril.ibwb.domain.Traits;
 import org.netbeans.api.progress.ProgressHandle;
 import org.netbeans.api.progress.ProgressHandleFactory;
@@ -1830,14 +1831,16 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
                  * Source with all GID from measurement tab
                  */
                 List<Integer> sourceGidList = new ArrayList<Integer>();
-
+                                                              
+                List<GermplasmSearch> listToSearchBCID = new ArrayList<GermplasmSearch>();
+                    
                 AdvanceLineTopComponent advanceEditor = new AdvanceLineTopComponent();
                 advanceEditor.setMethodId(methodId);
                 advanceEditor.setLocationId(locationId);
                 advanceEditor.setHarvestDate(harvestDate);
                 advanceEditor.setNurseryName(jTextFieldNurseryName.getText());
                 advanceEditor.setNumberOfParents(numberOfParents);
-
+                
                 advanceEditor.clearEntries();
 
 
@@ -1883,19 +1886,50 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
                             return;
                         }
                     }
-
-
-
                 }
 
                 int contador = 0;
                 boolean thereIsValue = false;
+                
+                org.cimmyt.cril.ibwb.domain.Study estudio=AppServicesProxy.getDefault().appServices().getStudyByName(jTextFieldStudy.getText());
+                int currentStudy=estudio.getStudyid();
+                          
+                for (int i = 0; i < tableModel.getRowCount(); i++) {      
+                GermplasmSearch gsF = new GermplasmSearch();     
+                gsF.setStudyId(40165);  
+               // gsF.setStudyId(currentStudy);
+                gsF.setTrial(1); //BECAUSE THIS IS A NURSERY
+                gsF.setPlot(ConvertUtils.getValueAsInteger(germplasmData.get(i).get(colEntry)));                
+                listToSearchBCID.add(gsF);                     
+                }
+
+                List<GermplasmSearch> germplasmSearchs = AppServicesProxy.getDefault().appServices().getGermplasmByListStudyTrialPlotCross(listToSearchBCID, new ArrayList());
+    
+                for (GermplasmSearch gs : germplasmSearchs) {
+                    System.out.println("DESIG: " + gs.getNames().getNval() + "     BCID:" + gs.getBcid() + "    GID: " + gs.getNames().getGid());
+                }
+
+                
+                
+//                int t = 8;
+//                if (t > 7) {
+//                    return;
+//                }
+
+
+
                 for (int i = 0; i < tableModel.getRowCount(); i++) {
+
                     Object[] nuevo = germplasmData.get(i).toArray();
                     ArrayList<String> data;
                     Integer sourceGid = ConvertUtils.getValueAsInteger(germplasmData.get(i).get(colGID));
+
                     if (samplesMethod == 0) {
-                        data = metodos.giveMeDataDerivative(nuevo[colDesig].toString(), samples);
+                        //data = metodos.giveMeDataDerivative(nuevo[colDesig].toString(), samples);
+                       // data = metodos.giveMeDataDerivative(germplasmSearchs.get(i).getNames().getNval(), samples);
+                        data = metodos.giveMeDataDerivative(germplasmSearchs.get(i).getBcid(), samples);
+                        
+
                     } else {
 
                         if (methodIndex == 0) {
@@ -1912,7 +1946,9 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
                             continue;
                         }
 
-                        data = metodos.giveMeDataDerivative(nuevo[colDesig].toString(), samples);
+                      //  data = metodos.giveMeDataDerivative(nuevo[colDesig].toString(), samples);
+                        
+                        data = metodos.giveMeDataDerivative(germplasmSearchs.get(i).getBcid(), samples);
                     }
 
                     for (int j = 0; j < data.size(); j++) {
@@ -1929,6 +1965,7 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
                         for (int z = 0; z < temp.length; z++) {
                             newData.add(z, temp[z]);
                         }
+                        newData.add(germplasmSearchs.get(i).getNames().getNval());//FOR INVENTORY   -  DESIG
                         newData.add("");//FOR INVENTORY   -  LOCATION
                         newData.add("");  //FOR INVENTORY       -  COMMENTS  
                         newData.add("");  //FOR INVENTORY       -  AMOUNT  
@@ -1943,7 +1980,8 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
 
                 // assign source gid sources to advanceeditor
                 advanceEditor.setSourceGidList(sourceGidList);
-
+                advanceEditor.setListToSearchBCID(listToSearchBCID);
+                
                 advanceEditor.assignGermplasmEntries(factores, germplasmDataAdvance);
                 advanceEditor.open();
                 advanceEditor.setName(this.getName() + " F1");
