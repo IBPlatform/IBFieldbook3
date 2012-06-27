@@ -1201,6 +1201,11 @@ public final class NurseryEditorTopComponent extends TopComponent {
         jButtonSaveNursery.setToolTipText(org.openide.util.NbBundle.getMessage(NurseryEditorTopComponent.class, "NurseryEditorTopComponent.jButtonSaveNursery.toolTipText")); // NOI18N
         jButtonSaveNursery.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonSaveNursery.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonSaveNursery.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jButtonSaveNurseryStateChanged(evt);
+            }
+        });
         jButtonSaveNursery.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSaveNurseryActionPerformed(evt);
@@ -2082,6 +2087,12 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
         importData.importFromCrossInfoToGermplasm(selectorArchivo.getSelectedFile());
 
     }//GEN-LAST:event_jButtonImportCrossInfoActionPerformed
+
+    private void jButtonSaveNurseryStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jButtonSaveNurseryStateChanged
+        
+         checkAdvanceStatus();
+        
+    }//GEN-LAST:event_jButtonSaveNurseryStateChanged
 
     public void enabledAdvance(boolean estado) {
         this.jButtonAdvance.setEnabled(estado);
