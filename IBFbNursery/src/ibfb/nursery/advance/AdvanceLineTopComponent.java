@@ -535,9 +535,6 @@ public final class AdvanceLineTopComponent extends TopComponent {
         listnms.setListdate(this.harvestDate);
 
         listnms.setListtype(Listnms.LIST_TYPE_HARVEST);
-
-
-
         listnms.setListuid(0);
 
 

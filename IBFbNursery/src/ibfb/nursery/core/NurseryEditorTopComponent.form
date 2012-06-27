@@ -1255,7 +1255,7 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jButtonSaveToExcel" alignment="0" max="32767" attributes="1"/>
+                          <Component id="jButtonSaveNursery" alignment="0" max="32767" attributes="1"/>
                           <Component id="jButtonCSVTraitsExport1" alignment="0" pref="0" max="32767" attributes="1"/>
                           <Component id="jButtonCSVTraitsImport1" alignment="0" pref="0" max="32767" attributes="1"/>
                           <Component id="jButtonAdvance" alignment="1" pref="79" max="32767" attributes="1"/>
@@ -1265,7 +1265,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButtonSaveToExcel" min="-2" max="-2" attributes="1"/>
+                              <Component id="jButtonSaveNursery" min="-2" max="-2" attributes="1"/>
                               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                               <Component id="jButtonCSVTraitsExport1" min="-2" max="-2" attributes="1"/>
                               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
@@ -1278,22 +1278,22 @@
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JButton" name="jButtonSaveToExcel">
+                    <Component class="javax.swing.JButton" name="jButtonSaveNursery">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                           <Image iconType="3" name="/ibfb/nursery/images/save.png"/>
                         </Property>
                         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                          <ResourceString bundle="ibfb/nursery/core/Bundle.properties" key="NurseryEditorTopComponent.jButtonSaveToExcel.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                          <ResourceString bundle="ibfb/nursery/core/Bundle.properties" key="NurseryEditorTopComponent.jButtonSaveNursery.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                         </Property>
                         <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                          <ResourceString bundle="ibfb/nursery/core/Bundle.properties" key="NurseryEditorTopComponent.jButtonSaveToExcel.toolTipText" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                          <ResourceString bundle="ibfb/nursery/core/Bundle.properties" key="NurseryEditorTopComponent.jButtonSaveNursery.toolTipText" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                         </Property>
                         <Property name="horizontalTextPosition" type="int" value="0"/>
                         <Property name="verticalTextPosition" type="int" value="3"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSaveToExcelActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSaveNurseryActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="jButtonCSVTraitsExport1">

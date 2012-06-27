@@ -27,7 +27,10 @@ import java.awt.datatransfer.StringSelection;
 import java.io.File;
 import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 import javax.swing.*;
 import javax.swing.filechooser.FileFilter;
@@ -506,7 +509,7 @@ public final class NurseryEditorTopComponent extends TopComponent {
         jScrollPane7 = new javax.swing.JScrollPane();
         jTableObservations = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
-        jButtonSaveToExcel = new javax.swing.JButton();
+        jButtonSaveNursery = new javax.swing.JButton();
         jButtonCSVTraitsExport1 = new javax.swing.JButton();
         jButtonCSVTraitsImport1 = new javax.swing.JButton();
         jButtonAdvance = new javax.swing.JButton();
@@ -1195,14 +1198,14 @@ public final class NurseryEditorTopComponent extends TopComponent {
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(NurseryEditorTopComponent.class, "NurseryEditorTopComponent.jPanel5.border.title"))); // NOI18N
         jPanel5.setPreferredSize(new java.awt.Dimension(187, 85));
 
-        jButtonSaveToExcel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/nursery/images/save.png"))); // NOI18N
-        org.openide.awt.Mnemonics.setLocalizedText(jButtonSaveToExcel, org.openide.util.NbBundle.getMessage(NurseryEditorTopComponent.class, "NurseryEditorTopComponent.jButtonSaveToExcel.text")); // NOI18N
-        jButtonSaveToExcel.setToolTipText(org.openide.util.NbBundle.getMessage(NurseryEditorTopComponent.class, "NurseryEditorTopComponent.jButtonSaveToExcel.toolTipText")); // NOI18N
-        jButtonSaveToExcel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButtonSaveToExcel.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButtonSaveToExcel.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSaveNursery.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/nursery/images/save.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(jButtonSaveNursery, org.openide.util.NbBundle.getMessage(NurseryEditorTopComponent.class, "NurseryEditorTopComponent.jButtonSaveNursery.text")); // NOI18N
+        jButtonSaveNursery.setToolTipText(org.openide.util.NbBundle.getMessage(NurseryEditorTopComponent.class, "NurseryEditorTopComponent.jButtonSaveNursery.toolTipText")); // NOI18N
+        jButtonSaveNursery.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonSaveNursery.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonSaveNursery.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSaveToExcelActionPerformed(evt);
+                jButtonSaveNurseryActionPerformed(evt);
             }
         });
 
@@ -1243,7 +1246,7 @@ public final class NurseryEditorTopComponent extends TopComponent {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButtonSaveToExcel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jButtonSaveNursery, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButtonCSVTraitsExport1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addComponent(jButtonCSVTraitsImport1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addComponent(jButtonAdvance, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
@@ -1252,7 +1255,7 @@ public final class NurseryEditorTopComponent extends TopComponent {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButtonSaveToExcel)
+                .addComponent(jButtonSaveNursery)
                 .addGap(31, 31, 31)
                 .addComponent(jButtonCSVTraitsExport1)
                 .addGap(28, 28, 28)
@@ -1682,13 +1685,13 @@ public final class NurseryEditorTopComponent extends TopComponent {
         }
     }//GEN-LAST:event_jDateChooserEndPropertyChange
 
-    private void jButtonSaveToExcelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveToExcelActionPerformed
+    private void jButtonSaveNurseryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveNurseryActionPerformed
 //showComingSoon();
         saveNursery();
 
 
 
-    }//GEN-LAST:event_jButtonSaveToExcelActionPerformed
+    }//GEN-LAST:event_jButtonSaveNurseryActionPerformed
 
     private void doSaveWorkbook() {
         WorkbookSavingHelper.saveFieldbook(this);
@@ -1992,6 +1995,14 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
 
     }//GEN-LAST:event_jButtonAdvanceActionPerformed
 
+    private void checkAdvanceStatus(){
+        if(this.jButtonSaveNursery.isEnabled()){
+          this.jButtonAdvance.setEnabled(false);  
+        }else{
+            this.jButtonAdvance.setEnabled(true);  
+        }
+    }
+    
     private List<Factor> addColumnsForInventory(List<Factor> factores) {
         List<Factor> losFactores = factores;
 
@@ -2078,6 +2089,7 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
         if (this.jTextFieldNurseryName.getText().trim().isEmpty()) {
             this.jTextFieldNurseryName.requestFocusInWindow();
         }
+        checkAdvanceStatus();
     }
 
     @Override
@@ -2245,7 +2257,7 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
                 DialogUtil.displayError(provideTrialName);
                 result = false;
             } else {
-                jButtonSaveToExcelActionPerformed(null);
+                jButtonSaveNurseryActionPerformed(null);
             }
 
         }
@@ -2551,7 +2563,7 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
 
     public void loadDataFromDB() {
         jTextFieldNurseryName.setEnabled(false);
-        jButtonSaveToExcel.setEnabled(true);
+        jButtonSaveNursery.setEnabled(true);
         ObservationsTableModel tableModel = new ObservationsTableModel(myWorkbook, myWorkbook.getVariates());
         jTableObservations.setModel(tableModel);
         sorterMeasurements = new TableRowSorter<TableModel>(tableModel);
@@ -2783,7 +2795,7 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
     private javax.swing.JButton jButtonCSVTraitsImport1;
     private javax.swing.JButton jButtonCopyGID;
     private javax.swing.JButton jButtonImportCrossInfo;
-    private javax.swing.JButton jButtonSaveToExcel;
+    private javax.swing.JButton jButtonSaveNursery;
     public static javax.swing.JButton jButtonSelectTraits;
     public static javax.swing.JButton jButtonSync;
     public javax.swing.JComboBox jComboBoxStudyType;
