@@ -20,6 +20,7 @@ import java.awt.Desktop;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -2032,16 +2033,27 @@ public final class nurseryManagerTopComponent extends TopComponent {
 
                 gms++;
 
+                
+                
+                int maximo=gs.getMax()+gms;
+                String maxString=giveMaxString(maximo);
+                
+                
                 modelo.setRowCount(gms);
                 String crossString = gs.getNames().getNval() + "/" + gs.getNamesMale().getNval();
                 tempListCross.add(crossString);
                 String cross = "<html> <font color='purple'>" + gs.getNames().getNval() + "</font>/</font><font color='blue'>" + gs.getNamesMale().getNval() + " </font> </html>";
                 modelo.setValueAt(gms, gms - 1, 0);//ENTRY
-                modelo.setValueAt(gs.getBcid(), gms - 1, 1);//BCID
+                modelo.setValueAt(gs.getBcid()+maxString, gms - 1, 1);//BCID
                 modelo.setValueAt(cross, gms - 1, 2); //CROSS
                 modelo.setValueAt("Not assigned yet", gms - 1, 3); //GID                        
                 modelo.setValueAt("SIMPLE CROSS", gms - 1, 4);//METHOD
 
+                
+               
+                
+                
+                
                 modelo.setValueAt(listFemale.get(gms - 1).getStudyId(), gms - 1, 5);//FTID
                 modelo.setValueAt(listFemale.get(gms - 1).getTrial(), gms - 1, 6);//FOCC
                 modelo.setValueAt(listFemale.get(gms - 1).getPlot(), gms - 1, 7);//FENTRY
@@ -3107,5 +3119,12 @@ public final class nurseryManagerTopComponent extends TopComponent {
         }
 
         return valid;
+    }
+
+    private String giveMaxString(int maximo) {
+       String cadena;       
+         DecimalFormat format = new DecimalFormat("000000");
+         cadena=format.format(maximo);  
+       return cadena;
     }
 }
