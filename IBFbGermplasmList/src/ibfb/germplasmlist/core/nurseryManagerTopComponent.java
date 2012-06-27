@@ -1353,7 +1353,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void saveList(int option) {//0=croos  1= bcid
+    private void saveList() {
 
         changeCursorWaitStatus(true);
 
@@ -1373,16 +1373,9 @@ public final class nurseryManagerTopComponent extends TopComponent {
 
         int desig = 0;
 
-        switch (option) {
-            case 0://CROSS
-                desig = findColumn("CROSS");
-                listnms.setListtype(Listnms.LIST_TYPE_HARVEST);
-                break;
-            case 1://BCID
-                desig = findColumn("BCID");
-                listnms.setListtype(Listnms.LIST_TYPE_HARVEST);
-                break;
-        }
+        desig = findColumn("CROSS");
+        listnms.setListtype(Listnms.LIST_TYPE_HARVEST);
+
 
 
         int entryCD = findColumn("ENTRY");
@@ -1399,26 +1392,15 @@ public final class nurseryManagerTopComponent extends TopComponent {
 
         for (int i = 0; i < jTableFinalList.getRowCount(); i++) {
             Listdata listdata = new Listdata(true);
+            Listdata listdataBCID = new Listdata(true);
+            
             ListdataPK pk1 = new ListdataPK(listnms.getListid(), 0);
-
             listdata.setListdataPK(pk1);
             listdata.setEntryid(i + 1);
-
-            switch (option) {
-                case 0://CROSS
-                    listdata.setDesig(tempListCross.get(i));
-                    break;
-                case 1://BCID
-                    if (desig > 0) {
-                        listdata.setDesig(this.jTableFinalList.getValueAt(i, desig).toString());
-                    } else {
-                        listdata.setDesig("");
-
-                        break;
-                    }
-
-
-            }
+            
+            listdata.setDesig(tempListCross.get(i));
+                   
+      
             if (entryCD > 0) {
                 listdata.setEntrycd(this.jTableFinalList.getValueAt(i, entryCD).toString());
             } else {
@@ -1452,8 +1434,70 @@ public final class nurseryManagerTopComponent extends TopComponent {
             listdata.setGpid1(gpdi1);
             listdata.setGpid2(gpdi2);
             dataList.add(listdata);
-
+   
         }
+        
+        
+              int bcidColumn = 0;
+              bcidColumn = findColumn("BCID"); 
+          
+              listnms.setListtype(Listnms.LIST_TYPE_HARVEST);
+      
+              
+              
+              //ADD BCID  
+        for (int i = 0; i < jTableFinalList.getRowCount(); i++) {
+            Listdata listdataBCID = new Listdata(true);     
+            ListdataPK pk1 = new ListdataPK(listnms.getListid(), 0);
+  
+            listdataBCID.setListdataPK(pk1);
+            listdataBCID.setEntryid(i + 1);
+
+            
+                    if (bcidColumn > 0) {
+                        listdataBCID.setDesig(this.jTableFinalList.getValueAt(i, bcidColumn).toString());
+                    } else {
+                        listdataBCID.setDesig("");
+
+                        break;
+                    }
+
+            if (entryCD > 0) {
+                listdataBCID.setEntrycd(this.jTableFinalList.getValueAt(i, entryCD).toString());
+            } else {
+                listdataBCID.setEntrycd("");
+            }
+
+            if (source > 0) {
+                listdataBCID.setSource(this.jTableFinalList.getValueAt(i, source).toString());
+            } else {
+                //   d1.setSource("SOURC1");
+            }
+
+            listdataBCID.setGrpname("-");
+            listdataBCID.setLrstatus(0);
+
+            if (gid > 0) {
+                listdataBCID.setGid(Integer.parseInt(jTableFinalList.getValueAt(i, gid).toString()));
+            } else {
+                listdataBCID.setGid(0);
+            }
+
+
+            listdataBCID.setMethodId(selectedMethodId);
+            listdataBCID.setGnpgs(numberOfParents);
+
+            // assign parents
+            Integer gpdi1 = ConvertUtils.getValueAsInteger(jTableFinalList.getValueAt(i, fgidcol));
+            Integer gpdi2 = ConvertUtils.getValueAsInteger(jTableFinalList.getValueAt(i, mgidcol));
+
+            listdataBCID.setGpid1(gpdi1);
+            listdataBCID.setGpid2(gpdi2);
+            dataList.add(listdataBCID);
+   
+        }
+        
+
         
         Integer loggedUserid = AppServicesProxy.getDefault().appServices().getLoggedUserId(FieldbookSettings.getLocalGmsUserId());
         AppServicesProxy.getDefault().appServices().addNewsGermplasm(listnms, dataList, loggedUserid);
@@ -2036,7 +2080,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
                 
                 
                 int maximo=gs.getMax()+gms;
-                String maxString=giveMaxString(maximo);
+                String maxString=giveMaxString(maximo)+"S";
                 
                 
                 modelo.setRowCount(gms);
@@ -2191,8 +2235,8 @@ public final class nurseryManagerTopComponent extends TopComponent {
         NotifyDescriptor d = new NotifyDescriptor.Confirmation("Do you want to save the germplasm list?", "Save final list",
                 NotifyDescriptor.OK_CANCEL_OPTION);
         if (DialogDisplayer.getDefault().notify(d) == NotifyDescriptor.OK_OPTION) {
-            saveList(0);//cross
-            saveList(1);//bcid
+            saveList();//cross
+           
             NotifyDescriptor d2 = new NotifyDescriptor.Message("Your list was saved!", NotifyDescriptor.INFORMATION_MESSAGE);
             DialogDisplayer.getDefault().notify(d2);
             this.jTextFieldDescription.setText("");
