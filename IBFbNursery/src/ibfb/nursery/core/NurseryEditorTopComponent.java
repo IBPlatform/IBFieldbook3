@@ -289,25 +289,23 @@ public final class NurseryEditorTopComponent extends TopComponent {
         return selection;
 
     }
-    
-        private boolean selectionValue(int i, int colSelection, ObservationsTableModel modelo) {
 
-        boolean isValid=false;
+    private boolean selectionValue(int i, int colSelection, ObservationsTableModel modelo) {
+
+        boolean isValid = false;
         try {
             //int value = Integer.parseInt(modelo.getValueAt(i, colSelection).toString());
             int value = ConvertUtils.getValueAsInteger(modelo.getValueAt(i, colSelection).toString());
-            isValid=true;
+            isValid = true;
 
         } catch (Exception e) {
 
-            isValid=false;
+            isValid = false;
         }
 
         return isValid;
 
     }
-    
-    
 
     private boolean hayValoresParaProcesar(ObservationsTableModel modelo, int colSelection) {
         boolean hayValores = false;
@@ -1707,7 +1705,7 @@ public final class NurseryEditorTopComponent extends TopComponent {
             return;
         }
 
-        if (! studyAlreadyExists && nurseryNameAlreadyExists(jTextFieldNurseryName.getText().trim())) {
+        if (!studyAlreadyExists && nurseryNameAlreadyExists(jTextFieldNurseryName.getText().trim())) {
             String message = NbBundle.getMessage(NurseryEditorTopComponent.class, "NurseryEditorTopComponent.nurseryNameAlreadyExists");
             DialogUtil.displayError(message);
             return;
@@ -1814,7 +1812,7 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
             AdvanceWizardIterator.breedingMethod = getSelectedBreedingMethod();
 
             if (DialogDisplayer.getDefault().notify(wiz) == WizardDescriptor.FINISH_OPTION) {
-                int methodIndex = Integer.parseInt(NbPreferences.forModule(AdvanceWizardPanel1.class).get("methodIndex", "0"));
+                int convention = Integer.parseInt(NbPreferences.forModule(AdvanceWizardPanel1.class).get("methodIndex", "0"));
                 int samples = Integer.parseInt(NbPreferences.forModule(AdvanceWizardPanel1.class).get("samples", "1"));
                 int samplesMethod = Integer.parseInt(NbPreferences.forModule(AdvanceWizardPanel1.class).get("samplesMethod", "0"));
                 int methodId = NbPreferences.forModule(AdvanceWizardPanel1.class).getInt("MethodId", 0);
@@ -1823,8 +1821,8 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
                 String locationAbbr = NbPreferences.forModule(AdvanceWizardPanel1.class).get("LAbbr", "");
                 int numberOfParents = NbPreferences.forModule(AdvanceWizardPanel1.class).getInt("NumberOfParents", 0);
 
-                metodos.setConvention(methodIndex);
-                //if (methodIndex > 0) {
+                metodos.setConvention(convention);
+                //if (convection > 0) {
                 metodos.setSuffix(locationAbbr);
                 //}
                 //else{
@@ -1834,16 +1832,16 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
                  * Source with all GID from measurement tab
                  */
                 List<Integer> sourceGidList = new ArrayList<Integer>();
-                                                              
+
                 List<GermplasmSearch> listToSearchBCID = new ArrayList<GermplasmSearch>();
-                    
+
                 AdvanceLineTopComponent advanceEditor = new AdvanceLineTopComponent();
                 advanceEditor.setMethodId(methodId);
                 advanceEditor.setLocationId(locationId);
                 advanceEditor.setHarvestDate(harvestDate);
                 advanceEditor.setNurseryName(jTextFieldNurseryName.getText());
                 advanceEditor.setNumberOfParents(numberOfParents);
-                
+
                 advanceEditor.clearEntries();
 
 
@@ -1880,8 +1878,7 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
                     }
 
 
-
-                    if (methodIndex > 0) {//PARA TRIGO PUEDE EXISTIR 0 Y VALORES NEGATIVOS
+                    if (convention > 0) {//PARA TRIGO PUEDE EXISTIR 0 Y VALORES NEGATIVOS
                         if (!hayValoresParaProcesar(modelo, colSelection)) {
                             String msgSaving = "THERE ARE NOT VALID VALUES IN PLANTS SELECTED COLUMN";
                             NotifyDescriptor d = new NotifyDescriptor.Message(msgSaving, NotifyDescriptor.ERROR_MESSAGE);
@@ -1893,32 +1890,24 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
 
                 int contador = 0;
                 boolean thereIsValue = false;
-                
-                org.cimmyt.cril.ibwb.domain.Study estudio=AppServicesProxy.getDefault().appServices().getStudyByName(jTextFieldStudy.getText());
-                int currentStudy=estudio.getStudyid();
-                          
-                for (int i = 0; i < tableModel.getRowCount(); i++) {      
-                GermplasmSearch gsF = new GermplasmSearch();     
-                gsF.setStudyId(40165);  
-               // gsF.setStudyId(currentStudy);
-                gsF.setTrial(1); //BECAUSE THIS IS A NURSERY
-                gsF.setPlot(ConvertUtils.getValueAsInteger(germplasmData.get(i).get(colEntry)));                
-                listToSearchBCID.add(gsF);                     
+
+                org.cimmyt.cril.ibwb.domain.Study estudio = AppServicesProxy.getDefault().appServices().getStudyByName(jTextFieldStudy.getText());
+                int currentStudy = estudio.getStudyid();
+
+                for (int i = 0; i < tableModel.getRowCount(); i++) {
+                    GermplasmSearch gsF = new GermplasmSearch();
+                    gsF.setStudyId(40165);
+                    // gsF.setStudyId(currentStudy);
+                    gsF.setTrial(1); //BECAUSE THIS IS A NURSERY
+                    gsF.setPlot(ConvertUtils.getValueAsInteger(germplasmData.get(i).get(colEntry)));
+                    listToSearchBCID.add(gsF);
                 }
 
                 List<GermplasmSearch> germplasmSearchs = AppServicesProxy.getDefault().appServices().getGermplasmByListStudyTrialPlotCross(listToSearchBCID, new ArrayList());
-    
+
                 for (GermplasmSearch gs : germplasmSearchs) {
                     System.out.println("DESIG: " + gs.getNames().getNval() + "     BCID:" + gs.getBcid() + "    GID: " + gs.getNames().getGid());
                 }
-
-                
-                
-//                int t = 8;
-//                if (t > 7) {
-//                    return;
-//                }
-
 
 
                 for (int i = 0; i < tableModel.getRowCount(); i++) {
@@ -1929,13 +1918,21 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
 
                     if (samplesMethod == 0) {
                         //data = metodos.giveMeDataDerivative(nuevo[colDesig].toString(), samples);
-                       // data = metodos.giveMeDataDerivative(germplasmSearchs.get(i).getNames().getNval(), samples);
-                        data = metodos.giveMeDataDerivative(germplasmSearchs.get(i).getBcid(), samples);
-                        
+                        // data = metodos.giveMeDataDerivative(germplasmSearchs.get(i).getNames().getNval(), samples);
+
+
+                        if (convention == 0) {//WHEAT
+                            data = metodos.giveMeDataDerivative(germplasmSearchs.get(i).getBcid(), samples);
+                        } else {
+
+                            data = metodos.giveMeDataDerivative(nuevo[colDesig].toString(), samples);
+                        }
+
+
 
                     } else {
 
-                        if (methodIndex == 0) {
+                        if (convention == 0) {
                             thereIsValue = selectionValue(i, colSelection, modelo);
                             if (!thereIsValue) {
                                 continue;
@@ -1944,14 +1941,20 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
 
                         samples = giveMeSelectionValue(i, colSelection, modelo);
 
-                        if (samples <= 0 && methodIndex > 0) {
+                        if (samples <= 0 && convention > 0) {
 
                             continue;
                         }
 
-                      //  data = metodos.giveMeDataDerivative(nuevo[colDesig].toString(), samples);
-                        
-                        data = metodos.giveMeDataDerivative(germplasmSearchs.get(i).getBcid(), samples);
+                        //  data = metodos.giveMeDataDerivative(nuevo[colDesig].toString(), samples);
+
+                        if (convention == 0) {//WHEAT
+                            data = metodos.giveMeDataDerivative(germplasmSearchs.get(i).getBcid(), samples);
+                        } else {
+                            data = metodos.giveMeDataDerivative(nuevo[colDesig].toString(), samples);
+                        }
+
+
                     }
 
                     for (int j = 0; j < data.size(); j++) {
@@ -1984,7 +1987,7 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
                 // assign source gid sources to advanceeditor
                 advanceEditor.setSourceGidList(sourceGidList);
                 advanceEditor.setListToSearchBCID(listToSearchBCID);
-                
+
                 advanceEditor.assignGermplasmEntries(factores, germplasmDataAdvance);
                 advanceEditor.open();
                 advanceEditor.setName(this.getName() + " F1");
@@ -1995,14 +1998,14 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
 
     }//GEN-LAST:event_jButtonAdvanceActionPerformed
 
-    private void checkAdvanceStatus(){
-        if(this.jButtonSaveNursery.isEnabled()){
-          this.jButtonAdvance.setEnabled(false);  
-        }else{
-            this.jButtonAdvance.setEnabled(true);  
+    private void checkAdvanceStatus() {
+        if (this.jButtonSaveNursery.isEnabled()) {
+            this.jButtonAdvance.setEnabled(false);
+        } else {
+            this.jButtonAdvance.setEnabled(true);
         }
     }
-    
+
     private List<Factor> addColumnsForInventory(List<Factor> factores) {
         List<Factor> losFactores = factores;
 
@@ -2032,7 +2035,7 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
     }//GEN-LAST:event_jTableEntriesPropertyChange
 
     private void jButtonCopyGIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCopyGIDActionPerformed
-       
+
         GermplasmEntriesTableModel entriesTableModel = (GermplasmEntriesTableModel) this.jTableEntries.getModel();
         int colGID = entriesTableModel.findColumn("GID");
         if (colGID > 0) {
@@ -2057,9 +2060,9 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
     }//GEN-LAST:event_jButtonCopyGIDActionPerformed
 
     private void jButtonImportCrossInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonImportCrossInfoActionPerformed
-        
-        ImportData importData = new ImportData(jTableEntries);        
-     
+
+        ImportData importData = new ImportData(jTableEntries);
+
         FileFilter[] filtros = new FileFilter[10];
         filtros = selectorArchivo.getChoosableFileFilters();
         for (int i = 0; i < filtros.length; i++) {
@@ -2070,14 +2073,14 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
         selectorArchivo.setSelectedFile(archivoNulo);
         selectorArchivo.setFileSelectionMode(JFileChooser.FILES_ONLY);
         selectorArchivo.addChoosableFileFilter(new ExcelFiltro());
-            
-  
+
+
         int resultado = selectorArchivo.showOpenDialog(null);
         if (resultado == JFileChooser.CANCEL_OPTION) {
             return;
-        }        
+        }
         importData.importFromCrossInfoToGermplasm(selectorArchivo.getSelectedFile());
-        
+
     }//GEN-LAST:event_jButtonImportCrossInfoActionPerformed
 
     public void enabledAdvance(boolean estado) {
