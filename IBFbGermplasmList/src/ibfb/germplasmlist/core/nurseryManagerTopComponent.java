@@ -1367,6 +1367,9 @@ public final class nurseryManagerTopComponent extends TopComponent {
         listnms.setListdesc(this.jTextFieldDescription.getText());
         listnms.setLhierarchy(0);
         listnms.setListstatus(1);
+        
+       
+        
        
         AppServicesProxy.getDefault().appServices().addListnms(listnms);
         List<Listdata> dataList = new ArrayList<Listdata>();
@@ -1374,9 +1377,8 @@ public final class nurseryManagerTopComponent extends TopComponent {
         int desig = 0;
 
         desig = findColumn("CROSS");
+                
         listnms.setListtype(Listnms.LIST_TYPE_HARVEST);
-
-
 
         int entryCD = findColumn("ENTRY");
         int source = findColumn("FDESIG");
@@ -1399,6 +1401,8 @@ public final class nurseryManagerTopComponent extends TopComponent {
             listdata.setEntryid(i + 1);
             
             listdata.setDesig(tempListCross.get(i));
+            
+            
                    
       
             if (entryCD > 0) {
@@ -1439,8 +1443,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
         
         
               int bcidColumn = 0;
-              bcidColumn = findColumn("BCID"); 
-          
+              bcidColumn = findColumn("BCID");           
               listnms.setListtype(Listnms.LIST_TYPE_HARVEST);
       
               
@@ -1526,7 +1529,6 @@ public final class nurseryManagerTopComponent extends TopComponent {
         } catch (NullPointerException ex) {
             myCol = 0;
         }
-
         return myCol;
     }
 
