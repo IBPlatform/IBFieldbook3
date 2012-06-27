@@ -21,12 +21,14 @@ import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 import org.cimmyt.cril.ibwb.commongui.NumericKeyAdapter;
 import org.cimmyt.cril.ibwb.domain.Listnms;
 import org.cimmyt.cril.ibwb.domain.Scales;
+import org.cimmyt.cril.ibwb.domain.Traits;
 import org.cimmyt.cril.ibwb.domain.inventory.InventoryData;
 import org.netbeans.api.settings.ConvertAsProperties;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
+import org.openide.util.NbBundle;
 import org.openide.windows.TopComponent;
 import org.openide.util.NbBundle.Messages;
 import org.openide.util.NbPreferences;
@@ -783,5 +785,28 @@ public final class InventoryTopComponent extends TopComponent {
         for (Scales inventoryScale: seedStockScales) {
             dcbm.addElement(inventoryScale);
         }
+    }
+    
+    public boolean validateSeedStockTrait() {
+        boolean seedStockExists = false;
+         Traits seedStockTrait = new Traits(true);
+        
+        seedStockTrait.setTrname(InventoryData.TRAIT_SEED_STOCK_TRNAME);
+        seedStockTrait.setTrabbr(InventoryData.TRAIT_SEED_STOCK_TRABBR);
+        seedStockTrait.setTrdesc(InventoryData.TRAIT_SEED_STOCK_TRDESC);
+        seedStockTrait.setTnstat(InventoryData.TRAIT_SEED_STOCK_TNSTAT);
+        seedStockTrait.setTraitGroup(InventoryData.TRAIT_SEED_STOCK_TRAITGROUP);
+        seedStockTrait.setOntology(InventoryData.TRAIT_SEED_STOCK_ONTOLOGY);
+        seedStockTrait.setTraittype(InventoryData.TRAIT_SEED_STOCK_TRAITTYPE);
+        
+        List<Traits> traitList = AppServicesProxy.getDefault().appServices().getListTraits(seedStockTrait, 0, 0, false);
+        
+        seedStockExists = ! traitList.isEmpty();
+        
+        if (! seedStockExists) {
+            DialogUtil.displayError(NbBundle.getMessage(InventoryTopComponent.class, "traitSeedStockDontExist"));
+        }
+        
+        return seedStockExists;
     }
 }

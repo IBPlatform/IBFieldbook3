@@ -361,6 +361,9 @@ public final class AdvanceLineTopComponent extends TopComponent {
             inventario.setDescription(this.jTextFieldDescription.getText());
             inventario.setListToSave(recentSavedList);
 
+            if (! inventario.validateSeedStockTrait()) {
+                return;
+            }   
             inventario.open();
             inventario.setName(this.getName() + " INVENTORY");
             inventario.requestActive();

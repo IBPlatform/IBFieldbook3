@@ -81,8 +81,12 @@ public class ExcelNurseryReader {
                 return;
             }
             ArrayList traits = readVariates(rowVariate);
-            int colEntry = findCol("ENTRY");
-            int colPlot = findCol("PLOT");
+            
+            String entryLabel = observationsModel.getEntryLabel();
+            String plotLabel = observationsModel.getPlotLabel();
+            
+            int colEntry = findCol(entryLabel);
+            int colPlot = findCol(plotLabel);
 
             if (!validaObservationSecciones(colEntry, colPlot)) {
                 log.info("Error en el template. Sheet observations. Mal formato");
@@ -227,9 +231,10 @@ public class ExcelNurseryReader {
             return;
         }
 
-
-        obsEntry = observationsModel.findColumn("ENTRY");
-        obsPlot = observationsModel.findColumn("PLOT");
+        String entryLabel = observationsModel.getEntryLabel();
+        String plotLabel = observationsModel.getPlotLabel();
+        obsEntry = observationsModel.findColumn(entryLabel);
+        obsPlot = observationsModel.findColumn(plotLabel);
 
 
         for (int i = 0; i < traits.size(); i++) {//columnas

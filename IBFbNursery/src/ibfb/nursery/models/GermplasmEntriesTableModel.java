@@ -14,6 +14,7 @@ public class GermplasmEntriesTableModel extends AbstractTableModel {
     public static final String ENTRY_CODE = "GERMPLASMENTRYCODE";
     public static final String DESIG = "GERMPLASMIDDBCV";
     public static final String GID = "GERMPLASMIDDBID";
+    public static final String PLOT = "FIELDPLOTNUMBER";
   //  public static final String BCID = "GERMPLASMBCIDDBID";
     private boolean hasChecks = false;
     private List<Factor> factorHeaders;
@@ -288,4 +289,26 @@ public class GermplasmEntriesTableModel extends AbstractTableModel {
         }
         return columnIndex;
     }
+    
+    public String getEntryLabel() {
+        String entryLabel = "ENTRY";
+        for (Factor factor: factorHeaders) {
+            if (Workbook.getStringWithOutBlanks(factor.getProperty()+factor.getScale()).equals(ENTRY))  {
+                entryLabel = factor.getFactorName();
+                break;
+            }
+        }
+        return entryLabel;
+    }
+    
+    public String getPlotLabel() {
+        String plotLabel = "PLOT";
+        for (Factor factor: factorHeaders) {
+            if (Workbook.getStringWithOutBlanks(factor.getProperty()+factor.getScale()).equals(PLOT))  {
+                plotLabel = factor.getFactorName();
+                break;
+            }
+        }
+        return plotLabel;
+    }    
 }

@@ -378,4 +378,20 @@ public class ObservationsTableModel extends AbstractTableModel {
 
         return dataType;
     }
+    
+ public String getEntryLabel() {
+        String entryLabel = "ENTRY";
+        if (workbook != null) {
+            return workbook.getEntryLabel();
+        }
+        return entryLabel;
+    }
+    
+    public String getPlotLabel() {
+        String plotLabel = "PLOT";
+        if (workbook != null) {
+            return workbook.getPlotLabel();
+        }
+        return plotLabel;
+    }      
 }

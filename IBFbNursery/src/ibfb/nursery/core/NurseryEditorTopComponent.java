@@ -2004,7 +2004,7 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
     }//GEN-LAST:event_jButtonAdvanceActionPerformed
 
     private void checkAdvanceStatus() {
-        if (this.jButtonSaveNursery.isEnabled()) {
+        if (this.jTextFieldNurseryName.isEnabled()) {
             this.jButtonAdvance.setEnabled(false);
         } else {
             this.jButtonAdvance.setEnabled(true);
