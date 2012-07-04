@@ -55,19 +55,19 @@ public class JDNewOptions extends javax.swing.JDialog {
         jButtonOK = new javax.swing.JButton();
         jButtonCancel = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButtonNursery = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
-        jRadioButton6 = new javax.swing.JRadioButton();
+        jRadioTrial = new javax.swing.JRadioButton();
+        jRadioNursery = new javax.swing.JRadioButton();
+        jRadioClimate = new javax.swing.JRadioButton();
+        jRadioSite = new javax.swing.JRadioButton();
+        jRadioLabel = new javax.swing.JRadioButton();
+        jRadioSurvey = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        lblCreateNew = new javax.swing.JLabel();
+        pnlMode = new javax.swing.JPanel();
         jRadioWizard = new javax.swing.JRadioButton();
         jRadioButtonExpert = new javax.swing.JRadioButton();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        lblWizardIcon = new javax.swing.JLabel();
+        lblQuickIcon = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle(org.openide.util.NbBundle.getMessage(JDNewOptions.class, "JDNewOptions.title")); // NOI18N
@@ -120,51 +120,51 @@ public class JDNewOptions extends javax.swing.JDialog {
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel2.setMaximumSize(new java.awt.Dimension(627, 215));
 
-        buttonGroupOption.add(jRadioButton1);
-        jRadioButton1.setFont(new java.awt.Font("Lucida Grande", 0, 24));
-        jRadioButton1.setSelected(true);
-        jRadioButton1.setText(org.openide.util.NbBundle.getMessage(JDNewOptions.class, "JDNewOptions.jRadioButton1.text_1")); // NOI18N
-        jRadioButton1.addItemListener(new java.awt.event.ItemListener() {
+        buttonGroupOption.add(jRadioTrial);
+        jRadioTrial.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        jRadioTrial.setSelected(true);
+        jRadioTrial.setText(org.openide.util.NbBundle.getMessage(JDNewOptions.class, "JDNewOptions.jRadioTrial.text_1")); // NOI18N
+        jRadioTrial.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jRadioButton1ItemStateChanged(evt);
+                jRadioTrialItemStateChanged(evt);
             }
         });
 
-        buttonGroupOption.add(jRadioButtonNursery);
-        jRadioButtonNursery.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        jRadioButtonNursery.setText(org.openide.util.NbBundle.getMessage(JDNewOptions.class, "JDNewOptions.jRadioButtonNursery.text_1")); // NOI18N
-        jRadioButtonNursery.addItemListener(new java.awt.event.ItemListener() {
+        buttonGroupOption.add(jRadioNursery);
+        jRadioNursery.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        jRadioNursery.setText(org.openide.util.NbBundle.getMessage(JDNewOptions.class, "JDNewOptions.jRadioNursery.text_1")); // NOI18N
+        jRadioNursery.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jRadioButtonNurseryItemStateChanged(evt);
+                jRadioNurseryItemStateChanged(evt);
             }
         });
 
-        buttonGroupOption.add(jRadioButton3);
-        jRadioButton3.setFont(new java.awt.Font("Lucida Grande", 0, 24));
-        jRadioButton3.setText(org.openide.util.NbBundle.getMessage(JDNewOptions.class, "JDNewOptions.jRadioButton3.text_1")); // NOI18N
-        jRadioButton3.setEnabled(false);
+        buttonGroupOption.add(jRadioClimate);
+        jRadioClimate.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        jRadioClimate.setText(org.openide.util.NbBundle.getMessage(JDNewOptions.class, "JDNewOptions.jRadioClimate.text_1")); // NOI18N
+        jRadioClimate.setEnabled(false);
 
-        buttonGroupOption.add(jRadioButton4);
-        jRadioButton4.setFont(new java.awt.Font("Lucida Grande", 0, 24));
-        jRadioButton4.setText(org.openide.util.NbBundle.getMessage(JDNewOptions.class, "JDNewOptions.jRadioButton4.text_1")); // NOI18N
-        jRadioButton4.setEnabled(false);
+        buttonGroupOption.add(jRadioSite);
+        jRadioSite.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        jRadioSite.setText(org.openide.util.NbBundle.getMessage(JDNewOptions.class, "JDNewOptions.jRadioSite.text_1")); // NOI18N
+        jRadioSite.setEnabled(false);
 
-        buttonGroupOption.add(jRadioButton5);
-        jRadioButton5.setFont(new java.awt.Font("Lucida Grande", 0, 24));
-        jRadioButton5.setText(org.openide.util.NbBundle.getMessage(JDNewOptions.class, "JDNewOptions.jRadioButton5.text_1")); // NOI18N
-        jRadioButton5.setEnabled(false);
+        buttonGroupOption.add(jRadioLabel);
+        jRadioLabel.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        jRadioLabel.setText(org.openide.util.NbBundle.getMessage(JDNewOptions.class, "JDNewOptions.jRadioLabel.text_1")); // NOI18N
+        jRadioLabel.setEnabled(false);
 
-        buttonGroupOption.add(jRadioButton6);
-        jRadioButton6.setFont(new java.awt.Font("Lucida Grande", 0, 24));
-        jRadioButton6.setText(org.openide.util.NbBundle.getMessage(JDNewOptions.class, "JDNewOptions.jRadioButton6.text_1")); // NOI18N
-        jRadioButton6.setEnabled(false);
+        buttonGroupOption.add(jRadioSurvey);
+        jRadioSurvey.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        jRadioSurvey.setText(org.openide.util.NbBundle.getMessage(JDNewOptions.class, "JDNewOptions.jRadioSurvey.text_1")); // NOI18N
+        jRadioSurvey.setEnabled(false);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyexplorer/images/agricultura.png"))); // NOI18N
         jLabel1.setText(org.openide.util.NbBundle.getMessage(JDNewOptions.class, "JDNewOptions.jLabel1.text_1")); // NOI18N
 
-        jLabel2.setText(org.openide.util.NbBundle.getMessage(JDNewOptions.class, "JDNewOptions.jLabel2.text_1")); // NOI18N
+        lblCreateNew.setText(org.openide.util.NbBundle.getMessage(JDNewOptions.class, "JDNewOptions.lblCreateNew.text_1")); // NOI18N
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(JDNewOptions.class, "JDNewOptions.jPanel1.border.title_1"))); // NOI18N
+        pnlMode.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(JDNewOptions.class, "JDNewOptions.pnlMode.border.title_1"))); // NOI18N
 
         buttonGroupWizardMode.add(jRadioWizard);
         jRadioWizard.setSelected(true);
@@ -178,36 +178,36 @@ public class JDNewOptions extends javax.swing.JDialog {
             }
         });
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyexplorer/images/newTrial24.png"))); // NOI18N
-        jLabel3.setText(org.openide.util.NbBundle.getMessage(JDNewOptions.class, "JDNewOptions.jLabel3.text")); // NOI18N
+        lblWizardIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyexplorer/images/newTrial24.png"))); // NOI18N
+        lblWizardIcon.setText(org.openide.util.NbBundle.getMessage(JDNewOptions.class, "JDNewOptions.lblWizardIcon.text")); // NOI18N
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyexplorer/images/clock24.png"))); // NOI18N
-        jLabel4.setText(org.openide.util.NbBundle.getMessage(JDNewOptions.class, "JDNewOptions.jLabel4.text")); // NOI18N
+        lblQuickIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyexplorer/images/clock24.png"))); // NOI18N
+        lblQuickIcon.setText(org.openide.util.NbBundle.getMessage(JDNewOptions.class, "JDNewOptions.lblQuickIcon.text")); // NOI18N
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlModeLayout = new javax.swing.GroupLayout(pnlMode);
+        pnlMode.setLayout(pnlModeLayout);
+        pnlModeLayout.setHorizontalGroup(
+            pnlModeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlModeLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel3))
+                .addGroup(pnlModeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblQuickIcon)
+                    .addComponent(lblWizardIcon))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlModeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jRadioButtonExpert)
                     .addComponent(jRadioWizard))
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pnlModeLayout.setVerticalGroup(
+            pnlModeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlModeLayout.createSequentialGroup()
+                .addGroup(pnlModeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jRadioWizard)
-                    .addComponent(jLabel3))
+                    .addComponent(lblWizardIcon))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
+                .addGroup(pnlModeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblQuickIcon)
                     .addComponent(jRadioButtonExpert))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -221,18 +221,18 @@ public class JDNewOptions extends javax.swing.JDialog {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(43, 43, 43)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton4)
-                            .addComponent(jRadioButton5)
-                            .addComponent(jRadioButton3)
-                            .addComponent(jRadioButtonNursery)
-                            .addComponent(jRadioButton1)
-                            .addComponent(jRadioButton6)))
+                            .addComponent(jRadioSite)
+                            .addComponent(jRadioLabel)
+                            .addComponent(jRadioClimate)
+                            .addComponent(jRadioNursery)
+                            .addComponent(jRadioTrial)
+                            .addComponent(jRadioSurvey)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel2)))
+                        .addComponent(lblCreateNew)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlMode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1))
                 .addContainerGap())
         );
@@ -244,21 +244,21 @@ public class JDNewOptions extends javax.swing.JDialog {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(pnlMode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                        .addComponent(lblCreateNew)
                         .addGap(20, 20, 20)
-                        .addComponent(jRadioButton1)
+                        .addComponent(jRadioTrial)
                         .addGap(18, 18, 18)
-                        .addComponent(jRadioButtonNursery)
+                        .addComponent(jRadioNursery)
                         .addGap(18, 18, 18)
-                        .addComponent(jRadioButton3)
+                        .addComponent(jRadioClimate)
                         .addGap(19, 19, 19)
-                        .addComponent(jRadioButton4)
+                        .addComponent(jRadioSite)
                         .addGap(18, 18, 18)
-                        .addComponent(jRadioButton5)
+                        .addComponent(jRadioLabel)
                         .addGap(18, 18, 18)
-                        .addComponent(jRadioButton6)))
+                        .addComponent(jRadioSurvey)))
                 .addContainerGap())
         );
 
@@ -270,7 +270,7 @@ public class JDNewOptions extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 633, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -293,13 +293,13 @@ public class JDNewOptions extends javax.swing.JDialog {
     public void setOption(int option){
         switch (option) {
             case 0://TRIAL
-               this.jRadioButton1.setSelected(true);
+               this.jRadioTrial.setSelected(true);
                this.jButtonOK.requestFocusInWindow();
                 break;
                 
             case 1: //NURSERY
                 
-                 this.jRadioButtonNursery.setSelected(true);
+                 this.jRadioNursery.setSelected(true);
                  this.jButtonOK.requestFocusInWindow();
                 break;
                 
@@ -437,17 +437,17 @@ public class JDNewOptions extends javax.swing.JDialog {
     private void jRadioButtonExpertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonExpertActionPerformed
     }//GEN-LAST:event_jRadioButtonExpertActionPerformed
 
-    private void jRadioButtonNurseryItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioButtonNurseryItemStateChanged
-        if (this.jRadioButtonNursery.isSelected()) {
+    private void jRadioNurseryItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioNurseryItemStateChanged
+        if (this.jRadioNursery.isSelected()) {
             this.opcion = 1;
         }
-    }//GEN-LAST:event_jRadioButtonNurseryItemStateChanged
+    }//GEN-LAST:event_jRadioNurseryItemStateChanged
 
-    private void jRadioButton1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioButton1ItemStateChanged
-        if (this.jRadioButton1.isSelected()) {
+    private void jRadioTrialItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioTrialItemStateChanged
+        if (this.jRadioTrial.isSelected()) {
             this.opcion = 0;
         }
-    }//GEN-LAST:event_jRadioButton1ItemStateChanged
+    }//GEN-LAST:event_jRadioTrialItemStateChanged
 
     private void defineControles(boolean state) {
         jRadioWizard.setEnabled(state);
@@ -459,20 +459,20 @@ public class JDNewOptions extends javax.swing.JDialog {
     private javax.swing.JButton jButtonCancel;
     private javax.swing.JButton jButtonOK;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JRadioButton jRadioButton6;
     private javax.swing.JRadioButton jRadioButtonExpert;
-    private javax.swing.JRadioButton jRadioButtonNursery;
+    private javax.swing.JRadioButton jRadioClimate;
+    private javax.swing.JRadioButton jRadioLabel;
+    private javax.swing.JRadioButton jRadioNursery;
+    private javax.swing.JRadioButton jRadioSite;
+    private javax.swing.JRadioButton jRadioSurvey;
+    private javax.swing.JRadioButton jRadioTrial;
     private javax.swing.JRadioButton jRadioWizard;
+    private javax.swing.JLabel lblCreateNew;
+    private javax.swing.JLabel lblQuickIcon;
+    private javax.swing.JLabel lblWizardIcon;
+    private javax.swing.JPanel pnlMode;
     // End of variables declaration//GEN-END:variables
 
     @SuppressWarnings("unchecked")

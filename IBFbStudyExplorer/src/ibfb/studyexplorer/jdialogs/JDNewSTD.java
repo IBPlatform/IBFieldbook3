@@ -4,6 +4,7 @@ import ibfb.domain.core.Study;
 import ibfb.studyexplorer.explorer.StudyExplorerTopComponent;
 import ibfb.ui.core.JDExpert;
 import java.awt.event.KeyEvent;
+import java.util.ResourceBundle;
 import javax.swing.InputVerifier;
 import javax.swing.JComponent;
 import javax.swing.event.DocumentEvent;
@@ -21,6 +22,7 @@ import org.openide.util.NbBundle;
 import org.openide.windows.WindowManager;
 
 public class JDNewSTD extends javax.swing.JDialog {
+    private ResourceBundle bundle = NbBundle.getBundle(JDNewSTD.class);
 
     final static String badchars = "`~!@#$%^&*()_+=\\|\"':;?/>.<, ";
     ValidationGroup group = null;
@@ -74,17 +76,17 @@ public class JDNewSTD extends javax.swing.JDialog {
 
         jPanel1 = new javax.swing.JPanel();
         jTextFieldStudy = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lblStudyTitle = new javax.swing.JLabel();
+        lblStudyName = new javax.swing.JLabel();
         jTextFieldTitle = new javax.swing.JTextField();
         jTextFieldObjective = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
+        lblObjective = new javax.swing.JLabel();
         validationPanel1 = new org.netbeans.validation.api.ui.ValidationPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        lblStudyNumericKey = new javax.swing.JLabel();
+        lblEndDate = new javax.swing.JLabel();
+        lblStarDate = new javax.swing.JLabel();
+        lblStudyType = new javax.swing.JLabel();
         jTextFieldPMKey = new javax.swing.JTextField();
         jComboBoxStudyType = new javax.swing.JComboBox();
         jDateChooserStart = new com.toedter.calendar.JDateChooser();
@@ -110,9 +112,9 @@ public class JDNewSTD extends javax.swing.JDialog {
             }
         });
 
-        jLabel10.setText(org.openide.util.NbBundle.getMessage(JDNewSTD.class, "JDNewSTD.jLabel10.text")); // NOI18N
+        lblStudyTitle.setText(org.openide.util.NbBundle.getMessage(JDNewSTD.class, "JDNewSTD.lblStudyTitle.text")); // NOI18N
 
-        jLabel3.setText(org.openide.util.NbBundle.getMessage(JDNewSTD.class, "JDNewSTD.jLabel3.text")); // NOI18N
+        lblStudyName.setText(org.openide.util.NbBundle.getMessage(JDNewSTD.class, "JDNewSTD.lblStudyName.text")); // NOI18N
 
         jTextFieldTitle.setText(org.openide.util.NbBundle.getMessage(JDNewSTD.class, "JDNewSTD.jTextFieldTitle.text")); // NOI18N
         jTextFieldTitle.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -128,7 +130,7 @@ public class JDNewSTD extends javax.swing.JDialog {
             }
         });
 
-        jLabel4.setText(org.openide.util.NbBundle.getMessage(JDNewSTD.class, "JDNewSTD.jLabel4.text")); // NOI18N
+        lblObjective.setText(org.openide.util.NbBundle.getMessage(JDNewSTD.class, "JDNewSTD.lblObjective.text")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -137,9 +139,9 @@ public class JDNewSTD extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblStudyName, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblStudyTitle, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblObjective, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(validationPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 481, Short.MAX_VALUE)
@@ -154,15 +156,15 @@ public class JDNewSTD extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldStudy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                    .addComponent(lblStudyName))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10))
+                    .addComponent(lblStudyTitle))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldObjective, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
+                    .addComponent(lblObjective))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(validationPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -170,14 +172,14 @@ public class JDNewSTD extends javax.swing.JDialog {
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel2.setMaximumSize(new java.awt.Dimension(627, 215));
 
-        jLabel11.setText(org.openide.util.NbBundle.getMessage(JDNewSTD.class, "JDNewSTD.jLabel11.text")); // NOI18N
-        jLabel11.setToolTipText(org.openide.util.NbBundle.getMessage(JDNewSTD.class, "JDNewSTD.jLabel11.toolTipText")); // NOI18N
+        lblStudyNumericKey.setText(org.openide.util.NbBundle.getMessage(JDNewSTD.class, "JDNewSTD.lblStudyNumericKey.text")); // NOI18N
+        lblStudyNumericKey.setToolTipText(org.openide.util.NbBundle.getMessage(JDNewSTD.class, "JDNewSTD.lblStudyNumericKey.toolTipText")); // NOI18N
 
-        jLabel7.setText(org.openide.util.NbBundle.getMessage(JDNewSTD.class, "JDNewSTD.jLabel7.text")); // NOI18N
+        lblEndDate.setText(org.openide.util.NbBundle.getMessage(JDNewSTD.class, "JDNewSTD.lblEndDate.text")); // NOI18N
 
-        jLabel6.setText(org.openide.util.NbBundle.getMessage(JDNewSTD.class, "JDNewSTD.jLabel6.text")); // NOI18N
+        lblStarDate.setText(org.openide.util.NbBundle.getMessage(JDNewSTD.class, "JDNewSTD.lblStarDate.text")); // NOI18N
 
-        jLabel9.setText(org.openide.util.NbBundle.getMessage(JDNewSTD.class, "JDNewSTD.jLabel9.text")); // NOI18N
+        lblStudyType.setText(org.openide.util.NbBundle.getMessage(JDNewSTD.class, "JDNewSTD.lblStudyType.text")); // NOI18N
 
         jTextFieldPMKey.setText(org.openide.util.NbBundle.getMessage(JDNewSTD.class, "JDNewSTD.jTextFieldPMKey.text")); // NOI18N
         jTextFieldPMKey.setToolTipText(org.openide.util.NbBundle.getMessage(JDNewSTD.class, "JDNewSTD.jTextFieldPMKey.toolTipText")); // NOI18N
@@ -214,19 +216,16 @@ public class JDNewSTD extends javax.swing.JDialog {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(12, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(lblStarDate, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblEndDate, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblStudyType, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblStudyNumericKey, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldPMKey, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
+                    .addComponent(jTextFieldPMKey)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jDateChooserEnd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -234,29 +233,32 @@ public class JDNewSTD extends javax.swing.JDialog {
                         .addComponent(jComboBoxStudyType, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(91, 91, 91))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(validationPanelDates, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(validationPanelDates, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel6)
+                    .addComponent(lblStarDate)
                     .addComponent(jDateChooserStart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(8, 8, 8)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jDateChooserEnd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(lblEndDate, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBoxStudyType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
+                    .addComponent(lblStudyType))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldPMKey, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11))
+                    .addComponent(lblStudyNumericKey))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(validationPanelDates, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
@@ -416,14 +418,7 @@ public class JDNewSTD extends javax.swing.JDialog {
     private com.toedter.calendar.JDateChooser jDateChooserEnd;
     private com.toedter.calendar.JDateChooser jDateChooserStart;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -431,6 +426,13 @@ public class JDNewSTD extends javax.swing.JDialog {
     public javax.swing.JTextField jTextFieldPMKey;
     public javax.swing.JTextField jTextFieldStudy;
     public javax.swing.JTextField jTextFieldTitle;
+    private javax.swing.JLabel lblEndDate;
+    private javax.swing.JLabel lblObjective;
+    private javax.swing.JLabel lblStarDate;
+    private javax.swing.JLabel lblStudyName;
+    private javax.swing.JLabel lblStudyNumericKey;
+    private javax.swing.JLabel lblStudyTitle;
+    private javax.swing.JLabel lblStudyType;
     private org.netbeans.validation.api.ui.ValidationPanel validationPanel1;
     private org.netbeans.validation.api.ui.ValidationPanel validationPanelDates;
     // End of variables declaration//GEN-END:variables
@@ -537,7 +539,7 @@ public class JDNewSTD extends javax.swing.JDialog {
         boolean correctDates = true;
         int compareResult = jDateChooserStart.getDate().compareTo(jDateChooserEnd.getDate());
         if (compareResult > 0) {
-            String msg = "End Date must be greater than Start Date";
+            String msg = bundle.getString("JDNewSTD.endDateGreaterStartDate");
             
             
 //            int msgType = NotifyDescriptor.ERROR_MESSAGE;
@@ -593,7 +595,7 @@ public class JDNewSTD extends javax.swing.JDialog {
             boolean correctDates = true;
             int compareResult = jDateChooserStart.getDate().compareTo(jDateChooserEnd.getDate());
             if (compareResult > 0) {
-                String msg = "End Date must be greater than Start Date";
+                String msg = bundle.getString("JDNewSTD.endDateGreaterStartDate");
                 correctDates = false;
                 //jDateChooserStart.getDateEditor().getUiComponent().requestFocus();
                 problems.add(msg);

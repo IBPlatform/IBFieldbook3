@@ -4,7 +4,9 @@ package ibfb.studyexplorer.actions;
 
 import ibfb.studyexplorer.jdialogs.JDNewSTD;
 import java.awt.event.ActionEvent;
+import java.util.ResourceBundle;
 import org.openide.util.HelpCtx;
+import org.openide.util.NbBundle;
 import org.openide.util.actions.SystemAction;
 import org.openide.windows.TopComponent;
 import org.openide.windows.WindowManager;
@@ -14,9 +16,11 @@ import org.openide.windows.WindowManager;
  * @author TMSANCHEZ
  */
 public class NewStudyAction extends SystemAction {
+    private ResourceBundle bundle = NbBundle.getBundle(NewStudyAction.class);
       
     public NewStudyAction() {
-        putValue(NAME, "New Study...");
+        
+        putValue(NAME, bundle.getString("NewStudyAction.newStudy"));
     }
     
     
