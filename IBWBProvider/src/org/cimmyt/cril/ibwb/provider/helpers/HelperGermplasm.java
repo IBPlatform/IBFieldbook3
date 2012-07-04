@@ -68,6 +68,34 @@ public class HelperGermplasm {
         }
         return listDatas;
     }
+    
+    public List<Listdata> saveGerplasmCimmytWheat(
+            List<Listdata> listGermplsm,
+            Listnms listnms
+            ){
+        if (listnms.getListid() == null) {
+            appServices.addListnms(listnms);
+        } else if (listnms.getListid() == 0) {
+            appServices.addListnms(listnms);
+        }
+        List<Listdata> listDatas = new ArrayList<Listdata>(0);
+        for (Listdata listdataT : listGermplsm) {
+
+            listdataT.setListdataPK(new ListdataPK(listnms.getListid(), 0));
+
+            String nameGermplasm = listdataT.getDesig();//----------------------->Definir cual es el nombre History
+            String nameGermplasmBCID = listdataT.getNameBCID();//----------------------->Definir cual es el nombre BCID
+            
+            agregarGermPlasmCimmytWheat(nameGermplasm, nameGermplasmBCID, listdataT);
+            
+            
+            listdataT.setListdataPK(new ListdataPK(listnms.getListid(), 0));
+            servicioLocal.addListdata(listdataT);
+            listDatas.add(listdataT);
+
+        }
+        return listDatas;
+    }
 
     public void verificaExistencia(Integer gid, String nameGermplasm, Listdata listdata) {
         Germplsm germplsm = verifyByGid(gid);
@@ -190,6 +218,98 @@ public class HelperGermplasm {
 
         names.setNuid(userId);//nuid = numero de usuario tienen que pasar o 0
         names.setNval(nameGermplasm);//nval = nombre del germoplasma
+        names.setNlocn(0);//nlocn 0
+        names.setNdate(UtilDate.getDateAsInteger(new Date()));//ndate añomesdia
+        names.setNref(0);//nref 0
+        servicioLocal.addNames(names);
+
+        listdata.setGid(germplsm.getGid());
+//        servicioLocal.addListdata(listdata);
+
+        return listdata;
+    }
+    
+    public Listdata agregarGermPlasmCimmytWheat(String nameGermplasmHistory, String nameGermplasmBCID, Listdata listdata) {
+
+        Germplsm germplsm = new Germplsm();
+        //germplsm.setGid(userId); -> Utogenerado
+        if (listdata.getMethodId() != null) {
+            germplsm.setMethn(listdata.getMethodId());
+        } else {
+            germplsm.setMethn(getMethod(nameGermplasmHistory));//methn 31 si tiene - al final si no el   metodo = 1 unknow
+        }
+
+        if (listdata.getGnpgs() != null) {
+            germplsm.setGnpgs(listdata.getGnpgs());
+        } else {
+            germplsm.setGnpgs(getGnpgs(nameGermplasmHistory));//gnpgs 2
+        }
+
+        //
+
+
+        // assign parents
+        if (listdata.getGpid1() != null) {
+            germplsm.setGpid1(listdata.getGpid1());//gpid1 0
+        } else {
+            germplsm.setGpid1(0);//gpid1 0
+        }
+
+        if (listdata.getGpid2() != null) {
+            germplsm.setGpid2(listdata.getGpid2());//gpid2 0
+        } else {
+            germplsm.setGpid2(0);//gpid2 0 
+        }
+
+
+        germplsm.setGermuid(userId);//germuid usuario 
+
+
+        germplsm.setLgid(0);//lgid 0
+
+        //germplsm.setGlocn(0);//glocn 0
+        if (listdata.getLocationId() == null) {
+            germplsm.setGlocn(0);//glocn 0
+        } else {
+            germplsm.setGlocn(listdata.getLocationId());
+        }
+
+
+        if (listdata.getHarvestDate() == null) {
+            germplsm.setGdate(UtilDate.getDateAsInteger(new Date()));//gdate la fecha en que se da de alta el registro añomesdia
+        } else {
+            germplsm.setGdate(listdata.getHarvestDate());
+        }
+
+
+        //los demas 0 (por default tienen 0 asi que ya no se asigna)
+        servicioLocal.addGermplsm(germplsm);
+
+        Names names = new Names();
+        //names
+        //names.setNid(userId);//nid = autoincrement
+        names.setGid(germplsm.getGid());//gid = germplasm
+        names.setNtype(1029);//ntype = 5
+        // tmsanchez 20120424
+        names.setNstat(0);//nstat = 0
+
+        names.setNuid(userId);//nuid = numero de usuario tienen que pasar o 0
+        names.setNval(nameGermplasmHistory);//nval = nombre del germoplasma
+        names.setNlocn(0);//nlocn 0
+        names.setNdate(UtilDate.getDateAsInteger(new Date()));//ndate añomesdia
+        names.setNref(0);//nref 0
+        servicioLocal.addNames(names);
+        
+        names = new Names();
+        //names
+        //names.setNid(userId);//nid = autoincrement
+        names.setGid(germplsm.getGid());//gid = germplasm
+        names.setNtype(1029);//ntype = 5
+        // tmsanchez 20120424
+        names.setNstat(1);//nstat = 0
+
+        names.setNuid(userId);//nuid = numero de usuario tienen que pasar o 0
+        names.setNval(nameGermplasmBCID);//nval = nombre del germoplasma
         names.setNlocn(0);//nlocn 0
         names.setNdate(UtilDate.getDateAsInteger(new Date()));//ndate añomesdia
         names.setNref(0);//nref 0
