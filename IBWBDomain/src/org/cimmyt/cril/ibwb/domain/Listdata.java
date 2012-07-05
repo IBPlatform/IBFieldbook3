@@ -51,6 +51,8 @@ public class Listdata extends BaseFilter implements Serializable {
     @Column(name = "gid")
     private Integer gid;
     @Transient
+    private String nameBCID;
+    @Transient
     private Integer giddata;
     
     @Transient
@@ -278,6 +280,20 @@ public class Listdata extends BaseFilter implements Serializable {
 
     public void setGnpgs(Integer Gnpgs) {
         this.Gnpgs = Gnpgs;
+    }
+
+    /**
+     * @return the nameBCID
+     */
+    public String getNameBCID() {
+        return nameBCID;
+    }
+
+    /**
+     * @param nameBCID the nameBCID to set
+     */
+    public void setNameBCID(String nameBCID) {
+        this.nameBCID = nameBCID;
     }
 
     
