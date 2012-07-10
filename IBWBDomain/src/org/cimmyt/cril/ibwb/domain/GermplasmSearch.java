@@ -14,6 +14,9 @@ public class GermplasmSearch {
     private Integer trial;
     private Integer plot;
     
+    private String snameFmale;
+    private String snameMale;
+    
     private Germplsm germplsm;
     private Names names;
     
@@ -23,6 +26,8 @@ public class GermplasmSearch {
     private String lid;
     private Integer max;//exacto el maximo
     private String bcid;
+    private String charBCID;
+    private Integer methodGermplasm;
 
     /**
      * @return the studyId
@@ -162,6 +167,62 @@ public class GermplasmSearch {
      */
     public void setNamesMale(Names namesMale) {
         this.namesMale = namesMale;
+    }
+
+    /**
+     * @return the charBCID
+     */
+    public String getCharBCID() {
+        return charBCID;
+    }
+
+    /**
+     * @param charBCID the charBCID to set
+     */
+    public void setCharBCID(String charBCID) {
+        this.charBCID = charBCID;
+    }
+
+    /**
+     * @return the methodGermplasm
+     */
+    public Integer getMethodGermplasm() {
+        return methodGermplasm;
+    }
+
+    /**
+     * @param methodGermplasm the methodGermplasm to set
+     */
+    public void setMethodGermplasm(Integer methodGermplasm) {
+        this.methodGermplasm = methodGermplasm;
+    }
+
+    /**
+     * @return the snameFmale
+     */
+    public String getSnameFmale() {
+        return snameFmale;
+    }
+
+    /**
+     * @param snameFmale the snameFmale to set
+     */
+    public void setSnameFmale(String snameFmale) {
+        this.snameFmale = snameFmale;
+    }
+
+    /**
+     * @return the snameMale
+     */
+    public String getSnameMale() {
+        return snameMale;
+    }
+
+    /**
+     * @param snameMale the snameMale to set
+     */
+    public void setSnameMale(String snameMale) {
+        this.snameMale = snameMale;
     }
     
     

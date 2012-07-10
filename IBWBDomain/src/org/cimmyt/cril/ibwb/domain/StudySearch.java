@@ -23,6 +23,7 @@ public class StudySearch {
     private ResultSet rst;
     private StringBuilder sb = new StringBuilder();
     private String lid;
+    private String sName;
     
     /**
      * @return the studyId
@@ -176,6 +177,20 @@ public class StudySearch {
      */
     public void setLid(String lid) {
         this.lid = lid;
+    }
+
+    /**
+     * @return the sName
+     */
+    public String getsName() {
+        return sName;
+    }
+
+    /**
+     * @param sName the sName to set
+     */
+    public void setsName(String sName) {
+        this.sName = sName;
     }
     
     
