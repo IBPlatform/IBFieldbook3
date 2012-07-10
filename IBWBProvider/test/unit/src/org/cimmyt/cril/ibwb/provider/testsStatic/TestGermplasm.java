@@ -83,7 +83,7 @@ public class TestGermplasm extends TestService {
             GermplasmSearch gs = new GermplasmSearch();
             gs.setStudyId(40165);
             gs.setTrial(1);
-            gs.setPlot(i);
+            gs.setPlot(i-300);
             result.add(gs);
         }
         return result;
@@ -310,7 +310,7 @@ public class TestGermplasm extends TestService {
     }
     
     private void getGermplasmByListStudyTrialPlotCross(){
-        List<GermplasmSearch> germplasmSearchs = HelperGermplasm.getGermplasmByListStudyTrialPlotCross(servicios, getListGermplasmSearch(), getListGermplasmSearch());
+        List<GermplasmSearch> germplasmSearchs = HelperGermplasm.getGermplasmByListStudyTrialPlotCross(servicios, getListGermplasmSearch(), new ArrayList());
         for(GermplasmSearch gs : germplasmSearchs){
             System.out.println("BSCID: " + gs.getBcid() + " LOCID: " + gs.getLid());
         }

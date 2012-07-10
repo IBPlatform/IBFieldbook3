@@ -289,7 +289,7 @@ public class HelperGermplasm {
         //names
         //names.setNid(userId);//nid = autoincrement
         names.setGid(germplsm.getGid());//gid = germplasm
-        names.setNtype(1029);//ntype = 5
+        names.setNtype(1028);//ntype = 5
         // tmsanchez 20120424
         names.setNstat(0);//nstat = 0
 
@@ -725,6 +725,7 @@ public class HelperGermplasm {
                                 germplasmSearchT.setNames(appServices.getNamesByGid(germplasmSearchT.getGermplsm(), false));
                                 germplasmSearchT.setBcid(studySearchTemp.getSb().toString());
                                 germplasmSearchT.setLid(studySearchTemp.getLid());
+                                germplasmSearchT.setSnameFmale(studySearchTemp.getsName());
                             }
                         }
                         for(GermplasmSearch germplasmSearchT : listMale){
@@ -736,6 +737,7 @@ public class HelperGermplasm {
                                 log.info("Germplsm gid : " + gidBuscar);
                                 germplasmSearchT.setGermplsm(appServices.getGermplsm(gidBuscar));
                                 germplasmSearchT.setNames(appServices.getNamesByGid(germplasmSearchT.getGermplsm(), false));
+                                germplasmSearchT.setSnameMale(studySearchTemp.getsName());
                             }
                         }
                     }
@@ -759,6 +761,38 @@ public class HelperGermplasm {
         for(GermplasmSearch gs : listMale){
             listFmale.get(listMale.indexOf(gs)).setGermplsmMale(gs.getGermplsm());
             listFmale.get(listMale.indexOf(gs)).setNamesMale(gs.getNames());
+            listFmale.get(listMale.indexOf(gs)).setSnameMale(gs.getSnameMale());
+        }
+        
+        for(GermplasmSearch gs : listFmale){
+            boolean fmaleFound = false;
+            boolean maleFound = false;
+            if(gs.getGermplsmMale().getGpid1().equals(gs.getGermplsm().getGid())){
+                fmaleFound = true;
+            }
+            
+            if(gs.getGermplsm().getGpid2().equals(gs.getGermplsmMale().getGid())){
+                maleFound = true;
+            }
+                
+            if(gs.getSnameMale().substring(0, 2).equals("F1") && 
+                    gs.getSnameFmale().substring(0, 2).equals("F1")){//Comparar con f1 el inicio de los nombres de ambos
+                gs.setCharBCID("D");
+                gs.setMethodGermplasm(103);
+            }else if(gs.getSnameMale().substring(0, 2).equals("F1") || 
+                    gs.getSnameFmale().substring(0, 2).equals("F1")){//Comparar con f1 el inicio de los nombres de alguno
+                gs.setCharBCID("T");
+                gs.setMethodGermplasm(102);
+            }else if(maleFound){//male found
+                gs.setCharBCID("M");
+                gs.setMethodGermplasm(107);
+            }else if(fmaleFound){//fmalefound
+                gs.setCharBCID("F");
+                gs.setMethodGermplasm(107);
+            }else{//simple
+                gs.setCharBCID("S");
+                gs.setMethodGermplasm(2);
+            }
         }
         return listFmale;
     }
