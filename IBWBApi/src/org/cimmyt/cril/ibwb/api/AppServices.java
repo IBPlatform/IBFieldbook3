@@ -1611,6 +1611,28 @@ public interface AppServices {
     public StudySearch getListGermplasmAndPlotByStudyidAndTrial(
             StudySearch studySearch);
     
+    
+    
+    
+    public List<Listdata> saveGerplasmCimmytWheat(
+            List<Listdata> listGermplsm,
+            Listnms listnms,
+            Integer userId
+            );
+    
+    public Listdata agregarGermPlasmCimmytWheat(
+            String nameGermplasmHistory,
+            String nameGermplasmBCID,
+            Listdata listdata,
+            Integer userId
+            );
+    
+    public List<GermplasmSearch> getGermplasmByListStudyTrialPlotCross(
+            AppServices appServices,
+            List<GermplasmSearch> listFmale,
+            List<GermplasmSearch> listMale
+            );
+    
  
      //----------------------------------- Inventory Management ---------------------------   
     
