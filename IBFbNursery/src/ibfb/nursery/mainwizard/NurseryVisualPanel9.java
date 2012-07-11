@@ -1,4 +1,3 @@
-
 package ibfb.nursery.mainwizard;
 
 import ibfb.domain.core.Constant;
@@ -6,17 +5,20 @@ import ibfb.domain.core.Workbook;
 import ibfb.nursery.core.NurseryEditorTopComponent;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 import javax.swing.JPanel;
 import net.java.balloontip.BalloonTip;
 import net.java.balloontip.utils.ToolTipUtils;
 import org.cimmyt.cril.ibwb.commongui.select.list.DoubleListPanel;
 import org.cimmyt.cril.ibwb.commongui.select.list.SelectCommand;
+import org.openide.util.NbBundle;
 
 public final class NurseryVisualPanel9 extends JPanel {
-    
-  private List<Constant> availableConstants = new ArrayList<Constant>();
+
+    private List<Constant> availableConstants = new ArrayList<Constant>();
     private List<Constant> selectedConstants = new ArrayList<Constant>();
     private DoubleListPanel<Constant> doubleListPanel;
+    private ResourceBundle bundle = NbBundle.getBundle(NurseryVisualPanel9.class);
     private SelectCommand unselectedCommand = new SelectCommand() {
 
         @Override
@@ -34,8 +36,6 @@ public final class NurseryVisualPanel9 extends JPanel {
         }
     };
 
-
-    
     public NurseryVisualPanel9() {
         initComponents();
         createBallonTips();
@@ -45,48 +45,48 @@ public final class NurseryVisualPanel9 extends JPanel {
         doubleListPanel.setVisible(true);
         pnlSelectList.add(doubleListPanel);
 
-       
+
 
 
     }
 
     @Override
     public String getName() {
-        return "Constants to be measured";
+        return bundle.getString("NurseryVisualPanel9.name");
     }
-    
-     private void createBallonTips() {
-        BalloonTip tip = new BalloonTip(this.pnlSelectList, "Select variables from the following list wich will be measured on each plot for each trial instance ");
+
+    private void createBallonTips() {
+        BalloonTip tip = new BalloonTip(this.pnlSelectList, bundle.getString("NurseryVisualPanel9.select"));
         ToolTipUtils.balloonToToolTip(tip, 500, 3000);
     }
-    
-          public int giveMeTotalConstants(final Workbook workbook){
-         java.util.ArrayList<Constant> constants = new java.util.ArrayList();
+
+    public int giveMeTotalConstants(final Workbook workbook) {
+        java.util.ArrayList<Constant> constants = new java.util.ArrayList();
         try {
             constants = (java.util.ArrayList<Constant>) workbook.getConstants();
             return workbook.getConstants().size();
         } catch (NullPointerException ex) {
             return 0;
         }
-        
-       
 
-     }
-     
+
+
+    }
+
     private void configMyList() {
 
         cleanFields();
     }
-    
-        public static void cleanFields() {
+
+    public static void cleanFields() {
         jTextFieldDescription.setText("");
-        jTextFieldDescriptionSelected.setText("");  
-   
+        jTextFieldDescriptionSelected.setText("");
+
     }
 
     @SuppressWarnings("unchecked")
     public void copyValues(final Workbook workbook) {
-        
+
         NurseryEditorTopComponent studyWindow = NurseryWizardIterator.nurseryTopComponent;
 
         java.util.List<Constant> constants = new java.util.ArrayList();
@@ -125,15 +125,14 @@ public final class NurseryVisualPanel9 extends JPanel {
         }
 
         studyWindow.assignExperimentalConditions(constantList);
- 
-         NurseryWizardIterator.nurseryTopComponent.assignExperimentalConditions(constantList);
-    }        
-        
-        
-@SuppressWarnings("unchecked")
+
+        NurseryWizardIterator.nurseryTopComponent.assignExperimentalConditions(constantList);
+    }
+
+    @SuppressWarnings("unchecked")
     public void fillData(final Workbook workbook) {
 
-      if (NurseryWizardIterator.constantsAreFilled) {
+        if (NurseryWizardIterator.constantsAreFilled) {
             return;
         }
         availableConstants = workbook.getConstants();
@@ -146,7 +145,6 @@ public final class NurseryVisualPanel9 extends JPanel {
 
     }
 
-   
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -249,24 +247,16 @@ public final class NurseryVisualPanel9 extends JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItemSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSelectActionPerformed
-      
-       
     }//GEN-LAST:event_jMenuItemSelectActionPerformed
 
     private void jMenuItemSelectAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSelectAllActionPerformed
-       
-       
     }//GEN-LAST:event_jMenuItemSelectAllActionPerformed
 
     private void jMenuItemUnSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemUnSelectActionPerformed
-        
     }//GEN-LAST:event_jMenuItemUnSelectActionPerformed
 
     private void jMenuItemUnSelectAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemUnSelectAllActionPerformed
-     
-      
     }//GEN-LAST:event_jMenuItemUnSelectAllActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

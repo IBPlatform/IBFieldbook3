@@ -19,6 +19,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.ResourceBundle;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -28,6 +29,7 @@ import org.cimmyt.cril.ibwb.api.AppServicesProxy;
 import org.cimmyt.cril.ibwb.domain.Listnms;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
+import org.openide.util.NbBundle;
 
 
 public final class NurseryVisualPanel5 extends JPanel {
@@ -53,6 +55,8 @@ public final class NurseryVisualPanel5 extends JPanel {
     private RemoveGermplasmTransferHandler removeGermplasmTransferHandler;
     private SpinnerNumberModel modeloSpinnerFreq;
     java.util.ArrayList<Factor> myFactors;
+    private ResourceBundle bundle = NbBundle.getBundle(NurseryVisualPanel5.class);
+
    
     public NurseryVisualPanel5() {
         initComponents();
@@ -66,6 +70,16 @@ public final class NurseryVisualPanel5 extends JPanel {
 
     }
 
+    public JComboBox getCboGermplasmList() {
+        return cboGermplasmList;
+    }
+
+    public void setCboGermplasmList(JComboBox cboGermplasmList) {
+        this.cboGermplasmList = cboGermplasmList;
+    }
+
+    
+    
     private void asignaTransfer() {
         jTableEntriesDB.setDragEnabled(true);
         jTableEntriesDB.setDropMode(DropMode.INSERT_ROWS);
@@ -158,11 +172,11 @@ public final class NurseryVisualPanel5 extends JPanel {
 
     @Override
     public String getName() {
-        return "Add checks";
+        return bundle.getString("NurseryVisualPanel5.name");
     }
 
     public void fillComboListNames() {
-        List<Listnms> germplasmList = AppServicesProxy.getDefault().appServices().getListnmsList();
+       List<Listnms> germplasmList = AppServicesProxy.getDefault().appServices().getListnmsList();
         for (Listnms list : germplasmList) {
             cboGermplasmList.addItem(list);
         }
@@ -1041,7 +1055,7 @@ public final class NurseryVisualPanel5 extends JPanel {
             this.jTableEntriesExcel.setModel(modeloTablaEntries);
             this.jTextAreaPath.setText("");
             this.jTextFieldListEntries.setText("0");
-            DialogDisplayer.getDefault().notify(new NotifyDescriptor.Message("THIS EXCEL FILE IS NOT A VALID ENTRIES FILE", NotifyDescriptor.ERROR_MESSAGE));
+            DialogDisplayer.getDefault().notify(new NotifyDescriptor.Message(bundle.getString("NurseryVisualPanel5.invalid"), NotifyDescriptor.ERROR_MESSAGE));
         }
 
         germplasmTransferHandler.setSourceList(rowListExcel);

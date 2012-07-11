@@ -1,6 +1,7 @@
 
 package ibfb.nursery.mainwizard;
 
+import ibfb.nursery.actions.JPNurseryOptions;
 import ibfb.nursery.filters.ExcelFiltro;
 import ibfb.nursery.utils.OSUtils;
 import ibfb.settings.core.FieldbookSettings;
@@ -9,12 +10,14 @@ import ibfb.workbook.core.WorkbookExcelReaderImpl;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
+import java.util.ResourceBundle;
 import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.filechooser.FileFilter;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
+import org.openide.util.NbBundle;
 
 public final class NurseryVisualPanel1 extends JPanel {
 
@@ -22,8 +25,8 @@ public final class NurseryVisualPanel1 extends JPanel {
     private Desktop.Action action = null;
     private File archivo = null;
     private JFileChooser selectorArchivo = new JFileChooser();
-    
-    
+    private ResourceBundle bundle = NbBundle.getBundle(NurseryVisualPanel1.class);
+
     
     public NurseryVisualPanel1() {
         initComponents();
@@ -31,7 +34,7 @@ public final class NurseryVisualPanel1 extends JPanel {
 
     @Override
     public String getName() {
-        return "Select Nursery Template from:";
+        return bundle.getString("NurseryVisualPanel1.name");
     }
 
      public JTextArea getjTextAreaPath() {

@@ -8,6 +8,7 @@ import ibfb.nursery.editors.NurseryConditionsRowEditor;
 import ibfb.nursery.utils.DateUtil;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -16,6 +17,7 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import net.java.balloontip.BalloonTip;
 import net.java.balloontip.utils.ToolTipUtils;
+import org.openide.util.NbBundle;
 
 public final class NurseryVisualPanel3 extends JPanel {
 
@@ -28,6 +30,8 @@ public final class NurseryVisualPanel3 extends JPanel {
     private static final int PROPERTY_COL = 3;
     private static final int SCALE_COL = 4;
     private static final int INSTANCE_COL = 0;
+    private ResourceBundle bundle = NbBundle.getBundle(NurseryVisualPanel3.class);
+
 
     public NurseryVisualPanel3() {
         initComponents();
@@ -36,11 +40,11 @@ public final class NurseryVisualPanel3 extends JPanel {
 
     @Override
     public String getName() {
-        return "Nursery Conditions";
+        return bundle.getString("NurseryVisualPanel3.name");
     }
 
     private void createBallonTips() {
-        BalloonTip tip = new BalloonTip(jTableNurseryConditions, "Specify values of the following variables wich apply to each instance of the trial");
+        BalloonTip tip = new BalloonTip(jTableNurseryConditions,bundle.getString("NurseryVisualPanel3.specify"));
         ToolTipUtils.balloonToToolTip(tip, 500, 3000);
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

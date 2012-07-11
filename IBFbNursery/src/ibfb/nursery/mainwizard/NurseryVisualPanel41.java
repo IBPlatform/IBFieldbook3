@@ -18,6 +18,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 import javax.swing.JTable;
@@ -31,6 +32,7 @@ import org.cimmyt.cril.ibwb.commongui.OSUtils;
 import org.cimmyt.cril.ibwb.domain.Listnms;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
+import org.openide.util.NbBundle;
 
 public final class NurseryVisualPanel41 extends JPanel {
 
@@ -39,16 +41,18 @@ public final class NurseryVisualPanel41 extends JPanel {
     private Desktop desktop = null;
     private Desktop.Action action = null;
     private File archivo = null;
+    private ResourceBundle bundle = NbBundle.getBundle(NurseryVisualPanel41.class);
+
 
     public NurseryVisualPanel41() {
         initComponents();
-        fillComboListNames();
+        //fillComboListNames();
         checkButtonsStatus();
     }
 
     @Override
     public String getName() {
-        return "Select Germplasm";
+        return bundle.getString("NurseryVisualPanel41.name");
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -289,11 +293,16 @@ public final class NurseryVisualPanel41 extends JPanel {
         previewFile(this.jTextAreaPath.getText());
 }//GEN-LAST:event_jButtonPreviewActionPerformed
 
-    private void fillComboListNames() {
+    public void fillComboListNames() {
+        
         List<Listnms> germplasmList = AppServicesProxy.getDefault().appServices().getListnmsList();
+        
+        
         for (Listnms list : germplasmList) {
             cboGermplasmList.addItem(list);
+            
         }
+               
     }
 
     public JTextField getjTextFieldTotalEntries() {
@@ -377,7 +386,7 @@ public final class NurseryVisualPanel41 extends JPanel {
             this.jTextFieldTotalEntries.setText("0");
             if (radGermplasmFromDB1.isSelected()) {
                 //   DialogDisplayer.getDefault().notify(new NotifyDescriptor.Message("Please choose a Germplasm List", NotifyDescriptor.ERROR_MESSAGE));
-                DialogUtil.displayError("Please choose a Germplasm List");
+                DialogUtil.displayError(bundle.getString("NurseryVisualPanel41.choose"));
             }
         }
     }
@@ -456,7 +465,7 @@ public final class NurseryVisualPanel41 extends JPanel {
             this.jTableEntries.setModel(modeloTablaEntries);
             this.jTextAreaPath.setText("");
             this.jTextFieldTotalEntries.setText("0");
-            DialogDisplayer.getDefault().notify(new NotifyDescriptor.Message("THIS EXCEL FILE IS NOT A VALID ENTRIES FILE", NotifyDescriptor.ERROR_MESSAGE));
+            DialogDisplayer.getDefault().notify(new NotifyDescriptor.Message(bundle.getString("NurseryVisualPanel41.invalid"), NotifyDescriptor.ERROR_MESSAGE));
         }
     }
 

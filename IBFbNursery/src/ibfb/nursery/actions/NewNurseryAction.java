@@ -12,6 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.MessageFormat;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import org.openide.DialogDisplayer;
@@ -22,6 +23,7 @@ import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
 import org.openide.util.Mutex;
+import org.openide.util.NbBundle;
 import org.openide.util.NbBundle.Messages;
 import org.openide.windows.TopComponent;
 import org.openide.windows.WindowManager;
@@ -36,7 +38,7 @@ displayName = "#CTL_NewNurseryAction")
 })
 @Messages("CTL_NewNurseryAction=New Nursery")
 public final class NewNurseryAction implements ActionListener {
-
+private ResourceBundle bundle = NbBundle.getBundle(NewNurseryAction.class);
     private final Study context;
     private JDQuickCreation quick;
 
@@ -87,7 +89,7 @@ public final class NewNurseryAction implements ActionListener {
             background.close();
         }
         if (existeNursery("Nursery - " + SelectedStudy.selected.getStudy())) {
-            int opcion = JOptionPane.showConfirmDialog(null, "NURSERY ALREADY GENERATED. Do you want to overwrite it?", "Caution!", JOptionPane.YES_NO_OPTION);
+            int opcion = JOptionPane.showConfirmDialog(null, bundle.getString("NewNurseryAction.alreadyExists"), bundle.getString("NewNurseryAction.caution"), JOptionPane.YES_NO_OPTION);
             if (opcion == 0) {
                 NurseryEditorTopComponent nurseryEditor = null;
                 ArrayList<TopComponent> opened = new ArrayList<TopComponent>(WindowManager.getDefault().getRegistry().getOpened());

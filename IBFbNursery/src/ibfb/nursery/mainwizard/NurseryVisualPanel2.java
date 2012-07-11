@@ -8,11 +8,13 @@ import ibfb.nursery.utils.ColumnFitAdapter;
 import ibfb.nursery.utils.ExcelCopyPaste;
 import ibfb.nursery.utils.LookupUtil;
 import java.awt.Color;
+import java.util.ResourceBundle;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableColumn;
 import net.java.balloontip.BalloonTip;
 import net.java.balloontip.utils.ToolTipUtils;
+import org.openide.util.NbBundle;
 
 public final class NurseryVisualPanel2 extends JPanel {
 
@@ -21,6 +23,7 @@ public final class NurseryVisualPanel2 extends JPanel {
     private static final int SCALE_COLUMN = 3;
     private static final int VALUE_COLUMN = 4;
     private int fila = 0;
+    private ResourceBundle bundle = NbBundle.getBundle(NurseryVisualPanel2.class);
 
     public NurseryVisualPanel2() {
         initComponents();
@@ -33,7 +36,7 @@ public final class NurseryVisualPanel2 extends JPanel {
 
     @Override
     public String getName() {
-        return "Study Conditions";
+        return bundle.getString("NurseryVisualPanel2.name");
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -146,7 +149,7 @@ public final class NurseryVisualPanel2 extends JPanel {
     }//GEN-LAST:event_jTableStudyConditionsPropertyChange
 
     private void createBallonTips() {
-        tip1 = new BalloonTip(jTableStudyConditions, "Specify single values of the following variables wich pertaint to the whole Study");
+        tip1 = new BalloonTip(jTableStudyConditions, bundle.getString("NurseryVisualPanel2.specify"));
         ToolTipUtils.balloonToToolTip(tip1, 500, 3000);
     }
 
@@ -170,7 +173,7 @@ public final class NurseryVisualPanel2 extends JPanel {
         
         TableColumn columnValue = jTableStudyConditions.getColumnModel().getColumn(4);
         DefaultTableCellRenderer valueCellRenderer =  new DefaultTableCellRenderer();
-        valueCellRenderer.setToolTipText("Fill this value");
+        valueCellRenderer.setToolTipText(bundle.getString("NurseryVisualPanel2.fill"));
         valueCellRenderer.setBackground(Color.YELLOW);
         columnValue.setCellRenderer(valueCellRenderer);     
     }

@@ -1,26 +1,20 @@
-
 package ibfb.nursery.mainwizard;
 
 import ibfb.domain.core.Variate;
 import ibfb.domain.core.Workbook;
 import ibfb.nursery.core.NurseryEditorTopComponent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.DefaultListModel;
-import javax.swing.DropMode;
+import java.util.ResourceBundle;
 import javax.swing.JPanel;
-import javax.swing.ListSelectionModel;
-import javax.swing.SwingUtilities;
-import net.java.balloontip.BalloonTip;
-import net.java.balloontip.utils.ToolTipUtils;
 import org.cimmyt.cril.ibwb.commongui.select.list.DoubleListPanel;
 import org.cimmyt.cril.ibwb.commongui.select.list.SelectCommand;
+import org.openide.util.NbBundle;
 
 public final class NurseryVisualPanel10 extends JPanel {
-    
- private List<Variate> availableTraits = new ArrayList<Variate>();
+
+    private ResourceBundle bundle = NbBundle.getBundle(NurseryVisualPanel10.class);
+    private List<Variate> availableTraits = new ArrayList<Variate>();
     private List<Variate> selectedTraits = new ArrayList<Variate>();
     private DoubleListPanel<Variate> doubleListPanel;
     private SelectCommand unselectedCommand = new SelectCommand() {
@@ -39,53 +33,47 @@ public final class NurseryVisualPanel10 extends JPanel {
             jTextFieldDescriptionSelected.setText(variate.getDescription());
         }
     };
-    
+
     public NurseryVisualPanel10() {
         initComponents();
-                createBallonTips();
+        createBallonTips();
 
         doubleListPanel = new DoubleListPanel<Variate>(availableTraits, selectedTraits, unselectedCommand, selectedCommand);
         doubleListPanel.setSourceLabel("Unselected Traits (from template)");
         doubleListPanel.setTargetLabel("Selected Traits");
         doubleListPanel.setVisible(true);
         pnlSelectList.add(doubleListPanel);
-        
+
     }
 
-    
-    
     @Override
     public String getName() {
-        return "Traits to be measured";
+        return bundle.getString("NurseryVisualPanel10.name");
     }
-    
-     private void createBallonTips() {
-            
+
+    private void createBallonTips() {
     }
-    
-     
-      @SuppressWarnings("unchecked")
+
+    @SuppressWarnings("unchecked")
     public void copyValues(final Workbook workbook) {
-      
+
         NurseryEditorTopComponent nurseryWindow = NurseryWizardIterator.nurseryTopComponent;
         nurseryWindow.cleanFields();
         nurseryWindow.configMyList();
         nurseryWindow.assignTraits(doubleListPanel.getSourceList(), doubleListPanel.getTargetList());
     }
 
-     
     private void configMyList() {
-       
+
         cleanFields();
     }
-    
-        public static void cleanFields() {
+
+    public static void cleanFields() {
         jTextFieldDescription.setText("");
-        jTextFieldDescriptionSelected.setText("");  
-   
+        jTextFieldDescriptionSelected.setText("");
+
     }
 
-   
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -186,28 +174,21 @@ public final class NurseryVisualPanel10 extends JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItemUnSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemUnSelectActionPerformed
-     
     }//GEN-LAST:event_jMenuItemUnSelectActionPerformed
 
     private void jMenuItemUnSelectAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemUnSelectAllActionPerformed
-        
     }//GEN-LAST:event_jMenuItemUnSelectAllActionPerformed
 
     private void jMenuItemSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSelectActionPerformed
-      
-        
     }//GEN-LAST:event_jMenuItemSelectActionPerformed
 
     private void jMenuItemSelectAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSelectAllActionPerformed
- 
     }//GEN-LAST:event_jMenuItemSelectAllActionPerformed
 
-    
-    
-     @SuppressWarnings("unchecked")
+    @SuppressWarnings("unchecked")
     public void fillData(final Workbook workbook) {
- 
-         if (NurseryWizardIterator.traitsAreFilled ) {
+
+        if (NurseryWizardIterator.traitsAreFilled) {
             return;
         }
 
@@ -220,10 +201,6 @@ public final class NurseryVisualPanel10 extends JPanel {
         configMyList();
 
     }
-
-   
-   
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

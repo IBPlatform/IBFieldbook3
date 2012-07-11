@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import org.openide.awt.ActionRegistration;
@@ -19,6 +20,7 @@ import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionID;
 import org.openide.util.HelpCtx;
 import org.openide.util.Mutex;
+import org.openide.util.NbBundle;
 import org.openide.util.NbBundle.Messages;
 import org.openide.util.actions.SystemAction;
 import org.openide.windows.TopComponent;
@@ -37,10 +39,12 @@ public final class QuickNurseryCreationAction extends SystemAction implements Ac
 
     private final Study context;
     private JDQuickCreation quick;
+        private ResourceBundle bundle = NbBundle.getBundle(QuickNurseryCreationAction.class);
+
 
     
         public QuickNurseryCreationAction() {
-        putValue(NAME, "Quick Nursery Creation");
+        putValue(NAME, bundle.getString("QuickNurseryCreationAction.name"));
         setEnabled(Boolean.TRUE);
         this.context = null;
     }
@@ -60,7 +64,7 @@ public final class QuickNurseryCreationAction extends SystemAction implements Ac
             background.close();
         }
         if (existeNursery("Nursery - "+SelectedStudy.selected.getStudy())) {
-            int opcion = JOptionPane.showConfirmDialog(null, "NURSERY ALREADY GENERATED. Do you want to overwrite it?", "Caution!", JOptionPane.YES_NO_OPTION);
+            int opcion = JOptionPane.showConfirmDialog(null, bundle.getString("QuickNurseryCreationAction.alreadyExists"), bundle.getString("QuickNurseryCreationAction.caution"), JOptionPane.YES_NO_OPTION);
             if (opcion == 0) {
                 NurseryEditorTopComponent nurseryEditor = null;
                 ArrayList<TopComponent> opened = new ArrayList<TopComponent>(WindowManager.getDefault().getRegistry().getOpened());

@@ -2,13 +2,14 @@
 package ibfb.nursery.mainwizard;
 
 import java.awt.Component;
+import java.util.ResourceBundle;
 import javax.swing.event.ChangeListener;
 import org.openide.WizardDescriptor;
 import org.openide.util.HelpCtx;
+import org.openide.util.NbBundle;
 
 public class NurseryWizardPanel10 implements WizardDescriptor.Panel {
-
-  
+   
     private NurseryVisualPanel10 component;
 
     @Override

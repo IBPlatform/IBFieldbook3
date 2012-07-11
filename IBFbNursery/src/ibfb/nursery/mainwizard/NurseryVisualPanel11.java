@@ -3,14 +3,17 @@ package ibfb.nursery.mainwizard;
 
 
 import ibfb.nursery.core.NurseryEditorTopComponent;
+import java.util.ResourceBundle;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import org.openide.util.NbBundle;
 
 
 public final class NurseryVisualPanel11 extends JPanel {
     
-    
+    private ResourceBundle bundle = NbBundle.getBundle(NurseryVisualPanel11.class);
+
     NurseryEditorTopComponent nurseryWindow = NurseryWizardIterator.nurseryTopComponent;
 
 
@@ -20,7 +23,7 @@ public final class NurseryVisualPanel11 extends JPanel {
 
     @Override
     public String getName() {
-         return "Design";
+         return bundle.getString("NurseryVisualPanel11.name");
     }
 
 

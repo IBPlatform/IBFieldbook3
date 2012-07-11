@@ -13,6 +13,7 @@ import java.awt.event.ActionEvent;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.ResourceBundle;
 import java.util.concurrent.ExecutionException;
 import javax.swing.JFrame;
 import javax.swing.SwingWorker;
@@ -26,6 +27,7 @@ import org.openide.NotifyDescriptor;
 import org.openide.util.Exceptions;
 import org.openide.util.HelpCtx;
 import org.openide.util.Mutex;
+import org.openide.util.NbBundle;
 import org.openide.util.actions.SystemAction;
 import org.openide.windows.TopComponent;
 import org.openide.windows.WindowManager;
@@ -33,9 +35,10 @@ import org.openide.windows.WindowManager;
 public class OpenNurseryAction extends SystemAction {
 
     private NurseryEditorTopComponent nurseryWindow = null;
+    private ResourceBundle bundle = NbBundle.getBundle(OpenNurseryAction.class);
 
     public OpenNurseryAction() {
-        putValue(NAME, "Open nursery");
+        putValue(NAME, bundle.getString("OpenNurseryAction.name"));
         setEnabled(Boolean.TRUE);
     }
 
@@ -46,7 +49,7 @@ public class OpenNurseryAction extends SystemAction {
                 return;
                 }
  
-        final ProgressHandle handle = ProgressHandleFactory.createHandle("Opening Nursery... ");
+        final ProgressHandle handle = ProgressHandleFactory.createHandle(bundle.getString("OpenNurseryAction.opening"));
         handle.start();
         (new SwingWorker<String, Object>() {
 
@@ -77,7 +80,7 @@ public class OpenNurseryAction extends SystemAction {
                    
                     if (workbook == null) {
                         changeCursorWaitStatus(false);
-                        String msgSaving = "Cannot open selected study";
+                        String msgSaving = bundle.getString("OpenNurseryAction.cannotOpen");
 
                         NotifyDescriptor d = new NotifyDescriptor.Message(msgSaving, NotifyDescriptor.ERROR_MESSAGE);
                         DialogDisplayer.getDefault().notify(d);
@@ -111,7 +114,7 @@ public class OpenNurseryAction extends SystemAction {
                         nurseryWindow.requestActive();
                         // changeCursorWaitStatus(false);
                          changeCursorWaitStatus(false);
-                        DialogUtil.displayInfo("Nursery was opened succesfully");
+                        DialogUtil.displayInfo(bundle.getString("OpenNurseryAction.openSuccess"));
                         
                     }
                     

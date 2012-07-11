@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.text.MessageFormat;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import org.openide.DialogDisplayer;
@@ -21,6 +22,7 @@ import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionID;
 import org.openide.util.HelpCtx;
 import org.openide.util.Mutex;
+import org.openide.util.NbBundle;
 import org.openide.util.NbBundle.Messages;
 import org.openide.util.actions.SystemAction;
 import org.openide.windows.TopComponent;
@@ -34,13 +36,14 @@ displayName = "#CTL_NewWizardNurseryAction")
 })
 @Messages("CTL_NewWizardNurseryAction=New Nursery")
 public final class NewWizardNurseryAction extends SystemAction implements ActionListener {
-
+    
+    private ResourceBundle bundle = NbBundle.getBundle(NewWizardNurseryAction.class);
     private final Study context;
     private JDQuickCreation quick;
 
    
      public NewWizardNurseryAction() {
-        putValue(NAME, "New Nursery...");
+        putValue(NAME, bundle.getString("NewWizardNurseryAction.newNursery"));
         setEnabled(Boolean.TRUE);
         this.context = null;
     }
@@ -78,7 +81,7 @@ public final class NewWizardNurseryAction extends SystemAction implements Action
 
         changeCursorWaitStatus(true);
         if (existeTopComponent("Nursery - " + SelectedStudy.selected.getStudy())) {
-            int opc = JOptionPane.showConfirmDialog(null, "NURSERY ALREADY GENERATED. Do you want to overwrite it?", "Caution!", JOptionPane.YES_NO_OPTION);
+            int opc = JOptionPane.showConfirmDialog(null, bundle.getString("NewWizardNurseryAction.alreadyExists"), bundle.getString("NewWizardNurseryAction.caution"), JOptionPane.YES_NO_OPTION);
             if (opc == 0) {
                 NurseryEditorTopComponent nurseryEditor = null;
                 ArrayList<TopComponent> opened = new ArrayList<TopComponent>(WindowManager.getDefault().getRegistry().getOpened());
@@ -120,7 +123,7 @@ public final class NewWizardNurseryAction extends SystemAction implements Action
         WizardDescriptor.Iterator iterator = new NurseryWizardIterator();
         WizardDescriptor wizardDescriptor = new WizardDescriptor(iterator);
         wizardDescriptor.setTitleFormat(new MessageFormat("{0} ({1})"));
-        wizardDescriptor.setTitle("Create New Nursery Wizard");
+        wizardDescriptor.setTitle(bundle.getString("NewWizardNurseryAction.wizardTitle"));
         Dialog dialog = DialogDisplayer.getDefault().createDialog(wizardDescriptor);
         dialog.setVisible(true);
         dialog.toFront();

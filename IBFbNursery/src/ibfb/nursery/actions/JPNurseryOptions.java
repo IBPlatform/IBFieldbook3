@@ -1,8 +1,13 @@
 
 package ibfb.nursery.actions;
 
+import java.util.ResourceBundle;
+import org.openide.util.NbBundle;
+
 public class JPNurseryOptions extends javax.swing.JPanel {
 
+    private ResourceBundle bundle = NbBundle.getBundle(JPNurseryOptions.class);
+    
     public JPNurseryOptions() {
         initComponents();
     }

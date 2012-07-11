@@ -15,9 +15,9 @@ import org.openide.util.NbPreferences;
 public class NurseryWizardPanel41 implements WizardDescriptor.Panel,DocumentListener {
 
     
-    private NurseryVisualPanel41 component;
+     private NurseryVisualPanel41 component;
      private boolean isValid = false;    
-    private Set<ChangeListener> listeners = new HashSet<ChangeListener>(1);
+     private Set<ChangeListener> listeners = new HashSet<ChangeListener>(1);
 
   
     @Override
@@ -59,6 +59,8 @@ public class NurseryWizardPanel41 implements WizardDescriptor.Panel,DocumentList
     
     @Override
     public void readSettings(Object settings) {
+        component.fillComboListNames();
+        
         component.setMyWorkbook(NurseryWizardIterator.myExcelReader.getMyWorkbook());
     }
 
