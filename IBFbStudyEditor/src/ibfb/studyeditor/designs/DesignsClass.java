@@ -13,10 +13,9 @@ import javax.swing.table.DefaultTableModel;
 import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 import org.cimmyt.cril.ibwb.commongui.OSUtils;
 
-
-
 /**
  * Class to manage Designs using R calls
+ *
  * * @author OZIEL
  */
 public class DesignsClass {
@@ -35,9 +34,9 @@ public class DesignsClass {
         if (OSUtils.isMacOS()) {
             //pathR = OSUtils.getDocumentsPath();
             //pathRWD = OSUtils.getPathRWD();
-               pathR = "/Users/Oziel/Desktop/RforMac/Resources";
-               pathRWD = "/Users/Oziel/Desktop/R";
-       
+            pathR = "/Users/Oziel/Desktop/RforMac/Resources";
+            pathRWD = "/Users/Oziel/Desktop/R";
+
         } else {
             pathR = OSUtils.getRPATH();
             pathRWD = "C:" + File.separator + "R";
@@ -189,8 +188,7 @@ public class DesignsClass {
 
     }
 
-    
-     public void runR_alphaWindowsExtra(int treatments, int rep, int blocksize,int seed) {
+    public void runR_alphaWindowsExtra(int treatments, int rep, int blocksize, int seed) {
 
         String myCSVFile = "alpha.csv";
         FileWriter fichero = null;
@@ -233,7 +231,7 @@ public class DesignsClass {
             pw.println("k <- " + blocksize);
             pw.println("r <- " + rep);
             pw.println("s<-t/k");
-            pw.println("planAlpha <- design.alpha(t,k,r,seed="+seed+")"    );
+            pw.println("planAlpha <- design.alpha(t,k,r,seed=" + seed + ")");
             pw.println("setwd" + "(\"C:/R\")");
             pw.println("write.csv(planAlpha,\"" + myCSVFile + "\",row.names=FALSE)");
 
@@ -262,9 +260,8 @@ public class DesignsClass {
         ejecutaRforWindows("alpha.R", myCSVFile);
 
     }
-    
-    
-    public void runR_lattice(int trial,int treatments, int rep, int blocksize) {
+
+    public void runR_lattice(int trial, int treatments, int rep, int blocksize) {
         String fileName = "lattice" + trial;
         String myCSVFile = fileName + ".csv";
         FileWriter fichero = null;
@@ -289,7 +286,7 @@ public class DesignsClass {
             System.out.println("error al crear el archivo");
         }
         try {
-            fichero = new FileWriter(pathRWD + File.separator + "lattice"+trial+".R", false);
+            fichero = new FileWriter(pathRWD + File.separator + "lattice" + trial + ".R", false);
             pw = new PrintWriter(fichero);
             pw.println();
             pw.println("library(agricolae)");
@@ -309,11 +306,11 @@ public class DesignsClass {
             } catch (Exception e2) {
             }
         }
-         ejecutaRforMac(fileName);
+        ejecutaRforMac(fileName);
     }
 
     public void runR_alpha(int trial, int treatments, int rep, int blocksize) {
- 
+
         String fileName = "alpha" + trial;
         String myCSVFile = fileName + ".csv";
         FileWriter fichero = null;
@@ -330,7 +327,7 @@ public class DesignsClass {
 
         try {
             File miArchivo = new File(pathRWD + File.separator + myCSVFile);
-            
+
         } catch (Exception e) {
             System.out.println("error al crear el archivo");
         }
@@ -348,7 +345,7 @@ public class DesignsClass {
             pw.println("r <- " + rep);
             pw.println("s<-t/k");
             pw.println("planAlpha <- design.alpha(t,k,r,seed=55)");
-           // pw.println("planAlpha <- design.alpha(t,k,r)");
+            // pw.println("planAlpha <- design.alpha(t,k,r)");
             pw.println("setwd" + "(\"" + pathRWD + "\")");
             pw.println("write.csv(planAlpha,\"" + myCSVFile + "\",row.names=FALSE)");
 
@@ -372,10 +369,7 @@ public class DesignsClass {
         ejecutaRforMac(fileName);
     }
 
-  
-
-    
-     public void ejecutaRforMac(String fileName) { 
+    public void ejecutaRforMac(String fileName) {
         FileWriter ficheroBat = null;
         PrintWriter pwBat = null;
         try {
@@ -384,7 +378,7 @@ public class DesignsClass {
 
             pwBat.println("#!/bin/sh");
             pwBat.println("cd " + pathR + File.separator + "bin");
-            pwBat.println("sh R CMD BATCH " + pathRWD + File.separator + fileName  + ".R");
+            pwBat.println("sh R CMD BATCH " + pathRWD + File.separator + fileName + ".R");
 
         } catch (FileNotFoundException e) {
             DialogUtil.displayError("File not found");
@@ -399,7 +393,7 @@ public class DesignsClass {
                     ficheroBat.close();
                 }
             } catch (Exception e2) {
-                System.out.println("ERROR -ejecutaRforMac- : "+e2);
+                System.out.println("ERROR -ejecutaRforMac- : " + e2);
             }
         }
 
@@ -427,9 +421,7 @@ public class DesignsClass {
 
 
     }
-    
-    
-    
+
     public void ejecutaRforWindows(String scriptR, String myFile) {
 
         FileWriter ficheroBat = null;
@@ -484,17 +476,16 @@ public class DesignsClass {
         colEntry = model.findColumn(name);
         return colEntry;
     }
-    
-    
+
     public void readAlphaDesign(int trial, String myDesign, ObservationsTableModel model, JTable germplasmEntries) {
-           
+
         GermplasmEntriesTableModel entriesTableModel = (GermplasmEntriesTableModel) germplasmEntries.getModel();
         System.out.println("Iniciando lectura de csv");
         //String file = this.pathRWD + File.separator + myDesign+trial + ".csv";
         String file = this.pathRWD + File.separator + myDesign + ".csv";
 
-       
-        
+
+
         try {
             CsvReader csvReader = new CsvReader(file);
             csvReader.readHeaders();
@@ -609,8 +600,8 @@ public class DesignsClass {
 
 
         //      String file = this.pathRWD + File.separator + fileName;
-  
-        
+
+
         System.out.println("reading user defined design file : " + fileName);
 
         try {
@@ -629,9 +620,29 @@ public class DesignsClass {
                 String block = csvReader.get("BLOCK");
                 String plot = csvReader.get("PLOT");
                 String entry = csvReader.get("ENTRY");
-                String row = csvReader.get("ROW");
-                String col = csvReader.get("COLUMN");              
-                
+                String row = "";
+                String col = "";
+                boolean tenemosRow = false;
+                boolean tenemosCol = false;
+
+                try {
+                    row = csvReader.get("ROW");
+                    tenemosRow = true;
+                } catch (IOException e) {
+                    tenemosRow = false;
+
+                }
+
+                try {
+                    col = csvReader.get("COLUMN");
+                    tenemosCol = true;
+                } catch (IOException e) {
+                    tenemosCol = false;
+
+                }
+
+
+
                 int entryIntValue = Integer.parseInt(entry) - 1;
 
                 Object[] rowToAdd = new Object[model.getColumnCount()];
@@ -639,12 +650,19 @@ public class DesignsClass {
                 rowToAdd[model.getHeaderIndex(ObservationsTableModel.REPLICATION)] = rep;
                 rowToAdd[model.getHeaderIndex(ObservationsTableModel.BLOCK)] = block;
                 rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = plot;
-               
-                rowToAdd[model.getHeaderIndex(ObservationsTableModel.COL)] = col;
-                rowToAdd[model.getHeaderIndex(ObservationsTableModel.ROW)] = row;
 
-                /*   if (entryIntValue==entriesTableModel.getRowCount()) {
-                String columnHeader = Workbook.getStringWithOutBlanks(factor.getProperty() + factor.getScale());
+                if (tenemosRow) {
+                    rowToAdd[model.getHeaderIndex(ObservationsTableModel.COL)] = col;
+                }
+                if (tenemosCol) {
+                    rowToAdd[model.getHeaderIndex(ObservationsTableModel.ROW)] = row;
+                }
+
+                /*
+                 * if (entryIntValue==entriesTableModel.getRowCount()) { String
+                 * columnHeader =
+                 * Workbook.getStringWithOutBlanks(factor.getProperty() +
+                 * factor.getScale());
                  */
                 if (entryIntValue < entriesTableModel.getRowCount()) {
                     int entriesColIndex = 0;
@@ -686,9 +704,9 @@ public class DesignsClass {
     }
 
     public void deleteWDforMac() {
-              
-        File folderMac=new File(pathRWD);
-        
+
+        File folderMac = new File(pathRWD);
+
         if (folderMac.exists()) {
             File[] files = folderMac.listFiles();
             for (int i = 0; i < files.length; i++) {
@@ -704,24 +722,20 @@ public class DesignsClass {
         folderMac.delete();
     }
 
- 
-
     public boolean existeArchivo(String myDesign) {
-       
-        boolean existe=false;
-        
+
+        boolean existe = false;
+
         String file = this.pathRWD + File.separator + myDesign + ".csv";
-        
-        File archivo =new File(file);
-        if(archivo.exists() && archivo.length()>0){
-           
-            existe=true;
-        }else{
-            
-            
+
+        File archivo = new File(file);
+        if (archivo.exists() && archivo.length() > 0) {
+
+            existe = true;
+        } else {
         }
-        
-        
+
+
         return existe;
     }
 }
