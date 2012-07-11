@@ -222,10 +222,8 @@ public class HelperGermplasm {
         names.setNdate(UtilDate.getDateAsInteger(new Date()));//ndate añomesdia
         names.setNref(0);//nref 0
         servicioLocal.addNames(names);
-
         listdata.setGid(germplsm.getGid());
-//        servicioLocal.addListdata(listdata);
-
+//      servicioLocal.addListdata(listdata);
         return listdata;
     }
     
@@ -246,7 +244,6 @@ public class HelperGermplasm {
         }
 
         //
-
 
         // assign parents
         if (listdata.getGpid1() != null) {
