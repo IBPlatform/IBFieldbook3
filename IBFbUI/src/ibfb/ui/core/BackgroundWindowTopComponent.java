@@ -3,6 +3,7 @@ package ibfb.ui.core;
 import org.cimmyt.cril.ibwb.commongui.OSUtils;
 import java.awt.Desktop;
 import java.io.File;
+import java.util.ResourceBundle;
 import org.openide.util.NbBundle;
 import org.openide.windows.TopComponent;
 import org.netbeans.api.settings.ConvertAsProperties;
@@ -21,11 +22,14 @@ persistenceType = TopComponent.PERSISTENCE_ALWAYS)
 preferredID = "BackgroundWindowTopComponent")
 public final class BackgroundWindowTopComponent extends TopComponent {
 
+    
+        private ResourceBundle bundle = NbBundle.getBundle(BackgroundWindowTopComponent.class);
+
     public BackgroundWindowTopComponent() {
         initComponents();
         setName(NbBundle.getMessage(BackgroundWindowTopComponent.class, "CTL_BackgroundWindowTopComponent"));
         setToolTipText(NbBundle.getMessage(BackgroundWindowTopComponent.class, "HINT_BackgroundWindowTopComponent"));
-
+        jLabel1.setText(bundle.getString("BackgroundWindowTopComponent.desc"));
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
