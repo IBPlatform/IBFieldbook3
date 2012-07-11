@@ -4,6 +4,7 @@
  */
 package ibfb.traits.scales;
 
+import java.util.ResourceBundle;
 import java.util.Set;
 import org.cimmyt.cril.ibwb.api.AppServicesProxy;
 import org.cimmyt.cril.ibwb.commongui.DialogUtil;
@@ -29,6 +30,8 @@ persistenceType = TopComponent.PERSISTENCE_NEVER)
 @TopComponent.OpenActionRegistration(displayName = "#CTL_ScalesEditorAction",
 preferredID = "ScalesEditorTopComponent")
 public final class ScalesEditorTopComponent extends TopComponent {
+    
+    private ResourceBundle bundle = NbBundle.getBundle(ScalesEditorTopComponent.class);
 
     private Scales scales;
 
@@ -303,10 +306,10 @@ private void btnBrowseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         }
         if (scales.getScaleid() == 0) {
             AppServicesProxy.getDefault().appServices().addScalesLocal(scales);
-            DialogUtil.displayInfo("Scale added");
+            DialogUtil.displayInfo(bundle.getString("ScalesEditorTopComponent.scaleAdded"));
         } else {
             AppServicesProxy.getDefault().appServices().updateTmsScale(scales);
-            DialogUtil.displayInfo("Scale updated");
+            DialogUtil.displayInfo(bundle.getString("ScalesEditorTopComponent.scaleUpdated"));
         }
     }
 }

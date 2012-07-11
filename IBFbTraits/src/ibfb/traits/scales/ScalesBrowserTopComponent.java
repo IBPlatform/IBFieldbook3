@@ -7,6 +7,7 @@ package ibfb.traits.scales;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.List;
+import java.util.ResourceBundle;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
@@ -36,6 +37,8 @@ persistenceType = TopComponent.PERSISTENCE_NEVER)
 preferredID = "ScalesBrowserTopComponent")
 public final class ScalesBrowserTopComponent extends TopComponent {
 
+    private ResourceBundle bundle = NbBundle.getBundle(ScalesBrowserTopComponent.class);
+    
     private List<Scales> scales;
 
     public ScalesBrowserTopComponent() {
@@ -316,7 +319,14 @@ public final class ScalesBrowserTopComponent extends TopComponent {
         //int total = AppServicesProxy.getDefault().appServices().getTotalTrait(filter);
         scales = AppServicesProxy.getDefault().appServices().getListScales(filter, 0, 0, false);
         lblRecordsFound.setText(scales.size() + " Record(s) found ");
-        TableBindingUtil.createColumnsFromDB(Scales.class, scales, tblScales, "scaleid,scname,ontology", "Scale Id,Scale Name, Ontology");
+        
+        String scaleId = bundle.getString("ScalesBrowserTopComponent.scaleId");
+        String scaleName = bundle.getString("ScalesBrowserTopComponent.scaleName");
+        String ontology = bundle.getString("ScalesBrowserTopComponent.ontology");
+        
+        String headers = scaleId + "," + scaleName + "," + ontology; 
+        
+        TableBindingUtil.createColumnsFromDB(Scales.class, scales, tblScales, "scaleid,scname,ontology", headers);
         
     }
 

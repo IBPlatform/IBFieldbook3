@@ -7,6 +7,7 @@ package ibfb.traits.methods;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.List;
+import java.util.ResourceBundle;
 import org.cimmyt.cril.ibwb.api.AppServicesProxy;
 import org.cimmyt.cril.ibwb.commongui.TableBindingUtil;
 import org.cimmyt.cril.ibwb.domain.Tmethod;
@@ -32,6 +33,9 @@ persistenceType = TopComponent.PERSISTENCE_NEVER)
 @TopComponent.OpenActionRegistration(displayName = "#CTL_MethodBrowserAction",
 preferredID = "MethodBrowserTopComponent")
 public final class MethodBrowserTopComponent extends TopComponent {
+    
+    private ResourceBundle bundle = NbBundle.getBundle(MethodBrowserTopComponent.class);
+    
 
     private List<TmsMethod> methodLists;
 
@@ -313,8 +317,16 @@ public final class MethodBrowserTopComponent extends TopComponent {
 
         //int total = AppServicesProxy.getDefault().appServices().getTotalTrait(filter);
         methodLists = AppServicesProxy.getDefault().appServices().getListTmsMethod(filter, 0, 0, false);
-        lblRecordsFound.setText(methodLists.size() + " Record(s) found ");
-        TableBindingUtil.createColumnsFromDB(Tmethod.class, methodLists, tblMethods, "tmethid,tmname,tmabbr,tmdesc", "Method Id,Method Name,Abbreviature,Description");
+        
+        lblRecordsFound.setText(methodLists.size() + bundle.getString("MethodBrowserTopComponent.recordsfound"));
+        
+        String methodId = bundle.getString("MethodBrowserTopComponent.methodid");
+        String methodName = bundle.getString("MethodBrowserTopComponent.methodname");
+        String abbreviatue = bundle.getString("MethodBrowserTopComponent.abbreviature");
+        String description = bundle.getString("MethodBrowserTopComponent.description");
+        String headers = methodId + ","+  methodName + "," + abbreviatue + "," + description;
+        
+        TableBindingUtil.createColumnsFromDB(Tmethod.class, methodLists, tblMethods, "tmethid,tmname,tmabbr,tmdesc", headers);
     }
 
     private void createNew() {

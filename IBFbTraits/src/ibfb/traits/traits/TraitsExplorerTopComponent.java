@@ -3,6 +3,7 @@ package ibfb.traits.traits;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.List;
+import java.util.ResourceBundle;
 import org.cimmyt.cril.ibwb.api.AppServicesProxy;
 import org.cimmyt.cril.ibwb.commongui.OntologyTool;
 import org.cimmyt.cril.ibwb.commongui.TableBindingUtil;
@@ -28,6 +29,8 @@ persistenceType = TopComponent.PERSISTENCE_NEVER)
 @TopComponent.OpenActionRegistration(displayName = "#CTL_TraitsExplorerAction",
 preferredID = "TraitsExplorerTopComponent")
 public final class TraitsExplorerTopComponent extends TopComponent {
+    
+    private ResourceBundle bundle = NbBundle.getBundle(TraitsExplorerTopComponent.class);
 
     private List<Traits> traitsList;
 
@@ -312,7 +315,15 @@ public final class TraitsExplorerTopComponent extends TopComponent {
         //int total = AppServicesProxy.getDefault().appServices().getTotalTrait(filter);
         traitsList = AppServicesProxy.getDefault().appServices().getListTraits(filter, 0, 0, false);
         lblTraitsFound.setText(traitsList.size() + " Trait(s) found ");
-        TableBindingUtil.createColumnsFromDB(Trait.class, traitsList, traitsTable, "tid,trname,trabbr,ontology", "Trait ID,Name,Abbreviation,Ontology");
+        
+        String tid = bundle.getString("TraitsExplorerTopComponent.tid");
+        String trname = bundle.getString("TraitsExplorerTopComponent.trname");
+        String trabbr = bundle.getString("TraitsExplorerTopComponent.trabbr");
+        String ontology = bundle.getString("TraitsExplorerTopComponent.ontology");
+        
+        String headers = tid + "," + trname + "," + trabbr + "," + ontology;
+        
+        TableBindingUtil.createColumnsFromDB(Trait.class, traitsList, traitsTable, "tid,trname,trabbr,ontology", headers);
     }
 
     private void createNew() {
