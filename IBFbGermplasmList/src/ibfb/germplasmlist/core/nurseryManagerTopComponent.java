@@ -2018,8 +2018,6 @@ public final class nurseryManagerTopComponent extends TopComponent {
 
                 gms++;
 
-
-
                 int maximo = gs.getMax() + gms;
                 
                 int met=gs.getMethodGermplasm()+(gms-1);                          
@@ -2037,11 +2035,6 @@ public final class nurseryManagerTopComponent extends TopComponent {
                 modelo.setValueAt(cross, gms - 1, 2); //CROSS
                 modelo.setValueAt("Not assigned yet", gms - 1, 3); //GID                        
                 modelo.setValueAt("SIMPLE CROSS", gms - 1, 4);//METHOD
-
-
-
-
-
 
                 modelo.setValueAt(listFemale.get(gms - 1).getStudyId(), gms - 1, 5);//FTID
                 modelo.setValueAt(listFemale.get(gms - 1).getTrial(), gms - 1, 6);//FOCC
