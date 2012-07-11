@@ -1397,7 +1397,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
             listdata.setListdataPK(pk1);
             listdata.setEntryid(i + 1);
 
-            listdata.setDesig(tempListCross.get(i));
+            listdata.setDesig(this.jTableFinalList.getValueAt(i, bcidColumn).toString());
 
 
             if (bcidColumn > 0) {
