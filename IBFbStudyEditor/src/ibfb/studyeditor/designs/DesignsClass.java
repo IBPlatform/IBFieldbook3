@@ -609,8 +609,7 @@ public class DesignsClass {
 
 
         //      String file = this.pathRWD + File.separator + fileName;
-        
-        
+  
         
         System.out.println("reading user defined design file : " + fileName);
 
@@ -631,9 +630,7 @@ public class DesignsClass {
                 String plot = csvReader.get("PLOT");
                 String entry = csvReader.get("ENTRY");
                 String row = csvReader.get("ROW");
-                String col = csvReader.get("COLUMN");
-
-                
+                String col = csvReader.get("COLUMN");              
                 
                 int entryIntValue = Integer.parseInt(entry) - 1;
 
@@ -645,7 +642,6 @@ public class DesignsClass {
                
                 rowToAdd[model.getHeaderIndex(ObservationsTableModel.COL)] = col;
                 rowToAdd[model.getHeaderIndex(ObservationsTableModel.ROW)] = row;
-
 
                 /*   if (entryIntValue==entriesTableModel.getRowCount()) {
                 String columnHeader = Workbook.getStringWithOutBlanks(factor.getProperty() + factor.getScale());
