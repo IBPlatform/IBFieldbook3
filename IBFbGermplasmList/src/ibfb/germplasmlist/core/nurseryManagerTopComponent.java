@@ -2022,14 +2022,12 @@ public final class nurseryManagerTopComponent extends TopComponent {
 
                 int maximo = gs.getMax() + gms;
                 
-                int met=gs.getMethodGermplasm();                          
+                int met=gs.getMethodGermplasm()+(gms-1);                          
                 String fin=gs.getCharBCID();
                 
                 //String maxString = giveMaxString(maximo) + "S";
                   
                 String maxString = giveMaxString(met) + fin;
-                
-
                 modelo.setRowCount(gms);
                 String crossString = gs.getNames().getNval() + "/" + gs.getNamesMale().getNval();
                 tempListCross.add(crossString);
