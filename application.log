@@ -1,587 +1,239 @@
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@39620921
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: LABNO_STD_integer  VariateId: -1063
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@6b5bdd64
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: FGRAML_0-5  VariateId: -1064
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@77a4aabe
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: SPROUT_STD_1-9  VariateId: -1065
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@3af82f62
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@7d2c411
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: HELSP_double_digit_t  VariateId: -1066
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@16b1b33f
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: HTREP_%  VariateId: -1067
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@19d143d7
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@2e29f42c
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: STRIT_0-5  VariateId: -1068
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@7860da74
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: BIOMAS_kg/ha  VariateId: -1069
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@7aec2a3b
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: EP_12M_mm  VariateId: -1070
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@7baa3107
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: CTWIRR_mm  VariateId: -1071
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@70cf69de
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: EGRAM_1-5  VariateId: -1072
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@537e998
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@7cf08e05
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: MSTPCT_STD_real  VariateId: -1073
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@712a63e7
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: MDEST_STD_%  VariateId: -1074
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@7aa88226
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@56203e5f
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: STERIN_%  VariateId: -1075
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@2cdc3b1f
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@3757d0f
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: GLUCON_STD_%  VariateId: -1076
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@67c6f41b
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@115e308c
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: GERINI_STD_days  VariateId: -1077
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@183642db
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: GERINI_date  VariateId: -1078
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@4cee057a
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: XCUND_%  VariateId: -1079
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@381f2c1f
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@58a223b8
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PSYRI_STD_double_digit  VariateId: -1080
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@42633f32
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PSYRI_0-9T  VariateId: -1081
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@51c777f
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: CPYGM_STD_%  VariateId: -1082
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@1690e2f8
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@49a4100f
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PLNTHT_m  VariateId: -1083
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@4bc2ab0d
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: SEPSP_%  VariateId: -1084
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@5d784573
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@157176bd
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: LODGPC_0-5  VariateId: -1085
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@607ca51f
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: ACDTOL_STD_1-5  VariateId: -1086
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@475ee6ac
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@7ef4e84
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: DMPROD_STD_%  VariateId: -1087
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@42276e8b
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@690b9870
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: SEPSP_0-5  VariateId: -1088
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@6a045968
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: SNODO_9-1  VariateId: -1089
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@6c5da83a
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@1bc24f92
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: RICEBL_STD_double_digit  VariateId: -1090
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@48a53a4e
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: RICEBL_%  VariateId: -1091
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@1e580aba
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@61b9a28e
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: KERAPP_STD_0-9  VariateId: -1092
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@16f1343
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: KERAPP_0-9T  VariateId: -1093
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@7b50a158
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: LFIRE_STD_0-9  VariateId: -1094
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@2fe4f824
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: LFIRE_0-9T  VariateId: -1095
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@6167062b
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: ERLVIG_STD_1-5  VariateId: -1096
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@3cbd538d
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@784eb5e1
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PRECO_1-9  VariateId: -1097
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@534e95b4
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@2cd050b4
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PRECO_9-1  VariateId: -1098
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@654a7774
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@14d6642a
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: CPYGM_9-1  VariateId: -1099
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@7f6f3876
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@3bda6b77
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: FWILT_STD_%  VariateId: -1100
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@278124f8
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@4c7081ed
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: FWILT_double_digit  VariateId: -1101
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@77928daf
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: SEPSP_1-5  VariateId: -1102
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@403e4bc8
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@2c3b852f
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: SEPSP_9-1  VariateId: -1103
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@6ba3d3b
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@3f43e048
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: RICEBL_0-9T  VariateId: -1104
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@7ee0df88
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: HELSP_1-9  VariateId: -1105
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@54ddaa3c
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@4f49a40c
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PRECO_1-4  VariateId: -1106
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@56508896
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@6a7ad148
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PSTRIL_1-9  VariateId: -1107
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@1daf9a76
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@66698303
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: RSECA_STD_double_digit  VariateId: -1108
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@c10acf2
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: RSECA_0-9T  VariateId: -1109
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@1bc159e7
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: SBMV_STD_0-9T  VariateId: -1110
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@5f58883b
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: BSM.V_STD_0-9  VariateId: -1111
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@77b6120e
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: BSM.V_1-9  VariateId: -1112
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@79066f7b
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@15baa181
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: WKILL_STD_%  VariateId: -1113
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@d59a7eb
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@40e4a058
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: WKILL_0-9  VariateId: -1114
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@1a6e870c
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: STRIT_1-9  VariateId: -1115
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@5b0d0ccf
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@30e9c674
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: DMPOWO_STD_%  VariateId: -1116
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@6a9346c3
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@504e62d7
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: UTRIT_STD_0-9  VariateId: -1117
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@7122c28d
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: UTRIT_%  VariateId: -1118
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@62776faa
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@1330be93
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: HSATIL_1-9  VariateId: -1119
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@2da54919
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@19438f6
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: RELTMT_1-6  VariateId: -1120
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@3a6eb63c
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@5b53aab9
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PRECO_0-4  VariateId: -1121
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@739bedb2
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: WKILL_1-5  VariateId: -1122
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@59c63ce
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@711e59a2
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: CLPHYL_STD_integer  VariateId: -1123
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@3291f7c0
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: DAMAGE_STD_%  VariateId: -1124
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@4909a3b9
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@39b1d05
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: HTREP_0-5  VariateId: -1125
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@4d2ebc69
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: FLRFNO_STD_sec  VariateId: -1126
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@1ce9e8b6
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: CRDPRO_STD_%  VariateId: -1127
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@5cbeb14d
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@20e3211e
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: FORGDM_STD_%  VariateId: -1128
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@216b443d
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@26a13b5f
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PSYRI_double_digit_t  VariateId: -1129
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@574d8de4
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: TESTWT_lbs/bu  VariateId: -1130
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@2190c886
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@6b9ac24c
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: NBREAK_STD_%  VariateId: -1131
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@56b007d0
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@17a6c9e7
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: KrnVit_STD_%  VariateId: -1132
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@209378d5
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@165b554
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: RSECA_double_digit_t  VariateId: -1133
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@4d9df9ce
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: YELPIG_STD_ppm  VariateId: -1134
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@4a7158ea
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: BLKPT_%  VariateId: -1135
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@48a64676
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@2187f6b2
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PLANTS SELECTED  VariateId: -1136
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@36ce8336
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@6a390870
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.SteffectDAO - select s.effectid from steffect as s where s.STUDYID = -10 order by s.effectid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.FactorDAO - FROM Factor as f WHERE f.studyid = -10 and f.labelid = f.factorid ORDER BY f.labelid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: STUDY   FactorId: -247
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1866 scaleid: 1002 tmethid: 3316
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@70376aca
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: OCC   FactorId: -258
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1864 scaleid: 1001 tmethid: 3001
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@1021f58f
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: ENTRY NUMBER   FactorId: -259
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1861 scaleid: 1001 tmethid: 3001
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@5e3b778c
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PLOT   FactorId: -286
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1865 scaleid: 1001 tmethid: 3001
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@7a337056
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.EffectDAO - FROM Effect as e WHERE e.effectPK.effectid IN(:ids) ORDER BY e.effectPK.effectid ASC, e.effectPK.factorid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.EffectDAO - FROM Effect as e WHERE e.effectPK.effectid IN(:ids) ORDER BY e.effectPK.effectid DESC, e.effectPK.factorid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -22 factorid: -247
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.EffectDAO - FROM Effect as e WHERE e.effectPK.effectid IN(:ids) ORDER BY e.effectPK.effectid ASC, e.effectPK.factorid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.EffectDAO - FROM Effect as e WHERE e.effectPK.effectid IN(:ids) ORDER BY e.effectPK.effectid DESC, e.effectPK.factorid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -23 factorid: -247
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -23 factorid: -258
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.EffectDAO - FROM Effect as e WHERE e.effectPK.effectid IN(:ids) ORDER BY e.effectPK.effectid ASC, e.effectPK.factorid ASC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.EffectDAO - FROM Effect as e WHERE e.effectPK.effectid IN(:ids) ORDER BY e.effectPK.effectid DESC, e.effectPK.factorid DESC
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -24 factorid: -247
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -24 factorid: -258
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -24 factorid: -259
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -24 factorid: -286
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Study Conditions Data....
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Study Conditions DONE!!!!
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Trial Conditions Data....
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Trial Conditions DONE!!!!....
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Trial Germplasm Data....
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Trial Germplasm DONE!!!
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Observations Data....
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Getting Trial Randomization ...
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Getting Trial Randomization ...
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DMSReaderDAO - Getting trial randomization
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.DMSReaderDAO - Getting trial randomization.... DONE
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Getting Trial Randomization done
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - filling FactorLabelData... 
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - filling FactorLabelData DONE... 
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Observations Data DONE!!!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Extrayendo las diferentes convinaciones de studio y trial para fmale
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Recuperando la organization, program, harvdate y lid
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.FactorDAO - FROM Factor as f WHERE f.studyid = 40165 and f.fname = 'Organization' ORDER BY f.labelid ASC
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: Organization   FactorId: 1051035
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid ASC
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1803 scaleid: 1002 tmethid: 3012
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@532124ef
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: Organization labelid: 1051040
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.LevelCDAO - FROM LevelC as l where l.levelCPK.labelid = 1051040 ORDER BY l.levelCPK.levelno ASC
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.FactorDAO - FROM Factor as f WHERE f.studyid = 40165 and f.fname = 'Program' ORDER BY f.labelid ASC
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: Program   FactorId: 1051035
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid ASC
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1804 scaleid: 1002 tmethid: 3013
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@cb3c679
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: Program labelid: 1051041
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.LevelCDAO - FROM LevelC as l where l.levelCPK.labelid = 1051041 ORDER BY l.levelCPK.levelno ASC
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.FactorDAO - FROM Factor as f WHERE f.studyid = 40165 and f.fname = 'Harvdate' ORDER BY f.labelid ASC
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: HARVDATE   FactorId: 1051044
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid ASC
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1818 scaleid: 1001 tmethid: 3027
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@42702562
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: HARVDATE labelid: 1051057
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.LevelNDAO - FROM LevelN as l where l.levelNPK.labelid = 1051057 ORDER BY l.levelNPK.levelno ASC
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.FactorDAO - FROM Factor as f WHERE f.studyid = 40165 and f.fname = 'Lid' ORDER BY f.labelid ASC
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: LID   FactorId: 1051044
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DmsattrDAO - FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid ASC
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1811 scaleid: 1002 tmethid: 3020
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - FROM Measuredin as m WHERE m.traitid = ? and m.scaleid = ? and m.tmethid = ? ORDER BY m.scaleid ASC
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.MeasuredinDAO - Where parameters :[Ljava.lang.Object;@574fb893
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: LID labelid: 1051048
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.LevelCDAO - FROM LevelC as l where l.levelCPK.labelid = 1051048 ORDER BY l.levelCPK.levelno ASC
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Extrayendo las diferentes convinaciones de studio y trial para Male
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Recuperando lista de factores por estudio y trial detectado para ejecutarquery center 
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DMSReaderDAO - Definiendo orden de busquedas
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DMSReaderDAO - --> Recuperando factores principales.
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DMSReaderDAO - --> Termina Recuperando factores principales.
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DMSReaderDAO - --> Recuperando factores salida.
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DMSReaderDAO - --> Termina Recuperando factores salida.
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DMSReaderDAO - Getting trial randomization
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DMSReaderDAO - Getting trial randomization.... DONE
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Iterando en los resulset para optener el gid del germoplasma
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Y recuperar los germplasm y los names
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988512
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988512
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988511
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988511
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988510
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988510
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988509
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988509
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988508
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988508
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988507
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988507
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988506
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988506
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988505
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988505
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988504
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988504
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988503
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988503
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988502
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988502
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988501
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988501
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988500
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988500
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988499
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988499
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988498
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988498
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988497
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988497
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988496
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988496
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988495
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988495
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988494
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988494
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988493
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988493
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988492
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988492
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988491
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988491
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988490
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988490
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988489
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988489
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988488
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988488
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988487
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988487
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988486
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988486
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988485
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988485
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988484
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988484
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988483
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988483
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988482
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988482
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988481
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988481
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988480
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988480
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988479
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988479
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988478
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988478
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988477
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988477
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988476
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988476
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988475
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988475
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988474
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988474
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988473
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988473
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988472
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988472
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988471
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988471
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988470
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988470
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988469
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988469
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988468
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988468
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988467
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988467
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988466
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988466
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988465
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988465
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988464
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988464
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988463
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988463
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Iniciando el proceso de recuperacion de maximos para los fmale
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - seteando los datos del male a los objetos GermplasmSearchFmale
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Traits table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Traits table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists DONE....
-ERROR Explorer Views org.hibernate.util.JDBCExceptionReporter - Communications link failure
-
-The last packet successfully received from the server was 2.353.564 milliseconds ago.  The last packet sent successfully to the server was 2.353.658 milliseconds ago.
-ERROR Explorer Views org.hibernate.util.JDBCExceptionReporter - Already closed.
-ERROR Explorer Views org.hibernate.util.JDBCExceptionReporter - Already closed.
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: HNDWED_mark (MARK)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: FERTAP_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: PRECRO_real (REAL)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: NORAIN_integer (INTEGER)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: HSDTEX_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: SODTEX_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: DAYSMT_Julian_Dates_Subtract (JULIAN_DATES_SUBTRACT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: FNIVAL_double_digit_t (DOUBLE_DIGIT_T)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: CLDTOL_STD_1-5 (40664.0)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: CLDTOL_0-9 (0-9)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: DMPFRO_1-9 (40787.0)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: SEEDYR_STD_Numeric_Integer (NUMERIC_INTEGER)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: SEEDYR_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: AGRSCR_STD_1-5 (40664.0)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: AGRSCR_1-9 (40787.0)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: LCHSPE_STD_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: GRWSTG_STD_ZADOKS_OR_DECIMAL_CODE (ZADOKS_OR_DECIMAL_CODE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: PPN00M_mm (MM)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: FERKG1_kg/ha (KG/HA)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: FER%N1_% (PERCENTAGE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: %P2O51_% (PERCENTAGE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: F%K2O1_% (PERCENTAGE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: PPNCYC_mm (MM)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: BEDHAR_m2 (M2)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: TP_12M_mm (MM)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: FERKG2_kg/ha (KG/HA)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: FER%N2_% (PERCENTAGE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: F%K2O2_% (PERCENTAGE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: %P2O52_% (PERCENTAGE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: FERKG3_kg/ha (KG/HA)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: FER%N3_% (PERCENTAGE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: F%K2O3_% (PERCENTAGE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: %P2O53_% (PERCENTAGE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: XCUND_double_digit_t (DOUBLE_DIGIT_T)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: PRECO_% (PERCENTAGE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: BY%.V_STD_% (PERCENTAGE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: SPKDIS_N/T/S/M/V (N/T/S/M/V)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: OTUFB_STD_double_digit (DOUBLE_DIGIT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: OTUFB_0-9T (0-9T)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: LODGAN_STD_degree (DEGREE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: GRNSPK_STD_NO_GRAINS/SPIKE (NO_GRAINS/SPIKE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: SPIKMM_STD_ears/m2 (EARS/M2)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: SNODO_1-9 (40787.0)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: DAYSMT_Julian_Dates_Add (JULIAN_DATES_ADD)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: CLDTOL_% (PERCENTAGE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: NPREIR_integer (INTEGER)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: TINDI_STD_0-9 (0-9)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: TINDI_lmh (LMH)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: ALVW_STD_WX10-4J (WX10-4J)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: ALVP/G_STD_real (REAL)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: ALVP/G_ratio (RATIO)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: LOFVOL_STD_ml_integer (ML_INTEGER)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: LOFVOL_cc (CC)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: MIXTIM_STD_min (MIN)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: GRNHRD_STD_%_integer (PERCENTAGE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: GRNSIZ_STD_1-5 Real (1-5 REAL)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: GRNSIZ_1-3 (40603.0)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: QUAGRP_STD_1-4 (40634.0)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: CRMSTR_STD_1-5 (40664.0)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: CRMSTR_MP/P/R/B/MB (MP/P/R/B/MB)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: HRDCLS_STD_1-4 (40634.0)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: HRDCLS_H/SH/SS/S (H/SH/SS/S)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: GRNPLU_STD_1-3 (40603.0)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: GRNPLU_VG/G/SH (VG/G/SH)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: OTUFB_double_digit_t (DOUBLE_DIGIT_T)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: GLUTYP_STD_1-5 (40664.0)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: GLUTYP_S/MS/W/T/WT (S/MS/W/T/WT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: FLRPRO_STD_% (PERCENTAGE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: FLRYLD_STD_% (PERCENTAGE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: CRMSTR_VP/P/F/G/VG (VP/P/F/G/VG)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: OCHPRO_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: HTREP_double_digit_t (DOUBLE_DIGIT_T)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: EGRAM_9-1 (40552.0)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: FGRAML_STD_double_digit (DOUBLE_DIGIT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: FGRAML_double_digit_t (DOUBLE_DIGIT_T)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: EMERGE_E/N/L (E/N/L)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: ROODIS_N/T/S/M/V (N/T/S/M/V)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: DMGHER_N/T/S/M/V (N/T/S/M/V)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: DMGHAI_N/T/S/M/V (N/T/S/M/V)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: SOILCL_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: SOILTX_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: SOILPH_real T (REAL T)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: SOILOM_% (PERCENTAGE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: ALCLAS_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: HERPRO_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: FUNPRO_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: PESPRO_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: DMGFRS_N/T/S/M/V (N/T/S/M/V)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: OMNTXD_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: ELODGE_N/T/S/M/V (N/T/S/M/V)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: MAJWED_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: DECODS_integer (INTEGER)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: SOISUR_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: SOILAV_real (REAL)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: EMDTEX_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: HFDTEX_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: COOPEM_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: SPKLNG_STD_cm (CM)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: GRNYLD_qq/ha (QQ/HA)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: BIOMAS_kg/plot (KG/PLOT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: GERMI%_STD_% (PERCENTAGE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: AGRSCR_0-9 (0-9)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: FGRAML_0-4T (0-4T)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: TESTWT_kg/lt. (KG/LT.)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: DAYSAN_STD_days (DAYS)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: USEPRE_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: PPN11M_mm (MM)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: PPN10M_mm (MM)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: PPN09M_mm (MM)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: PPN08M_mm (MM)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: PPN07M_mm (MM)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: PPN06M_mm (MM)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: PPN05M_mm (MM)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: PPN04M_mm (MM)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: PPN03M_mm (MM)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: PPN02M_mm (MM)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: PPN01M_mm (MM)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: SOIRBA_Y/N/U (Y/N/U)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: SOIDRZ_cm (CM)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: FERTI1_date (DATE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: OTHEL1_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: FERTI2_date (DATE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: FERTI3_date (DATE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: RESH2O_mm (MM)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: PREIRR_mm (MM)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: BEDSAR_m2 (M2)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: SPEOFR_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: USESCR_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: SEPSP_1-9 (40787.0)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: SOIDBA_cm (CM)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: OTHEL2_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: OTHEL3_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: DMPBRD_STD_% (PERCENTAGE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: GRNSPL_STD_integer (INTEGER)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: STRIT_9-1 (40552.0)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: HMW_1A_STD_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: HMW_1B_STD_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: HMW_1D_STD_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: RELTHD_STD_1-5 (40664.0)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: RELTHD_E/ME/M/ML/L (E/ME/M/ML/L)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: CANTD_STD_oC (OC)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: YELBER_STD_% (PERCENTAGE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: FGRAML_0-9T (0-9T)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: DMPAPH_STD_% (PERCENTAGE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: DNOXI_STD_1-6 (40695.0)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: FGRAML_% (PERCENTAGE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: DMPHAL_STD_% (PERCENTAGE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: DAYSAN_date (DATE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: GRNSDS_STD_ml (ML)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: SPLSPK_STD_integer (INTEGER)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: BLKPT_STD_0-9 (0-9)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: BLKPT_0-9T (0-9T)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: GRNSIZ_1-3 text (1-3 TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: 1R1BVE_STD_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: RELTHD_VE/E/M/L/VL (VE/E/M/L/VL)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: RELTMT_STD_1-5 (40664.0)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: RELTMT_VE/E/M/L/VL (VE/E/M/L/VL)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: RELPHT_STD_1-5 (40664.0)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: HARIDX_STD_% (PERCENTAGE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: SEPSP_double_digit_t (DOUBLE_DIGIT_T)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: FERDT1_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: FERDT2_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: FERDT3_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: ALVP/L_STD_INDEX (INDEX)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: LABNO_STD_integer (INTEGER)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: FGRAML_0-5 (0-5)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: SPROUT_STD_1-9 (40787.0)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: HELSP_double_digit_t (DOUBLE_DIGIT_T)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: HTREP_% (PERCENTAGE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: STRIT_0-5 (0-5)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: BIOMAS_kg/ha (KG/HA)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: EP_12M_mm (MM)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: CTWIRR_mm (MM)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: EGRAM_1-5 (40664.0)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: MSTPCT_STD_real (REAL)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: MDEST_STD_% (PERCENTAGE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: STERIN_% (PERCENTAGE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: GLUCON_STD_% (PERCENTAGE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: GERINI_STD_days (DAYS)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: GERINI_date (DATE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: XCUND_% (PERCENTAGE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: PSYRI_STD_double_digit (DOUBLE_DIGIT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: PSYRI_0-9T (0-9T)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: CPYGM_STD_% (PERCENTAGE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: PLNTHT_m (M)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: SEPSP_% (PERCENTAGE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: LODGPC_0-5 (0-5)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: ACDTOL_STD_1-5 (40664.0)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: DMPROD_STD_% (PERCENTAGE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: SEPSP_0-5 (0-5)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: SNODO_9-1 (40552.0)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: RICEBL_STD_double_digit (DOUBLE_DIGIT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: RICEBL_% (PERCENTAGE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: KERAPP_STD_0-9 (0-9)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: KERAPP_0-9T (0-9T)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: LFIRE_STD_0-9 (0-9)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: LFIRE_0-9T (0-9T)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: ERLVIG_STD_1-5 (40664.0)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: PRECO_1-9 (40787.0)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: PRECO_9-1 (40552.0)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: CPYGM_9-1 (40552.0)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: FWILT_STD_% (PERCENTAGE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: FWILT_double_digit (DOUBLE_DIGIT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: SEPSP_1-5 (40664.0)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: SEPSP_9-1 (40552.0)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: RICEBL_0-9T (0-9T)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: HELSP_1-9 (40787.0)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: PRECO_1-4 (40634.0)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: PSTRIL_1-9 (40787.0)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: RSECA_STD_double_digit (DOUBLE_DIGIT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: RSECA_0-9T (0-9T)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: SBMV_STD_0-9T (0-9T)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: BSM.V_STD_0-9 (0-9)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: BSM.V_1-9 (40787.0)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: WKILL_STD_% (PERCENTAGE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: WKILL_0-9 (0-9)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: STRIT_1-9 (40787.0)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: DMPOWO_STD_% (PERCENTAGE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: UTRIT_STD_0-9 (0-9)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: UTRIT_% (PERCENTAGE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: HSATIL_1-9 (40787.0)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: RELTMT_1-6 (40695.0)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: PRECO_0-4 (0-4)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: WKILL_1-5 (40664.0)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: CLPHYL_STD_integer (INTEGER)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: DAMAGE_STD_% (PERCENTAGE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: HTREP_0-5 (0-5)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: FLRFNO_STD_sec (SEC)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: CRDPRO_STD_% (PERCENTAGE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: FORGDM_STD_% (PERCENTAGE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: PSYRI_double_digit_t (DOUBLE_DIGIT_T)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: TESTWT_lbs/bu (LBS/BU)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: NBREAK_STD_% (PERCENTAGE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: KrnVit_STD_% (PERCENTAGE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: RSECA_double_digit_t (DOUBLE_DIGIT_T)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: YELPIG_STD_ppm (PPM)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: BLKPT_% (PERCENTAGE)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Variate: PLANTS SELECTED (NUMBER)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read END
