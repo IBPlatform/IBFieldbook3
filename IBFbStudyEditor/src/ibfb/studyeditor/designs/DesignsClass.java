@@ -5,12 +5,7 @@ import ibfb.domain.core.Factor;
 import ibfb.domain.core.Workbook;
 import ibfb.studyeditor.core.model.GermplasmEntriesTableModel;
 import ibfb.studyeditor.core.model.ObservationsTableModel;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -39,7 +34,7 @@ public class DesignsClass {
     public DesignsClass() {
         if (OSUtils.isMacOS()) {
             //pathR = OSUtils.getDocumentsPath();
-          //  pathRWD = OSUtils.getPathRWD();
+            //pathRWD = OSUtils.getPathRWD();
                pathR = "/Users/Oziel/Desktop/RforMac/Resources";
                pathRWD = "/Users/Oziel/Desktop/R";
        
@@ -614,6 +609,9 @@ public class DesignsClass {
 
 
         //      String file = this.pathRWD + File.separator + fileName;
+        
+        
+        
         System.out.println("reading user defined design file : " + fileName);
 
         try {
@@ -632,6 +630,11 @@ public class DesignsClass {
                 String block = csvReader.get("BLOCK");
                 String plot = csvReader.get("PLOT");
                 String entry = csvReader.get("ENTRY");
+                String row = csvReader.get("ROW");
+                String col = csvReader.get("COLUMN");
+
+                
+                
                 int entryIntValue = Integer.parseInt(entry) - 1;
 
                 Object[] rowToAdd = new Object[model.getColumnCount()];
@@ -639,6 +642,9 @@ public class DesignsClass {
                 rowToAdd[model.getHeaderIndex(ObservationsTableModel.REPLICATION)] = rep;
                 rowToAdd[model.getHeaderIndex(ObservationsTableModel.BLOCK)] = block;
                 rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = plot;
+               
+                rowToAdd[model.getHeaderIndex(ObservationsTableModel.COL)] = col;
+                rowToAdd[model.getHeaderIndex(ObservationsTableModel.ROW)] = row;
 
 
                 /*   if (entryIntValue==entriesTableModel.getRowCount()) {

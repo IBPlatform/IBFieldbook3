@@ -451,14 +451,13 @@ public class DesignsUtils {
                 jTableDesign.setValueAt(blockPerReplicate, fila, 4);
                 jTableDesign.setValueAt(userDefinedDesign, fila, 5);
                 useSameDesignForTrials(useSameDesignForAll);
-
             }
         }
 
     }
 
     public int[] getDesignValues(int currentTrial, File fileName) {
-        int[] maxValues = {0, 0, 0, 0};
+        int[] maxValues = {0, 0, 0, 0, 0 ,0};
         int rowTrialCount = 0, blkCounter = 1, blkRepCounter = 1;
 
         //  String file = OSUtils.getPathRWD() + File.separator + fileName;

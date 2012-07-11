@@ -35,8 +35,8 @@ public class ObservationsTableModel extends AbstractTableModel {
     public static final String PLOT = "FIELDPLOTNUMBER";
     public static final String REPLICATION = "REPLICATIONNUMBER";
     public static final String BLOCK = "BLOCKNUMBER";
-    public static final String ROW = "";
-    public static final String COL = "";
+    public static final String ROW = "ROWINLAYOUTNUMBER";
+    public static final String COL = "COLUMNINLAYOUTNUMBER";
     public static boolean isFromCrossInfo = false;
     /**
      * Prefix to store header index in map for factors
