@@ -22,7 +22,7 @@ id = "ibfb.traits.methods.MethodsAction")
     @ActionReference(path = "Menu/Database", position = 3133),
     @ActionReference(path = "Toolbars/File", position = -180)
 })
-@Messages("CTL_MethodsAction=Methods")
+//@Messages("CTL_MethodsAction=Methods")
 public final class MethodsAction implements ActionListener {
 
     @Override

@@ -22,7 +22,7 @@ displayName = "#CTL_ScalesBrowseAction")
     @ActionReference(path = "Menu/Database", position = 3233),
     @ActionReference(path = "Toolbars/File", position = -180)
 })
-@Messages("CTL_ScalesBrowseAction=Scales")
+//@Messages("CTL_ScalesBrowseAction=Scales")
 public final class ScalesBrowseAction implements ActionListener {
 
     @Override
