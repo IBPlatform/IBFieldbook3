@@ -764,12 +764,23 @@ public class HelperGermplasm {
         for(GermplasmSearch gs : listFmale){
             boolean fmaleFound = false;
             boolean maleFound = false;
-            if(gs.getGermplsmMale().getGpid1().equals(gs.getGermplsm().getGid())){
-                fmaleFound = true;
+            if(gs.getGermplsmMale() != null){
+                if(gs.getGermplsmMale().getGpid1() != null){
+                    if(gs.getGermplsm() != null){
+                        if(gs.getGermplsmMale().getGpid1().equals(gs.getGermplsm().getGid())){
+                            fmaleFound = true;
+                        }
+                    }
+                }
             }
-            
-            if(gs.getGermplsm().getGpid2().equals(gs.getGermplsmMale().getGid())){
-                maleFound = true;
+            if(gs.getGermplsm() != null){
+                if(gs.getGermplsm().getGpid2() != null){
+                    if(gs.getGermplsmMale() != null){
+                        if(gs.getGermplsm().getGpid2().equals(gs.getGermplsmMale().getGid())){
+                            maleFound = true;
+                        }
+                    }
+                }
             }
                 
             if(gs.getSnameMale().substring(0, 2).equals("F1") && 
