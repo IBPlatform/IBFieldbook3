@@ -2172,6 +2172,33 @@ public class IBWBAppServicesImpl implements AppServices {
             return this.serviciosLocal.getListGermplasmAndPlotByStudyidAndTrial(studySearch);
         }
     }
+    
+    public List<Listdata> saveGerplasmCimmytWheat(
+            List<Listdata> listGermplsm,
+            Listnms listnms,
+            Integer userId
+            ){
+        HelperGermplasm helperGermplasm = new HelperGermplasm(listnms, this, serviciosLocal, userId);
+        return helperGermplasm.saveGerplasmCimmytWheat(listGermplsm, listnms);
+    }
+    
+    public Listdata agregarGermPlasmCimmytWheat(
+            String nameGermplasmHistory,
+            String nameGermplasmBCID,
+            Listdata listdata,
+            Integer userId
+            ) {
+        HelperGermplasm helperGermplasm = new HelperGermplasm(new Listnms(), this, serviciosLocal, userId);
+        return helperGermplasm.agregarGermPlasmCimmytWheat(nameGermplasmHistory, nameGermplasmBCID, listdata);
+    }
+    
+    public List<GermplasmSearch> getGermplasmByListStudyTrialPlotCross(
+            AppServices appServices,
+            List<GermplasmSearch> listFmale,
+            List<GermplasmSearch> listMale
+            ){
+        return HelperGermplasm.getGermplasmByListStudyTrialPlotCross(appServices, listFmale, listMale);
+    }
 
     public ResultSet getTrialRandomization(
             Integer studyId,

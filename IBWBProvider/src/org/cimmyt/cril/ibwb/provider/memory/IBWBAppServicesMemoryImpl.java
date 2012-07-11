@@ -1289,4 +1289,19 @@ public class IBWBAppServicesMemoryImpl implements AppServices {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
+    @Override
+    public List<Listdata> saveGerplasmCimmytWheat(List<Listdata> listGermplsm, Listnms listnms, Integer userId) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Listdata agregarGermPlasmCimmytWheat(String nameGermplasmHistory, String nameGermplasmBCID, Listdata listdata, Integer userId) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<GermplasmSearch> getGermplasmByListStudyTrialPlotCross(AppServices appServices, List<GermplasmSearch> listFmale, List<GermplasmSearch> listMale) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
 }
