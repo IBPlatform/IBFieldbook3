@@ -25,6 +25,7 @@ import java.awt.Dialog;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.io.File;
+import java.text.DecimalFormat;
 import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -1901,8 +1902,8 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
 
                 for (int i = 0; i < tableModel.getRowCount(); i++) {
                     GermplasmSearch gsF = new GermplasmSearch();
-                    gsF.setStudyId(40165);
-                    // gsF.setStudyId(currentStudy);
+                    // gsF.setStudyId(40165);
+                    gsF.setStudyId(currentStudy);
                     gsF.setTrial(1); //BECAUSE THIS IS A NURSERY
                     gsF.setPlot(ConvertUtils.getValueAsInteger(germplasmData.get(i).get(colEntry)));
                     listToSearchBCID.add(gsF);
@@ -1927,6 +1928,12 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
 
 
                         if (convention == 0) {//WHEAT
+
+                            int met = germplasmSearchs.get(i).getMethodGermplasm();
+                            String fin = germplasmSearchs.get(i).getCharBCID();
+                            String maxString = giveMaxString(met) + fin;
+                            String bcidFinal = germplasmSearchs.get(i).getBcid() + maxString;
+
                             data = metodos.giveMeDataDerivative(germplasmSearchs.get(i).getBcid(), samples);
                         } else {
 
@@ -1954,6 +1961,15 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
                         //  data = metodos.giveMeDataDerivative(nuevo[colDesig].toString(), samples);
 
                         if (convention == 0) {//WHEAT
+
+
+
+                            int met = germplasmSearchs.get(i).getMethodGermplasm();
+                            String fin = germplasmSearchs.get(i).getCharBCID();
+                            String maxString = giveMaxString(met) + fin;
+                            String bcidFinal = germplasmSearchs.get(i).getBcid() + maxString;
+
+
                             data = metodos.giveMeDataDerivative(germplasmSearchs.get(i).getBcid(), samples);
                         } else {
                             data = metodos.giveMeDataDerivative(nuevo[colDesig].toString(), samples);
@@ -2089,9 +2105,9 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
     }//GEN-LAST:event_jButtonImportCrossInfoActionPerformed
 
     private void jButtonSaveNurseryStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jButtonSaveNurseryStateChanged
-        
-         checkAdvanceStatus();
-        
+
+        checkAdvanceStatus();
+
     }//GEN-LAST:event_jButtonSaveNurseryStateChanged
 
     public void enabledAdvance(boolean estado) {
@@ -2323,6 +2339,13 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
             model.addRow(rowToAdd);
 
         }
+    }
+
+    private String giveMaxString(int maximo) {
+        String cadena;
+        DecimalFormat format = new DecimalFormat("000000");
+        cadena = format.format(maximo);
+        return cadena;
     }
 
     private int[] randomize(int tam) {
