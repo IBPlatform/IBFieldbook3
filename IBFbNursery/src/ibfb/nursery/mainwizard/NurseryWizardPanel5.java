@@ -64,7 +64,7 @@ public class NurseryWizardPanel5 implements WizardDescriptor.Panel, DocumentList
         int entries = Integer.parseInt(NbPreferences.forModule(NurseryVisualPanel41.class).get("entries", "0"));
         component.setMaximo(entries);
         component.setMyWorkbook(NurseryWizardIterator.myExcelReader.getMyWorkbook());
-       // component.fillComboListNames();
+        component.fillComboListNames();
         seEjecuto = false;
         change();
     }
