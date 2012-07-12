@@ -301,7 +301,7 @@ public class HelperGermplasm {
         //names
         //names.setNid(userId);//nid = autoincrement
         names.setGid(germplsm.getGid());//gid = germplasm
-        names.setNtype(1029);//ntype = 5
+        names.setNtype(1027);//ntype = 5
         // tmsanchez 20120424
         names.setNstat(1);//nstat = 0
 
