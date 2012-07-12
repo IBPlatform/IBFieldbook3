@@ -148,8 +148,13 @@ public class HelperGmsReader {
             studySearch.setNamePlot(namePlot);
         }
 
-
         log.info("--> Termina Recuperando factores principales.");
+        
+        if(factoresPrincipales == null){
+            log.error("No se encontraron factores principales");
+        }else if(factoresPrincipales.size() >= 0 && factoresPrincipales.size()<4){
+            log.error("No se encontraron factores principales");
+        }
 
         log.info("--> Recuperando factores salida.");
 
@@ -207,8 +212,8 @@ public class HelperGmsReader {
                 + "INNER JOIN factor f ON e.factorid=f.factorid "
                 + "WHERE studyid=" + studySearch.getStudyId() + " AND "
                 + "f.factorid = f.labelid AND "
-                + "fname IN(" + DMSReaderDAO.getFactoresParaUsoInQuery(factoresPrincipales) + ") "
-                + "GROUP BY represno HAVING COUNT(*)=" + numeroDeFactoresPrincipales;
+                + "fname IN (" + DMSReaderDAO.getFactoresParaUsoInQuery(factoresPrincipales) + ") "
+                + "GROUP BY represno HAVING COUNT(*) = " + numeroDeFactoresPrincipales;
         query = session.createSQLQuery(consultaSQL);
         resultado = query.list();
 
