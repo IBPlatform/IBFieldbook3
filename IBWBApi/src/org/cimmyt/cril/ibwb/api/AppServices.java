@@ -1663,5 +1663,12 @@ public interface AppServices {
             List<GermplasmSearch> listMale
             );
 
+    /**
+     * Returns a Names object by it GID
+     * First look for NTYPE = 1028, if not exists then look for NTYPE = 1027
+     * @param gid GID to search
+     * @return Names Object if GID does not exist then return NULL
+     */
+    public Names getCimmytWheatName(Integer gid);
 
 }
