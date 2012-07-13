@@ -377,11 +377,11 @@ public class IBWBAppServicesImpl implements AppServices {
             return new ArrayList<Factor>();
         }
     }
-    
-    public Factor getFactorByStudyidAndFname(Integer studyid, String fname){
-        if(studyid > 0){
+
+    public Factor getFactorByStudyidAndFname(Integer studyid, String fname) {
+        if (studyid > 0) {
             return this.serviciosCentral.getFactorByStudyidAndFname(studyid, fname);
-        }else{
+        } else {
             return this.serviciosLocal.getFactorByStudyidAndFname(studyid, fname);
         }
     }
@@ -1017,33 +1017,32 @@ public class IBWBAppServicesImpl implements AppServices {
         names.addAll(serviciosLocal.getListNames(filter, start, pageSize, paged));
         return names;
     }
-    
-    public String getNextMaxForBCID(Integer studyId, String cadena, Integer ntype){
-        if(studyId > 0){
+
+    public String getNextMaxForBCID(Integer studyId, String cadena, Integer ntype) {
+        if (studyId > 0) {
             return this.serviciosCentral.getNextMaxForBCID(cadena, ntype);
-        }else{
+        } else {
             return this.serviciosLocal.getNextMaxForBCID(cadena, ntype);
         }
     }
-    
-    public Names getNamesByGid(Germplsm germplasm, Boolean preferido){
-        if(germplasm == null){
+
+    public Names getNamesByGid(Germplsm germplasm, Boolean preferido) {
+        if (germplasm == null) {
             return null;
-        }else if(germplasm.getGid()>0){
+        } else if (germplasm.getGid() > 0) {
             return this.serviciosCentral.getNamesByGid(germplasm, preferido);
-        }else{
+        } else {
             return this.serviciosLocal.getNamesByGid(germplasm, preferido);
         }
     }
-    
-    public Integer getMaxForSelection(Integer studyId, String cadena, Integer ntype){
-        if(studyId>0){
+
+    public Integer getMaxForSelection(Integer studyId, String cadena, Integer ntype) {
+        if (studyId > 0) {
             return this.serviciosCentral.getMaxForSelection(cadena, ntype);
-        }else{
+        } else {
             return this.serviciosLocal.getMaxForSelection(cadena, ntype);
         }
     }
-
 
 //-----------------------------------Obsunit---------------------------
     @Override
@@ -2149,7 +2148,7 @@ public class IBWBAppServicesImpl implements AppServices {
             return this.serviciosLocal.getTrialRandomization(studyId, trialFactorId, factoresPrincipales, factoresSalida, nombreTrial);
         }
     }
-    
+
     public ResultSet getTrialRandomizationFast(
             Integer studyId,
             Integer trialFactorId,
@@ -2162,41 +2161,37 @@ public class IBWBAppServicesImpl implements AppServices {
             return this.serviciosLocal.getTrialRandomizationFast(studyId, trialFactorId, factoresPrincipales, factoresSalida, nombreTrial);
         }
     }
-    
+
     public StudySearch getListGermplasmAndPlotByStudyidAndTrial(
-            StudySearch studySearch
-            ) {
+            StudySearch studySearch) {
         if (studySearch.getStudyId() > 0) {
             return this.serviciosCentral.getListGermplasmAndPlotByStudyidAndTrial(studySearch);
         } else {
             return this.serviciosLocal.getListGermplasmAndPlotByStudyidAndTrial(studySearch);
         }
     }
-    
+
     public List<Listdata> saveGerplasmCimmytWheat(
             List<Listdata> listGermplsm,
             Listnms listnms,
-            Integer userId
-            ){
+            Integer userId) {
         HelperGermplasm helperGermplasm = new HelperGermplasm(listnms, this, serviciosLocal, userId);
         return helperGermplasm.saveGerplasmCimmytWheat(listGermplsm, listnms);
     }
-    
+
     public Listdata agregarGermPlasmCimmytWheat(
             String nameGermplasmHistory,
             String nameGermplasmBCID,
             Listdata listdata,
-            Integer userId
-            ) {
+            Integer userId) {
         HelperGermplasm helperGermplasm = new HelperGermplasm(new Listnms(), this, serviciosLocal, userId);
         return helperGermplasm.agregarGermPlasmCimmytWheat(nameGermplasmHistory, nameGermplasmBCID, listdata);
     }
-    
+
     public List<GermplasmSearch> getGermplasmByListStudyTrialPlotCross(
             AppServices appServices,
             List<GermplasmSearch> listFmale,
-            List<GermplasmSearch> listMale
-            ){
+            List<GermplasmSearch> listMale) {
         return HelperGermplasm.getGermplasmByListStudyTrialPlotCross(appServices, listFmale, listMale);
     }
 
@@ -2683,11 +2678,51 @@ public class IBWBAppServicesImpl implements AppServices {
         return helperInventory.getScalesForInventory();
 
     }
-    
+
     @Override
-     public List<GermplasmSearch> getGermplasmByListStudyTrialPlotCross(List<GermplasmSearch> listFemale,
-            List<GermplasmSearch> listMale
-            ) {
-       return   HelperGermplasm.getGermplasmByListStudyTrialPlotCross(this, listFemale, listMale);
-     }
+    public List<GermplasmSearch> getGermplasmByListStudyTrialPlotCross(List<GermplasmSearch> listFemale,
+            List<GermplasmSearch> listMale) {
+        return HelperGermplasm.getGermplasmByListStudyTrialPlotCross(this, listFemale, listMale);
+    }
+
+    /**
+     * Returns a Names object by it GID First look for NTYPE = 1028, if not
+     * exists then look for NTYPE = 1027
+     *
+     * @param gid GID to search
+     * @return Names Object if GID does not exist then return NULL
+     */
+    @Override
+    public Names getCimmytWheatName(Integer gid) {
+        Names cimmytWheatName = null;
+        CommonServices service = null;
+
+        if (gid != null) {
+            if (gid.intValue() > 0) {
+                service = serviciosCentral;
+            } else {
+                service = serviciosLocal;
+            }
+
+            Names nameToSearch = new Names(true);
+            nameToSearch.setGid(gid);
+            nameToSearch.setNtype(1028);
+            List<Names> namesList = service.getListNames(nameToSearch, 0, 0, false);
+            if (namesList.isEmpty()) {
+                // if not found then search using other ntype
+                nameToSearch.setNtype(1027);
+                namesList = service.getListNames(nameToSearch, 0, 0, false);
+
+                if (!namesList.isEmpty()) {
+                    // if found then get it
+                    cimmytWheatName = namesList.get(0);
+                }
+            } else {
+                cimmytWheatName = namesList.get(0);
+            }
+        }
+
+
+        return cimmytWheatName;
+    }
 }

@@ -1304,4 +1304,9 @@ public class IBWBAppServicesMemoryImpl implements AppServices {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
+    @Override
+    public Names getCimmytWheatName(Integer gid) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
 }
