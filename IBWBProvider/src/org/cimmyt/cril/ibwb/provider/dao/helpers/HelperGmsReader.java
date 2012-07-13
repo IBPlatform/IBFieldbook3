@@ -148,6 +148,27 @@ public class HelperGmsReader {
             studySearch.setNamePlot(namePlot);
         }
 
+        if ( nameStudy == null  && nameTrial == null && nameEntry == null && namePlot == null) {
+            
+               Object[] fila1 = (Object[]) resultado.get(0);
+               Object[] fila2 = (Object[]) resultado.get(1);
+               Object[] fila3 = (Object[]) resultado.get(2);
+               Object[] fila4 = (Object[]) resultado.get(3);
+               factoresPrincipales.add(fila1[0].toString());
+               factoresPrincipales.add(fila2[0].toString());
+               factoresPrincipales.add(fila3[0].toString());
+               factoresPrincipales.add(fila4[0].toString());
+               factoresSalida.add(fila1[0].toString());
+               factoresSalida.add(fila2[0].toString());
+               factoresSalida.add(fila3[0].toString());
+               factoresSalida.add(fila4[0].toString());
+               studySearch.setNameStudy(fila1[0].toString());
+               studySearch.setNameTrial(fila2[0].toString());
+               studySearch.setNameEntry(fila3[0].toString());
+               studySearch.setNamePlot(fila4[0].toString());
+        }
+
+        
         log.info("--> Termina Recuperando factores principales.");
         
         if(factoresPrincipales == null){
