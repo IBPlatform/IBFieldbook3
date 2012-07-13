@@ -27,6 +27,8 @@ public class FieldbookSettings {
     public static final String LOCAL_GMS_USER_ID_UNASSIGNED = "LOCAL_GMS_USER_ID_UNASSIGNED";
     public static final String LOCAL_DMS_USER_ID = "LOCAL_DMS_USER_ID";
     public static final String LOCAL_DMS_USER_ID_UNASSIGNED = "LOCAL_DMS_USER_ID_UNASSIGNED";
+    
+    public static final String READ_ICIS_INI_FILE = "READ_ICIS_INI_FILE";
 
     /**
      * Returns stored setting in NBPreferences
@@ -93,6 +95,7 @@ public class FieldbookSettings {
         moduleOptionList.put(TEMPLATES_DEFAULT_FOLDER, TemplatesandListsFoldersPanel.class);
         moduleOptionList.put(LOCAL_DMS_USER_ID, TemplatesandListsFoldersPanel.class);
         moduleOptionList.put(LOCAL_GMS_USER_ID, TemplatesandListsFoldersPanel.class);
+        moduleOptionList.put(READ_ICIS_INI_FILE, TemplatesandListsFoldersPanel.class);
 
     }
 
@@ -126,5 +129,17 @@ public class FieldbookSettings {
             localDmsuser = LOCAL_DMS_USER_ID_UNASSIGNED;
         }
         return localDmsuser;
+    }
+    
+    public static boolean readIcisIniFileAtStartup() {
+        boolean readIcisIniFileAtStartup =  false;
+        
+        String readIcisIniFile = getSetting(READ_ICIS_INI_FILE);
+        
+        if (readIcisIniFile != null) {
+           readIcisIniFileAtStartup = readIcisIniFile.equals("1");
+        }
+        
+        return readIcisIniFileAtStartup;
     }
 }
