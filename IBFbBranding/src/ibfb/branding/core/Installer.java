@@ -57,6 +57,9 @@ public class Installer extends ModuleInstall {
 
                 String osName = System.getProperty("os.name").toLowerCase();
                 boolean isMacOs = osName.startsWith("mac os x");
+                
+                
+                
                 if (isMacOs) {
                 } else {
                     importFromTempINIFile();
@@ -138,6 +141,10 @@ public class Installer extends ModuleInstall {
 
     private void importFromTempINIFile() {
 
+        if (! FieldbookSettings.readIcisIniFileAtStartup()) {
+            return;
+        }
+        
         String path = System.getProperty("java.io.tmpdir");
         path = path + "ICIS.ini";
         File INIFile = new File(path);
