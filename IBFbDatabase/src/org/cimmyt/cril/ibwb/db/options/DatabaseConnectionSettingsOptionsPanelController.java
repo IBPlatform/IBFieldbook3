@@ -23,11 +23,13 @@ public final class DatabaseConnectionSettingsOptionsPanelController extends Opti
 
     public void update() {
         getPanel().load();
+        getPanel().loadIniFileConfig();
         changed = false;
     }
 
     public void applyChanges() {
         getPanel().store();
+        getPanel().storeIniFileConfig();
         changed = false;
     }
 

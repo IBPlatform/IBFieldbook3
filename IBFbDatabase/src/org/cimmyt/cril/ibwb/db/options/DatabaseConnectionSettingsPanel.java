@@ -1,9 +1,11 @@
 package org.cimmyt.cril.ibwb.db.options;
 
+import ibfb.settings.core.FieldbookSettings;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Properties;
+import java.util.ResourceBundle;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
@@ -17,8 +19,11 @@ import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.modules.InstalledFileLocator;
 import org.openide.util.Exceptions;
+import org.openide.util.NbBundle;
 
 final class DatabaseConnectionSettingsPanel extends javax.swing.JPanel {
+    
+    private ResourceBundle bundle = NbBundle.getBundle(DatabaseConnectionSettingsPanel.class);
 
     private final DatabaseConnectionSettingsOptionsPanelController controller;
 
@@ -68,19 +73,19 @@ final class DatabaseConnectionSettingsPanel extends javax.swing.JPanel {
         txtDatabaseNameCentral = new javax.swing.JTextField();
         btnTestConnectionCentral = new javax.swing.JButton();
         btnImportFromIniFile = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lblImgCentral = new javax.swing.JLabel();
+        lblDMSCentralConnection = new javax.swing.JLabel();
         cboGmsCentralDbType = new javax.swing.JComboBox();
         txtServerGMSCentral = new javax.swing.JTextField();
         spnGmsCentral = new javax.swing.JSpinner();
         txtDbnameGmsCentral = new javax.swing.JTextField();
         txtUserNameGmsCentral = new javax.swing.JTextField();
         btnTestGMSCentralConnection = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
+        lblGMSCentralConnection = new javax.swing.JLabel();
         txtPasswordGMSCentral = new javax.swing.JPasswordField();
         chkSameCentralConnection = new javax.swing.JCheckBox();
         pnlLocal = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        lblImgLocal = new javax.swing.JLabel();
         spnPortLocal = new javax.swing.JSpinner();
         txtServerNameLocal = new javax.swing.JTextField();
         cboDatabaseTypeLocal = new javax.swing.JComboBox();
@@ -94,8 +99,8 @@ final class DatabaseConnectionSettingsPanel extends javax.swing.JPanel {
         lblUserNameCentral1 = new javax.swing.JLabel();
         txtUserNameLocal = new javax.swing.JTextField();
         btnTestConnectionCentral1 = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        lblDMSLocallConnection = new javax.swing.JLabel();
+        lblGMSLocalConnection = new javax.swing.JLabel();
         cboGmsLocalDbType = new javax.swing.JComboBox();
         txtServerGMSLocal = new javax.swing.JTextField();
         spnGmsLocal = new javax.swing.JSpinner();
@@ -104,6 +109,7 @@ final class DatabaseConnectionSettingsPanel extends javax.swing.JPanel {
         btnTestGMSLocallConnection = new javax.swing.JButton();
         txtPasswordGMSLocal = new javax.swing.JPasswordField();
         chkSameLocalConnection = new javax.swing.JCheckBox();
+        chkReadIniFile = new javax.swing.JCheckBox();
 
         pnlCentral.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(DatabaseConnectionSettingsPanel.class, "DatabaseConnectionSettingsPanel.pnlCentral.border.title"))); // NOI18N
 
@@ -185,10 +191,10 @@ final class DatabaseConnectionSettingsPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/cimmyt/cril/ibwb/db/options/barra.png"))); // NOI18N
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(DatabaseConnectionSettingsPanel.class, "DatabaseConnectionSettingsPanel.jLabel1.text")); // NOI18N
+        lblImgCentral.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/cimmyt/cril/ibwb/db/options/barra.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lblImgCentral, org.openide.util.NbBundle.getMessage(DatabaseConnectionSettingsPanel.class, "DatabaseConnectionSettingsPanel.lblImgCentral.text")); // NOI18N
 
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel3, org.openide.util.NbBundle.getMessage(DatabaseConnectionSettingsPanel.class, "DatabaseConnectionSettingsPanel.jLabel3.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lblDMSCentralConnection, org.openide.util.NbBundle.getMessage(DatabaseConnectionSettingsPanel.class, "DatabaseConnectionSettingsPanel.lblDMSCentralConnection.text")); // NOI18N
 
         cboGmsCentralDbType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cboGmsCentralDbType.addItemListener(new java.awt.event.ItemListener() {
@@ -213,7 +219,7 @@ final class DatabaseConnectionSettingsPanel extends javax.swing.JPanel {
             }
         });
 
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel4, org.openide.util.NbBundle.getMessage(DatabaseConnectionSettingsPanel.class, "DatabaseConnectionSettingsPanel.jLabel4.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lblGMSCentralConnection, org.openide.util.NbBundle.getMessage(DatabaseConnectionSettingsPanel.class, "DatabaseConnectionSettingsPanel.lblGMSCentralConnection.text")); // NOI18N
 
         txtPasswordGMSCentral.setText(org.openide.util.NbBundle.getMessage(DatabaseConnectionSettingsPanel.class, "DatabaseConnectionSettingsPanel.txtPasswordGMSCentral.text")); // NOI18N
 
@@ -232,7 +238,7 @@ final class DatabaseConnectionSettingsPanel extends javax.swing.JPanel {
                                 .addGap(72, 72, 72)
                                 .addComponent(lblUserNameCentral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlCentralLayout.createSequentialGroup()
-                                .addComponent(jLabel1)
+                                .addComponent(lblImgCentral)
                                 .addGroup(pnlCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(pnlCentralLayout.createSequentialGroup()
                                         .addGap(6, 6, 6)
@@ -255,7 +261,7 @@ final class DatabaseConnectionSettingsPanel extends javax.swing.JPanel {
                             .addComponent(btnTestConnectionCentral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(pnlCentralLayout.createSequentialGroup()
                         .addGap(195, 195, 195)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblDMSCentralConnection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(46, 46, 46)
                 .addGroup(pnlCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(spnGmsCentral, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -267,7 +273,7 @@ final class DatabaseConnectionSettingsPanel extends javax.swing.JPanel {
                             .addComponent(txtServerGMSCentral, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnTestGMSCentralConnection, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(cboGmsCentralDbType, javax.swing.GroupLayout.Alignment.LEADING, 0, 144, Short.MAX_VALUE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblGMSCentralConnection, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(pnlCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(chkSameCentralConnection)
@@ -281,11 +287,11 @@ final class DatabaseConnectionSettingsPanel extends javax.swing.JPanel {
                 .addGroup(pnlCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlCentralLayout.createSequentialGroup()
                         .addGroup(pnlCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblDMSCentralConnection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblGMSCentralConnection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(pnlCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
+                            .addComponent(lblImgCentral)
                             .addGroup(pnlCentralLayout.createSequentialGroup()
                                 .addGroup(pnlCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(pnlCentralLayout.createSequentialGroup()
@@ -338,13 +344,13 @@ final class DatabaseConnectionSettingsPanel extends javax.swing.JPanel {
                                 .addContainerGap())))
                     .addGroup(pnlCentralLayout.createSequentialGroup()
                         .addComponent(btnImportFromIniFile, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(175, Short.MAX_VALUE))))
+                        .addContainerGap())))
         );
 
         pnlLocal.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(DatabaseConnectionSettingsPanel.class, "DatabaseConnectionSettingsPanel.pnlLocal.border.title"))); // NOI18N
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/cimmyt/cril/ibwb/db/options/barra2.png"))); // NOI18N
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel2, org.openide.util.NbBundle.getMessage(DatabaseConnectionSettingsPanel.class, "DatabaseConnectionSettingsPanel.jLabel2.text")); // NOI18N
+        lblImgLocal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/cimmyt/cril/ibwb/db/options/barra2.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lblImgLocal, org.openide.util.NbBundle.getMessage(DatabaseConnectionSettingsPanel.class, "DatabaseConnectionSettingsPanel.lblImgLocal.text")); // NOI18N
 
         spnPortLocal.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(3306), null, null, Integer.valueOf(1)));
         spnPortLocal.setEditor(new javax.swing.JSpinner.NumberEditor(spnPortLocal, "####"));
@@ -419,9 +425,9 @@ final class DatabaseConnectionSettingsPanel extends javax.swing.JPanel {
             }
         });
 
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel5, org.openide.util.NbBundle.getMessage(DatabaseConnectionSettingsPanel.class, "DatabaseConnectionSettingsPanel.jLabel5.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lblDMSLocallConnection, org.openide.util.NbBundle.getMessage(DatabaseConnectionSettingsPanel.class, "DatabaseConnectionSettingsPanel.lblDMSLocallConnection.text")); // NOI18N
 
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel6, org.openide.util.NbBundle.getMessage(DatabaseConnectionSettingsPanel.class, "DatabaseConnectionSettingsPanel.jLabel6.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lblGMSLocalConnection, org.openide.util.NbBundle.getMessage(DatabaseConnectionSettingsPanel.class, "DatabaseConnectionSettingsPanel.lblGMSLocalConnection.text")); // NOI18N
 
         cboGmsLocalDbType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cboGmsLocalDbType.addItemListener(new java.awt.event.ItemListener() {
@@ -456,7 +462,7 @@ final class DatabaseConnectionSettingsPanel extends javax.swing.JPanel {
         pnlLocalLayout.setHorizontalGroup(
             pnlLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlLocalLayout.createSequentialGroup()
-                .addComponent(jLabel2)
+                .addComponent(lblImgLocal)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -474,21 +480,21 @@ final class DatabaseConnectionSettingsPanel extends javax.swing.JPanel {
                 .addGap(10, 10, 10)
                 .addGroup(pnlLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlLocalLayout.createSequentialGroup()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblDMSLocallConnection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(105, 105, 105))
                     .addGroup(pnlLocalLayout.createSequentialGroup()
                         .addGroup(pnlLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtDatabaseNameLocal, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
+                            .addComponent(txtDatabaseNameLocal)
                             .addComponent(spnPortLocal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtUserNameLocal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
-                            .addComponent(txtServerNameLocal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
-                            .addComponent(txtPaswordLocal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
-                            .addComponent(cboDatabaseTypeLocal, javax.swing.GroupLayout.Alignment.LEADING, 0, 149, Short.MAX_VALUE)
-                            .addComponent(btnTestConnectionCentral1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE))
+                            .addComponent(txtUserNameLocal, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtServerNameLocal, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtPaswordLocal, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cboDatabaseTypeLocal, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnTestConnectionCentral1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(47, 47, 47)))
                 .addGroup(pnlLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtPasswordGMSLocal)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblGMSLocalConnection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cboGmsLocalDbType, 0, 143, Short.MAX_VALUE)
                     .addComponent(btnTestGMSLocallConnection, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtServerGMSLocal)
@@ -502,13 +508,13 @@ final class DatabaseConnectionSettingsPanel extends javax.swing.JPanel {
         pnlLocalLayout.setVerticalGroup(
             pnlLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLocalLayout.createSequentialGroup()
-                .addComponent(jLabel2)
+                .addComponent(lblImgLocal)
                 .addGap(58, 58, 58))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLocalLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblDMSLocallConnection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblGMSLocalConnection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDatabaseTypeCentral1)
@@ -552,23 +558,28 @@ final class DatabaseConnectionSettingsPanel extends javax.swing.JPanel {
 
         pnlLocalLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblSErverPortCentral1, spnPortLocal});
 
+        org.openide.awt.Mnemonics.setLocalizedText(chkReadIniFile, org.openide.util.NbBundle.getMessage(DatabaseConnectionSettingsPanel.class, "DatabaseConnectionSettingsPanel.chkReadIniFile.text")); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(pnlLocal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnlCentral, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(chkReadIniFile)
+                    .addComponent(pnlLocal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnlCentral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addComponent(chkReadIniFile)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addComponent(pnlCentral, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlLocal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pnlLocal, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -806,9 +817,9 @@ final class DatabaseConnectionSettingsPanel extends javax.swing.JPanel {
             password.setEditable(enableEditing);
             port.setEnabled(enableEditing);
             if (selectedDB.equals(DatabaseType.MYSQL)) {
-                lblDatabase.setText("Database Name");
+                lblDatabase.setText(bundle.getString("DatabaseConnectionSettingsPanel.lblDatabaseNameText"));
             } else {
-                lblDatabase.setText("Data Source Name");
+                lblDatabase.setText(bundle.getString("Data Source Name"));
 
             }
         }
@@ -858,11 +869,12 @@ final class DatabaseConnectionSettingsPanel extends javax.swing.JPanel {
         boolean connectionSuccess = false;
         NotifyDescriptor nd = null;
         if (ConnectionUtils.connectionSuccess(databaseType, url, userName, password)) {
-            nd = new NotifyDescriptor.Message(database + " Database Connection Success");
+            
+            nd = new NotifyDescriptor.Message(database +bundle.getString("DatabaseConnectionSettingsPanel.connectionSuccess"));
             connectionSuccess = true;
         } else {
             
-            nd = new NotifyDescriptor.Message("Cannot connect to " + database + " Database", NotifyDescriptor.ERROR_MESSAGE);
+            nd = new NotifyDescriptor.Message(bundle.getString("DatabaseConnectionSettingsPanel.cannotConnectTo") + database + bundle.getString("DatabaseConnectionSettingsPanel.database"), NotifyDescriptor.ERROR_MESSAGE);
         }
         if (showDialog) {
             DialogDisplayer.getDefault().notify(nd);
@@ -1069,7 +1081,7 @@ final class DatabaseConnectionSettingsPanel extends javax.swing.JPanel {
 
                 //LifecycleManager.getDefault().markForRestart();
                 NotifyDescriptor nd = null;
-                nd = new NotifyDescriptor.Message("You need to restart IBFieldBook");
+                nd = new NotifyDescriptor.Message(bundle.getString("DatabaseConnectionSettingsPanel.needRestartApp"));
                 DialogDisplayer.getDefault().notify(nd);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -1088,12 +1100,31 @@ final class DatabaseConnectionSettingsPanel extends javax.swing.JPanel {
                 && checkGMSLocalConnection(false);
         if (!canStoreFile) {
             NotifyDescriptor nd = null;
-            nd = new NotifyDescriptor.Message(" Cannot connect to databases, please check and try again");
+            nd = new NotifyDescriptor.Message(bundle.getString("DatabaseConnectionSettingsPanel.cannotConnectToDbTryAgain"));
             DialogDisplayer.getDefault().notify(nd);
 
         }
         return canStoreFile;
     }
+    
+    public void storeIniFileConfig() {
+        if (chkReadIniFile.isSelected()) {
+            FieldbookSettings.setSetting(FieldbookSettings.READ_ICIS_INI_FILE, "1");
+        } else {
+            FieldbookSettings.setSetting(FieldbookSettings.READ_ICIS_INI_FILE, "0");
+        }
+    }
+    
+    public void loadIniFileConfig() {
+        String readIniFile = FieldbookSettings.getSetting(FieldbookSettings.READ_ICIS_INI_FILE);
+        if (readIniFile.equals("1")) {
+            chkReadIniFile.setSelected(true);
+        } else {
+            chkReadIniFile.setSelected(false);
+        }
+    }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnImportFromIniFile;
     private javax.swing.JButton btnTestConnectionCentral;
@@ -1104,18 +1135,19 @@ final class DatabaseConnectionSettingsPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox cboDatabaseTypeLocal;
     private javax.swing.JComboBox cboGmsCentralDbType;
     private javax.swing.JComboBox cboGmsLocalDbType;
+    private javax.swing.JCheckBox chkReadIniFile;
     private javax.swing.JCheckBox chkSameCentralConnection;
     private javax.swing.JCheckBox chkSameLocalConnection;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel lblDMSCentralConnection;
+    private javax.swing.JLabel lblDMSLocallConnection;
     private javax.swing.JLabel lblDatabaseNameCentral;
     private javax.swing.JLabel lblDatabaseNameLocal;
     private javax.swing.JLabel lblDatabaseTypeCentral;
     private javax.swing.JLabel lblDatabaseTypeCentral1;
+    private javax.swing.JLabel lblGMSCentralConnection;
+    private javax.swing.JLabel lblGMSLocalConnection;
+    private javax.swing.JLabel lblImgCentral;
+    private javax.swing.JLabel lblImgLocal;
     private javax.swing.JLabel lblPasswordCentral;
     private javax.swing.JLabel lblPasswordCentral1;
     private javax.swing.JLabel lblSErverPortCentral;
