@@ -36,7 +36,7 @@ displayName = "#CTL_NewNurseryAction")
     @ActionReference(path = "Menu/Study", position = 1237),
     @ActionReference(path = "Toolbars/File", position = -325)
 })
-@Messages("CTL_NewNurseryAction=New Nursery")
+
 public final class NewNurseryAction implements ActionListener {
 private ResourceBundle bundle = NbBundle.getBundle(NewNurseryAction.class);
     private final Study context;

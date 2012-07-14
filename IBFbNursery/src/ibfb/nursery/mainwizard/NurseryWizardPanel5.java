@@ -126,7 +126,6 @@ public class NurseryWizardPanel5 implements WizardDescriptor.Panel, DocumentList
     private void change() {
         if (component.getjTextFieldTotalEntries().getText().equals("0")) {
             
-
         } else {
             setValid(component.validateTable());
         }

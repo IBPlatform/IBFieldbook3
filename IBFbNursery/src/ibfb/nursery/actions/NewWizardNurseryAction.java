@@ -34,7 +34,7 @@ id = "ibfb.nursery.actions.NewWizardNurseryAction")
 displayName = "#CTL_NewWizardNurseryAction")
 @ActionReferences({
 })
-@Messages("CTL_NewWizardNurseryAction=New Nursery")
+
 public final class NewWizardNurseryAction extends SystemAction implements ActionListener {
     
     private ResourceBundle bundle = NbBundle.getBundle(NewWizardNurseryAction.class);

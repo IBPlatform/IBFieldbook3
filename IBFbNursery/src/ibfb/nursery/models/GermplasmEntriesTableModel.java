@@ -15,6 +15,7 @@ public class GermplasmEntriesTableModel extends AbstractTableModel {
     public static final String DESIG = "GERMPLASMIDDBCV";
     public static final String GID = "GERMPLASMIDDBID";
     public static final String PLOT = "FIELDPLOTNUMBER";
+    public static final String CROSS = "CROSSNAMENAMENUMBER";
   //  public static final String BCID = "GERMPLASMBCIDDBID";
     private boolean hasChecks = false;
     private List<Factor> factorHeaders;

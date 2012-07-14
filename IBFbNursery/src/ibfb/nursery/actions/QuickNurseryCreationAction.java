@@ -34,7 +34,7 @@ displayName = "#CTL_QuickCreationAction")
     @ActionReference(path = "Menu/Study", position = 1243),
     @ActionReference(path = "Toolbars/File", position = -312)
 })
-@Messages("CTL_QuickCreationAction=Quick Nursery Creation")
+
 public final class QuickNurseryCreationAction extends SystemAction implements ActionListener {
 
     private final Study context;
