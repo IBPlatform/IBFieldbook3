@@ -5,19 +5,19 @@ import ibfb.studyeditor.core.StudyEditorTopComponent;
 import ibfb.studyexplorer.jdialogs.JDNewOptions;
 import java.awt.Component;
 import java.awt.Cursor;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import org.openide.awt.ActionRegistration;
+import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
-import org.openide.awt.ActionID;
+import org.openide.awt.ActionRegistration;
 import org.openide.util.HelpCtx;
 import org.openide.util.Mutex;
 import org.openide.util.NbBundle;
-import org.openide.util.NbBundle.Messages;
 import org.openide.util.actions.SystemAction;
 import org.openide.windows.TopComponent;
 import org.openide.windows.WindowManager;
@@ -30,13 +30,15 @@ displayName = "#CTL_QuickCreationAction")
     @ActionReference(path = "Menu/Study", position = 1275),
     @ActionReference(path = "Toolbars/File", position = -250)
 })
-@Messages("CTL_QuickCreationAction=Quick Trial Creation")
+
 public final class QuickCreationAction extends SystemAction implements ActionListener {
 
     private final Study context;
+        private ResourceBundle bundle = NbBundle.getBundle(QuickCreationAction.class);
+
 
     public QuickCreationAction() {
-        putValue(NAME, "Quick Trial Creation");
+        putValue(NAME, bundle.getString("QuickCreationAction.name"));
         setEnabled(Boolean.TRUE);
         this.context = null;
     }
@@ -54,7 +56,7 @@ public final class QuickCreationAction extends SystemAction implements ActionLis
             background.close();
         }
         if (existeTrial(JDNewOptions.studyOBJ.getStudy())) {
-            int opcion = JOptionPane.showConfirmDialog(null, "TRIAL ALREADY GENERATED. Do you want to overwrite it?", "Caution!", JOptionPane.YES_NO_OPTION);
+            int opcion = JOptionPane.showConfirmDialog(null, bundle.getString("QuickCreationAction.already"), bundle.getString("QuickCreationAction.caution"), JOptionPane.YES_NO_OPTION);
             if (opcion == 0) {
                 StudyEditorTopComponent studyEditor = null;
                 ArrayList<TopComponent> opened = new ArrayList<TopComponent>(WindowManager.getDefault().getRegistry().getOpened());
@@ -127,8 +129,7 @@ public final class QuickCreationAction extends SystemAction implements ActionLis
 
     @Override
     public String getName() {
-        //return NbBundle.
-        return "Quick Trial Creation";
+        return bundle.getString("QuickCreationAction.name");
     }
 
     @Override

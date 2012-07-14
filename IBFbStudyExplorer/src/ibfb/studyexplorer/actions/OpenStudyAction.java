@@ -14,10 +14,10 @@ import java.awt.event.ActionEvent;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.ResourceBundle;
 import java.util.concurrent.ExecutionException;
 import javax.swing.JFrame;
 import javax.swing.SwingWorker;
-import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import org.cimmyt.cril.ibwb.api.AppServicesProxy;
 import org.cimmyt.cril.ibwb.commongui.DialogUtil;
@@ -28,6 +28,7 @@ import org.openide.NotifyDescriptor;
 import org.openide.util.Exceptions;
 import org.openide.util.HelpCtx;
 import org.openide.util.Mutex;
+import org.openide.util.NbBundle;
 import org.openide.util.actions.SystemAction;
 import org.openide.windows.TopComponent;
 import org.openide.windows.WindowManager;
@@ -35,9 +36,10 @@ import org.openide.windows.WindowManager;
 public class OpenStudyAction extends SystemAction {
 
     private StudyEditorTopComponent studyWindow = null;
+    private ResourceBundle bundle = NbBundle.getBundle(OpenStudyAction.class);
 
     public OpenStudyAction() {
-        putValue(NAME, "Open Trial");
+        putValue(NAME,bundle.getString("OpenStudyAction.name"));
         setEnabled(Boolean.TRUE);
     }
 
@@ -47,7 +49,7 @@ public class OpenStudyAction extends SystemAction {
                 return;
                 }
 
-        final ProgressHandle handle = ProgressHandleFactory.createHandle("Opening Fieldbook... ");
+        final ProgressHandle handle = ProgressHandleFactory.createHandle(bundle.getString("OpenStudyAction.open"));
         handle.start();
         (new SwingWorker<String, Object>() {
 
@@ -74,7 +76,7 @@ public class OpenStudyAction extends SystemAction {
                     String valor = get();
                     if (workbook == null) {
                         changeCursorWaitStatus(false);
-                        String msgSaving = "Cannot open selected study";
+                        String msgSaving = bundle.getString("OpenStudyAction.cannot");
 
                         NotifyDescriptor d = new NotifyDescriptor.Message(msgSaving, NotifyDescriptor.ERROR_MESSAGE);
                         DialogDisplayer.getDefault().notify(d);
@@ -105,7 +107,7 @@ public class OpenStudyAction extends SystemAction {
                         studyWindow.open();
                         studyWindow.requestActive();
                         // changeCursorWaitStatus(false);
-                        DialogUtil.displayInfo("Fieldbook was opened succesfully");
+                        DialogUtil.displayInfo(bundle.getString("OpenStudyAction.openend"));
                     }
                 } catch (InterruptedException ex) {
                     Exceptions.printStackTrace(ex);
@@ -121,7 +123,7 @@ public class OpenStudyAction extends SystemAction {
 
     @Override
     public String getName() {
-        return "Open Trial";
+        return bundle.getString("OpenStudyAction.trial");
     }
 
     @Override

@@ -1,43 +1,34 @@
 package ibfb.studyexplorer.actions;
 
-import ibfb.domain.core.Condition;
-import ibfb.domain.core.Constant;
 import ibfb.domain.core.Factor;
 import ibfb.domain.core.Study;
 import ibfb.domain.core.Variate;
 import ibfb.domain.core.Workbook;
 import ibfb.studyeditor.core.StudyEditorTopComponent;
-import ibfb.studyeditor.roweditors.ConditionsRowEditor;
-import ibfb.studyexplorer.core.nodes.ExperimentNode;
 import ibfb.studyexplorer.core.nodes.StudyExperimentNode;
 import ibfb.studyexplorer.explorer.StudyExplorerTopComponent;
 import ibfb.studyexplorer.jdialogs.JDNewOptions;
 import ibfb.ui.core.JDExpert;
 import java.awt.Component;
 import java.awt.Cursor;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
+import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.concurrent.ExecutionException;
-import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.SwingWorker;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
 import org.cimmyt.cril.ibwb.api.AppServicesProxy;
 import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 import org.netbeans.api.progress.ProgressHandle;
 import org.netbeans.api.progress.ProgressHandleFactory;
-import org.openide.awt.ActionRegistration;
+import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
-import org.openide.awt.ActionID;
+import org.openide.awt.ActionRegistration;
 import org.openide.util.Exceptions;
 import org.openide.util.Mutex;
-import org.openide.util.NbBundle.Messages;
 import org.openide.windows.TopComponent;
 import org.openide.windows.WindowManager;
 
@@ -49,7 +40,7 @@ displayName = "#CTL_OpenStudyToolBarAction")
     @ActionReference(path = "Menu/Study", position = 1225),
     @ActionReference(path = "Toolbars/File", position = -350)
 })
-@Messages("CTL_OpenStudyToolBarAction=Open Study")
+
 public final class OpenStudyToolBarAction implements ActionListener {
 
     public static Study studyOBJ = new Study();

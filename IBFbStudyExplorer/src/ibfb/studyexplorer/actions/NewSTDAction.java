@@ -4,11 +4,10 @@ package ibfb.studyexplorer.actions;
 import ibfb.studyexplorer.jdialogs.JDNewSTD;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import org.openide.awt.ActionRegistration;
+import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
-import org.openide.awt.ActionID;
-import org.openide.util.NbBundle.Messages;
+import org.openide.awt.ActionRegistration;
 import org.openide.windows.TopComponent;
 import org.openide.windows.WindowManager;
 
@@ -20,7 +19,7 @@ displayName = "#CTL_NewSTDAction")
     @ActionReference(path = "Menu/File", position = 1200),
     @ActionReference(path = "Toolbars/File", position = -400)
 })
-@Messages("CTL_NewSTDAction=New Study")
+
 public final class NewSTDAction implements ActionListener {
 public static JDNewSTD newStudy=new JDNewSTD(null, true);
    

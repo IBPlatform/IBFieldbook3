@@ -42,7 +42,7 @@ public class NewStudyAction extends SystemAction {
 
     @Override
     public String getName() {
-        return "New Study";
+        return bundle.getString("NewStudyAction.newStudy");
     }
 
     @Override

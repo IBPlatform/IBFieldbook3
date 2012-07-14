@@ -6,24 +6,24 @@ import ibfb.studyeditor.wizard.TrialWizardWizardIterator;
 import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Dialog;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.ResourceBundle;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import org.openide.DialogDisplayer;
 import org.openide.WizardDescriptor;
-import org.openide.awt.ActionRegistration;
+import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
-import org.openide.awt.ActionID;
+import org.openide.awt.ActionRegistration;
 import org.openide.util.HelpCtx;
 import org.openide.util.Mutex;
 import org.openide.util.NbBundle;
-import org.openide.util.NbBundle.Messages;
 import org.openide.util.actions.SystemAction;
 import org.openide.windows.TopComponent;
 import org.openide.windows.WindowManager;
@@ -36,15 +36,16 @@ displayName = "#CTL_NewTrialAction")
     @ActionReference(path = "Menu/File", position = 1250),
     @ActionReference(path = "Toolbars/File", position = -300)
 })
-@Messages("CTL_NewTrialAction=New Trial")
+
 public final class NewTrialAction extends SystemAction implements ActionListener {
 
     public static Study studyOBJ = new Study();
     private final Study context;
 
+    private ResourceBundle bundle = NbBundle.getBundle(NewTrialAction.class);
 
     public NewTrialAction() {
-        putValue(NAME, "New Trial...");
+        putValue(NAME, bundle.getString("NewTrialAction.name"));
         setEnabled(Boolean.TRUE);
         this.context = null;
     }
@@ -57,7 +58,7 @@ public final class NewTrialAction extends SystemAction implements ActionListener
     public void actionPerformed(ActionEvent ev) {
         changeCursorWaitStatus(true);
         if (existeTrial(studyOBJ.getStudy())) {
-            int opcion = JOptionPane.showConfirmDialog(null, "TRIAL ALREADY GENERATED. Do you want to overwrite it?", "Caution!", JOptionPane.YES_NO_OPTION);
+            int opcion = JOptionPane.showConfirmDialog(null, bundle.getString("NewTrialAction.already"), bundle.getString("NewTrialAction.caution"), JOptionPane.YES_NO_OPTION);
             if (opcion == 0) {
                 StudyEditorTopComponent studyEditor = null;
                 ArrayList<TopComponent> opened = new ArrayList<TopComponent>(WindowManager.getDefault().getRegistry().getOpened());
@@ -96,7 +97,7 @@ public final class NewTrialAction extends SystemAction implements ActionListener
         WizardDescriptor.Iterator iterator = new TrialWizardWizardIterator();
         WizardDescriptor wizardDescriptor = new WizardDescriptor(iterator);
         wizardDescriptor.setTitleFormat(new MessageFormat("{0} ({1})"));
-        wizardDescriptor.setTitle("Create Trial Wizard");
+        wizardDescriptor.setTitle(bundle.getString("NewTrialAction.wizard"));
 
         Dialog dialog = DialogDisplayer.getDefault().createDialog(wizardDescriptor);
         dialog.setVisible(true);
@@ -227,7 +228,7 @@ public final class NewTrialAction extends SystemAction implements ActionListener
     @Override
     public String getName() {
        /// return NbBundle.getMessage(NewTrialAction.class, "CTL_NewTrialAction");
-        return "New Trial...";
+        return bundle.getString("NewTrialAction.name");
     }
 
     @Override

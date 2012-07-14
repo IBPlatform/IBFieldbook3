@@ -9,9 +9,8 @@ import ibfb.studyexplorer.jdialogs.JDNewOptions;
 import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Dialog;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
+import java.awt.event.ActionListener;
 import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -21,12 +20,11 @@ import javax.swing.JOptionPane;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.WizardDescriptor;
-import org.openide.awt.ActionRegistration;
+import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
-import org.openide.awt.ActionID;
+import org.openide.awt.ActionRegistration;
 import org.openide.util.Mutex;
-import org.openide.util.NbBundle.Messages;
 import org.openide.windows.TopComponent;
 import org.openide.windows.WindowManager;
 
@@ -38,7 +36,6 @@ displayName = "#CTL_NewTrialPanelAction")
     @ActionReference(path = "Menu/Study", position = 1231),
     @ActionReference(path = "Toolbars/File", position = -318)
 })
-@Messages("CTL_NewTrialPanelAction=New trial")
 public final class NewTrialPanelAction implements ActionListener {
 
     private final Study context;
