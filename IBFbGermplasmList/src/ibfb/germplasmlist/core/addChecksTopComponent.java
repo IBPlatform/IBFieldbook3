@@ -1,6 +1,5 @@
 package ibfb.germplasmlist.core;
 
-import ibfb.germplasmlist.renders.ColorRenderer;
 import ibfb.domain.core.Factor;
 import ibfb.domain.core.GermplasmList;
 import ibfb.domain.core.ListOfEntries;
@@ -11,7 +10,6 @@ import ibfb.germplasmlist.models.GermplasmSourceTransferHandler;
 import ibfb.germplasmlist.models.GermplasmTransferHandler;
 import ibfb.germplasmlist.models.RemoveGermplasmTransferHandler;
 import ibfb.germplasmlist.renders.MyRenderer;
-
 import ibfb.settings.core.FieldbookSettings;
 import ibfb.studyexplorer.explorer.listNames.ListDataWindowTopComponent;
 import ibfb.workbook.api.GermplasmAssigmentTool;
@@ -41,7 +39,7 @@ import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
-import org.openide.util.NbBundle.Messages;
+import org.openide.util.NbBundle;
 import org.openide.windows.TopComponent;
 
 /**
@@ -59,11 +57,7 @@ persistenceType = TopComponent.PERSISTENCE_ALWAYS)
  */)
 @TopComponent.OpenActionRegistration(displayName = "#CTL_addChecksAction",
 preferredID = "addChecksTopComponent")
-@Messages({
-    "CTL_addChecksAction=addChecks",
-    "CTL_addChecksTopComponent=Germplasm list creation",
-    "HINT_addChecksTopComponent=Germplasm list creation"
-})
+
 public final class addChecksTopComponent extends TopComponent {
 
     private JFileChooser selectorArchivo = new JFileChooser();
@@ -97,8 +91,8 @@ public final class addChecksTopComponent extends TopComponent {
 
     public addChecksTopComponent() {
         initComponents();
-        setName(Bundle.CTL_addChecksTopComponent());
-        setToolTipText(Bundle.HINT_addChecksTopComponent());
+        setName(NbBundle.getMessage(addChecksTopComponent.class,"CTL_addChecksTopComponent"));
+        setToolTipText(NbBundle.getMessage(addChecksTopComponent.class,"HINT_addChecksTopComponent"));
         addListener();
         fillComboListNames();
         loadFactors();

@@ -8,7 +8,6 @@ import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
-import org.openide.util.NbBundle.Messages;
 import org.openide.windows.TopComponent;
 import org.openide.windows.WindowManager;
 
@@ -20,7 +19,7 @@ displayName = "#CTL_CreateListAction")
     @ActionReference(path = "Menu/Study", position = 1262),
     @ActionReference(path = "Toolbars/File", position = -288)
 })
-@Messages("CTL_CreateListAction=New germplasm list")
+
 public final class CreateListAction implements ActionListener {
 
     @Override

@@ -25,6 +25,7 @@ import org.openide.NotifyDescriptor;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.util.Mutex;
+import org.openide.util.NbBundle;
 import org.openide.util.NbBundle.Messages;
 import org.openide.util.NbPreferences;
 import org.openide.windows.TopComponent;
@@ -43,11 +44,7 @@ persistenceType = TopComponent.PERSISTENCE_NEVER)
  */)
 @TopComponent.OpenActionRegistration(displayName = "#CTL_nurseryCrossesAction",
 preferredID = "nurseryCrossesTopComponent")
-@Messages({
-    "CTL_nurseryCrossesAction=NURSERY MANAGER - CROSS",
-    "CTL_nurseryCrossesTopComponent=NURSERY MANAGER - CROSS",
-    "HINT_nurseryCrossesTopComponent=NURSERY MANAGER - CROSS"
-})
+
 public final class nurseryCrossesTopComponent extends TopComponent {
 
      private DefaultTableModel modeloTemporal;
@@ -56,8 +53,8 @@ public final class nurseryCrossesTopComponent extends TopComponent {
     
     public nurseryCrossesTopComponent() {
         initComponents();
-        setName(Bundle.CTL_nurseryCrossesTopComponent());
-        setToolTipText(Bundle.HINT_nurseryCrossesTopComponent());
+        setName(NbBundle.getMessage(nurseryCrossesTopComponent.class, "CTL_nurseryCrossesTopComponent"));
+        setToolTipText(NbBundle.getMessage(nurseryCrossesTopComponent.class, "HINT_nurseryCrossesTopComponent"));
 
     }
 

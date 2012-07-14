@@ -25,7 +25,7 @@ import org.openide.NotifyDescriptor;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.util.Mutex;
-import org.openide.util.NbBundle.Messages;
+import org.openide.util.NbBundle;
 import org.openide.util.NbPreferences;
 import org.openide.windows.TopComponent;
 import org.openide.windows.WindowManager;
@@ -45,11 +45,7 @@ persistenceType = TopComponent.PERSISTENCE_NEVER)
  */)
 @TopComponent.OpenActionRegistration(displayName = "#CTL_nurserySelectionAction",
 preferredID = "nurserySelectionTopComponent")
-@Messages({
-    "CTL_nurserySelectionAction=Nursery Manager - Selection",
-    "CTL_nurserySelectionTopComponent=Nursery Manager - Selection",
-    "HINT_nurserySelectionTopComponent=Nursery Manager - Selection"
-})
+
 public final class nurserySelectionTopComponent extends TopComponent {
     
     private DefaultTableModel modeloTemporal;
@@ -57,8 +53,8 @@ public final class nurserySelectionTopComponent extends TopComponent {
     
     public nurserySelectionTopComponent() {
         initComponents();
-        setName(Bundle.CTL_nurserySelectionTopComponent());
-        setToolTipText(Bundle.HINT_nurserySelectionTopComponent());
+        setName(NbBundle.getMessage(nurserySelectionTopComponent.class, "CTL_nurserySelectionTopComponent"));
+        setToolTipText(NbBundle.getMessage(nurserySelectionTopComponent.class,"HINT_nurserySelectionTopComponent"));
 
     }
 
