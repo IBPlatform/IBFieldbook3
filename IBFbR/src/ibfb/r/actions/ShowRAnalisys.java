@@ -3,11 +3,10 @@ package ibfb.r.actions;
 import ibfb.r.ui.ScriptsWindowTopComponent;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import org.openide.awt.ActionRegistration;
+import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
-import org.openide.awt.ActionID;
-import org.openide.util.NbBundle.Messages;
+import org.openide.awt.ActionRegistration;
 import org.openide.windows.WindowManager;
 
 @ActionID(category = "File",
@@ -20,7 +19,7 @@ displayName = "#CTL_ShowRAnalisys")
     @ActionReference(path = "Menu/Tools", position = 0),
     @ActionReference(path = "Toolbars/File", position = -150)
 })
-@Messages("CTL_ShowRAnalisys=R Analysis")
+
 public final class ShowRAnalisys implements ActionListener {
 
     @Override
