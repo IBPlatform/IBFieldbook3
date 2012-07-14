@@ -8,7 +8,6 @@ import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
-import org.openide.util.NbBundle.Messages;
 import org.openide.windows.TopComponent;
 import org.openide.windows.WindowManager;
 
@@ -20,7 +19,7 @@ displayName = "#CTL_ViewInventory")
     @ActionReference(path = "Menu/Database", position = 3533),
     @ActionReference(path = "Toolbars/File", position =-100)
 })
-@Messages("CTL_ViewInventory=View Inventory")
+
 public final class ViewInventory implements ActionListener {
 
     @Override

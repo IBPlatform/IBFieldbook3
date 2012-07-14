@@ -9,7 +9,6 @@ import ibfb.workbook.api.GermplasmListReader;
 import ibfb.workbook.core.GermplasmAssigmentToolImpl;
 import ibfb.workbook.core.GermplasmListReaderImpl;
 import java.io.File;
-import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JFileChooser;
@@ -24,7 +23,7 @@ import org.cimmyt.cril.ibwb.domain.inventory.InventoryData;
 import org.netbeans.api.settings.ConvertAsProperties;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
-import org.openide.util.NbBundle.Messages;
+import org.openide.util.NbBundle;
 import org.openide.windows.TopComponent;
 
 @ConvertAsProperties(dtd = "-//ibfb.inventory.core//Inventory//EN",
@@ -39,11 +38,7 @@ persistenceType = TopComponent.PERSISTENCE_NEVER)
  */)
 @TopComponent.OpenActionRegistration(displayName = "#CTL_InventoryAction",
 preferredID = "InventoryTopComponent")
-@Messages({
-    "CTL_InventoryAction=Inventory",
-    "CTL_InventoryTopComponent=Inventory",
-    "HINT_InventoryTopComponent=Inventory"
-})
+
 public final class InventoryViewerTopComponent extends TopComponent {
 
     private JFileChooser selectorArchivo = new JFileChooser();
@@ -53,8 +48,8 @@ public final class InventoryViewerTopComponent extends TopComponent {
 
     public InventoryViewerTopComponent() {
         initComponents();
-        setName(Bundle.CTL_InventoryTopComponent());
-        setToolTipText(Bundle.HINT_InventoryTopComponent());
+        setName(NbBundle.getMessage(InventoryViewerTopComponent.class, "CTL_InventoryTopComponent"));
+        setToolTipText(NbBundle.getMessage(InventoryViewerTopComponent.class, "CTL_InventoryTopComponent"));
         fillComboListNames();
         this.jButtonExport.setEnabled(false);
         this.jLabelEntries.setText("0");
