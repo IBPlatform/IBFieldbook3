@@ -2,11 +2,10 @@ package ibfb.traits.traits;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import org.openide.awt.ActionRegistration;
+import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
-import org.openide.awt.ActionID;
-import org.openide.util.NbBundle.Messages;
+import org.openide.awt.ActionRegistration;
 import org.openide.windows.TopComponent;
 import org.openide.windows.WindowManager;
 
@@ -18,7 +17,6 @@ displayName = "#CTL_TraitsActions")
     @ActionReference(path = "Menu/Database", position = 3333),
     @ActionReference(path = "Toolbars/File", position = -200)
 })
-@Messages("CTL_TraitsActions=View Traits")
 public final class TraitsAction implements ActionListener {
 
     @Override
