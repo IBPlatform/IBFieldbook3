@@ -1801,7 +1801,7 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
         if (this.jTableObservations.getCellEditor() != null) {
             jTableObservations.getCellEditor().stopCellEditing();
         }
-        
+
         int entrada = 0;
 
         if (existeTopComponent(this.getName() + " F1")) {
@@ -1857,25 +1857,25 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
                 List<List<Object>> germplasmDataAdvance = tableModelAdvance.getGermplasmData();
 
                 int colEntry = tableModel.getHeaderIndex(GermplasmEntriesTableModel.ENTRY);
-                System.out.println("COL ENTRY=" +colEntry +"\n");
+                System.out.println("COL ENTRY=" + colEntry + "\n");
                 if (colEntry < 0) {
                     return;
-                }                
+                }
 
                 int colDesig = tableModel.getHeaderIndex(GermplasmEntriesTableModel.DESIG);
-                System.out.println("COL DESIG=" +colDesig+"\n");
+                System.out.println("COL DESIG=" + colDesig + "\n");
                 if (colDesig < 0) {
-                    
-                     colDesig = tableModel.findColumn("CROSS NAME");
-                     System.out.println("COL CROSS=" +colDesig+"\n");
-                     if (colDesig < 0) {
-                    return;
-                     }
+
+                    colDesig = tableModel.findColumn("CROSS NAME");
+                    System.out.println("COL CROSS=" + colDesig + "\n");
+                    if (colDesig < 0) {
+                        return;
+                    }
                 }
-                
-                
-                
-                
+
+
+
+
 
                 int colGID = tableModel.getHeaderIndex(GermplasmEntriesTableModel.GID);
                 if (colEntry < 0) {
@@ -1912,28 +1912,28 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
 
                 for (int i = 0; i < tableModel.getRowCount(); i++) {
                     GermplasmSearch gsF = new GermplasmSearch();
-                     //gsF.setStudyId(40165);
+                    //gsF.setStudyId(40165);
                     gsF.setStudyId(currentStudy);
-                    
-                    System.out.println("Study ID=" +currentStudy);
+
+                    System.out.println("Study ID=" + currentStudy);
 
                     gsF.setTrial(1); //BECAUSE THIS IS A NURSERY
                     gsF.setPlot(ConvertUtils.getValueAsInteger(germplasmData.get(i).get(colEntry)));
                     listToSearchBCID.add(gsF);
                 }
 
-              //  List<GermplasmSearch> germplasmSearchs = AppServicesProxy.getDefault().appServices().getGermplasmByListStudyTrialPlotCross(listToSearchBCID, new ArrayList());
-   
-                
+                //  List<GermplasmSearch> germplasmSearchs = AppServicesProxy.getDefault().appServices().getGermplasmByListStudyTrialPlotCross(listToSearchBCID, new ArrayList());
+
+
 //                for (GermplasmSearch gs : germplasmSearchs) {
 //                    System.out.println("DESIG: " + gs.getNames().getNval() + "     BCID:" + gs.getBcid() + "    GID: " + gs.getNames().getGid());
 //                }
 
-                
-                
-                
-                
-                
+
+
+
+
+
 
                 for (int i = 0; i < tableModel.getRowCount(); i++) {
 
@@ -1948,17 +1948,21 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
 
                         if (convention == 0) {//WHEAT
 
-                            
-                          //  Integer gidToSearch  = Integer.parseInt(germplasmData.get(i).get(colGID).toString());
-                           // Integer gidToSearch  = Integer.parseInt(tableModel.getValueAt(i, colGID).toString());
-                            
-                            Integer gidToSearch=ConvertUtils.getValueAsInteger(germplasmData.get(i).get(colGID));
-                            
-                            System.out.println("gidToSearch: "+gidToSearch);
-                            
-                            Names cimmytName = AppServicesProxy.getDefault().appServices().getCimmytWheatName(gidToSearch);                            
-                            data = metodos.giveMeDataDerivative(cimmytName.getNval(), samples);
-                            
+
+                            //  Integer gidToSearch  = Integer.parseInt(germplasmData.get(i).get(colGID).toString());
+                            // Integer gidToSearch  = Integer.parseInt(tableModel.getValueAt(i, colGID).toString());
+
+                            Integer gidToSearch = ConvertUtils.getValueAsInteger(germplasmData.get(i).get(colGID));
+
+                            System.out.println("gidToSearch: " + gidToSearch);
+
+                            Names cimmytName = AppServicesProxy.getDefault().appServices().getCimmytWheatName(gidToSearch);
+                            if (cimmytName == null) {
+                                data = metodos.giveMeDataDerivative(nuevo[colDesig].toString(), samples);
+                            } else {
+                                data = metodos.giveMeDataDerivative(cimmytName.getNval(), samples);
+                            }
+
                         } else {
 
                             data = metodos.giveMeDataDerivative(nuevo[colDesig].toString(), samples);
@@ -1986,9 +1990,13 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
 
                         if (convention == 0) {//WHEAT
 
-                            Integer gidToSearch  = Integer.parseInt(germplasmData.get(i).get(colGID).toString());
-                            Names cimmytName = AppServicesProxy.getDefault().appServices().getCimmytWheatName(gidToSearch);                            
-                            data = metodos.giveMeDataDerivative(cimmytName.getNval(), samples);
+                            Integer gidToSearch = ConvertUtils.getValueAsInteger(germplasmData.get(i).get(colGID).toString());
+                            Names cimmytName = AppServicesProxy.getDefault().appServices().getCimmytWheatName(gidToSearch);
+                            if (cimmytName != null) {
+                                data = metodos.giveMeDataDerivative(cimmytName.getNval(), samples);
+                            } else {
+                                data = metodos.giveMeDataDerivative(nuevo[colDesig].toString(), samples);
+                            }
                         } else {
                             data = metodos.giveMeDataDerivative(nuevo[colDesig].toString(), samples);
                         }
@@ -2010,7 +2018,7 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
                         for (int z = 0; z < temp.length; z++) {
                             newData.add(z, temp[z]);
                         }
-                      //  newData.add(germplasmSearchs.get(i).getNames().getNval());//FOR INVENTORY   -  DESIG
+                        //  newData.add(germplasmSearchs.get(i).getNames().getNval());//FOR INVENTORY   -  DESIG
                         newData.add("OZIEL");//FOR INVENTORY   -  DESIG
                         newData.add("");//FOR INVENTORY   -  LOCATION
                         newData.add("");  //FOR INVENTORY       -  COMMENTS  
@@ -2038,7 +2046,7 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
 
     private void checkAdvanceStatus() {
         if (this.jTextFieldNurseryName.isEnabled()) {
-             this.jButtonAdvance.setEnabled(false);
+            this.jButtonAdvance.setEnabled(false);
         } else {
             this.jButtonAdvance.setEnabled(true);
         }
