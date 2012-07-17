@@ -15,6 +15,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableColumn;
+import org.cimmyt.cril.ibwb.commongui.ConvertUtils;
 import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 import org.cimmyt.cril.ibwb.commongui.FileUtils;
 
@@ -473,11 +474,13 @@ public class DesignsUtils {
 
                 while (csvReader.readRecord()) {
 
-                    int trial = Integer.valueOf(csvReader.get("TRIAL")).intValue();
-                    int rep = Integer.valueOf(csvReader.get("REP")).intValue();
-                    int block = Integer.valueOf(csvReader.get("BLOCK")).intValue();
+//                    int trial = Integer.valueOf(csvReader.get("TRIAL")).intValue();
+//                    int rep = Integer.valueOf(csvReader.get("REP")).intValue();
+//                    int block = Integer.valueOf(csvReader.get("BLOCK")).intValue();
 
-
+                    int trial = ConvertUtils.getValueAsInteger(csvReader.get("TRIAL"));
+                    int rep = ConvertUtils.getValueAsInteger(csvReader.get("REP"));
+                    int block = ConvertUtils.getValueAsInteger(csvReader.get("BLOCK"));
 
                     if (trial == currentTrial) {
                         rowTrialCount++;
@@ -526,7 +529,8 @@ public class DesignsUtils {
 
             while (csvReader.readRecord()) {
 
-                int trial = Integer.valueOf(csvReader.get("TRIAL")).intValue();
+                //int trial = Integer.valueOf(csvReader.get("TRIAL")).intValue();
+                int trial = ConvertUtils.getValueAsInteger(csvReader.get("TRIAL"));
                 if (trial == currentTrial) {
                     isValid = true;
                     break;

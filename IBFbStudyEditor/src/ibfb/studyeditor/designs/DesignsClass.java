@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import org.cimmyt.cril.ibwb.commongui.ConvertUtils;
 import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 import org.cimmyt.cril.ibwb.commongui.OSUtils;
 
@@ -611,7 +612,8 @@ public class DesignsClass {
 
             while (csvReader.readRecord()) {
                 String trial = csvReader.get("TRIAL");
-                if (Integer.valueOf(trial).intValue() != currentTrial) {
+                //if (Integer.valueOf(trial).intValue() != currentTrial) {
+                if (ConvertUtils.getValueAsInteger(trial) != currentTrial) {
                     //    if (trial.equals(Integer.toString(currentTrial))) {
                     continue; //skip this row
                 }
