@@ -13,15 +13,19 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
+import java.util.ResourceBundle;
 import javax.swing.JTable;
 import org.cimmyt.cril.ibwb.commongui.OSUtils;
 import org.openide.NotifyDescriptor;
+import org.openide.util.NbBundle;
 
 /**
  *
  * @author TMSANCHEZ
  */
 public class FieldbookCSVExporter {
+
+    private static ResourceBundle bundle = NbBundle.getBundle(FieldbookCSVExporter.class);
 
     public static void exportToFieldlog(JTable jTableObservations, String trialFile, CSVOziel csv, int triallOption,
             int trialStart, int trialEnd, int trialSelected) {
@@ -59,11 +63,10 @@ public class FieldbookCSVExporter {
         Export_to_fieldlog(new File(trialFile), modeloFilter, csv);
 
 
-//        DialogUtil.displayInfo("The data was saved to " + trialFile + ".csv file");
+        String fileSaved = bundle.getString("StudyEditorExport.dataSavedTo");
+        fileSaved = fileSaved + " " + trialFile + bundle.getString("StudyEditorExport.dataSavedToEnd");
 
-        String fileSaved = "The data was saved to " + trialFile + " file.  \nDo you want to open file now?";
-
-        if (DialogUtil.displayConfirmation(fileSaved, "File exported", NotifyDescriptor.OK_CANCEL_OPTION)) {
+        if (DialogUtil.displayConfirmation(fileSaved, bundle.getString("StudyEditorExport.fileExported"), NotifyDescriptor.OK_CANCEL_OPTION)) {
             try {
 
                 if (Desktop.isDesktopSupported() == true) {

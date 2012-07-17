@@ -13,14 +13,18 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
+import java.util.ResourceBundle;
 import javax.swing.JTable;
 import org.openide.NotifyDescriptor;
+import org.openide.util.NbBundle;
 
 /**
  *
  * @author TMSANCHEZ
  */
 public class FieldbookRExport {
+
+    private static ResourceBundle bundle = NbBundle.getBundle(FieldbookRExport.class);
 
     public static void exportToR(JTable jTableObservations, String trialFile, CSVOziel csv, int triallOption,
             int trialStart, int trialEnd, int trialSelected) {
@@ -58,12 +62,10 @@ public class FieldbookRExport {
 
         Export_to_R(new File(trialFile), modeloFilter, csv);
 
+        String fileSaved = bundle.getString("StudyEditorExport.dataSavedTo");
+        fileSaved = fileSaved + " " + trialFile + bundle.getString("StudyEditorExport.dataSavedToEnd");
 
-        //DialogUtil.displayInfo("The data was saved to " + trialFile + ".csv file");
-
-        String fileSaved = "The data was saved to " + trialFile + " file.  \nDo you want to open file now?";
-
-        if (DialogUtil.displayConfirmation(fileSaved, "File exported", NotifyDescriptor.OK_CANCEL_OPTION)) {
+        if (DialogUtil.displayConfirmation(fileSaved, bundle.getString("StudyEditorExport.fileExported"), NotifyDescriptor.OK_CANCEL_OPTION)) {
             try {
 
                 if (Desktop.isDesktopSupported() == true) {

@@ -17,6 +17,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
+import java.util.ResourceBundle;
 import javax.swing.JTable;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
@@ -30,13 +31,16 @@ import org.apache.poi.hssf.usermodel.HSSFPalette;
 import org.apache.poi.hssf.util.HSSFColor;
 import org.cimmyt.cril.ibwb.commongui.ConvertUtils;
 import org.openide.NotifyDescriptor;
+import org.openide.util.NbBundle;
 
 /**
  * Export to Excel format Measurement table
+ *
  * @author TMSANCHEZ
  */
 public class FieldBookExcelExporter {
 
+    private static ResourceBundle bundle = NbBundle.getBundle(FieldBookExcelExporter.class);
     private static final int NAME = 0;
     private static final int DESCRIPTION = 1;
     private static final int PROPERTY = 2;
@@ -65,6 +69,7 @@ public class FieldBookExcelExporter {
 
     /**
      * Constructs excel exporter
+     *
      * @param jTableObservations
      * @param fileTemplate Template file name
      * @param trialFile Trial file name
@@ -209,8 +214,9 @@ public class FieldBookExcelExporter {
 
     /**
      * Copies original template file used by workbook
+     *
      * @param myFile
-     * @param outputFile 
+     * @param outputFile
      */
     private void copyFile(String myFile, String outputFile) {
         try {
@@ -231,8 +237,9 @@ public class FieldBookExcelExporter {
 
     /**
      * Save information to all file
+     *
      * @param template
-     * @param obsFilterTable 
+     * @param obsFilterTable
      */
     private void saveDataToWorkbook(File template, JTable obsFilterTable, int trial) {
 
@@ -315,9 +322,12 @@ public class FieldBookExcelExporter {
 
             grabaLibro(excelBook, nombreArchivo);
 
-            String fileSaved = "The data was saved to " + nombreArchivo + " file.  \nDo you want to open it now?";
+            //String fileSaved = "The data was saved to " + nombreArchivo + " file.  \nDo you want to open it now?";
 
-            if (DialogUtil.displayConfirmation(fileSaved, "File exported", NotifyDescriptor.OK_CANCEL_OPTION)) {
+            String fileSaved = bundle.getString("StudyEditorExport.dataSavedTo");
+            fileSaved = fileSaved + " " + nombreArchivo + bundle.getString("StudyEditorExport.dataSavedToEnd");
+
+            if (DialogUtil.displayConfirmation(fileSaved, bundle.getString("StudyEditorExport.fileExported"), NotifyDescriptor.OK_CANCEL_OPTION)) {
                 try {
 
                     if (Desktop.isDesktopSupported() == true) {
@@ -356,7 +366,8 @@ public class FieldBookExcelExporter {
 
     /**
      * Saves the description sheet from selected variates and constants
-     * @param excelBook 
+     *
+     * @param excelBook
      * @author tmsanchez
      */
     private void saveDescriptionSheet(HSSFWorkbook excelBook, int trial) {
@@ -497,11 +508,11 @@ public class FieldBookExcelExporter {
     }
 
     /**
-     * 
+     *
      * @param descriptionSheet
      * @param currentRow
      * @param nameText
-     * @param cellStyle 
+     * @param cellStyle
      */
     private void writeSectionHeaders(HSSFSheet descriptionSheet, String nameText, HSSFCellStyle cellStyle, HSSFRow excelRow) {
 
@@ -595,10 +606,10 @@ public class FieldBookExcelExporter {
     }
 
     /**
-     * 
+     *
      * @param descriptionSheet
      * @param currentRow
-     * @param conditionList 
+     * @param conditionList
      */
     private void writeConditions(HSSFSheet descriptionSheet, List<Condition> conditionList, int trial) {
         HSSFRow excelRow;
@@ -657,10 +668,10 @@ public class FieldBookExcelExporter {
     }
 
     /**
-     * 
+     *
      * @param descriptionSheet
      * @param currentRow
-     * @param factorList 
+     * @param factorList
      */
     private void writeFactors(HSSFSheet descriptionSheet, List<Factor> factorList) {
         HSSFRow excelRow;
@@ -697,10 +708,10 @@ public class FieldBookExcelExporter {
     }
 
     /**
-     * 
+     *
      * @param descriptionSheet
      * @param currentRow
-     * @param constantList 
+     * @param constantList
      */
     private void writeConstants(HSSFSheet descriptionSheet, List<Constant> constantList, int trial) {
         HSSFRow excelRow;
@@ -748,10 +759,10 @@ public class FieldBookExcelExporter {
     }
 
     /**
-     * 
+     *
      * @param descriptionSheet
      * @param currentRow
-     * @param variateList 
+     * @param variateList
      */
     private void writeVariates(HSSFSheet descriptionSheet, List<Variate> variateList) {
         HSSFRow excelRow;
