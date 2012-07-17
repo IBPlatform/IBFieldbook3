@@ -288,8 +288,8 @@ public class OpenStudyAction extends SystemAction {
         //studyWindow.jTabbedPane1.setEnabledAt(7, false);
         //studyWindow.jTabbedPane1.setEnabledAt(6, false);
         studyWindow.disableTraitsSelection();
-        studyWindow.jTabbedPane1.setEnabledAt(5, false);
-        studyWindow.jTabbedPane1.setEnabledAt(4, false);
+        studyWindow.jTabbedPaneEditor.setEnabledAt(5, false);
+        studyWindow.jTabbedPaneEditor.setEnabledAt(4, false);
         //studyWindow.jTabbedPane1.setEnabledAt(3, false);
     }
 

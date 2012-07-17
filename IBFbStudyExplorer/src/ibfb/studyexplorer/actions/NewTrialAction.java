@@ -159,15 +159,15 @@ public final class NewTrialAction extends SystemAction implements ActionListener
 
 
             if (!TrialWizardWizardIterator.myExcelReader.getMyWorkbook().hasPropertyTrialInstance()) {
-                studyEditor.jTabbedPane1.setEnabledAt(1, false);
+                studyEditor.jTabbedPaneEditor.setEnabledAt(1, false);
             } else {
-                studyEditor.jTabbedPane1.setEnabledAt(1, true);
+                studyEditor.jTabbedPaneEditor.setEnabledAt(1, true);
             }
 
             if (!TrialWizardWizardIterator.existenFactores) {
-                studyEditor.jTabbedPane1.setEnabledAt(4, false);
+                studyEditor.jTabbedPaneEditor.setEnabledAt(4, false);
             } else {
-                studyEditor.jTabbedPane1.setEnabledAt(4, true);
+                studyEditor.jTabbedPaneEditor.setEnabledAt(4, true);
             }
 
             studyEditor.open();
