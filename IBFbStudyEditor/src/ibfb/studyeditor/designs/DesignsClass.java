@@ -626,7 +626,7 @@ public class DesignsClass {
                 boolean tenemosCol = false;
 
                 try {
-                    row = csvReader.get("ROW");
+                    row = csvReader.get("ROW").toUpperCase();
                     tenemosRow = true;
                 } catch (IOException e) {
                     tenemosRow = false;
@@ -634,8 +634,10 @@ public class DesignsClass {
                 }
 
                 try {
-                    col = csvReader.get("COLUMN");
-                    tenemosCol = true;
+                    col = csvReader.get("COLUMN").toUpperCase();
+                    tenemosCol = true; 
+      
+                
                 } catch (IOException e) {
                     tenemosCol = false;
 
