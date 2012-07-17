@@ -9,6 +9,7 @@ import ibfb.studyeditor.roweditors.ConditionsRowEditor;
 import ibfb.studyeditor.roweditors.ExcelCopyPaste;
 import ibfb.studyeditor.util.LookupUtil;
 import java.awt.Color;
+import java.util.ResourceBundle;
 import javax.swing.JComponent;
 import javax.swing.JFormattedTextField;
 import javax.swing.JPanel;
@@ -19,8 +20,10 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableColumn;
 import net.java.balloontip.BalloonTip;
 import net.java.balloontip.utils.ToolTipUtils;
+import org.openide.util.NbBundle;
 
 public final class TrialWizardVisualPanel2 extends JPanel {
+    private ResourceBundle bundle = NbBundle.getBundle(TrialWizardVisualPanel2.class);
 
     private SpinnerNumberModel modeloinstances = new SpinnerNumberModel(1, 1, 1000, 1);
     private int fila = 0;
@@ -57,20 +60,21 @@ public final class TrialWizardVisualPanel2 extends JPanel {
 
     @Override
     public String getName() {
-        return "Study Conditions";
+        return bundle.getString("TrialWizardVisualPanel2.title");
     }
 
     public void setLabelInstances(String label) {
-        String cad = "Specify the number of instances of " + label;
+        
+        String cad =  bundle.getString("TrialWizardVisualPanel2.specifyNumberOfInstances") + " " + label;
         this.jLabelInstances.setText(cad);
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
+        scrllTable = new javax.swing.JScrollPane();
         jTableStudyConditions = new javax.swing.JTable();
-        jPanel3 = new javax.swing.JPanel();
+        pnlInstances = new javax.swing.JPanel();
         jLabelInstances = new javax.swing.JLabel();
         jSpinnerInstances = new javax.swing.JSpinner();
 
@@ -95,15 +99,15 @@ public final class TrialWizardVisualPanel2 extends JPanel {
                 jTableStudyConditionsPropertyChange(evt);
             }
         });
-        jScrollPane1.setViewportView(jTableStudyConditions);
+        scrllTable.setViewportView(jTableStudyConditions);
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel3.setToolTipText(org.openide.util.NbBundle.getMessage(TrialWizardVisualPanel2.class, "TrialWizardVisualPanel2.jPanel3.toolTipText")); // NOI18N
+        pnlInstances.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        pnlInstances.setToolTipText(org.openide.util.NbBundle.getMessage(TrialWizardVisualPanel2.class, "TrialWizardVisualPanel2.pnlInstances.toolTipText")); // NOI18N
 
         jLabelInstances.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         org.openide.awt.Mnemonics.setLocalizedText(jLabelInstances, org.openide.util.NbBundle.getMessage(TrialWizardVisualPanel2.class, "TrialWizardVisualPanel2.jLabelInstances.text")); // NOI18N
 
-        jSpinnerInstances.setFont(new java.awt.Font("Lucida Grande", 0, 16));
+        jSpinnerInstances.setFont(new java.awt.Font("Lucida Grande", 0, 16)); // NOI18N
         jSpinnerInstances.setToolTipText(org.openide.util.NbBundle.getMessage(TrialWizardVisualPanel2.class, "TrialWizardVisualPanel2.jSpinnerInstances.toolTipText")); // NOI18N
         jSpinnerInstances.setRequestFocusEnabled(false);
         jSpinnerInstances.setValue(1);
@@ -113,22 +117,22 @@ public final class TrialWizardVisualPanel2 extends JPanel {
             }
         });
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlInstancesLayout = new javax.swing.GroupLayout(pnlInstances);
+        pnlInstances.setLayout(pnlInstancesLayout);
+        pnlInstancesLayout.setHorizontalGroup(
+            pnlInstancesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlInstancesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabelInstances, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSpinnerInstances, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(149, Short.MAX_VALUE))
+                .addContainerGap(165, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        pnlInstancesLayout.setVerticalGroup(
+            pnlInstancesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlInstancesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlInstancesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSpinnerInstances, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
                     .addComponent(jLabelInstances, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE))
                 .addContainerGap())
@@ -141,17 +145,17 @@ public final class TrialWizardVisualPanel2 extends JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 583, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(scrllTable, javax.swing.GroupLayout.DEFAULT_SIZE, 583, Short.MAX_VALUE)
+                    .addComponent(pnlInstances, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(scrllTable, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlInstances, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -253,7 +257,7 @@ public final class TrialWizardVisualPanel2 extends JPanel {
         valueColumn.setCellEditor(conditionsRowEditor);
         TableColumn columnValue = jTableStudyConditions.getColumnModel().getColumn(4);
         DefaultTableCellRenderer valueCellRenderer =  new DefaultTableCellRenderer();
-        valueCellRenderer.setToolTipText("Fill this value");
+        valueCellRenderer.setToolTipText(bundle.getString("TrialWizardVisualPanel2.fillThisValue"));
         valueCellRenderer.setBackground(Color.YELLOW);
         columnValue.setCellRenderer(valueCellRenderer);        
     }
@@ -271,16 +275,16 @@ public final class TrialWizardVisualPanel2 extends JPanel {
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabelInstances;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSpinner jSpinnerInstances;
     public javax.swing.JTable jTableStudyConditions;
+    private javax.swing.JPanel pnlInstances;
+    private javax.swing.JScrollPane scrllTable;
     // End of variables declaration//GEN-END:variables
 
     private void createBallonTips() {
-        tip1 = new BalloonTip(jTableStudyConditions, "Specify single values of the following variables wich pertaint to the whole Study");
+        tip1 = new BalloonTip(jTableStudyConditions, bundle.getString("TrialWizardVisualPanel2.tipStudyConditions"));
         ToolTipUtils.balloonToToolTip(tip1, 500, 3000);
-        tip2 = new BalloonTip(jSpinnerInstances, "Specify the number of instances of this trial for wich you want fieldbook eg. number of sites, seasons or ocurrences or all combined");
+        tip2 = new BalloonTip(jSpinnerInstances, bundle.getString("TrialWizardVisualPanel2.tipStudyInstances"));
         ToolTipUtils.balloonToToolTip(tip2, 500, 3000);
     }
 }

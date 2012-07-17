@@ -1,4 +1,4 @@
-<?xml version="1.1" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <NonVisualComponents>
@@ -28,7 +28,7 @@
                       <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                       <Component id="jSpinnerTrialBegin" min="-2" pref="88" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblTo" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                       <Component id="jSpinnerTrialEnd" min="-2" pref="84" max="-2" attributes="0"/>
                   </Group>
@@ -42,7 +42,7 @@
                           </Group>
                       </Group>
                       <EmptySpace pref="126" max="32767" attributes="0"/>
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblImgDisk" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -63,12 +63,12 @@
                           <Component id="jRadioButtonSelected" linkSize="1" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblImgDisk" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jSpinnerTrialEnd" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel1" linkSize="2" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblTo" linkSize="2" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jRadioButtonFrom" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jSpinnerTrialBegin" linkSize="2" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -115,10 +115,10 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="lblTo">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-          <ResourceString bundle="ibfb/studyeditor/savewizard/Bundle.properties" key="exportVisualPanel2.jLabel1.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+          <ResourceString bundle="ibfb/studyeditor/savewizard/Bundle.properties" key="exportVisualPanel2.lblTo.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
         </Property>
       </Properties>
     </Component>
@@ -140,13 +140,13 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
+    <Component class="javax.swing.JLabel" name="lblImgDisk">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/ibfb/studyeditor/images/saveOptions.png"/>
         </Property>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-          <ResourceString bundle="ibfb/studyeditor/savewizard/Bundle.properties" key="exportVisualPanel2.jLabel2.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+          <ResourceString bundle="ibfb/studyeditor/savewizard/Bundle.properties" key="exportVisualPanel2.lblImgDisk.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
         </Property>
       </Properties>
     </Component>

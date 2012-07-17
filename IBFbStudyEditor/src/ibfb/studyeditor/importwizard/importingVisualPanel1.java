@@ -1,10 +1,13 @@
 
 package ibfb.studyeditor.importwizard;
 
+import java.util.ResourceBundle;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+import org.openide.util.NbBundle;
 
 public final class importingVisualPanel1 extends JPanel {
+    private ResourceBundle bundle = NbBundle.getBundle(importingVisualPanel1.class);
 
     /** Creates new form importingVisualPanel1 */
     public importingVisualPanel1() {
@@ -13,7 +16,7 @@ public final class importingVisualPanel1 extends JPanel {
 
     @Override
     public String getName() {
-        return "Import type";
+        return bundle.getString("importingVisualPanel1.title");
     }
 
    
@@ -22,8 +25,8 @@ public final class importingVisualPanel1 extends JPanel {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         jRadioButtonToFieldlog = new javax.swing.JRadioButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lblImgAndroid = new javax.swing.JLabel();
+        lblImgExcel = new javax.swing.JLabel();
         jRadioButtonToExcel = new javax.swing.JRadioButton();
 
         buttonGroup1.add(jRadioButtonToFieldlog);
@@ -40,31 +43,31 @@ public final class importingVisualPanel1 extends JPanel {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyeditor/images/fieldlog.png"))); // NOI18N
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(importingVisualPanel1.class, "importingVisualPanel1.jLabel1.text")); // NOI18N
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblImgAndroid.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyeditor/images/fieldlog.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lblImgAndroid, org.openide.util.NbBundle.getMessage(importingVisualPanel1.class, "importingVisualPanel1.lblImgAndroid.text")); // NOI18N
+        lblImgAndroid.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
+                lblImgAndroidMouseClicked(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel1MouseExited(evt);
+                lblImgAndroidMouseExited(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel1MouseEntered(evt);
+                lblImgAndroidMouseEntered(evt);
             }
         });
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyeditor/images/excelBig1.png"))); // NOI18N
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel3, org.openide.util.NbBundle.getMessage(importingVisualPanel1.class, "importingVisualPanel1.jLabel3.text")); // NOI18N
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblImgExcel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyeditor/images/excelBig1.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lblImgExcel, org.openide.util.NbBundle.getMessage(importingVisualPanel1.class, "importingVisualPanel1.lblImgExcel.text")); // NOI18N
+        lblImgExcel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
+                lblImgExcelMouseClicked(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel3MouseExited(evt);
+                lblImgExcelMouseExited(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel3MouseEntered(evt);
+                lblImgExcelMouseEntered(evt);
             }
         });
 
@@ -84,13 +87,13 @@ public final class importingVisualPanel1 extends JPanel {
                 .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jRadioButtonToFieldlog, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                    .addComponent(lblImgAndroid))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addComponent(jRadioButtonToExcel))
-                    .addComponent(jLabel3))
+                    .addComponent(lblImgExcel))
                 .addGap(86, 86, 86))
         );
         layout.setVerticalGroup(
@@ -103,38 +106,38 @@ public final class importingVisualPanel1 extends JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(48, 48, 48)
-                        .addComponent(jLabel1)
+                        .addComponent(lblImgAndroid)
                         .addGap(50, 50, 50))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3)
+                        .addComponent(lblImgExcel)
                         .addGap(61, 61, 61))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+    private void lblImgAndroidMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImgAndroidMouseClicked
 
-        this.jRadioButtonToFieldlog.setSelected(true);     }//GEN-LAST:event_jLabel1MouseClicked
+        this.jRadioButtonToFieldlog.setSelected(true);     }//GEN-LAST:event_lblImgAndroidMouseClicked
 
-    private void jLabel1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseExited
+    private void lblImgAndroidMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImgAndroidMouseExited
 
-        this.jLabel1.setIcon(new ImageIcon(getClass().getResource("/ibfb/studyeditor/images/fieldlog.png")));     }//GEN-LAST:event_jLabel1MouseExited
+        this.lblImgAndroid.setIcon(new ImageIcon(getClass().getResource("/ibfb/studyeditor/images/fieldlog.png")));     }//GEN-LAST:event_lblImgAndroidMouseExited
 
-    private void jLabel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseEntered
+    private void lblImgAndroidMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImgAndroidMouseEntered
 
-        this.jLabel1.setIcon(new ImageIcon(getClass().getResource("/ibfb/studyeditor/images/fieldlog2.png")));     }//GEN-LAST:event_jLabel1MouseEntered
+        this.lblImgAndroid.setIcon(new ImageIcon(getClass().getResource("/ibfb/studyeditor/images/fieldlog2.png")));     }//GEN-LAST:event_lblImgAndroidMouseEntered
 
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+    private void lblImgExcelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImgExcelMouseClicked
 
-        this.jRadioButtonToExcel.setSelected(true);     }//GEN-LAST:event_jLabel3MouseClicked
+        this.jRadioButtonToExcel.setSelected(true);     }//GEN-LAST:event_lblImgExcelMouseClicked
 
-    private void jLabel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseExited
+    private void lblImgExcelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImgExcelMouseExited
 
-        this.jLabel3.setIcon(new ImageIcon(getClass().getResource("/ibfb/studyeditor/images/excelBig1.png")));     }//GEN-LAST:event_jLabel3MouseExited
+        this.lblImgExcel.setIcon(new ImageIcon(getClass().getResource("/ibfb/studyeditor/images/excelBig1.png")));     }//GEN-LAST:event_lblImgExcelMouseExited
 
-    private void jLabel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseEntered
+    private void lblImgExcelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImgExcelMouseEntered
 
-        this.jLabel3.setIcon(new ImageIcon(getClass().getResource("/ibfb/studyeditor/images/excelBig2.png")));     }//GEN-LAST:event_jLabel3MouseEntered
+        this.lblImgExcel.setIcon(new ImageIcon(getClass().getResource("/ibfb/studyeditor/images/excelBig2.png")));     }//GEN-LAST:event_lblImgExcelMouseEntered
 
     private void jRadioButtonToFieldlogItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioButtonToFieldlogItemStateChanged
         // TODO add your handling code here:
@@ -150,9 +153,9 @@ public final class importingVisualPanel1 extends JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
     public javax.swing.JRadioButton jRadioButtonToExcel;
     public javax.swing.JRadioButton jRadioButtonToFieldlog;
+    private javax.swing.JLabel lblImgAndroid;
+    private javax.swing.JLabel lblImgExcel;
     // End of variables declaration//GEN-END:variables
 }

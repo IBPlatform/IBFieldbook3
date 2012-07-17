@@ -3,12 +3,15 @@ package ibfb.studyeditor.importwizard;
 import ibfb.studyexplorer.filters.CSVFiltro;
 import ibfb.studyexplorer.filters.ExcelFiltro;
 import java.io.File;
+import java.util.ResourceBundle;
 import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 import javax.swing.filechooser.FileFilter;
 import org.openide.WizardDescriptor;
+import org.openide.util.NbBundle;
 
 public final class importingVisualPanel2 extends JPanel {
+    private ResourceBundle bundle = NbBundle.getBundle(importingVisualPanel2.class);
 
     private JFileChooser selectorArchivo = new JFileChooser();
     private File nombreArchivo;
@@ -21,7 +24,7 @@ public final class importingVisualPanel2 extends JPanel {
 
     @Override
     public String getName() {
-        return "Select your destination file";
+        return bundle.getString("importingVisualPanel2.title");
     }
 
     public File getArchivo() {
@@ -42,8 +45,8 @@ public final class importingVisualPanel2 extends JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jButtonSearch = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lblSelectSourcefile = new javax.swing.JLabel();
+        lblImgFolders = new javax.swing.JLabel();
 
         jTextArea1.setColumns(20);
         jTextArea1.setEditable(false);
@@ -62,10 +65,10 @@ public final class importingVisualPanel2 extends JPanel {
             }
         });
 
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel2, org.openide.util.NbBundle.getMessage(importingVisualPanel2.class, "importingVisualPanel2.jLabel2.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lblSelectSourcefile, org.openide.util.NbBundle.getMessage(importingVisualPanel2.class, "importingVisualPanel2.lblSelectSourcefile.text")); // NOI18N
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyeditor/images/file.png"))); // NOI18N
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(importingVisualPanel2.class, "importingVisualPanel2.jLabel1.text")); // NOI18N
+        lblImgFolders.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyeditor/images/file.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lblImgFolders, org.openide.util.NbBundle.getMessage(importingVisualPanel2.class, "importingVisualPanel2.lblImgFolders.text")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -74,11 +77,11 @@ public final class importingVisualPanel2 extends JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSelectSourcefile, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
+                .addComponent(lblImgFolders)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -86,10 +89,10 @@ public final class importingVisualPanel2 extends JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(57, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblImgFolders, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addComponent(jLabel2)
+                        .addComponent(lblSelectSourcefile)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -168,9 +171,9 @@ public final class importingVisualPanel2 extends JPanel {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonSearch;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel lblImgFolders;
+    private javax.swing.JLabel lblSelectSourcefile;
     // End of variables declaration//GEN-END:variables
 }

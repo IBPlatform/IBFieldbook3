@@ -238,7 +238,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         jRadioButtonFilterTrialStudy.setVisible(false);
         jRadioButtonViewAllTrialStudy.setVisible(false);
         jSpinnerTrialStudy.setVisible(false);
-        jLabel8.setVisible(false);
+        pnlExpConditionTrial.setVisible(false);
     }
 
     public ArrayList<String> getChildren() {
@@ -321,7 +321,6 @@ public final class StudyEditorTopComponent extends TopComponent {
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         buttonGroupTrInformation = new javax.swing.ButtonGroup();
         buttonGroupExpConditions = new javax.swing.ButtonGroup();
@@ -339,45 +338,45 @@ public final class StudyEditorTopComponent extends TopComponent {
         jPopupMenuSelect = new javax.swing.JPopupMenu();
         jMenuItemSelect = new javax.swing.JMenuItem();
         jMenuItemSelectAll = new javax.swing.JMenuItem();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
+        jTabbedPaneEditor = new javax.swing.JTabbedPane();
+        pnlGeneralInformation = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableStudyConditions = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
+        lblStudyConditions = new javax.swing.JLabel();
         JPanelData = new javax.swing.JPanel();
         jTextFieldObjective = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
+        lblTitle = new javax.swing.JLabel();
         jTextFieldStudy = new javax.swing.JTextField();
         jTextFieldTitle = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        lblStudy = new javax.swing.JLabel();
+        lblObjective = new javax.swing.JLabel();
+        lblStartDate = new javax.swing.JLabel();
+        lblEndDate = new javax.swing.JLabel();
         jComboBoxStudyType = new javax.swing.JComboBox();
         jTextFieldPMKey = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
+        lblStudyType = new javax.swing.JLabel();
+        lblProjectKey = new javax.swing.JLabel();
+        lblInstances = new javax.swing.JLabel();
         jLabelInstances = new javax.swing.JLabel();
         jDateChooserStart = new javax.swing.JTextField();
         jDateChooserEnd = new javax.swing.JTextField();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel23 = new javax.swing.JPanel();
+        pnlTrialInformation = new javax.swing.JPanel();
+        pnlTrialInformationFilter = new javax.swing.JPanel();
         jRadioButtonFilterTrialInfo = new javax.swing.JRadioButton();
         jRadioButtonAllTrials = new javax.swing.JRadioButton();
-        jLabel12 = new javax.swing.JLabel();
+        pnlTrialInformationTrial = new javax.swing.JLabel();
         jSpinnerTrialInformation = new javax.swing.JSpinner();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableTrialConditions = new javax.swing.JTable();
-        jPanel4 = new javax.swing.JPanel();
-        jPanel24 = new javax.swing.JPanel();
+        pnlExperimentalConditions = new javax.swing.JPanel();
+        pnlExperimentalConditionFilter = new javax.swing.JPanel();
         jRadioButtonFilterExpConditions = new javax.swing.JRadioButton();
         jRadioButtonAllExpCondition = new javax.swing.JRadioButton();
-        jLabel15 = new javax.swing.JLabel();
+        lblExpConditionsTrial = new javax.swing.JLabel();
         jSpinnerExpConditions = new javax.swing.JSpinner();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTableConstants = new javax.swing.JTable();
-        jPanel7 = new javax.swing.JPanel();
+        pnlGermplasmEntries = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
         jTableEntries = new javax.swing.JTable();
         jPanel13 = new javax.swing.JPanel();
@@ -385,26 +384,26 @@ public final class StudyEditorTopComponent extends TopComponent {
         jLabel5 = new javax.swing.JLabel();
         jLabelTotalGermp = new javax.swing.JLabel();
         jButtonImportCrossInfo = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
+        pnlOtherTreatment = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTableOtherFactorLabels = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTableOtherFactors = new javax.swing.JTable();
-        jPanel8 = new javax.swing.JPanel();
-        jPanel14 = new javax.swing.JPanel();
+        pnlExperimentalDesign = new javax.swing.JPanel();
+        pnlExperimConditionsFilter = new javax.swing.JPanel();
         jRadioButtonFilterTrialStudy = new javax.swing.JRadioButton();
-        jLabel8 = new javax.swing.JLabel();
+        pnlExpConditionTrial = new javax.swing.JLabel();
         jSpinnerTrialStudy = new javax.swing.JSpinner();
         jRadioButtonViewAllTrialStudy = new javax.swing.JRadioButton();
         jButtonRefreshDesign = new javax.swing.JButton();
         jLabelEntries = new javax.swing.JLabel();
         jTextFieldEntries = new javax.swing.JTextField();
-        jPanel11 = new javax.swing.JPanel();
+        pnlExpDesignDesign = new javax.swing.JPanel();
         rbtnIndividualDesign = new javax.swing.JRadioButton();
         rbtnUseSameDesign = new javax.swing.JRadioButton();
         jScrollPane8 = new javax.swing.JScrollPane();
         jTableDesign = new javax.swing.JTable();
-        jPanel6 = new javax.swing.JPanel();
+        pnlTraits = new javax.swing.JPanel();
         jPanelTraits = new javax.swing.JPanel();
         jTextFieldDescription = new javax.swing.JTextField();
         jTextFieldDescriptionSelected = new javax.swing.JTextField();
@@ -414,17 +413,17 @@ public final class StudyEditorTopComponent extends TopComponent {
         jButtonSync = new javax.swing.JButton();
         jPanel12 = new javax.swing.JPanel();
         pnlSelectList = new javax.swing.JPanel();
-        jPanel10 = new javax.swing.JPanel();
+        pnlMeasurement = new javax.swing.JPanel();
         jPanel21 = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
         jTableObservations = new javax.swing.JTable();
-        jPanel25 = new javax.swing.JPanel();
+        pnlMeasurementFilter = new javax.swing.JPanel();
         jRadioButtonFilterTrial = new javax.swing.JRadioButton();
         jRadioButtonAllTrials2 = new javax.swing.JRadioButton();
         jSpinnerTrial = new javax.swing.JSpinner();
         jRadioButtonFilterEntry = new javax.swing.JRadioButton();
         jSpinnerEntry = new javax.swing.JSpinner();
-        jLabel1 = new javax.swing.JLabel();
+        lblTrialName = new javax.swing.JLabel();
         jTextTrialName = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         btnPrintLabels = new javax.swing.JButton();
@@ -500,7 +499,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         });
         jPopupMenuSelect.add(jMenuItemSelectAll);
 
-        jTabbedPane1.setMinimumSize(new java.awt.Dimension(0, 0));
+        jTabbedPaneEditor.setMinimumSize(new java.awt.Dimension(0, 0));
 
         jTableStudyConditions.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -526,36 +525,36 @@ public final class StudyEditorTopComponent extends TopComponent {
         });
         jScrollPane2.setViewportView(jTableStudyConditions);
 
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel2, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jLabel2.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lblStudyConditions, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.lblStudyConditions.text")); // NOI18N
 
         JPanelData.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jTextFieldObjective.setText(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jTextFieldObjective.text")); // NOI18N
 
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel10, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jLabel10.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lblTitle, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.lblTitle.text")); // NOI18N
 
         jTextFieldStudy.setText(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jTextFieldStudy.text")); // NOI18N
         jTextFieldStudy.setMinimumSize(new java.awt.Dimension(14, 50));
 
         jTextFieldTitle.setText(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jTextFieldTitle.text")); // NOI18N
 
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel3, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jLabel3.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lblStudy, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.lblStudy.text")); // NOI18N
 
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel4, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jLabel4.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lblObjective, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.lblObjective.text")); // NOI18N
 
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel6, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jLabel6.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lblStartDate, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.lblStartDate.text")); // NOI18N
 
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel7, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jLabel7.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lblEndDate, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.lblEndDate.text")); // NOI18N
 
         jComboBoxStudyType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "International", "National", "Bank", "Foreign" }));
 
         jTextFieldPMKey.setText(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jTextFieldPMKey.text")); // NOI18N
 
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel9, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jLabel9.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lblStudyType, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.lblStudyType.text")); // NOI18N
 
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel11, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jLabel11.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lblProjectKey, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.lblProjectKey.text")); // NOI18N
 
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel19, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jLabel19.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lblInstances, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.lblInstances.text")); // NOI18N
 
         org.openide.awt.Mnemonics.setLocalizedText(jLabelInstances, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jLabelInstances.text")); // NOI18N
 
@@ -574,11 +573,11 @@ public final class StudyEditorTopComponent extends TopComponent {
                     .addGroup(JPanelDataLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(JPanelDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4)))
+                            .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblObjective)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelDataLayout.createSequentialGroup()
                         .addGap(41, 41, 41)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblStudy, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(15, 15, 15)
                 .addGroup(JPanelDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanelDataLayout.createSequentialGroup()
@@ -588,15 +587,15 @@ public final class StudyEditorTopComponent extends TopComponent {
                             .addComponent(jTextFieldStudy, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE))
                         .addGap(140, 140, 140))
                     .addGroup(JPanelDataLayout.createSequentialGroup()
-                        .addComponent(jLabel19)
+                        .addComponent(lblInstances)
                         .addGap(18, 18, 18)
                         .addComponent(jLabelInstances, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(JPanelDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(lblStartDate, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblEndDate, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblStudyType, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblProjectKey, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(18, 18, 18)
                 .addGroup(JPanelDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jDateChooserEnd)
@@ -613,36 +612,36 @@ public final class StudyEditorTopComponent extends TopComponent {
                     .addGroup(JPanelDataLayout.createSequentialGroup()
                         .addGroup(JPanelDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
                             .addComponent(jTextFieldStudy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
+                            .addComponent(lblStudy))
                         .addGroup(JPanelDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(JPanelDataLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jTextFieldTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(JPanelDataLayout.createSequentialGroup()
                                 .addGap(22, 22, 22)
-                                .addComponent(jLabel10)))
+                                .addComponent(lblTitle)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(JPanelDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextFieldObjective, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
+                            .addComponent(lblObjective))
                         .addGap(18, 18, 18)
                         .addGroup(JPanelDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel19)
+                            .addComponent(lblInstances)
                             .addComponent(jLabelInstances)))
                     .addGroup(JPanelDataLayout.createSequentialGroup()
                         .addGroup(JPanelDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
+                            .addComponent(lblStartDate)
                             .addComponent(jDateChooserStart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(JPanelDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jDateChooserEnd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7))
+                            .addComponent(lblEndDate))
                         .addGap(6, 6, 6)
                         .addGroup(JPanelDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(JPanelDataLayout.createSequentialGroup()
-                                .addComponent(jLabel9)
+                                .addComponent(lblStudyType)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel11))
+                                .addComponent(lblProjectKey))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelDataLayout.createSequentialGroup()
                                 .addComponent(jComboBoxStudyType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -650,39 +649,39 @@ public final class StudyEditorTopComponent extends TopComponent {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        JPanelDataLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel10, jLabel3, jLabel4, jTextFieldObjective, jTextFieldTitle});
+        JPanelDataLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jTextFieldObjective, jTextFieldTitle, lblObjective, lblStudy, lblTitle});
 
-        JPanelDataLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel6, jLabel7, jTextFieldStudy});
+        JPanelDataLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jTextFieldStudy, lblEndDate, lblStartDate});
 
-        JPanelDataLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jComboBoxStudyType, jLabel11, jLabel9, jTextFieldPMKey});
+        JPanelDataLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jComboBoxStudyType, jTextFieldPMKey, lblProjectKey, lblStudyType});
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlGeneralInformationLayout = new javax.swing.GroupLayout(pnlGeneralInformation);
+        pnlGeneralInformation.setLayout(pnlGeneralInformationLayout);
+        pnlGeneralInformationLayout.setHorizontalGroup(
+            pnlGeneralInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlGeneralInformationLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(pnlGeneralInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1049, Short.MAX_VALUE)
                     .addComponent(JPanelData, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(lblStudyConditions, javax.swing.GroupLayout.Alignment.LEADING))
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        pnlGeneralInformationLayout.setVerticalGroup(
+            pnlGeneralInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlGeneralInformationLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(JPanelData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
-                .addComponent(jLabel2)
+                .addComponent(lblStudyConditions)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 487, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 515, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jPanel1.TabConstraints.tabTitle"), jPanel1); // NOI18N
+        jTabbedPaneEditor.addTab(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.pnlGeneralInformation.TabConstraints.tabTitle"), pnlGeneralInformation); // NOI18N
 
-        jPanel23.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jPanel23.border.title"))); // NOI18N
+        pnlTrialInformationFilter.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.pnlTrialInformationFilter.border.title"))); // NOI18N
 
         buttonGroupTrInformation.add(jRadioButtonFilterTrialInfo);
         org.openide.awt.Mnemonics.setLocalizedText(jRadioButtonFilterTrialInfo, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jRadioButtonFilterTrialInfo.text")); // NOI18N
@@ -701,7 +700,7 @@ public final class StudyEditorTopComponent extends TopComponent {
             }
         });
 
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel12, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jLabel12.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(pnlTrialInformationTrial, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.pnlTrialInformationTrial.text")); // NOI18N
 
         jSpinnerTrialInformation.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -709,29 +708,29 @@ public final class StudyEditorTopComponent extends TopComponent {
             }
         });
 
-        javax.swing.GroupLayout jPanel23Layout = new javax.swing.GroupLayout(jPanel23);
-        jPanel23.setLayout(jPanel23Layout);
-        jPanel23Layout.setHorizontalGroup(
-            jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel23Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlTrialInformationFilterLayout = new javax.swing.GroupLayout(pnlTrialInformationFilter);
+        pnlTrialInformationFilter.setLayout(pnlTrialInformationFilterLayout);
+        pnlTrialInformationFilterLayout.setHorizontalGroup(
+            pnlTrialInformationFilterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTrialInformationFilterLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jRadioButtonFilterTrialInfo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel12)
+                .addComponent(pnlTrialInformationTrial)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSpinnerTrialInformation, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 812, Short.MAX_VALUE)
                 .addComponent(jRadioButtonAllTrials)
                 .addContainerGap())
         );
-        jPanel23Layout.setVerticalGroup(
-            jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel23Layout.createSequentialGroup()
-                .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+        pnlTrialInformationFilterLayout.setVerticalGroup(
+            pnlTrialInformationFilterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTrialInformationFilterLayout.createSequentialGroup()
+                .addGroup(pnlTrialInformationFilterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jRadioButtonAllTrials)
                     .addComponent(jSpinnerTrialInformation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel12)
+                    .addGroup(pnlTrialInformationFilterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(pnlTrialInformationTrial)
                         .addComponent(jRadioButtonFilterTrialInfo)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -768,30 +767,30 @@ public final class StudyEditorTopComponent extends TopComponent {
         });
         jScrollPane1.setViewportView(jTableTrialConditions);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlTrialInformationLayout = new javax.swing.GroupLayout(pnlTrialInformation);
+        pnlTrialInformation.setLayout(pnlTrialInformationLayout);
+        pnlTrialInformationLayout.setHorizontalGroup(
+            pnlTrialInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTrialInformationLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(pnlTrialInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1041, Short.MAX_VALUE)
-                    .addComponent(jPanel23, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(pnlTrialInformationFilter, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        pnlTrialInformationLayout.setVerticalGroup(
+            pnlTrialInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTrialInformationLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlTrialInformationFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 635, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jPanel2.TabConstraints.tabTitle"), jPanel2); // NOI18N
+        jTabbedPaneEditor.addTab(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.pnlTrialInformation.TabConstraints.tabTitle"), pnlTrialInformation); // NOI18N
 
-        jPanel24.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jPanel24.border.title"))); // NOI18N
+        pnlExperimentalConditionFilter.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.pnlExperimentalConditionFilter.border.title"))); // NOI18N
 
         buttonGroupExpConditions.add(jRadioButtonFilterExpConditions);
         org.openide.awt.Mnemonics.setLocalizedText(jRadioButtonFilterExpConditions, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jRadioButtonFilterExpConditions.text")); // NOI18N
@@ -810,7 +809,7 @@ public final class StudyEditorTopComponent extends TopComponent {
             }
         });
 
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel15, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jLabel15.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lblExpConditionsTrial, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.lblExpConditionsTrial.text")); // NOI18N
 
         jSpinnerExpConditions.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -818,30 +817,30 @@ public final class StudyEditorTopComponent extends TopComponent {
             }
         });
 
-        javax.swing.GroupLayout jPanel24Layout = new javax.swing.GroupLayout(jPanel24);
-        jPanel24.setLayout(jPanel24Layout);
-        jPanel24Layout.setHorizontalGroup(
-            jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel24Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlExperimentalConditionFilterLayout = new javax.swing.GroupLayout(pnlExperimentalConditionFilter);
+        pnlExperimentalConditionFilter.setLayout(pnlExperimentalConditionFilterLayout);
+        pnlExperimentalConditionFilterLayout.setHorizontalGroup(
+            pnlExperimentalConditionFilterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlExperimentalConditionFilterLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jRadioButtonFilterExpConditions)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel15)
+                .addComponent(lblExpConditionsTrial)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSpinnerExpConditions, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 812, Short.MAX_VALUE)
                 .addComponent(jRadioButtonAllExpCondition)
                 .addContainerGap())
         );
-        jPanel24Layout.setVerticalGroup(
-            jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel24Layout.createSequentialGroup()
-                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+        pnlExperimentalConditionFilterLayout.setVerticalGroup(
+            pnlExperimentalConditionFilterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlExperimentalConditionFilterLayout.createSequentialGroup()
+                .addGroup(pnlExperimentalConditionFilterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jRadioButtonAllExpCondition)
                     .addComponent(jSpinnerExpConditions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(pnlExperimentalConditionFilterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jRadioButtonFilterExpConditions)
-                        .addComponent(jLabel15)))
+                        .addComponent(lblExpConditionsTrial)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -867,28 +866,28 @@ public final class StudyEditorTopComponent extends TopComponent {
         jTableConstants.getTableHeader().setReorderingAllowed(false);
         jScrollPane5.setViewportView(jTableConstants);
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlExperimentalConditionsLayout = new javax.swing.GroupLayout(pnlExperimentalConditions);
+        pnlExperimentalConditions.setLayout(pnlExperimentalConditionsLayout);
+        pnlExperimentalConditionsLayout.setHorizontalGroup(
+            pnlExperimentalConditionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlExperimentalConditionsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(pnlExperimentalConditionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1041, Short.MAX_VALUE)
-                    .addComponent(jPanel24, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(pnlExperimentalConditionFilter, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        pnlExperimentalConditionsLayout.setVerticalGroup(
+            pnlExperimentalConditionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlExperimentalConditionsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlExperimentalConditionFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 635, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jPanel4.TabConstraints.tabTitle"), jPanel4); // NOI18N
+        jTabbedPaneEditor.addTab(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.pnlExperimentalConditions.TabConstraints.tabTitle"), pnlExperimentalConditions); // NOI18N
 
         jTableEntries.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -974,20 +973,20 @@ public final class StudyEditorTopComponent extends TopComponent {
                         .addContainerGap())))
         );
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlGermplasmEntriesLayout = new javax.swing.GroupLayout(pnlGermplasmEntries);
+        pnlGermplasmEntries.setLayout(pnlGermplasmEntriesLayout);
+        pnlGermplasmEntriesLayout.setHorizontalGroup(
+            pnlGermplasmEntriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlGermplasmEntriesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 1041, Short.MAX_VALUE)
+                .addGroup(pnlGermplasmEntriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 1049, Short.MAX_VALUE)
                     .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+        pnlGermplasmEntriesLayout.setVerticalGroup(
+            pnlGermplasmEntriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlGermplasmEntriesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -995,7 +994,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jPanel7.TabConstraints.tabTitle"), jPanel7); // NOI18N
+        jTabbedPaneEditor.addTab(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.pnlGermplasmEntries.TabConstraints.tabTitle"), pnlGermplasmEntries); // NOI18N
 
         jTableOtherFactorLabels.setModel(new ibfb.studyeditor.core.model.TreatmentLabelsTableModel());
         jTableOtherFactorLabels.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
@@ -1005,29 +1004,29 @@ public final class StudyEditorTopComponent extends TopComponent {
         jTableOtherFactors.setModel(new ibfb.studyeditor.core.model.OtherTreatmentFactorsTableModel());
         jScrollPane4.setViewportView(jTableOtherFactors);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlOtherTreatmentLayout = new javax.swing.GroupLayout(pnlOtherTreatment);
+        pnlOtherTreatment.setLayout(pnlOtherTreatmentLayout);
+        pnlOtherTreatmentLayout.setHorizontalGroup(
+            pnlOtherTreatmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlOtherTreatmentLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(pnlOtherTreatmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1041, Short.MAX_VALUE)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1049, Short.MAX_VALUE))
                 .addContainerGap())
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
+        pnlOtherTreatmentLayout.setVerticalGroup(
+            pnlOtherTreatmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlOtherTreatmentLayout.createSequentialGroup()
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 599, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jPanel3.TabConstraints.tabTitle"), jPanel3); // NOI18N
+        jTabbedPaneEditor.addTab(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.pnlOtherTreatment.TabConstraints.tabTitle"), pnlOtherTreatment); // NOI18N
 
-        jPanel14.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        pnlExperimConditionsFilter.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         buttonGroupDesign.add(jRadioButtonFilterTrialStudy);
         org.openide.awt.Mnemonics.setLocalizedText(jRadioButtonFilterTrialStudy, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jRadioButtonFilterTrialStudy.text")); // NOI18N
@@ -1037,7 +1036,7 @@ public final class StudyEditorTopComponent extends TopComponent {
             }
         });
 
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel8, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jLabel8.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(pnlExpConditionTrial, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.pnlExpConditionTrial.text")); // NOI18N
 
         jSpinnerTrialStudy.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -1070,7 +1069,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         jTextFieldEntries.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextFieldEntries.setText(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jTextFieldEntries.text")); // NOI18N
 
-        jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jPanel11.border.title"))); // NOI18N
+        pnlExpDesignDesign.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.pnlExpDesignDesign.border.title"))); // NOI18N
 
         buttonGroupDesign.add(rbtnIndividualDesign);
         org.openide.awt.Mnemonics.setLocalizedText(rbtnIndividualDesign, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.rbtnIndividualDesign.text")); // NOI18N
@@ -1081,37 +1080,37 @@ public final class StudyEditorTopComponent extends TopComponent {
         org.openide.awt.Mnemonics.setLocalizedText(rbtnUseSameDesign, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.rbtnUseSameDesign.text")); // NOI18N
         rbtnUseSameDesign.setToolTipText(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.rbtnUseSameDesign.toolTipText")); // NOI18N
 
-        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
-        jPanel11.setLayout(jPanel11Layout);
-        jPanel11Layout.setHorizontalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlExpDesignDesignLayout = new javax.swing.GroupLayout(pnlExpDesignDesign);
+        pnlExpDesignDesign.setLayout(pnlExpDesignDesignLayout);
+        pnlExpDesignDesignLayout.setHorizontalGroup(
+            pnlExpDesignDesignLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlExpDesignDesignLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel11Layout.createSequentialGroup()
+                .addGroup(pnlExpDesignDesignLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlExpDesignDesignLayout.createSequentialGroup()
                         .addComponent(rbtnIndividualDesign)
                         .addContainerGap())
-                    .addGroup(jPanel11Layout.createSequentialGroup()
+                    .addGroup(pnlExpDesignDesignLayout.createSequentialGroup()
                         .addComponent(rbtnUseSameDesign, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(54, 54, 54))))
         );
-        jPanel11Layout.setVerticalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
+        pnlExpDesignDesignLayout.setVerticalGroup(
+            pnlExpDesignDesignLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlExpDesignDesignLayout.createSequentialGroup()
                 .addComponent(rbtnUseSameDesign)
                 .addGap(3, 3, 3)
                 .addComponent(rbtnIndividualDesign))
         );
 
-        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
-        jPanel14.setLayout(jPanel14Layout);
-        jPanel14Layout.setHorizontalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel14Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlExperimConditionsFilterLayout = new javax.swing.GroupLayout(pnlExperimConditionsFilter);
+        pnlExperimConditionsFilter.setLayout(pnlExperimConditionsFilterLayout);
+        pnlExperimConditionsFilterLayout.setHorizontalGroup(
+            pnlExperimConditionsFilterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlExperimConditionsFilterLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jRadioButtonFilterTrialStudy)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel8)
+                .addComponent(pnlExpConditionTrial)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSpinnerTrialStudy, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -1119,38 +1118,38 @@ public final class StudyEditorTopComponent extends TopComponent {
                 .addGap(45, 45, 45)
                 .addComponent(jButtonRefreshDesign, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pnlExpDesignDesign, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(313, 313, 313)
                 .addComponent(jLabelEntries)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldEntries, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        jPanel14Layout.setVerticalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
+        pnlExperimConditionsFilterLayout.setVerticalGroup(
+            pnlExperimConditionsFilterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlExperimConditionsFilterLayout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlExperimConditionsFilterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldEntries)
                     .addComponent(jLabelEntries))
                 .addGap(46, 46, 46))
-            .addGroup(jPanel14Layout.createSequentialGroup()
+            .addGroup(pnlExperimConditionsFilterLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlExperimConditionsFilterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonRefreshDesign)
-                    .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlExperimConditionsFilterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jSpinnerTrialStudy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(pnlExperimConditionsFilterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jRadioButtonFilterTrialStudy)
-                            .addComponent(jLabel8))
+                            .addComponent(pnlExpConditionTrial))
                         .addComponent(jRadioButtonViewAllTrialStudy, javax.swing.GroupLayout.Alignment.TRAILING))
-                    .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pnlExpDesignDesign, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
-        jPanel14Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabelEntries, jTextFieldEntries});
+        pnlExperimConditionsFilterLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabelEntries, jTextFieldEntries});
 
-        jPanel14Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel8, jSpinnerTrialStudy});
+        pnlExperimConditionsFilterLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jSpinnerTrialStudy, pnlExpConditionTrial});
 
         jTableDesign.setModel(new DesignTableModel());
         jTableDesign.getTableHeader().setReorderingAllowed(false);
@@ -1161,31 +1160,31 @@ public final class StudyEditorTopComponent extends TopComponent {
         });
         jScrollPane8.setViewportView(jTableDesign);
 
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlExperimentalDesignLayout = new javax.swing.GroupLayout(pnlExperimentalDesign);
+        pnlExperimentalDesign.setLayout(pnlExperimentalDesignLayout);
+        pnlExperimentalDesignLayout.setHorizontalGroup(
+            pnlExperimentalDesignLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlExperimentalDesignLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(pnlExperimentalDesignLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane8, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(pnlExperimConditionsFilter, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
+        pnlExperimentalDesignLayout.setVerticalGroup(
+            pnlExperimentalDesignLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlExperimentalDesignLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlExperimConditionsFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 585, Short.MAX_VALUE)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 595, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jPanel8.TabConstraints.tabTitle"), jPanel8); // NOI18N
+        jTabbedPaneEditor.addTab(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.pnlExperimentalDesign.TabConstraints.tabTitle"), pnlExperimentalDesign); // NOI18N
 
-        jPanel6.setMaximumSize(new java.awt.Dimension(1000, 650));
-        jPanel6.setMinimumSize(new java.awt.Dimension(1000, 650));
+        pnlTraits.setMaximumSize(new java.awt.Dimension(1000, 650));
+        pnlTraits.setMinimumSize(new java.awt.Dimension(1000, 650));
 
         jPanelTraits.setPreferredSize(new java.awt.Dimension(900, 650));
 
@@ -1278,7 +1277,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                     .addGroup(jPanelTraitsLayout.createSequentialGroup()
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(pnlSelectList, javax.swing.GroupLayout.DEFAULT_SIZE, 561, Short.MAX_VALUE))
+                        .addComponent(pnlSelectList, javax.swing.GroupLayout.DEFAULT_SIZE, 577, Short.MAX_VALUE))
                     .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelTraitsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1290,18 +1289,18 @@ public final class StudyEditorTopComponent extends TopComponent {
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelTraits, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1053, Short.MAX_VALUE)
+        javax.swing.GroupLayout pnlTraitsLayout = new javax.swing.GroupLayout(pnlTraits);
+        pnlTraits.setLayout(pnlTraitsLayout);
+        pnlTraitsLayout.setHorizontalGroup(
+            pnlTraitsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanelTraits, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1069, Short.MAX_VALUE)
         );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelTraits, javax.swing.GroupLayout.DEFAULT_SIZE, 716, Short.MAX_VALUE)
+        pnlTraitsLayout.setVerticalGroup(
+            pnlTraitsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanelTraits, javax.swing.GroupLayout.DEFAULT_SIZE, 736, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jPanel6.TabConstraints.tabTitle"), jPanel6); // NOI18N
+        jTabbedPaneEditor.addTab(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.pnlTraits.TabConstraints.tabTitle"), pnlTraits); // NOI18N
 
         jPanel21.setPreferredSize(new java.awt.Dimension(900, 650));
 
@@ -1321,7 +1320,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         jTableObservations.getTableHeader().setReorderingAllowed(false);
         jScrollPane7.setViewportView(jTableObservations);
 
-        jPanel25.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jPanel25.border.title"))); // NOI18N
+        pnlMeasurementFilter.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.pnlMeasurementFilter.border.title"))); // NOI18N
 
         buttonGroupMeasurements.add(jRadioButtonFilterTrial);
         org.openide.awt.Mnemonics.setLocalizedText(jRadioButtonFilterTrial, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jRadioButtonFilterTrial.text")); // NOI18N
@@ -1360,10 +1359,7 @@ public final class StudyEditorTopComponent extends TopComponent {
             }
         });
 
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jLabel1.text")); // NOI18N
-
-        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${studyInfo.study}"), jTextTrialName, org.jdesktop.beansbinding.BeanProperty.create("text"));
-        bindingGroup.addBinding(binding);
+        org.openide.awt.Mnemonics.setLocalizedText(lblTrialName, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.lblTrialName.text")); // NOI18N
 
         jTextTrialName.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -1371,11 +1367,11 @@ public final class StudyEditorTopComponent extends TopComponent {
             }
         });
 
-        javax.swing.GroupLayout jPanel25Layout = new javax.swing.GroupLayout(jPanel25);
-        jPanel25.setLayout(jPanel25Layout);
-        jPanel25Layout.setHorizontalGroup(
-            jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel25Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlMeasurementFilterLayout = new javax.swing.GroupLayout(pnlMeasurementFilter);
+        pnlMeasurementFilter.setLayout(pnlMeasurementFilterLayout);
+        pnlMeasurementFilterLayout.setHorizontalGroup(
+            pnlMeasurementFilterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlMeasurementFilterLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jRadioButtonFilterTrial)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1385,31 +1381,31 @@ public final class StudyEditorTopComponent extends TopComponent {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSpinnerEntry, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel1)
+                .addComponent(lblTrialName)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextTrialName, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 276, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 375, Short.MAX_VALUE)
                 .addComponent(jRadioButtonAllTrials2)
                 .addContainerGap())
         );
-        jPanel25Layout.setVerticalGroup(
-            jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel25Layout.createSequentialGroup()
-                .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pnlMeasurementFilterLayout.setVerticalGroup(
+            pnlMeasurementFilterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlMeasurementFilterLayout.createSequentialGroup()
+                .addGroup(pnlMeasurementFilterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jRadioButtonFilterTrial)
                     .addComponent(jSpinnerTrial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jRadioButtonFilterEntry)
-                    .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(pnlMeasurementFilterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jSpinnerEntry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel1)
+                        .addComponent(lblTrialName)
                         .addComponent(jTextTrialName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jRadioButtonAllTrials2))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel25Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jRadioButtonFilterEntry, jSpinnerEntry});
+        pnlMeasurementFilterLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jRadioButtonFilterEntry, jSpinnerEntry});
 
-        jPanel25Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jRadioButtonFilterTrial, jSpinnerTrial});
+        pnlMeasurementFilterLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jRadioButtonFilterTrial, jSpinnerTrial});
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jPanel5.border.title"))); // NOI18N
         jPanel5.setPreferredSize(new java.awt.Dimension(187, 85));
@@ -1465,7 +1461,7 @@ public final class StudyEditorTopComponent extends TopComponent {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonCSVTraitsImport1, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)
+                    .addComponent(jButtonCSVTraitsImport1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonCSVTraitsExport1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonSaveToExcel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnPrintLabels, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
@@ -1494,7 +1490,7 @@ public final class StudyEditorTopComponent extends TopComponent {
             .addGroup(jPanel21Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlMeasurementFilter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel21Layout.createSequentialGroup()
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1505,41 +1501,39 @@ public final class StudyEditorTopComponent extends TopComponent {
             jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel21Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlMeasurementFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE))
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 635, Short.MAX_VALUE)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 635, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, 1053, Short.MAX_VALUE)
+        javax.swing.GroupLayout pnlMeasurementLayout = new javax.swing.GroupLayout(pnlMeasurement);
+        pnlMeasurement.setLayout(pnlMeasurementLayout);
+        pnlMeasurementLayout.setHorizontalGroup(
+            pnlMeasurementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, 1069, Short.MAX_VALUE)
         );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, 716, Short.MAX_VALUE)
+        pnlMeasurementLayout.setVerticalGroup(
+            pnlMeasurementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, 736, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jPanel10.TabConstraints.tabTitle"), jPanel10); // NOI18N
+        jTabbedPaneEditor.addTab(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.pnlMeasurement.TabConstraints.tabTitle"), pnlMeasurement); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1074, Short.MAX_VALUE)
+            .addComponent(jTabbedPaneEditor, javax.swing.GroupLayout.DEFAULT_SIZE, 1074, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jTabbedPaneEditor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
-
-        bindingGroup.bind();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTableTrialConditionsPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jTableTrialConditionsPropertyChange
@@ -1836,7 +1830,7 @@ public final class StudyEditorTopComponent extends TopComponent {
 
         DialogUtil.displayInfo(StudyEditorTopComponent.class, "StudyEditorTopComponent.datasyncronized");
 
-        this.jTabbedPane1.setSelectedIndex(7);
+        this.jTabbedPaneEditor.setSelectedIndex(7);
 
     }//GEN-LAST:event_jButtonSyncActionPerformed
 
@@ -2422,8 +2416,8 @@ public final class StudyEditorTopComponent extends TopComponent {
             sorterMeasurements.setSortable(i, false);
         }
 
-        this.jTabbedPane1.setEnabledAt(7, true);
-        this.jTabbedPane1.setSelectedIndex(7);
+        this.jTabbedPaneEditor.setEnabledAt(7, true);
+        this.jTabbedPaneEditor.setSelectedIndex(7);
         changeCursorWaitStatus(false);
         ObservationTableTooltips.assignTooltips(jTableObservations);
         // asignaClipboard();
@@ -2864,8 +2858,8 @@ public final class StudyEditorTopComponent extends TopComponent {
         for (int i = 0; i < jTableObservations.getColumnCount(); i++) {
             sorterMeasurements.setSortable(i, false);
         }
-        this.jTabbedPane1.setEnabledAt(7, true);
-        this.jTabbedPane1.setSelectedIndex(7);
+        this.jTabbedPaneEditor.setEnabledAt(7, true);
+        this.jTabbedPaneEditor.setSelectedIndex(7);
         changeCursorWaitStatus(false);
 
         ObservationTableTooltips.assignTooltips(jTableObservations);
@@ -3019,21 +3013,8 @@ public final class StudyEditorTopComponent extends TopComponent {
     public javax.swing.JComboBox jComboBoxStudyType;
     public javax.swing.JTextField jDateChooserEnd;
     public javax.swing.JTextField jDateChooserStart;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     public javax.swing.JLabel jLabelEntries;
     public javax.swing.JLabel jLabelInstances;
     private javax.swing.JLabel jLabelTotalGermp;
@@ -3045,23 +3026,10 @@ public final class StudyEditorTopComponent extends TopComponent {
     private javax.swing.JMenuItem jMenuItemSelectAll;
     private javax.swing.JMenuItem jMenuItemUnSelect;
     private javax.swing.JMenuItem jMenuItemUnselectAll;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel14;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel21;
-    private javax.swing.JPanel jPanel23;
-    private javax.swing.JPanel jPanel24;
-    private javax.swing.JPanel jPanel25;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JPanel jPanelTraits;
     private javax.swing.JPopupMenu jPopupMenuConstants;
@@ -3090,7 +3058,7 @@ public final class StudyEditorTopComponent extends TopComponent {
     public javax.swing.JSpinner jSpinnerTrial;
     public javax.swing.JSpinner jSpinnerTrialInformation;
     public javax.swing.JSpinner jSpinnerTrialStudy;
-    public javax.swing.JTabbedPane jTabbedPane1;
+    public javax.swing.JTabbedPane jTabbedPaneEditor;
     public javax.swing.JTable jTableConstants;
     public javax.swing.JTable jTableDesign;
     public javax.swing.JTable jTableEntries;
@@ -3107,9 +3075,34 @@ public final class StudyEditorTopComponent extends TopComponent {
     public javax.swing.JTextField jTextFieldStudy;
     public javax.swing.JTextField jTextFieldTitle;
     private javax.swing.JTextField jTextTrialName;
+    private javax.swing.JLabel lblEndDate;
+    private javax.swing.JLabel lblExpConditionsTrial;
+    private javax.swing.JLabel lblInstances;
+    private javax.swing.JLabel lblObjective;
+    private javax.swing.JLabel lblProjectKey;
+    private javax.swing.JLabel lblStartDate;
+    private javax.swing.JLabel lblStudy;
+    private javax.swing.JLabel lblStudyConditions;
+    private javax.swing.JLabel lblStudyType;
+    private javax.swing.JLabel lblTitle;
+    private javax.swing.JLabel lblTrialName;
+    private javax.swing.JLabel pnlExpConditionTrial;
+    private javax.swing.JPanel pnlExpDesignDesign;
+    private javax.swing.JPanel pnlExperimConditionsFilter;
+    private javax.swing.JPanel pnlExperimentalConditionFilter;
+    private javax.swing.JPanel pnlExperimentalConditions;
+    private javax.swing.JPanel pnlExperimentalDesign;
+    private javax.swing.JPanel pnlGeneralInformation;
+    private javax.swing.JPanel pnlGermplasmEntries;
+    private javax.swing.JPanel pnlMeasurement;
+    private javax.swing.JPanel pnlMeasurementFilter;
+    private javax.swing.JPanel pnlOtherTreatment;
     private javax.swing.JPanel pnlSelectList;
+    private javax.swing.JPanel pnlTraits;
+    private javax.swing.JPanel pnlTrialInformation;
+    private javax.swing.JPanel pnlTrialInformationFilter;
+    private javax.swing.JLabel pnlTrialInformationTrial;
     private javax.swing.JRadioButton rbtnIndividualDesign;
     private javax.swing.JRadioButton rbtnUseSameDesign;
-    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }

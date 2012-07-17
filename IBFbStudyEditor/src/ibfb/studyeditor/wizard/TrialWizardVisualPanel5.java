@@ -8,6 +8,7 @@ import ibfb.studyeditor.roweditors.ColumnFitAdapter;
 import ibfb.studyeditor.roweditors.SpinnerEditor;
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
@@ -17,8 +18,10 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import net.java.balloontip.BalloonTip;
 import net.java.balloontip.utils.ToolTipUtils;
+import org.openide.util.NbBundle;
 
 public final class TrialWizardVisualPanel5 extends JPanel {
+    private ResourceBundle bundle = NbBundle.getBundle(TrialWizardVisualPanel5.class);
 
     public TrialWizardVisualPanel5() {
         initComponents();
@@ -41,7 +44,7 @@ public final class TrialWizardVisualPanel5 extends JPanel {
 
     @Override
     public String getName() {
-        return "Other Treatment Factors";
+       return  bundle.getString("TrialWizardVisualPanel5.title");
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -88,7 +91,7 @@ public final class TrialWizardVisualPanel5 extends JPanel {
         
         TableColumn columnValue = jTableFactors.getColumnModel().getColumn(3);
         DefaultTableCellRenderer valueCellRenderer =  new DefaultTableCellRenderer();
-        valueCellRenderer.setToolTipText("Fill this value");
+        valueCellRenderer.setToolTipText(bundle.getString("TrialWizardVisualPanel5.fillThisValue"));
         valueCellRenderer.setBackground(Color.YELLOW);
         columnValue.setCellRenderer(valueCellRenderer);          
     }
@@ -123,7 +126,7 @@ public final class TrialWizardVisualPanel5 extends JPanel {
     }
 
     private void createBallonTips() {
-        BalloonTip tip = new BalloonTip(jTableFactors, "Specify the number of levels for the following treatment factors");
+        BalloonTip tip = new BalloonTip(jTableFactors,bundle.getString("TrialWizardVisualPanel5.tipNumberOfLevels"));
         ToolTipUtils.balloonToToolTip(tip, 500, 3000);
     }
 

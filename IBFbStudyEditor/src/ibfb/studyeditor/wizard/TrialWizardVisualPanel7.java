@@ -5,13 +5,16 @@ import ibfb.domain.core.Workbook;
 import ibfb.studyeditor.core.StudyEditorTopComponent;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 import javax.swing.JPanel;
 import net.java.balloontip.BalloonTip;
 import net.java.balloontip.utils.ToolTipUtils;
 import org.cimmyt.cril.ibwb.commongui.select.list.DoubleListPanel;
 import org.cimmyt.cril.ibwb.commongui.select.list.SelectCommand;
+import org.openide.util.NbBundle;
 
 public class TrialWizardVisualPanel7 extends JPanel {
+    private ResourceBundle bundle = NbBundle.getBundle(TrialWizardVisualPanel7.class);
 
     private List<Constant> availableConstants = new ArrayList<Constant>();
     private List<Constant> selectedConstants = new ArrayList<Constant>();
@@ -40,8 +43,8 @@ public class TrialWizardVisualPanel7 extends JPanel {
 
 
         doubleListPanel = new DoubleListPanel<Constant>(availableConstants, selectedConstants, unselectedCommand, selectedCommand);
-        doubleListPanel.setSourceLabel("Unselected Constants (from template)");
-        doubleListPanel.setTargetLabel("Selected Constants");
+        doubleListPanel.setSourceLabel(bundle.getString("TrialWizardVisualPanel7.unselectedConstants"));
+        doubleListPanel.setTargetLabel(bundle.getString("TrialWizardVisualPanel7.selectedConstants"));
         doubleListPanel.setVisible(true);
         pnlSelectList.add(doubleListPanel);
 
@@ -49,24 +52,24 @@ public class TrialWizardVisualPanel7 extends JPanel {
 
     @Override
     public String getName() {
-        return "Trial constants to be measured";
+        return bundle.getString("TrialWizardVisualPanel7.title");
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jTextFieldDescription = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        lblDescriptionLeft = new javax.swing.JLabel();
+        lblDescriptionRight = new javax.swing.JLabel();
         jTextFieldDescriptionSelected = new javax.swing.JTextField();
         pnlSelectList = new javax.swing.JPanel();
 
         jTextFieldDescription.setEditable(false);
         jTextFieldDescription.setText(org.openide.util.NbBundle.getMessage(TrialWizardVisualPanel7.class, "TrialWizardVisualPanel6Tree.jTextFieldDescription.text")); // NOI18N
 
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel3, org.openide.util.NbBundle.getMessage(TrialWizardVisualPanel7.class, "TrialWizardVisualPanel6Tree.jLabel3.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lblDescriptionLeft, org.openide.util.NbBundle.getMessage(TrialWizardVisualPanel7.class, "TrialWizardVisualPanel6Tree.jLabel3.text")); // NOI18N
 
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel4, org.openide.util.NbBundle.getMessage(TrialWizardVisualPanel7.class, "TrialWizardVisualPanel6Tree.jLabel4.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lblDescriptionRight, org.openide.util.NbBundle.getMessage(TrialWizardVisualPanel7.class, "TrialWizardVisualPanel6Tree.jLabel4.text")); // NOI18N
 
         jTextFieldDescriptionSelected.setEditable(false);
         jTextFieldDescriptionSelected.setText(org.openide.util.NbBundle.getMessage(TrialWizardVisualPanel7.class, "TrialWizardVisualPanel6Tree.jTextFieldDescriptionSelected.text")); // NOI18N
@@ -81,11 +84,11 @@ public class TrialWizardVisualPanel7 extends JPanel {
                     .addComponent(pnlSelectList, javax.swing.GroupLayout.DEFAULT_SIZE, 645, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)
+                            .addComponent(lblDescriptionLeft, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)
                             .addComponent(jTextFieldDescription, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE))
                         .addGap(141, 141, 141)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
+                            .addComponent(lblDescriptionRight, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
                             .addComponent(jTextFieldDescriptionSelected, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE))))
                 .addContainerGap())
         );
@@ -96,11 +99,11 @@ public class TrialWizardVisualPanel7 extends JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel3)
+                        .addComponent(lblDescriptionLeft)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel4)
+                        .addComponent(lblDescriptionRight)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldDescriptionSelected, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -169,7 +172,7 @@ public class TrialWizardVisualPanel7 extends JPanel {
     }
 
     private void createBallonTips() {
-        BalloonTip tip = new BalloonTip(this.pnlSelectList, "Select variables from the following list wich will be measured on each plot for each trial instance ");
+        BalloonTip tip = new BalloonTip(this.pnlSelectList, bundle.getString("TrialWizardVisualPanel7.tipSelectList"));
         ToolTipUtils.balloonToToolTip(tip, 500, 3000);
     }
 
@@ -183,10 +186,10 @@ public class TrialWizardVisualPanel7 extends JPanel {
         jTextFieldDescriptionSelected.setText("");
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     public static javax.swing.JTextField jTextFieldDescription;
     public static javax.swing.JTextField jTextFieldDescriptionSelected;
+    private javax.swing.JLabel lblDescriptionLeft;
+    private javax.swing.JLabel lblDescriptionRight;
     private javax.swing.JPanel pnlSelectList;
     // End of variables declaration//GEN-END:variables
 }

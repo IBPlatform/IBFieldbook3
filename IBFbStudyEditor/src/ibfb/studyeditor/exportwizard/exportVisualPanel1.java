@@ -1,10 +1,14 @@
 
 package ibfb.studyeditor.exportwizard;
 
+import java.util.ResourceBundle;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+import org.openide.util.NbBundle;
 
 public final class exportVisualPanel1 extends JPanel {
+    
+    private ResourceBundle bundle = NbBundle.getBundle(exportVisualPanel1.class);
 
     /** Creates new form exportVisualPanel1 */
     public exportVisualPanel1() {
@@ -13,7 +17,7 @@ public final class exportVisualPanel1 extends JPanel {
 
     @Override
     public String getName() {
-        return "Destination";
+        return bundle.getString("exportVisualPanel1.title");
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -23,9 +27,9 @@ public final class exportVisualPanel1 extends JPanel {
         jRadioButtonToFieldlog = new javax.swing.JRadioButton();
         jRadioButtonToExcel = new javax.swing.JRadioButton();
         jRadioButtonToR = new javax.swing.JRadioButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lblImgFieldlog = new javax.swing.JLabel();
+        lblImgR = new javax.swing.JLabel();
+        lblImgExcel = new javax.swing.JLabel();
 
         buttonGroupExport.add(jRadioButtonToFieldlog);
         jRadioButtonToFieldlog.setSelected(true);
@@ -37,45 +41,45 @@ public final class exportVisualPanel1 extends JPanel {
         buttonGroupExport.add(jRadioButtonToR);
         org.openide.awt.Mnemonics.setLocalizedText(jRadioButtonToR, org.openide.util.NbBundle.getMessage(exportVisualPanel1.class, "exportVisualPanel1.jRadioButtonToR.text")); // NOI18N
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyeditor/images/fieldlog.png"))); // NOI18N
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(exportVisualPanel1.class, "exportVisualPanel1.jLabel1.text")); // NOI18N
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblImgFieldlog.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyeditor/images/fieldlog.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lblImgFieldlog, org.openide.util.NbBundle.getMessage(exportVisualPanel1.class, "exportVisualPanel1.lblImgFieldlog.text")); // NOI18N
+        lblImgFieldlog.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel1MouseExited(evt);
+                lblImgFieldlogMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel1MouseEntered(evt);
+                lblImgFieldlogMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblImgFieldlogMouseExited(evt);
             }
         });
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyeditor/images/rBig.png"))); // NOI18N
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel2, org.openide.util.NbBundle.getMessage(exportVisualPanel1.class, "exportVisualPanel1.jLabel2.text")); // NOI18N
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblImgR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyeditor/images/rBig.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lblImgR, org.openide.util.NbBundle.getMessage(exportVisualPanel1.class, "exportVisualPanel1.lblImgR.text")); // NOI18N
+        lblImgR.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel2MouseExited(evt);
+                lblImgRMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel2MouseEntered(evt);
+                lblImgRMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblImgRMouseExited(evt);
             }
         });
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyeditor/images/excelBig1.png"))); // NOI18N
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel3, org.openide.util.NbBundle.getMessage(exportVisualPanel1.class, "exportVisualPanel1.jLabel3.text")); // NOI18N
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblImgExcel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyeditor/images/excelBig1.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lblImgExcel, org.openide.util.NbBundle.getMessage(exportVisualPanel1.class, "exportVisualPanel1.lblImgExcel.text")); // NOI18N
+        lblImgExcel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel3MouseExited(evt);
+                lblImgExcelMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel3MouseEntered(evt);
+                lblImgExcelMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblImgExcelMouseExited(evt);
             }
         });
 
@@ -94,11 +98,11 @@ public final class exportVisualPanel1 extends JPanel {
                         .addComponent(jRadioButtonToExcel)
                         .addContainerGap(55, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(lblImgFieldlog)
                         .addGap(66, 66, 66)
-                        .addComponent(jLabel2)
+                        .addComponent(lblImgR)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
-                        .addComponent(jLabel3)
+                        .addComponent(lblImgExcel)
                         .addGap(57, 57, 57))))
         );
         layout.setVerticalGroup(
@@ -112,60 +116,60 @@ public final class exportVisualPanel1 extends JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(37, 37, 37)
-                        .addComponent(jLabel1))
+                        .addComponent(lblImgFieldlog))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(55, 55, 55)
-                        .addComponent(jLabel2))
+                        .addComponent(lblImgR))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(63, 63, 63)
-                        .addComponent(jLabel3)))
+                        .addComponent(lblImgExcel)))
                 .addGap(59, 59, 59))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+    private void lblImgFieldlogMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImgFieldlogMouseClicked
       this.jRadioButtonToFieldlog.setSelected(true);
-    }//GEN-LAST:event_jLabel1MouseClicked
+    }//GEN-LAST:event_lblImgFieldlogMouseClicked
 
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+    private void lblImgRMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImgRMouseClicked
       this.jRadioButtonToR.setSelected(true);
-    }//GEN-LAST:event_jLabel2MouseClicked
+    }//GEN-LAST:event_lblImgRMouseClicked
 
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+    private void lblImgExcelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImgExcelMouseClicked
        this.jRadioButtonToExcel.setSelected(true);
-    }//GEN-LAST:event_jLabel3MouseClicked
+    }//GEN-LAST:event_lblImgExcelMouseClicked
 
-    private void jLabel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseEntered
-     this.jLabel1.setIcon(new ImageIcon(getClass().getResource("/ibfb/studyeditor/images/fieldlog2.png")));  
-    }//GEN-LAST:event_jLabel1MouseEntered
+    private void lblImgFieldlogMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImgFieldlogMouseEntered
+     this.lblImgFieldlog.setIcon(new ImageIcon(getClass().getResource("/ibfb/studyeditor/images/fieldlog2.png")));  
+    }//GEN-LAST:event_lblImgFieldlogMouseEntered
 
-    private void jLabel1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseExited
-       this.jLabel1.setIcon(new ImageIcon(getClass().getResource("/ibfb/studyeditor/images/fieldlog.png"))); 
-    }//GEN-LAST:event_jLabel1MouseExited
+    private void lblImgFieldlogMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImgFieldlogMouseExited
+       this.lblImgFieldlog.setIcon(new ImageIcon(getClass().getResource("/ibfb/studyeditor/images/fieldlog.png"))); 
+    }//GEN-LAST:event_lblImgFieldlogMouseExited
 
-    private void jLabel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseEntered
-       this.jLabel2.setIcon(new ImageIcon(getClass().getResource("/ibfb/studyeditor/images/rBig2.png")));  
-    }//GEN-LAST:event_jLabel2MouseEntered
+    private void lblImgRMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImgRMouseEntered
+       this.lblImgR.setIcon(new ImageIcon(getClass().getResource("/ibfb/studyeditor/images/rBig2.png")));  
+    }//GEN-LAST:event_lblImgRMouseEntered
 
-    private void jLabel2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseExited
-      this.jLabel2.setIcon(new ImageIcon(getClass().getResource("/ibfb/studyeditor/images/rBig.png")));  
-    }//GEN-LAST:event_jLabel2MouseExited
+    private void lblImgRMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImgRMouseExited
+      this.lblImgR.setIcon(new ImageIcon(getClass().getResource("/ibfb/studyeditor/images/rBig.png")));  
+    }//GEN-LAST:event_lblImgRMouseExited
 
-    private void jLabel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseEntered
-       this.jLabel3.setIcon(new ImageIcon(getClass().getResource("/ibfb/studyeditor/images/excelBig2.png")));  
-    }//GEN-LAST:event_jLabel3MouseEntered
+    private void lblImgExcelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImgExcelMouseEntered
+       this.lblImgExcel.setIcon(new ImageIcon(getClass().getResource("/ibfb/studyeditor/images/excelBig2.png")));  
+    }//GEN-LAST:event_lblImgExcelMouseEntered
 
-    private void jLabel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseExited
-       this.jLabel3.setIcon(new ImageIcon(getClass().getResource("/ibfb/studyeditor/images/excelBig1.png")));  
-    }//GEN-LAST:event_jLabel3MouseExited
+    private void lblImgExcelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImgExcelMouseExited
+       this.lblImgExcel.setIcon(new ImageIcon(getClass().getResource("/ibfb/studyeditor/images/excelBig1.png")));  
+    }//GEN-LAST:event_lblImgExcelMouseExited
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroupExport;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     public javax.swing.JRadioButton jRadioButtonToExcel;
     public javax.swing.JRadioButton jRadioButtonToFieldlog;
     public javax.swing.JRadioButton jRadioButtonToR;
+    private javax.swing.JLabel lblImgExcel;
+    private javax.swing.JLabel lblImgFieldlog;
+    private javax.swing.JLabel lblImgR;
     // End of variables declaration//GEN-END:variables
 }

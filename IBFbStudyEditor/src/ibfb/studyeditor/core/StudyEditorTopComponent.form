@@ -150,20 +150,20 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jTabbedPane1" alignment="0" pref="1074" max="32767" attributes="0"/>
+          <Component id="jTabbedPaneEditor" alignment="0" pref="1074" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="jTabbedPane1" max="32767" attributes="0"/>
+              <Component id="jTabbedPaneEditor" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
+    <Container class="javax.swing.JTabbedPane" name="jTabbedPaneEditor">
       <Properties>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[0, 0]"/>
@@ -175,12 +175,12 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="jPanel1">
+        <Container class="javax.swing.JPanel" name="pnlGeneralInformation">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="General Information">
                 <Property name="tabTitle" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                  <ResourceString bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.jPanel1.TabConstraints.tabTitle" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                  <ResourceString bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.pnlGeneralInformation.TabConstraints.tabTitle" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                 </Property>
               </JTabbedPaneConstraints>
             </Constraint>
@@ -194,7 +194,7 @@
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jScrollPane2" alignment="0" pref="1049" max="32767" attributes="2"/>
                           <Component id="JPanelData" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblStudyConditions" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -206,9 +206,9 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="JPanelData" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblStudyConditions" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" pref="487" max="32767" attributes="2"/>
+                      <Component id="jScrollPane2" pref="515" max="32767" attributes="2"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -243,10 +243,10 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JLabel" name="jLabel2">
+            <Component class="javax.swing.JLabel" name="lblStudyConditions">
               <Properties>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                  <ResourceString bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.jLabel2.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                  <ResourceString bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.lblStudyConditions.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                 </Property>
               </Properties>
             </Component>
@@ -270,13 +270,13 @@
                               <Group type="102" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="jLabel10" alignment="1" min="-2" pref="42" max="-2" attributes="0"/>
-                                      <Component id="jLabel4" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblTitle" alignment="1" min="-2" pref="42" max="-2" attributes="0"/>
+                                      <Component id="lblObjective" alignment="1" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                                  <Component id="jLabel3" min="-2" pref="42" max="-2" attributes="0"/>
+                                  <Component id="lblStudy" min="-2" pref="42" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
@@ -290,17 +290,17 @@
                                   <EmptySpace min="-2" pref="140" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
-                                  <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblInstances" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jLabelInstances" min="-2" pref="29" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel6" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel7" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel9" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel11" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblStartDate" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblEndDate" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblStudyType" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblProjectKey" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -321,7 +321,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="3" max="-2" attributes="0">
                                       <Component id="jTextFieldStudy" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel3" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblStudy" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
@@ -330,36 +330,36 @@
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                                          <Component id="jLabel10" linkSize="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblTitle" linkSize="1" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jTextFieldObjective" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel4" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblObjective" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblInstances" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabelInstances" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel6" linkSize="2" alignment="3" min="-2" max="-2" attributes="1"/>
+                                      <Component id="lblStartDate" linkSize="2" alignment="3" min="-2" max="-2" attributes="1"/>
                                       <Component id="jDateChooserStart" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jDateChooserEnd" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel7" linkSize="2" alignment="0" min="-2" max="-2" attributes="1"/>
+                                      <Component id="lblEndDate" linkSize="2" alignment="0" min="-2" max="-2" attributes="1"/>
                                   </Group>
                                   <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabel9" linkSize="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblStudyType" linkSize="3" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jLabel11" linkSize="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblProjectKey" linkSize="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
                                           <Component id="jComboBoxStudyType" linkSize="3" min="-2" max="-2" attributes="0"/>
@@ -385,10 +385,10 @@
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel10">
+                <Component class="javax.swing.JLabel" name="lblTitle">
                   <Properties>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                      <ResourceString bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.jLabel10.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                      <ResourceString bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.lblTitle.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -415,31 +415,31 @@
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel3">
+                <Component class="javax.swing.JLabel" name="lblStudy">
                   <Properties>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                      <ResourceString bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.jLabel3.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                      <ResourceString bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.lblStudy.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel4">
+                <Component class="javax.swing.JLabel" name="lblObjective">
                   <Properties>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                      <ResourceString bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.jLabel4.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                      <ResourceString bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.lblObjective.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel6">
+                <Component class="javax.swing.JLabel" name="lblStartDate">
                   <Properties>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                      <ResourceString bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.jLabel6.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                      <ResourceString bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.lblStartDate.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel7">
+                <Component class="javax.swing.JLabel" name="lblEndDate">
                   <Properties>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                      <ResourceString bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.jLabel7.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                      <ResourceString bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.lblEndDate.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -468,24 +468,24 @@
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel9">
+                <Component class="javax.swing.JLabel" name="lblStudyType">
                   <Properties>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                      <ResourceString bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.jLabel9.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                      <ResourceString bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.lblStudyType.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel11">
+                <Component class="javax.swing.JLabel" name="lblProjectKey">
                   <Properties>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                      <ResourceString bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.jLabel11.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                      <ResourceString bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.lblProjectKey.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel19">
+                <Component class="javax.swing.JLabel" name="lblInstances">
                   <Properties>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                      <ResourceString bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.jLabel19.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                      <ResourceString bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.lblInstances.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -525,12 +525,12 @@
             </Container>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="jPanel2">
+        <Container class="javax.swing.JPanel" name="pnlTrialInformation">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Trial Information">
                 <Property name="tabTitle" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                  <ResourceString bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.jPanel2.TabConstraints.tabTitle" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                  <ResourceString bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.pnlTrialInformation.TabConstraints.tabTitle" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                 </Property>
               </JTabbedPaneConstraints>
             </Constraint>
@@ -543,7 +543,7 @@
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jScrollPane1" alignment="0" pref="1041" max="32767" attributes="0"/>
-                          <Component id="jPanel23" alignment="0" max="32767" attributes="2"/>
+                          <Component id="pnlTrialInformationFilter" alignment="0" max="32767" attributes="2"/>
                       </Group>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -553,21 +553,21 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="jPanel23" min="-2" max="-2" attributes="1"/>
+                      <Component id="pnlTrialInformationFilter" min="-2" max="-2" attributes="1"/>
                       <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" pref="624" max="32767" attributes="2"/>
+                      <Component id="jScrollPane1" pref="635" max="32767" attributes="2"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Container class="javax.swing.JPanel" name="jPanel23">
+            <Container class="javax.swing.JPanel" name="pnlTrialInformationFilter">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                     <TitledBorder title="Filters">
-                      <ResourceString PropertyName="titleX" bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.jPanel23.border.title" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                      <ResourceString PropertyName="titleX" bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.pnlTrialInformationFilter.border.title" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                     </TitledBorder>
                   </Border>
                 </Property>
@@ -580,7 +580,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jRadioButtonFilterTrialInfo" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                          <Component id="pnlTrialInformationTrial" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jSpinnerTrialInformation" min="-2" pref="73" max="-2" attributes="0"/>
                           <EmptySpace pref="812" max="32767" attributes="0"/>
@@ -596,7 +596,7 @@
                               <Component id="jRadioButtonAllTrials" alignment="1" min="-2" max="-2" attributes="0"/>
                               <Component id="jSpinnerTrialInformation" alignment="1" min="-2" max="-2" attributes="0"/>
                               <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="pnlTrialInformationTrial" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jRadioButtonFilterTrialInfo" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -633,10 +633,10 @@
                     <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jRadioButtonAllTrialsItemStateChanged"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel12">
+                <Component class="javax.swing.JLabel" name="pnlTrialInformationTrial">
                   <Properties>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                      <ResourceString bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.jLabel12.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                      <ResourceString bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.pnlTrialInformationTrial.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -682,12 +682,12 @@
             </Container>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="jPanel4">
+        <Container class="javax.swing.JPanel" name="pnlExperimentalConditions">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Experimental Conditions">
                 <Property name="tabTitle" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                  <ResourceString bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.jPanel4.TabConstraints.tabTitle" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                  <ResourceString bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.pnlExperimentalConditions.TabConstraints.tabTitle" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                 </Property>
               </JTabbedPaneConstraints>
             </Constraint>
@@ -700,7 +700,7 @@
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jScrollPane5" alignment="0" pref="1041" max="32767" attributes="0"/>
-                          <Component id="jPanel24" alignment="0" max="32767" attributes="2"/>
+                          <Component id="pnlExperimentalConditionFilter" alignment="0" max="32767" attributes="2"/>
                       </Group>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -710,21 +710,21 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="jPanel24" min="-2" max="-2" attributes="1"/>
+                      <Component id="pnlExperimentalConditionFilter" min="-2" max="-2" attributes="1"/>
                       <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                      <Component id="jScrollPane5" pref="624" max="32767" attributes="2"/>
+                      <Component id="jScrollPane5" pref="635" max="32767" attributes="2"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Container class="javax.swing.JPanel" name="jPanel24">
+            <Container class="javax.swing.JPanel" name="pnlExperimentalConditionFilter">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                     <TitledBorder title="Filters">
-                      <ResourceString PropertyName="titleX" bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.jPanel24.border.title" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                      <ResourceString PropertyName="titleX" bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.pnlExperimentalConditionFilter.border.title" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                     </TitledBorder>
                   </Border>
                 </Property>
@@ -737,7 +737,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jRadioButtonFilterExpConditions" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblExpConditionsTrial" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jSpinnerExpConditions" min="-2" pref="73" max="-2" attributes="0"/>
                           <EmptySpace pref="812" max="32767" attributes="0"/>
@@ -754,7 +754,7 @@
                               <Component id="jSpinnerExpConditions" alignment="1" min="-2" max="-2" attributes="0"/>
                               <Group type="103" alignment="1" groupAlignment="3" attributes="0">
                                   <Component id="jRadioButtonFilterExpConditions" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblExpConditionsTrial" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
@@ -790,10 +790,10 @@
                     <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jRadioButtonAllExpConditionItemStateChanged"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel15">
+                <Component class="javax.swing.JLabel" name="lblExpConditionsTrial">
                   <Properties>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                      <ResourceString bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.jLabel15.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                      <ResourceString bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.lblExpConditionsTrial.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -837,12 +837,12 @@
             </Container>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="jPanel7">
+        <Container class="javax.swing.JPanel" name="pnlGermplasmEntries">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Germplasm Entries">
                 <Property name="tabTitle" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                  <ResourceString bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.jPanel7.TabConstraints.tabTitle" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                  <ResourceString bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.pnlGermplasmEntries.TabConstraints.tabTitle" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                 </Property>
               </JTabbedPaneConstraints>
             </Constraint>
@@ -854,7 +854,7 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane6" pref="1041" max="32767" attributes="0"/>
+                          <Component id="jScrollPane6" pref="1049" max="32767" attributes="0"/>
                           <Component id="jPanel13" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -997,12 +997,12 @@
             </Container>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="jPanel3">
+        <Container class="javax.swing.JPanel" name="pnlOtherTreatment">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Other Treatment Factors">
                 <Property name="tabTitle" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                  <ResourceString bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.jPanel3.TabConstraints.tabTitle" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                  <ResourceString bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.pnlOtherTreatment.TabConstraints.tabTitle" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                 </Property>
               </JTabbedPaneConstraints>
             </Constraint>
@@ -1024,7 +1024,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="jScrollPane4" pref="105" max="32767" attributes="0"/>
+                      <Component id="jScrollPane4" pref="120" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jScrollPane3" min="-2" pref="599" max="-2" attributes="2"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -1068,12 +1068,12 @@
             </Container>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="jPanel8">
+        <Container class="javax.swing.JPanel" name="pnlExperimentalDesign">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Experimental Design">
                 <Property name="tabTitle" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                  <ResourceString bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.jPanel8.TabConstraints.tabTitle" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                  <ResourceString bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.pnlExperimentalDesign.TabConstraints.tabTitle" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                 </Property>
               </JTabbedPaneConstraints>
             </Constraint>
@@ -1086,7 +1086,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jScrollPane8" alignment="0" max="32767" attributes="1"/>
-                          <Component id="jPanel14" alignment="0" max="32767" attributes="3"/>
+                          <Component id="pnlExperimConditionsFilter" alignment="0" max="32767" attributes="3"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -1096,16 +1096,16 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPanel14" min="-2" pref="101" max="-2" attributes="1"/>
+                      <Component id="pnlExperimConditionsFilter" min="-2" pref="101" max="-2" attributes="1"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jScrollPane8" pref="585" max="32767" attributes="0"/>
+                      <Component id="jScrollPane8" pref="595" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Container class="javax.swing.JPanel" name="jPanel14">
+            <Container class="javax.swing.JPanel" name="pnlExperimConditionsFilter">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
@@ -1121,7 +1121,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jRadioButtonFilterTrialStudy" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                          <Component id="pnlExpConditionTrial" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jSpinnerTrialStudy" min="-2" pref="73" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -1129,7 +1129,7 @@
                           <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                           <Component id="jButtonRefreshDesign" min="-2" pref="121" max="-2" attributes="1"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jPanel11" max="32767" attributes="0"/>
+                          <Component id="pnlExpDesignDesign" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="313" max="-2" attributes="0"/>
                           <Component id="jLabelEntries" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -1156,11 +1156,11 @@
                                   <Component id="jSpinnerTrialStudy" linkSize="8" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                       <Component id="jRadioButtonFilterTrialStudy" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel8" linkSize="8" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="pnlExpConditionTrial" linkSize="8" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jRadioButtonViewAllTrialStudy" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jPanel11" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="pnlExpDesignDesign" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
@@ -1181,10 +1181,10 @@
                     <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jRadioButtonFilterTrialStudyItemStateChanged"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel8">
+                <Component class="javax.swing.JLabel" name="pnlExpConditionTrial">
                   <Properties>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                      <ResourceString bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.jLabel8.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                      <ResourceString bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.pnlExpConditionTrial.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -1256,12 +1256,12 @@
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                   </AuxValues>
                 </Component>
-                <Container class="javax.swing.JPanel" name="jPanel11">
+                <Container class="javax.swing.JPanel" name="pnlExpDesignDesign">
                   <Properties>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                         <TitledBorder title="Design">
-                          <ResourceString PropertyName="titleX" bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.jPanel11.border.title" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                          <ResourceString PropertyName="titleX" bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.pnlExpDesignDesign.border.title" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                         </TitledBorder>
                       </Border>
                     </Property>
@@ -1351,7 +1351,7 @@
             </Container>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="jPanel6">
+        <Container class="javax.swing.JPanel" name="pnlTraits">
           <Properties>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[1000, 650]"/>
@@ -1364,7 +1364,7 @@
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Traits">
                 <Property name="tabTitle" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                  <ResourceString bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.jPanel6.TabConstraints.tabTitle" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                  <ResourceString bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.pnlTraits.TabConstraints.tabTitle" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                 </Property>
               </JTabbedPaneConstraints>
             </Constraint>
@@ -1373,12 +1373,12 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanelTraits" alignment="1" pref="1053" max="32767" attributes="0"/>
+                  <Component id="jPanelTraits" alignment="1" pref="1069" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanelTraits" alignment="0" pref="716" max="32767" attributes="0"/>
+                  <Component id="jPanelTraits" alignment="0" pref="736" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -1423,7 +1423,7 @@
                               <Group type="102" attributes="0">
                                   <Component id="jPanel9" min="-2" max="-2" attributes="1"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="pnlSelectList" pref="561" max="32767" attributes="0"/>
+                                  <Component id="pnlSelectList" pref="577" max="32767" attributes="0"/>
                               </Group>
                               <Component id="jPanel12" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -1574,12 +1574,12 @@
             </Container>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="jPanel10">
+        <Container class="javax.swing.JPanel" name="pnlMeasurement">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Measurements">
                 <Property name="tabTitle" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                  <ResourceString bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.jPanel10.TabConstraints.tabTitle" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                  <ResourceString bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.pnlMeasurement.TabConstraints.tabTitle" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                 </Property>
               </JTabbedPaneConstraints>
             </Constraint>
@@ -1588,12 +1588,12 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanel21" alignment="0" pref="1053" max="32767" attributes="0"/>
+                  <Component id="jPanel21" alignment="0" pref="1069" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanel21" alignment="0" pref="716" max="32767" attributes="0"/>
+                  <Component id="jPanel21" alignment="0" pref="736" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -1611,7 +1611,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jPanel25" alignment="0" max="32767" attributes="2"/>
+                              <Component id="pnlMeasurementFilter" alignment="0" max="32767" attributes="2"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jPanel5" min="-2" pref="96" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -1626,11 +1626,11 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jPanel25" min="-2" max="-2" attributes="1"/>
+                          <Component id="pnlMeasurementFilter" min="-2" max="-2" attributes="1"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jScrollPane7" pref="624" max="32767" attributes="0"/>
-                              <Component id="jPanel5" pref="624" max="32767" attributes="2"/>
+                              <Component id="jScrollPane7" pref="635" max="32767" attributes="0"/>
+                              <Component id="jPanel5" pref="635" max="32767" attributes="2"/>
                           </Group>
                           <EmptySpace min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -1667,12 +1667,12 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Container class="javax.swing.JPanel" name="jPanel25">
+                <Container class="javax.swing.JPanel" name="pnlMeasurementFilter">
                   <Properties>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                         <TitledBorder title="Filters">
-                          <ResourceString PropertyName="titleX" bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.jPanel25.border.title" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                          <ResourceString PropertyName="titleX" bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.pnlMeasurementFilter.border.title" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                         </TitledBorder>
                       </Border>
                     </Property>
@@ -1691,10 +1691,10 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jSpinnerEntry" min="-2" pref="83" max="-2" attributes="1"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblTrialName" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jTextTrialName" min="-2" pref="183" max="-2" attributes="0"/>
-                              <EmptySpace pref="276" max="32767" attributes="0"/>
+                              <EmptySpace pref="375" max="32767" attributes="0"/>
                               <Component id="jRadioButtonAllTrials2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -1709,7 +1709,7 @@
                                   <Component id="jRadioButtonFilterEntry" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                       <Component id="jSpinnerEntry" linkSize="5" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblTrialName" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jTextTrialName" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jRadioButtonAllTrials2" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -1773,19 +1773,14 @@
                         <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="jSpinnerEntryStateChanged"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel1">
+                    <Component class="javax.swing.JLabel" name="lblTrialName">
                       <Properties>
                         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                          <ResourceString bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.jLabel1.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                          <ResourceString bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.lblTrialName.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                         </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="jTextTrialName">
-                      <BindingProperties>
-                        <BindingProperty name="text" source="Form" sourcePath="${studyInfo.study}" target="jTextTrialName" targetPath="text" updateStrategy="0" immediately="false">
-                          <BindingParameter name="javax.swing.binding.ParameterKeys.TEXT_CHANGE_STRATEGY" value="javax.swing.binding.TextChangeStrategy.ON_TYPE"/>
-                        </BindingProperty>
-                      </BindingProperties>
                       <Events>
                         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextTrialNameKeyReleased"/>
                       </Events>
@@ -1812,7 +1807,7 @@
                           <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jButtonCSVTraitsImport1" alignment="0" pref="72" max="32767" attributes="1"/>
+                                  <Component id="jButtonCSVTraitsImport1" alignment="0" max="32767" attributes="1"/>
                                   <Component id="jButtonCSVTraitsExport1" alignment="0" max="32767" attributes="1"/>
                                   <Component id="jButtonSaveToExcel" alignment="0" max="32767" attributes="1"/>
                                   <Component id="btnPrintLabels" alignment="0" pref="0" max="32767" attributes="1"/>

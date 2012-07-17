@@ -1,5 +1,6 @@
 package ibfb.studyeditor.wizard;
 
+import com.jidesoft.plaf.basic.Resource;
 import ibfb.domain.core.Condition;
 import ibfb.domain.core.Workbook;
 import ibfb.studyeditor.core.StudyEditorTopComponent;
@@ -11,6 +12,7 @@ import ibfb.studyeditor.util.LookupUtil;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 import java.util.regex.PatternSyntaxException;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
@@ -22,8 +24,10 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import net.java.balloontip.BalloonTip;
 import net.java.balloontip.utils.ToolTipUtils;
+import org.openide.util.NbBundle;
 
 public final class TrialWizardVisualPanel3 extends JPanel {
+    private ResourceBundle bundle = NbBundle.getBundle(TrialWizardVisualPanel3.class);
 
     DefaultTableCellRenderer tcr = new DefaultTableCellRenderer();
     TableRowSorter<TableModel> sorter;
@@ -48,7 +52,7 @@ public final class TrialWizardVisualPanel3 extends JPanel {
 
     @Override
     public String getName() {
-        return "Trial Conditions";
+        return bundle.getString("TrialWizardVisualPanel3.title");
     }
 
     public JSpinner getjSpinnerTrial() {
@@ -63,16 +67,16 @@ public final class TrialWizardVisualPanel3 extends JPanel {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        jPanel1 = new javax.swing.JPanel();
+        pnlFilter = new javax.swing.JPanel();
         jRadioButtonFilter = new javax.swing.JRadioButton();
         jRadioButtonAllTrials = new javax.swing.JRadioButton();
-        jLabel1 = new javax.swing.JLabel();
+        lblTrial = new javax.swing.JLabel();
         jSpinnerTrial = new javax.swing.JSpinner();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        scrlTable = new javax.swing.JScrollPane();
         jTableTrialConditions = new javax.swing.JTable();
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.setToolTipText(org.openide.util.NbBundle.getMessage(TrialWizardVisualPanel3.class, "TrialWizardVisualPanel3.jPanel1.toolTipText")); // NOI18N
+        pnlFilter.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        pnlFilter.setToolTipText(org.openide.util.NbBundle.getMessage(TrialWizardVisualPanel3.class, "TrialWizardVisualPanel3.pnlFilter.toolTipText")); // NOI18N
 
         buttonGroup1.add(jRadioButtonFilter);
         org.openide.awt.Mnemonics.setLocalizedText(jRadioButtonFilter, org.openide.util.NbBundle.getMessage(TrialWizardVisualPanel3.class, "TrialWizardVisualPanel3.jRadioButtonFilter.text")); // NOI18N
@@ -91,7 +95,7 @@ public final class TrialWizardVisualPanel3 extends JPanel {
             }
         });
 
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(TrialWizardVisualPanel3.class, "TrialWizardVisualPanel3.jLabel1.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lblTrial, org.openide.util.NbBundle.getMessage(TrialWizardVisualPanel3.class, "TrialWizardVisualPanel3.lblTrial.text")); // NOI18N
 
         jSpinnerTrial.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -99,31 +103,31 @@ public final class TrialWizardVisualPanel3 extends JPanel {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlFilterLayout = new javax.swing.GroupLayout(pnlFilter);
+        pnlFilter.setLayout(pnlFilterLayout);
+        pnlFilterLayout.setHorizontalGroup(
+            pnlFilterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlFilterLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jRadioButtonFilter)
                 .addGap(26, 26, 26)
-                .addComponent(jLabel1)
+                .addComponent(lblTrial)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSpinnerTrial, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 255, Short.MAX_VALUE)
                 .addComponent(jRadioButtonAllTrials)
                 .addGap(63, 63, 63))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        pnlFilterLayout.setVerticalGroup(
+            pnlFilterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlFilterLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(pnlFilterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jRadioButtonAllTrials)
                     .addComponent(jSpinnerTrial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(pnlFilterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jRadioButtonFilter)
-                        .addComponent(jLabel1)))
+                        .addComponent(lblTrial)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -133,7 +137,7 @@ public final class TrialWizardVisualPanel3 extends JPanel {
                 jTableTrialConditionsPropertyChange(evt);
             }
         });
-        jScrollPane1.setViewportView(jTableTrialConditions);
+        scrlTable.setViewportView(jTableTrialConditions);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -142,17 +146,17 @@ public final class TrialWizardVisualPanel3 extends JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 567, Short.MAX_VALUE))
+                    .addComponent(pnlFilter, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(scrlTable, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 567, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+                .addComponent(scrlTable, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -304,7 +308,7 @@ public final class TrialWizardVisualPanel3 extends JPanel {
         valueColumn.setCellEditor(trialConditionsRowEditor);
         TableColumn columnValue = jTableTrialConditions.getColumnModel().getColumn(VALUE_COLUMN);
         DefaultTableCellRenderer valueCellRenderer =  new DefaultTableCellRenderer();
-        valueCellRenderer.setToolTipText("Fill this value");
+        valueCellRenderer.setToolTipText(bundle.getString("TrialWizardVisualPanel3.fillThisValue"));
         valueCellRenderer.setBackground(Color.YELLOW);
         columnValue.setCellRenderer(valueCellRenderer);    
     }
@@ -315,17 +319,17 @@ public final class TrialWizardVisualPanel3 extends JPanel {
     }
 
     private void createBallonTips() {
-        BalloonTip tip = new BalloonTip(jTableTrialConditions, "Specify values of the following variables wich apply to each instance of the trial");
+        BalloonTip tip = new BalloonTip(jTableTrialConditions, bundle.getString("TrialWizardVisualPanel3.tipTrialConditions"));
         ToolTipUtils.balloonToToolTip(tip, 500, 3000);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton jRadioButtonAllTrials;
     private javax.swing.JRadioButton jRadioButtonFilter;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSpinner jSpinnerTrial;
     public javax.swing.JTable jTableTrialConditions;
+    private javax.swing.JLabel lblTrial;
+    private javax.swing.JPanel pnlFilter;
+    private javax.swing.JScrollPane scrlTable;
     // End of variables declaration//GEN-END:variables
 }

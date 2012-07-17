@@ -1,23 +1,23 @@
-
 package ibfb.studyeditor.exportwizard;
-
 
 import ibfb.studyexplorer.filters.CSVFiltro;
 import ibfb.studyexplorer.filters.ExcelFiltro;
 import java.io.File;
+import java.util.ResourceBundle;
 import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 import javax.swing.filechooser.FileFilter;
+import org.openide.util.NbBundle;
 
 public final class exportVisualPanel3 extends JPanel {
 
+    private ResourceBundle bundle = NbBundle.getBundle(exportVisualPanel3.class);
     public String getNombreArchivo() {
         return nombreArchivo;
     }
-
-private JFileChooser selectorArchivo = new JFileChooser();
-private String nombreArchivo="";
-private int opcionFiltro=0; //0=xls, 1=csv
+    private JFileChooser selectorArchivo = new JFileChooser();
+    private String nombreArchivo = "";
+    private int opcionFiltro = 0; //0=xls, 1=csv
 
     public exportVisualPanel3() {
         initComponents();
@@ -26,22 +26,21 @@ private int opcionFiltro=0; //0=xls, 1=csv
 
     @Override
     public String getName() {
-        return "File";
+        return bundle.getString("exportVisualPanel3.title");
     }
 
     public void setOpcionFiltro(int opcionFiltro) {
         this.opcionFiltro = opcionFiltro;
     }
 
- 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jButtonSearch = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblImgFolders = new javax.swing.JLabel();
+        lblSelectDestinationFile = new javax.swing.JLabel();
 
         jTextArea1.setColumns(20);
         jTextArea1.setEditable(false);
@@ -60,10 +59,10 @@ private int opcionFiltro=0; //0=xls, 1=csv
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyeditor/images/file.png"))); // NOI18N
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(exportVisualPanel3.class, "exportVisualPanel3.jLabel1.text")); // NOI18N
+        lblImgFolders.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyeditor/images/file.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lblImgFolders, org.openide.util.NbBundle.getMessage(exportVisualPanel3.class, "exportVisualPanel3.lblImgFolders.text")); // NOI18N
 
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel2, org.openide.util.NbBundle.getMessage(exportVisualPanel3.class, "exportVisualPanel3.jLabel2.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lblSelectDestinationFile, org.openide.util.NbBundle.getMessage(exportVisualPanel3.class, "exportVisualPanel3.lblSelectDestinationFile.text")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -80,9 +79,9 @@ private int opcionFiltro=0; //0=xls, 1=csv
                             .addComponent(jButtonSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(56, 56, 56)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblSelectDestinationFile, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addComponent(jLabel1)
+                .addComponent(lblImgFolders)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -90,10 +89,10 @@ private int opcionFiltro=0; //0=xls, 1=csv
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(52, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblImgFolders, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addComponent(jLabel2)
+                        .addComponent(lblSelectDestinationFile)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -103,15 +102,14 @@ private int opcionFiltro=0; //0=xls, 1=csv
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchActionPerformed
-       openFile();
+        openFile();
     }//GEN-LAST:event_jButtonSearchActionPerformed
 
     private void jTextArea1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextArea1MousePressed
         openFile();
     }//GEN-LAST:event_jTextArea1MousePressed
 
-    
-    private void openFile(){
+    private void openFile() {
         FileFilter[] filtros = new FileFilter[10];
         filtros = selectorArchivo.getChoosableFileFilters();
         for (int i = 0; i < filtros.length; i++) {
@@ -121,40 +119,40 @@ private int opcionFiltro=0; //0=xls, 1=csv
         File archivoNulo = new File("");
         selectorArchivo.setSelectedFile(archivoNulo);
         selectorArchivo.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        
-        if(this.opcionFiltro==0){
-        selectorArchivo.addChoosableFileFilter(new ExcelFiltro());
+
+        if (this.opcionFiltro == 0) {
+            selectorArchivo.addChoosableFileFilter(new ExcelFiltro());
         }
-        if(this.opcionFiltro==1){
-        selectorArchivo.addChoosableFileFilter(new CSVFiltro());
+        if (this.opcionFiltro == 1) {
+            selectorArchivo.addChoosableFileFilter(new CSVFiltro());
         }
-        
-        
+
+
         int resultado = selectorArchivo.showSaveDialog(null);
         if (resultado == JFileChooser.CANCEL_OPTION) {
             return;
         }
 
-        
-         if(this.opcionFiltro==0){
-        nombreArchivo = selectorArchivo.getSelectedFile().toString();
-        this.jTextArea1.setText(nombreArchivo+".xls");
-         }
-         
-         
-        if(this.opcionFiltro==1){
-        nombreArchivo = selectorArchivo.getSelectedFile().toString();
-        this.jTextArea1.setText(nombreArchivo+".csv");
-         }
-         
-         
-         
+
+        if (this.opcionFiltro == 0) {
+            nombreArchivo = selectorArchivo.getSelectedFile().toString();
+            this.jTextArea1.setText(nombreArchivo + ".xls");
+        }
+
+
+        if (this.opcionFiltro == 1) {
+            nombreArchivo = selectorArchivo.getSelectedFile().toString();
+            this.jTextArea1.setText(nombreArchivo + ".csv");
+        }
+
+
+
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonSearch;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel lblImgFolders;
+    private javax.swing.JLabel lblSelectDestinationFile;
     // End of variables declaration//GEN-END:variables
 }

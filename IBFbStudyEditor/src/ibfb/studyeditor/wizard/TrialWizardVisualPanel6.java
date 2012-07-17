@@ -15,10 +15,13 @@ import net.java.balloontip.utils.ToolTipUtils;
 import ibfb.studyeditor.core.model.TreatmentLabelsTableModel;
 import java.awt.Color;
 import java.util.List;
+import java.util.ResourceBundle;
 import javax.swing.table.TableColumn;
+import org.openide.util.NbBundle;
 
 public final class TrialWizardVisualPanel6 extends JPanel {
 
+    private ResourceBundle bundle = NbBundle.getBundle(TrialWizardVisualPanel6.class);
     private int rowsTotales = 0;
     private ArrayList<String> otherFactors = new ArrayList<String>();
     private ArrayList<String> children = new ArrayList<String>();
@@ -43,7 +46,7 @@ public final class TrialWizardVisualPanel6 extends JPanel {
 
     @Override
     public String getName() {
-        return "Factor Labels";
+        return bundle.getString("TrialWizardVisualPanel6.title");
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -87,13 +90,13 @@ public final class TrialWizardVisualPanel6 extends JPanel {
     public void fillData(final Workbook workbook) {
 
         List<FactorLabel> factorLabels = new ArrayList<FactorLabel>();
-        TreatmentLabelsTableModel treatmentLabelsTableModel = new TreatmentLabelsTableModel(factorLabels,workbook);
+        TreatmentLabelsTableModel treatmentLabelsTableModel = new TreatmentLabelsTableModel(factorLabels, workbook);
         jTableFactors.setModel(treatmentLabelsTableModel);
         TableColumn columnValue = jTableFactors.getColumnModel().getColumn(3);
-        DefaultTableCellRenderer valueCellRenderer =  new DefaultTableCellRenderer();
-        valueCellRenderer.setToolTipText("Fill this value");
+        DefaultTableCellRenderer valueCellRenderer = new DefaultTableCellRenderer();
+        valueCellRenderer.setToolTipText(bundle.getString("TrialWizardVisualPanel6.fillThisValue"));
         valueCellRenderer.setBackground(Color.YELLOW);
-        columnValue.setCellRenderer(valueCellRenderer);   
+        columnValue.setCellRenderer(valueCellRenderer);
 
     }
 
@@ -223,12 +226,12 @@ public final class TrialWizardVisualPanel6 extends JPanel {
     public void copyValues(final Workbook workbook) {
 
         StudyEditorTopComponent studyWindow = TrialWizardWizardIterator.studyTopComponent;
-        TreatmentLabelsTableModel tableModel = (TreatmentLabelsTableModel)jTableFactors.getModel();
+        TreatmentLabelsTableModel tableModel = (TreatmentLabelsTableModel) jTableFactors.getModel();
         studyWindow.assignOtherTreatmentFactorLabels(tableModel.getFactorLabels());
     }
 
     private void createBallonTips() {
-        BalloonTip tip = new BalloonTip(jTableFactors, "Specify the labels for each treatment factors");
+        BalloonTip tip = new BalloonTip(jTableFactors, bundle.getString("TrialWizardVisualPanel6.tipSpecifyLabels"));
         ToolTipUtils.balloonToToolTip(tip, 500, 3000);
     }
 }

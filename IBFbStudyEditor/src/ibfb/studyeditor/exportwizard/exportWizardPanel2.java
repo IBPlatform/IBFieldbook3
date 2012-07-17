@@ -61,7 +61,7 @@ public class exportWizardPanel2 implements WizardDescriptor.Panel, ChangeListene
 
     @Override
     public void readSettings(Object settings) {
-        component.setName("Select your data");
+        //component.setName("Select your data");
 
         StudyEditorTopComponent studyEditor = (StudyEditorTopComponent) WindowManager.getDefault().getRegistry().getActivated();
 

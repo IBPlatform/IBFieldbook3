@@ -8,6 +8,7 @@ import ibfb.workbook.core.WorkbookExcelReaderImpl;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
+import java.util.ResourceBundle;
 import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -15,9 +16,12 @@ import javax.swing.filechooser.FileFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import org.cimmyt.cril.ibwb.commongui.OSUtils;
+import org.openide.util.NbBundle;
 
 public final class TrialWizardVisualPanel1 extends JPanel {
 
+    private ResourceBundle bundle = NbBundle.getBundle(TrialWizardVisualPanel1.class);
+    
     private Desktop desktop = null;
     private Desktop.Action action = null;
     private File archivo = null;
@@ -39,7 +43,7 @@ public final class TrialWizardVisualPanel1 extends JPanel {
 
     @Override
     public String getName() {
-        return "Select Trial Template from:";
+        return bundle.getString("TrialWizardVisualPanel1.title");
     }
 
     public JTextArea getjTextAreaPath() {
@@ -54,21 +58,21 @@ public final class TrialWizardVisualPanel1 extends JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
+        pnlSelecteTemplateFile = new javax.swing.JPanel();
         jRadioButtonExcel = new javax.swing.JRadioButton();
-        jLabel1 = new javax.swing.JLabel();
+        lblImgExcel = new javax.swing.JLabel();
         jButtonSearch = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaPath = new javax.swing.JTextArea();
         jButtonPreview = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
+        pnlSelecteTemplateDb = new javax.swing.JPanel();
         jRadioButtonDataBase = new javax.swing.JRadioButton();
         jComboBoxTemplates = new javax.swing.JComboBox();
-        jLabel3 = new javax.swing.JLabel();
+        lblImgDb = new javax.swing.JLabel();
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel2.setToolTipText(org.openide.util.NbBundle.getMessage(TrialWizardVisualPanel1.class, "TrialWizardVisualPanel1.jPanel2.toolTipText")); // NOI18N
-        jPanel2.setPreferredSize(new java.awt.Dimension(550, 175));
+        pnlSelecteTemplateFile.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        pnlSelecteTemplateFile.setToolTipText(org.openide.util.NbBundle.getMessage(TrialWizardVisualPanel1.class, "TrialWizardVisualPanel1.pnlSelecteTemplateFile.toolTipText")); // NOI18N
+        pnlSelecteTemplateFile.setPreferredSize(new java.awt.Dimension(550, 175));
 
         jRadioButtonExcel.setSelected(true);
         org.openide.awt.Mnemonics.setLocalizedText(jRadioButtonExcel, org.openide.util.NbBundle.getMessage(TrialWizardVisualPanel1.class, "TrialWizardVisualPanel1.jRadioButtonExcel.text")); // NOI18N
@@ -78,8 +82,8 @@ public final class TrialWizardVisualPanel1 extends JPanel {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyeditor/images/excelPNG.png"))); // NOI18N
-        jLabel1.setToolTipText(org.openide.util.NbBundle.getMessage(TrialWizardVisualPanel1.class, "TrialWizardVisualPanel1.jLabel1.toolTipText")); // NOI18N
+        lblImgExcel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyeditor/images/excelPNG.png"))); // NOI18N
+        lblImgExcel.setToolTipText(org.openide.util.NbBundle.getMessage(TrialWizardVisualPanel1.class, "TrialWizardVisualPanel1.lblImgExcel.toolTipText")); // NOI18N
 
         org.openide.awt.Mnemonics.setLocalizedText(jButtonSearch, org.openide.util.NbBundle.getMessage(TrialWizardVisualPanel1.class, "TrialWizardVisualPanel1.jButtonSearch.text")); // NOI18N
         jButtonSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -109,18 +113,18 @@ public final class TrialWizardVisualPanel1 extends JPanel {
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlSelecteTemplateFileLayout = new javax.swing.GroupLayout(pnlSelecteTemplateFile);
+        pnlSelecteTemplateFile.setLayout(pnlSelecteTemplateFileLayout);
+        pnlSelecteTemplateFileLayout.setHorizontalGroup(
+            pnlSelecteTemplateFileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlSelecteTemplateFileLayout.createSequentialGroup()
+                .addGroup(pnlSelecteTemplateFileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlSelecteTemplateFileLayout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addComponent(jRadioButtonExcel))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGroup(pnlSelecteTemplateFileLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel1)
+                        .addComponent(lblImgExcel)
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -129,24 +133,24 @@ public final class TrialWizardVisualPanel1 extends JPanel {
                         .addComponent(jButtonPreview, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(17, 17, 17))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+        pnlSelecteTemplateFileLayout.setVerticalGroup(
+            pnlSelecteTemplateFileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlSelecteTemplateFileLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jRadioButtonExcel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(pnlSelecteTemplateFileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblImgExcel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlSelecteTemplateFileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, 0, 0, Short.MAX_VALUE)
                         .addComponent(jButtonSearch, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonPreview, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel3.setToolTipText(org.openide.util.NbBundle.getMessage(TrialWizardVisualPanel1.class, "TrialWizardVisualPanel1.jPanel3.toolTipText")); // NOI18N
-        jPanel3.setPreferredSize(new java.awt.Dimension(550, 174));
+        pnlSelecteTemplateDb.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        pnlSelecteTemplateDb.setToolTipText(org.openide.util.NbBundle.getMessage(TrialWizardVisualPanel1.class, "TrialWizardVisualPanel1.pnlSelecteTemplateDb.toolTipText")); // NOI18N
+        pnlSelecteTemplateDb.setPreferredSize(new java.awt.Dimension(550, 174));
 
         org.openide.awt.Mnemonics.setLocalizedText(jRadioButtonDataBase, org.openide.util.NbBundle.getMessage(TrialWizardVisualPanel1.class, "TrialWizardVisualPanel1.jRadioButtonDataBase.text")); // NOI18N
         jRadioButtonDataBase.setEnabled(false);
@@ -159,61 +163,63 @@ public final class TrialWizardVisualPanel1 extends JPanel {
         jComboBoxTemplates.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Drought Breeding RYT", "Multi-factorial treatment structure", "SST" }));
         jComboBoxTemplates.setEnabled(false);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyeditor/images/db.png"))); // NOI18N
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel3, org.openide.util.NbBundle.getMessage(TrialWizardVisualPanel1.class, "TrialWizardVisualPanel1.jLabel3.text")); // NOI18N
-        jLabel3.setToolTipText(org.openide.util.NbBundle.getMessage(TrialWizardVisualPanel1.class, "TrialWizardVisualPanel1.jLabel3.toolTipText")); // NOI18N
+        lblImgDb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyeditor/images/db.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lblImgDb, org.openide.util.NbBundle.getMessage(TrialWizardVisualPanel1.class, "TrialWizardVisualPanel1.lblImgDb.text")); // NOI18N
+        lblImgDb.setToolTipText(org.openide.util.NbBundle.getMessage(TrialWizardVisualPanel1.class, "TrialWizardVisualPanel1.lblImgDb.toolTipText")); // NOI18N
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlSelecteTemplateDbLayout = new javax.swing.GroupLayout(pnlSelecteTemplateDb);
+        pnlSelecteTemplateDb.setLayout(pnlSelecteTemplateDbLayout);
+        pnlSelecteTemplateDbLayout.setHorizontalGroup(
+            pnlSelecteTemplateDbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlSelecteTemplateDbLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3)
+                .addComponent(lblImgDb)
                 .addGap(35, 35, 35)
                 .addComponent(jComboBoxTemplates, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(214, 214, 214))
-            .addGroup(jPanel3Layout.createSequentialGroup()
+            .addGroup(pnlSelecteTemplateDbLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(jRadioButtonDataBase)
-                .addContainerGap(652, Short.MAX_VALUE))
+                .addContainerGap())
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        pnlSelecteTemplateDbLayout.setVerticalGroup(
+            pnlSelecteTemplateDbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlSelecteTemplateDbLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jRadioButtonDataBase)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel3)
-                .addContainerGap(27, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(73, Short.MAX_VALUE)
-                .addComponent(jComboBoxTemplates, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70))
+                .addGroup(pnlSelecteTemplateDbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlSelecteTemplateDbLayout.createSequentialGroup()
+                        .addComponent(jRadioButtonDataBase)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblImgDb)
+                        .addContainerGap(40, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlSelecteTemplateDbLayout.createSequentialGroup()
+                        .addGap(0, 73, Short.MAX_VALUE)
+                        .addComponent(jComboBoxTemplates, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(70, 70, 70))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 710, Short.MAX_VALUE)
+            .addGap(0, 730, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, 0, 670, Short.MAX_VALUE)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 670, Short.MAX_VALUE))
+                        .addComponent(pnlSelecteTemplateDb, javax.swing.GroupLayout.Alignment.LEADING, 0, 710, Short.MAX_VALUE)
+                        .addComponent(pnlSelecteTemplateFile, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 710, Short.MAX_VALUE))
                     .addContainerGap()))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 403, Short.MAX_VALUE)
+            .addGap(0, 424, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlSelecteTemplateFile, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnlSelecteTemplateDb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap()))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -304,8 +310,7 @@ public final class TrialWizardVisualPanel1 extends JPanel {
         } else {
             this.jTextAreaPath.setText("");
 
-          //  DialogDisplayer.getDefault().notify(new NotifyDescriptor.Message("THIS EXCEL FILE IS NOT A VALID TEMPLATE", NotifyDescriptor.ERROR_MESSAGE));
-            DialogUtil.displayError("This Excel File is not a valid template." + validateExcelReader.getValidationMessage());
+            DialogUtil.displayError(bundle.getString("TrialWizardVisualPanel1.invalidTemplate") + validateExcelReader.getValidationMessage());
             
             
             this.jButtonPreview.setEnabled(false);
@@ -332,13 +337,13 @@ public final class TrialWizardVisualPanel1 extends JPanel {
     private javax.swing.JButton jButtonPreview;
     private javax.swing.JButton jButtonSearch;
     private javax.swing.JComboBox jComboBoxTemplates;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JRadioButton jRadioButtonDataBase;
     private javax.swing.JRadioButton jRadioButtonExcel;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextAreaPath;
+    private javax.swing.JLabel lblImgDb;
+    private javax.swing.JLabel lblImgExcel;
+    private javax.swing.JPanel pnlSelecteTemplateDb;
+    private javax.swing.JPanel pnlSelecteTemplateFile;
     // End of variables declaration//GEN-END:variables
 }
