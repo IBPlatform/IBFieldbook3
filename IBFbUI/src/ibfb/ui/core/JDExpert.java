@@ -520,20 +520,20 @@ public class JDExpert extends javax.swing.JDialog {
 
 
             if (!myExcelReader.getMyWorkbook().hasPropertyTrialInstance()) {
-                studyWindow.jTabbedPane1.setEnabledAt(1, false);
+                studyWindow.jTabbedPaneEditor.setEnabledAt(1, false);
             } else {
-                studyWindow.jTabbedPane1.setEnabledAt(1, true);
+                studyWindow.jTabbedPaneEditor.setEnabledAt(1, true);
             }
 
             if (!existenFactores()) {
-                studyWindow.jTabbedPane1.setEnabledAt(4, false);
+                studyWindow.jTabbedPaneEditor.setEnabledAt(4, false);
             } else {
-                studyWindow.jTabbedPane1.setEnabledAt(4, true);
+                studyWindow.jTabbedPaneEditor.setEnabledAt(4, true);
             }
 
             studyWindow.setFileTemplate(this.jTextAreaPathTemplate.getText());
-            studyWindow.jTabbedPane1.setEnabledAt(7, false);
-            studyWindow.jTabbedPane1.setSelectedIndex(5);
+            studyWindow.jTabbedPaneEditor.setEnabledAt(7, false);
+            studyWindow.jTabbedPaneEditor.setSelectedIndex(5);
             studyWindow.fillDesign();
             studyWindow.open();
             studyWindow.requestActive();
