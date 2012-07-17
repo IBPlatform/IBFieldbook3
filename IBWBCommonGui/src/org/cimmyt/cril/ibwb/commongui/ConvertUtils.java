@@ -104,7 +104,19 @@ public class ConvertUtils {
         if (value instanceof String) {
             String sValue = (String) value;
             try {
-                valueAsInteger = Integer.parseInt(sValue);
+                if (sValue.contains(".")) {
+                    try {
+                        Double tmpDouble = Double.parseDouble(sValue);
+                        valueAsInteger = tmpDouble.intValue();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                } else {
+                    if (!sValue.trim().isEmpty()) {
+                        valueAsInteger = Integer.parseInt(sValue);
+                    }
+                }
             } catch (Exception e) {
                 e.printStackTrace();
             }
