@@ -215,12 +215,20 @@ public class GermplasmEntriesTableModel extends AbstractTableModel {
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
 
 
-        if (SeActualizaGID()) {
-            if (columnIndex == 2) {
+       
+        if(isFromCrossInfo){
                 List<Object> columnValues = germplasmData.get(rowIndex);
                 columnValues.set(columnIndex, aValue);
                 fireTableCellUpdated(rowIndex, columnIndex);
-            }
+        }
+        
+        
+        if (SeActualizaGID()) {
+           
+                List<Object> columnValues = germplasmData.get(rowIndex);
+                columnValues.set(columnIndex, aValue);
+                fireTableCellUpdated(rowIndex, columnIndex);
+            
 
         }
 

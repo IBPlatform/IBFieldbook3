@@ -776,7 +776,7 @@ public final class NurseryEditorTopComponent extends TopComponent {
                 .addGap(33, 33, 33)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 562, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -820,14 +820,14 @@ public final class NurseryEditorTopComponent extends TopComponent {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1130, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1138, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 791, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 829, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -861,14 +861,14 @@ public final class NurseryEditorTopComponent extends TopComponent {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 1130, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 1138, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 791, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 829, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -962,7 +962,7 @@ public final class NurseryEditorTopComponent extends TopComponent {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 1130, Short.MAX_VALUE)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 1138, Short.MAX_VALUE)
                     .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -972,7 +972,7 @@ public final class NurseryEditorTopComponent extends TopComponent {
                 .addContainerGap()
                 .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 692, Short.MAX_VALUE)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 730, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1057,7 +1057,7 @@ public final class NurseryEditorTopComponent extends TopComponent {
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addContainerGap(129, Short.MAX_VALUE)
+                .addContainerGap(167, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -1131,11 +1131,11 @@ public final class NurseryEditorTopComponent extends TopComponent {
                     .addGroup(jPanelTraitsLayout.createSequentialGroup()
                         .addGroup(jPanelTraitsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jTextFieldDescription, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 516, Short.MAX_VALUE))
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE))
                         .addGap(124, 124, 124)
                         .addGroup(jPanelTraitsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextFieldDescriptionSelected, javax.swing.GroupLayout.DEFAULT_SIZE, 478, Short.MAX_VALUE)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)))
+                            .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 494, Short.MAX_VALUE)))
                     .addComponent(jPanel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
@@ -1145,7 +1145,7 @@ public final class NurseryEditorTopComponent extends TopComponent {
                 .addContainerGap()
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(pnlSelectList, javax.swing.GroupLayout.DEFAULT_SIZE, 631, Short.MAX_VALUE)
+                .addComponent(pnlSelectList, javax.swing.GroupLayout.DEFAULT_SIZE, 669, Short.MAX_VALUE)
                 .addGap(28, 28, 28)
                 .addGroup(jPanelTraitsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTraitsLayout.createSequentialGroup()
@@ -1163,11 +1163,11 @@ public final class NurseryEditorTopComponent extends TopComponent {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelTraits, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1142, Short.MAX_VALUE)
+            .addComponent(jPanelTraits, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1150, Short.MAX_VALUE)
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelTraits, javax.swing.GroupLayout.DEFAULT_SIZE, 803, Short.MAX_VALUE)
+            .addComponent(jPanelTraits, javax.swing.GroupLayout.DEFAULT_SIZE, 841, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab(org.openide.util.NbBundle.getMessage(NurseryEditorTopComponent.class, "NurseryEditorTopComponent.jPanel6.TabConstraints.tabTitle"), jPanel6); // NOI18N
@@ -1326,7 +1326,7 @@ public final class NurseryEditorTopComponent extends TopComponent {
                     .addComponent(jLabel12))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 1033, Short.MAX_VALUE)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 1041, Short.MAX_VALUE)
                     .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -1339,8 +1339,8 @@ public final class NurseryEditorTopComponent extends TopComponent {
                     .addComponent(jLabel12))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 725, Short.MAX_VALUE)
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 725, Short.MAX_VALUE))
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 763, Short.MAX_VALUE)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 763, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -1348,11 +1348,11 @@ public final class NurseryEditorTopComponent extends TopComponent {
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, 1142, Short.MAX_VALUE)
+            .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, 1150, Short.MAX_VALUE)
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, 803, Short.MAX_VALUE)
+            .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, 841, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab(org.openide.util.NbBundle.getMessage(NurseryEditorTopComponent.class, "NurseryEditorTopComponent.jPanel10.TabConstraints.tabTitle"), jPanel10); // NOI18N
@@ -1691,11 +1691,7 @@ public final class NurseryEditorTopComponent extends TopComponent {
     }//GEN-LAST:event_jDateChooserEndPropertyChange
 
     private void jButtonSaveNurseryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveNurseryActionPerformed
-//showComingSoon();
         saveNursery();
-
-
-
     }//GEN-LAST:event_jButtonSaveNurseryActionPerformed
 
     private void doSaveWorkbook() {
@@ -1740,6 +1736,7 @@ public final class NurseryEditorTopComponent extends TopComponent {
                     String valor = get();
                     DialogUtil.displayInfo("Nursery was successfully saved.");
                     RefreshBrowserHelper.refreshStudyBrowser();
+                    checkAdvanceStatus();
                 } catch (InterruptedException ex) {
                     Exceptions.printStackTrace(ex);
                 } catch (ExecutionException ex) {
@@ -1841,6 +1838,7 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
                 List<GermplasmSearch> listToSearchBCID = new ArrayList<GermplasmSearch>();
 
                 AdvanceLineTopComponent advanceEditor = new AdvanceLineTopComponent();
+                advanceEditor.setConvection(convention);
                 advanceEditor.setMethodId(methodId);
                 advanceEditor.setLocationId(locationId);
                 advanceEditor.setHarvestDate(harvestDate);
@@ -1872,10 +1870,6 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
                         return;
                     }
                 }
-
-
-
-
 
                 int colGID = tableModel.getHeaderIndex(GermplasmEntriesTableModel.GID);
                 if (colEntry < 0) {
@@ -2081,27 +2075,43 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
     }//GEN-LAST:event_jTableEntriesPropertyChange
 
     private void jButtonCopyGIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCopyGIDActionPerformed
-
+        System.out.println("INICIANDO LECTURA DE GID");
+        System.out.println("------------------------------");
         GermplasmEntriesTableModel entriesTableModel = (GermplasmEntriesTableModel) this.jTableEntries.getModel();
         int colGID = entriesTableModel.findColumn("GID");
+        System.out.println("COL GID FOUND IN: " + colGID);
+
         if (colGID > 0) {
-
-
             String str = "GID\n";
 
-
             for (int i = 0; i < entriesTableModel.getRowCount(); i++) {
-                str = str + entriesTableModel.getValueAt(i, colGID).toString() + "\n";
+
+
+                boolean hayValue = false;
+                int num;
+
+                try {
+                    num = (int) Double.parseDouble(entriesTableModel.getValueAt(i, colGID).toString());
+                    System.out.println("NUM LOADED: " + num);
+                    hayValue = true;
+                } catch (NumberFormatException ex) {
+                    num = 0;
+                    hayValue = false;
+                    System.out.println("ERROR DE FORMATO CON RENGLON: " + i);
+
+                }
+                if (hayValue) {
+                    str = str + String.valueOf(num) + "\n";
+                }
             }
-
-
             StringSelection ss = new StringSelection(str);
             Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
 
-            DialogUtil.display("Data copied");
+            DialogUtil.display(NbBundle.getMessage(NurseryEditorTopComponent.class, "NurseryEditorTopComponent.copied"));
 
         } else {
-            DialogUtil.displayError("There is not GID column");
+
+            DialogUtil.displayError(NbBundle.getMessage(NurseryEditorTopComponent.class, "NurseryEditorTopComponent.noGIDColumn"));
         }
     }//GEN-LAST:event_jButtonCopyGIDActionPerformed
 
@@ -2156,6 +2166,7 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
         if (this.jTextFieldNurseryName.getText().trim().isEmpty()) {
             this.jTextFieldNurseryName.requestFocusInWindow();
         }
+        checkAdvanceStatus();
 
     }
 

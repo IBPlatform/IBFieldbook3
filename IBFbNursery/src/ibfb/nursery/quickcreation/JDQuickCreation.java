@@ -17,6 +17,7 @@ import ibfb.workbook.api.WorkbookExcelReader;
 import ibfb.workbook.core.GermplasmAssigmentToolImpl;
 import ibfb.workbook.core.GermplasmListReaderImpl;
 import ibfb.workbook.core.WorkbookExcelReaderImpl;
+import java.awt.Component;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
@@ -24,13 +25,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import javax.swing.DefaultListModel;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
-import javax.swing.SwingConstants;
+import javax.swing.*;
 import javax.swing.filechooser.FileFilter;
-import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.DefaultTableModel;
+import javax.swing.table.*;
 import org.cimmyt.cril.ibwb.api.AppServicesProxy;
 import org.cimmyt.cril.ibwb.commongui.OSUtils;
 import org.cimmyt.cril.ibwb.domain.Listnms;
@@ -189,12 +186,12 @@ public class JDQuickCreation extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButtonSearchTemplate, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonPreviewTemplate, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(cboTemplateList, 0, 505, Short.MAX_VALUE))
+                    .addComponent(cboTemplateList, 0, 522, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -204,7 +201,7 @@ public class JDQuickCreation extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jradExcelFile)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addComponent(jButtonSearchTemplate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonPreviewTemplate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(21, 21, 21)
@@ -278,7 +275,7 @@ public class JDQuickCreation extends javax.swing.JDialog {
 
             }
         ));
-        jTableEntries.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        jTableEntries.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         jScrollPane4.setViewportView(jTableEntries);
 
         jToolBar1.setRollover(true);
@@ -308,12 +305,12 @@ public class JDQuickCreation extends javax.swing.JDialog {
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jButtonSearchGSM, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jButtonPreviewGSM, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(cboGermplasmList, javax.swing.GroupLayout.Alignment.LEADING, 0, 505, Short.MAX_VALUE))
+                        .addComponent(cboGermplasmList, javax.swing.GroupLayout.Alignment.LEADING, 0, 508, Short.MAX_VALUE))
                     .addContainerGap()))
         );
         jPanel2Layout.setVerticalGroup(
@@ -325,7 +322,7 @@ public class JDQuickCreation extends javax.swing.JDialog {
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(26, 26, 26)
@@ -363,7 +360,7 @@ public class JDQuickCreation extends javax.swing.JDialog {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jRadioButtonNormal)
                     .addComponent(jRadioButtonRandom))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(31, 31, 31))
         );
@@ -377,7 +374,7 @@ public class JDQuickCreation extends javax.swing.JDialog {
                         .addComponent(jRadioButtonNormal)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jRadioButtonRandom)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(JDQuickCreation.class, "JDQuickCreation.jPanel4.border.title"))); // NOI18N
@@ -892,13 +889,8 @@ public class JDQuickCreation extends javax.swing.JDialog {
         GermplasmEntriesTableModel tableModel = new GermplasmEntriesTableModel(myExcelReader.getMyWorkbook().getEntryFactors(), rowList);
         this.jTableEntries.setModel(tableModel);
         this.jTextFieldTotalEntries.setText(String.valueOf(germplasmList.getListEntries().size()));
-
-        DefaultTableCellRenderer tcrTable = new DefaultTableCellRenderer();
-        tcrTable.setHorizontalAlignment(SwingConstants.CENTER);
-        for (int col = 0; col < this.jTableEntries.getColumnCount(); col++) {
-
-            this.jTableEntries.getColumnModel().getColumn(col).setCellRenderer(tcrTable);
-        }
+         ajustaColumnsTable(this.jTableEntries, 2);
+        
 
     }
 
@@ -949,6 +941,38 @@ public class JDQuickCreation extends javax.swing.JDialog {
             this.jButtonFinish.setEnabled(false);
         }
     }
+    
+    
+        public void ajustaColumnsTable(JTable table, int margin) {
+        for (int c = 0; c < table.getColumnCount(); c++) {
+            ajustaColumn(table, c, 2);
+        }
+    }
+
+    public void ajustaColumn(JTable table, int vColIndex, int margin) {
+        TableModel modelPack = table.getModel();
+        DefaultTableColumnModel colModel = (DefaultTableColumnModel) table.getColumnModel();
+        TableColumn col = colModel.getColumn(vColIndex);
+        int width = 0;
+        TableCellRenderer renderer = col.getHeaderRenderer();
+        if (renderer == null) {
+            renderer = table.getTableHeader().getDefaultRenderer();
+        }
+        Component comp = renderer.getTableCellRendererComponent(
+                table, col.getHeaderValue(), false, false, 0, 0);
+        width = comp.getPreferredSize().width;
+        for (int r = 0; r < table.getRowCount(); r++) {
+            renderer = table.getCellRenderer(r, vColIndex);
+            comp = renderer.getTableCellRendererComponent(
+                    table, table.getValueAt(r, vColIndex), false, false, r,
+                    vColIndex);
+            width = Math.max(width, comp.getPreferredSize().width);
+        }
+        width += 2 * margin;
+        col.setPreferredWidth(width);
+    }
+
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;

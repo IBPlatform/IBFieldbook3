@@ -399,9 +399,8 @@ public class ExcelNurseryReader {
 
     private int findMachesForGermplasm(HSSFSheet sheet) {
 
-
         int result = 0;
-
+        
         HSSFRow fila = sheet.getRow(0); //Encabezados
         int cells = fila.getLastCellNum();
 
@@ -474,14 +473,18 @@ public class ExcelNurseryReader {
             fillGIDs(sheetData, colGID);
 
 
-            germplasmModel.setIsFromCrossInfo(true);
+            GermplasmEntriesTableModel.setIsFromCrossInfo(true);
 
             for (int j = 0; j < germplasmModel.getRowCount(); j++) {
 
-                Object gid = germplasmModel.getValueAt(j, colGIDgsm);
+             //   Object gid = germplasmModel.getValueAt(j, colGIDgsm);
 
-                int rowOfGID = findRowForGID(gid.toString());
-
+                int elGID=(int)Double.parseDouble(germplasmModel.getValueAt(j, colGIDgsm).toString());
+                System.out.println("INT GID: "+elGID);
+                
+                
+               // int rowOfGID = findRowForGID(gid.toString());
+                int rowOfGID = findRowForGID(String.valueOf(elGID));
 
 
                 if (rowOfGID >= 0) {
@@ -494,13 +497,13 @@ public class ExcelNurseryReader {
                         germplasmModel.setValueAt(valor, j, matchesArray.get(i).getColIBF());
                     }
                 } else {
-                    System.out.println(gid.toString() + " NO ENCONTRADO");
+                    System.out.println(elGID + " NO ENCONTRADO");
                 }
 
             }
-            germplasmModel.setIsFromCrossInfo(false);
+            GermplasmEntriesTableModel.setIsFromCrossInfo(false);
         } catch (Exception e) {
-            germplasmModel.setIsFromCrossInfo(false);
+            GermplasmEntriesTableModel.setIsFromCrossInfo(false);
             log.error("Error al leer excel ", e);
         }
 
@@ -557,7 +560,13 @@ public class ExcelNurseryReader {
     }
 
     private int findRowForGID(String elGID) {
-
+      //  System.out.println("TAM GIDS: "+gids.size());
+       // System.out.print("ELEMENTOS GIDS: ");
+        for (int i = 0; i < gids.size(); i++) {   
+            System.out.print(gids.get(i)+" , ");
+            
+        }
+        System.out.println("");
         int result = -1;
         result = gids.indexOf(elGID);
         return result;

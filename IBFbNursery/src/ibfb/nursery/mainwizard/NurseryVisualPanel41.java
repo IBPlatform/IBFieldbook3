@@ -13,6 +13,7 @@ import ibfb.workbook.api.GermplasmAssigmentTool;
 import ibfb.workbook.api.GermplasmListReader;
 import ibfb.workbook.core.GermplasmAssigmentToolImpl;
 import ibfb.workbook.core.GermplasmListReaderImpl;
+import java.awt.Component;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
@@ -26,7 +27,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.filechooser.FileFilter;
-import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.*;
 import org.cimmyt.cril.ibwb.api.AppServicesProxy;
 import org.cimmyt.cril.ibwb.commongui.OSUtils;
 import org.cimmyt.cril.ibwb.domain.Listnms;
@@ -158,7 +159,7 @@ public final class NurseryVisualPanel41 extends JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -167,7 +168,7 @@ public final class NurseryVisualPanel41 extends JPanel {
                         .addGap(16, 16, 16)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cboGermplasmList, 0, 487, Short.MAX_VALUE)))
+                        .addComponent(cboGermplasmList, 0, 525, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -204,7 +205,7 @@ public final class NurseryVisualPanel41 extends JPanel {
 
             }
         ));
-        jTableEntries.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        jTableEntries.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         jScrollPane2.setViewportView(jTableEntries);
 
         org.openide.awt.Mnemonics.setLocalizedText(jLabel3, org.openide.util.NbBundle.getMessage(NurseryVisualPanel41.class, "NurseryVisualPanel41.jLabel3.text")); // NOI18N
@@ -218,7 +219,7 @@ public final class NurseryVisualPanel41 extends JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(567, Short.MAX_VALUE)
+                .addContainerGap(572, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldTotalEntries, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -244,7 +245,7 @@ public final class NurseryVisualPanel41 extends JPanel {
                     .addContainerGap()
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(18, 18, 18)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
                     .addGap(66, 66, 66)))
         );
 
@@ -485,12 +486,7 @@ public final class NurseryVisualPanel41 extends JPanel {
         List<List<Object>> rowList = gat.getMappedColumns(columnList, germplasmList);
         GermplasmEntriesTableModel tableModel = new GermplasmEntriesTableModel(this.myWorkbook.getEntryFactors(), rowList);
         this.jTableEntries.setModel(tableModel);
-        DefaultTableCellRenderer tcr = new DefaultTableCellRenderer();
-        tcr.setHorizontalAlignment(SwingConstants.CENTER);
-        for (int col = 0; col < this.jTableEntries.getColumnCount(); col++) {
-
-            this.jTableEntries.getColumnModel().getColumn(col).setCellRenderer(tcr);
-        }
+        ajustaColumnsTable(this.jTableEntries, 2);
     }
 
     @SuppressWarnings("unchecked")
@@ -516,6 +512,37 @@ public final class NurseryVisualPanel41 extends JPanel {
 
         return existenFactores;
     }
+    
+        public void ajustaColumnsTable(JTable table, int margin) {
+        for (int c = 0; c < table.getColumnCount(); c++) {
+            ajustaColumn(table, c, 2);
+        }
+    }
+
+    public void ajustaColumn(JTable table, int vColIndex, int margin) {
+        TableModel modelPack = table.getModel();
+        DefaultTableColumnModel colModel = (DefaultTableColumnModel) table.getColumnModel();
+        TableColumn col = colModel.getColumn(vColIndex);
+        int width = 0;
+        TableCellRenderer renderer = col.getHeaderRenderer();
+        if (renderer == null) {
+            renderer = table.getTableHeader().getDefaultRenderer();
+        }
+        Component comp = renderer.getTableCellRendererComponent(
+                table, col.getHeaderValue(), false, false, 0, 0);
+        width = comp.getPreferredSize().width;
+        for (int r = 0; r < table.getRowCount(); r++) {
+            renderer = table.getCellRenderer(r, vColIndex);
+            comp = renderer.getTableCellRendererComponent(
+                    table, table.getValueAt(r, vColIndex), false, false, r,
+                    vColIndex);
+            width = Math.max(width, comp.getPreferredSize().width);
+        }
+        width += 2 * margin;
+        col.setPreferredWidth(width);
+    }
+
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroupGMS;
     private javax.swing.JComboBox cboGermplasmList;
