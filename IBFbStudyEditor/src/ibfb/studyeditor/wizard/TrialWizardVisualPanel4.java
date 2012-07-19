@@ -13,6 +13,7 @@ import ibfb.workbook.api.GermplasmAssigmentTool;
 import ibfb.workbook.api.GermplasmListReader;
 import ibfb.workbook.core.GermplasmAssigmentToolImpl;
 import ibfb.workbook.core.GermplasmListReaderImpl;
+import java.awt.Component;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
@@ -26,7 +27,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.filechooser.FileFilter;
-import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.*;
 import org.cimmyt.cril.ibwb.api.AppServicesProxy;
 import org.cimmyt.cril.ibwb.commongui.OSUtils;
 import org.cimmyt.cril.ibwb.domain.Listnms;
@@ -478,16 +479,38 @@ public final class TrialWizardVisualPanel4 extends JPanel {
         List<List<Object>> rowList = gat.getMappedColumns(columnList, germplasmList);
         GermplasmEntriesTableModel tableModel = new GermplasmEntriesTableModel(this.myWorkbook.getEntryFactors(), rowList);
         this.jTableEntries.setModel(tableModel);
+        ajustaColumnsTable(this.jTableEntries, 2);   
+    }
 
-
-        DefaultTableCellRenderer tcr = new DefaultTableCellRenderer();
-        tcr.setHorizontalAlignment(SwingConstants.CENTER);
-        for (int col = 0; col < this.jTableEntries.getColumnCount(); col++) {
-
-            this.jTableEntries.getColumnModel().getColumn(col).setCellRenderer(tcr);
+    public void ajustaColumnsTable(JTable table, int margin) {
+        for (int c = 0; c < table.getColumnCount(); c++) {
+            ajustaColumn(table, c, 2);
         }
     }
 
+    public void ajustaColumn(JTable table, int vColIndex, int margin) {
+        TableModel modelPack = table.getModel();
+        DefaultTableColumnModel colModel = (DefaultTableColumnModel) table.getColumnModel();
+        TableColumn col = colModel.getColumn(vColIndex);
+        int width = 0;
+        TableCellRenderer renderer = col.getHeaderRenderer();
+        if (renderer == null) {
+            renderer = table.getTableHeader().getDefaultRenderer();
+        }
+        Component comp = renderer.getTableCellRendererComponent(
+                table, col.getHeaderValue(), false, false, 0, 0);
+        width = comp.getPreferredSize().width;
+        for (int r = 0; r < table.getRowCount(); r++) {
+            renderer = table.getCellRenderer(r, vColIndex);
+            comp = renderer.getTableCellRendererComponent(
+                    table, table.getValueAt(r, vColIndex), false, false, r,
+                    vColIndex);
+            width = Math.max(width, comp.getPreferredSize().width);
+        }
+        width += 2 * margin;
+        col.setPreferredWidth(width);
+    }
+    
     @SuppressWarnings("unchecked")
     public boolean existenFactores(final Workbook workbook) {
         boolean existenFactores = false;

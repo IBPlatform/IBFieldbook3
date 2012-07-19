@@ -54,7 +54,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="pnlSelectGermplasm" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jScrollPane2" pref="139" max="32767" attributes="0"/>
+                  <Component id="jScrollPane2" pref="156" max="32767" attributes="0"/>
                   <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -87,7 +87,7 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="lblImgExcel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane1" pref="321" max="32767" attributes="2"/>
+                          <Component id="jScrollPane1" pref="327" max="32767" attributes="2"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jButtonSearch" min="-2" pref="77" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
