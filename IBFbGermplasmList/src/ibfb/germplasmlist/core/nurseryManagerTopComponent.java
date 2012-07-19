@@ -118,7 +118,6 @@ public final class nurseryManagerTopComponent extends TopComponent {
         fillMethods();
         // this.jButtonCross.setEnabled(false);
         this.jButtonSaveCross.setEnabled(false);
-        this.jTabbedPane1.setEnabledAt(1, false);
         assignModels();
 
         // by default select other crops
@@ -144,14 +143,12 @@ public final class nurseryManagerTopComponent extends TopComponent {
         for (Listnms list : germplasmList) {
             cboGermplasmListFemale.addItem(list);
             cboGermplasmListMale.addItem(list);
-            cboGermplasmListSelect.addItem(list);
         }
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jTabbedPaneMale = new javax.swing.JTabbedPane();
         jPanel4 = new javax.swing.JPanel();
@@ -160,6 +157,12 @@ public final class nurseryManagerTopComponent extends TopComponent {
         jScrollEntriesDbMale = new javax.swing.JScrollPane();
         jTableEntriesDBMale = new javax.swing.JTable();
         btnRemoveMaleDb = new javax.swing.JButton();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jTextFieldSelectedFinalMale = new javax.swing.JTextField();
+        jTextFieldListEntriesMale = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jSeparator10 = new javax.swing.JToolBar.Separator();
         btnRemoveMaleExcel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -175,6 +178,12 @@ public final class nurseryManagerTopComponent extends TopComponent {
         jScrollEntriesDbFemale = new javax.swing.JScrollPane();
         jTableEntriesDBFemale = new javax.swing.JTable();
         btnRemoveFemaleDb = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
+        jTextFieldSelectedEntriesFemale = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jTextFieldListEntriesFemale = new javax.swing.JTextField();
+        jSeparator8 = new javax.swing.JToolBar.Separator();
         jPanel8 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -210,65 +219,6 @@ public final class nurseryManagerTopComponent extends TopComponent {
         jLabelEntries = new javax.swing.JLabel();
         jButtonSaveCross = new javax.swing.JButton();
         jSeparator6 = new javax.swing.JToolBar.Separator();
-        jPanel6 = new javax.swing.JPanel();
-        jTextFieldSelectedEntriesFemale = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jTextFieldListEntriesFemale = new javax.swing.JTextField();
-        jSeparator8 = new javax.swing.JToolBar.Separator();
-        jLabel10 = new javax.swing.JLabel();
-        jTextFieldListEntriesFemale1 = new javax.swing.JTextField();
-        jSeparator11 = new javax.swing.JToolBar.Separator();
-        jLabel20 = new javax.swing.JLabel();
-        jTextFieldSelectedEntriesFemale1 = new javax.swing.JTextField();
-        jPanel7 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
-        jTextFieldSelectedFinalMale = new javax.swing.JTextField();
-        jTextFieldListEntriesMale = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jSeparator10 = new javax.swing.JToolBar.Separator();
-        jPanel2 = new javax.swing.JPanel();
-        jTabbedPaneSelect = new javax.swing.JTabbedPane();
-        jPanel9 = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
-        cboGermplasmListSelect = new javax.swing.JComboBox();
-        jScrollEntriesDbSelect = new javax.swing.JScrollPane();
-        jTableEntriesDBSelect = new javax.swing.JTable();
-        jPanel10 = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        jTextAreaPathSelect = new javax.swing.JTextArea();
-        jButtonBrowseExcelSelect = new javax.swing.JButton();
-        jScrollEntiresExcelSelect = new javax.swing.JScrollPane();
-        jTableEntriesExcelSelect = new javax.swing.JTable();
-        jPanel11 = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        jTextAreaPathSelectScript = new javax.swing.JTextArea();
-        jButtonBrowseExcelSelectScript = new javax.swing.JButton();
-        jScrollEntiresExcelSelectScript = new javax.swing.JScrollPane();
-        jTableEntriesExcelSelectScript = new javax.swing.JTable();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        jTableFinalList1 = new javax.swing.JTable();
-        jButtonSelect = new javax.swing.JButton();
-        jToolBar3 = new javax.swing.JToolBar();
-        jLabel15 = new javax.swing.JLabel();
-        jTextFieldListEntriesSelect = new javax.swing.JTextField();
-        jSeparator7 = new javax.swing.JToolBar.Separator();
-        jLabel16 = new javax.swing.JLabel();
-        jTextFieldSelectedEntriesSelect = new javax.swing.JTextField();
-        jToolBar4 = new javax.swing.JToolBar();
-        jLabel17 = new javax.swing.JLabel();
-        jTextFieldTotalEntries = new javax.swing.JTextField();
-        jSeparator9 = new javax.swing.JToolBar.Separator();
-        jLabel18 = new javax.swing.JLabel();
-        jTextFieldSelectedFinal = new javax.swing.JTextField();
-        jButtonSaveSelectionList = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox();
-        jLabel3 = new javax.swing.JLabel();
-        jPanel12 = new javax.swing.JPanel();
-        jScrollFinalListSelect = new javax.swing.JScrollPane();
-        jTableFinalListSelect = new javax.swing.JTable();
 
         jTabbedPaneMale.setBackground(new java.awt.Color(0, 102, 255));
         jTabbedPaneMale.setBorder(javax.swing.BorderFactory.createTitledBorder(null, org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jTabbedPaneMale.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Grande", 0, 13), new java.awt.Color(0, 0, 204))); // NOI18N
@@ -315,6 +265,47 @@ public final class nurseryManagerTopComponent extends TopComponent {
             }
         });
 
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel11, org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jLabel11.text")); // NOI18N
+
+        jTextFieldSelectedFinalMale.setEditable(false);
+        jTextFieldSelectedFinalMale.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldSelectedFinalMale.setText(org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jTextFieldSelectedFinalMale.text")); // NOI18N
+
+        jTextFieldListEntriesMale.setEditable(false);
+        jTextFieldListEntriesMale.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldListEntriesMale.setText(org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jTextFieldListEntriesMale.text")); // NOI18N
+
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel7, org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jLabel7.text")); // NOI18N
+
+        jSeparator10.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextFieldListEntriesMale, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextFieldSelectedFinalMale)
+                .addContainerGap())
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                .addComponent(jLabel7)
+                .addComponent(jTextFieldListEntriesMale, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel11)
+                .addComponent(jTextFieldSelectedFinalMale, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -325,9 +316,12 @@ public final class nurseryManagerTopComponent extends TopComponent {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cboGermplasmListMale, 0, 307, Short.MAX_VALUE))
-                    .addComponent(jScrollEntriesDbMale, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 358, Short.MAX_VALUE)
-                    .addComponent(btnRemoveMaleDb))
+                        .addComponent(cboGermplasmListMale, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollEntriesDbMale, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(btnRemoveMaleDb)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -338,9 +332,11 @@ public final class nurseryManagerTopComponent extends TopComponent {
                     .addComponent(jLabel1)
                     .addComponent(cboGermplasmListMale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollEntriesDbMale, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
+                .addComponent(jScrollEntriesDbMale, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnRemoveMaleDb))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnRemoveMaleDb)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         jTabbedPaneMale.addTab(org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jPanel4.TabConstraints.tabTitle"), jPanel4); // NOI18N
@@ -396,11 +392,11 @@ public final class nurseryManagerTopComponent extends TopComponent {
             .addGroup(btnRemoveMaleExcelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(btnRemoveMaleExcelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollEntiresExcelMale, javax.swing.GroupLayout.DEFAULT_SIZE, 358, Short.MAX_VALUE)
+                    .addComponent(jScrollEntiresExcelMale, javax.swing.GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnRemoveMaleExcelLayout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonBrowseExcelMale, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jButton1))
@@ -415,7 +411,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonBrowseExcelMale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollEntiresExcelMale, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+                .addComponent(jScrollEntiresExcelMale, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1))
         );
@@ -473,6 +469,51 @@ public final class nurseryManagerTopComponent extends TopComponent {
             }
         });
 
+        jTextFieldSelectedEntriesFemale.setEditable(false);
+        jTextFieldSelectedEntriesFemale.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldSelectedEntriesFemale.setText(org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jTextFieldSelectedEntriesFemale.text")); // NOI18N
+
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel9, org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jLabel9.text")); // NOI18N
+
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel8, org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jLabel8.text")); // NOI18N
+        jLabel8.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+
+        jTextFieldListEntriesFemale.setEditable(false);
+        jTextFieldListEntriesFemale.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldListEntriesFemale.setText(org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jTextFieldListEntriesFemale.text")); // NOI18N
+
+        jSeparator8.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextFieldListEntriesFemale, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextFieldSelectedEntriesFemale, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jTextFieldListEntriesFemale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldSelectedEntriesFemale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9)
+                    .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -480,12 +521,15 @@ public final class nurseryManagerTopComponent extends TopComponent {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollEntriesDbFemale, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE)
+                    .addComponent(jScrollEntriesDbFemale, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cboGermplasmListFemale, 0, 279, Short.MAX_VALUE))
-                    .addComponent(btnRemoveFemaleDb))
+                        .addComponent(cboGermplasmListFemale, 0, 338, Short.MAX_VALUE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(btnRemoveFemaleDb)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -496,9 +540,14 @@ public final class nurseryManagerTopComponent extends TopComponent {
                     .addComponent(jLabel5)
                     .addComponent(cboGermplasmListFemale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollEntriesDbFemale, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnRemoveFemaleDb))
+                .addComponent(jScrollEntriesDbFemale, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addComponent(btnRemoveFemaleDb))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
         jTabbedPaneFemale.addTab(org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jPanel5.TabConstraints.tabTitle"), jPanel5); // NOI18N
@@ -554,11 +603,11 @@ public final class nurseryManagerTopComponent extends TopComponent {
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollEntiresExcelFemale, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE)
+                    .addComponent(jScrollEntiresExcelFemale, javax.swing.GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonBrowseExcelFemale, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnRemoveFemaleExcel))
@@ -573,14 +622,14 @@ public final class nurseryManagerTopComponent extends TopComponent {
                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonBrowseExcelFemale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollEntiresExcelFemale, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+                .addComponent(jScrollEntiresExcelFemale, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRemoveFemaleExcel))
         );
 
         jTabbedPaneFemale.addTab(org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jPanel8.TabConstraints.tabTitle"), jPanel8); // NOI18N
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jButtonCross.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/germplasmlist/images/fm.png"))); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(jButtonCross, org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jButtonCross.text")); // NOI18N
@@ -642,10 +691,9 @@ public final class nurseryManagerTopComponent extends TopComponent {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(lblNumericFieldWidth)
                         .addGap(18, 18, 18)
-                        .addComponent(spnNumFieldWidth))
+                        .addComponent(spnNumFieldWidth, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jComboBoxConvection, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jComboBoxMethods, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -664,14 +712,15 @@ public final class nurseryManagerTopComponent extends TopComponent {
                                     .addGap(18, 18, 18)
                                     .addComponent(jTextPrefix, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jButtonLoadExcelScript, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButtonLoadExcelScript, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4)
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jComboBoxConvection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -696,11 +745,10 @@ public final class nurseryManagerTopComponent extends TopComponent {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNumericFieldWidth)
                     .addComponent(spnNumFieldWidth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(3, 3, 3)
+                .addGap(9, 9, 9)
                 .addComponent(jButtonCross, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonLoadExcelScript)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonLoadExcelScript))
         );
 
         jScrollPane3.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jScrollPane3.border.title"))); // NOI18N
@@ -784,557 +832,50 @@ public final class nurseryManagerTopComponent extends TopComponent {
                 .addComponent(jButtonSaveCross))
         );
 
-        jTextFieldSelectedEntriesFemale.setEditable(false);
-        jTextFieldSelectedEntriesFemale.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldSelectedEntriesFemale.setText(org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jTextFieldSelectedEntriesFemale.text")); // NOI18N
-
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel9, org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jLabel9.text")); // NOI18N
-
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel8, org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jLabel8.text")); // NOI18N
-
-        jTextFieldListEntriesFemale.setEditable(false);
-        jTextFieldListEntriesFemale.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldListEntriesFemale.setText(org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jTextFieldListEntriesFemale.text")); // NOI18N
-
-        jSeparator8.setOrientation(javax.swing.SwingConstants.VERTICAL);
-
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel10, org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jLabel10.text")); // NOI18N
-
-        jTextFieldListEntriesFemale1.setEditable(false);
-        jTextFieldListEntriesFemale1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldListEntriesFemale1.setText(org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jTextFieldListEntriesFemale1.text")); // NOI18N
-
-        jSeparator11.setOrientation(javax.swing.SwingConstants.VERTICAL);
-
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel20, org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jLabel20.text")); // NOI18N
-
-        jTextFieldSelectedEntriesFemale1.setEditable(false);
-        jTextFieldSelectedEntriesFemale1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldSelectedEntriesFemale1.setText(org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jTextFieldSelectedEntriesFemale1.text")); // NOI18N
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldListEntriesFemale, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldSelectedEntriesFemale, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldListEntriesFemale1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel20)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldSelectedEntriesFemale1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jLabel10)
-                    .addComponent(jTextFieldListEntriesFemale1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldSelectedEntriesFemale1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel20)
-                    .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jLabel8)
-                    .addComponent(jTextFieldListEntriesFemale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldSelectedEntriesFemale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9)
-                    .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
-
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel11, org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jLabel11.text")); // NOI18N
-
-        jTextFieldSelectedFinalMale.setEditable(false);
-        jTextFieldSelectedFinalMale.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldSelectedFinalMale.setText(org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jTextFieldSelectedFinalMale.text")); // NOI18N
-
-        jTextFieldListEntriesMale.setEditable(false);
-        jTextFieldListEntriesMale.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldListEntriesMale.setText(org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jTextFieldListEntriesMale.text")); // NOI18N
-
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel7, org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jLabel7.text")); // NOI18N
-
-        jSeparator10.setOrientation(javax.swing.SwingConstants.VERTICAL);
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldListEntriesMale, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel11)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldSelectedFinalMale, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                .addComponent(jLabel7)
-                .addComponent(jTextFieldListEntriesMale, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jLabel11)
-                .addComponent(jTextFieldSelectedFinalMale, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane3)
-                            .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTabbedPaneFemale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jTabbedPaneFemale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(14, 14, 14)
-                                .addComponent(jTabbedPaneMale))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTabbedPaneMale))
+                    .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                        .addGap(291, 291, 291)
+                        .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(285, 285, 285)
-                                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jTabbedPaneFemale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTabbedPaneMale))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(15, 15, 15))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))))
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTabbedPaneFemale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jTabbedPaneMale)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         jTabbedPaneMale.getAccessibleContext().setAccessibleName(org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jTabbedPaneMale.AccessibleContext.accessibleName")); // NOI18N
-
-        jTabbedPane1.addTab(org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jPanel1.TabConstraints.tabTitle"), jPanel1); // NOI18N
-
-        jTabbedPaneSelect.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jTabbedPaneSelect.border.title"))); // NOI18N
-        jTabbedPaneSelect.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jTabbedPaneSelectStateChanged(evt);
-            }
-        });
-
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/germplasmlist/images/database.png"))); // NOI18N
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel12, org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jLabel12.text")); // NOI18N
-
-        cboGermplasmListSelect.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SELECT ONE..." }));
-        cboGermplasmListSelect.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cboGermplasmListSelectItemStateChanged(evt);
-            }
-        });
-
-        jScrollEntriesDbSelect.setToolTipText(org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jScrollEntriesDbSelect.toolTipText")); // NOI18N
-
-        jTableEntriesDBSelect.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
-        jTableEntriesDBSelect.setDragEnabled(true);
-        jTableEntriesDBSelect.setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-        jTableEntriesDBSelect.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jTableEntriesDBSelectPropertyChange(evt);
-            }
-        });
-        jScrollEntriesDbSelect.setViewportView(jTableEntriesDBSelect);
-
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollEntriesDbSelect, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE)
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addComponent(jLabel12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cboGermplasmListSelect, 0, 320, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel12)
-                    .addComponent(cboGermplasmListSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollEntriesDbSelect, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        jTabbedPaneSelect.addTab(org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jPanel9.TabConstraints.tabTitle"), jPanel9); // NOI18N
-
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/germplasmlist/images/excelFile.png"))); // NOI18N
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel13, org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jLabel13.text")); // NOI18N
-
-        jTextAreaPathSelect.setColumns(20);
-        jTextAreaPathSelect.setLineWrap(true);
-        jTextAreaPathSelect.setRows(5);
-        jTextAreaPathSelect.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jTextAreaPathSelectMousePressed(evt);
-            }
-        });
-        jScrollPane5.setViewportView(jTextAreaPathSelect);
-
-        org.openide.awt.Mnemonics.setLocalizedText(jButtonBrowseExcelSelect, org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jButtonBrowseExcelSelect.text")); // NOI18N
-        jButtonBrowseExcelSelect.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonBrowseExcelSelectActionPerformed(evt);
-            }
-        });
-
-        jTableEntriesExcelSelect.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
-        jTableEntriesExcelSelect.setDragEnabled(true);
-        jTableEntriesExcelSelect.setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-        jTableEntriesExcelSelect.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jTableEntriesExcelSelectPropertyChange(evt);
-            }
-        });
-        jScrollEntiresExcelSelect.setViewportView(jTableEntriesExcelSelect);
-
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollEntiresExcelSelect, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE)
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addComponent(jLabel13)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonBrowseExcelSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane5, 0, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonBrowseExcelSelect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollEntiresExcelSelect, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        jTabbedPaneSelect.addTab(org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jPanel10.TabConstraints.tabTitle"), jPanel10); // NOI18N
-
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/germplasmlist/images/excelFile.png"))); // NOI18N
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel14, org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jLabel14.text")); // NOI18N
-
-        jTextAreaPathSelectScript.setColumns(20);
-        jTextAreaPathSelectScript.setLineWrap(true);
-        jTextAreaPathSelectScript.setRows(5);
-        jTextAreaPathSelectScript.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jTextAreaPathSelectScriptMousePressed(evt);
-            }
-        });
-        jScrollPane6.setViewportView(jTextAreaPathSelectScript);
-
-        org.openide.awt.Mnemonics.setLocalizedText(jButtonBrowseExcelSelectScript, org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jButtonBrowseExcelSelectScript.text")); // NOI18N
-        jButtonBrowseExcelSelectScript.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonBrowseExcelSelectScriptActionPerformed(evt);
-            }
-        });
-
-        jTableEntriesExcelSelectScript.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
-        jTableEntriesExcelSelectScript.setDragEnabled(true);
-        jTableEntriesExcelSelectScript.setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-        jScrollEntiresExcelSelectScript.setViewportView(jTableEntriesExcelSelectScript);
-
-        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
-        jPanel11.setLayout(jPanel11Layout);
-        jPanel11Layout.setHorizontalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollEntiresExcelSelectScript, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE)
-                    .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonBrowseExcelSelectScript, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-        jPanel11Layout.setVerticalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane6, 0, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonBrowseExcelSelectScript, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollEntiresExcelSelectScript, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        jTabbedPaneSelect.addTab(org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jPanel11.TabConstraints.tabTitle"), jPanel11); // NOI18N
-
-        jScrollPane7.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jScrollPane7.border.title"))); // NOI18N
-
-        jTableFinalList1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane7.setViewportView(jTableFinalList1);
-
-        org.openide.awt.Mnemonics.setLocalizedText(jButtonSelect, org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jButtonSelect.text")); // NOI18N
-        jButtonSelect.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSelectActionPerformed(evt);
-            }
-        });
-
-        jToolBar3.setFloatable(false);
-        jToolBar3.setRollover(true);
-
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel15, org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jLabel15.text")); // NOI18N
-        jToolBar3.add(jLabel15);
-
-        jTextFieldListEntriesSelect.setEditable(false);
-        jTextFieldListEntriesSelect.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldListEntriesSelect.setText(org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jTextFieldListEntriesSelect.text")); // NOI18N
-        jToolBar3.add(jTextFieldListEntriesSelect);
-        jToolBar3.add(jSeparator7);
-
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel16, org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jLabel16.text")); // NOI18N
-        jToolBar3.add(jLabel16);
-
-        jTextFieldSelectedEntriesSelect.setEditable(false);
-        jTextFieldSelectedEntriesSelect.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldSelectedEntriesSelect.setText(org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jTextFieldSelectedEntriesSelect.text")); // NOI18N
-        jToolBar3.add(jTextFieldSelectedEntriesSelect);
-
-        jToolBar4.setFloatable(false);
-        jToolBar4.setRollover(true);
-
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel17, org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jLabel17.text")); // NOI18N
-        jToolBar4.add(jLabel17);
-
-        jTextFieldTotalEntries.setEditable(false);
-        jTextFieldTotalEntries.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldTotalEntries.setText(org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jTextFieldTotalEntries.text")); // NOI18N
-        jToolBar4.add(jTextFieldTotalEntries);
-        jToolBar4.add(jSeparator9);
-
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel18, org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jLabel18.text")); // NOI18N
-        jToolBar4.add(jLabel18);
-
-        jTextFieldSelectedFinal.setEditable(false);
-        jTextFieldSelectedFinal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldSelectedFinal.setText(org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jTextFieldSelectedFinal.text")); // NOI18N
-        jToolBar4.add(jTextFieldSelectedFinal);
-
-        jButtonSaveSelectionList.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/germplasmlist/images/save.png"))); // NOI18N
-        org.openide.awt.Mnemonics.setLocalizedText(jButtonSaveSelectionList, org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jButtonSaveSelectionList.text")); // NOI18N
-        jButtonSaveSelectionList.setToolTipText(org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jButtonSaveSelectionList.toolTipText")); // NOI18N
-        jButtonSaveSelectionList.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSaveSelectionListActionPerformed(evt);
-            }
-        });
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel3, org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jLabel3.text")); // NOI18N
-
-        jPanel12.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jPanel12.border.title"))); // NOI18N
-
-        jScrollFinalListSelect.setToolTipText(org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jScrollFinalListSelect.toolTipText")); // NOI18N
-
-        jTableFinalListSelect.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
-        jTableFinalListSelect.setDragEnabled(true);
-        jTableFinalListSelect.setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-        jTableFinalListSelect.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jTableFinalListSelectPropertyChange(evt);
-            }
-        });
-        jScrollFinalListSelect.setViewportView(jTableFinalListSelect);
-
-        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
-        jPanel12.setLayout(jPanel12Layout);
-        jPanel12Layout.setHorizontalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel12Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollFinalListSelect, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel12Layout.setVerticalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel12Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollFinalListSelect, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 778, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jToolBar3, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jTabbedPaneSelect)
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButtonSaveSelectionList, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jButtonSelect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                                .addGap(26, 26, 26)
-                                                .addComponent(jLabel3)))
-                                        .addGap(2, 2, 2)))
-                                .addGap(30, 30, 30)))
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jToolBar4, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(66, 66, 66))))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(72, 72, 72)
-                        .addComponent(jButtonSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(jButtonSaveSelectionList, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTabbedPaneSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jToolBar3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToolBar4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
-                .addGap(17, 17, 17))
-        );
-
-        jTabbedPane1.addTab(org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jPanel2.TabConstraints.tabTitle"), jPanel2); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -1342,13 +883,14 @@ public final class nurseryManagerTopComponent extends TopComponent {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -1525,32 +1067,6 @@ public final class nurseryManagerTopComponent extends TopComponent {
 
                 break;
 
-            case 2:
-                validSelection = cboGermplasmListSelect.getSelectedIndex() > 0;
-
-                if (validSelection) {
-                    try {
-                        Listnms selectedList = (Listnms) cboGermplasmListSelect.getSelectedItem();
-                        GermplasmList germplasmList = germplasmListReader.getGermPlasmListFromDB(selectedList.getListid());
-                        setGermplasmListIntoTable(germplasmList, tabla, 0, 2);
-                    } catch (Exception ex) {
-                        System.out.println("ERROR AL LEER DB GERMPLASM ENTRIES: " + ex);
-                    }
-                } else {
-                    GermplasmEntriesTableModel modeloTablaEntries = new GermplasmEntriesTableModel();
-                    this.jTableEntriesDBSelect.setModel(modeloTablaEntries);
-                    this.jTextAreaPathSelect.setText("");
-                    this.jTextFieldListEntriesSelect.setText("0");
-
-                }
-
-
-                germplasmTransferHandler.setSourceList(rowListDB);
-                germplasmTransferHandler.setSourceTable(jTableEntriesDBSelect);
-                germplasmTransferHandler.setFactores(factores);
-
-                break;
-
         }
 
 
@@ -1574,12 +1090,8 @@ public final class nurseryManagerTopComponent extends TopComponent {
                 break;
             case 1://male
                 this.jTextFieldListEntriesMale.setText(String.valueOf(germplasmList.getListEntries().size()));
-
                 break;
-            case 2: //selection form
-                this.jTextFieldListEntriesSelect.setText(String.valueOf(germplasmList.getListEntries().size()));
-
-                break;
+           
         }
 
 
@@ -1656,21 +1168,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
 
     public void addListener() {
 
-        ListSelectionModel cellSelectionSelectModel = jTableEntriesDBSelect.getSelectionModel();
-        cellSelectionSelectModel.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-        cellSelectionSelectModel.addListSelectionListener(new ListSelectionListener() {
-
-            @Override
-            public void valueChanged(ListSelectionEvent e) {
-                jTextFieldSelectedEntriesSelect.setText(String.valueOf(jTableEntriesDBSelect.getSelectedRowCount()));
-
-            }
-        });
-
-
-        this.jTableEntriesDBSelect.setSelectionModel(cellSelectionSelectModel);
-
-        //--------------------------------------------------------------------------------------------
+  
 
         ListSelectionModel cellSelectionFemaleModel = jTableEntriesDBFemale.getSelectionModel();
         cellSelectionFemaleModel.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
@@ -1678,7 +1176,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
 
             @Override
             public void valueChanged(ListSelectionEvent e) {
-                jTextFieldSelectedEntriesFemale1.setText(String.valueOf(jTableEntriesDBFemale.getSelectedRowCount()));
+                jTextFieldSelectedEntriesFemale.setText(String.valueOf(jTableEntriesDBFemale.getSelectedRowCount()));
             }
         });
         this.jTableEntriesDBFemale.setSelectionModel(cellSelectionFemaleModel);
@@ -1694,19 +1192,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
             }
         });
         this.jTableEntriesDBMale.setSelectionModel(cellSelectionMaleModel);
-//--------------------------------------------------------------------------------------------
 
-        ListSelectionModel cellFinalSelectModel = jTableFinalListSelect.getSelectionModel();
-        cellFinalSelectModel.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-        cellFinalSelectModel.addListSelectionListener(new ListSelectionListener() {
-
-            @Override
-            public void valueChanged(ListSelectionEvent e) {
-                jTextFieldSelectedFinal.setText(String.valueOf(jTableFinalListSelect.getSelectedRowCount()));
-            }
-        });
-        this.jTableFinalListSelect.setSelectionModel(cellFinalSelectModel);
-        //--------------------------------------------------------------------------------------------
 
         ListSelectionModel cellSelectionExcelFemaleModel = jTableEntriesExcelFemale.getSelectionModel();
         cellSelectionExcelFemaleModel.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
@@ -1731,17 +1217,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
             }
         });
         this.jTableEntriesExcelMale.setSelectionModel(cellSelectionExcelMaleModel);
-        //--------------------------------------------------------------------------------------------     
-        ListSelectionModel cellSelectionExcelSelectModel = jTableEntriesExcelSelect.getSelectionModel();
-        cellSelectionExcelSelectModel.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-        cellSelectionExcelSelectModel.addListSelectionListener(new ListSelectionListener() {
-
-            @Override
-            public void valueChanged(ListSelectionEvent e) {
-                jTextFieldSelectedEntriesSelect.setText(String.valueOf(jTableEntriesExcelSelect.getSelectedRowCount()));
-            }
-        });
-        this.jTableEntriesExcelSelect.setSelectionModel(cellSelectionExcelSelectModel);
+       
 
     }
 
@@ -2069,85 +1545,6 @@ public final class nurseryManagerTopComponent extends TopComponent {
 
     }
 
-    private void jButtonSaveSelectionListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveSelectionListActionPerformed
-   }//GEN-LAST:event_jButtonSaveSelectionListActionPerformed
-
-    private void jButtonSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSelectActionPerformed
-        if (this.isSelectionScripFile) {
-            System.out.println("AGREGAMOS LO QUE VENGA DE EXCEL");
-
-
-
-
-        } else {
-        }
-    }//GEN-LAST:event_jButtonSelectActionPerformed
-
-    private void jTableFinalListSelectPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jTableFinalListSelectPropertyChange
-        this.jTextFieldTotalEntries.setText(String.valueOf(this.jTableFinalListSelect.getRowCount()));
-        this.jTextFieldSelectedFinal.setText(String.valueOf(this.jTableFinalListSelect.getSelectedRowCount()));
-    }//GEN-LAST:event_jTableFinalListSelectPropertyChange
-
-    private void jTabbedPaneSelectStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPaneSelectStateChanged
-        switch (jTabbedPaneSelect.getSelectedIndex()) {
-            case 0:
-                this.jTextFieldListEntriesSelect.setText(String.valueOf(this.jTableEntriesDBSelect.getRowCount()));
-                this.jTextFieldSelectedEntriesSelect.setText(String.valueOf(this.jTableEntriesDBSelect.getSelectedRowCount()));
-                isSelectionScripFile = false;
-
-                break;
-            case 1:
-                this.jTextFieldListEntriesSelect.setText(String.valueOf(this.jTableEntriesExcelSelect.getRowCount()));
-                this.jTextFieldSelectedEntriesSelect.setText(String.valueOf(this.jTableEntriesExcelSelect.getSelectedRowCount()));
-                isSelectionScripFile = false;
-
-                break;
-
-            case 2:
-                this.jTextFieldListEntriesSelect.setText(String.valueOf(this.jTableEntriesExcelSelectScript.getRowCount()));
-                this.jTextFieldSelectedEntriesSelect.setText(String.valueOf(this.jTableEntriesExcelSelectScript.getSelectedRowCount()));
-                isCrossScripFile = true;
-
-                break;
-
-        }
-    }//GEN-LAST:event_jTabbedPaneSelectStateChanged
-
-    private void jButtonBrowseExcelSelectScriptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBrowseExcelSelectScriptActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonBrowseExcelSelectScriptActionPerformed
-
-    private void jTextAreaPathSelectScriptMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextAreaPathSelectScriptMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextAreaPathSelectScriptMousePressed
-
-    private void jTableEntriesExcelSelectPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jTableEntriesExcelSelectPropertyChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTableEntriesExcelSelectPropertyChange
-
-    private void jButtonBrowseExcelSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBrowseExcelSelectActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonBrowseExcelSelectActionPerformed
-
-    private void jTextAreaPathSelectMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextAreaPathSelectMousePressed
-        if (!this.jTextAreaPathSelect.isEnabled()) {
-            return;
-        }
-
-        openFile(2);
-        if (this.jTextAreaPathSelect.getText().isEmpty() == false) {
-            readExcelGermplsmEntries(this.jTextAreaPathSelect.getText(), this.jTableEntriesExcelSelect, 2);
-        }
-    }//GEN-LAST:event_jTextAreaPathSelectMousePressed
-
-    private void jTableEntriesDBSelectPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jTableEntriesDBSelectPropertyChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTableEntriesDBSelectPropertyChange
-
-    private void cboGermplasmListSelectItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cboGermplasmListSelectItemStateChanged
-        readGermplsmEntriesFromDb(this.jTableEntriesDBSelect, 2);
-    }//GEN-LAST:event_cboGermplasmListSelectItemStateChanged
-
     private void jTextFieldListNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldListNameKeyReleased
    }//GEN-LAST:event_jTextFieldListNameKeyReleased
 
@@ -2263,13 +1660,13 @@ public final class nurseryManagerTopComponent extends TopComponent {
     private void jTableEntriesDBFemalePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jTableEntriesDBFemalePropertyChange
         switch (jTabbedPaneFemale.getSelectedIndex()) {
             case 0:
-                this.jTextFieldListEntriesFemale1.setText(String.valueOf(this.jTableEntriesDBFemale.getRowCount()));
-                this.jTextFieldSelectedEntriesFemale1.setText(String.valueOf(this.jTableEntriesDBFemale.getSelectedRowCount()));
+                this.jTextFieldListEntriesFemale.setText(String.valueOf(this.jTableEntriesDBFemale.getRowCount()));
+                this.jTextFieldSelectedEntriesFemale.setText(String.valueOf(this.jTableEntriesDBFemale.getSelectedRowCount()));
 
                 break;
             case 1:
-                this.jTextFieldListEntriesFemale1.setText(String.valueOf(this.jTableEntriesExcelFemale.getRowCount()));
-                this.jTextFieldSelectedEntriesFemale1.setText(String.valueOf(this.jTableEntriesExcelFemale.getSelectedRowCount()));
+                this.jTextFieldListEntriesFemale.setText(String.valueOf(this.jTableEntriesExcelFemale.getRowCount()));
+                this.jTextFieldSelectedEntriesFemale.setText(String.valueOf(this.jTableEntriesExcelFemale.getSelectedRowCount()));
 
                 break;
 
@@ -2327,10 +1724,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
                 this.jTextAreaPathMale.setText(selectorArchivo.getSelectedFile().toString());
 
                 break;
-            case 2: //selection form
-                this.jTextAreaPathSelect.setText(selectorArchivo.getSelectedFile().toString());
-
-                break;
+            
         }
 
 
@@ -2416,28 +1810,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
 
 
 
-            case 2://selection form
-                if (validFile) {
-                    try {
-                        GermplasmList germplasmList = germplasmListReader.getGermPlasmList(myFile);
-                        setGermplasmListIntoTable(germplasmList, tabla, 2);
-                    } catch (Exception ex) {
-                        System.out.println("ERROR AL LEER EXCEL GERMPLASM ENTRIES: " + ex);
-                    }
-                } else {
-                    GermplasmEntriesTableModel modeloTablaEntries = new GermplasmEntriesTableModel();
-                    this.jTableEntriesExcelSelect.setModel(modeloTablaEntries);
-                    this.jTextAreaPathSelect.setText("");
-                    this.jTextFieldListEntriesSelect.setText("0");
-                    DialogDisplayer.getDefault().notify(new NotifyDescriptor.Message("THIS EXCEL FILE IS NOT A VALID ENTRIES FILE", NotifyDescriptor.ERROR_MESSAGE));
-                }
-
-                germplasmTransferHandler.setSourceList(rowListExcel);
-                germplasmTransferHandler.setSourceTable(jTableEntriesExcelSelect);
-                germplasmTransferHandler.setFactores(factores);
-
-
-                break;
+          
 
         }
 
@@ -2451,16 +1824,14 @@ public final class nurseryManagerTopComponent extends TopComponent {
 
         switch (option) {
             case 0://female
-                this.jTextFieldListEntriesFemale1.setText(String.valueOf(germplasmList.getListEntries().size()));
-                this.jTextFieldSelectedEntriesFemale1.setText(String.valueOf(this.jTableEntriesExcelFemale.getSelectedRowCount()));
+                this.jTextFieldListEntriesFemale.setText(String.valueOf(germplasmList.getListEntries().size()));
+                this.jTextFieldSelectedEntriesFemale.setText(String.valueOf(this.jTableEntriesExcelFemale.getSelectedRowCount()));
                 break;
             case 1://male
                 this.jTextFieldListEntriesMale.setText(String.valueOf(germplasmList.getListEntries().size()));
                 this.jTextFieldSelectedFinalMale.setText(String.valueOf(this.jTableEntriesExcelMale.getSelectedRowCount()));
                 break;
-            case 2://selection form
-                this.jTextFieldListEntriesSelect.setText(String.valueOf(germplasmList.getListEntries().size()));
-                break;
+           
         }
 
 
@@ -2507,35 +1878,19 @@ public final class nurseryManagerTopComponent extends TopComponent {
     private javax.swing.JPanel btnRemoveMaleExcel;
     private javax.swing.JComboBox cboGermplasmListFemale;
     private javax.swing.JComboBox cboGermplasmListMale;
-    private javax.swing.JComboBox cboGermplasmListSelect;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonBrowseExcelFemale;
     private javax.swing.JButton jButtonBrowseExcelMale;
-    private javax.swing.JButton jButtonBrowseExcelSelect;
-    private javax.swing.JButton jButtonBrowseExcelSelectScript;
     private javax.swing.JButton jButtonCross;
     private javax.swing.JButton jButtonLoadExcelScript;
     private javax.swing.JButton jButtonSaveCross;
-    private javax.swing.JButton jButtonSaveSelectionList;
-    private javax.swing.JButton jButtonSelect;
     private javax.swing.JCheckBox jChkLeading;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBoxConvection;
     private javax.swing.JComboBox jComboBoxMethods;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -2544,72 +1899,40 @@ public final class nurseryManagerTopComponent extends TopComponent {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelEntries;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollEntiresExcelFemale;
     private javax.swing.JScrollPane jScrollEntiresExcelMale;
-    private javax.swing.JScrollPane jScrollEntiresExcelSelect;
-    private javax.swing.JScrollPane jScrollEntiresExcelSelectScript;
     private javax.swing.JScrollPane jScrollEntriesDbFemale;
     private javax.swing.JScrollPane jScrollEntriesDbMale;
-    private javax.swing.JScrollPane jScrollEntriesDbSelect;
-    private javax.swing.JScrollPane jScrollFinalListSelect;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JToolBar.Separator jSeparator10;
-    private javax.swing.JToolBar.Separator jSeparator11;
     private javax.swing.JToolBar.Separator jSeparator6;
-    private javax.swing.JToolBar.Separator jSeparator7;
     private javax.swing.JToolBar.Separator jSeparator8;
-    private javax.swing.JToolBar.Separator jSeparator9;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPaneFemale;
     private javax.swing.JTabbedPane jTabbedPaneMale;
-    private javax.swing.JTabbedPane jTabbedPaneSelect;
     private javax.swing.JTable jTableEntriesDBFemale;
     private javax.swing.JTable jTableEntriesDBMale;
-    private javax.swing.JTable jTableEntriesDBSelect;
     private javax.swing.JTable jTableEntriesExcelFemale;
     private javax.swing.JTable jTableEntriesExcelMale;
-    private javax.swing.JTable jTableEntriesExcelSelect;
-    private javax.swing.JTable jTableEntriesExcelSelectScript;
     private javax.swing.JTable jTableFinalList;
-    private javax.swing.JTable jTableFinalList1;
-    private javax.swing.JTable jTableFinalListSelect;
     private javax.swing.JTextArea jTextAreaPathFemale;
     private javax.swing.JTextArea jTextAreaPathMale;
-    private javax.swing.JTextArea jTextAreaPathSelect;
-    private javax.swing.JTextArea jTextAreaPathSelectScript;
     private javax.swing.JTextField jTextFieldDescription;
     private javax.swing.JTextField jTextFieldListEntriesFemale;
-    private javax.swing.JTextField jTextFieldListEntriesFemale1;
     private javax.swing.JTextField jTextFieldListEntriesMale;
-    private javax.swing.JTextField jTextFieldListEntriesSelect;
     private javax.swing.JTextField jTextFieldListName;
     private javax.swing.JTextField jTextFieldSelectedEntriesFemale;
-    private javax.swing.JTextField jTextFieldSelectedEntriesFemale1;
-    private javax.swing.JTextField jTextFieldSelectedEntriesSelect;
-    private javax.swing.JTextField jTextFieldSelectedFinal;
     private javax.swing.JTextField jTextFieldSelectedFinalMale;
-    private javax.swing.JTextField jTextFieldTotalEntries;
     private javax.swing.JTextField jTextPrefix;
     private javax.swing.JTextField jTextSuffix;
-    private javax.swing.JToolBar jToolBar3;
-    private javax.swing.JToolBar jToolBar4;
     private javax.swing.JLabel jlblDescription;
     private javax.swing.JLabel jlblEntries;
     private javax.swing.JLabel jlblListName;
@@ -2644,27 +1967,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
     }
 
     private void addDrag() {
-        jTableEntriesDBSelect.setDragEnabled(true);
-        jTableEntriesDBSelect.setDropMode(DropMode.INSERT_ROWS);
-
-
-        germplasmTransferHandler = new GermplasmTransferHandlerSelection(jTableEntriesDBSelect, jTableFinalListSelect, rowListDB, toAdd);
-
-
-        jTableFinalListSelect.setTransferHandler(germplasmTransferHandler);
-        jScrollFinalListSelect.setTransferHandler(germplasmTransferHandler);
-
-
-        jTableFinalListSelect.setDragEnabled(true);
-        jTableFinalListSelect.setDropMode(DropMode.INSERT_ROWS);
-
-        removeGermplasmTransferHandler = new RemoveGermplasmTransferHandler(jTableFinalListSelect, toAdd);
-
-        jTableEntriesDBSelect.setTransferHandler(removeGermplasmTransferHandler);
-        jScrollEntriesDbSelect.setTransferHandler(removeGermplasmTransferHandler);
-
-        jTableEntriesExcelSelect.setTransferHandler(removeGermplasmTransferHandler);
-        jScrollEntiresExcelSelect.setTransferHandler(removeGermplasmTransferHandler);
+       
     }
 
     private void fillMethods() {
@@ -2886,7 +2189,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
             tableModel.removeRow(seleccionados[i] - i);
         }
 
-        this.jTextFieldListEntriesFemale1.setText(String.valueOf(tableModel.getRowCount()));
+        this.jTextFieldListEntriesFemale.setText(String.valueOf(tableModel.getRowCount()));
 
     }
 
