@@ -8,7 +8,6 @@ import ibfb.nursery.core.NurseryEditorTopComponent;
 import ibfb.nursery.filters.ExcelFiltro;
 import ibfb.nursery.models.GermplasmEntriesTableModel;
 import ibfb.settings.core.FieldbookSettings;
-import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 import ibfb.workbook.api.GermplasmAssigmentTool;
 import ibfb.workbook.api.GermplasmListReader;
 import ibfb.workbook.core.GermplasmAssigmentToolImpl;
@@ -20,15 +19,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import javax.swing.JFileChooser;
-import javax.swing.JPanel;
-import javax.swing.JTable;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
+import javax.swing.*;
 import javax.swing.filechooser.FileFilter;
-import javax.swing.table.*;
+import javax.swing.table.DefaultTableColumnModel;
+import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableModel;
 import org.cimmyt.cril.ibwb.api.AppServicesProxy;
+import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 import org.cimmyt.cril.ibwb.commongui.OSUtils;
 import org.cimmyt.cril.ibwb.domain.Listnms;
 import org.openide.DialogDisplayer;
@@ -294,14 +292,10 @@ public final class NurseryVisualPanel41 extends JPanel {
         previewFile(this.jTextAreaPath.getText());
 }//GEN-LAST:event_jButtonPreviewActionPerformed
 
-    public void fillComboListNames() {
-        
+    public void fillComboListNames() {        
         List<Listnms> germplasmList = AppServicesProxy.getDefault().appServices().getListnmsList();
-        
-        
         for (Listnms list : germplasmList) {
-            cboGermplasmList.addItem(list);
-            
+            cboGermplasmList.addItem(list);           
         }
                
     }
