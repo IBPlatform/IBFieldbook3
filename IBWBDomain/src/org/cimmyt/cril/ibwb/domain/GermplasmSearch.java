@@ -13,6 +13,7 @@ public class GermplasmSearch {
     private Integer studyId;
     private Integer trial;
     private Integer plot;
+    private String crosstype;
     
     private String snameFmale;
     private String snameMale;
@@ -223,6 +224,20 @@ public class GermplasmSearch {
      */
     public void setSnameMale(String snameMale) {
         this.snameMale = snameMale;
+    }
+
+    /**
+     * @return the crosstype
+     */
+    public String getCrosstype() {
+        return crosstype;
+    }
+
+    /**
+     * @param crosstype the crosstype to set
+     */
+    public void setCrosstype(String crosstype) {
+        this.crosstype = crosstype;
     }
     
     
