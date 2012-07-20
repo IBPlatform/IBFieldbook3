@@ -1475,12 +1475,15 @@ public final class nurseryManagerTopComponent extends TopComponent {
 
 
                 GermplasmSearch gsF = new GermplasmSearch();
+                gsF.setCrosstype("SS");
                 gsF.setStudyId(ftid);
                 gsF.setTrial(focc);
                 gsF.setPlot(fent);
                 listFemale.add(gsF);
-
+               
+                       
                 GermplasmSearch gsM = new GermplasmSearch();
+                gsM.setCrosstype("SS");
                 gsM.setStudyId(mtid);
                 gsM.setTrial(mocc);
                 gsM.setPlot(ment);
