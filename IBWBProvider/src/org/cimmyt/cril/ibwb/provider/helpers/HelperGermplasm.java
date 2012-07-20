@@ -651,11 +651,15 @@ public class HelperGermplasm {
                 }
 
                 Factor factorProgram = appServices.getFactorByStudyidAndFname(studySearch.getStudyId(), program);
-                if(factorProgram != null){
-                    factorProgram = HelperFactor.getFactorFillingFull(factorProgram, appServices, 801);
-                    String levelValue = (String)factorProgram.getLevel(0);
-                    if(levelValue != null){
-                        studySearch.getSb().append(levelValue);
+                if(germplasmSearch.getCrosstype() != null){
+                    studySearch.getSb().append(germplasmSearch.getCrosstype());
+                }else{
+                    if(factorProgram != null){
+                        factorProgram = HelperFactor.getFactorFillingFull(factorProgram, appServices, 801);
+                        String levelValue = (String)factorProgram.getLevel(0);
+                        if(levelValue != null){
+                            studySearch.getSb().append(levelValue);
+                        }
                     }
                 }
                 
@@ -664,7 +668,7 @@ public class HelperGermplasm {
                     factorHaveDate = HelperFactor.getFactorFillingFull(factorHaveDate, appServices, 801);
                     Double levelValue = (Double) factorHaveDate.getLevel(studySearch.getTrial()-1);
                     if(levelValue != null){
-                        studySearch.getSb().append(levelValue.toString().substring(2, 4));
+                        studySearch.getSb().append(levelValue.toString().substring(3, 5));
                     }
                 }
 
