@@ -28,6 +28,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.ResourceBundle;
 import javax.swing.BorderFactory;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JComponent;
@@ -46,8 +47,10 @@ import javax.swing.table.TableColumn;
 import org.cimmyt.cril.ibwb.api.AppServicesProxy;
 import org.cimmyt.cril.ibwb.commongui.OSUtils;
 import org.cimmyt.cril.ibwb.domain.Listnms;
+import org.openide.util.NbBundle;
 
 public class JDExpert extends javax.swing.JDialog {
+    private ResourceBundle bundle = NbBundle.getBundle(JDExpert.class);
 
     private JFileChooser selectorArchivo = new JFileChooser();
     private SpinnerNumberModel modeloinstances = new SpinnerNumberModel(1, 1, 1000, 1);
@@ -77,6 +80,7 @@ public class JDExpert extends javax.swing.JDialog {
         deshabilitaGSM();
         fillComboListNames();
         checkButtonsStatus();
+        cboGermplasmList.setModel(new javax.swing.DefaultComboBoxModel(new String[] { bundle.getString("JDExpert.selectOne")}));
     }
 
     public int getInstances() {
@@ -502,7 +506,7 @@ public class JDExpert extends javax.swing.JDialog {
 
 
         if (this.jTextAreaPathTemplate.getText().isEmpty() && this.jTextAreaPathGSM.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "YOU NEED TO SELECT VALID FILES", "ERROR", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, bundle.getString("JDExpert.youNeedSelectValidFiles"), bundle.getString("JDExpert.error"), JOptionPane.ERROR_MESSAGE);
         } else {
 
             this.setVisible(false);
@@ -679,7 +683,7 @@ public class JDExpert extends javax.swing.JDialog {
         } else {
             this.jTextAreaPathTemplate.setText("");
             setLabelDefault();
-            JOptionPane.showMessageDialog(this, "This Excel file is not a valid template " + validateExcelReader.getValidationMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this,bundle.getString("JDExpert.noValidTemplate") + validateExcelReader.getValidationMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
         }
 
     }
@@ -1033,7 +1037,7 @@ public class JDExpert extends javax.swing.JDialog {
             modeloTabla.setNumRows(0);
             this.jTextAreaPathGSM.setText("");
             this.jTextFieldTotalEntries.setText("0");
-            JOptionPane.showMessageDialog(this, "THIS EXCEL FILE IS NOT A VALID ENTRIES FILE", "ERROR", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, bundle.getString("JDExpert.noValidEntriesFile"), bundle.getString("JDExpert.error"), JOptionPane.ERROR_MESSAGE);
             this.jButtonFinishExpert.setEnabled(false);
         }
 
@@ -1042,7 +1046,7 @@ public class JDExpert extends javax.swing.JDialog {
     public final void fillComboListNames() {
         List<Listnms> germplasmList = AppServicesProxy.getDefault().appServices().getListnmsList();
         cboGermplasmList.removeAllItems();
-        cboGermplasmList.addItem("SELECT ONE...");
+        cboGermplasmList.addItem(bundle.getString("JDExpert.selectOne"));
         for (Listnms list : germplasmList) {
             cboGermplasmList.addItem(list);
         }
@@ -1130,14 +1134,14 @@ public class JDExpert extends javax.swing.JDialog {
         myExcelReader.readExcelWorkbookTemplateStudyConditions();
         Workbook workbook = myExcelReader.getMyWorkbook();
         String label = workbook.getInstanceLabel();
-        String cad = "Specify the number of levels of " + label;
+        String cad = bundle.getString("JDExpert.specifyNumberOfLevelsOf") + " " + label;
         TitledBorder title;
         title = BorderFactory.createTitledBorder(cad);
         this.jPanelInstances.setBorder(title);
     }
 
     private void setLabelDefault() {
-        String cad = "Specify the number of levels of trials";
+        String cad = bundle.getString("JDExpert.specifyNumberOfLevelsOfTrials");
         TitledBorder title;
         title = BorderFactory.createTitledBorder(cad);
         this.jPanelInstances.setBorder(title);
