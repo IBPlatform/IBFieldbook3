@@ -282,7 +282,7 @@ public final class ListNamesExplorerTopComponent extends TopComponent {
         Listnms filter = new Listnms(true);
         filter.setGlobalsearch(txtSearch.getText());
         germplamList = AppServicesProxy.getDefault().appServices().getListListnms(filter, 0, 0, false);
-        lblListsFound.setText(germplamList.size() + " List(s) found");
+        lblListsFound.setText(germplamList.size() + " " + NbBundle.getMessage(ListNamesExplorerTopComponent.class, "ListNamesExplorerTopComponent.lblListsFound.text"));
         TableBindingUtil.createColumnsFromDB(Listnms.class, germplamList, tblGermplasmList, "listid,listname,listdesc", "ListId,Name, Description");
     }
 

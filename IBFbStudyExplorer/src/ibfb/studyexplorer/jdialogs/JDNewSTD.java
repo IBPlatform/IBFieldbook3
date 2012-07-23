@@ -488,16 +488,16 @@ public class JDNewSTD extends javax.swing.JDialog {
     private void configPanel() {
         jButtonOK.setEnabled(false);
         group = validationPanel1.getValidationGroup();
-        jTextFieldStudy.setName("Study name");
-        jTextFieldObjective.setName("Objective");
-        jTextFieldTitle.setName("Study title");
+        jTextFieldStudy.setName(bundle.getString("JDNewSTD.lblStudyName.text"));
+        jTextFieldObjective.setName(bundle.getString("JDNewSTD.lblObjective.text"));
+        jTextFieldTitle.setName(bundle.getString("JDNewSTD.lblStudyTitle.text"));
         group.add(jTextFieldStudy, Validators.REQUIRE_NON_EMPTY_STRING, new StudyCheckValidator());
         group.add(jTextFieldObjective, Validators.REQUIRE_NON_EMPTY_STRING);
         group.add(jTextFieldTitle, Validators.REQUIRE_NON_EMPTY_STRING);
         jTextFieldObjective.getDocument().addDocumentListener(doc);
         jTextFieldTitle.getDocument().addDocumentListener(doc);
-        jDateChooserStart.setName("Start Date");
-        jDateChooserEnd.setName("End Date");    
+        jDateChooserStart.setName(bundle.getString("JDNewSTD.lblStarDate.text"));
+        jDateChooserEnd.setName(bundle.getString("JDNewSTD.lblEndDate.text"));    
         jDateChooserStart.getDateEditor().getUiComponent().setInputVerifier(datesInputVerifier);
         jDateChooserEnd.getDateEditor().getUiComponent().setInputVerifier(datesInputVerifier);
         //datesGroup.add(jDateChooserStart.getDateEditor(),new DateRangeValidator());
