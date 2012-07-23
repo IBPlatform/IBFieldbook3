@@ -110,6 +110,8 @@ public final class addChecksTopComponent extends TopComponent {
     }
 
     private void fillComboListNames() {
+        cboGermplasmList.setModel(new DefaultComboBoxModel(new String[] {NbBundle.getMessage(addChecksTopComponent.class,"addChecksTopComponent.selectOne") }));
+        cboGermplasmListChecks.setModel(new DefaultComboBoxModel(new String[] {NbBundle.getMessage(addChecksTopComponent.class,"addChecksTopComponent.selectOne") }));
         List<Listnms> germplasmList = AppServicesProxy.getDefault().appServices().getListnmsList();
         for (Listnms list : germplasmList) {
             cboGermplasmList.addItem(list);
