@@ -3,6 +3,7 @@
 <filesystem>
     <folder name="Menu">
         <folder name="Database">
+            <attr name="displayName" bundlevalue="ibfb.branding.core.Bundle#Menu/Database"/>
             <attr name="position" intvalue="200"/>
         </folder>
         <file name="Edit_hidden"/>
@@ -71,18 +72,20 @@
             <file name="ibfb-ui-actions-CreateTemplateAction.shadow_hidden"/>
         </folder>
         <file name="View_hidden"/>
-        <folder name="Window">
-            <file name="CloneDocumentAction.shadow_hidden"/>
-            <file name="CloseAllButThisAction.shadow_hidden"/>
-            <file name="DocumentsAction.shadow_hidden"/>
-            <file name="Output_hidden"/>
-            <file name="ProgressListAction.shadow_hidden"/>
-            <file name="SwitchToRecentDocumentAction.shadow_hidden"/>
-            <file name="ibfb-help-core-MyHelpTopComponent.shadow_hidden"/>
-            <file name="ibfb-r-ui-ScriptsWindowTopComponent.shadow_hidden"/>
-            <file name="ibfb-studyeditor-core-StudyEditorTopComponent.shadow_hidden"/>
-            <file name="ibfb-studyexplorer-explorer-StudyExplorerTopComponent.shadow_hidden"/>
-            <file name="ibfb-ui-core-BackgroundWindowTopComponent.shadow_hidden"/>
+        <folder name="Window_hidden">
+            <file name="ibfb-germplasmlist-core-addChecksTopComponent.shadow_hidden"/>
+            <file name="ibfb-germplasmlist-core-nurseryCrossesTopComponent.shadow_hidden"/>
+            <file name="ibfb-germplasmlist-core-nurserySelectionTopComponent.shadow_hidden"/>
+            <file name="ibfb-inventory-core-InventoryTopComponent.shadow_hidden"/>
+            <file name="ibfb-nursery-advance-AdvanceLineTopComponent.shadow_hidden"/>
+            <file name="ibfb-nursery-core-NurseryEditorTopComponent.shadow_hidden"/>
+            <file name="ibfb-nursery-inventory-InventoryTopComponent.shadow_hidden"/>
+            <file name="ibfb-studyeditor-reports-ReportViewerTopComponent.shadow_hidden"/>
+            <file name="ibfb-studyexplorer-explorer-listNames-ListDataWindowTopComponent.shadow_hidden"/>
+            <file name="ibfb-studyexplorer-explorer-listNames-ListNamesExplorerTopComponent.shadow_hidden"/>
+            <file name="ibfb-traits-methods-MethodBrowserTopComponent.shadow_hidden"/>
+            <file name="ibfb-traits-methods-MethodEditorTopComponent.shadow_hidden"/>
+            <file name="ibfb-traits-scales-ScalesBrowserTopComponent.shadow_hidden"/><file name="ibfb-ui-core-BackgroundWindowTopComponent.shadow_hidden"/>
             <file name="org-netbeans-modules-favorites-View.shadow_hidden"/>
         </folder>
     </folder>
