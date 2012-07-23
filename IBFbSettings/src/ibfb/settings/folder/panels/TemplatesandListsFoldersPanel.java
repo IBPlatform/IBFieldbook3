@@ -23,23 +23,23 @@ public final class TemplatesandListsFoldersPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
+        pnlTemplatesFolder = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         btnSearchTempExpert = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtPathTempExpert = new javax.swing.JTextArea();
         btnUseDefault = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
+        pnlFolderGermplasm = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         btnSearchGSMExpert = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtPathGSMExpert = new javax.swing.JTextArea();
         btnUseDefaultGersmplasmFolder = new javax.swing.JButton();
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(TemplatesandListsFoldersPanel.class, "TemplatesandListsFoldersPanel.jPanel2.border.title"))); // NOI18N
-        jPanel2.setToolTipText(org.openide.util.NbBundle.getMessage(TemplatesandListsFoldersPanel.class, "TemplatesandListsFoldersPanel.jPanel2.toolTipText")); // NOI18N
-        jPanel2.setMaximumSize(null);
-        jPanel2.setPreferredSize(new java.awt.Dimension(550, 175));
+        pnlTemplatesFolder.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(TemplatesandListsFoldersPanel.class, "TemplatesandListsFoldersPanel.pnlTemplatesFolder.border.title"))); // NOI18N
+        pnlTemplatesFolder.setToolTipText(org.openide.util.NbBundle.getMessage(TemplatesandListsFoldersPanel.class, "TemplatesandListsFoldersPanel.pnlTemplatesFolder.toolTipText")); // NOI18N
+        pnlTemplatesFolder.setMaximumSize(null);
+        pnlTemplatesFolder.setPreferredSize(new java.awt.Dimension(550, 175));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/settings/core/images/templates.png"))); // NOI18N
         jLabel1.setToolTipText(org.openide.util.NbBundle.getMessage(TemplatesandListsFoldersPanel.class, "TemplatesandListsFoldersPanel.jLabel1.toolTipText")); // NOI18N
@@ -72,41 +72,41 @@ public final class TemplatesandListsFoldersPanel extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlTemplatesFolderLayout = new javax.swing.GroupLayout(pnlTemplatesFolder);
+        pnlTemplatesFolder.setLayout(pnlTemplatesFolderLayout);
+        pnlTemplatesFolderLayout.setHorizontalGroup(
+            pnlTemplatesFolderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTemplatesFolderLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(pnlTemplatesFolderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnSearchTempExpert, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnUseDefault, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+        pnlTemplatesFolderLayout.setVerticalGroup(
+            pnlTemplatesFolderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTemplatesFolderLayout.createSequentialGroup()
+                .addGroup(pnlTemplatesFolderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlTemplatesFolderLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel1))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGroup(pnlTemplatesFolderLayout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addComponent(btnSearchTempExpert)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnUseDefault))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGroup(pnlTemplatesFolderLayout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(34, Short.MAX_VALUE))
         );
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(TemplatesandListsFoldersPanel.class, "TemplatesandListsFoldersPanel.jPanel3.border.title"))); // NOI18N
-        jPanel3.setToolTipText(org.openide.util.NbBundle.getMessage(TemplatesandListsFoldersPanel.class, "TemplatesandListsFoldersPanel.jPanel3.toolTipText")); // NOI18N
+        pnlFolderGermplasm.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(TemplatesandListsFoldersPanel.class, "TemplatesandListsFoldersPanel.pnlFolderGermplasm.border.title"))); // NOI18N
+        pnlFolderGermplasm.setToolTipText(org.openide.util.NbBundle.getMessage(TemplatesandListsFoldersPanel.class, "TemplatesandListsFoldersPanel.pnlFolderGermplasm.toolTipText")); // NOI18N
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/settings/core/images/germplasm.png"))); // NOI18N
 
@@ -137,30 +137,30 @@ public final class TemplatesandListsFoldersPanel extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlFolderGermplasmLayout = new javax.swing.GroupLayout(pnlFolderGermplasm);
+        pnlFolderGermplasm.setLayout(pnlFolderGermplasmLayout);
+        pnlFolderGermplasmLayout.setHorizontalGroup(
+            pnlFolderGermplasmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlFolderGermplasmLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(pnlFolderGermplasmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnSearchGSMExpert, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnUseDefaultGersmplasmFolder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+        pnlFolderGermplasmLayout.setVerticalGroup(
+            pnlFolderGermplasmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlFolderGermplasmLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlFolderGermplasmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnSearchGSMExpert)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlFolderGermplasmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(pnlFolderGermplasmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnUseDefaultGersmplasmFolder)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(20, 20, 20))
@@ -173,17 +173,17 @@ public final class TemplatesandListsFoldersPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 566, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pnlFolderGermplasm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnlTemplatesFolder, javax.swing.GroupLayout.PREFERRED_SIZE, 566, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlTemplatesFolder, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlFolderGermplasm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(26, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -257,10 +257,10 @@ public final class TemplatesandListsFoldersPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnUseDefaultGersmplasmFolder;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JPanel pnlFolderGermplasm;
+    private javax.swing.JPanel pnlTemplatesFolder;
     private javax.swing.JTextArea txtPathGSMExpert;
     private javax.swing.JTextArea txtPathTempExpert;
     // End of variables declaration//GEN-END:variables
