@@ -56,6 +56,7 @@ public final class InventoryViewerTopComponent extends TopComponent {
     }
 
     private void fillComboListNames() {
+       cboGermplasmList.setModel(new javax.swing.DefaultComboBoxModel(new String[] {NbBundle.getMessage(InventoryViewerTopComponent.class, "InventoryViewerTopComponent.selectOne")}));        
         List<Listnms> germplasmList = AppServicesProxy.getDefault().appServices().getListnmsList();
         for (Listnms list : germplasmList) {
             cboGermplasmList.addItem(list);
