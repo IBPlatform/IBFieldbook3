@@ -69,6 +69,7 @@
             <file name="master-help.xml_hidden"/>
         </folder>
         <folder name="Tools">
+            <attr name="displayName" bundlevalue="ibfb.branding.core.Bundle#Menu/Tools"/>
             <file name="ibfb-ui-actions-CreateTemplateAction.shadow_hidden"/>
         </folder>
         <file name="View_hidden"/>
