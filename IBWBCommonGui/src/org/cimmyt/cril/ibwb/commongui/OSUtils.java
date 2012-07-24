@@ -19,6 +19,8 @@ public class OSUtils {
     private static final String TEMPLATES_PATH = File.separator + "Examples" + File.separator + "Templates";
     private static final String DOCUMENTS_PATH = File.separator + "Documents";
     private static final String GERMPLASM_LISTS_PATH = File.separator + "Examples" + File.separator + "GermplasmLists";
+    private static final String CROSSES_PATH = File.separator + "Examples" + File.separator + "IBFieldbookImportCrossSelection";
+    private static final String SELECTIONS_PATH = File.separator + "Examples" + File.separator + "IBFieldbookImportCrossSelection";    
     public static String TEMPLATES_INI_PATH = "";
     public static String GERMPLASM_LISTS_INI_PATH = "";
     private static final String R_BIN_PATH = File.separator + "R-2.11.1";
@@ -41,7 +43,7 @@ public class OSUtils {
     public static String getGERMPLASM_LISTS_INI_PATH() {
         return GERMPLASM_LISTS_INI_PATH;
     }
-
+    
     public static void setGERMPLASM_LISTS_INI_PATH(String GERMPLASM_LISTS_INI_PATH) {
         OSUtils.GERMPLASM_LISTS_INI_PATH = GERMPLASM_LISTS_INI_PATH;
     }
@@ -109,6 +111,23 @@ public class OSUtils {
             return getGERMPLASM_LISTS_INI_PATH();
         }
     }
+    
+    public static String getCrossesFilesPath() {
+        if (getGERMPLASM_LISTS_INI_PATH().isEmpty()) {
+            return getIBFBPath() + CROSSES_PATH;
+        } else {
+            return getIBFBPath() + CROSSES_PATH;
+        }
+    }    
+    
+    public static String getSelectionsFilesPath() {
+        if (getGERMPLASM_LISTS_INI_PATH().isEmpty()) {
+            return getIBFBPath() + SELECTIONS_PATH;
+        } else {
+            return getIBFBPath() + SELECTIONS_PATH;
+        }
+    }    
+    
 
     /**
      * copied from studyeditor and R modules OSUtils
