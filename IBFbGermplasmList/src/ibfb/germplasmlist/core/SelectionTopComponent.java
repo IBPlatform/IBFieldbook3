@@ -1994,7 +1994,7 @@ public final class SelectionTopComponent extends TopComponent {
             selectorArchivo.removeChoosableFileFilter(filtro);
         }
 
-        File myDesktop = new File(FieldbookSettings.getSetting(FieldbookSettings.GERMPLASM_LIST_DEFAULT_FOLDER));
+        File myDesktop = new File(FieldbookSettings.getSelectionsDefaultFolder());
 
         if (myDesktop.exists()) {
             selectorArchivo.setCurrentDirectory(myDesktop);
