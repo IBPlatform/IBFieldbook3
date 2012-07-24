@@ -1,7 +1,9 @@
 package ibfb.ui.core;
 
+import ibfb.ui.actions.ShowTutorialAction;
 import org.cimmyt.cril.ibwb.commongui.OSUtils;
 import java.awt.Desktop;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.ResourceBundle;
 import org.openide.util.NbBundle;
@@ -9,6 +11,7 @@ import org.openide.windows.TopComponent;
 import org.netbeans.api.settings.ConvertAsProperties;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
+import org.openide.util.actions.SystemAction;
 
 @ConvertAsProperties(dtd = "-//ibfb.ui.core//BackgroundWindow//EN",
 autostore = false)
@@ -17,13 +20,16 @@ autostore = false)
 persistenceType = TopComponent.PERSISTENCE_ALWAYS)
 @TopComponent.Registration(mode = "editor", openAtStartup = true)
 @ActionID(category = "Window", id = "ibfb.ui.core.BackgroundWindowTopComponent")
-@ActionReference(path = "Menu/Window" /*, position = 333 */)
+@ActionReference(path = "Menu/Window" /*
+ * , position = 333
+ */)
 @TopComponent.OpenActionRegistration(displayName = "#CTL_BackgroundWindowAction",
 preferredID = "BackgroundWindowTopComponent")
 public final class BackgroundWindowTopComponent extends TopComponent {
 
-    
-        private ResourceBundle bundle = NbBundle.getBundle(BackgroundWindowTopComponent.class);
+    private static final String TUTORIAL_FILE_NAME = "Tutorial_for_using_the_Integrated_Breeding_Fieldbook";
+    private static final String PDF_EXT = ".pdf";
+    private ResourceBundle bundle = NbBundle.getBundle(BackgroundWindowTopComponent.class);
 
     public BackgroundWindowTopComponent() {
         initComponents();
@@ -128,7 +134,12 @@ public final class BackgroundWindowTopComponent extends TopComponent {
     }
 
     private void openTutorial() {
-        String pdfFileName = OSUtils.getDocumentsPath()+File.separator + "Tutorial_for_using_the_Integrated_Breeding_Fieldbook.pdf";
+        
+        String language = System.getProperty("user.language");
+        String pdfFileName = OSUtils.getDocumentsPath() + File.separator + TUTORIAL_FILE_NAME + PDF_EXT;
+        if (language.equals("es")) {
+            pdfFileName = OSUtils.getDocumentsPath() + File.separator + TUTORIAL_FILE_NAME + "_es" + PDF_EXT;
+        }
         try {
 
             File pdfFile = new File(pdfFileName);

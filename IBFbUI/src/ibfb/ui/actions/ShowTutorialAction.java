@@ -23,9 +23,18 @@ id = "ibfb.ui.actions.ShowTutorialAction")
 })
 @Messages("CTL_ShowTutorialAction=Show Tutorial")
 public final class ShowTutorialAction implements ActionListener {
+    private static final String TUTORIAL_FILE_NAME = "Tutorial_for_using_the_Integrated_Breeding_Fieldbook";
+    private static final String PDF_EXT = ".pdf";
+    
 
+    @Override
     public void actionPerformed(ActionEvent e) {
-         String pdfFileName = OSUtils.getDocumentsPath()+File.separator + "Tutorial_for_using_the_Integrated_Breeding_Fieldbook.pdf";
+        String language = System.getProperty("user.language");
+        String pdfFileName = OSUtils.getDocumentsPath()+File.separator + TUTORIAL_FILE_NAME + PDF_EXT;        
+        if (language.equals("es")) {
+            pdfFileName = OSUtils.getDocumentsPath()+File.separator + TUTORIAL_FILE_NAME + "_es"+ PDF_EXT;        
+        }
+        
         try {
 
             File pdfFile = new File(pdfFileName);
