@@ -223,8 +223,8 @@ public final class StudyEditorTopComponent extends TopComponent {
         deshabilitaSorters();
         designsUtils = new DesignsUtils(jTableDesign, jTextFieldEntries);
         doubleListPanel = new DoubleListPanel<Variate>(availableTraits, selectedTraits, unselectedCommand, selectedCommand);
-        doubleListPanel.setSourceLabel("Unselected Traits (from template)");
-        doubleListPanel.setTargetLabel("Selected Traits");
+        doubleListPanel.setSourceLabel(NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.unselected"));
+        doubleListPanel.setTargetLabel(NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.selected"));
         doubleListPanel.setVisible(true);
         doubleListPanel.setDropTargetCommand(new TraitsDropTargetCommand());
         pnlSelectList.add(doubleListPanel);
@@ -1836,7 +1836,7 @@ public final class StudyEditorTopComponent extends TopComponent {
 
     private void jButtonSaveToExcelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveToExcelActionPerformed
         if (jTextTrialName.getText().trim().isEmpty()) {
-            DialogUtil.displayError("Please fill Trial Name");
+            DialogUtil.displayError(NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.fillName"));
             jTextTrialName.requestFocus();
             return;
         }
@@ -1849,7 +1849,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         String studyName = jTextFieldStudy.getText();
         FieldbookCSVUtil fieldbookCSVUtil = new FieldbookCSVUtil(jTableObservations, studyName);
         fieldbookCSVUtil.saveToCsv();
-        final ProgressHandle handle = ProgressHandleFactory.createHandle("Saving fieldbook... ");
+        final ProgressHandle handle = ProgressHandleFactory.createHandle(NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.saving"));
         handle.start();
         (new SwingWorker<String, Object>() {
 
@@ -1864,7 +1864,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                 super.done();
                 try {
                     String valor = get();
-                    DialogUtil.displayInfo("Fieldbook was successfully saved.");
+                    DialogUtil.displayInfo(NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.saved"));
                     RefreshBrowserHelper.refreshStudyBrowser();
 
                 } catch (InterruptedException ex) {
@@ -1891,26 +1891,26 @@ public final class StudyEditorTopComponent extends TopComponent {
         for (int i = 0; i < instances; i++) {
             try {
                 if (jTableDesign.getValueAt(i, 2).toString().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "You must fill all fields", "IBFIELDBOOK", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.fillFields"), "IBFIELDBOOK", JOptionPane.WARNING_MESSAGE);
                     return;
                 }
                 if (jTableDesign.getValueAt(i, 3).toString().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "You must fill all fields", "IBFIELDBOOK", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.fillFields"), "IBFIELDBOOK", JOptionPane.WARNING_MESSAGE);
                     return;
                 }
                 if (jTableDesign.getValueAt(i, 4).toString().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "You must fill all fields", "IBFIELDBOOK", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.fillFields"), "IBFIELDBOOK", JOptionPane.WARNING_MESSAGE);
                     return;
                 }
             } catch (NullPointerException ex) {
-                JOptionPane.showMessageDialog(null, "You must fill all fields", "IBFIELDBOOK", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.fillFields"), "IBFIELDBOOK", JOptionPane.WARNING_MESSAGE);
                 return;
             }
         }
 
-        int opcion = JOptionPane.showConfirmDialog(null, "Do you want to modify the design? All Measurements will be modified", "Caution!", JOptionPane.YES_NO_OPTION);
+        int opcion = JOptionPane.showConfirmDialog(null, NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.modifyDesign"), NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.caution"), JOptionPane.YES_NO_OPTION);
         if (opcion == 0) {
-            final ProgressHandle handle = ProgressHandleFactory.createHandle("Generating design... ");
+            final ProgressHandle handle = ProgressHandleFactory.createHandle(NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.generating"));
             handle.start();
             (new SwingWorker<String, Object>() {
 
@@ -2017,7 +2017,7 @@ public final class StudyEditorTopComponent extends TopComponent {
             return;
         }
         if (!csv.isValid(selectorArchivo.getSelectedFile())) {
-            DialogUtil.displayError("The file is invalid");
+            DialogUtil.displayError(NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.fileInvalid"));
             return;
         }
 
@@ -2158,10 +2158,10 @@ public final class StudyEditorTopComponent extends TopComponent {
             StringSelection ss = new StringSelection(str);
             Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
 
-            DialogUtil.display("Data copied");
+            DialogUtil.display(NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.copied"));
 
         } else {
-            DialogUtil.displayError("There is not GID column");
+            DialogUtil.displayError(NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.noGID"));
         }
 
 
@@ -2220,7 +2220,8 @@ public final class StudyEditorTopComponent extends TopComponent {
 
         TableColumn columnValue = jTableTrialConditions.getColumnModel().getColumn(5);
         DefaultTableCellRenderer valueCellRenderer = new DefaultTableCellRenderer();
-        valueCellRenderer.setToolTipText("Fill this value");
+        
+        valueCellRenderer.setToolTipText(NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.fillValue"));
         valueCellRenderer.setBackground(Color.YELLOW);
         columnValue.setCellRenderer(valueCellRenderer);
     }
@@ -2232,7 +2233,7 @@ public final class StudyEditorTopComponent extends TopComponent {
 
         TableColumn columnValue = jTableStudyConditions.getColumnModel().getColumn(4);
         DefaultTableCellRenderer valueCellRenderer = new DefaultTableCellRenderer();
-        valueCellRenderer.setToolTipText("Fill this value");
+        valueCellRenderer.setToolTipText(NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.fillValue"));
         valueCellRenderer.setBackground(Color.YELLOW);
         columnValue.setCellRenderer(valueCellRenderer);
     }
@@ -2363,7 +2364,7 @@ public final class StudyEditorTopComponent extends TopComponent {
             entries = Integer.parseInt(blockSize) * (Integer.parseInt(blocksPerRep));
             if (disenio.startsWith(DesignsClass.USER_DEFINED_DESIGN)) {
                 if (bean.getUserDefinedDesign() == null) {
-                    DialogUtil.displayError("Please specify a filename for the design.");
+                    DialogUtil.displayError(NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.specify"));
                 } else {
                     disenios.readUserDefinedDesign(i + 1, bean.getUserDefinedDesign(), tableModel, this.jTableEntries);
                 }
@@ -2659,7 +2660,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         importingVisualPanel2.setWizardDescriptor(wizardDescriptor);
 
         wizardDescriptor.setTitleFormat(new MessageFormat("{0} ({1})"));
-        wizardDescriptor.setTitle("Import Data");
+        wizardDescriptor.setTitle(NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.import"));
         Dialog dialog = DialogDisplayer.getDefault().createDialog(wizardDescriptor);
         dialog.setVisible(true);
         dialog.toFront();
@@ -2690,7 +2691,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         WizardDescriptor.Iterator iterator = new exportWizardIterator();
         WizardDescriptor wizardDescriptor = new WizardDescriptor(iterator);
         wizardDescriptor.setTitleFormat(new MessageFormat("{0} ({1})"));
-        wizardDescriptor.setTitle("Save Data");
+        wizardDescriptor.setTitle(NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.save"));
         DialogUtil.createDialog(wizardDescriptor);
 
         boolean cancelled = wizardDescriptor.getValue() != WizardDescriptor.FINISH_OPTION;
@@ -2769,7 +2770,7 @@ public final class StudyEditorTopComponent extends TopComponent {
 
         TableColumn columnValue = jTableConstants.getColumnModel().getColumn(4);
         DefaultTableCellRenderer valueCellRenderer = new DefaultTableCellRenderer();
-        valueCellRenderer.setToolTipText("Fill this value");
+        valueCellRenderer.setToolTipText(NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.fillValue"));
         valueCellRenderer.setBackground(Color.YELLOW);
         columnValue.setCellRenderer(valueCellRenderer);
 
@@ -2802,7 +2803,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         jTableOtherFactorLabels.setModel(treatmentLabelsTableModel);
         TableColumn columnValue = jTableOtherFactorLabels.getColumnModel().getColumn(3);
         DefaultTableCellRenderer valueCellRenderer = new DefaultTableCellRenderer();
-        valueCellRenderer.setToolTipText("Fill this value");
+        valueCellRenderer.setToolTipText(NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.fillValue"));
         valueCellRenderer.setBackground(Color.YELLOW);
         columnValue.setCellRenderer(valueCellRenderer);
 
