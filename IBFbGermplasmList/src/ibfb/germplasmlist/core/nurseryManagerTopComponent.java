@@ -41,6 +41,7 @@ import org.netbeans.api.settings.ConvertAsProperties;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.util.Mutex;
+import org.openide.util.NbBundle;
 import org.openide.util.NbBundle.Messages;
 import org.openide.windows.TopComponent;
 import org.openide.windows.WindowManager;
@@ -1267,7 +1268,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
 
 
         if (female != male) {
-            NotifyDescriptor d = new NotifyDescriptor.Message("Female and male list must be have the same number of entries", NotifyDescriptor.ERROR_MESSAGE);
+            NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.sameNumber"), NotifyDescriptor.ERROR_MESSAGE);
             DialogDisplayer.getDefault().notify(d);
             return;
         }
@@ -1275,14 +1276,14 @@ public final class nurseryManagerTopComponent extends TopComponent {
 
 
         if (female == 0) {
-            NotifyDescriptor d = new NotifyDescriptor.Message("Female list must be have entries", NotifyDescriptor.ERROR_MESSAGE);
+            NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.femaleEmpty"), NotifyDescriptor.ERROR_MESSAGE);
             DialogDisplayer.getDefault().notify(d);
             return;
         }
 
 
         if (male == 0) {
-            NotifyDescriptor d = new NotifyDescriptor.Message("Male list must be have entries", NotifyDescriptor.ERROR_MESSAGE);
+            NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.maleEmpty"), NotifyDescriptor.ERROR_MESSAGE);
             DialogDisplayer.getDefault().notify(d);
             return;
         }
@@ -1337,8 +1338,8 @@ public final class nurseryManagerTopComponent extends TopComponent {
 
             startNumber++;
 
-            modelo.setValueAt("Not assigned yet", i, 2);//GIG
-            modelo.setValueAt("SINGLE CROSS", i, 3);//METHOD
+            modelo.setValueAt(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.notAssigned"), i, 2);//GIG
+            modelo.setValueAt(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.singleCross"), i, 3);//METHOD
             modelo.setValueAt(fdesig, i, 4);//FDESIG
             modelo.setValueAt(fgid, i, 5);//FGIG
             modelo.setValueAt(mdesig, i, 6);//MDESIG
@@ -1512,8 +1513,8 @@ public final class nurseryManagerTopComponent extends TopComponent {
                 modelo.setValueAt(gms, gms - 1, 0);//ENTRY
                 modelo.setValueAt(gs.getBcid() + maxString, gms - 1, 1);//BCID
                 modelo.setValueAt(cross, gms - 1, 2); //CROSS
-                modelo.setValueAt("Not assigned yet", gms - 1, 3); //GID                        
-                modelo.setValueAt("SIMPLE CROSS", gms - 1, 4);//METHOD
+                modelo.setValueAt(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.notAssigned"), gms - 1, 3); //GID                        
+                modelo.setValueAt(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.singleCross"), gms - 1, 4);//METHOD
 
                 modelo.setValueAt(listFemale.get(gms - 1).getStudyId(), gms - 1, 5);//FTID
                 modelo.setValueAt(listFemale.get(gms - 1).getTrial(), gms - 1, 6);//FOCC
@@ -1553,29 +1554,29 @@ public final class nurseryManagerTopComponent extends TopComponent {
 
     private void jButtonSaveCrossActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveCrossActionPerformed
         if (jTextFieldListName.getText().trim().isEmpty()) {
-            DialogUtil.displayError("Please type your list name");
+            DialogUtil.displayError(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.typeName"));
             jTextFieldListName.requestFocusInWindow();
             return;
         }
 
         if (this.jTextFieldDescription.getText().isEmpty()) {
-            NotifyDescriptor d = new NotifyDescriptor.Message("You need to set a description", NotifyDescriptor.ERROR_MESSAGE);
+            NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.description"), NotifyDescriptor.ERROR_MESSAGE);
             DialogDisplayer.getDefault().notify(d);
             jTextFieldDescription.requestFocusInWindow();
             return;
         }
 
         if (this.jTableFinalList.getRowCount() == 0) {
-            NotifyDescriptor d = new NotifyDescriptor.Message("Your list is empty", NotifyDescriptor.ERROR_MESSAGE);
+            NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.empty"), NotifyDescriptor.ERROR_MESSAGE);
             DialogDisplayer.getDefault().notify(d);
             return;
         }
-        NotifyDescriptor d = new NotifyDescriptor.Confirmation("Do you want to save the germplasm list?", "Save final list",
+        NotifyDescriptor d = new NotifyDescriptor.Confirmation(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.save"), NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.final"),
                 NotifyDescriptor.OK_CANCEL_OPTION);
         if (DialogDisplayer.getDefault().notify(d) == NotifyDescriptor.OK_OPTION) {
             saveList();
 
-            NotifyDescriptor d2 = new NotifyDescriptor.Message("Your list was saved!", NotifyDescriptor.INFORMATION_MESSAGE);
+            NotifyDescriptor d2 = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.saved"), NotifyDescriptor.INFORMATION_MESSAGE);
             DialogDisplayer.getDefault().notify(d2);
             this.jTextFieldDescription.setText("");
             this.jTextFieldListName.setText("");
@@ -1757,7 +1758,9 @@ public final class nurseryManagerTopComponent extends TopComponent {
             this.jTableEntriesExcelFemale.setModel(modeloTablaEntries);
             this.jTextAreaPathFemale.setText("");
             this.jTextFieldListEntriesFemale.setText("0");
-            DialogDisplayer.getDefault().notify(new NotifyDescriptor.Message("THIS EXCEL FILE IS NOT A VALID ENTRIES FILE", NotifyDescriptor.ERROR_MESSAGE));
+            
+            
+            DialogDisplayer.getDefault().notify(new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.notValid"), NotifyDescriptor.ERROR_MESSAGE));
         }
 
     }
@@ -1788,7 +1791,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
                     this.jTableEntriesExcelFemale.setModel(modeloTablaEntries);
                     this.jTextAreaPathFemale.setText("");
                     this.jTextFieldListEntriesFemale.setText("0");
-                    DialogDisplayer.getDefault().notify(new NotifyDescriptor.Message("THIS EXCEL FILE IS NOT A VALID ENTRIES FILE", NotifyDescriptor.ERROR_MESSAGE));
+                    DialogDisplayer.getDefault().notify(new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.notValid"), NotifyDescriptor.ERROR_MESSAGE));
                 }
 
 
@@ -1806,7 +1809,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
                     this.jTableEntriesExcelMale.setModel(modeloTablaEntries);
                     this.jTextAreaPathMale.setText("");
                     this.jTextFieldListEntriesMale.setText("0");
-                    DialogDisplayer.getDefault().notify(new NotifyDescriptor.Message("THIS EXCEL FILE IS NOT A VALID ENTRIES FILE", NotifyDescriptor.ERROR_MESSAGE));
+                    DialogDisplayer.getDefault().notify(new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.notValid"), NotifyDescriptor.ERROR_MESSAGE));
                 }
 
                 break;
@@ -2299,14 +2302,15 @@ public final class nurseryManagerTopComponent extends TopComponent {
             if (getStringValueFromCell(cellData).equals("ENT")) {
                 check++;
             } else {
-                NotifyDescriptor d = new NotifyDescriptor.Message("Excel File NOT VALID!, Check ENT column", NotifyDescriptor.ERROR_MESSAGE);
+                
+                NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.notValidENT"), NotifyDescriptor.ERROR_MESSAGE);
                 DialogDisplayer.getDefault().notify(d);
             }
             cellData = rowData.getCell(CID);
             if (getStringValueFromCell(cellData).equals("CID")) {
                 check++;
             } else {
-                NotifyDescriptor d = new NotifyDescriptor.Message("Excel File NOT VALID!, Check CID column", NotifyDescriptor.ERROR_MESSAGE);
+                NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.notValidCID"), NotifyDescriptor.ERROR_MESSAGE);
                 DialogDisplayer.getDefault().notify(d);
             }
 
@@ -2314,21 +2318,21 @@ public final class nurseryManagerTopComponent extends TopComponent {
             if (getStringValueFromCell(cellData).equals("SID")) {
                 check++;
             } else {
-                NotifyDescriptor d = new NotifyDescriptor.Message("Excel File NOT VALID!, Check SID column", NotifyDescriptor.ERROR_MESSAGE);
+                NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.notValidSID"), NotifyDescriptor.ERROR_MESSAGE);
                 DialogDisplayer.getDefault().notify(d);
             }
             cellData = rowData.getCell(FTID);
             if (getStringValueFromCell(cellData).equals("FTID")) {
                 check++;
             } else {
-                NotifyDescriptor d = new NotifyDescriptor.Message("Excel File NOT VALID!, Check FTID column", NotifyDescriptor.ERROR_MESSAGE);
+                NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.notValidFTID"), NotifyDescriptor.ERROR_MESSAGE);
                 DialogDisplayer.getDefault().notify(d);
             }
             cellData = rowData.getCell(FOCC);
             if (getStringValueFromCell(cellData).equals("FOCC")) {
                 check++;
             } else {
-                NotifyDescriptor d = new NotifyDescriptor.Message("Excel File NOT VALID!, Check FOCC column", NotifyDescriptor.ERROR_MESSAGE);
+                NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.notValidFOCC"), NotifyDescriptor.ERROR_MESSAGE);
                 DialogDisplayer.getDefault().notify(d);
             }
 
@@ -2336,7 +2340,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
             if (getStringValueFromCell(cellData).equals("FENT")) {
                 check++;
             } else {
-                NotifyDescriptor d = new NotifyDescriptor.Message("Excel File NOT VALID!, Check FENT column", NotifyDescriptor.ERROR_MESSAGE);
+                NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.notValidFENT"), NotifyDescriptor.ERROR_MESSAGE);
                 DialogDisplayer.getDefault().notify(d);
             }
 
@@ -2344,14 +2348,14 @@ public final class nurseryManagerTopComponent extends TopComponent {
             if (getStringValueFromCell(cellData).equals("MTID")) {
                 check++;
             } else {
-                NotifyDescriptor d = new NotifyDescriptor.Message("Excel File NOT VALID!, Check MTID column", NotifyDescriptor.ERROR_MESSAGE);
+                NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.notValidMTID"), NotifyDescriptor.ERROR_MESSAGE);
                 DialogDisplayer.getDefault().notify(d);
             }
             cellData = rowData.getCell(MOCC);
             if (getStringValueFromCell(cellData).equals("MOCC")) {
                 check++;
             } else {
-                NotifyDescriptor d = new NotifyDescriptor.Message("Excel File NOT VALID!, Check MOCC column", NotifyDescriptor.ERROR_MESSAGE);
+                NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.notValidMOCC"), NotifyDescriptor.ERROR_MESSAGE);
                 DialogDisplayer.getDefault().notify(d);
             }
 
@@ -2359,7 +2363,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
             if (getStringValueFromCell(cellData).equals("MENT")) {
                 check++;
             } else {
-                NotifyDescriptor d = new NotifyDescriptor.Message("Excel File NOT VALID!, Check MENT column", NotifyDescriptor.ERROR_MESSAGE);
+                NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.notValidMENT"), NotifyDescriptor.ERROR_MESSAGE);
                 DialogDisplayer.getDefault().notify(d);
             }
 
@@ -2368,7 +2372,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
             if (getStringValueFromCell(cellData).equals("MEGA")) {
                 check++;
             } else {
-                NotifyDescriptor d = new NotifyDescriptor.Message("Excel File NOT VALID!, Check MEGA column", NotifyDescriptor.ERROR_MESSAGE);
+                NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.notValidMEGA"), NotifyDescriptor.ERROR_MESSAGE);
                 DialogDisplayer.getDefault().notify(d);
             }
 
@@ -2376,7 +2380,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
             if (getStringValueFromCell(cellData).equals("CROSSTYPE")) {
                 check++;
             } else {
-                NotifyDescriptor d = new NotifyDescriptor.Message("Excel File NOT VALID!, Check CROSSTYPE column", NotifyDescriptor.ERROR_MESSAGE);
+                NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.notValidCROSS"), NotifyDescriptor.ERROR_MESSAGE);
                 DialogDisplayer.getDefault().notify(d);
             }
 
@@ -2384,7 +2388,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
             if (getStringValueFromCell(cellData).equals("TYPE")) {
                 check++;
             } else {
-                NotifyDescriptor d = new NotifyDescriptor.Message("Excel File NOT VALID!, Check TYPE column", NotifyDescriptor.ERROR_MESSAGE);
+                NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.notValidTYPE"), NotifyDescriptor.ERROR_MESSAGE);
                 DialogDisplayer.getDefault().notify(d);
             }
 
@@ -2400,7 +2404,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
         } catch (Exception e) {
 
             System.out.println("ERROR AL VALIDAR EXCEL: " + e);
-            NotifyDescriptor d = new NotifyDescriptor.Message("Excel Cross File NOT VALID!, Check yours columns", NotifyDescriptor.ERROR_MESSAGE);
+            NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.notValidColumns"), NotifyDescriptor.ERROR_MESSAGE);
             DialogDisplayer.getDefault().notify(d);
             changeCursorWaitStatus(false);
             valid = false;

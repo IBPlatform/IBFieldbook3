@@ -1107,7 +1107,7 @@ public final class addChecksTopComponent extends TopComponent {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTabbedPane2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane2StateChanged
-        System.out.println("CHANGE TABBBED 3");
+ 
 
         switch (jTabbedPane2.getSelectedIndex()) {
             case 0:
@@ -1171,7 +1171,6 @@ public final class addChecksTopComponent extends TopComponent {
 
     private void jTabbedPane3StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane3StateChanged
 
-        System.out.println("CHANGE TABBBED 3");
         switch (jTabbedPane3.getSelectedIndex()) {
 
             case 0:
@@ -1190,14 +1189,14 @@ public final class addChecksTopComponent extends TopComponent {
 
     private void jButtonSaveListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveListActionPerformed
         if (this.jTextFieldListName.getText().isEmpty()) {
-            NotifyDescriptor d = new NotifyDescriptor.Message("You need to set a List name", NotifyDescriptor.ERROR_MESSAGE);
+            NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(addChecksTopComponent.class,"addChecksTopComponent.needListName"), NotifyDescriptor.ERROR_MESSAGE);
             DialogDisplayer.getDefault().notify(d);
             jTextFieldListName.requestFocusInWindow();
             return;
         }
 
         if (this.jTextFieldDescription.getText().isEmpty()) {
-            NotifyDescriptor d = new NotifyDescriptor.Message("You need to set a description", NotifyDescriptor.ERROR_MESSAGE);
+            NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(addChecksTopComponent.class,"addChecksTopComponent.needDescription"), NotifyDescriptor.ERROR_MESSAGE);
             DialogDisplayer.getDefault().notify(d);
             jTextFieldDescription.requestFocusInWindow();
             return;
@@ -1205,19 +1204,17 @@ public final class addChecksTopComponent extends TopComponent {
 
 
         if (this.jTableFinal.getRowCount() == 0) {
-            NotifyDescriptor d = new NotifyDescriptor.Message("Your list is empty", NotifyDescriptor.ERROR_MESSAGE);
+            NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(addChecksTopComponent.class,"addChecksTopComponent.empty"), NotifyDescriptor.ERROR_MESSAGE);
             DialogDisplayer.getDefault().notify(d);
             return;
         }
-        //NotifyDescriptor d = new NotifyDescriptor.Confirmation("Do you want to save the germplasm list?", "Save final list",
-          //      NotifyDescriptor.OK_CANCEL_OPTION);
-        //if (DialogDisplayer.getDefault().notify(d) == NotifyDescriptor.OK_OPTION) {
+     
             saveList();
-            NotifyDescriptor d2 = new NotifyDescriptor.Message("Your list was saved!", NotifyDescriptor.INFORMATION_MESSAGE);
+            NotifyDescriptor d2 = new NotifyDescriptor.Message(NbBundle.getMessage(addChecksTopComponent.class,"addChecksTopComponent.saved"), NotifyDescriptor.INFORMATION_MESSAGE);
             DialogDisplayer.getDefault().notify(d2);
             this.jTextFieldListName.setText("");
             this.jTextFieldDescription.setText("");
-       // }
+
         refreshData();
 
     }//GEN-LAST:event_jButtonSaveListActionPerformed
@@ -1490,7 +1487,7 @@ public final class addChecksTopComponent extends TopComponent {
 
             if (!validateTable()) {
 
-                NotifyDescriptor d = new NotifyDescriptor.Message("Frequency must be greater than number of checks", NotifyDescriptor.ERROR_MESSAGE);
+                NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(addChecksTopComponent.class,"addChecksTopComponent.frequency"), NotifyDescriptor.ERROR_MESSAGE);
                 DialogDisplayer.getDefault().notify(d);
 
                 this.jRadioButtonWithout.setSelected(true);
@@ -1567,7 +1564,7 @@ public final class addChecksTopComponent extends TopComponent {
 
             if (!validateTable()) {
 
-                NotifyDescriptor d = new NotifyDescriptor.Message("Frequency must be greater than number of checks", NotifyDescriptor.ERROR_MESSAGE);
+                NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(addChecksTopComponent.class,"addChecksTopComponent.frequency"), NotifyDescriptor.ERROR_MESSAGE);
                 DialogDisplayer.getDefault().notify(d);
 
                 this.jRadioButtonWithout.setSelected(true);
@@ -1595,10 +1592,10 @@ public final class addChecksTopComponent extends TopComponent {
 
             Collections.sort(posiciones);
 
-            for (int i = 0; i < posiciones.size(); i++) {
-                System.out.println("POSICION:--> " + posiciones.get(i).toString());
-
-            }
+//            for (int i = 0; i < posiciones.size(); i++) {
+//                System.out.println("POSICION:--> " + posiciones.get(i).toString());
+//
+//            }
 
             for (int i = 0; i < posiciones.size(); i++) {
 
@@ -1854,7 +1851,7 @@ public final class addChecksTopComponent extends TopComponent {
                     this.jTableEntriesExcel.setModel(modeloTablaEntries);
                     this.jTextAreaPath.setText("");
                     this.jTextFieldEntries.setText("0");
-                    DialogDisplayer.getDefault().notify(new NotifyDescriptor.Message("THIS EXCEL FILE IS NOT A VALID ENTRIES FILE", NotifyDescriptor.ERROR_MESSAGE));
+                    DialogDisplayer.getDefault().notify(new NotifyDescriptor.Message(NbBundle.getMessage(addChecksTopComponent.class,"addChecksTopComponent.notValid"), NotifyDescriptor.ERROR_MESSAGE));
                 }
 
 
@@ -1877,7 +1874,7 @@ public final class addChecksTopComponent extends TopComponent {
                     this.jTableEntriesExcelChecks.setModel(modeloTablaEntries);
                     this.jTextAreaPathChecks.setText("");
                     this.jTextFieldEntriesChecks.setText("0");
-                    DialogDisplayer.getDefault().notify(new NotifyDescriptor.Message("THIS EXCEL FILE IS NOT A VALID ENTRIES FILE", NotifyDescriptor.ERROR_MESSAGE));
+                    DialogDisplayer.getDefault().notify(new NotifyDescriptor.Message(NbBundle.getMessage(addChecksTopComponent.class,"addChecksTopComponent.notValid"), NotifyDescriptor.ERROR_MESSAGE));
                 }
 
                 germplasmTransferHandler.setSourceList(rowListExcelChecks);

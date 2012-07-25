@@ -158,7 +158,7 @@
                               <Component id="cboGermplasmListMale" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jScrollEntriesDbMale" pref="228" max="32767" attributes="0"/>
+                          <Component id="jScrollEntriesDbMale" pref="234" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="btnRemoveMaleDb" min="-2" max="-2" attributes="0"/>
@@ -490,7 +490,7 @@
                               <Component id="cboGermplasmListFemale" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jScrollEntriesDbFemale" pref="208" max="32767" attributes="0"/>
+                          <Component id="jScrollEntriesDbFemale" pref="224" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
