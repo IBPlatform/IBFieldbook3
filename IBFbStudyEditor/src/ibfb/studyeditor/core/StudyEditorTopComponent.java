@@ -2173,8 +2173,7 @@ public final class StudyEditorTopComponent extends TopComponent {
     }//GEN-LAST:event_jTableEntriesPropertyChange
 
     private void jButtonImportCrossInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonImportCrossInfoActionPerformed
-       
-        
+               
         ImportData importData = new ImportData(jTableEntries);        
      
         FileFilter[] filtros = new FileFilter[10];
@@ -2194,6 +2193,10 @@ public final class StudyEditorTopComponent extends TopComponent {
             return;
         }        
         importData.importFromCrossInfoToGermplasm(selectorArchivo.getSelectedFile());
+        
+        fillObservationsData();
+        DialogUtil.displayInfo(StudyEditorTopComponent.class, "StudyEditorTopComponent.datasyncronized");
+        this.jTabbedPaneEditor.setSelectedIndex(7);
         
     }//GEN-LAST:event_jButtonImportCrossInfoActionPerformed
 
