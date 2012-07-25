@@ -279,7 +279,23 @@ public class ExcelTrialReader {
 
                 if (!celda.getStringCellValue().toUpperCase().trim().equals("GID")) {
 
-                    if (encabezados.contains(celda.getStringCellValue().toUpperCase().trim())) {
+                    
+                    if(celda.getStringCellValue().toUpperCase().trim().equals("PEDIGREE")){
+                        
+                       if (encabezados.contains("CROSS NAME") || (encabezados.contains("PEDIGREE")) ) {
+                        MatchesClass match = new MatchesClass();
+                        match.setColIBF(encabezados.indexOf("PEDIGREE"));
+                        match.setColCross(i);
+                        matchesArray.add(match);
+                        result++;  
+                       } 
+                        
+                        
+                    }
+                    
+                    
+                   else if (encabezados.contains(celda.getStringCellValue().toUpperCase().trim())) {    
+                        
                         MatchesClass match = new MatchesClass();
                         match.setColIBF(encabezados.indexOf(celda.getStringCellValue().toUpperCase().trim()));
                         match.setColCross(i);
