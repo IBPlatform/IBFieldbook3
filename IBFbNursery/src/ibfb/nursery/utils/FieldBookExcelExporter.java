@@ -1,32 +1,18 @@
 package ibfb.nursery.utils;
 
-import ibfb.domain.core.Condition;
-import ibfb.domain.core.Constant;
-import ibfb.domain.core.Factor;
-import ibfb.domain.core.Study;
-import ibfb.domain.core.Variate;
-import ibfb.domain.core.Workbook;
+import ibfb.domain.core.*;
 import ibfb.nursery.models.ObservationsTableModel;
 import java.awt.Desktop;
-import org.cimmyt.cril.ibwb.commongui.DialogUtil;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.List;
 import javax.swing.JTable;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.hssf.usermodel.HSSFCellStyle;
-import org.apache.poi.hssf.usermodel.HSSFFont;
-import org.apache.poi.hssf.usermodel.HSSFPalette;
+import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.hssf.util.HSSFColor;
+import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 import org.openide.NotifyDescriptor;
+import org.openide.util.NbBundle;
 
 /**
  * Export to Excel format Measurement table
@@ -231,9 +217,9 @@ public class FieldBookExcelExporter {
 
             grabaLibro(excelBook, nombreArchivo);
 
-            String fileSaved = "The data was saved to " + nombreArchivo + ".csv file.  \nDo you want to open it now?";
+            String fileSaved = NbBundle.getMessage(FieldBookExcelExporter.class,"FieldBookExcelExporter.saved") + nombreArchivo + ".csv"+ NbBundle.getMessage(FieldBookExcelExporter.class,"FieldBookExcelExporter.wantOpen");
 
-            if (DialogUtil.displayConfirmation(fileSaved, "File exported", NotifyDescriptor.OK_CANCEL_OPTION)) {
+            if (DialogUtil.displayConfirmation(fileSaved, NbBundle.getMessage(FieldBookExcelExporter.class,"FieldBookExcelExporter.exported"), NotifyDescriptor.OK_CANCEL_OPTION)) {
                 try {
 
                     if (Desktop.isDesktopSupported() == true) {

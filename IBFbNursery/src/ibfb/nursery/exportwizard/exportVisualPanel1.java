@@ -3,6 +3,7 @@ package ibfb.nursery.exportwizard;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+import org.openide.util.NbBundle;
 
 public final class exportVisualPanel1 extends JPanel {
 
@@ -13,7 +14,7 @@ public final class exportVisualPanel1 extends JPanel {
 
     @Override
     public String getName() {
-        return "Destination";
+        return NbBundle.getMessage(exportVisualPanel1.class,"exportVisualPanel1.name");
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

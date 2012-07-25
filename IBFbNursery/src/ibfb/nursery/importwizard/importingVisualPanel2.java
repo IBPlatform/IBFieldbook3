@@ -8,6 +8,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 import javax.swing.filechooser.FileFilter;
 import org.openide.WizardDescriptor;
+import org.openide.util.NbBundle;
 
 public final class importingVisualPanel2 extends JPanel {
 
@@ -23,8 +24,8 @@ public final class importingVisualPanel2 extends JPanel {
     }
 
     @Override
-    public String getName() {
-        return "Select your source file";
+    public String getName() {     
+        return NbBundle.getMessage(importingVisualPanel2.class,"importingVisualPanel2.name");
     }
 
          public File getNombreArchivo() {

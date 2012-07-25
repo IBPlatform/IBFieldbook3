@@ -6,6 +6,7 @@ import java.util.Date;
 import javax.swing.JTable;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
+import org.openide.util.NbBundle;
 
 public class DateUtil {
 
@@ -24,7 +25,7 @@ public class DateUtil {
                 dateEnd = sdf.parse(endValue.toString());
                 if (dateStart.compareTo(dateEnd) >= 0) {
                     jTableTrialConditions.setValueAt("", row, 5);
-                    NotifyDescriptor d = new NotifyDescriptor.Message("The Late date must be greater than early date", NotifyDescriptor.INFORMATION_MESSAGE);
+                    NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(DateUtil.class,"DateUtil.greater"), NotifyDescriptor.INFORMATION_MESSAGE);
                     DialogDisplayer.getDefault().notify(d);                                                      
                 }
             } catch (Exception e) {

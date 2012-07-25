@@ -10,8 +10,8 @@ import java.io.IOException;
 import java.util.List;
 import javax.swing.JTable;
 import org.cimmyt.cril.ibwb.commongui.DialogUtil;
-import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
+import org.openide.util.NbBundle;
 
 
 public class FieldbookRExport {
@@ -54,9 +54,9 @@ public class FieldbookRExport {
 
 
         
-        String fileSaved = "The data was saved to " + trialFile + ".csv file \nDo you want to open it now?";
+        String fileSaved = NbBundle.getMessage(FieldbookRExport.class,"FieldbookRExport.saved") + trialFile + ".csv"+ NbBundle.getMessage(FieldbookRExport.class,"FieldbookRExport.wantOpen") ;
 
-            if (DialogUtil.displayConfirmation(fileSaved, "File exported", NotifyDescriptor.OK_CANCEL_OPTION)) {
+            if (DialogUtil.displayConfirmation(fileSaved, NbBundle.getMessage(FieldbookRExport.class,"FieldbookRExport.exported"), NotifyDescriptor.OK_CANCEL_OPTION)) {
                 try {
 
                     if (Desktop.isDesktopSupported() == true) {

@@ -15,6 +15,7 @@ import org.cimmyt.cril.ibwb.domain.Location;
 import org.cimmyt.cril.ibwb.domain.Methods;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
+import org.openide.util.NbBundle;
 import org.openide.util.NbPreferences;
 
 public final class AdvanceVisualPanel1 extends JPanel {
@@ -54,7 +55,7 @@ public final class AdvanceVisualPanel1 extends JPanel {
     
     @Override
     public String getName() {
-        return "Advance nursery";
+        return NbBundle.getMessage(AdvanceVisualPanel1.class,"AdvanceVisualPanel1.name");
     }
     
     public void fillComboNumberOfSamplesPerPlot() {
@@ -395,7 +396,7 @@ public final class AdvanceVisualPanel1 extends JPanel {
         SelectLocationPanel selectLocationPanel = new SelectLocationPanel();
         selectLocationPanel.assignNamingConvention((String) jComboBoxConvention.getSelectedItem());
         
-        NotifyDescriptor notifyDescriptor = new NotifyDescriptor(selectLocationPanel, "Choose location", NotifyDescriptor.OK_CANCEL_OPTION, NotifyDescriptor.PLAIN_MESSAGE, null, NotifyDescriptor.OK_OPTION);
+        NotifyDescriptor notifyDescriptor = new NotifyDescriptor(selectLocationPanel, NbBundle.getMessage(AdvanceVisualPanel1.class,"AdvanceVisualPanel1.location"), NotifyDescriptor.OK_CANCEL_OPTION, NotifyDescriptor.PLAIN_MESSAGE, null, NotifyDescriptor.OK_OPTION);
         
         if (DialogDisplayer.getDefault().notify(notifyDescriptor) == NotifyDescriptor.OK_OPTION) {
             String value = selectLocationPanel.getLocationName();

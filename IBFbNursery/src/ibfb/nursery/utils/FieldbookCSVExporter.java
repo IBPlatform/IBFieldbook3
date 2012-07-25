@@ -1,8 +1,8 @@
 
 package ibfb.nursery.utils;
 
-import ibfb.nursery.models.ObservationsTableModel;
 import com.csvreader.CsvWriter;
+import ibfb.nursery.models.ObservationsTableModel;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.FileWriter;
@@ -10,8 +10,8 @@ import java.io.IOException;
 import java.util.List;
 import javax.swing.JTable;
 import org.cimmyt.cril.ibwb.commongui.DialogUtil;
-import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
+import org.openide.util.NbBundle;
 
 
 public class FieldbookCSVExporter {
@@ -50,9 +50,9 @@ public class FieldbookCSVExporter {
 
         Export_to_fieldlog(new File(trialFile), modeloFilter, csv);
 
-        String fileSaved = "The data was saved to " + trialFile + " file.  \nDo you want to open file now?";
+        String fileSaved = NbBundle.getMessage(FieldbookCSVExporter.class,"FieldbookCSVExporter.saved") + trialFile + NbBundle.getMessage(FieldbookCSVExporter.class,"FieldbookCSVExporter.wantOpen");
 
-        if (DialogUtil.displayConfirmation(fileSaved, "File exported", NotifyDescriptor.OK_CANCEL_OPTION)) {
+        if (DialogUtil.displayConfirmation(fileSaved, NbBundle.getMessage(FieldbookCSVExporter.class,"FieldbookCSVExporter.exported"), NotifyDescriptor.OK_CANCEL_OPTION)) {
             try {
 
                 if (Desktop.isDesktopSupported() == true) {

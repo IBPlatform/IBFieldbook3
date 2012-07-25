@@ -9,6 +9,7 @@ import javax.swing.filechooser.FileFilter;
 import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 import org.openide.NotifyDescriptor;
 import org.openide.WizardDescriptor;
+import org.openide.util.NbBundle;
 
 public final class exportVisualPanel3 extends JPanel {
 
@@ -31,7 +32,7 @@ public final class exportVisualPanel3 extends JPanel {
 
     @Override
     public String getName() {
-        return "File";
+        return NbBundle.getMessage(exportVisualPanel3.class,"exportVisualPanel3.name");
     }
 
     public void setOpcionFiltro(int opcionFiltro) {
@@ -154,7 +155,7 @@ public final class exportVisualPanel3 extends JPanel {
         
         File fileName = new File(jTextArea1.getText());
         if (fileName.exists()) {
-           if (! DialogUtil.displayConfirmation("File you are trying to save alreayd exists, Overwrite the file?", "File already exists", NotifyDescriptor.YES_NO_OPTION) ){
+           if (! DialogUtil.displayConfirmation(NbBundle.getMessage(exportVisualPanel3.class,"exportVisualPanel3.overwrite"), NbBundle.getMessage(exportVisualPanel3.class,"exportVisualPanel3.exists"), NotifyDescriptor.YES_NO_OPTION) ){
              return;  
            }
         }

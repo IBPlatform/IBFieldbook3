@@ -2,10 +2,11 @@
 package ibfb.nursery.exportwizard;
 
 import javax.swing.JPanel;
+import org.openide.util.NbBundle;
 
 public final class exportVisualPanel2 extends JPanel {
 
-   private String name="Data";
+   private String name=NbBundle.getMessage(exportVisualPanel2.class,"exportVisualPanel2.name");
     
     public exportVisualPanel2() {
         initComponents();

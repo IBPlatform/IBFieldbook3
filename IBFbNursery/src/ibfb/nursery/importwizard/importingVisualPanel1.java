@@ -3,6 +3,7 @@ package ibfb.nursery.importwizard;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+import org.openide.util.NbBundle;
 
 public final class importingVisualPanel1 extends JPanel {
 
@@ -14,7 +15,8 @@ public final class importingVisualPanel1 extends JPanel {
 
     @Override
     public String getName() {
-        return "Destination type";
+ 
+        return NbBundle.getMessage(importingVisualPanel1.class,"importingVisualPanel1.name");
     }
 
 

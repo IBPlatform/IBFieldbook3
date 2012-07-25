@@ -2,10 +2,11 @@
 package ibfb.nursery.savewizard;
 
 import javax.swing.JPanel;
+import org.openide.util.NbBundle;
 
 public final class saveVisualPanel1 extends JPanel {
 
-   private String name="Select your data";
+   private String name=NbBundle.getMessage(saveVisualPanel1.class,"saveVisualPanel1.name");
     
     public saveVisualPanel1() {
         initComponents();

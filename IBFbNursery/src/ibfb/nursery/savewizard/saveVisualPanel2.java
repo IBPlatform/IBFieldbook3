@@ -10,6 +10,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 import javax.swing.filechooser.FileFilter;
 import org.openide.WizardDescriptor;
+import org.openide.util.NbBundle;
 
 public final class saveVisualPanel2 extends JPanel {
 
@@ -29,7 +30,7 @@ static WizardDescriptor wizardDescriptor;
 
     @Override
     public String getName() {
-        return "Select a file";
+        return NbBundle.getMessage(saveVisualPanel2.class,"saveVisualPanel2.name");
     }
 
     public void setOpcionFiltro(int opcionFiltro) {
