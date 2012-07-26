@@ -31,8 +31,21 @@ public class MethodsClass {
                 }
 
                 if (samples < 0) {
+                    
+                    
+                    if(seed.endsWith("T")){
+                        
+                   // newSeed =  "0" + Math.abs(samples)+"TOP" + suffix;
+                    newSeed = seed + "0" + Math.abs(samples)+"TOP" + suffix;
+
+                    data.add(newSeed);   
+                    }else{
+                    
                     newSeed = seed + "-0" + Math.abs(samples) + suffix;
                     data.add(newSeed);
+                    }
+                    
+                    
                 }
 
 
