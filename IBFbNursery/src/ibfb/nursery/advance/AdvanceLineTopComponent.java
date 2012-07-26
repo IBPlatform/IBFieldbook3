@@ -415,6 +415,7 @@ public final class AdvanceLineTopComponent extends TopComponent {
         // tableModel.setIsForInventory(true);
         this.jTableEntries.setModel(tableModel);
         ajustaColumnsTable(this.jTableEntries);
+       
 
     }
 
