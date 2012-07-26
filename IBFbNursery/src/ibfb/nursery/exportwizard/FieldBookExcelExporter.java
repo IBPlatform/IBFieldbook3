@@ -13,6 +13,7 @@ import org.apache.poi.hssf.util.HSSFColor;
 import org.cimmyt.cril.ibwb.commongui.ConvertUtils;
 import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 import org.openide.NotifyDescriptor;
+import org.openide.util.NbBundle;
 
 public class FieldBookExcelExporter {
 
@@ -250,9 +251,9 @@ public class FieldBookExcelExporter {
 
             grabaLibro(excelBook, nombreArchivo);
 
-            String fileSaved = "The data was saved to " + nombreArchivo + " file.  \nDo you want to open it now?";
+            String fileSaved = NbBundle.getMessage(FieldBookExcelExporter.class,"FieldBookExcelExporter.saved") + nombreArchivo + NbBundle.getMessage(FieldBookExcelExporter.class,"FieldBookExcelExporter.wantOpen");
 
-            if (DialogUtil.displayConfirmation(fileSaved, "File exported", NotifyDescriptor.OK_CANCEL_OPTION)) {
+            if (DialogUtil.displayConfirmation(fileSaved, NbBundle.getMessage(FieldBookExcelExporter.class,"FieldBookExcelExporter.exported"), NotifyDescriptor.OK_CANCEL_OPTION)) {
                 try {
 
                     if (Desktop.isDesktopSupported() == true) {

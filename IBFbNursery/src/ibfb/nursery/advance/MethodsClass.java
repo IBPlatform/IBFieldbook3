@@ -36,7 +36,7 @@ public class MethodsClass {
                     if(seed.endsWith("T")){
                         
                    // newSeed =  "0" + Math.abs(samples)+"TOP" + suffix;
-                    newSeed = seed + "0" + Math.abs(samples)+"TOP" + suffix;
+                    newSeed = seed + "-0" + Math.abs(samples)+"TOP" + suffix;
 
                     data.add(newSeed);   
                     }else{
