@@ -2138,6 +2138,20 @@ public final class nurseryManagerTopComponent extends TopComponent {
         jButtonLoadExcelScript.setVisible(!habilitado);
 
         jTextPrefix.setEnabled(habilitado);
+
+        jTextPrefix.setVisible(habilitado);
+        lblCrossPrefix.setVisible(habilitado);
+        spnStartNo.setVisible(habilitado);
+        jTextSuffix.setVisible(habilitado);
+        lblSuffix.setVisible(habilitado);
+        lblStartNo.setVisible(habilitado);
+        jButtonCross.setVisible(habilitado);
+        lblNumericFieldWidth.setVisible(habilitado);
+        spnNumFieldWidth.setVisible(habilitado);
+        jChkLeading.setVisible(habilitado);
+        jLabel19.setVisible(habilitado);
+        jComboBoxMethods.setVisible(habilitado);
+
         spnStartNo.setEnabled(habilitado);
         jTextSuffix.setEnabled(habilitado);
         jChkLeading.setEnabled(habilitado);
