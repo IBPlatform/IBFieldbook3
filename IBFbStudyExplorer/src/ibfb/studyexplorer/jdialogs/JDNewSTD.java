@@ -572,7 +572,6 @@ public class JDNewSTD extends javax.swing.JDialog {
 
     private class StudyCheckValidator implements Validator<String> {
 
-        @Override
         public boolean validate(Problems problems, String compName, String model) {
             boolean result = true;
 
