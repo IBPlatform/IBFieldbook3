@@ -850,6 +850,9 @@ public class JDExpert extends javax.swing.JDialog {
 
 
 
+        
+        
+        
 
         for (int j = 0; j < totalRowsToAdd; j++) {
             for (int i = 0; i < totalFactores; i++) {
@@ -879,7 +882,6 @@ public class JDExpert extends javax.swing.JDialog {
     @SuppressWarnings("unchecked")
     private void fillConstants(StudyEditorTopComponent studyWindow) {
         Workbook workbook = myExcelReader.getMyWorkbook();
-
         List<Constant> constants = new ArrayList();
         int instance = 1;
         for (int j = 0; j < instances; j++) {
@@ -897,13 +899,10 @@ public class JDExpert extends javax.swing.JDialog {
             instance++;
         }
         studyWindow.assignExperimentalConditions(constants);
-
-
     }
 
     @SuppressWarnings("unchecked")
     private void fillTraits(StudyEditorTopComponent studyWindow) {
-
         Workbook workbook = myExcelReader.getMyWorkbook();
         studyWindow.setMyWorkbook(workbook);
         studyWindow.configMyList();
