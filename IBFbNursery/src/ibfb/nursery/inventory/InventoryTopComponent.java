@@ -55,6 +55,12 @@ public final class InventoryTopComponent extends TopComponent {
     private List<Factor> factores;
     private Listnms listToSave;
     private Integer locationId;
+    
+    private Integer amountColumn;
+    private Integer locationColumn;
+    private Integer commentColumn;
+    private Integer scaleColumn;
+    
 
     public InventoryTopComponent() {
         initComponents();
@@ -388,6 +394,18 @@ public final class InventoryTopComponent extends TopComponent {
 
     }
 
+    
+    private void findInventoryColumns(){
+            
+        GermplasmEntriesTableModel tableModel = (GermplasmEntriesTableModel) this.jTableEntries.getModel();    
+        amountColumn = tableModel.findColumn("AMOUNT");
+        locationColumn = tableModel.findColumn("LOCATION");
+        commentColumn = tableModel.findColumn("COMMENT");
+        scaleColumn = tableModel.findColumn("SCALE");
+    }
+    
+    
+    
     public void setDescription(String description) {
         this.jLabelDescription.setText(description);
 
@@ -454,12 +472,17 @@ public final class InventoryTopComponent extends TopComponent {
             DialogUtil.displayError(InventoryTopComponent.class, "InventoryTopComponent.numericAmountRequired");
             return;
         }
+
+        if (amountColumn < 0) {
+            return;
+        }
+        
         if (this.jCheckBoxSameAmount.isSelected()) {
             String amount = this.jTextFieldAmount.getText();
             for (int i = 0; i < this.jTableEntries.getRowCount(); i++) {
-                this.jTableEntries.setValueAt(amount, i, 5);
+                this.jTableEntries.setValueAt(amount, i, amountColumn);
             }
-            ajustaColumn(jTableEntries, 5, 2);
+            ajustaColumn(jTableEntries, amountColumn, 2);
         }
     }
 
@@ -467,11 +490,17 @@ public final class InventoryTopComponent extends TopComponent {
         if (this.jCheckBoxSameLocation.isSelected()) {
             String location = this.jTextFieldLocation.getText();
 
+            if (locationColumn < 0) {
+            return;
+        }
+        
+            
+            
             for (int i = 0; i < this.jTableEntries.getRowCount(); i++) {
-                this.jTableEntries.setValueAt(location, i, 3);
+                this.jTableEntries.setValueAt(location, i, locationColumn);
             }
 
-            ajustaColumn(jTableEntries, 3, 2);
+            ajustaColumn(jTableEntries, locationColumn, 2);
 
         }
     }//GEN-LAST:event_jTextFieldLocationKeyReleased
@@ -501,10 +530,15 @@ public final class InventoryTopComponent extends TopComponent {
         if (this.jCheckBoxSameComments.isSelected()) {
             String location = this.jTextFieldComment.getText();
 
-            for (int i = 0; i < this.jTableEntries.getRowCount(); i++) {
-                this.jTableEntries.setValueAt(location, i, 4);
+            if(commentColumn<0){
+                return;
             }
-            ajustaColumn(jTableEntries, 4, 2);
+            
+            
+            for (int i = 0; i < this.jTableEntries.getRowCount(); i++) {
+                this.jTableEntries.setValueAt(location, i,commentColumn);
+            }
+            ajustaColumn(jTableEntries, commentColumn, 2);
         }
     }//GEN-LAST:event_jTextFieldCommentKeyReleased
 
@@ -563,10 +597,15 @@ public final class InventoryTopComponent extends TopComponent {
             //String scale = this.jComboBoxScale.getSelectedItem().toString();
             Scales scale = (Scales)jComboBoxScale.getSelectedItem();
 
-            for (int i = 0; i < this.jTableEntries.getRowCount(); i++) {
-                this.jTableEntries.setValueAt(scale, i, 6);
+            
+            if(scaleColumn<0){
+                return;
             }
-            ajustaColumn(jTableEntries, 6, 2);
+            
+            for (int i = 0; i < this.jTableEntries.getRowCount(); i++) {
+                this.jTableEntries.setValueAt(scale, i, scaleColumn);
+            }
+            ajustaColumn(jTableEntries, scaleColumn, 2);
         }
     }//GEN-LAST:event_jComboBoxScaleItemStateChanged
 
@@ -604,6 +643,7 @@ public final class InventoryTopComponent extends TopComponent {
 
         ajustaColumnsTable(this.jTableEntries);
         addComboScales();
+        this.findInventoryColumns();
 
     }
 
