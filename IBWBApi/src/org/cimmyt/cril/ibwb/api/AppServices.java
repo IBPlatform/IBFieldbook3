@@ -1584,6 +1584,8 @@ public interface AppServices {
      */
     public void updateWorkbook(Workbook workbook);
     
+    public void migrateWorkbook(Integer studyId);
+    
     
     public ResultSet getTrialRandomization(
             Integer studyId,
