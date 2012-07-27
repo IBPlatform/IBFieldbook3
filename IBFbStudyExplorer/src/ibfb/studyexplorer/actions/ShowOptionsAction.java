@@ -6,8 +6,10 @@ import ibfb.domain.core.SelectedExperiment;
 import ibfb.domain.core.SelectedStudy;
 import ibfb.studyexplorer.jdialogs.JDNewOptions;
 import java.awt.event.ActionEvent;
+import java.util.ResourceBundle;
 
 import org.openide.util.HelpCtx;
+import org.openide.util.NbBundle;
 import org.openide.util.actions.SystemAction;
 
 /**
@@ -15,9 +17,10 @@ import org.openide.util.actions.SystemAction;
  * @author TMSANCHEZ
  */
 public class ShowOptionsAction extends SystemAction {
+    private ResourceBundle bundle = NbBundle.getBundle(ShowOptionsAction.class);
 
     public ShowOptionsAction() {
-        putValue(NAME, "New ...");
+        putValue(NAME, bundle.getString("ShowOptionsAction.new"));
         setEnabled(Boolean.TRUE);
     }
 
@@ -40,7 +43,7 @@ public class ShowOptionsAction extends SystemAction {
 
     @Override
     public String getName() {
-        return "New";
+        return bundle.getString("ShowOptionsAction.newName");
     }
 
     @Override
