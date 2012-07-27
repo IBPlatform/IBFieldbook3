@@ -8,6 +8,7 @@ import java.awt.Color;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JComboBox;
@@ -18,9 +19,14 @@ import javax.swing.table.TableColumn;
 import org.cimmyt.cril.ibwb.commongui.ConvertUtils;
 import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 import org.cimmyt.cril.ibwb.commongui.FileUtils;
+import org.openide.DialogDisplayer;
+import org.openide.WizardDescriptor;
+import org.openide.util.NbBundle;
+import org.openide.util.NbPreferences;
 
 /**
  * Class to centralize all designs algorithms for designs
+ *
  * @author OZIEL
  */
 public class DesignsUtils {
@@ -30,6 +36,8 @@ public class DesignsUtils {
     ArrayList<KSValues> rep2;
     ArrayList<KSValues> rep3;
     ArrayList<KSValues> rep4;
+    String[] cabeceras;
+    int[] posiciones;
 
     public DesignsUtils(JTable jTableDesign, JTextField jTextFieldEntries) {
         this.jTableDesign = jTableDesign;
@@ -38,10 +46,11 @@ public class DesignsUtils {
 
     /**
      * Assigns main editor for design
+     *
      * @param jTableDesign
      * @param conAlpha
      * @param conLattice
-     * @return 
+     * @return
      */
     public String assignMainCellEditor(boolean conAlpha, boolean conLattice) {
         String inicio = "";
@@ -61,25 +70,25 @@ public class DesignsUtils {
         comboBox.setSelectedIndex(0);
         TableColumn valueColumn = jTableDesign.getColumnModel().getColumn(1);
         valueColumn.setCellEditor(new DefaultCellEditor(comboBox));
-        
+
         TableColumn designColumn = jTableDesign.getColumnModel().getColumn(1);
-        DefaultTableCellRenderer designCellRenderer =  new DefaultTableCellRenderer();
+        DefaultTableCellRenderer designCellRenderer = new DefaultTableCellRenderer();
         designCellRenderer.setToolTipText("Choose a design from list");
         designCellRenderer.setBackground(Color.YELLOW);
-        designColumn.setCellRenderer(designCellRenderer);    
+        designColumn.setCellRenderer(designCellRenderer);
 
         TableColumn replicatesColumn = jTableDesign.getColumnModel().getColumn(2);
-        DefaultTableCellRenderer replicationCellRenderrer =  new DefaultTableCellRenderer();
+        DefaultTableCellRenderer replicationCellRenderrer = new DefaultTableCellRenderer();
         replicationCellRenderrer.setToolTipText("Choose replication number");
         replicationCellRenderrer.setBackground(Color.YELLOW);
-        replicatesColumn.setCellRenderer(replicationCellRenderrer);    
-        
+        replicatesColumn.setCellRenderer(replicationCellRenderrer);
+
         TableColumn blockSizeColumn = jTableDesign.getColumnModel().getColumn(3);
-        DefaultTableCellRenderer blockCellRenderer =  new DefaultTableCellRenderer();
+        DefaultTableCellRenderer blockCellRenderer = new DefaultTableCellRenderer();
         blockCellRenderer.setToolTipText("Choose block size");
         blockCellRenderer.setBackground(Color.YELLOW);
-        blockSizeColumn.setCellRenderer(blockCellRenderer);            
-        
+        blockSizeColumn.setCellRenderer(blockCellRenderer);
+
         return inicio;
     }
 
@@ -95,11 +104,9 @@ public class DesignsUtils {
         return rep4;
     }
 
-    
-    
     /**
-     * 
-     * @param jTableDesign 
+     *
+     * @param jTableDesign
      */
     public void assignCellEditorAlpha() {
         JComboBox comboBoxRep = new JComboBox();
@@ -113,44 +120,36 @@ public class DesignsUtils {
         repColumn.setCellEditor(new DefaultCellEditor(comboBoxRep));
     }
 
+    public boolean alphaIsValidWithOutConstraints(int entries) {
 
-    
-    
-        public boolean alphaIsValidWithOutConstraints(int entries){
-        
-        rep2 = validaRep2(entries);
-        rep3 = validaRep3(entries);
-        rep4 = validaRep4(entries);            
-        
-        if ((rep2.size() > 0) || (rep3.size() > 0) ||(rep4.size() > 0) ) {
-           return true;
-        }else{
-            return false;
-        }    
-    }
-    
-        
-        
-    
-    public boolean alphaIsValid(int entries){
-        
         rep2 = validaRep2(entries);
         rep3 = validaRep3(entries);
         rep4 = validaRep4(entries);
-        
-        //imprimeValores(rep2,rep3,rep4);
-     
-        if ((rep2.size() > 0) || (rep3.size() > 0) ||(rep4.size() > 0) ) {
-           return true;
-        }else{
+
+        if ((rep2.size() > 0) || (rep3.size() > 0) || (rep4.size() > 0)) {
+            return true;
+        } else {
             return false;
         }
-      
     }
-    
-    
-    
-    public void imprimeValores( ArrayList<KSValues> repe2,  ArrayList<KSValues> repe3,  ArrayList<KSValues> repe4){
+
+    public boolean alphaIsValid(int entries) {
+
+        rep2 = validaRep2(entries);
+        rep3 = validaRep3(entries);
+        rep4 = validaRep4(entries);
+
+        //imprimeValores(rep2,rep3,rep4);
+
+        if ((rep2.size() > 0) || (rep3.size() > 0) || (rep4.size() > 0)) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    public void imprimeValores(ArrayList<KSValues> repe2, ArrayList<KSValues> repe3, ArrayList<KSValues> repe4) {
         for (int i = 0; i < repe2.size(); i++) {
             System.out.println("Entradas validas rep2: k=" + repe2.get(i).getBlockSize() + "   s=" + repe2.get(i).getBlocksNumber());
         }
@@ -165,34 +164,31 @@ public class DesignsUtils {
             System.out.println("Entradas validas rep4: k=" + repe4.get(i).getBlockSize() + "   s=" + repe4.get(i).getBlocksNumber());
         }
     }
-    
-    
-    
-    
+
     public int assignCellEditorAlpha(int entries) {
 
         JComboBox comboBoxRep = new JComboBox();
-        int selected=0;
+        int selected = 0;
 
         if (rep2.size() > 0) {
             comboBoxRep.addItem(2);
-            selected=2;
+            selected = 2;
         }
-       
+
         if (rep3.size() > 0) {
             comboBoxRep.addItem(3);
-            if(selected==0){
-                selected=3;
+            if (selected == 0) {
+                selected = 3;
             }
         }
 
         if (rep4.size() > 0) {
             comboBoxRep.addItem(4);
-             if(selected==0){
-                selected=4;
+            if (selected == 0) {
+                selected = 4;
             }
         }
-  
+
         comboBoxRep.setEnabled(true);
         comboBoxRep.setEditable(false);
 
@@ -205,8 +201,8 @@ public class DesignsUtils {
     }
 
     /**
-     * 
-     * @param jTableDesign 
+     *
+     * @param jTableDesign
      */
     public void assignCellEditorLattice() {
         JComboBox comboBoxRep = new JComboBox();
@@ -221,8 +217,8 @@ public class DesignsUtils {
     }
 
     /**
-     * 
-     * @param jTableDesign 
+     *
+     * @param jTableDesign
      */
     public void assignCellEditorReplicated() {
         JComboBox comboBoxRep = new JComboBox();
@@ -251,63 +247,63 @@ public class DesignsUtils {
         valueColumn.setCellEditor(new DefaultCellEditor(comboBoxSize));
     }
 
-    public void generateBlocksSize( int selected) {
-        
+    public void generateBlocksSize(int selected) {
+
         final JComboBox comboBoxSize = new JComboBox();
-        
+
         switch (selected) {
             case 2:
-                
+
                 for (int i = 0; i < rep2.size(); i++) {
-                  comboBoxSize.addItem(rep2.get(i).getBlockSize()); 
-                    
+                    comboBoxSize.addItem(rep2.get(i).getBlockSize());
+
                 }
-       
-                
+
+
                 break;
-                case 3:
-                    
-                      for (int i = 0; i < rep3.size(); i++) {
-                  comboBoxSize.addItem(rep3.get(i).getBlockSize()); 
-                    
+            case 3:
+
+                for (int i = 0; i < rep3.size(); i++) {
+                    comboBoxSize.addItem(rep3.get(i).getBlockSize());
+
                 }
-                
+
                 break;
-                case 4:
-                  for (int i = 0; i < rep4.size(); i++) {
-                  comboBoxSize.addItem(rep4.get(i).getBlockSize()); 
-                    
+            case 4:
+                for (int i = 0; i < rep4.size(); i++) {
+                    comboBoxSize.addItem(rep4.get(i).getBlockSize());
+
                 }
                 break;
-                
+
         }
-                    
-       
-        
-        if(comboBoxSize.getItemCount()==0){
+
+
+
+        if (comboBoxSize.getItemCount() == 0) {
             return;
         }
-        
+
         comboBoxSize.setEnabled(true);
         comboBoxSize.setEditable(false);
         comboBoxSize.setSelectedIndex(0);
-        
+
         TableColumn valueColumn = jTableDesign.getColumnModel().getColumn(3);
         valueColumn.setCellEditor(new DefaultCellEditor(comboBoxSize));
     }
 
     public void assignCellEditorBlockSize() {
-        AlphaDesignsRowEditor alphaRowEditor = new AlphaDesignsRowEditor(jTableDesign, Integer.parseInt(jTextFieldEntries.getText()),rep2,rep3,rep4);
-        
-        
+        AlphaDesignsRowEditor alphaRowEditor = new AlphaDesignsRowEditor(jTableDesign, Integer.parseInt(jTextFieldEntries.getText()), rep2, rep3, rep4);
+
+
         TableColumn valueColumn = jTableDesign.getColumnModel().getColumn(3);
         valueColumn.setCellEditor(alphaRowEditor);
         jTextFieldEntries.repaint();
     }
 
     /**
-     * 
-     * @param useSameDesignForAll 
+     *
+     * @param useSameDesignForAll
      */
     public void useSameDesignForTrials(boolean useSameDesignForAll) {
         if (useSameDesignForAll) {
@@ -441,28 +437,94 @@ public class DesignsUtils {
 
                 File userDefinedDesign = designBean.getUserDefinedDesign();
 
-                int[] designValues = getDesignValues(Integer.parseInt(jTableDesign.getValueAt(fila, 0).toString()), userDefinedDesign);
+                if (hasCompleteHeaders(designBean.getUserDefinedDesign())) {
+                    int[] designValues = getDesignValues(Integer.parseInt(jTableDesign.getValueAt(fila, 0).toString()), userDefinedDesign, "TRIAL", "REP", "BLOCK");
+                    int rep = designValues[0];
+                    int block = designValues[1];
+                    int blockPerReplicate = designValues[3];
 
-                int rep = designValues[0];
-                int block = designValues[1];
-                int blockPerReplicate = designValues[3];
+                    jTableDesign.setValueAt(rep, fila, 2);
+                    jTableDesign.setValueAt(block, fila, 3);
+                    jTableDesign.setValueAt(blockPerReplicate, fila, 4);
+                    jTableDesign.setValueAt(userDefinedDesign, fila, 5);
 
-                jTableDesign.setValueAt(rep, fila, 2);
-                jTableDesign.setValueAt(block, fila, 3);
-                jTableDesign.setValueAt(blockPerReplicate, fila, 4);
-                jTableDesign.setValueAt(userDefinedDesign, fila, 5);
+                    NbPreferences.forModule(MacthColumsWizardPanel1.class).put("TRIAL", "TRIAL");
+                    NbPreferences.forModule(MacthColumsWizardPanel1.class).put("ENTRY", "ENTRY");
+                    NbPreferences.forModule(MacthColumsWizardPanel1.class).put("PLOT", "PLOT");
+                    NbPreferences.forModule(MacthColumsWizardPanel1.class).put("REP", "REP");
+                    NbPreferences.forModule(MacthColumsWizardPanel1.class).put("BLOCK", "BLOCK");
+                    NbPreferences.forModule(MacthColumsWizardPanel1.class).put("ROW", "ROW");
+                    NbPreferences.forModule(MacthColumsWizardPanel1.class).put("COL", "COLUMN");
+
+
+
+
+
+                } else {
+
+                    String[] hs = getHeadersFromFile(designBean.getUserDefinedDesign());
+
+                    if (hs.length < 7) {
+
+                        DialogUtil.displayError(DesignsUtils.class, "DesignsUtils.errorColumns");
+
+                    } else {
+
+
+                        WizardDescriptor wiz = new WizardDescriptor(new MacthColumsWizardIterator());
+                        wiz.setTitleFormat(new MessageFormat("{0} ({1})"));
+                        MacthColumsWizardIterator.headers = hs;
+                        wiz.setTitle(NbBundle.getMessage(DesignsUtils.class, "DesignsUtils.title"));
+                        if (DialogDisplayer.getDefault().notify(wiz) == WizardDescriptor.FINISH_OPTION) {
+
+                            String tr = NbPreferences.forModule(MacthColumsWizardPanel1.class).get("TRIAL", "TRIAL");
+                            String rp = NbPreferences.forModule(MacthColumsWizardPanel1.class).get("REP", "REP");
+                            String bl = NbPreferences.forModule(MacthColumsWizardPanel1.class).get("BLOCK", "BLOCK");
+
+
+                            int[] designValues = getDesignValues(Integer.parseInt(jTableDesign.getValueAt(fila, 0).toString()), userDefinedDesign, tr, rp, bl);
+                            int rep = designValues[0];
+                            int block = designValues[1];
+                            int blockPerReplicate = designValues[3];
+
+                            jTableDesign.setValueAt(rep, fila, 2);
+                            jTableDesign.setValueAt(block, fila, 3);
+                            jTableDesign.setValueAt(blockPerReplicate, fila, 4);
+                            jTableDesign.setValueAt(userDefinedDesign, fila, 5);
+
+
+
+
+                        } else {
+
+                            jTableDesign.setValueAt("", fila, 2);
+                            jTableDesign.setValueAt("", fila, 3);
+                            jTableDesign.setValueAt("", fila, 4);
+                            jTableDesign.setValueAt("", fila, 5);
+                        }
+                    }
+
+
+
+
+
+
+
+
+                }
+
                 useSameDesignForTrials(useSameDesignForAll);
             }
         }
 
     }
 
-    public int[] getDesignValues(int currentTrial, File fileName) {
-        int[] maxValues = {0, 0, 0, 0, 0 ,0};
+    public int[] getDesignValues(int currentTrial, File fileName, String TOZ, String ROZ, String BOZ) {
+        int[] maxValues = {0, 0, 0, 0, 0, 0};
         int rowTrialCount = 0, blkCounter = 1, blkRepCounter = 1;
 
         //  String file = OSUtils.getPathRWD() + File.separator + fileName;
-        if (!verifyCsv(currentTrial, fileName)) {
+        if (!verifyCsv(currentTrial, fileName, TOZ)) {
             DialogUtil.displayError("No trial " + currentTrial + " in this CSV file.");
 
         } else {
@@ -478,9 +540,9 @@ public class DesignsUtils {
 //                    int rep = Integer.valueOf(csvReader.get("REP")).intValue();
 //                    int block = Integer.valueOf(csvReader.get("BLOCK")).intValue();
 
-                    int trial = ConvertUtils.getValueAsInteger(csvReader.get("TRIAL"));
-                    int rep = ConvertUtils.getValueAsInteger(csvReader.get("REP"));
-                    int block = ConvertUtils.getValueAsInteger(csvReader.get("BLOCK"));
+                    int trial = ConvertUtils.getValueAsInteger(csvReader.get(TOZ));
+                    int rep = ConvertUtils.getValueAsInteger(csvReader.get(ROZ));
+                    int block = ConvertUtils.getValueAsInteger(csvReader.get(BOZ));
 
                     if (trial == currentTrial) {
                         rowTrialCount++;
@@ -519,18 +581,114 @@ public class DesignsUtils {
         return maxValues;
     }
 
-    public static boolean verifyCsv(int currentTrial, File fileName) {
+    public String[] getHeadersFromFile(File fileName) {
+        String[] headers = null;
+        try {
+            CsvReader csvReader = new CsvReader(fileName.toString());
+            csvReader.readHeaders();
+            headers = csvReader.getHeaders();
+            csvReader.close();
+
+        } catch (FileNotFoundException ex) {
+            System.out.println("FILE NOT FOUND. readDATAcsv.\n\t " + ex);
+
+        } catch (IOException e) {
+            System.out.println("IO EXCEPTION. readDATAcsv.\n\t " + e);
+        }
+        return headers;
+    }
+
+    public boolean hasCompleteHeaders(File fileName) {
+
+        cabeceras = new String[7];
+        posiciones = new int[7];
+
+        boolean hasComplete = false;
+        int total = 0;
+
+        try {
+            CsvReader csvReader = new CsvReader(fileName.toString());
+            csvReader.readHeaders();
+            String[] headers = csvReader.getHeaders();
+
+            System.out.println("TOTAL CSV HEADERS: " + csvReader.getHeaderCount());
+
+            ArrayList<String> columnas = new ArrayList<String>();
+
+            if (csvReader.getHeaderCount() > 0) {
+
+                for (int i = 0; i < headers.length; i++) {
+                    columnas.add(headers[i].toUpperCase().trim());
+                }
+
+                if (columnas.contains("TRIAL")) {
+                    cabeceras[0] = "TRIAL";
+                    posiciones[0] = columnas.indexOf("TRIAL");
+                    total++;
+                }
+                if (columnas.contains("ENTRY")) {
+                    cabeceras[1] = "ENTRY";
+                    posiciones[1] = columnas.indexOf("ENTRY");
+                    total++;
+                }
+                if (columnas.contains("PLOT")) {
+                    cabeceras[2] = "PLOT";
+                    posiciones[2] = columnas.indexOf("PLOT");
+                    total++;
+                }
+                if (columnas.contains("REP")) {
+                    cabeceras[3] = "REP";
+                    posiciones[3] = columnas.indexOf("REP");
+                    total++;
+                }
+                if (columnas.contains("BLOCK")) {
+                    cabeceras[4] = "BLOCK";
+                    posiciones[4] = columnas.indexOf("BLOCK");
+                    total++;
+                }
+                if (columnas.contains("ROW")) {
+                    cabeceras[5] = "ROW";
+                    posiciones[5] = columnas.indexOf("ROW");
+                    total++;
+                }
+                if (columnas.contains("COLUMN")) {
+                    cabeceras[6] = "COLUMN";
+                    posiciones[6] = columnas.indexOf("COLUMN");
+                    total++;
+                }
+
+                if (total == 7) {
+                    hasComplete = true;
+                }
+            }
+
+            csvReader.close();
+
+        } catch (FileNotFoundException ex) {
+            System.out.println("FILE NOT FOUND. readDATAcsv.\n" + ex);
+            hasComplete = false;
+
+        } catch (IOException e) {
+            System.out.println("IO EXCEPTION. readDATAcsv.\n " + e);
+            hasComplete = false;
+        }
+
+        System.out.println("HEADERS MATCH: " + total);
+
+        return hasComplete;
+    }
+
+    public static boolean verifyCsv(int currentTrial, File fileName, String TR) {
         boolean isValid = false;
 
         try {
             CsvReader csvReader = new CsvReader(fileName.toString());
             csvReader.readHeaders();
 
-
             while (csvReader.readRecord()) {
 
                 //int trial = Integer.valueOf(csvReader.get("TRIAL")).intValue();
-                int trial = ConvertUtils.getValueAsInteger(csvReader.get("TRIAL"));
+                int trial = ConvertUtils.getValueAsInteger(csvReader.get(TR));
                 if (trial == currentTrial) {
                     isValid = true;
                     break;
@@ -557,12 +715,12 @@ public class DesignsUtils {
             if ((entries % i) == 0) {
                 int s = entries / i;
                 if (KisLessThanS(i, s)) {
-                   // if (cumpleConArrays(i, s)) {
-                        KSValues valoresKS = new KSValues();
-                        valoresKS.setBlockSize(i);
-                        valoresKS.setBlocksNumber(s);
-                        repet2.add(valoresKS);
-                   // }
+                    // if (cumpleConArrays(i, s)) {
+                    KSValues valoresKS = new KSValues();
+                    valoresKS.setBlockSize(i);
+                    valoresKS.setBlocksNumber(s);
+                    repet2.add(valoresKS);
+                    // }
                 }
             }
         }
@@ -585,23 +743,23 @@ public class DesignsUtils {
 
                 if (isImpar(s)) {
                     if (KisLessThanS(i, s)) {
-                      //  if (cumpleConArrays(i, s)) {
-                            KSValues valoresKS = new KSValues();
-                            valoresKS.setBlockSize(i);
-                            valoresKS.setBlocksNumber(s);
-                            repet3.add(valoresKS);
-                       // }
+                        //  if (cumpleConArrays(i, s)) {
+                        KSValues valoresKS = new KSValues();
+                        valoresKS.setBlockSize(i);
+                        valoresKS.setBlocksNumber(s);
+                        repet3.add(valoresKS);
+                        // }
                     }
 
                 } else {
 
                     if (KisLessThanSminusOne(i, s)) {
-                      //  if (cumpleConArrays(i, s)) {
-                            KSValues valoresKS = new KSValues();
-                            valoresKS.setBlockSize(i);
-                            valoresKS.setBlocksNumber(s);
-                            repet3.add(valoresKS);
-                      //  }
+                        //  if (cumpleConArrays(i, s)) {
+                        KSValues valoresKS = new KSValues();
+                        valoresKS.setBlockSize(i);
+                        valoresKS.setBlocksNumber(s);
+                        repet3.add(valoresKS);
+                        //  }
                     }
 
 
@@ -619,12 +777,12 @@ public class DesignsUtils {
 
                 if (isImparButNotMultipleOfThree(s)) {
                     if (KisLessThanS(i, s)) {
-                       // if (cumpleConArrays(i, s)) {
-                            KSValues valoresKS = new KSValues();
-                            valoresKS.setBlockSize(i);
-                            valoresKS.setBlocksNumber(s);
-                            repet4.add(valoresKS);
-                      //  }
+                        // if (cumpleConArrays(i, s)) {
+                        KSValues valoresKS = new KSValues();
+                        valoresKS.setBlockSize(i);
+                        valoresKS.setBlocksNumber(s);
+                        repet4.add(valoresKS);
+                        //  }
 
                     }
 
@@ -664,41 +822,41 @@ public class DesignsUtils {
         switch (s) {
 
             case 5:
-                if(s==k){
-                return true;
-                }else{
-                 return false;    
+                if (s == k) {
+                    return true;
+                } else {
+                    return false;
                 }
-                
+
             case 6:
-                  if(s==k){
-                return true;
-                }else{
-                 return false;    
+                if (s == k) {
+                    return true;
+                } else {
+                    return false;
                 }
             case 7:
-                  if(s==k){
-                return true;
-                }else{
-                 return false;    
+                if (s == k) {
+                    return true;
+                } else {
+                    return false;
                 }
             case 8:
-                  if(s==k){
-                return true;
-                }else{
-                 return false;    
+                if (s == k) {
+                    return true;
+                } else {
+                    return false;
                 }
             case 9:
-                  if(s==k){
-                return true;
-                }else{
-                 return false;    
+                if (s == k) {
+                    return true;
+                } else {
+                    return false;
                 }
             case 10:
-                 if(s==k){
-                return true;
-                }else{
-                 return false;    
+                if (s == k) {
+                    return true;
+                } else {
+                    return false;
                 }
 
             case 11:

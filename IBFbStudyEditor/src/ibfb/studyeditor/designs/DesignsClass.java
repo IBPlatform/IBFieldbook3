@@ -13,6 +13,7 @@ import javax.swing.table.DefaultTableModel;
 import org.cimmyt.cril.ibwb.commongui.ConvertUtils;
 import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 import org.cimmyt.cril.ibwb.commongui.OSUtils;
+import org.openide.util.NbPreferences;
 
 /**
  * Class to manage Designs using R calls
@@ -611,24 +612,24 @@ public class DesignsClass {
             String[] headers = csvReader.getHeaders();
 
             while (csvReader.readRecord()) {
-                String trial = csvReader.get("TRIAL");
+                String trial = csvReader.get(NbPreferences.forModule(MacthColumsWizardPanel1.class).get("TRIAL", "TRIAL"));
                 //if (Integer.valueOf(trial).intValue() != currentTrial) {
                 if (ConvertUtils.getValueAsInteger(trial) != currentTrial) {
                     //    if (trial.equals(Integer.toString(currentTrial))) {
                     continue; //skip this row
                 }
 
-                String rep = csvReader.get("REP");
-                String block = csvReader.get("BLOCK");
-                String plot = csvReader.get("PLOT");
-                String entry = csvReader.get("ENTRY");
+                String rep = csvReader.get(NbPreferences.forModule(MacthColumsWizardPanel1.class).get("REP", "REP"));
+                String block = csvReader.get(NbPreferences.forModule(MacthColumsWizardPanel1.class).get("BLOCK", "BLOCK"));
+                String plot = csvReader.get(NbPreferences.forModule(MacthColumsWizardPanel1.class).get("PLOT", "PLOT"));
+                String entry = csvReader.get(NbPreferences.forModule(MacthColumsWizardPanel1.class).get("ENTRY", "ENTRY"));
                 String row = "";
                 String col = "";
                 boolean tenemosRow = false;
                 boolean tenemosCol = false;
 
                 try {
-                    row = csvReader.get("ROW").toUpperCase();
+                    row = csvReader.get(NbPreferences.forModule(MacthColumsWizardPanel1.class).get("ROW", "ROW")).toUpperCase();
                     tenemosRow = true;
                 } catch (IOException e) {
                     tenemosRow = false;
@@ -636,7 +637,7 @@ public class DesignsClass {
                 }
 
                 try {
-                    col = csvReader.get("COLUMN").toUpperCase();
+                    col = csvReader.get(NbPreferences.forModule(MacthColumsWizardPanel1.class).get("COL", "COLUMN")).toUpperCase();
                     tenemosCol = true; 
       
                 

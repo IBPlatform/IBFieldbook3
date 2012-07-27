@@ -20,12 +20,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import javax.swing.JFileChooser;
-import javax.swing.JPanel;
-import javax.swing.JTable;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
+import javax.swing.*;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.table.*;
 import org.cimmyt.cril.ibwb.api.AppServicesProxy;
@@ -294,6 +289,11 @@ public final class TrialWizardVisualPanel4 extends JPanel {
 }//GEN-LAST:event_jButtonPreviewActionPerformed
 
     private void fillComboListNames() {
+       
+        
+        cboGermplasmList.setModel(new DefaultComboBoxModel(new String[] {NbBundle.getMessage(TrialWizardVisualPanel4.class,"TrialWizardVisualPanel4.selectOne") }));
+
+        
         List<Listnms> germplasmList = AppServicesProxy.getDefault().appServices().getListnmsList();
         for (Listnms list : germplasmList) {
             cboGermplasmList.addItem(list);
