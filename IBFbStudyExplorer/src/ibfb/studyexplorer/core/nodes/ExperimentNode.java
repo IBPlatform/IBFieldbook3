@@ -53,6 +53,7 @@ public class ExperimentNode extends AbstractNode {
         } else if (experiment.getType().equals(Experiment.NURSERY)) {
             actions[0] = SystemAction.get(NewWizardNurseryAction.class);
             actions[1] = SystemAction.get(QuickNurseryCreationAction.class);
+            
         }
         
         return actions;
@@ -70,4 +71,10 @@ public class ExperimentNode extends AbstractNode {
         }
         
     }
+    
+     @Override
+    public boolean canDestroy() {
+        return true;
+    }
+     
 }

@@ -34,6 +34,7 @@ public class MainStudyRootNode extends AbstractNode {
             actions = new SystemAction[2];
             actions[0] = SystemAction.get(NewStudyAction.class);
             actions[1] = SystemAction.get(RefreshStudiesAction.class);
+            
         }
 
         return actions;

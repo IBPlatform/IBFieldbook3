@@ -15,40 +15,19 @@ public class CloseNodeAction extends SystemAction {
 
     private org.openide.util.Lookup.Result<Study> result;
     private ResourceBundle bundle = NbBundle.getBundle(CloseNodeAction.class);
-    
     Node miNodo = null;
 
     public CloseNodeAction() {
-        
+
         putValue(NAME, bundle.getString("CloseNodeAction.close"));
         setEnabled(Boolean.TRUE);
         result = org.openide.util.Utilities.actionsGlobalContext().lookupResult(Study.class);
-}
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-       System.out.println("REMOVER NODO");
-
-        
-       
-       StudyExplorerTopComponent studyExplorer = (StudyExplorerTopComponent) WindowManager.getDefault().findTopComponent("StudyExplorerTopComponent");
-
-
-       Node[] nodes=studyExplorer.getExplorerManager().getSelectedNodes();
-       
-        for (int i = 0; i < nodes.length; i++) {
-            System.out.println(nodes[i]);
-            
-        }
-        
-       // studyExplorer.getExplorerManager()
-       
-       ExplorerUtils.actionDelete(studyExplorer.getExplorerManager(), false);
-
-       
-     //  studyExplorer.getStudyList().remove(studyExplorer.getExplorerManager().getSelectedNodes());
-     //  studyExplorer.refreshStudyBrowser();
-       
+        StudyExplorerTopComponent studyExplorer = (StudyExplorerTopComponent) WindowManager.getDefault().findTopComponent("StudyExplorerTopComponent");
+        studyExplorer.removeSelectedNode();
     }
 
     @Override

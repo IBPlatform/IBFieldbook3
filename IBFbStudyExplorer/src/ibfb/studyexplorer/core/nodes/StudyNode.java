@@ -5,6 +5,7 @@
 package ibfb.studyexplorer.core.nodes;
 
 import ibfb.domain.core.Study;
+import ibfb.studyexplorer.actions.CloseAction;
 import org.openide.nodes.AbstractNode;
 import ibfb.studyexplorer.actions.OpenStudyAction;
 import ibfb.studyexplorer.actions.ShowOptionsAction;
@@ -37,6 +38,8 @@ class StudyNode extends AbstractNode {
         SystemAction[] actions = new SystemAction[2];
         actions[0] = SystemAction.get(ShowOptionsAction.class);
         actions[1] = SystemAction.get(ShowPropAction.class);
+       // actions[2] = SystemAction.get(CloseAction.class ) ;
+        
         //actions[2] = SystemAction.get(OpenStudyAction.class);
         return actions;
     }
@@ -48,5 +51,10 @@ class StudyNode extends AbstractNode {
 
     public Study getStudy() {
         return this.study;
+    }
+    
+     @Override
+    public boolean canDestroy() {
+        return true;
     }
 }

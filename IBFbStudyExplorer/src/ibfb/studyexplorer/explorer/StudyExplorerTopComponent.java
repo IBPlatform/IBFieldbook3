@@ -73,6 +73,12 @@ public final class StudyExplorerTopComponent extends TopComponent implements Exp
     private void startWithEmptyStudyClear() {
         studyList.clear();
     }
+    
+    public void removeSelectedNode(){
+        studyList.remove(getSelectedNode());
+        explorerManager.setRootContext(new MainStudyRootNode(new StudyChildren(studyList)));
+
+    }
 
     private void loadStudiesFromDB() {
         changeCursorWaitStatus(true);
@@ -84,7 +90,9 @@ public final class StudyExplorerTopComponent extends TopComponent implements Exp
                 AppServicesProxy.getDefault().appServices().getStudyListByParent(0, Study.S_TYPE_EXPERIMENT);
         //AppServicesProxy.getDefault().appServices().getStudyList();
         for (org.cimmyt.cril.ibwb.domain.Study studyDto : studyDtoList) {
+           // if(!studyDto.getSname().startsWith("19")){
             studyList.add(castStudy(studyDto));
+           // }
         }
 
 
@@ -105,6 +113,15 @@ public final class StudyExplorerTopComponent extends TopComponent implements Exp
         changeCursorWaitStatus(false);
 
     }
+    
+   
+    public void refreshStudyBrowserOnClose() {
+        changeCursorWaitStatus(true);
+        explorerManager.setRootContext(new MainStudyRootNode(new StudyChildren(studyList)));
+        changeCursorWaitStatus(false);
+
+    }
+    
 
     public Study castStudy(org.cimmyt.cril.ibwb.domain.Study studyDto) {
         Study study = new Study();
@@ -180,6 +197,8 @@ public final class StudyExplorerTopComponent extends TopComponent implements Exp
         }
 
     }
+    
+    
 
     private void setProperties(Study study) {
         JDExpert.studyOBJ.setStudy(study.getStudy());
