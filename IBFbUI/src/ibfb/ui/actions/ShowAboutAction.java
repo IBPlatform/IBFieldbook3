@@ -2,17 +2,14 @@
 package ibfb.ui.actions;
 
 import ibfb.ui.core.JDAbout;
-import java.awt.Dialog;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.MessageFormat;
-import org.openide.DialogDisplayer;
-import org.openide.WizardDescriptor;
-import org.openide.awt.ActionRegistration;
+import java.util.ResourceBundle;
+import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
-import org.openide.awt.ActionID;
-import org.openide.util.NbBundle.Messages;
+import org.openide.awt.ActionRegistration;
+import org.openide.util.NbBundle;
 
 
 @ActionID(category = "File",
@@ -23,9 +20,10 @@ displayName = "#CTL_ShowAboutAction")
     @ActionReference(path = "Menu/File", position = 1300),
     @ActionReference(path = "Toolbars/File", position = -100)
 })
-@Messages("CTL_ShowAboutAction=About...")
+
 public final class ShowAboutAction implements ActionListener {
     
+    private ResourceBundle bundle = NbBundle.getBundle(ShowAboutAction.class);
     JDAbout about=new JDAbout(null,true);
 
     @Override
@@ -35,25 +33,5 @@ public final class ShowAboutAction implements ActionListener {
 
     }
 
-    private void llamaBT() {
-        /*
-        WizardDescriptor.Iterator iterator = new BluetoothWizardIterator();
-    WizardDescriptor wizardDescriptor = new WizardDescriptor(iterator);
 
-    wizardDescriptor.setTitleFormat(new MessageFormat("{0} ({1})"));
-    wizardDescriptor.setTitle("Your wizard dialog title here");
-    Dialog dialog = DialogDisplayer.getDefault().createDialog(wizardDescriptor);
-    dialog.setVisible(true);
-    dialog.toFront();
-    boolean cancelled = wizardDescriptor.getValue() != WizardDescriptor.FINISH_OPTION;
-    if (!cancelled) {
-
-    }
-    }
-
-  
-         * 
-         */
-        
-    }
 }
