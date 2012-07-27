@@ -62,16 +62,20 @@
             </file>
         </folder>
         <file name="GoTo_hidden"/>
+        
         <folder name="Help">
             <file name="ibfb-help-core-MyHelpTopComponent.shadow" url="ibfb-help-core-MyHelpTopComponent_1.shadow">
+                <attr name="displayName" bundlevalue="ibfb.branding.core.Bundle#Menu/Help"/>
                 <attr name="originalFile" stringvalue="Actions/Window/ibfb-help-core-MyHelpTopComponent.instance"/>
             </file>
             <file name="master-help.xml_hidden"/>
         </folder>
+        
         <folder name="Tools">
             <attr name="displayName" bundlevalue="ibfb.branding.core.Bundle#Menu/Tools"/>
             <file name="ibfb-ui-actions-CreateTemplateAction.shadow_hidden"/>
         </folder>
+        
         <file name="View_hidden"/>
         <folder name="Window_hidden">
             <file name="ibfb-germplasmlist-core-addChecksTopComponent.shadow_hidden"/>
