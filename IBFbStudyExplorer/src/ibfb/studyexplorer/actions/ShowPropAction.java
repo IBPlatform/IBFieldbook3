@@ -2,7 +2,22 @@ package ibfb.studyexplorer.actions;
 
 import ibfb.domain.core.Study;
 import java.awt.event.ActionEvent;
+import java.util.ResourceBundle;
 import org.openide.nodes.Node;;
+import org.openide.windows.TopComponent;
+import org.openide.windows.WindowManager;
+import org.openide.util.HelpCtx;
+import org.openide.util.NbBundle;
+import org.openide.util.actions.SystemAction;
+import org.openide.windows.TopComponent;
+import org.openide.windows.WindowManager;
+import org.openide.util.HelpCtx;
+import org.openide.util.actions.SystemAction;
+import org.openide.windows.TopComponent;
+import org.openide.windows.WindowManager;
+import org.openide.util.HelpCtx;
+import org.openide.util.NbBundle;
+import org.openide.util.actions.SystemAction;
 import org.openide.windows.TopComponent;
 import org.openide.windows.WindowManager;
 import org.openide.util.HelpCtx;
@@ -11,11 +26,11 @@ import org.openide.util.actions.SystemAction;
 public class ShowPropAction extends SystemAction {
 
     private org.openide.util.Lookup.Result<Study> result;
-    
+     private ResourceBundle bundle = NbBundle.getBundle(ShowPropAction.class);
     Node miNodo = null;
 
     public ShowPropAction() {
-        putValue(NAME, "Properties");
+        putValue(NAME, bundle.getString("ShowPropAction.name"));
         setEnabled(Boolean.TRUE);
         result = org.openide.util.Utilities.actionsGlobalContext().lookupResult(Study.class);
 
@@ -41,7 +56,7 @@ public class ShowPropAction extends SystemAction {
 
     @Override
     public String getName() {
-        return "Properties";
+        return bundle.getString("ShowPropAction.name");
     }
 
     @Override
