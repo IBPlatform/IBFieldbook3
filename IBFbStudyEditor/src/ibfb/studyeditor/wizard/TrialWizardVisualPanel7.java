@@ -67,9 +67,9 @@ public class TrialWizardVisualPanel7 extends JPanel {
         jTextFieldDescription.setEditable(false);
         jTextFieldDescription.setText(org.openide.util.NbBundle.getMessage(TrialWizardVisualPanel7.class, "TrialWizardVisualPanel6Tree.jTextFieldDescription.text")); // NOI18N
 
-        org.openide.awt.Mnemonics.setLocalizedText(lblDescriptionLeft, org.openide.util.NbBundle.getMessage(TrialWizardVisualPanel7.class, "TrialWizardVisualPanel6Tree.jLabel3.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lblDescriptionLeft, org.openide.util.NbBundle.getMessage(TrialWizardVisualPanel7.class, "TrialWizardVisualPanel7.lblDescriptionLeft.text")); // NOI18N
 
-        org.openide.awt.Mnemonics.setLocalizedText(lblDescriptionRight, org.openide.util.NbBundle.getMessage(TrialWizardVisualPanel7.class, "TrialWizardVisualPanel6Tree.jLabel4.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lblDescriptionRight, org.openide.util.NbBundle.getMessage(TrialWizardVisualPanel7.class, "TrialWizardVisualPanel7.lblDescriptionRight.text")); // NOI18N
 
         jTextFieldDescriptionSelected.setEditable(false);
         jTextFieldDescriptionSelected.setText(org.openide.util.NbBundle.getMessage(TrialWizardVisualPanel7.class, "TrialWizardVisualPanel6Tree.jTextFieldDescriptionSelected.text")); // NOI18N

@@ -73,14 +73,14 @@
     <Component class="javax.swing.JLabel" name="lblDescriptionLeft">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-          <ResourceString bundle="ibfb/studyeditor/wizard/Bundle.properties" key="TrialWizardVisualPanel6Tree.jLabel3.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+          <ResourceString bundle="ibfb/studyeditor/wizard/Bundle.properties" key="TrialWizardVisualPanel7.lblDescriptionLeft.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblDescriptionRight">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-          <ResourceString bundle="ibfb/studyeditor/wizard/Bundle.properties" key="TrialWizardVisualPanel6Tree.jLabel4.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+          <ResourceString bundle="ibfb/studyeditor/wizard/Bundle.properties" key="TrialWizardVisualPanel7.lblDescriptionRight.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
         </Property>
       </Properties>
     </Component>
