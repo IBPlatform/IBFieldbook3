@@ -1309,4 +1309,9 @@ public class IBWBAppServicesMemoryImpl implements AppServices {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
+    @Override
+    public void migrateWorkbook(Integer studyId) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
 }

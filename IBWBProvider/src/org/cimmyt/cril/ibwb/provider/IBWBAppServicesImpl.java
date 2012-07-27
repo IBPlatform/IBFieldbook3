@@ -1537,12 +1537,6 @@ public class IBWBAppServicesImpl implements AppServices {
         } else {
             return serviciosLocal.getTmsMethod(tmethodId);
         }
-//        Tmethod tmethod = serviciosCentral.getTmethod(tmethodId);
-//        if (tmethod != null) {
-//            return tmethod;
-//        } else {
-//            return serviciosLocal.getTmethod(tmethodId);
-//        }
     }
 
     @Override
@@ -2608,6 +2602,85 @@ public class IBWBAppServicesImpl implements AppServices {
             boolean seGuardo = validarStudy(workbook);
         }
     }
+    
+    public void migrateWorkbook(Integer studyId) {
+        Study studyTemp = this.serviciosCentral.getStudy(studyId);
+        this.serviciosLocal.addStudy(studyTemp);
+        
+        Study studyTempPadre = this.serviciosLocal.getStudy(studyTemp.getShierarchy());
+        if(studyTempPadre == null){
+            studyTempPadre = this.serviciosCentral.getStudy(studyTemp.getShierarchy());
+            this.serviciosLocal.addStudy(studyTempPadre);
+        }
+        
+        Factor factorTemp = new Factor(true);
+        factorTemp.setStudyid(studyId);
+        List<Factor> factors = this.serviciosCentral.getListFactor(factorTemp, 0, 0, false);
+        for(Factor factor : factors){
+            this.serviciosLocal.addFactor(factor);
+            Object level;
+            if(factor.getLtype().equals("N")){
+                LevelN levelN = new LevelN(true);
+                levelN.setLevelNPK(new LevelNPK());
+                levelN.getLevelNPK().setLabelid(factor.getLabelid());
+                level = levelN;
+            }else{
+                LevelC levelC = new LevelC(true);
+                levelC.setLevelCPK(new LevelCPK());
+                levelC.getLevelCPK().setLabelid(factor.getLabelid());
+                level = levelC;
+            }
+            
+            List levelsG;
+            if(level instanceof LevelN){
+                levelsG = this.serviciosCentral.getListLevelN((LevelN)level, 0, 0, false);
+            }else{
+                levelsG = this.serviciosCentral.getListLevelC((LevelC)level, 0, 0, false);
+            }
+            for(Object levelTemp : levelsG){
+                if(levelTemp instanceof LevelN){
+                    this.serviciosLocal.addLevelN((LevelN)levelTemp);
+                }else{
+                    this.serviciosLocal.addLevelC((LevelC)levelTemp);
+                }
+            }
+            
+            Levels levels = new Levels(true);
+            levels.setFactorid(factor.getLabelid());
+            for(Levels levelsTemp : this.serviciosCentral.getListLevels(levels, 0, 0, false)){
+                this.serviciosLocal.addLevels(levelsTemp);
+            }
+        }
+        
+        Steffect steffect = new Steffect(true);
+        steffect.setStudyid(studyId);
+        for(Steffect steffectTemp : this.serviciosCentral.getListSteffect(steffect, 0, 0, false)){
+            this.serviciosLocal.addSteffect(steffectTemp);
+            Represtn represtn = new Represtn(true);
+            represtn.setEffectid(steffectTemp.getEffectid());
+            for(Represtn represtn1 : this.serviciosCentral.getListReprestn(represtn, 0, 0, false)){
+                this.serviciosLocal.addReprestn(represtn1);
+                Oindex oindex = new Oindex();
+                oindex.setOindexPK(new OindexPK());
+                oindex.getOindexPK().setRepresno(represtn1.getRepresno());
+                for(Oindex oindex1 : this.serviciosCentral.getListOindex(oindex, 0, 0, false)){
+                    this.serviciosLocal.addOindex(oindex1);
+                }
+            }
+            Effect effect = new Effect(true);
+            effect.setEffectPK(new EffectPK());
+            effect.getEffectPK().setEffectid(steffectTemp.getEffectid());
+            for(Effect effect1 : this.serviciosCentral.getListEffect(effect, 0, 0, false)){
+                this.serviciosLocal.addEffect(effect1);
+            }
+            Obsunit obsunit = new Obsunit(true);
+            obsunit.setEffectid(represtn.getEffectid());
+            for(Obsunit obsunit1 : this.serviciosCentral.getListObsunit(obsunit, 0, 0, false)){
+                this.serviciosLocal.addObsunit(obsunit1);
+            }
+            
+        }
+    }
 
     public boolean validarStudy(Workbook workbook) {
         Study studyFull = this.serviciosCentral.getStudy(workbook.getStudy().getStudyid());
@@ -2710,7 +2783,6 @@ public class IBWBAppServicesImpl implements AppServices {
             } else {
                 service = serviciosLocal;
             }
-
             Names nameToSearch = new Names(true);
             nameToSearch.setGid(gid);
             nameToSearch.setNtype(1028);
@@ -2719,7 +2791,6 @@ public class IBWBAppServicesImpl implements AppServices {
                 // if not found then search using other ntype
                 nameToSearch.setNtype(1027);
                 namesList = service.getListNames(nameToSearch, 0, 0, false);
-
                 if (!namesList.isEmpty()) {
                     // if found then get it
                     cimmytWheatName = namesList.get(0);
@@ -2728,8 +2799,6 @@ public class IBWBAppServicesImpl implements AppServices {
                 cimmytWheatName = namesList.get(0);
             }
         }
-
-
         return cimmytWheatName;
     }
 }
