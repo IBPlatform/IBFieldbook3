@@ -66,7 +66,7 @@
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTabbedPane2" alignment="1" pref="537" max="32767" attributes="2"/>
+                              <Component id="jTabbedPane2" alignment="1" max="32767" attributes="2"/>
                               <Component id="jToolBar2" alignment="1" max="32767" attributes="2"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -86,7 +86,7 @@
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTabbedPane2" alignment="0" pref="483" max="32767" attributes="0"/>
+                              <Component id="jTabbedPane2" alignment="0" max="32767" attributes="0"/>
                               <Component id="jPanel6" alignment="0" max="32767" attributes="2"/>
                           </Group>
                           <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
@@ -516,7 +516,7 @@
                           <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jToolBar4" max="32767" attributes="2"/>
-                              <Component id="jTabbedPane3" pref="490" max="32767" attributes="2"/>
+                              <Component id="jTabbedPane3" max="32767" attributes="2"/>
                           </Group>
                           <EmptySpace min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -535,7 +535,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTabbedPane3" alignment="0" pref="483" max="32767" attributes="0"/>
+                              <Component id="jTabbedPane3" alignment="0" max="32767" attributes="0"/>
                               <Component id="jPanel9" alignment="0" max="32767" attributes="2"/>
                           </Group>
                           <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>

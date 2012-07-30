@@ -1209,13 +1209,18 @@ public final class addChecksTopComponent extends TopComponent {
             return;
         }
      
-            saveList();
+        
+System.out.println("ANTES DE GUARDAR LA LISTA");        
+            
+saveList();
+            
+            System.out.println("YA GUARDO LA LISTA");
             NotifyDescriptor d2 = new NotifyDescriptor.Message(NbBundle.getMessage(addChecksTopComponent.class,"addChecksTopComponent.saved"), NotifyDescriptor.INFORMATION_MESSAGE);
             DialogDisplayer.getDefault().notify(d2);
             this.jTextFieldListName.setText("");
             this.jTextFieldDescription.setText("");
 
-        refreshData();
+       // refreshData();
 
     }//GEN-LAST:event_jButtonSaveListActionPerformed
 
@@ -1272,8 +1277,6 @@ public final class addChecksTopComponent extends TopComponent {
 
         }
 
-        //OZIEL LUGO
-        //Integer loggedUserid = AppServicesProxy.getDefault().appServices().getLoggedUserId();
         Integer loggedUserid = AppServicesProxy.getDefault().appServices().getLoggedUserId(FieldbookSettings.getLocalGmsUserId());
         
         AppServicesProxy.getDefault().appServices().addNewsGermplasm(listnms, dataList, loggedUserid);
@@ -1284,7 +1287,7 @@ public final class addChecksTopComponent extends TopComponent {
 
         //clear list
         toAdd.clear();
-        toAddChecks.clear();
+       toAddChecks.clear();
     }
 
     private int findColumn(String col) {
