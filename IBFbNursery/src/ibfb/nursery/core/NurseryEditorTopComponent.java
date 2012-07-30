@@ -165,8 +165,8 @@ public final class NurseryEditorTopComponent extends TopComponent {
         csv = new CSVOziel(this.jTableObservations, new JList());
         deshabilitaSorters();
         doubleListPanel = new DoubleListPanel<Variate>(availableTraits, selectedTraits, unselectedCommand, selectedCommand);
-        doubleListPanel.setSourceLabel("Unselected Traits (from template)");
-        doubleListPanel.setTargetLabel("Selected Traits");
+        doubleListPanel.setSourceLabel(NbBundle.getMessage(NurseryEditorTopComponent.class, "NurseryEditorTopComponent.unselected"));
+        doubleListPanel.setTargetLabel(NbBundle.getMessage(NurseryEditorTopComponent.class, "NurseryEditorTopComponent.selected"));
         doubleListPanel.setVisible(true);
         doubleListPanel.setDropTargetCommand(new TraitsDropTargetCommand());
         pnlSelectList.add(doubleListPanel);
@@ -215,7 +215,7 @@ public final class NurseryEditorTopComponent extends TopComponent {
 
             if (!csvOziel.isValid(nurseryFile)) {
 
-                DialogUtil.displayError("The file is invalid");
+                DialogUtil.displayError(NbBundle.getMessage(NurseryEditorTopComponent.class, "NurseryEditorTopComponent.fileInvalid"));
                 return;
             }
 
@@ -1451,10 +1451,10 @@ public final class NurseryEditorTopComponent extends TopComponent {
     }
 
     private void RefreshDesign() {
-        int opcion = JOptionPane.showConfirmDialog(null, "Do you want to modify the design? All Measurements will be modified", "Caution!", JOptionPane.YES_NO_OPTION);
+        int opcion = JOptionPane.showConfirmDialog(null, NbBundle.getMessage(NurseryEditorTopComponent.class, "NurseryEditorTopComponent.changeDesign"), NbBundle.getMessage(NurseryEditorTopComponent.class, "NurseryEditorTopComponent.caution"), JOptionPane.YES_NO_OPTION);
 
         if (opcion == 0) {
-            final ProgressHandle handle = ProgressHandleFactory.createHandle("Generating design... ");
+            final ProgressHandle handle = ProgressHandleFactory.createHandle(NbBundle.getMessage(NurseryEditorTopComponent.class, "NurseryEditorTopComponent.generatingDesign"));
             handle.start();
             (new SwingWorker<String, Object>() {
 
@@ -1624,7 +1624,7 @@ public final class NurseryEditorTopComponent extends TopComponent {
         }//GEN-LAST:event_jTableStudyConditionsPropertyChange
 
     private void jRadioButtonNormalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButtonNormalMouseClicked
-        int opcion = JOptionPane.showConfirmDialog(null, "Are you sure to change the design? The -Measurements Table- will be modified ", "Caution!", JOptionPane.YES_NO_OPTION);
+        int opcion = JOptionPane.showConfirmDialog(null, NbBundle.getMessage(NurseryEditorTopComponent.class, "NurseryEditorTopComponent.changeDesign"), NbBundle.getMessage(NurseryEditorTopComponent.class, "NurseryEditorTopComponent.caution"), JOptionPane.YES_NO_OPTION);
         if (opcion == 0) {
             fillObservationsData();
         } else {
@@ -1633,7 +1633,7 @@ public final class NurseryEditorTopComponent extends TopComponent {
     }//GEN-LAST:event_jRadioButtonNormalMouseClicked
 
     private void jRadioButtonRandomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButtonRandomMouseClicked
-        int opcion = JOptionPane.showConfirmDialog(null, "Are you sure to change the design? The -Measurements Table- will be modified ", "Caution!", JOptionPane.YES_NO_OPTION);
+        int opcion = JOptionPane.showConfirmDialog(null, NbBundle.getMessage(NurseryEditorTopComponent.class, "NurseryEditorTopComponent.changeDesign"), NbBundle.getMessage(NurseryEditorTopComponent.class, "NurseryEditorTopComponent.caution"), JOptionPane.YES_NO_OPTION);
         if (opcion == 0) {
             fillObservationsData();
         } else {
@@ -1657,7 +1657,7 @@ public final class NurseryEditorTopComponent extends TopComponent {
 
                 if (startValue.compareTo(endValue) > 0) {
 
-                    NotifyDescriptor d = new NotifyDescriptor.Message("The Late date must be greater than early date", NotifyDescriptor.INFORMATION_MESSAGE);
+                    NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(NurseryEditorTopComponent.class, "NurseryEditorTopComponent.late"), NotifyDescriptor.INFORMATION_MESSAGE);
                     DialogDisplayer.getDefault().notify(d);
                     jDateChooserStart.setDate(null);
                 }
@@ -1680,7 +1680,7 @@ public final class NurseryEditorTopComponent extends TopComponent {
 
                 if (startValue.compareTo(endValue) > 0) {
 
-                    NotifyDescriptor d = new NotifyDescriptor.Message("The Late date must be greater than early date", NotifyDescriptor.INFORMATION_MESSAGE);
+                    NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(NurseryEditorTopComponent.class, "NurseryEditorTopComponent.late"), NotifyDescriptor.INFORMATION_MESSAGE);
                     DialogDisplayer.getDefault().notify(d);
                     jDateChooserEnd.setDate(null);
                 }
@@ -1703,7 +1703,7 @@ public final class NurseryEditorTopComponent extends TopComponent {
     private void saveNursery() {
 
         if (jTextFieldNurseryName.getText().trim().isEmpty()) {
-            DialogUtil.displayError("Please fill Nursery Name");
+            DialogUtil.displayError(NbBundle.getMessage(NurseryEditorTopComponent.class, "NurseryEditorTopComponent.fillName"));
             jTextFieldNurseryName.requestFocusInWindow();
             return;
         }
@@ -1719,7 +1719,7 @@ public final class NurseryEditorTopComponent extends TopComponent {
         fieldbookCSVUtil.saveToCsv();
 
 
-        final ProgressHandle handle = ProgressHandleFactory.createHandle("Saving fieldbook... ");
+        final ProgressHandle handle = ProgressHandleFactory.createHandle(NbBundle.getMessage(NurseryEditorTopComponent.class, "NurseryEditorTopComponent.saving"));
         handle.start();
         (new SwingWorker<String, Object>() {
 
@@ -1734,7 +1734,7 @@ public final class NurseryEditorTopComponent extends TopComponent {
                 super.done();
                 try {
                     String valor = get();
-                    DialogUtil.displayInfo("Nursery was successfully saved.");
+                    DialogUtil.displayInfo(NbBundle.getMessage(NurseryEditorTopComponent.class, "NurseryEditorTopComponent.successfully"));
                     RefreshBrowserHelper.refreshStudyBrowser();
                     checkAdvanceStatus();
                 } catch (InterruptedException ex) {
@@ -1784,8 +1784,8 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
 
     private void jButtonSyncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSyncActionPerformed
         fillObservationsData();
-        DialogUtil.displayInfo(NurseryEditorTopComponent.class, "NurseryEditorTopComponent.datasyncronized");
-
+        DialogUtil.displayInfo( NbBundle.getMessage(NurseryEditorTopComponent.class, "NurseryEditorTopComponent.datasyncronized"));
+        
         //  this.jTabbedPane1.setSelectedIndex(7);
     }//GEN-LAST:event_jButtonSyncActionPerformed
 
@@ -1802,14 +1802,14 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
         int entrada = 0;
 
         if (existeTopComponent(this.getName() + " F1")) {
-            JOptionPane.showMessageDialog(null, "NURSERY ADVANCE ALREADY GENERATED.", "Caution!", JOptionPane.OK_OPTION);
+            JOptionPane.showMessageDialog(null, NbBundle.getMessage(NurseryEditorTopComponent.class, "NurseryEditorTopComponent.already"), NbBundle.getMessage(NurseryEditorTopComponent.class, "NurseryEditorTopComponent.caution"), JOptionPane.OK_OPTION);
 
         } else {
             ObservationsTableModel modelo = (ObservationsTableModel) this.jTableObservations.getModel();
             MethodsClass metodos = new MethodsClass();
             WizardDescriptor wiz = new WizardDescriptor(new AdvanceWizardIterator());
             wiz.setTitleFormat(new MessageFormat("{0} ({1})"));
-            wiz.setTitle("Advance nursery wizard");
+            wiz.setTitle(NbBundle.getMessage(NurseryEditorTopComponent.class, "NurseryEditorTopComponent.wizard"));
             AdvanceWizardIterator.metodo = getMethodName();
             AdvanceWizardIterator.breedingMethod = getSelectedBreedingMethod();
 
@@ -2136,6 +2136,9 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
             return;
         }
         importData.importFromCrossInfoToGermplasm(selectorArchivo.getSelectedFile());
+        
+        fillObservationsData();
+        DialogUtil.displayInfo(NurseryEditorTopComponent.class, "NurseryEditorTopComponent.datasyncronized");
 
     }//GEN-LAST:event_jButtonImportCrossInfoActionPerformed
 
