@@ -420,6 +420,42 @@ public class ExcelNurseryReader {
 
                 if (!celda.getStringCellValue().toUpperCase().trim().equals("GID")) {
 
+                    
+                    String celdaValue = celda.getStringCellValue().toUpperCase().trim();
+                   
+                    
+                    if (celdaValue.equals("PEDIGREE") || celdaValue.equals("CROSS NAME")) {
+
+                        if (celdaValue.equals("PEDIGREE")) {
+                            if (encabezados.contains("PEDIGREE") || encabezados.contains("CROSS NAME")) {
+                                MatchesClass match = new MatchesClass();
+                                match.setColIBF(giveMeColSinon(encabezados,"PEDIGREE","CROSS NAME"));
+                                match.setColCross(i);
+                                matchesArray.add(match);
+                                result++;
+                            }
+                            
+                        }
+
+
+                        if (celdaValue.equals("CROSS NAME")) {
+                             if (encabezados.contains("PEDIGREE") || encabezados.contains("CROSS NAME")){
+                                MatchesClass match = new MatchesClass();
+                                match.setColIBF(giveMeColSinon(encabezados,"PEDIGREE","CROSS NAME"));
+                                match.setColCross(i);
+                                matchesArray.add(match);
+                                result++;
+                            }
+                            
+                        }
+
+                        continue;
+                    }
+
+
+                    
+                    
+                    
                     if (encabezados.contains(celda.getStringCellValue().toUpperCase().trim())) {
                         MatchesClass match = new MatchesClass();
                         match.setColIBF(encabezados.indexOf(celda.getStringCellValue().toUpperCase().trim()));
@@ -592,5 +628,20 @@ public class ExcelNurseryReader {
         }
 
         return cellValue;
+    }
+
+    private int giveMeColSinon(ArrayList<String> encabezados, String pedigreE, String crosS_NAME) {
+        int result=-1;
+        
+        
+        if(encabezados.contains(pedigreE)){
+            return encabezados.indexOf(pedigreE) ;
+        }
+        if(encabezados.contains(crosS_NAME)){
+           return encabezados.indexOf(crosS_NAME) ;
+        }
+        
+        
+        return result;
     }
 }

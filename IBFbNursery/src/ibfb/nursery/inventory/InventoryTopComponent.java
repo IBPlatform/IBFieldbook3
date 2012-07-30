@@ -433,8 +433,6 @@ public final class InventoryTopComponent extends TopComponent {
 
             modelo.setEnabledLocation(true);
         }
-
-
     }//GEN-LAST:event_jCheckBoxSameLocationActionPerformed
 
     public void ajustaColumn(JTable table, int vColIndex, int margin) {
