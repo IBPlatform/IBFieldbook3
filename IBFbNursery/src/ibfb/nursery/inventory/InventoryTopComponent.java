@@ -56,10 +56,10 @@ public final class InventoryTopComponent extends TopComponent {
     private Listnms listToSave;
     private Integer locationId;
     
-    private Integer amountColumn;
-    private Integer locationColumn;
-    private Integer commentColumn;
-    private Integer scaleColumn;
+    private Integer amountColumn=-1;
+    private Integer locationColumn=-1;
+    private Integer commentColumn=-1;
+    private Integer scaleColumn=-1;
     
 
     public InventoryTopComponent() {
