@@ -308,43 +308,83 @@ public class WorkbookSavingHelper {
 
                 colNumber = model.getHeaderIndex(ObservationsTableModel.TRIAL);
                 if (colNumber != -1) {
+                    try{
                     m.setTrial(Integer.parseInt(model.getValueAt(row, colNumber).toString()));
+                    } catch (NullPointerException ex) {
+                        m.setTrial(0);
+                    }
                 }
                 colNumber = model.getHeaderIndex(ObservationsTableModel.ENTRY);
                 if (colNumber != -1) {
+                   try{
                     m.setEntry(Integer.parseInt(model.getValueAt(row, colNumber).toString()));
+                     } catch (NullPointerException ex) {
+                        m.setEntry(0);
+                    }
                 }
                 colNumber = model.getHeaderIndex(ObservationsTableModel.ENTRY_CODE);
                 if (colNumber != -1) {
                     //m.set(Integer.parseInt(model.getValueAt(row, colNumber).toString()));                    
                 }
+                
                 colNumber = model.getHeaderIndex(ObservationsTableModel.DESIG);
                 if (colNumber != -1) {
+                    try{
                     m.setDesignation(model.getValueAt(row, colNumber).toString());
+                     } catch (NullPointerException ex) {
+                        m.setDesignation("");
+                    }
                 }
                 colNumber = model.getHeaderIndex(ObservationsTableModel.GID);
                 if (colNumber != -1) {
+                    try{
                     m.setGid(Integer.parseInt(model.getValueAt(row, colNumber).toString()));
+                     } catch (NullPointerException ex) {
+                        m.setGid(0);
+                    }
                 }
                 colNumber = model.getHeaderIndex(ObservationsTableModel.PLOT);
                 if (colNumber != -1) {
+                    try{
                     m.setPlot(Integer.parseInt(model.getValueAt(row, colNumber).toString()));
+                     } catch (NullPointerException ex) {
+                        m.setPlot(0);
+                    }
                 }
                 colNumber = model.getHeaderIndex(ObservationsTableModel.REPLICATION);
                 if (colNumber != -1) {
+                    try{
                     m.setReplication(Integer.parseInt(model.getValueAt(row, colNumber).toString()));
+                    } catch (NullPointerException ex) {
+                        m.setReplication(0);
+                    }
                 }
                 colNumber = model.getHeaderIndex(ObservationsTableModel.BLOCK);
                 if (colNumber != -1) {
+                    try{
                     m.setBlock(Integer.parseInt(model.getValueAt(row, colNumber).toString()));
+                    } catch (NullPointerException ex) {
+                        m.setBlock(0);
+                    }
+
                 }
+                
                 colNumber = model.getHeaderIndex(ObservationsTableModel.ROW);
                 if (colNumber != -1) {
-                    m.setRow(Integer.parseInt(model.getValueAt(row, colNumber).toString()));
+                    try {
+                        m.setRow(Integer.parseInt(model.getValueAt(row, colNumber).toString()));
+                    } catch (NullPointerException ex) {
+                        m.setRow(0);
+                    }
+
                 }
                 colNumber = model.getHeaderIndex(ObservationsTableModel.COL);
                 if (colNumber != -1) {
+                     try {
                     m.setColumn(Integer.parseInt(model.getValueAt(row, colNumber).toString()));
+                    } catch (NullPointerException ex) {
+                        m.setColumn(0);
+                    }
                 }
 
                 if (model.getHeaders().get(col) instanceof Variate) {
