@@ -176,6 +176,8 @@ public final class NurseryVisualPanel5 extends JPanel {
     }
 
     public void fillComboListNames() {
+     cboGermplasmList.setModel(new DefaultComboBoxModel(new String[] {NbBundle.getMessage(NurseryVisualPanel5.class,"NurseryVisualPanel5.selectOne") }));
+
        List<Listnms> germplasmList = AppServicesProxy.getDefault().appServices().getListnmsList();
         for (Listnms list : germplasmList) {
             cboGermplasmList.addItem(list);
