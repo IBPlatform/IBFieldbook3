@@ -45,7 +45,6 @@ public class ExcelNurseryReader {
     }
 
     public void readExcelFile() {
-
         try {
 
             int colNumber = 0;
@@ -530,7 +529,12 @@ public class ExcelNurseryReader {
                         HSSFCell celda = fila.getCell(matchesArray.get(i).getColCross());
                         String valor = getStringValueFromCell(celda);
 
+                   
+                        
                         germplasmModel.setValueAt(valor, j, matchesArray.get(i).getColIBF());
+                   
+                    
+                    
                     }
                 } else {
                     System.out.println(elGID + " NO ENCONTRADO");

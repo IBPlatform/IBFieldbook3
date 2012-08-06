@@ -146,7 +146,7 @@ public class ObservationsTableModel2 extends AbstractTableModel {
         if (isValidValue(aValue, columnDataType)) {
             columnList.set(columnIndex, aValue);
         } else {
-            DialogUtil.display(ObservationsTableModel2.class, "observationstable.numericvaluerequired");
+          //  DialogUtil.display(ObservationsTableModel2.class, "observationstable.numericvaluerequired");
         }
     }
 

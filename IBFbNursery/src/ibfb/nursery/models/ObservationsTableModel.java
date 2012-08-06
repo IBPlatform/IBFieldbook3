@@ -154,7 +154,7 @@ public class ObservationsTableModel extends AbstractTableModel {
                 columnList.set(columnIndex, aValue);
             }
         } else {
-            DialogUtil.display(ObservationsTableModel.class, "observationstable.numericvaluerequired");
+           // DialogUtil.display(ObservationsTableModel.class, "observationstable.numericvaluerequired");
         }
     }
 
