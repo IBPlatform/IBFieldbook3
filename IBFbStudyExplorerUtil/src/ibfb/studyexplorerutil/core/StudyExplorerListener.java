@@ -10,5 +10,6 @@ public interface StudyExplorerListener {
      * Reload all studies from a browser
      */
     public void refreshStudyBrowser();
+    public void refreshSelectedStudyBrowser();
     
 }
