@@ -25,7 +25,7 @@ import org.openide.util.NbBundle;
 public final class TrialWizardVisualPanel2 extends JPanel {
     private ResourceBundle bundle = NbBundle.getBundle(TrialWizardVisualPanel2.class);
 
-    private SpinnerNumberModel modeloinstances = new SpinnerNumberModel(1, 1, 1000, 1);
+    private SpinnerNumberModel modeloinstances = new SpinnerNumberModel(1, 1, 900, 1);
     private int fila = 0;
     
     private int instances = 1;
