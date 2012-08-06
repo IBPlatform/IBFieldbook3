@@ -1,10 +1,14 @@
 package ibfb.studyexplorer.jdialogs;
 
 import ibfb.domain.core.Study;
+import ibfb.studyexplorer.actions.ConfigStudiesAction;
 import ibfb.studyexplorer.explorer.StudyExplorerTopComponent;
+import ibfb.studyexplorer.wizard.ExplorerWizardWizardIterator;
 import ibfb.ui.core.JDExpert;
 import java.awt.event.KeyEvent;
 import java.util.ResourceBundle;
+import javax.swing.ComboBoxModel;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.InputVerifier;
 import javax.swing.JComponent;
 import javax.swing.event.DocumentEvent;
@@ -19,16 +23,16 @@ import org.netbeans.validation.api.builtin.Validators;
 import org.netbeans.validation.api.ui.ValidationGroup;
 import org.netbeans.validation.api.ui.ValidationListener;
 import org.openide.util.NbBundle;
+import org.openide.util.NbPreferences;
 import org.openide.windows.WindowManager;
 
 public class JDNewSTD extends javax.swing.JDialog {
-    private ResourceBundle bundle = NbBundle.getBundle(JDNewSTD.class);
 
+    private ResourceBundle bundle = NbBundle.getBundle(JDNewSTD.class);
     final static String badchars = "`~!@#$%^&*()_+=\\|\"':;?/>.<, ";
     ValidationGroup group = null;
     ValidationGroup datesGroup = null;
     DocumentListener doc = new DocumentListener() {
-
         @Override
         public void insertUpdate(DocumentEvent de) {
             checkValidation(group.validateAll());
@@ -45,20 +49,19 @@ public class JDNewSTD extends javax.swing.JDialog {
         }
     };
     DocumentListener documentDates = new DocumentListener() {
-
         @Override
         public void insertUpdate(DocumentEvent e) {
-           checkValidation(datesGroup.validateAll()); 
+            checkValidation(datesGroup.validateAll());
         }
 
         @Override
         public void removeUpdate(DocumentEvent e) {
-           checkValidation(datesGroup.validateAll()); 
+            checkValidation(datesGroup.validateAll());
         }
 
         @Override
         public void changedUpdate(DocumentEvent e) {
-            checkValidation(datesGroup.validateAll()); 
+            checkValidation(datesGroup.validateAll());
         }
     };
 
@@ -66,6 +69,7 @@ public class JDNewSTD extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         assignValidations();
+        loadComboValues();
         this.setLocationRelativeTo(null);
 
     }
@@ -481,6 +485,12 @@ public class JDNewSTD extends javax.swing.JDialog {
         studyDto.setSstatus(0);
         studyDto.setStype(org.cimmyt.cril.ibwb.domain.Study.STYPE_EXPERIMENT);
         AppServicesProxy.getDefault().appServices().addStudyToLocal(studyDto);
+
+        String selected = NbPreferences.forModule(ConfigStudiesAction.class).get("SELECTED", "");
+        selected = selected + "1";
+        NbPreferences.forModule(ConfigStudiesAction.class).put("SELECTED", selected);
+
+
         studyExplorer.refreshStudyBrowser();
     }
 
@@ -497,7 +507,7 @@ public class JDNewSTD extends javax.swing.JDialog {
         jTextFieldObjective.getDocument().addDocumentListener(doc);
         jTextFieldTitle.getDocument().addDocumentListener(doc);
         jDateChooserStart.setName(bundle.getString("JDNewSTD.lblStarDate.text"));
-        jDateChooserEnd.setName(bundle.getString("JDNewSTD.lblEndDate.text"));    
+        jDateChooserEnd.setName(bundle.getString("JDNewSTD.lblEndDate.text"));
         jDateChooserStart.getDateEditor().getUiComponent().setInputVerifier(datesInputVerifier);
         jDateChooserEnd.getDateEditor().getUiComponent().setInputVerifier(datesInputVerifier);
         //datesGroup.add(jDateChooserStart.getDateEditor(),new DateRangeValidator());
@@ -529,7 +539,6 @@ public class JDNewSTD extends javax.swing.JDialog {
         checkValidation(group.validateAll());
         this.setVisible(false);
     }
-    
     private InputVerifier datesInputVerifier = new DatesInputVerifier();
 
     /**
@@ -540,8 +549,6 @@ public class JDNewSTD extends javax.swing.JDialog {
         int compareResult = jDateChooserStart.getDate().compareTo(jDateChooserEnd.getDate());
         if (compareResult > 0) {
             String msg = bundle.getString("JDNewSTD.endDateGreaterStartDate");
-            
-            
 //            int msgType = NotifyDescriptor.ERROR_MESSAGE;
 //            NotifyDescriptor d = new NotifyDescriptor.Message(msg, msgType);
 //            DialogDisplayer.getDefault().notify(d);
@@ -553,7 +560,16 @@ public class JDNewSTD extends javax.swing.JDialog {
     }
 
     private void assignValidations() {
+    }
 
+    private void loadComboValues() {
+        if (bundle.getString("JDNewSTD.language").equals("English")) {
+            String[] englishTypes = {"International", "National", "Foreign", "Miscellaneous"};
+            jComboBoxStudyType.setModel(new DefaultComboBoxModel(englishTypes));
+        } else {
+            String[] spanishTypes = {"Internacional", "Nacional", "Foráneo", "Misceláneo"};
+            jComboBoxStudyType.setModel(new DefaultComboBoxModel(spanishTypes));
+        }
     }
 
     private class DatesInputVerifier extends InputVerifier {
@@ -563,12 +579,10 @@ public class JDNewSTD extends javax.swing.JDialog {
 
         @Override
         public boolean verify(JComponent input) {
-            
+
             return checkValidationForDates();
         }
     }
-
-    
 
     private class StudyCheckValidator implements Validator<String> {
 

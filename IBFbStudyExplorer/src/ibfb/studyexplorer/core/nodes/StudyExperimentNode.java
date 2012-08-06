@@ -1,4 +1,3 @@
-
 package ibfb.studyexplorer.core.nodes;
 
 import ibfb.domain.core.SelectedExperiment;
@@ -28,29 +27,34 @@ public class StudyExperimentNode extends AbstractNode {
     @Override
     public Action[] getActions(boolean context) {
         SystemAction[] actions = new SystemAction[1];
-        
-        if(study.getStudyType().equals("T")){
-        
-        actions[0] = SystemAction.get(OpenStudyAction.class);
-        }else{
-        actions[0] = SystemAction.get(OpenNurseryAction.class); 
+
+        if (study.getStudyType().equals("T")) {
+
+            actions[0] = SystemAction.get(OpenStudyAction.class);
+        } else {
+            actions[0] = SystemAction.get(OpenNurseryAction.class);
         }
-        
+
         return actions;
     }
 
     @Override
     public Action getPreferredAction() {
-        
-        if(study.getStudyType().equals("T")){
-             return SystemAction.get(OpenStudyAction.class);
-        }else{
-           return SystemAction.get(OpenNurseryAction.class); 
+
+        if (study.getStudyType().equals("T")) {
+            return SystemAction.get(OpenStudyAction.class);
+        } else {
+            return SystemAction.get(OpenNurseryAction.class);
         }
-       
+
     }
 
     public Study getStudy() {
         return this.study;
+    }
+
+    @Override
+    public boolean canDestroy() {
+        return true;
     }
 }

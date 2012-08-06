@@ -3,8 +3,8 @@ package ibfb.studyexplorer.explorer;
 import ibfb.domain.core.SelectedExperiment;
 import ibfb.domain.core.SelectedStudy;
 import ibfb.domain.core.Study;
+import ibfb.studyexplorer.actions.ConfigStudiesAction;
 import ibfb.studyexplorer.actions.NewTrialAction;
-
 import ibfb.studyexplorer.core.nodes.MainStudyRootNode;
 import ibfb.studyexplorer.core.nodes.StudyChildren;
 import ibfb.studyexplorer.jdialogs.JDNewOptions;
@@ -12,15 +12,13 @@ import ibfb.studyexplorerutil.core.StudyExplorerListener;
 import ibfb.ui.core.JDExpert;
 import java.awt.Component;
 import java.awt.Cursor;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import javax.swing.JFrame;
 import org.cimmyt.cril.ibwb.api.AppServicesProxy;
 import org.cimmyt.cril.ibwb.commongui.ConvertUtils;
-import org.openide.util.LookupEvent;
-import org.openide.util.NbBundle;
-import org.openide.windows.TopComponent;
 import org.netbeans.api.settings.ConvertAsProperties;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
@@ -28,8 +26,8 @@ import org.openide.explorer.ExplorerManager;
 import org.openide.explorer.ExplorerUtils;
 import org.openide.explorer.view.BeanTreeView;
 import org.openide.nodes.Node;
-import org.openide.util.LookupListener;
-import org.openide.util.Mutex;
+import org.openide.util.*;
+import org.openide.windows.TopComponent;
 import org.openide.windows.WindowManager;
 
 @ConvertAsProperties(dtd = "-//ibfb.studyexplorer.explorer//StudyExplorer//EN",
@@ -39,15 +37,27 @@ autostore = false)
 persistenceType = TopComponent.PERSISTENCE_NEVER)
 @TopComponent.Registration(mode = "explorer", openAtStartup = true, position = 20000)
 @ActionID(category = "Window", id = "ibfb.studyexplorer.explorer.StudyExplorerTopComponent")
-@ActionReference(path = "Menu/Window" /*, position = 333 */)
+@ActionReference(path = "Menu/Window" /*
+ * , position = 333
+ */)
 @TopComponent.OpenActionRegistration(displayName = "#CTL_StudyExplorerAction",
 preferredID = "StudyExplorerTopComponent")
 public final class StudyExplorerTopComponent extends TopComponent implements ExplorerManager.Provider, LookupListener, StudyExplorerListener {
 
     private ExplorerManager explorerManager = new ExplorerManager();
-    public static Study eelectedStudy = new Study();
+    private  Study actualStudy;
     private List<Study> studyList = new ArrayList<Study>();
     private org.openide.util.Lookup.Result<Study> result;
+    private List<Study> selectedStudyList;
+    
+
+    public List<Study> getSelectedStudyList() {
+        return selectedStudyList;
+    }
+
+    public void setSelectedStudyList(List<Study> selectedStudyList) {
+        this.selectedStudyList = selectedStudyList;
+    }
 
     public StudyExplorerTopComponent() {
         initComponents();
@@ -73,8 +83,8 @@ public final class StudyExplorerTopComponent extends TopComponent implements Exp
     private void startWithEmptyStudyClear() {
         studyList.clear();
     }
-    
-    public void removeSelectedNode(){
+
+    public void removeSelectedNode() {
         studyList.remove(getSelectedNode());
         explorerManager.setRootContext(new MainStudyRootNode(new StudyChildren(studyList)));
 
@@ -82,23 +92,28 @@ public final class StudyExplorerTopComponent extends TopComponent implements Exp
 
     private void loadStudiesFromDB() {
         changeCursorWaitStatus(true);
-
+        String selected = NbPreferences.forModule(ConfigStudiesAction.class).get("SELECTED", "");
 
         studyList.clear();
 
         List<org.cimmyt.cril.ibwb.domain.Study> studyDtoList =
                 AppServicesProxy.getDefault().appServices().getStudyListByParent(0, Study.S_TYPE_EXPERIMENT);
         //AppServicesProxy.getDefault().appServices().getStudyList();
+        int i = 0;
         for (org.cimmyt.cril.ibwb.domain.Study studyDto : studyDtoList) {
-           // if(!studyDto.getSname().startsWith("19")){
-            studyList.add(castStudy(studyDto));
-           // }
+
+            if (selected.isEmpty()) {
+                studyList.add(castStudy(studyDto));
+            } else {
+                if (selected.charAt(i) == '1') {
+                    studyList.add(castStudy(studyDto));
+                }
+
+                i++;
+
+            }
+
         }
-
-
-
-
-
 
         changeCursorWaitStatus(false);
     }
@@ -111,16 +126,24 @@ public final class StudyExplorerTopComponent extends TopComponent implements Exp
         //explorerManager.setRootContext(new StudyRootNode(new StudyChildren()));
         explorerManager.setRootContext(new MainStudyRootNode(new StudyChildren(studyList)));
         changeCursorWaitStatus(false);
-
     }
-    
-   
-    public void refreshStudyBrowserOnClose() {
+
+    @Override
+    public void refreshSelectedStudyBrowser() {
         changeCursorWaitStatus(true);
+        studyList = this.getSelectedStudyList();
         explorerManager.setRootContext(new MainStudyRootNode(new StudyChildren(studyList)));
         changeCursorWaitStatus(false);
 
     }
+
+    public void refreshStudyBrowserOnClose() {
+        changeCursorWaitStatus(true);
+     
+        changeCursorWaitStatus(false);
+    }
+    
+
     
 
     public Study castStudy(org.cimmyt.cril.ibwb.domain.Study studyDto) {
@@ -188,17 +211,14 @@ public final class StudyExplorerTopComponent extends TopComponent implements Exp
 
     @Override
     public void resultChanged(LookupEvent ev) {
-
         Collection<? extends Study> allStudies = result.allInstances();
-
-        for (Study study : allStudies) {
+        for (Study study : allStudies) {  
+            actualStudy=study;
+            System.out.println("seleccionado: "+ study.getStudy());
             setProperties(study);
-
         }
 
     }
-    
-    
 
     private void setProperties(Study study) {
         JDExpert.studyOBJ.setStudy(study.getStudy());
@@ -247,10 +267,10 @@ public final class StudyExplorerTopComponent extends TopComponent implements Exp
         SelectedStudy.selected.setStudyType(study.getStudyType());
         SelectedStudy.selected.setUserid(study.getUserid());
         SelectedStudy.selected.setStudyid(study.getStudyid());
-       
+
         SelectedExperiment.selected.setType(study.getStudyType());
-        SelectedExperiment.selected.setDescription(study.getStudy()); 
-      
+        SelectedExperiment.selected.setDescription(study.getStudy());
+
     }
 
     private static void changeCursorWaitStatus(final boolean isWaiting) {
@@ -276,19 +296,43 @@ public final class StudyExplorerTopComponent extends TopComponent implements Exp
             }
         });
     }
-    
-    
+
     /**
      * Return current node
      */
     public Object getSelectedNode() {
         Node[] selectedNodes = this.explorerManager.getSelectedNodes();
-        if (selectedNodes.length ==0) {
+        if (selectedNodes.length == 0) {
             return null;
         } else {
             Node firstNode = selectedNodes[0];
             return firstNode;
         }
+
+    }
+    
+    
+  
+    
+    
+    
+     public void deleteNode() {
+         
+         Node[] selectedNodes = this.explorerManager.getSelectedNodes();
+       
+         if (selectedNodes.length == 0) {
+           
+        } else {
+            Node firstNode = selectedNodes[0];
+             try {
+                 firstNode.destroy();
+             } catch (IOException ex) {
+                 Exceptions.printStackTrace(ex);
+             }
+            
+        }
+
+      
         
     }
     
