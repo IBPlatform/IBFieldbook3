@@ -2319,6 +2319,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
                 
                 NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.notValidENT"), NotifyDescriptor.ERROR_MESSAGE);
                 DialogDisplayer.getDefault().notify(d);
+                return false;
             }
             cellData = rowData.getCell(CID);
             if (getStringValueFromCell(cellData).equals("CID")) {
@@ -2326,6 +2327,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
             } else {
                 NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.notValidCID"), NotifyDescriptor.ERROR_MESSAGE);
                 DialogDisplayer.getDefault().notify(d);
+                return false;
             }
 
             cellData = rowData.getCell(SID);
@@ -2334,6 +2336,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
             } else {
                 NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.notValidSID"), NotifyDescriptor.ERROR_MESSAGE);
                 DialogDisplayer.getDefault().notify(d);
+                return false;
             }
             cellData = rowData.getCell(FTID);
             if (getStringValueFromCell(cellData).equals("FTID")) {
@@ -2341,6 +2344,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
             } else {
                 NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.notValidFTID"), NotifyDescriptor.ERROR_MESSAGE);
                 DialogDisplayer.getDefault().notify(d);
+                return false;
             }
             cellData = rowData.getCell(FOCC);
             if (getStringValueFromCell(cellData).equals("FOCC")) {
@@ -2348,6 +2352,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
             } else {
                 NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.notValidFOCC"), NotifyDescriptor.ERROR_MESSAGE);
                 DialogDisplayer.getDefault().notify(d);
+                return false;
             }
 
             cellData = rowData.getCell(FENT);
@@ -2356,6 +2361,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
             } else {
                 NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.notValidFENT"), NotifyDescriptor.ERROR_MESSAGE);
                 DialogDisplayer.getDefault().notify(d);
+                return false;
             }
 
             cellData = rowData.getCell(MTID);
@@ -2364,6 +2370,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
             } else {
                 NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.notValidMTID"), NotifyDescriptor.ERROR_MESSAGE);
                 DialogDisplayer.getDefault().notify(d);
+                return false;
             }
             cellData = rowData.getCell(MOCC);
             if (getStringValueFromCell(cellData).equals("MOCC")) {
@@ -2371,6 +2378,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
             } else {
                 NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.notValidMOCC"), NotifyDescriptor.ERROR_MESSAGE);
                 DialogDisplayer.getDefault().notify(d);
+                return false;
             }
 
             cellData = rowData.getCell(MENT);
@@ -2379,6 +2387,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
             } else {
                 NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.notValidMENT"), NotifyDescriptor.ERROR_MESSAGE);
                 DialogDisplayer.getDefault().notify(d);
+                return false;
             }
 
 
@@ -2388,6 +2397,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
             } else {
                 NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.notValidMEGA"), NotifyDescriptor.ERROR_MESSAGE);
                 DialogDisplayer.getDefault().notify(d);
+                return false;
             }
 
             cellData = rowData.getCell(CROSSTYPE);
@@ -2396,6 +2406,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
             } else {
                 NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.notValidCROSS"), NotifyDescriptor.ERROR_MESSAGE);
                 DialogDisplayer.getDefault().notify(d);
+                return false;
             }
 
             cellData = rowData.getCell(TYPE);
@@ -2404,6 +2415,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
             } else {
                 NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.notValidTYPE"), NotifyDescriptor.ERROR_MESSAGE);
                 DialogDisplayer.getDefault().notify(d);
+                return false;
             }
 
 
