@@ -20,7 +20,7 @@ public class TestStudy extends TestService {
 //        study.setUserid(56456);
 //        study.setSstatus(45254);
 //        study.setShierarchy(6345);
-        //serviciosLocal.addStudy(study);
+//        serviciosLocal.addStudy(study);
     }
 
     public void testStudyList() {

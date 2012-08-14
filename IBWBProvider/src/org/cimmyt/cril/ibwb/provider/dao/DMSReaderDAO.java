@@ -5,6 +5,7 @@
 package org.cimmyt.cril.ibwb.provider.dao;
 
 import com.sun.rowset.CachedRowSetImpl;
+import ibfb.domain.core.Measurement;
 import ibfb.domain.core.Workbook;
 import java.math.BigInteger;
 import java.sql.*;
@@ -367,6 +368,33 @@ public class DMSReaderDAO extends AbstractDAO<Study, Integer> {
                     throws HibernateException, SQLException {
                 
                 return HelperWorkbookReader.getTrialRandomizationFast(
+                        studyId,
+                        trialFactorId,
+                        factoresPrincipales,
+                        factoresSalida,
+                        trialName,
+                        session,
+                        isLocal(),
+                        isCentral()
+                        );
+            }
+        });
+        return rs;
+    }
+    
+    public List<Measurement> getTrialRandomizationVeryFast(
+            final int studyId,
+            final int trialFactorId,
+            final List<String> factoresPrincipales,
+            final List<String> factoresSalida,
+            final String trialName) {
+        
+        List<Measurement> rs = (List<Measurement>) getHibernateTemplate().executeFind(new HibernateCallback() {
+
+            public Object doInHibernate(Session session)
+                    throws HibernateException, SQLException {
+                
+                return HelperWorkbookReader.getTrialRandomizationVeryFast(
                         studyId,
                         trialFactorId,
                         factoresPrincipales,

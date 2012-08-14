@@ -47,9 +47,8 @@ public class HelperGmsReader {
             boolean isLocal,
             boolean isCentral
             ) throws SQLException{
-        SQLQuery query;
+        SQLQuery query = null;
         List resultado;
-        String consultaSQL;
 
         String nameStudy = null;
         String nameTrial = null;
@@ -62,52 +61,27 @@ public class HelperGmsReader {
         List<String> factoresSalida = new ArrayList<String>();
 
         log.info("Definiendo orden de busquedas");
-        String orden;
-        if (isLocal) {
-            orden = "DESC";
-        } else if (isCentral) {
-            orden = "ASC";
-        } else {
-            orden = "DESC";
-        }
+        String orden = HelperWorkbookReader.getOrder(isLocal, isCentral);
+        
         
         log.info("--> Recuperando el nombre del estudio");
-        consultaSQL = "select SNAME as SNAME "
-                + "from study "
-                + "where study.STUDYID = " + studySearch.getStudyId() + ";";
-        query = session.createSQLQuery(consultaSQL);
-        query.addScalar("SNAME", Hibernate.STRING);
-        Object snameTemp = query.uniqueResult();
-        studySearch.setsName((String)snameTemp);
+        studySearch.setsName(
+                HelperWorkbookReader.getScname(
+                        session,
+                        query,
+                        studySearch.getStudyId()
+                    )
+                );
         log.info("--> Termina Recuperacion del nombre del estudio.");
         
         log.info("--> Recuperando factores principales.");
-
-        consultaSQL = "SELECT "
-                + "factor.FNAME as FNAME, "
-                + "tmstraits.trname as TRNAME, "
-                + "tmsscales.scname as SCNAME, "
-                + "factor.LABELID as LABELID "
-                + "from factor "
-                + "LEFT join tmsmeasuredin on "
-                + "factor.TID = tmsmeasuredin.traitid and "
-                + "tmsmeasuredin.scaleid = factor.SCALEID and "
-                + "factor.TMETHID = tmsmeasuredin.tmethid "
-                + "LEFT JOIN tmsscales ON "
-                + "tmsscales.scaleid = tmsmeasuredin.scaleid "
-                + "LEFT JOIN tmstraits ON "
-                + "tmstraits.tid = tmsmeasuredin.traitid "
-                + "where factor.STUDYID = "
-                + studySearch.getStudyId()
-                + " and factor.FACTORID = factor.LABELID "
-                + "order by LABELID " + orden + ";";
-
-        query = session.createSQLQuery(consultaSQL);
-        query.addScalar("FNAME", Hibernate.STRING);
-        query.addScalar("TRNAME", Hibernate.STRING);
-        query.addScalar("SCNAME", Hibernate.STRING);
-        query.addScalar("LABELID", Hibernate.INTEGER);
-        resultado = query.list();
+        resultado = HelperWorkbookReader.getFactoresPrincipales(
+                session,
+                query,
+                studySearch.getStudyId(),
+                orden
+                );
+        
         for(Object filaTemp : resultado){
             Object[] fila = (Object[]) filaTemp;
             String nombre = Workbook.getStringWithOutBlanks((String)fila[1] + (String)fila[2]);
@@ -128,47 +102,70 @@ public class HelperGmsReader {
         if(nameStudy != null){
             factoresPrincipales.add(nameStudy);
             studySearch.setNameStudy(nameStudy);
+        }else{
+            log.error("No se encontro el factor correspondiente a study.");
         }
 
         if(nameTrial != null){
             factoresPrincipales.add(nameTrial);
             factoresSalida.add(nameTrial);
             studySearch.setNameTrial(nameTrial);
+        }else{
+            log.error("No se encontro el factor correspondiente a trial.");
         }
-
+        
         if(nameEntry != null){
             factoresPrincipales.add(nameEntry);
             factoresSalida.add(nameEntry);
             studySearch.setNameEntry(nameEntry);
+        }else{
+            log.error("No se encontro el factor correspondiente a entry.");
         }
-
+        
         if(namePlot != null){
             factoresPrincipales.add(namePlot);
             factoresSalida.add(namePlot);
             studySearch.setNamePlot(namePlot);
+        }else{
+            log.error("No se encontro el factor correspondiente a plot.");
         }
-
-        if ( nameStudy == null  && nameTrial == null && nameEntry == null && namePlot == null) {
-            
-               Object[] fila1 = (Object[]) resultado.get(0);
-               Object[] fila2 = (Object[]) resultado.get(1);
-               Object[] fila3 = (Object[]) resultado.get(2);
-               Object[] fila4 = (Object[]) resultado.get(3);
-               factoresPrincipales.add(fila1[0].toString());
-               factoresPrincipales.add(fila2[0].toString());
-               factoresPrincipales.add(fila3[0].toString());
-               factoresPrincipales.add(fila4[0].toString());
-               factoresSalida.add(fila1[0].toString());
-               factoresSalida.add(fila2[0].toString());
-               factoresSalida.add(fila3[0].toString());
-               factoresSalida.add(fila4[0].toString());
-               studySearch.setNameStudy(fila1[0].toString());
-               studySearch.setNameTrial(fila2[0].toString());
-               studySearch.setNameEntry(fila3[0].toString());
-               studySearch.setNamePlot(fila4[0].toString());
-        }
-
         
+        if (nameStudy == null  && nameTrial == null && nameEntry == null && namePlot == null) {
+            log.error("No se encontro ningun factor asociado correctamente.");
+            int i = 0;
+            for(Object objectTemp : resultado){
+                Object[] fila = (Object[]) objectTemp;
+                factoresPrincipales.add(fila[0].toString());
+                switch (i){
+                    case 0:
+                        nameStudy = fila[0].toString();
+                        studySearch.setNameStudy(nameStudy);
+                        break;
+                    case 1:
+                        nameTrial = fila[0].toString();
+                        factoresSalida.add(nameTrial);
+                        studySearch.setNameTrial(nameTrial);
+                        break;
+                    case 2: 
+                        nameEntry = fila[0].toString();
+                        factoresSalida.add(nameEntry);
+                        studySearch.setNameEntry(nameEntry);
+                        numberEntry = (Integer)fila[3];
+                        break;
+                    case 3:
+                        namePlot = fila[0].toString();
+                        factoresSalida.add(namePlot);
+                        studySearch.setNamePlot(namePlot);
+                        break;
+                }
+            }
+            log.warn("Se forza la asignacion de facotres mediante filas encontradas.");
+            log.info("--> Study: " + nameStudy);
+            log.info("--> Trial: " + nameTrial);
+            log.info("--> Entry: " + nameEntry);
+            log.info("--> --> numberEntry: " + numberEntry);
+            log.info("--> Plot: " + namePlot);
+        }
         log.info("--> Termina Recuperando factores principales.");
         
         if(factoresPrincipales == null){
@@ -176,105 +173,72 @@ public class HelperGmsReader {
         }else if(factoresPrincipales.size() >= 0 && factoresPrincipales.size()<4){
             log.error("No se encontraron factores principales");
         }
-
+        
         log.info("--> Recuperando factores salida.");
-
-        consultaSQL = "SELECT "
-                + "factor.FNAME as FNAME, "
-                + "tmstraits.trname as TRNAME, "
-                + "tmsscales.scname as SCNAME, "
-                + "factor.LABELID as LABELID "
-                + "from factor "
-                + "LEFT join tmsmeasuredin on "
-                + "factor.TID = tmsmeasuredin.traitid and "
-                + "tmsmeasuredin.scaleid = factor.SCALEID and "
-                + "factor.TMETHID = tmsmeasuredin.tmethid "
-                + "LEFT JOIN tmsscales ON "
-                + "tmsscales.scaleid = tmsmeasuredin.scaleid "
-                + "LEFT JOIN tmstraits ON "
-                + "tmstraits.tid = tmsmeasuredin.traitid "
-                + "where factor.STUDYID = "
-                + studySearch.getStudyId()
-                + " and factor.FACTORID = "
-                + numberEntry
-                + " order by LABELID " + orden + ";";
-
-        query = session.createSQLQuery(consultaSQL);
-        query.addScalar("FNAME", Hibernate.STRING);
-        query.addScalar("TRNAME", Hibernate.STRING);
-        query.addScalar("SCNAME", Hibernate.STRING);
-        query.addScalar("LABELID", Hibernate.INTEGER);
-        resultado = query.list();
-
+        resultado = HelperWorkbookReader.getFactoresSalida(
+                session,
+                query,
+                studySearch.getStudyId(),
+                numberEntry,
+                orden
+                );
         for(Object filaTemp : resultado){
             Object[] fila = (Object[]) filaTemp;
             String nombre = Workbook.getStringWithOutBlanks((String)fila[1] + (String)fila[2]);
-
+            
             if(Workbook.GERMPLASM_GID_DBID.equals(nombre)){
                 nameGID = (String)fila[0];
                 break;
             }
         }
-
+        
         if(nameGID != null){
             factoresSalida.add(nameGID);
             studySearch.setNameGid(nameGID);
+        }else{
+            log.error("No se encontro ninguna correspondencia para el factor GID.");
         }
-
+        
         log.info("--> Termina Recuperando factores salida.");
-
+        
+        /*****Implementando recuperacion de informacion******/
+        
         log.info("Getting trial randomization");
-
         Integer numeroDeFactoresPrincipales = factoresPrincipales.size();
-        String listaDeFactoresResultado = DMSReaderDAO.getFactoresParaUsoInQuery(factoresSalida);
+        String factoresResultadoStr = DMSReaderDAO.getFactoresParaUsoInQuery(factoresSalida);
         ResultSet pr;
-
-        consultaSQL = "SELECT represno, COUNT(*) FROM effect e "
-                + "INNER JOIN factor f ON e.factorid=f.factorid "
-                + "WHERE studyid=" + studySearch.getStudyId() + " AND "
-                + "f.factorid = f.labelid AND "
-                + "fname IN (" + DMSReaderDAO.getFactoresParaUsoInQuery(factoresPrincipales) + ") "
-                + "GROUP BY represno HAVING COUNT(*) = " + numeroDeFactoresPrincipales;
-        query = session.createSQLQuery(consultaSQL);
-        resultado = query.list();
-
-        int trepresNo;
-        if (resultado != null) {
-            if (resultado.size() > 0) {
-                Object[] fila = (Object[]) resultado.get(0);
-                trepresNo = (Integer) fila[represNo];
-            } else {
-                return null;
-            }
-        } else {
+        
+        String factoresPrincipalesStr = DMSReaderDAO.getFactoresParaUsoInQuery(factoresPrincipales);
+        
+        Integer trepresNo = HelperWorkbookReader.getRepresno(
+                session,
+                query,
+                studySearch.getStudyId(),
+                factoresPrincipalesStr,
+                numeroDeFactoresPrincipales
+                );
+        
+        if (trepresNo == null) {
+            log.error("Repres no encontrado.");
             return null;
         }
-
+        
         RowSetMetaDataImpl rsmd = new RowSetMetaDataImpl();
-        consultaSQL = "SELECT count(*) FROM factor "
-                + "WHERE studyid=" + studySearch.getStudyId()
-                + " and fname IN(" + listaDeFactoresResultado + ")";
-
-        int cuantosFR = 0;
-
-        query = session.createSQLQuery(consultaSQL);
-        Object tempObject = query.uniqueResult();
-
-        if (tempObject instanceof BigInteger) {
-            BigInteger temp = (BigInteger) tempObject;
-            cuantosFR = temp.intValue();
-        } else if (tempObject instanceof Integer) {
-            Integer temp = (Integer) tempObject;
-            cuantosFR = temp.intValue();
-        }
-
-        consultaSQL = "SELECT fname, ltype, labelid FROM factor "
-                + "WHERE studyid=" + studySearch.getStudyId()
-                + " and fname IN(" + listaDeFactoresResultado + ")"
-                + " ORDER BY labelid " + orden;
-
-        query = session.createSQLQuery(consultaSQL);
-        resultado = query.list();
+        
+        Integer cuantosFR = HelperWorkbookReader.getNumeroFactoresResultado(
+                session,
+                query,
+                studySearch.getStudyId(),
+                factoresResultadoStr
+                );
+        
+        resultado = HelperWorkbookReader.getFactoresResultado(
+                session,
+                query,
+                studySearch.getStudyId(),
+                factoresResultadoStr,
+                orden
+                );
 
         rsmd.setColumnCount(cuantosFR);
         int tconsecutivo = 0;
@@ -289,67 +253,27 @@ public class HelperGmsReader {
                 rsmd.setColumnType(tconsecutivo, Types.VARCHAR);
             }
         }
-
+        
         CachedRowSetImpl crs = new CachedRowSetImpl();
         int i889 = 0;
         crs.setMetaData(rsmd);
-        String condicionWhere = "f.fname IN (" + listaDeFactoresResultado + ") AND studyid = " + studySearch.getStudyId() + " AND represno =" + trepresNo + "";
-        if (studySearch.getTrial() > 0) {
-            consultaSQL = "SELECT OUNITID FROM FACTOR F "
-                    + "INNER JOIN (LEVEL_N L INNER JOIN OINDEX O "
-                    + "ON (L.LEVELNO = O.LEVELNO) AND (L.FACTORID = O.FACTORID)) "
-                    + "ON (F.FACTORID = L.FACTORID) "
-                    + "AND (F.LABELID = L.LABELID) "
-                    + "WHERE f.fname IN ('" + nameTrial + "') "
-                    + "AND studyid = " + studySearch.getStudyId()
-                    + " AND represno =" + trepresNo
-                    + " AND lvalue = " + studySearch.getTrial();
-
-            query = session.createSQLQuery(consultaSQL);
-            resultado = query.list();
-
-            int cuantosRegistros = 0;
-            String cadOunitid = "";
-
-            if (resultado.size() == 0) {
-                return null;
-            } else {
-                for (Object fila : resultado) {
-                    cuantosRegistros += 1;
-                    cadOunitid += fila.toString() + ",";
-                }
-            }
-            cadOunitid = cadOunitid.substring(0, cadOunitid.length() - 1);
-            condicionWhere += " and ounitid in (" + cadOunitid + ")";
-        }
-
-        consultaSQL = "SELECT O.OUNITID, FNAME, LVALUE, LTYPE, F.LABELID "
-                + "FROM FACTOR F INNER JOIN (LEVEL_N L "
-                + "INNER JOIN OINDEX O ON (L.LEVELNO = O.LEVELNO) "
-                + "AND (L.FACTORID = O.FACTORID)) "
-                + "ON (F.FACTORID = L.FACTORID) "
-                + "AND (F.LABELID = L.LABELID) "
-                + "WHERE " + condicionWhere + "";
-        consultaSQL += " UNION ";
-        consultaSQL += "SELECT O.OUNITID, FNAME, LVALUE, LTYPE, F.LABELID "
-                + "FROM FACTOR F INNER JOIN (LEVEL_C L "
-                + "INNER JOIN OINDEX O ON (L.LEVELNO = O.LEVELNO) "
-                + "AND (L.FACTORID = O.FACTORID)) "
-                + "ON (F.FACTORID = L.FACTORID) "
-                + "AND (F.LABELID = L.LABELID) "
-                + "WHERE " + condicionWhere + "";
-        consultaSQL += " ORDER BY OUNITID " + orden + ", LABELID " + orden;
-
-        query = session.createSQLQuery(consultaSQL);
-
-        query.addScalar("OUNITID", Hibernate.INTEGER);
-        query.addScalar("FNAME", Hibernate.STRING);
-        query.addScalar("LVALUE", Hibernate.STRING);
-        query.addScalar("LTYPE", Hibernate.STRING);
-        query.addScalar("LABELID", Hibernate.INTEGER);
-
-        resultado = query.list();
-
+        String condicionWhere = HelperWorkbookReader.getCondicionesWhere(
+                session,
+                query,
+                studySearch.getStudyId(),
+                studySearch.getTrial(),
+                nameTrial,
+                trepresNo,
+                factoresResultadoStr
+                );
+        
+        resultado = HelperWorkbookReader.getListFactorsAndLevels(
+                session,
+                query,
+                condicionWhere,
+                orden
+                );
+        
         int tounitidAnt = 0;
         int tounitidActual = 0;
         String fname = "";

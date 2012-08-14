@@ -1,5 +1,6 @@
 package org.cimmyt.cril.ibwb.provider;
 
+import ibfb.domain.core.Measurement;
 import ibfb.domain.core.Workbook;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -2206,6 +2207,19 @@ public class IBWBAppServicesImpl implements AppServices {
             return this.serviciosCentral.getTrialRandomization(studyId, trialFactorId, factoresPrincipales, factoresSalida, trialNmame);
         } else {
             return this.serviciosLocal.getTrialRandomization(studyId, trialFactorId, factoresPrincipales, factoresSalida, trialNmame);
+        }
+    }
+
+    public List<Measurement> getTrialRandomizationVeryFast(
+            Integer studyId,
+            Integer trialFactorId,
+            List<String> factoresPrincipales,
+            List<String> factoresSalida,
+            String trialNmame) {
+        if (studyId > 0) {
+            return this.serviciosCentral.getTrialRandomizationVeryFast(studyId, trialFactorId, factoresPrincipales, factoresSalida, trialNmame);
+        } else {
+            return this.serviciosLocal.getTrialRandomizationVeryFast(studyId, trialFactorId, factoresPrincipales, factoresSalida, trialNmame);
         }
     }
 
