@@ -11,11 +11,10 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JTable;
 import org.apache.log4j.Logger;
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
 
 public class ExcelImporter {
 
@@ -36,12 +35,12 @@ public class ExcelImporter {
      @SuppressWarnings("unchecked")
     public void importValues() throws Exception {
         InputStream inputStream = new FileInputStream(excelFile);
-        HSSFWorkbook resultsBook = new HSSFWorkbook(inputStream);
+         org.apache.poi.ss.usermodel.Workbook  resultsBook = WorkbookFactory.create(inputStream);
         ObservationsTableModel tableModel =  (ObservationsTableModel)observationsTable.getModel();
         Map<String, Integer> headers = new HashMap<String,Integer>();
-        HSSFSheet resultsSheet = resultsBook.getSheetAt(1);
-        HSSFCell cellEntryNo = null;
-        HSSFRow rowData = null;    
+        Sheet resultsSheet = resultsBook.getSheetAt(1);
+        Cell cellEntryNo = null;
+        Row rowData = null;    
         rowData = resultsSheet.getRow(0);
         for (int col = 0; col < tableModel.getColumnCount(); col++) {
              String columnText = rowData.getCell(0).getStringCellValue();
