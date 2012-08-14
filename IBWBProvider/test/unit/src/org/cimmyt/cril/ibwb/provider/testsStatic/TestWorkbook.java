@@ -4,13 +4,8 @@
  */
 package org.cimmyt.cril.ibwb.provider.testsStatic;
 
+import ibfb.domain.core.*;
 import org.apache.log4j.Logger;
-import ibfb.domain.core.Workbook;
-import ibfb.domain.core.Condition;
-import ibfb.domain.core.Constant;
-import ibfb.domain.core.Factor;
-import ibfb.domain.core.Study;
-import ibfb.domain.core.Variate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -29,10 +24,79 @@ public class TestWorkbook extends TestService {
         //Workbook workbook2 = servicios.getWorkbookFull(new Integer(-2), false);
         //printWorkbook(workbook2);
     }
+    
+    public void testWorkbookReadFactorsVeryFast(){
+        Integer studyId = 1;
+        Integer trialId = 0;
+        String trialName = "OCC";
+        List<String> factoresPrincipales = new ArrayList<String>();
+        factoresPrincipales.add("study");
+        factoresPrincipales.add(trialName);
+        factoresPrincipales.add("PLOT");
+        factoresPrincipales.add("ENTRY NUMBER");
+        List<String> factoresSalida = new ArrayList<String>();
+        
+//        factoresSalida.add(trialName);
+//        factoresSalida.add("PLOT");
+//        factoresSalida.add("ENTRY NUMBER");
+        
+        factoresSalida.add("OCC");
+        factoresSalida.add("Cooperator ID");
+        factoresSalida.add("STATION");
+        factoresSalida.add("STATION_ID");
+        factoresSalida.add("LID");
+        factoresSalida.add("OCC_COUNTRY");
+        factoresSalida.add("LOCATION NUMBER");
+        factoresSalida.add("OCC_NAME");
+        factoresSalida.add("OCC_ABBR");
+        factoresSalida.add("OCC_CYCLE");
+        factoresSalida.add("OCC_NEW_CYCLE");
+        factoresSalida.add("OCC_OFFSET");
+        factoresSalida.add("PLANTDATE");
+        factoresSalida.add("HARVDATE");
+        factoresSalida.add("FB_CLASS");
+        factoresSalida.add("RANDOMIZATION_TYPE");
+        factoresSalida.add("PLOT");
+        factoresSalida.add("Rep");
+        factoresSalida.add("ENTRY NUMBER");
+        factoresSalida.add("FTID");
+        factoresSalida.add("FOCC");
+        factoresSalida.add("FENT");
+        factoresSalida.add("MTID");
+        factoresSalida.add("MOCC");
+        factoresSalida.add("MENT");
+        factoresSalida.add("STID");
+        factoresSalida.add("SOCC");
+        factoresSalida.add("SENT");
+        factoresSalida.add("NSEL");
+        factoresSalida.add("TEMP_INTRID");
+        factoresSalida.add("TYPE");
+        factoresSalida.add("CID");
+        factoresSalida.add("SID");
+        factoresSalida.add("GID");
+        factoresSalida.add("CROSS NAME");
+        factoresSalida.add("SELECTION HISTORY");
+        factoresSalida.add("INTRID");
+        factoresSalida.add("SHUid");
+        factoresSalida.add("IsCheck");
+
+        
+        List<Measurement> lista = servicios.getTrialRandomizationVeryFast(studyId, trialId, factoresPrincipales, factoresSalida, "");
+        printMeasurements(lista);
+    }
 
     public void testSaveWorkbook() {
         Workbook workbook = getWORKBOOK();
         servicios.saveWorkbookFull(workbook);
+    }
+    
+    public static void printMeasurements(List<Measurement> lista){
+        for(Measurement measurement : lista){
+            System.out.println("");
+            for(Object objeto : measurement.getFactorLabelData()){
+                System.out.print(" - " + objeto);
+            }
+        }
     }
 
     public static void printWorkbook(Workbook workbook) {
@@ -354,7 +418,8 @@ public class TestWorkbook extends TestService {
 
     public static void main(String[] args) {
         TestWorkbook tt = new TestWorkbook();
-        tt.testWorkbook();
+//        tt.testWorkbook();
         //tt.testSaveWorkbook();
+        tt.testWorkbookReadFactorsVeryFast();
     }
 }
