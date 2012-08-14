@@ -7,22 +7,25 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.log4j.Logger;
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+
 import org.cimmyt.cril.ibwb.commongui.DialogUtil;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 public class ExcelTrialReader {
 
     private static Logger log = Logger.getLogger(ExcelTrialReader.class);
     String fileName = "";
-    HSSFSheet sheetDescription;
-    HSSFSheet sheetObservation;
-    HSSFSheet sheetData;
-    HSSFWorkbook excelBook;
-    HSSFCell cellData = null;
-    HSSFRow rowData = null;
+    Sheet sheetDescription;
+    Sheet sheetObservation;
+    Sheet sheetData;
+    Workbook excelBook;
+    Cell cellData = null;
+    Row rowData = null;
     ObservationsTableModel observationsModel;
     GermplasmEntriesTableModel germplasmModel;
     int obsTrial = -1;
@@ -50,7 +53,7 @@ public class ExcelTrialReader {
             int colNumber = 0;
             int rowIndex = 0;
             InputStream inputStream = new FileInputStream(fileName);
-            excelBook = new HSSFWorkbook(inputStream);
+            excelBook = WorkbookFactory.create(inputStream);
             sheetData = excelBook.getSheetAt(0);
             rowData = sheetData.getRow(rowIndex);
             cellData = rowData.getCell(colNumber);
@@ -89,8 +92,8 @@ public class ExcelTrialReader {
                 if (rowOfGID >= 0) {
                     for (int i = 0; i < matchesArray.size(); i++) {
 
-                        HSSFRow fila = sheetData.getRow(rowOfGID + 1);//por encabezados
-                        HSSFCell celda = fila.getCell(matchesArray.get(i).getColCross());
+                        Row fila = sheetData.getRow(rowOfGID + 1);//por encabezados
+                        Cell celda = fila.getCell(matchesArray.get(i).getColCross());
                         String valor = getStringValueFromCell(celda);
 
                         observationsModel.setValueAt(valor, j, matchesArray.get(i).getColIBF());
@@ -111,17 +114,17 @@ public class ExcelTrialReader {
 
     }
 
-    private String getStringValueFromCell(HSSFCell cellData) {
+    private String getStringValueFromCell(Cell cellData) {
 
         String cellValue = null;
 
         switch (cellData.getCellType()) {
 
-            case HSSFCell.CELL_TYPE_STRING:
+            case Cell.CELL_TYPE_STRING:
                 cellValue = cellData.getStringCellValue();
                 break;
 
-            case HSSFCell.CELL_TYPE_NUMERIC:
+            case Cell.CELL_TYPE_NUMERIC:
                 cellValue = String.valueOf((int) cellData.getNumericCellValue());
                 break;
         }
@@ -140,7 +143,7 @@ public class ExcelTrialReader {
             int colNumber = 0;
             int rowIndex = 0;
             InputStream inputStream = new FileInputStream(fileName);
-            excelBook = new HSSFWorkbook(inputStream);
+            excelBook = WorkbookFactory.create(inputStream);
 
             if (excelBook.getNumberOfSheets() != 2) {
                 log.info("Hay menos de dos hojas en el archivo");
@@ -208,11 +211,11 @@ public class ExcelTrialReader {
 
     }
 
-    private int findMaches(HSSFSheet sheet) {
+    private int findMaches(Sheet sheet) {
 
         int result = 0;
 
-        HSSFRow fila = sheet.getRow(0); //Encabezados
+        Row fila = sheet.getRow(0); //Encabezados
         int cells = fila.getLastCellNum();
 
         ArrayList<String> encabezados = new ArrayList<String>();
@@ -227,7 +230,7 @@ public class ExcelTrialReader {
         for (int i = 0; i < cells; i++) {
 
             try {
-                HSSFCell celda = fila.getCell(i);
+                Cell celda = fila.getCell(i);
 
                 if (!celda.getStringCellValue().toUpperCase().trim().equals("GID")) {
 
@@ -255,12 +258,12 @@ public class ExcelTrialReader {
     
     
     
-    private int findMachesForGermplasm(HSSFSheet sheet) {
+    private int findMachesForGermplasm(Sheet sheet) {
 
   
         int result = 0;
 
-        HSSFRow fila = sheet.getRow(0); //Encabezados
+        Row fila = sheet.getRow(0); //Encabezados
         int cells = fila.getLastCellNum();
 
         ArrayList<String> encabezados = new ArrayList<String>();
@@ -275,7 +278,7 @@ public class ExcelTrialReader {
         for (int i = 0; i < cells; i++) {
 
             try {
-                HSSFCell celda = fila.getCell(i);
+                Cell celda = fila.getCell(i);
 
                 if (!celda.getStringCellValue().toUpperCase().trim().equals("GID")) {
 
@@ -318,14 +321,14 @@ public class ExcelTrialReader {
 
     
     
-    private void fillGIDs(HSSFSheet sheet, int colGID) {
+    private void fillGIDs(Sheet sheet, int colGID) {
         try {
             gids = new ArrayList<String>();
             int total = sheet.getLastRowNum();
 
             for (int i = 0; i < total; i++) {
-                HSSFRow fila = sheet.getRow(i + 1);
-                HSSFCell celda = fila.getCell(colGID);
+                Row fila = sheet.getRow(i + 1);
+                Cell celda = fila.getCell(colGID);
                 int valor = (int) (celda.getNumericCellValue());
                 gids.add(String.valueOf(valor));
             }
@@ -343,11 +346,11 @@ public class ExcelTrialReader {
         return result;
     }
 
-    private int findCol(String title, HSSFSheet sheet) {
+    private int findCol(String title, Sheet sheet) {
 
         int result = -1;
 
-        HSSFRow fila = sheet.getRow(0); //Encabezados
+        Row fila = sheet.getRow(0); //Encabezados
         int cells = fila.getLastCellNum();
 
 
@@ -355,7 +358,7 @@ public class ExcelTrialReader {
 
             try {
 
-                HSSFCell celda = fila.getCell(i);
+                Cell celda = fila.getCell(i);
 
                 if (celda.getStringCellValue().equals(title)) {
                     log.info("Celda " + title + " encontrada en columna " + i);
@@ -379,10 +382,10 @@ public class ExcelTrialReader {
         int result = 0;
         for (int i = 0; i < sheetDescription.getLastRowNum(); i++) {
             log.info("Looking for " + title + " in row " + i);
-            HSSFRow fila = sheetDescription.getRow(i);
+            Row fila = sheetDescription.getRow(i);
             try {
                 if (fila != null) {
-                    HSSFCell celda = fila.getCell(0);
+                    Cell celda = fila.getCell(0);
                     if (celda != null && celda.getStringCellValue() != null) {
                         if (celda.getStringCellValue().equals(title)) {
                             log.info("Celda " + title + " encontrada en renglon " + i);
@@ -403,12 +406,13 @@ public class ExcelTrialReader {
 
         for (int i = 0; i < (max - min); i++) {
 
-            HSSFRow fila = sheetDescription.getRow(min + 1 + i);
-            HSSFCell celda = fila.getCell(2);//property
+            Row fila = sheetDescription.getRow(min + 1 + i);
+            Cell celda = fila.getCell(2);//property
+            Cell celdaMethod = fila.getCell(4);
             int type = celda.getCellType();
 
             try {
-                if (celda.getStringCellValue().equals("TRIAL INSTANCE")) {
+                if (celda.getStringCellValue().equals("TRIAL INSTANCE") && celdaMethod.getStringCellValue().equals("ENUMERATED")) {
 
                     celda = fila.getCell(6);
                     int tipo = celda.getCellType();
@@ -449,9 +453,9 @@ public class ExcelTrialReader {
         ArrayList variates = new ArrayList();
         try {
             for (int i = 0; i < sheetDescription.getLastRowNum(); i++) {
-                HSSFRow fila = sheetDescription.getRow(rowVariate + 1 + i);
+                Row fila = sheetDescription.getRow(rowVariate + 1 + i);
                 if (fila != null) {
-                    HSSFCell celda = fila.getCell(0);//property
+                    Cell celda = fila.getCell(0);//property
                     variates.add(celda.getStringCellValue().toString());
                 }
             }
@@ -519,8 +523,8 @@ public class ExcelTrialReader {
                     double result = 0;
                     int filaObs = 0;
                     try {
-                        HSSFRow fila = sheetObservation.getRow(j + 1);
-                        HSSFCell celda = fila.getCell(colEntry);
+                        Row fila = sheetObservation.getRow(j + 1);
+                        Cell celda = fila.getCell(colEntry);
                         int entry = Integer.parseInt(celda.getStringCellValue());
                         celda = fila.getCell(colPlot);
                         int plot = Integer.parseInt(celda.getStringCellValue());
@@ -626,7 +630,7 @@ public class ExcelTrialReader {
             int colNumber = 0;
             int rowIndex = 0;
             InputStream inputStream = new FileInputStream(fileName);
-            excelBook = new HSSFWorkbook(inputStream);
+            excelBook =  WorkbookFactory.create(inputStream);
             sheetData = excelBook.getSheetAt(0);
             rowData = sheetData.getRow(rowIndex);
             cellData = rowData.getCell(colNumber);
@@ -665,8 +669,8 @@ public class ExcelTrialReader {
                 if (rowOfGID >= 0) {
                     for (int i = 0; i < matchesArray.size(); i++) {
 
-                        HSSFRow fila = sheetData.getRow(rowOfGID + 1);//por encabezados
-                        HSSFCell celda = fila.getCell(matchesArray.get(i).getColCross());
+                        Row fila = sheetData.getRow(rowOfGID + 1);//por encabezados
+                        Cell celda = fila.getCell(matchesArray.get(i).getColCross());
                         String valor = getStringValueFromCell(celda);
 
                         germplasmModel.setValueAt(valor, j, matchesArray.get(i).getColIBF());
