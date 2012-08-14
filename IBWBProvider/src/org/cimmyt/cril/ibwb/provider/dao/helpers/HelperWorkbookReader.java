@@ -5,20 +5,18 @@
 package org.cimmyt.cril.ibwb.provider.dao.helpers;
 
 import com.sun.rowset.CachedRowSetImpl;
+import ibfb.domain.core.Measurement;
 import java.math.BigInteger;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
-import java.util.List;
+import java.util.*;
 import javax.sql.rowset.RowSetMetaDataImpl;
 import org.apache.log4j.Logger;
-import org.cimmyt.cril.ibwb.domain.GermplasmSearch;
 import org.cimmyt.cril.ibwb.provider.dao.DMSReaderDAO;
 import org.hibernate.Hibernate;
-import org.hibernate.HibernateException;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
-import org.springframework.orm.hibernate3.HibernateCallback;
 
 /**
  *
@@ -45,16 +43,13 @@ public class HelperWorkbookReader {
             boolean isLocal,
             boolean isCentral
             ) throws SQLException {
-        
-        
-                
         SQLQuery query;
-
+        
         log.info("Getting trial randomization");
         Integer numeroDeFactoresPrincipales = factoresPrincipales.size();
         String listaDeFactoresResultado = DMSReaderDAO.getFactoresParaUsoInQuery(factoresSalida);
         ResultSet pr = null;
-
+        
         String consultaSQL = "SELECT represno, COUNT(*) FROM effect e "
                 + "INNER JOIN factor f ON e.factorid=f.factorid "
                 + "WHERE studyid=" + studyId + " AND "
@@ -63,7 +58,7 @@ public class HelperWorkbookReader {
                 + "GROUP BY represno HAVING COUNT(*)=" + numeroDeFactoresPrincipales;
         query = session.createSQLQuery(consultaSQL);
         List resultado = query.list();
-
+        
         log.info("Definiendo orden de busquedas");
         String orden;
         if (isLocal) {
@@ -73,7 +68,7 @@ public class HelperWorkbookReader {
         } else {
             orden = "DESC";
         }
-
+        
         int trepresNo = 0;
         if (resultado != null) {
             if (resultado.size() > 0) {
@@ -85,17 +80,17 @@ public class HelperWorkbookReader {
         } else {
             return null;
         }
-
+        
         RowSetMetaDataImpl rsmd = new RowSetMetaDataImpl();
         consultaSQL = "SELECT count(*) FROM factor "
                 + "WHERE studyid=" + studyId
                 + " and fname IN(" + listaDeFactoresResultado + ")";
-
+        
         int cuantosFR = 0;
-
+        
         query = session.createSQLQuery(consultaSQL);
         Object tempObject = query.uniqueResult();
-
+        
         if (tempObject instanceof BigInteger) {
             BigInteger temp = (BigInteger) tempObject;
             cuantosFR = temp.intValue();
@@ -103,15 +98,15 @@ public class HelperWorkbookReader {
             Integer temp = (Integer) tempObject;
             cuantosFR = temp.intValue();
         }
-
+        
         consultaSQL = "SELECT fname, ltype, labelid FROM factor "
                 + "WHERE studyid=" + studyId
                 + " and fname IN(" + listaDeFactoresResultado + ")"
                 + " ORDER BY labelid " + orden;
-
+        
         query = session.createSQLQuery(consultaSQL);
         resultado = query.list();
-
+        
         rsmd.setColumnCount(cuantosFR);
         int tconsecutivo = 0;
         for (Object fila : resultado) {
@@ -125,7 +120,7 @@ public class HelperWorkbookReader {
                 rsmd.setColumnType(tconsecutivo, Types.VARCHAR);
             }
         }
-
+        
         CachedRowSetImpl crs = new CachedRowSetImpl();
         int i889 = 0;
         crs.setMetaData(rsmd);
@@ -238,4 +233,389 @@ public class HelperWorkbookReader {
         return pr;
     }
     
+    public static List<Measurement> getTrialRandomizationVeryFast(
+            final int studyId,
+            final int trialFactorId,
+            final List<String> factoresPrincipales,
+            final List<String> factoresSalida,
+            final String trialName,
+            Session session,
+            boolean isLocal,
+            boolean isCentral
+            ) throws SQLException {
+        
+        String factoresPrincipalesStr = DMSReaderDAO.getFactoresParaUsoInQuery(factoresPrincipales);
+        String factoresResultadoStr = DMSReaderDAO.getFactoresParaUsoInQuery(factoresSalida);
+        
+        SQLQuery query = null;
+        List resultado;
+
+        log.info("Getting trial randomization");
+        Integer numeroDeFactoresPrincipales = factoresPrincipales.size();
+        
+        Integer trepresNo = HelperWorkbookReader.getRepresno(
+                session,
+                query,
+                studyId,
+                factoresPrincipalesStr,
+                numeroDeFactoresPrincipales
+                );
+        
+        if (trepresNo == null) {
+            log.error("Repres no encontrado.");
+            return null;
+        }
+
+        log.info("Definiendo orden de busquedas");
+        String orden = HelperWorkbookReader.getOrder(isLocal, isCentral);
+        
+//        Integer cuantosFR = HelperWorkbookReader.getNumeroFactoresResultado(
+//                session,
+//                query,
+//                studyId,
+//                factoresResultadoStr
+//                );
+
+//        resultado = HelperWorkbookReader.getFactoresResultado(
+//                session,
+//                query,
+//                studyId,
+//                factoresResultadoStr,
+//                orden
+//                );
+        
+        String condicionWhere = HelperWorkbookReader.getCondicionesWhere(
+                session,
+                query,
+                studyId,
+                trialFactorId,
+                trialName,
+                trepresNo,
+                factoresResultadoStr
+                );
+        
+        resultado = HelperWorkbookReader.getListFactorsAndLevels(
+                session,
+                query,
+                condicionWhere,
+                orden
+                );
+        
+        Integer ounitInicial;
+        if(resultado == null){
+            log.error("No se encontro ningun dato referente a los factores.");
+            return null;
+        }else if(resultado.isEmpty()){
+            log.error("No se encontro ningun dato referente a los factores.");
+            return null;
+        }else{
+            Object fila = resultado.get(0);
+            Object[] celdas = (Object[]) fila;
+            ounitInicial = (Integer) celdas[0];
+        }
+        Map<String, Integer> ordenFactoresSalida = new HashMap<String, Integer>();
+        for(String factorS : factoresSalida){
+            ordenFactoresSalida.put(factorS, factoresSalida.indexOf(factorS));
+        }
+        List<Object> factorLabelList;
+        Object[] factorLabelArreglo = new Object[factoresSalida.size()];
+        List<Measurement> measurementList = new ArrayList<Measurement>();
+        Measurement measurement = new Measurement();
+        Integer ounitTemp = ounitInicial.intValue();
+        for(Object fila : resultado){
+            Object[] celdas = (Object[]) fila;
+            //Condiciones para cambio de fila
+            if(!ounitTemp.equals(celdas[0])){
+                for(int i = 0; i<factoresSalida.size() ; i++){
+                    if(factorLabelArreglo[i] == null){
+                        factorLabelArreglo[i] = "";
+                    }
+                }
+                factorLabelList = new ArrayList<Object>(Arrays.asList(factorLabelArreglo));
+                measurement.setFactorLabelData(factorLabelList);
+                measurementList.add(measurement);
+                measurement = new Measurement();
+                factorLabelArreglo = new Object[factoresSalida.size()];
+                ounitTemp = (Integer) celdas[0];
+            }
+            factorLabelArreglo[ordenFactoresSalida.get((String) celdas[1])] = celdas[2];
+            
+        }
+        log.info("Getting trial randomization.... DONE");
+        return measurementList;
+    }
+    
+    public static String getOrder(boolean local, boolean central){
+        if (local) {
+            return "DESC";
+        } else if (central) {
+            return "ASC";
+        } else {
+            return "DESC";
+        }
+    }
+    
+    public static String getScname(
+            Session session,
+            SQLQuery query,
+            Integer studyid
+            ){
+        if(studyid == null){
+            log.error("El siguiente studyid = " + studyid + " no es un estudio valido.");
+        }
+        String consultaSQL = "select SNAME as SNAME "
+                + "from study "
+                + "where study.STUDYID = " + studyid + ";";
+        query = session.createSQLQuery(consultaSQL);
+        query.addScalar("SNAME", Hibernate.STRING);
+        Object snameTemp = query.uniqueResult();
+        if (snameTemp == null){
+            log.error("No se encontro el nombre del estudio para el id = " + studyid);
+        }
+        return (String)snameTemp;
+    }
+    
+    public static List getFactoresPrincipales(
+            Session session,
+            SQLQuery query,
+            Integer studyid,
+            String orden
+            ){
+        List resultado;
+        
+        String consultaSQL = "SELECT "
+                + "factor.FNAME as FNAME, "
+                + "tmstraits.trname as TRNAME, "
+                + "tmsscales.scname as SCNAME, "
+                + "factor.LABELID as LABELID "
+                + "from factor "
+                + "LEFT join tmsmeasuredin on "
+                + "factor.TID = tmsmeasuredin.traitid and "
+                + "tmsmeasuredin.scaleid = factor.SCALEID and "
+                + "factor.TMETHID = tmsmeasuredin.tmethid "
+                + "LEFT JOIN tmsscales ON "
+                + "tmsscales.scaleid = tmsmeasuredin.scaleid "
+                + "LEFT JOIN tmstraits ON "
+                + "tmstraits.tid = tmsmeasuredin.traitid "
+                + "where factor.STUDYID = "
+                + studyid
+                + " and factor.FACTORID = factor.LABELID "
+                + "order by LABELID " + orden + ";";
+
+        query = session.createSQLQuery(consultaSQL);
+        query.addScalar("FNAME", Hibernate.STRING);
+        query.addScalar("TRNAME", Hibernate.STRING);
+        query.addScalar("SCNAME", Hibernate.STRING);
+        query.addScalar("LABELID", Hibernate.INTEGER);
+        resultado = query.list();
+        if(resultado == null){
+            log.error("No se encontraron factores principales.");
+        }
+        return resultado;
+    }
+    
+    public static List getFactoresSalida(
+            Session session,
+            SQLQuery query,
+            Integer studyid,
+            Integer numberEntry,
+            String orden
+            ){
+        List resultado;
+        
+        String consultaSQL = "SELECT "
+                + "factor.FNAME as FNAME, "
+                + "tmstraits.trname as TRNAME, "
+                + "tmsscales.scname as SCNAME, "
+                + "factor.LABELID as LABELID "
+                + "from factor "
+                + "LEFT join tmsmeasuredin on "
+                + "factor.TID = tmsmeasuredin.traitid and "
+                + "tmsmeasuredin.scaleid = factor.SCALEID and "
+                + "factor.TMETHID = tmsmeasuredin.tmethid "
+                + "LEFT JOIN tmsscales ON "
+                + "tmsscales.scaleid = tmsmeasuredin.scaleid "
+                + "LEFT JOIN tmstraits ON "
+                + "tmstraits.tid = tmsmeasuredin.traitid "
+                + "where factor.STUDYID = "
+                + studyid
+                + " and factor.FACTORID = "
+                + numberEntry
+                + " order by LABELID " + orden + ";";
+        
+        query = session.createSQLQuery(consultaSQL);
+        query.addScalar("FNAME", Hibernate.STRING);
+        query.addScalar("TRNAME", Hibernate.STRING);
+        query.addScalar("SCNAME", Hibernate.STRING);
+        query.addScalar("LABELID", Hibernate.INTEGER);
+        resultado = query.list();
+        if(resultado == null){
+            log.error("No se encontro ningun factor para los facores de salida.");
+        }
+        return resultado;
+    }
+
+    public static Integer getRepresno(
+            Session session,
+            SQLQuery query,
+            Integer studyid,
+            String factoresPrincipalesStr,
+            Integer numeroDeFactoresPrincipales
+            ){
+        String consultaSQL = "SELECT represno, COUNT(*) FROM effect e "
+                + "INNER JOIN factor f ON e.factorid=f.factorid "
+                + "WHERE studyid=" + studyid + " AND "
+                + "f.factorid = f.labelid AND "
+                + "fname IN (" + factoresPrincipalesStr + ") "
+                + "GROUP BY represno HAVING COUNT(*) = " + numeroDeFactoresPrincipales;
+        query = session.createSQLQuery(consultaSQL);
+        List resultado = query.list();
+        if (resultado != null) {
+            if (resultado.size() > 0) {
+                Object[] fila = (Object[]) resultado.get(0);
+                return (Integer) fila[represNo];
+            } else {
+                log.error("No se encontro el represNo");
+                return null;
+            }
+        } else {
+            log.error("No se encontro el represNo");
+            return null;
+        }
+    }
+
+    public static Integer getNumeroFactoresResultado(
+            Session session,
+            SQLQuery query,
+            Integer studyid,
+            String factoresResultadoStr
+            ){
+        String consultaSQL = "SELECT count(*) FROM factor "
+                + "WHERE studyid=" + studyid
+                + " and fname IN(" + factoresResultadoStr + ")";
+        
+        Integer cuantosFR = 0;
+        
+        query = session.createSQLQuery(consultaSQL);
+        Object tempObject = query.uniqueResult();
+        
+        if (tempObject instanceof BigInteger) {
+            BigInteger temp = (BigInteger) tempObject;
+            cuantosFR = temp.intValue();
+        } else if (tempObject instanceof Integer) {
+            Integer temp = (Integer) tempObject;
+            cuantosFR = temp.intValue();
+        } else if(tempObject == null){
+            log.error("No se encontro ningun factor resultado");
+        }
+        return cuantosFR;
+    }
+    
+    public static List getFactoresResultado(
+            Session session,
+            SQLQuery query,
+            Integer studyid,
+            String factoresResultadoStr,
+            String orden
+            ){
+        String consultaSQL = "SELECT fname, ltype, labelid FROM factor "
+                + "WHERE studyid=" + studyid
+                + " and fname IN(" + factoresResultadoStr + ")"
+                + " ORDER BY labelid " + orden;
+        if(factoresResultadoStr == null){
+            log.error("La lista de factores esta vacia.");
+        }else if(factoresResultadoStr.isEmpty()){
+            log.error("La lista de factores esta vacia.");
+        }
+        query = session.createSQLQuery(consultaSQL);
+        List resultado = query.list();
+        if(resultado == null){
+            log.error("No se encontraron factores para regresar.");
+        }
+        return resultado;
+    }
+    
+    public static String getCondicionesWhere(
+            Session session,
+            SQLQuery query,
+            Integer studyid,
+            Integer trial,
+            String trialName,
+            Integer represNo,
+            String factoresResultadoStr
+            ){
+        String condicionWhere = "f.fname IN (" + factoresResultadoStr + ") AND studyid = " + studyid + " AND represno =" + represNo + "";
+        if (trial > 0) {
+            String consultaSQL = "SELECT OUNITID FROM FACTOR F "
+                    + "INNER JOIN (LEVEL_N L INNER JOIN OINDEX O "
+                    + "ON (L.LEVELNO = O.LEVELNO) AND (L.FACTORID = O.FACTORID)) "
+                    + "ON (F.FACTORID = L.FACTORID) "
+                    + "AND (F.LABELID = L.LABELID) "
+                    + "WHERE f.fname IN ('" + trialName + "') "
+                    + "AND studyid = " + studyid
+                    + " AND represno =" + represNo
+                    + " AND lvalue = " + trial;
+
+            query = session.createSQLQuery(consultaSQL);
+            List resultado = query.list();
+
+            int cuantosRegistros = 0;
+            String cadOunitid = "";
+
+            if (resultado.size() == 0) {
+                return null;
+            } else {
+                for (Object fila : resultado) {
+                    cuantosRegistros += 1;
+                    cadOunitid += fila.toString() + ",";
+                }
+            }
+            cadOunitid = cadOunitid.substring(0, cadOunitid.length() - 1);
+            condicionWhere += " and ounitid in (" + cadOunitid + ")";
+        }
+        return condicionWhere;
+    }
+
+    public static List getListFactorsAndLevels(
+            Session session,
+            SQLQuery query,
+            String condicionWhere,
+            String orden
+            
+            ){
+        String consultaSQL = "SELECT O.OUNITID, FNAME, LVALUE, LTYPE, F.LABELID "
+                + "FROM FACTOR F INNER JOIN (LEVEL_N L "
+                + "INNER JOIN OINDEX O ON (L.LEVELNO = O.LEVELNO) "
+                + "AND (L.FACTORID = O.FACTORID)) "
+                + "ON (F.FACTORID = L.FACTORID) "
+                + "AND (F.LABELID = L.LABELID) "
+                + "WHERE " + condicionWhere + "";
+        consultaSQL += " UNION ";
+        consultaSQL += "SELECT O.OUNITID, FNAME, LVALUE, LTYPE, F.LABELID "
+                + "FROM FACTOR F INNER JOIN (LEVEL_C L "
+                + "INNER JOIN OINDEX O ON (L.LEVELNO = O.LEVELNO) "
+                + "AND (L.FACTORID = O.FACTORID)) "
+                + "ON (F.FACTORID = L.FACTORID) "
+                + "AND (F.LABELID = L.LABELID) "
+                + "WHERE " + condicionWhere + "";
+        consultaSQL += " ORDER BY OUNITID " + orden + ", LABELID " + orden;
+        
+        query = session.createSQLQuery(consultaSQL);
+        
+        query.addScalar("OUNITID", Hibernate.INTEGER);
+        query.addScalar("FNAME", Hibernate.STRING);
+        query.addScalar("LVALUE", Hibernate.STRING);
+        query.addScalar("LTYPE", Hibernate.STRING);
+        query.addScalar("LABELID", Hibernate.INTEGER);
+        
+        List resultado = query.list();
+        if(resultado == null){
+            log.error("No se encontro ningun listado de factores y levesl a devolver");
+            log.error("No se logro recuperar estructura");
+        }else if(resultado.isEmpty()){
+            log.error("No se encontro ningun listado de factores y levesl a devolver");
+            log.error("No se logro recuperar estructura");
+        }
+        return resultado;
+    }
 }

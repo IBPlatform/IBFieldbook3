@@ -5,6 +5,7 @@
 package org.cimmyt.cril.ibwb.provider.memory;
 
 import ibfb.domain.core.IBFStudy;
+import ibfb.domain.core.Measurement;
 import ibfb.domain.core.Workbook;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -1311,6 +1312,11 @@ public class IBWBAppServicesMemoryImpl implements AppServices {
 
     @Override
     public void migrateWorkbook(Integer studyId) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<Measurement> getTrialRandomizationVeryFast(Integer studyId, Integer trialFactorId, List<String> factoresPrincipales, List<String> factoresSalida, String trialNmame) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
