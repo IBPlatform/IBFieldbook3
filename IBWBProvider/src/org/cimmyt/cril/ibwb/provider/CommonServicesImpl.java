@@ -1,5 +1,6 @@
 package org.cimmyt.cril.ibwb.provider;
 
+import ibfb.domain.core.Measurement;
 import java.sql.ResultSet;
 import org.cimmyt.cril.ibwb.api.*;
 import org.cimmyt.cril.ibwb.domain.*;
@@ -1909,6 +1910,15 @@ public class CommonServicesImpl implements CommonServices {
             List<String> factoresSalida,
             String nombreTrial) {
         return dMSReaderDAO.getTrialRandomization(studyId, trialFactorId, factoresPrincipales, factoresSalida, nombreTrial);
+    }
+    
+    public List<Measurement> getTrialRandomizationVeryFast(
+            Integer studyId,
+            Integer trialFactorId,
+            List<String> factoresPrincipales,
+            List<String> factoresSalida,
+            String nombreTrial) {
+        return dMSReaderDAO.getTrialRandomizationVeryFast(studyId, trialFactorId, factoresPrincipales, factoresSalida, nombreTrial);
     }
     
     public ResultSet getTrialRandomizationFast(

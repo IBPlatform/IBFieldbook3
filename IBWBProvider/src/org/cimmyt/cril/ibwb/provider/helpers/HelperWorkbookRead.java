@@ -773,11 +773,11 @@ public class HelperWorkbookRead {
         int measurementRow = 0;
         try {
             if (rst != null) {
-                ResultSetMetaData rsmd = rst.getMetaData();
-                for (int col = 1; col <= rsmd.getColumnCount(); col++) {
-                    System.out.print(rsmd.getColumnName(col) + "\t");
-                }
-                System.out.println();
+//                ResultSetMetaData rsmd = rst.getMetaData();
+//                for (int col = 1; col <= rsmd.getColumnCount(); col++) {
+//                    System.out.print(rsmd.getColumnName(col) + "\t");
+//                }
+//                System.out.println();
 
                 while (rst.next()) {
                     List<Object> factorLabelList = new ArrayList<Object>();
