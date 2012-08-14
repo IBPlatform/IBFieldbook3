@@ -1,5 +1,6 @@
 package org.cimmyt.cril.ibwb.api;
 
+import ibfb.domain.core.Measurement;
 import java.sql.ResultSet;
 import java.util.List;
 //import javax.faces.view.Location;
@@ -2710,6 +2711,13 @@ public interface CommonServices {
             String nombreTrial);
     
     public ResultSet getTrialRandomizationFast(
+            Integer studyId,
+            Integer trialFactorId,
+            List<String> factoresPrincipales,
+            List<String> factoresSalida,
+            String nombreTrial);
+    
+    public List<Measurement> getTrialRandomizationVeryFast(
             Integer studyId,
             Integer trialFactorId,
             List<String> factoresPrincipales,

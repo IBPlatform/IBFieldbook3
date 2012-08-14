@@ -1,6 +1,7 @@
 package org.cimmyt.cril.ibwb.api;
 
 import ibfb.domain.core.IBFStudy;
+import ibfb.domain.core.Measurement;
 
 import ibfb.domain.core.Workbook;
 import java.sql.ResultSet;
@@ -1595,6 +1596,14 @@ public interface AppServices {
             );
     
     public ResultSet getTrialRandomization(
+            Integer studyId,
+            Integer trialFactorId,
+            List<String> factoresPrincipales,
+            List<String> factoresSalida,
+            String trialNmame
+            );
+    
+    public List<Measurement> getTrialRandomizationVeryFast(
             Integer studyId,
             Integer trialFactorId,
             List<String> factoresPrincipales,
