@@ -10,10 +10,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+//import org.apache.poi.hssf.usermodel.Cell;
+//import org.apache.poi.hssf.usermodel.Row;
+//import org.apache.poi.hssf.usermodel.Sheet;
+//import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.cimmyt.cril.ibwb.api.AppServicesProxy;
 import org.cimmyt.cril.ibwb.domain.Listdata;
 import org.cimmyt.cril.ibwb.domain.ListdataPK;
@@ -34,7 +40,7 @@ public class GermplasmListReaderImpl implements GermplasmListReader {
         log.info("Validating Excel file read BEGIN");
         log.info("Opening file...");
         InputStream inputStream = new FileInputStream(fileName);
-        HSSFWorkbook excelBook = new HSSFWorkbook(inputStream);
+        org.apache.poi.ss.usermodel.Workbook  excelBook = WorkbookFactory.create(inputStream);
         log.info("Number of sheets in book" + excelBook.getNumberOfSheets());
 
         // assume values are in B colum (index 1)
@@ -42,12 +48,12 @@ public class GermplasmListReaderImpl implements GermplasmListReader {
         int listRowIndex = 0;
 
         // get sheet where is located list data
-        HSSFSheet sheet = excelBook.getSheetAt(0);
+        Sheet sheet = excelBook.getSheetAt(0);
 
-        HSSFCell cellDataGid = null;
-        HSSFCell cellDataEntryCode = null;
-        HSSFCell cellDataDesignation = null;
-        HSSFRow rowData = null;
+        Cell cellDataGid = null;
+        Cell cellDataEntryCode = null;
+        Cell cellDataDesignation = null;
+        Row rowData = null;
 
         rowHeader = getRowHeaderIndex(excelBook);
 
@@ -75,17 +81,17 @@ public class GermplasmListReaderImpl implements GermplasmListReader {
         log.info("Validating Cross Excel file read BEGIN");
         log.info("Opening file...");
         InputStream inputStream = new FileInputStream(fileName);
-        HSSFWorkbook excelBook = new HSSFWorkbook(inputStream);
+        org.apache.poi.ss.usermodel.Workbook  excelBook =  WorkbookFactory.create(inputStream);
 
         int labelColNumber = 0;
         int listRowIndex = 0;
 
-        HSSFSheet sheet = excelBook.getSheetAt(0);
+        Sheet sheet = excelBook.getSheetAt(0);
 
-        HSSFCell cellDataGid = null;
-        HSSFCell cellDataEntryCode = null;
-        HSSFCell cellDataDesignation = null;
-        HSSFRow rowData = null;
+        Cell cellDataGid = null;
+        Cell cellDataEntryCode = null;
+        Cell cellDataDesignation = null;
+        Row rowData = null;
 
  
         //PENDIENTE 
@@ -103,7 +109,7 @@ public class GermplasmListReaderImpl implements GermplasmListReader {
         log.info("Excel file read BEGIN");
         log.info("Opening file...");
         InputStream inputStream = new FileInputStream(fileName);
-        HSSFWorkbook excelBook = new HSSFWorkbook(inputStream);
+        org.apache.poi.ss.usermodel.Workbook  excelBook = WorkbookFactory.create(inputStream);
         log.info("Number of sheets in book" + excelBook.getNumberOfSheets());
 
         fillGermplasmList(germplasmList, excelBook);
@@ -112,23 +118,23 @@ public class GermplasmListReaderImpl implements GermplasmListReader {
         return germplasmList;
     }
 
-    private void fillGermplasmList(GermplasmList germplasmList, HSSFWorkbook excelBook) {
+    private void fillGermplasmList(GermplasmList germplasmList, org.apache.poi.ss.usermodel.Workbook  excelBook) {
         if (rowHeader > 4) {
         fillHeader(germplasmList, excelBook);
         }
         fillEntryList(germplasmList, excelBook);
     }
 
-    private void fillHeader(GermplasmList germplasmList, HSSFWorkbook excelBook) {
+    private void fillHeader(GermplasmList germplasmList, org.apache.poi.ss.usermodel.Workbook  excelBook) {
         // assume values are in B colum (index 1)
         int dataColNumber = 1;
         int listRowIndex = 0;
 
         // get sheet where is located list data
-        HSSFSheet sheet = excelBook.getSheetAt(0);
+        Sheet sheet = excelBook.getSheetAt(0);
 
-        HSSFCell cellData = null;
-        HSSFRow rowData = null;
+        Cell cellData = null;
+        Row rowData = null;
 
         rowData = sheet.getRow(listRowIndex);
         cellData = rowData.getCell(dataColNumber);
@@ -158,7 +164,7 @@ public class GermplasmListReaderImpl implements GermplasmListReader {
 
     }
 
-    private void fillEntryList(GermplasmList germplasmList, HSSFWorkbook excelBook) {
+    private void fillEntryList(GermplasmList germplasmList, org.apache.poi.ss.usermodel.Workbook  excelBook) {
         List<ListOfEntries> listEntries = new ArrayList<ListOfEntries>();
         // assume values are in B colum (index 1)
         //int entryRowIndex = ROW_HEADER_INDEX + 1;
@@ -167,9 +173,9 @@ public class GermplasmListReaderImpl implements GermplasmListReader {
 
 
         // Assume that all values are in first sheet
-        HSSFSheet sheet = excelBook.getSheetAt(0);
-        HSSFCell cellData = null;
-        HSSFRow rowData = null;
+        Sheet sheet = excelBook.getSheetAt(0);
+        Cell cellData = null;
+        Row rowData = null;
 
         // internal index for count number of items
         int rowCounter = 1;
@@ -223,14 +229,14 @@ public class GermplasmListReaderImpl implements GermplasmListReader {
      * Return last Row Index where list contains data
      * @return
      */
-    private int getLastEntryRowIndex(HSSFWorkbook excelBook) {
+    private int getLastEntryRowIndex(org.apache.poi.ss.usermodel.Workbook  excelBook) {
         int entryRowIndex = ROW_HEADER_INDEX + 1;
         int lastEntryRowIndex = entryRowIndex;
         boolean moreRowsToRead = true;
 
-        HSSFSheet sheet = excelBook.getSheetAt(0);
-        HSSFCell cellData = null;
-        HSSFRow rowData = null;
+        Sheet sheet = excelBook.getSheetAt(0);
+        Cell cellData = null;
+        Row rowData = null;
 
         while (moreRowsToRead) {
             lastEntryRowIndex++;
@@ -251,12 +257,12 @@ public class GermplasmListReaderImpl implements GermplasmListReader {
      * @param excelBook
      * @return A row number greater than -1 if GID label found or -1 if not found
      */
-    private int getRowHeaderIndex(HSSFWorkbook excelBook) {
+    private int getRowHeaderIndex(org.apache.poi.ss.usermodel.Workbook  excelBook) {
         int gidRowIndex = -1;
 
-        HSSFSheet sheet = excelBook.getSheetAt(0);
-        HSSFCell cellData = null;
-        HSSFRow rowData = null;
+        Sheet sheet = excelBook.getSheetAt(0);
+        Cell cellData = null;
+        Row rowData = null;
 
         for (int index = 0; index < MAX_ROW; index++) {
 

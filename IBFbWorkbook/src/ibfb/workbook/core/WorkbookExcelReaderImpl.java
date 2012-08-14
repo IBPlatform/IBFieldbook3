@@ -13,12 +13,14 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.log4j.Logger;
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.POIDocument;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.hssf.util.AreaReference;
 import org.apache.poi.ss.usermodel.Name;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 
 /**
@@ -40,7 +42,7 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
         log.info("Excel file read BEGIN");
         log.info("Opening file...");
         InputStream inputStream = new FileInputStream(fileName);
-        HSSFWorkbook excelBook = new HSSFWorkbook(inputStream);
+        org.apache.poi.ss.usermodel.Workbook excelBook = WorkbookFactory.create(inputStream);
         log.info("Number of sheets in book" + excelBook.getNumberOfSheets());
         fillWoorkbook(workbook, excelBook);
         
@@ -60,7 +62,7 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
         log.info("Validating Excel file read BEGIN");
         log.info("Opening file...");
         InputStream inputStream = new FileInputStream(fileName);
-        HSSFWorkbook excelBook = new HSSFWorkbook(inputStream);
+        org.apache.poi.ss.usermodel.Workbook excelBook = WorkbookFactory.create(inputStream);
         log.info("Number of sheets in book" + excelBook.getNumberOfSheets());
 
         // assume values are in B colum (index 1)
@@ -68,10 +70,10 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
         int listRowIndex = 0;
 
         // get sheet where is located list data
-        HSSFSheet sheet = excelBook.getSheetAt(0);
+        Sheet sheet = excelBook.getSheetAt(0);
 
-        HSSFCell cellData = null;
-        HSSFRow rowData = null;
+        Cell cellData = null;
+        Row rowData = null;
 
         rowData = sheet.getRow(listRowIndex);
         cellData = rowData.getCell(labelColNumber);
@@ -102,7 +104,7 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
         log.info("Validating Excel Nursery file read BEGIN");
         log.info("Opening file...");
         InputStream inputStream = new FileInputStream(fileName);
-        HSSFWorkbook excelBook = new HSSFWorkbook(inputStream);
+        org.apache.poi.ss.usermodel.Workbook excelBook = WorkbookFactory.create(inputStream);
         log.info("Number of sheets in book" + excelBook.getNumberOfSheets());
 
         // assume values are in B colum (index 1)
@@ -110,10 +112,10 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
         int listRowIndex = 0;
 
         // get sheet where is located list data
-        HSSFSheet sheet = excelBook.getSheetAt(0);
+        Sheet sheet = excelBook.getSheetAt(0);
 
-        HSSFCell cellData = null;
-        HSSFRow rowData = null;
+        Cell cellData = null;
+        Row rowData = null;
 
         rowData = sheet.getRow(listRowIndex);
         cellData = rowData.getCell(labelColNumber);
@@ -150,10 +152,10 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
      * @param workbook
      * @param excelBook
      */
-    private void fillWoorkbook(Workbook workbook, HSSFWorkbook excelBook) {
-        HSSFSheet resultsSheet = excelBook.getSheetAt(0);
-        HSSFCell cellEntryNo = null;
-        HSSFRow rowData = null;
+    private void fillWoorkbook(Workbook workbook, org.apache.poi.ss.usermodel.Workbook excelBook) {
+        Sheet resultsSheet = excelBook.getSheetAt(0);
+        Cell cellEntryNo = null;
+        Row rowData = null;
 
         fillStudyData(workbook, excelBook);
         fillConditions(workbook, excelBook);
@@ -168,17 +170,17 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
      * @param workbook
      * @param excelBook
      */
-    private void fillStudyData(Workbook workbook, HSSFWorkbook excelBook) {
+    private void fillStudyData(Workbook workbook, org.apache.poi.ss.usermodel.Workbook excelBook) {
         AreaReference areaReference = getAreaReferenceForRangeName(RANGE_NAME_STUDY, excelBook);
         int studyDataColNumber = 1;
         int studyRowIndex = areaReference.getFirstCell().getRow();
         Study study = new Study();
 
         // get sheet where is located Study range name
-        HSSFSheet sheet = getSheetForRangeName(excelBook, areaReference);
+        Sheet sheet = getSheetForRangeName(excelBook, areaReference);
 
-        HSSFCell cellData = null;
-        HSSFRow rowData = null;
+        Cell cellData = null;
+        Row rowData = null;
 
         rowData = sheet.getRow(studyRowIndex);
         cellData = rowData.getCell(studyDataColNumber);
@@ -224,7 +226,7 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
      * @param workbook
      * @param excelBook
      */
-    private void fillConditions(Workbook workbook, HSSFWorkbook excelBook) {
+    private void fillConditions(Workbook workbook, org.apache.poi.ss.usermodel.Workbook excelBook) {
         AreaReference areaReference = getAreaReferenceForRangeName(RANGE_NAME_CONDITION, excelBook);
         int rowIndex = areaReference.getFirstCell().getRow();
         List<Condition> studyConditions = new ArrayList<Condition>();
@@ -232,9 +234,9 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
         boolean moreRowsToRead = true;
 
         // get sheet where is located CONDITION range name
-        HSSFSheet sheet = getSheetForRangeName(excelBook, areaReference);
-        HSSFCell cellData = null;
-        HSSFRow rowData = null;
+        Sheet sheet = getSheetForRangeName(excelBook, areaReference);
+        Cell cellData = null;
+        Row rowData = null;
 
         while (moreRowsToRead) {
             rowIndex++;
@@ -302,16 +304,16 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
      * @param workbook
      * @param excelBook
      */
-    private void fillFactors(Workbook workbook, HSSFWorkbook excelBook) {
+    private void fillFactors(Workbook workbook, org.apache.poi.ss.usermodel.Workbook excelBook) {
         AreaReference areaReference = getAreaReferenceForRangeName(RANGE_NAME_FACTOR, excelBook);
         int rowIndex = areaReference.getFirstCell().getRow();
         List<Factor> factors = new ArrayList<Factor>();
         boolean moreRowsToRead = true;
 
         // get sheet where is located FACTOR range name
-        HSSFSheet sheet = getSheetForRangeName(excelBook, areaReference);
-        HSSFCell cellData = null;
-        HSSFRow rowData = null;
+        Sheet sheet = getSheetForRangeName(excelBook, areaReference);
+        Cell cellData = null;
+        Row rowData = null;
 
         while (moreRowsToRead) {
             rowIndex++;
@@ -365,16 +367,16 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
      * @param workbook
      * @param excelBook
      */
-    private void fillConstants(Workbook workbook, HSSFWorkbook excelBook) {
+    private void fillConstants(Workbook workbook, org.apache.poi.ss.usermodel.Workbook excelBook) {
         AreaReference areaReference = getAreaReferenceForRangeName(RANGE_NAME_CONSTANT, excelBook);
         int rowIndex = areaReference.getFirstCell().getRow();
         List<Constant> constants = new ArrayList<Constant>();
         boolean moreRowsToRead = true;
 
         // get sheet where is located FACTOR range name
-        HSSFSheet sheet = getSheetForRangeName(excelBook, areaReference);
-        HSSFCell cellData = null;
-        HSSFRow rowData = null;
+        Sheet sheet = getSheetForRangeName(excelBook, areaReference);
+        Cell cellData = null;
+        Row rowData = null;
 
         while (moreRowsToRead) {
             rowIndex++;
@@ -427,16 +429,16 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
      * @param workbook
      * @param excelBook
      */
-    private void fillVariates(Workbook workbook, HSSFWorkbook excelBook) {
+    private void fillVariates(Workbook workbook, org.apache.poi.ss.usermodel.Workbook excelBook) {
         AreaReference areaReference = getAreaReferenceForRangeName(RANGE_NAME_VARIATE, excelBook);
         int rowIndex = areaReference.getFirstCell().getRow();
         List<Variate> variates = new ArrayList<Variate>();
         boolean moreRowsToRead = true;
 
         // get sheet where is located VARIATES range name
-        HSSFSheet sheet = getSheetForRangeName(excelBook, areaReference);
-        HSSFCell cellData = null;
-        HSSFRow rowData = null;
+        Sheet sheet = getSheetForRangeName(excelBook, areaReference);
+        Cell cellData = null;
+        Row rowData = null;
 
         while (moreRowsToRead) {
             rowIndex++;
@@ -487,7 +489,7 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
      * @param rowData
      * @return
      */
-    private boolean isMoreRows(HSSFRow rowData) {
+    private boolean isMoreRows(Row rowData) {
         boolean result = true;
 
         if (rowData == null) {
@@ -517,9 +519,9 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
      * @param areaReference
      * @return
      */
-    private HSSFSheet getSheetForRangeName(HSSFWorkbook excelBook, AreaReference areaReference) {
+    private Sheet getSheetForRangeName(org.apache.poi.ss.usermodel.Workbook excelBook, AreaReference areaReference) {
         String sheetName = areaReference.getFirstCell().getSheetName();
-        HSSFSheet sheet = excelBook.getSheet(sheetName);
+        Sheet sheet = excelBook.getSheet(sheetName);
         return sheet;
     }
 
@@ -528,7 +530,7 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
      * @param rangeName
      * @return
      */
-    private AreaReference getAreaReferenceForRangeName(String rangeName, HSSFWorkbook excelBook) {
+    private AreaReference getAreaReferenceForRangeName(String rangeName, org.apache.poi.ss.usermodel.Workbook excelBook) {
         // first retrieve index in all ranges names
         int namedCellIndex = excelBook.getNameIndex(rangeName);
         log.info("Range " + rangeName + " has indext " + namedCellIndex);
@@ -548,15 +550,15 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
      * @param cellData
      * @return
      */
-    private Integer getIntValueFromCell(HSSFCell cellData) {
+    private Integer getIntValueFromCell(Cell cellData) {
         Integer result = 0;
 
         String cellValue = null;
         switch (cellData.getCellType()) {
-            case HSSFCell.CELL_TYPE_STRING:
+            case Cell.CELL_TYPE_STRING:
                 cellValue = cellData.getStringCellValue();
                 break;
-            case HSSFCell.CELL_TYPE_NUMERIC:
+            case Cell.CELL_TYPE_NUMERIC:
                 cellValue = String.valueOf(getStringValueFromCell(cellData));
                 break;
         }
@@ -573,15 +575,15 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
         return result;
     }
 
-    private String getStringValueFromCell(HSSFCell cellData) {
+    private String getStringValueFromCell(Cell cellData) {
         String result = "";
 
         String cellValue = null;
         switch (cellData.getCellType()) {
-            case HSSFCell.CELL_TYPE_STRING:
+            case Cell.CELL_TYPE_STRING:
                 cellValue = cellData.getStringCellValue();
                 break;
-            case HSSFCell.CELL_TYPE_NUMERIC:
+            case Cell.CELL_TYPE_NUMERIC:
                 cellValue = String.valueOf(cellData.getNumericCellValue());
                 break;
         }

@@ -3,8 +3,8 @@ package ibfb.workbook.utils;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
 
 /**
  * Utility methods for an Excel file
@@ -17,15 +17,15 @@ public class ExcelUtils {
      * @param cellData
      * @return
      */
-    public static Integer getIntValueFromCell(HSSFCell cellData) {
+    public static Integer getIntValueFromCell(Cell cellData) {
         Integer result = 0;
 
         String cellValue = null;
         switch (cellData.getCellType()) {
-            case HSSFCell.CELL_TYPE_STRING:
+            case Cell.CELL_TYPE_STRING:
                 cellValue = cellData.getStringCellValue();
                 break;
-            case HSSFCell.CELL_TYPE_NUMERIC:
+            case Cell.CELL_TYPE_NUMERIC:
                 //cellValue = String.valueOf(getStringValueFromCell(cellData));
                 Double value = cellData.getNumericCellValue();
                 cellValue = String.valueOf(value.intValue());
@@ -51,7 +51,7 @@ public class ExcelUtils {
      * @param cellData
      * @return
      */
-    public static String getStringValueFromCell(HSSFCell cellData) {
+    public static String getStringValueFromCell(Cell cellData) {
         String result = "";
 
         String cellValue = null;
@@ -59,10 +59,10 @@ public class ExcelUtils {
             return "";
         }
         switch (cellData.getCellType()) {
-            case HSSFCell.CELL_TYPE_STRING:
+            case Cell.CELL_TYPE_STRING:
                 cellValue = cellData.getStringCellValue();
                 break;
-            case HSSFCell.CELL_TYPE_NUMERIC:
+            case Cell.CELL_TYPE_NUMERIC:
                 cellValue = String.valueOf(cellData.getNumericCellValue());
                 break;
         }
@@ -81,12 +81,12 @@ public class ExcelUtils {
      * @param cellData
      * @return
      */
-    public static Date getDateValueFromCell(HSSFCell cellData) {
+    public static Date getDateValueFromCell(Cell cellData) {
         Date result = null;
 
         Date cellValue = null;
         switch (cellData.getCellType()) {
-            case HSSFCell.CELL_TYPE_STRING:
+            case Cell.CELL_TYPE_STRING:
                 SimpleDateFormat sdf = new SimpleDateFormat("m/dd/yyyy");
                 try {
                     cellValue = sdf.parse(cellData.getStringCellValue());
@@ -94,7 +94,7 @@ public class ExcelUtils {
                     cellValue = null;
                 }
                 break;
-            case HSSFCell.CELL_TYPE_NUMERIC:
+            case Cell.CELL_TYPE_NUMERIC:
                 Double d = cellData.getNumericCellValue();
                 cellValue = new Date(d.longValue());
 
@@ -118,7 +118,7 @@ public class ExcelUtils {
      * @param rowData
      * @return
      */
-    public static boolean isMoreRows(HSSFRow rowData, int columnNumber) {
+    public static boolean isMoreRows(Row rowData, int columnNumber) {
         boolean result = true;
         Object value = null;
 
@@ -131,7 +131,7 @@ public class ExcelUtils {
         }
 
         switch (rowData.getCell(columnNumber).getCellType()) {
-            case HSSFCell.CELL_TYPE_STRING:
+            case Cell.CELL_TYPE_STRING:
                 if (rowData.getCell(columnNumber).getStringCellValue() == null) {
                     return false;
                 } else {
@@ -143,7 +143,7 @@ public class ExcelUtils {
                     result = false;
                 }
                 break;
-            case HSSFCell.CELL_TYPE_NUMERIC:
+            case Cell.CELL_TYPE_NUMERIC:
                 value = (Double)rowData.getCell(columnNumber).getNumericCellValue();
                 if (value == null) {
                     result = false;

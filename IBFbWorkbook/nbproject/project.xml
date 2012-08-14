@@ -94,8 +94,16 @@
                 <package>ibfb.workbook.core</package>
             </public-packages>
             <class-path-extension>
-                <runtime-relative-path>ext/poi_3.7.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/poi_3.7.jar</binary-origin>
+                <runtime-relative-path>ext/poi-3.8-20120326.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/poi-3.8-20120326.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/poi-scratchpad-3.8-20120326.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/poi-scratchpad-3.8-20120326.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/poi-ooxml-3.8-20120326.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/poi-ooxml-3.8-20120326.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/dom4j-1.6.1.jar</runtime-relative-path>
@@ -106,16 +114,12 @@
                 <binary-origin>release/modules/ext/log4j-1.2.13.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
-                <runtime-relative-path>ext/poi-ooxml-3.7-20101029.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/poi-ooxml-3.7-20101029.jar</binary-origin>
+                <runtime-relative-path>ext/poi-ooxml-schemas-3.8-20120326.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/poi-ooxml-schemas-3.8-20120326.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/xmlbeans-2.3.0.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/xmlbeans-2.3.0.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
-                <runtime-relative-path>ext/poi-ooxml-schemas-3.7-20101029.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/poi-ooxml-schemas-3.7-20101029.jar</binary-origin>
             </class-path-extension>
         </data>
     </configuration>
