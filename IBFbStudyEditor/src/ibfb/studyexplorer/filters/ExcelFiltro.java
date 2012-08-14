@@ -7,11 +7,11 @@ public class ExcelFiltro extends FileFilter {
 
     @Override
     public boolean accept(File f) {
-        return f.getName().toLowerCase().endsWith(".xls") || f.isDirectory();
+        return f.getName().toLowerCase().endsWith(".xls") ||f.getName().toLowerCase().endsWith(".xlsx")|| f.isDirectory();
     }
 
     @Override
     public String getDescription() {
-        return "EXCEL FILE (.xls)";
+        return "EXCEL FILE (.xls,.xlsx)";
     }
 }
