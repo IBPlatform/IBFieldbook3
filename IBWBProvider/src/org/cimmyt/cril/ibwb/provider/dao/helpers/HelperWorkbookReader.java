@@ -317,8 +317,10 @@ public class HelperWorkbookReader {
         for(String factorS : factoresSalida){
             ordenFactoresSalida.put(factorS, factoresSalida.indexOf(factorS));
         }
-        List<Object> factorLabelList;
-        Object[] factorLabelArreglo = new Object[factoresSalida.size()];
+        List<Object> factorLabelList = new ArrayList<Object>();
+        for(int i = 0 ; i<factoresSalida.size() ; i++){
+            factorLabelList.add("");
+        }
         List<Measurement> measurementList = new ArrayList<Measurement>();
         Measurement measurement = new Measurement();
         Integer ounitTemp = ounitInicial.intValue();
@@ -326,20 +328,16 @@ public class HelperWorkbookReader {
             Object[] celdas = (Object[]) fila;
             //Condiciones para cambio de fila
             if(!ounitTemp.equals(celdas[0])){
-                for(int i = 0; i<factoresSalida.size() ; i++){
-                    if(factorLabelArreglo[i] == null){
-                        factorLabelArreglo[i] = "";
-                    }
-                }
-                factorLabelList = new ArrayList<Object>(Arrays.asList(factorLabelArreglo));
                 measurement.setFactorLabelData(factorLabelList);
                 measurementList.add(measurement);
                 measurement = new Measurement();
-                factorLabelArreglo = new Object[factoresSalida.size()];
+                factorLabelList = new ArrayList<Object>();
+                for(int i = 0; i<factoresSalida.size() ; i++){
+                    factorLabelList.add("");
+                }
                 ounitTemp = (Integer) celdas[0];
             }
-            factorLabelArreglo[ordenFactoresSalida.get((String) celdas[1])] = celdas[2];
-            
+            factorLabelList.set(ordenFactoresSalida.get((String) celdas[1]), celdas[2]);
         }
         log.info("Getting trial randomization.... DONE");
         return measurementList;
