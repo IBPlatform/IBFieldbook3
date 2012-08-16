@@ -558,6 +558,7 @@ public class SelectLocationPanel extends javax.swing.JPanel {
     }
 
     public Location getSelectedLocation() {
+        getLocationById();
         return currentLocation;
     }
 
