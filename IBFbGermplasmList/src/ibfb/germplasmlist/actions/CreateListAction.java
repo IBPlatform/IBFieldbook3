@@ -1,6 +1,6 @@
-
 package ibfb.germplasmlist.actions;
 
+import ibfb.germplasmlist.core.addChecksTopComponent;
 import ibfb.germplasmlist.core.germplasmListTopComponent;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,22 +19,22 @@ displayName = "#CTL_CreateListAction")
     @ActionReference(path = "Menu/Study", position = 1262),
     @ActionReference(path = "Toolbars/File", position = -288)
 })
-
 public final class CreateListAction implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
         closeBackground();
-        
-     TopComponent newListTopComponent = WindowManager.getDefault().findTopComponent("addChecksTopComponent");
-                if (newListTopComponent == null) {
-                    newListTopComponent = new germplasmListTopComponent();
-                }
-                newListTopComponent.open();
-                newListTopComponent.requestActive();
+
+        TopComponent newListTopComponent = WindowManager.getDefault().findTopComponent("addChecksTopComponent");
+        if (newListTopComponent == null) {
+            newListTopComponent = new germplasmListTopComponent();
+        }
+        ((addChecksTopComponent)newListTopComponent).initLists();
+        newListTopComponent.open();
+        newListTopComponent.requestActive();
     }
-    
-     private void closeBackground() {
+
+    private void closeBackground() {
         TopComponent background = WindowManager.getDefault().findTopComponent("BackgroundWindowTopComponent");
         if (background.isOpened()) {
             background.close();

@@ -57,7 +57,6 @@ persistenceType = TopComponent.PERSISTENCE_ALWAYS)
  */)
 @TopComponent.OpenActionRegistration(displayName = "#CTL_addChecksAction",
 preferredID = "addChecksTopComponent")
-
 public final class addChecksTopComponent extends TopComponent {
 
     private JFileChooser selectorArchivo = new JFileChooser();
@@ -91,8 +90,8 @@ public final class addChecksTopComponent extends TopComponent {
 
     public addChecksTopComponent() {
         initComponents();
-        setName(NbBundle.getMessage(addChecksTopComponent.class,"CTL_addChecksTopComponent"));
-        setToolTipText(NbBundle.getMessage(addChecksTopComponent.class,"HINT_addChecksTopComponent"));
+        setName(NbBundle.getMessage(addChecksTopComponent.class, "CTL_addChecksTopComponent"));
+        setToolTipText(NbBundle.getMessage(addChecksTopComponent.class, "HINT_addChecksTopComponent"));
         addListener();
         fillComboListNames();
         loadFactors();
@@ -109,9 +108,22 @@ public final class addChecksTopComponent extends TopComponent {
 
     }
 
+    public void initLists() {
+        toAdd = new ArrayList<List<Object>>();
+        toAddChecks = new ArrayList<List<Object>>();
+        rowList = new ArrayList<List<Object>>();
+        rowListDB = new ArrayList<List<Object>>();
+        rowListExcel = new ArrayList<List<Object>>();
+        rowListDBChecks = new ArrayList<List<Object>>();
+        rowListExcelChecks = new ArrayList<List<Object>>();        
+        refreshData();
+        asignaTransferSource();
+        asignaTransferChecks();        
+    }
+
     private void fillComboListNames() {
-        cboGermplasmList.setModel(new DefaultComboBoxModel(new String[] {NbBundle.getMessage(addChecksTopComponent.class,"addChecksTopComponent.selectOne") }));
-        cboGermplasmListChecks.setModel(new DefaultComboBoxModel(new String[] {NbBundle.getMessage(addChecksTopComponent.class,"addChecksTopComponent.selectOne") }));
+        cboGermplasmList.setModel(new DefaultComboBoxModel(new String[]{NbBundle.getMessage(addChecksTopComponent.class, "addChecksTopComponent.selectOne")}));
+        cboGermplasmListChecks.setModel(new DefaultComboBoxModel(new String[]{NbBundle.getMessage(addChecksTopComponent.class, "addChecksTopComponent.selectOne")}));
         List<Listnms> germplasmList = AppServicesProxy.getDefault().appServices().getListnmsList();
         for (Listnms list : germplasmList) {
             cboGermplasmList.addItem(list);
@@ -1107,7 +1119,7 @@ public final class addChecksTopComponent extends TopComponent {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTabbedPane2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane2StateChanged
- 
+
 
         switch (jTabbedPane2.getSelectedIndex()) {
             case 0:
@@ -1189,14 +1201,14 @@ public final class addChecksTopComponent extends TopComponent {
 
     private void jButtonSaveListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveListActionPerformed
         if (this.jTextFieldListName.getText().isEmpty()) {
-            NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(addChecksTopComponent.class,"addChecksTopComponent.needListName"), NotifyDescriptor.ERROR_MESSAGE);
+            NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(addChecksTopComponent.class, "addChecksTopComponent.needListName"), NotifyDescriptor.ERROR_MESSAGE);
             DialogDisplayer.getDefault().notify(d);
             jTextFieldListName.requestFocusInWindow();
             return;
         }
 
         if (this.jTextFieldDescription.getText().isEmpty()) {
-            NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(addChecksTopComponent.class,"addChecksTopComponent.needDescription"), NotifyDescriptor.ERROR_MESSAGE);
+            NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(addChecksTopComponent.class, "addChecksTopComponent.needDescription"), NotifyDescriptor.ERROR_MESSAGE);
             DialogDisplayer.getDefault().notify(d);
             jTextFieldDescription.requestFocusInWindow();
             return;
@@ -1204,30 +1216,30 @@ public final class addChecksTopComponent extends TopComponent {
 
 
         if (this.jTableFinal.getRowCount() == 0) {
-            NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(addChecksTopComponent.class,"addChecksTopComponent.empty"), NotifyDescriptor.ERROR_MESSAGE);
+            NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(addChecksTopComponent.class, "addChecksTopComponent.empty"), NotifyDescriptor.ERROR_MESSAGE);
             DialogDisplayer.getDefault().notify(d);
             return;
         }
-     
-        
-System.out.println("ANTES DE GUARDAR LA LISTA");        
-            
-saveList();
-            
-            System.out.println("YA GUARDO LA LISTA");
-            NotifyDescriptor d2 = new NotifyDescriptor.Message(NbBundle.getMessage(addChecksTopComponent.class,"addChecksTopComponent.saved"), NotifyDescriptor.INFORMATION_MESSAGE);
-            DialogDisplayer.getDefault().notify(d2);
-            this.jTextFieldListName.setText("");
-            this.jTextFieldDescription.setText("");
 
-       // refreshData();
+
+        System.out.println("ANTES DE GUARDAR LA LISTA");
+
+        saveList();
+
+        System.out.println("YA GUARDO LA LISTA");
+        NotifyDescriptor d2 = new NotifyDescriptor.Message(NbBundle.getMessage(addChecksTopComponent.class, "addChecksTopComponent.saved"), NotifyDescriptor.INFORMATION_MESSAGE);
+        DialogDisplayer.getDefault().notify(d2);
+        this.jTextFieldListName.setText("");
+        this.jTextFieldDescription.setText("");
+
+        // refreshData();
 
     }//GEN-LAST:event_jButtonSaveListActionPerformed
 
     private void saveList() {
         Listnms listnms = new Listnms();
         listnms.setListname(this.jTextFieldListName.getText());
-        
+
         listnms.setListdate(ConvertUtils.getDateAsInteger(new java.util.Date()));
         listnms.setListtype(Listnms.LIST_TYPE_LIST);
         listnms.setListuid(0);
@@ -1245,8 +1257,8 @@ saveList();
             Listdata d1 = new Listdata(true);
             ListdataPK pk1 = new ListdataPK(listnms.getListid(), 0);
 
-            d1.setListdataPK(pk1);  
-            d1.setEntryid(i + 1);       
+            d1.setListdataPK(pk1);
+            d1.setEntryid(i + 1);
             if (desig > 0) {
                 d1.setDesig(this.jTableFinal.getValueAt(i, desig).toString());  //*
             } else {
@@ -1262,8 +1274,8 @@ saveList();
             d1.setSource("");
             d1.setGrpname("grp");
 
-           // d1.setSource("SOURC1");
-           // d1.setGrpname("grp");
+            // d1.setSource("SOURC1");
+            // d1.setGrpname("grp");
 
             d1.setLrstatus(0);      //*
             //d1.setLlrecid(0);
@@ -1278,7 +1290,7 @@ saveList();
         }
 
         Integer loggedUserid = AppServicesProxy.getDefault().appServices().getLoggedUserId(FieldbookSettings.getLocalGmsUserId());
-        
+
         AppServicesProxy.getDefault().appServices().addNewsGermplasm(listnms, dataList, loggedUserid);
 
         fillComboListNames();
@@ -1287,7 +1299,7 @@ saveList();
 
         //clear list
         toAdd.clear();
-       toAddChecks.clear();
+        toAddChecks.clear();
     }
 
     private int findColumn(String col) {
@@ -1408,7 +1420,7 @@ saveList();
                 this.jTextFielTotalChecks.setText(String.valueOf(this.jTableFinalChecks.getRowCount()));
                 this.jTextFieldSelectedTotalChecks.setText(String.valueOf(this.jTableFinalChecks.getSelectedRowCount()));
                 actualizaSpinner();
-                
+
 
                 actualizaIndicesPosicion();
                 actualizaIndicesFrecuencia();
@@ -1431,12 +1443,10 @@ saveList();
 
 
     }
-    
-    
-    
+
     private void actualizaSpinnerFreq() {
         SpinnerNumberModel modeloSpinner = (SpinnerNumberModel) this.jSpinnerFrequency.getModel();
-        modeloSpinner.setValue(this.jTableFinalChecks.getRowCount()+1);
+        modeloSpinner.setValue(this.jTableFinalChecks.getRowCount() + 1);
     }
     private void jTabbedPaneChecksStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPaneChecksStateChanged
 
@@ -1490,7 +1500,7 @@ saveList();
 
             if (!validateTable()) {
 
-                NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(addChecksTopComponent.class,"addChecksTopComponent.frequency"), NotifyDescriptor.ERROR_MESSAGE);
+                NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(addChecksTopComponent.class, "addChecksTopComponent.frequency"), NotifyDescriptor.ERROR_MESSAGE);
                 DialogDisplayer.getDefault().notify(d);
 
                 this.jRadioButtonWithout.setSelected(true);
@@ -1567,7 +1577,7 @@ saveList();
 
             if (!validateTable()) {
 
-                NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(addChecksTopComponent.class,"addChecksTopComponent.frequency"), NotifyDescriptor.ERROR_MESSAGE);
+                NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(addChecksTopComponent.class, "addChecksTopComponent.frequency"), NotifyDescriptor.ERROR_MESSAGE);
                 DialogDisplayer.getDefault().notify(d);
 
                 this.jRadioButtonWithout.setSelected(true);
@@ -1854,7 +1864,7 @@ saveList();
                     this.jTableEntriesExcel.setModel(modeloTablaEntries);
                     this.jTextAreaPath.setText("");
                     this.jTextFieldEntries.setText("0");
-                    DialogDisplayer.getDefault().notify(new NotifyDescriptor.Message(NbBundle.getMessage(addChecksTopComponent.class,"addChecksTopComponent.notValid"), NotifyDescriptor.ERROR_MESSAGE));
+                    DialogDisplayer.getDefault().notify(new NotifyDescriptor.Message(NbBundle.getMessage(addChecksTopComponent.class, "addChecksTopComponent.notValid"), NotifyDescriptor.ERROR_MESSAGE));
                 }
 
 
@@ -1877,7 +1887,7 @@ saveList();
                     this.jTableEntriesExcelChecks.setModel(modeloTablaEntries);
                     this.jTextAreaPathChecks.setText("");
                     this.jTextFieldEntriesChecks.setText("0");
-                    DialogDisplayer.getDefault().notify(new NotifyDescriptor.Message(NbBundle.getMessage(addChecksTopComponent.class,"addChecksTopComponent.notValid"), NotifyDescriptor.ERROR_MESSAGE));
+                    DialogDisplayer.getDefault().notify(new NotifyDescriptor.Message(NbBundle.getMessage(addChecksTopComponent.class, "addChecksTopComponent.notValid"), NotifyDescriptor.ERROR_MESSAGE));
                 }
 
                 germplasmTransferHandler.setSourceList(rowListExcelChecks);
@@ -2260,13 +2270,13 @@ saveList();
         int max = maximo;
 
 
-        while (valor <= (max+1)) {
+        while (valor <= (max + 1)) {
 
             for (int i = 0; i < positionsTable.size(); i++) {
                 valor = positionsTable.get(i);
                 valor = valor + (frequency * contador);
 
-                if (valor <= max+1) {
+                if (valor <= max + 1) {
                     pos.add(valor);
                     max++;
 
