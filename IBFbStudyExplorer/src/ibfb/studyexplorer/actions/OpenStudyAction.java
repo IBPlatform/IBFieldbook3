@@ -20,6 +20,7 @@ import javax.swing.JFrame;
 import javax.swing.SwingWorker;
 import javax.swing.table.TableColumn;
 import org.cimmyt.cril.ibwb.api.AppServicesProxy;
+import org.cimmyt.cril.ibwb.commongui.ConvertUtils;
 import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 import org.netbeans.api.progress.ProgressHandle;
 import org.netbeans.api.progress.ProgressHandleFactory;
@@ -138,8 +139,9 @@ public class OpenStudyAction extends SystemAction {
         studyWindow.jTextFieldTitle.setText(JDExpert.studyOBJ.getTitle());
         Date start = JDExpert.studyOBJ.getStarDate();
         Date end = JDExpert.studyOBJ.getEndDate();
-        String formato = "dd-MMM-yyyy";
+        String formato = ConvertUtils.DATE_PATTERN; //"dd-MMM-yyyy";
         SimpleDateFormat sdf = new SimpleDateFormat(formato);
+        
 
         try {
             studyWindow.jDateChooserStart.setText(sdf.format(start));
