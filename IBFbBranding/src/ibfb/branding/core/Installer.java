@@ -78,6 +78,12 @@ public class Installer extends ModuleInstall {
                     ((StudyExplorerTopComponent) studyExplorer).refreshStudyBrowser();
                     studyExplorer.open();
                     studyExplorer.requestActive();
+                } 
+                else {
+                    studyExplorer = new StudyExplorerTopComponent();
+                    ((StudyExplorerTopComponent) studyExplorer).refreshStudyBrowser();                    
+                    studyExplorer.open();
+                    studyExplorer.requestActive();                    
                 }
 
 //                TopComponent studyEditor = WindowManager.getDefault().findTopComponent("StudyEditorTopComponent");
