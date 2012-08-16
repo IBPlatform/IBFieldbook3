@@ -250,7 +250,7 @@ public class HelperWorkbookReader {
         SQLQuery query = null;
         List resultado;
 
-        log.info("Getting trial randomization");
+        log.info("Getting trial randomization fast");
         Integer numeroDeFactoresPrincipales = factoresPrincipales.size();
         
         Integer trepresNo = HelperWorkbookReader.getRepresno(
@@ -339,7 +339,9 @@ public class HelperWorkbookReader {
             }
             factorLabelList.set(ordenFactoresSalida.get((String) celdas[1]), celdas[2]);
         }
-        log.info("Getting trial randomization.... DONE");
+        measurement.setFactorLabelData(factorLabelList);
+        measurementList.add(measurement);
+        log.info("Getting trial randomization fast.... DONE");
         return measurementList;
     }
     
