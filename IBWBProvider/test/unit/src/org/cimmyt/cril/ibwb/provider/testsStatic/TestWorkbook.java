@@ -19,7 +19,7 @@ public class TestWorkbook extends TestService {
     private static Logger log = Logger.getLogger(TestWorkbook.class);
 
     public void testWorkbook() {
-        Workbook workbook = servicios.getWorkbookFull(new Integer(-1), false);
+        Workbook workbook = servicios.getWorkbookFull(new Integer(1), false);
         printWorkbook(workbook);
         //Workbook workbook2 = servicios.getWorkbookFull(new Integer(-2), false);
         //printWorkbook(workbook2);
@@ -37,21 +37,6 @@ public class TestWorkbook extends TestService {
         List<String> factoresSalida = new ArrayList<String>();
         
         factoresSalida.add("OCC");
-        factoresSalida.add("Cooperator ID");
-        factoresSalida.add("STATION");
-        factoresSalida.add("STATION_ID");
-        factoresSalida.add("LID");
-        factoresSalida.add("OCC_COUNTRY");
-        factoresSalida.add("LOCATION NUMBER");
-        factoresSalida.add("OCC_NAME");
-        factoresSalida.add("OCC_ABBR");
-        factoresSalida.add("OCC_CYCLE");
-        factoresSalida.add("OCC_NEW_CYCLE");
-        factoresSalida.add("OCC_OFFSET");
-        factoresSalida.add("PLANTDATE");
-        factoresSalida.add("HARVDATE");
-        factoresSalida.add("FB_CLASS");
-        factoresSalida.add("RANDOMIZATION_TYPE");
         factoresSalida.add("PLOT");
         factoresSalida.add("Rep");
         factoresSalida.add("ENTRY NUMBER");
@@ -78,8 +63,9 @@ public class TestWorkbook extends TestService {
 
         
         List<Measurement> lista = servicios.getTrialRandomizationVeryFast(studyId, trialId, factoresPrincipales, factoresSalida, "");
-        log.info("recuperacion terminada");
+        log.info("recuperacion terminada " + lista.size() + " registros recuperados.");
         printMeasurements(lista);
+        log.info("Impresion terminada");
     }
     
     public void testWorkbookReadFactorsVeryFast2(){
@@ -94,23 +80,6 @@ public class TestWorkbook extends TestService {
         List<String> factoresSalida = new ArrayList<String>();
         
         factoresSalida.add("OCC");
-        factoresSalida.add("Cooperator ID");
-        factoresSalida.add("STATION");
-        factoresSalida.add("STATION_ID");
-        factoresSalida.add("LID");
-        factoresSalida.add("OCC_COUNTRY");
-        factoresSalida.add("LOCATION NUMBER");
-        factoresSalida.add("OCC_NAME");
-        factoresSalida.add("OCC_ABBR");
-        factoresSalida.add("OCC_CYCLE");
-        factoresSalida.add("OCC_NEW_CYCLE");
-        factoresSalida.add("OCC_OFFSET");
-        factoresSalida.add("PLANTDATE");
-        factoresSalida.add("HARVDATE");
-        factoresSalida.add("FB_CLASS");
-        factoresSalida.add("LOCAL_CHECK_NAME");
-        factoresSalida.add("LOCAL_CHECK_CROP_SPECIES");
-        factoresSalida.add("RANDOMIZATION_TYPE");
         factoresSalida.add("PLOT");
         factoresSalida.add("Rep");
         factoresSalida.add("SUB BLOCK");
@@ -137,8 +106,9 @@ public class TestWorkbook extends TestService {
         factoresSalida.add("SUMMARY");
         
         List<Measurement> lista = servicios.getTrialRandomizationVeryFast(studyId, trialId, factoresPrincipales, factoresSalida, trialName);
-        log.info("recuperacion terminada");
+        log.info("recuperacion terminada " + lista.size() + " registros recuperados.");
         printMeasurements(lista);
+        log.info("Impresion terminada");
     }
 
     public void testSaveWorkbook() {
@@ -153,6 +123,7 @@ public class TestWorkbook extends TestService {
                 System.out.print(" - " + objeto);
             }
         }
+        System.out.println("");
     }
 
     public static void printWorkbook(Workbook workbook) {
@@ -474,8 +445,8 @@ public class TestWorkbook extends TestService {
 
     public static void main(String[] args) {
         TestWorkbook tt = new TestWorkbook();
-//        tt.testWorkbook();
+        tt.testWorkbook();
         //tt.testSaveWorkbook();
-        tt.testWorkbookReadFactorsVeryFast2();
+//        tt.testWorkbookReadFactorsVeryFast2();
     }
 }
