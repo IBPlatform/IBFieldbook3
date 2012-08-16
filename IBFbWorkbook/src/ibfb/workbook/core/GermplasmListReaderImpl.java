@@ -30,7 +30,8 @@ import org.cimmyt.cril.ibwb.domain.Listnms;
  * @author TMSANCHEZ
  */
 public class GermplasmListReaderImpl implements GermplasmListReader {
-    private  int rowHeader;
+
+    private int rowHeader;
     private static Logger log = Logger.getLogger(GermplasmListReaderImpl.class);
 
     @Override
@@ -40,7 +41,7 @@ public class GermplasmListReaderImpl implements GermplasmListReader {
         log.info("Validating Excel file read BEGIN");
         log.info("Opening file...");
         InputStream inputStream = new FileInputStream(fileName);
-        org.apache.poi.ss.usermodel.Workbook  excelBook = WorkbookFactory.create(inputStream);
+        org.apache.poi.ss.usermodel.Workbook excelBook = WorkbookFactory.create(inputStream);
         log.info("Number of sheets in book" + excelBook.getNumberOfSheets());
 
         // assume values are in B colum (index 1)
@@ -71,9 +72,7 @@ public class GermplasmListReaderImpl implements GermplasmListReader {
 
         return valid;
     }
-    
-    
-    
+
     @Override
     public boolean isValidCrossScript(String fileName) throws Exception {
         boolean valid = false;
@@ -81,7 +80,7 @@ public class GermplasmListReaderImpl implements GermplasmListReader {
         log.info("Validating Cross Excel file read BEGIN");
         log.info("Opening file...");
         InputStream inputStream = new FileInputStream(fileName);
-        org.apache.poi.ss.usermodel.Workbook  excelBook =  WorkbookFactory.create(inputStream);
+        org.apache.poi.ss.usermodel.Workbook excelBook = WorkbookFactory.create(inputStream);
 
         int labelColNumber = 0;
         int listRowIndex = 0;
@@ -93,14 +92,13 @@ public class GermplasmListReaderImpl implements GermplasmListReader {
         Cell cellDataDesignation = null;
         Row rowData = null;
 
- 
+
         //PENDIENTE 
-        
-        valid=true;
-        
+
+        valid = true;
+
         return valid;
     }
-    
 
     @Override
     public GermplasmList getGermPlasmList(String fileName) throws Exception {
@@ -109,7 +107,7 @@ public class GermplasmListReaderImpl implements GermplasmListReader {
         log.info("Excel file read BEGIN");
         log.info("Opening file...");
         InputStream inputStream = new FileInputStream(fileName);
-        org.apache.poi.ss.usermodel.Workbook  excelBook = WorkbookFactory.create(inputStream);
+        org.apache.poi.ss.usermodel.Workbook excelBook = WorkbookFactory.create(inputStream);
         log.info("Number of sheets in book" + excelBook.getNumberOfSheets());
 
         fillGermplasmList(germplasmList, excelBook);
@@ -118,14 +116,14 @@ public class GermplasmListReaderImpl implements GermplasmListReader {
         return germplasmList;
     }
 
-    private void fillGermplasmList(GermplasmList germplasmList, org.apache.poi.ss.usermodel.Workbook  excelBook) {
+    private void fillGermplasmList(GermplasmList germplasmList, org.apache.poi.ss.usermodel.Workbook excelBook) {
         if (rowHeader > 4) {
-        fillHeader(germplasmList, excelBook);
+            fillHeader(germplasmList, excelBook);
         }
         fillEntryList(germplasmList, excelBook);
     }
 
-    private void fillHeader(GermplasmList germplasmList, org.apache.poi.ss.usermodel.Workbook  excelBook) {
+    private void fillHeader(GermplasmList germplasmList, org.apache.poi.ss.usermodel.Workbook excelBook) {
         // assume values are in B colum (index 1)
         int dataColNumber = 1;
         int listRowIndex = 0;
@@ -164,7 +162,7 @@ public class GermplasmListReaderImpl implements GermplasmListReader {
 
     }
 
-    private void fillEntryList(GermplasmList germplasmList, org.apache.poi.ss.usermodel.Workbook  excelBook) {
+    private void fillEntryList(GermplasmList germplasmList, org.apache.poi.ss.usermodel.Workbook excelBook) {
         List<ListOfEntries> listEntries = new ArrayList<ListOfEntries>();
         // assume values are in B colum (index 1)
         //int entryRowIndex = ROW_HEADER_INDEX + 1;
@@ -183,39 +181,41 @@ public class GermplasmListReaderImpl implements GermplasmListReader {
         for (int rowIndex = entryRowIndex; rowIndex < lastEntryRowIndex; rowIndex++) {
 
             rowData = sheet.getRow(rowIndex);
+            if (rowData != null) {
 
-            // create a new FACTOR
-            ListOfEntries listEntry = new ListOfEntries();
+                // create a new FACTOR
+                ListOfEntries listEntry = new ListOfEntries();
 
-            // assign the curren index (number of row in file)
-            listEntry.setNumber(rowCounter);
+                // assign the curren index (number of row in file)
+                listEntry.setNumber(rowCounter);
 
-            // assign data
-            cellData = rowData.getCell(COLUMN_GID);
-            listEntry.setGid(ExcelUtils.getIntValueFromCell(cellData));
+                // assign data
+                cellData = rowData.getCell(COLUMN_GID);
+                listEntry.setGid(ExcelUtils.getIntValueFromCell(cellData));
 
-            cellData = rowData.getCell(COLUMN_ENTRY_CODE);
-            listEntry.setEntryCode(ExcelUtils.getStringValueFromCell(cellData));
+                cellData = rowData.getCell(COLUMN_ENTRY_CODE);
+                listEntry.setEntryCode(ExcelUtils.getStringValueFromCell(cellData));
 
-            cellData = rowData.getCell(COLUMN_DESIGNATION);
-            listEntry.setDesignation(ExcelUtils.getStringValueFromCell(cellData));
+                cellData = rowData.getCell(COLUMN_DESIGNATION);
+                listEntry.setDesignation(ExcelUtils.getStringValueFromCell(cellData));
 
-            cellData = rowData.getCell(COLUMN_CROSS);
-            listEntry.setCross(ExcelUtils.getStringValueFromCell(cellData));
+                cellData = rowData.getCell(COLUMN_CROSS);
+                listEntry.setCross(ExcelUtils.getStringValueFromCell(cellData));
 
-            cellData = rowData.getCell(COLUMN_SOURCE);
-            listEntry.setSource(ExcelUtils.getStringValueFromCell(cellData));
+                cellData = rowData.getCell(COLUMN_SOURCE);
+                listEntry.setSource(ExcelUtils.getStringValueFromCell(cellData));
 
-            cellData = rowData.getCell(COLUMN_UNIQUE_ID);
-            listEntry.setUniqueId(ExcelUtils.getStringValueFromCell(cellData));
+                cellData = rowData.getCell(COLUMN_UNIQUE_ID);
+                listEntry.setUniqueId(ExcelUtils.getStringValueFromCell(cellData));
 
-            cellData = rowData.getCell(COLUMN_ENTRY_ID);
-            listEntry.setEntryId(ExcelUtils.getIntValueFromCell(cellData));
+                cellData = rowData.getCell(COLUMN_ENTRY_ID);
+                listEntry.setEntryId(ExcelUtils.getIntValueFromCell(cellData));
 
 
-            log.info("Data for Entry: " + listEntry.toString());
-            // add readed Entry to list
-            listEntries.add(listEntry);
+                //log.info("Data for Entry: " + listEntry.toString());
+                // add readed Entry to list
+                listEntries.add(listEntry);
+            }
 
             rowCounter++;
         }
@@ -227,9 +227,10 @@ public class GermplasmListReaderImpl implements GermplasmListReader {
 
     /**
      * Return last Row Index where list contains data
+     *
      * @return
      */
-    private int getLastEntryRowIndex(org.apache.poi.ss.usermodel.Workbook  excelBook) {
+    private int getLastEntryRowIndex(org.apache.poi.ss.usermodel.Workbook excelBook) {
         int entryRowIndex = ROW_HEADER_INDEX + 1;
         int lastEntryRowIndex = entryRowIndex;
         boolean moreRowsToRead = true;
@@ -254,10 +255,12 @@ public class GermplasmListReaderImpl implements GermplasmListReader {
 
     /**
      * Gets row number where GID header is located in spreadshet
+     *
      * @param excelBook
-     * @return A row number greater than -1 if GID label found or -1 if not found
+     * @return A row number greater than -1 if GID label found or -1 if not
+     * found
      */
-    private int getRowHeaderIndex(org.apache.poi.ss.usermodel.Workbook  excelBook) {
+    private int getRowHeaderIndex(org.apache.poi.ss.usermodel.Workbook excelBook) {
         int gidRowIndex = -1;
 
         Sheet sheet = excelBook.getSheetAt(0);
@@ -283,6 +286,7 @@ public class GermplasmListReaderImpl implements GermplasmListReader {
 
     /**
      * @autor tmsanchez
+     *
      * @param listid
      * @return
      */
@@ -298,6 +302,7 @@ public class GermplasmListReaderImpl implements GermplasmListReader {
 
     /**
      * Fill header list from DB
+     *
      * @param germplasmList GermplasmList to fill
      * @param listid ID for germplasm list
      */
@@ -318,7 +323,8 @@ public class GermplasmListReaderImpl implements GermplasmListReader {
 
     /**
      * Fills a GermplasmList from all items in DB
-     * @param germplasmList  GermplasmList to fill
+     *
+     * @param germplasmList GermplasmList to fill
      * @param listid
      */
     private void fillEntryList(GermplasmList germplasmList, Integer listid) {
