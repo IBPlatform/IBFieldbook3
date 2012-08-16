@@ -136,6 +136,7 @@ public class HelperWorkbookRead {
             log.info("Filling Trial Germplasm DONE!!!");
             log.info("Filling Observations Data....");
             fillObservationsData();
+//            fillObservationsDataFast();
             log.info("Filling Observations Data DONE!!!");
         }
         workbookStudy.getValuesForGroupingLabels();
@@ -707,6 +708,58 @@ public class HelperWorkbookRead {
     }
 
     /**
+     * Fill all information for observation data
+     */
+    private void fillObservationsDataFast() {
+
+        // retrieve all oindex records
+//        List<Oindex> oindexList = this.servicioApp.getMeasurementOindexListByStudy(workbookStudy.getStudy().getStudyid(), effectid);
+
+        Integer studyId = this.workbookStudy.getStudy().getStudyid();
+
+        int variateCount = this.workbookStudy.getVariates().size();
+
+        List<Measurement> measurementList = new ArrayList<Measurement>();
+        
+        List<String> factorsReturn = getFactoresReturnList();
+        
+        
+        fillFactorLabelDataOptimized(studyId, 0, getFactoresKeyList(), factorsReturn, factorTrial.getFname());
+        
+        measurementList = workbookStudy.getMeasurements();
+        
+        //todo quitar no se usa
+//        int observationsCount = this.servicioApp.getObservationsCount(studyId);
+
+        List<Object> dataList = this.servicioApp.getObservationsDataMeasurementEffect(studyId, effectid);
+        
+        log.info("Getting Trial Randomization ...");
+        int rowIndex = 0;
+        for (Obsunit obsUnit : this.servicioApp.getObsunitListByEffectid(studyId, effectid)) {
+            //Measurement measurement = new Measurement();
+            Measurement measurement = measurementList.get(rowIndex);
+            measurement.initMeasurementData(variateCount);
+
+            assignMeasurementData(measurement, obsUnit, dataList);
+
+            //measurementList.add(measurement);
+            rowIndex++;
+        }
+
+
+        //workbookStudy.setMeasurements(measurementList);
+
+        
+        
+//        log.info("Getting Trial Randomization ...");
+//        ResultSet rst = servicioApp.getTrialRandomization(studyId, 0, getFactoresKeyList(), factorsReturn, factorTrial.getFname());
+//        log.info("Getting Trial Randomization done");
+//        fillFactorLabelData(rst, factorsReturn);
+        
+        
+    }
+
+    /**
      * Assign values for each COLUMN (TRAIT) in observations table.
      * It check if observation unit id is in dataList and if found then
      * assigns that value to trait column index according to index on traits
@@ -794,6 +847,12 @@ public class HelperWorkbookRead {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        log.info("filling FactorLabelData DONE... ");
+    }
+    
+    private void fillFactorLabelDataOptimized(Integer studyId, Integer trialId, List<String> factoresPrincipales, List<String> factoresSalida, String trialName) {
+        log.info("filling FactorLabelData... ");
+        workbookStudy.setMeasurements(this.servicioApp.getTrialRandomizationVeryFast(studyId, trialId, factoresPrincipales, factoresSalida, trialName));
         log.info("filling FactorLabelData DONE... ");
     }
 }
