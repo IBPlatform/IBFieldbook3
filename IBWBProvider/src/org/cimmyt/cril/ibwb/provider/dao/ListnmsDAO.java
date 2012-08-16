@@ -128,6 +128,7 @@ public class ListnmsDAO extends AbstractDAO<Listnms, Integer> {
                             throws HibernateException, SQLException {
                         DetachedCriteria criteria = DetachedCriteria.forClass(Listnms.class);
                         criteria.add(Restrictions.ne("listid", 0));
+                        criteria.add(Restrictions.ne("liststatus", 0));
                         return getHibernateTemplate().findByCriteria(criteria);
                     }
                 });
