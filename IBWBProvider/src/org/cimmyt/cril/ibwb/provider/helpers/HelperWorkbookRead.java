@@ -135,8 +135,8 @@ public class HelperWorkbookRead {
             fillGermplasmData();
             log.info("Filling Trial Germplasm DONE!!!");
             log.info("Filling Observations Data....");
-            fillObservationsData();
-//            fillObservationsDataFast();
+//            fillObservationsData();
+            fillObservationsDataFast();
             log.info("Filling Observations Data DONE!!!");
         }
         workbookStudy.getValuesForGroupingLabels();
@@ -683,11 +683,14 @@ public class HelperWorkbookRead {
         List<Measurement> measurementList = new ArrayList<Measurement>();
         //todo quitar no se usa
 //        int observationsCount = this.servicioApp.getObservationsCount(studyId);
-
+        log.info("Getting Data Trial ...");
         List<Object> dataList = this.servicioApp.getObservationsDataMeasurementEffect(studyId, effectid);
+        log.info("Getting Data Trial Done...");
         
-        log.info("Getting Trial Randomization ...");
-        for (Obsunit obsUnit : this.servicioApp.getObsunitListByEffectid(studyId, effectid)) {
+        log.info("Getting List of Obsunit ...");
+        List<Obsunit> obsunits = this.servicioApp.getObsunitListByEffectid(studyId, effectid);
+        log.info("Getting List of Obsunit...");
+        for (Obsunit obsUnit : obsunits){
             Measurement measurement = new Measurement();
 
             measurement.initMeasurementData(variateCount);
@@ -712,30 +715,30 @@ public class HelperWorkbookRead {
      */
     private void fillObservationsDataFast() {
 
-        // retrieve all oindex records
-//        List<Oindex> oindexList = this.servicioApp.getMeasurementOindexListByStudy(workbookStudy.getStudy().getStudyid(), effectid);
-
         Integer studyId = this.workbookStudy.getStudy().getStudyid();
-
         int variateCount = this.workbookStudy.getVariates().size();
-
-        List<Measurement> measurementList = new ArrayList<Measurement>();
         
         List<String> factorsReturn = getFactoresReturnList();
         
-        
         fillFactorLabelDataOptimized(studyId, 0, getFactoresKeyList(), factorsReturn, factorTrial.getFname());
         
-        measurementList = workbookStudy.getMeasurements();
+        List<Measurement> measurementList = workbookStudy.getMeasurements();
         
-        //todo quitar no se usa
-//        int observationsCount = this.servicioApp.getObservationsCount(studyId);
-
-        List<Object> dataList = this.servicioApp.getObservationsDataMeasurementEffect(studyId, effectid);
+        log.info("Getting Data Trial ...");
+        List<Object> dataList;
+        if(! workbookStudy.getVariates().isEmpty()){
+            dataList = this.servicioApp.getObservationsDataMeasurementEffect(studyId, effectid);
+        }else{
+            dataList = new ArrayList<Object>();
+        }
+        log.info("Getting Data Trial Done...");
         
-        log.info("Getting Trial Randomization ...");
+        
+        log.info("Getting List of Obsunit ...");
+        List<Obsunit> obsunits = this.servicioApp.getObsunitListByEffectid(studyId, effectid);
+        log.info("Getting List of Obsunit...");
         int rowIndex = 0;
-        for (Obsunit obsUnit : this.servicioApp.getObsunitListByEffectid(studyId, effectid)) {
+        for (Obsunit obsUnit : obsunits) {
             //Measurement measurement = new Measurement();
             Measurement measurement = measurementList.get(rowIndex);
             measurement.initMeasurementData(variateCount);
@@ -745,18 +748,6 @@ public class HelperWorkbookRead {
             //measurementList.add(measurement);
             rowIndex++;
         }
-
-
-        //workbookStudy.setMeasurements(measurementList);
-
-        
-        
-//        log.info("Getting Trial Randomization ...");
-//        ResultSet rst = servicioApp.getTrialRandomization(studyId, 0, getFactoresKeyList(), factorsReturn, factorTrial.getFname());
-//        log.info("Getting Trial Randomization done");
-//        fillFactorLabelData(rst, factorsReturn);
-        
-        
     }
 
     /**
