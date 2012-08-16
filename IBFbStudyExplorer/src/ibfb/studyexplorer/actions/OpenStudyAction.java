@@ -107,7 +107,7 @@ public class OpenStudyAction extends SystemAction {
                         studyWindow.open();
                         studyWindow.requestActive();
                         // changeCursorWaitStatus(false);
-                        DialogUtil.displayInfo(bundle.getString("OpenStudyAction.openend"));
+                        DialogUtil.displayInfo(bundle.getString("OpenStudyAction.opened"));
                     }
                 } catch (InterruptedException ex) {
                     Exceptions.printStackTrace(ex);
