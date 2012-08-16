@@ -558,7 +558,10 @@ public class FieldBookExcelExporter {
         HSSFCell excelCell;
         for (Condition condition : conditionList) {
             if (condition.getProperty() != null && condition.getScale() != null) {
-                if (!condition.getProperty().equalsIgnoreCase("STUDY") && !condition.getScale().equalsIgnoreCase("NAME")) {
+                if (condition.getProperty().equalsIgnoreCase("STUDY") && condition.getScale().equalsIgnoreCase("NAME")) {
+                } else {
+
+                    //if (!condition.getProperty().equalsIgnoreCase("STUDY") && !condition.getScale().equalsIgnoreCase("NAME")) {
                     excelRow = descriptionSheet.createRow(currentRow);
 
                     excelCell = excelRow.createCell(NAME, HSSFCell.CELL_TYPE_STRING);;
@@ -616,7 +619,11 @@ public class FieldBookExcelExporter {
         HSSFCell excelCell;
         for (Condition condition : conditionList) {
             if (condition.getProperty() != null && condition.getScale() != null) {
-                if (!condition.getProperty().equalsIgnoreCase("STUDY") && !condition.getScale().equalsIgnoreCase("NAME")) {
+                if (condition.getProperty().equalsIgnoreCase("STUDY") && condition.getScale().equalsIgnoreCase("NAME")) {
+                    // nothing to do
+                } else {
+
+                    //if (!condition.getProperty().equalsIgnoreCase("STUDY") && !condition.getScale().equalsIgnoreCase("NAME")) {
                     excelRow = descriptionSheet.createRow(currentRow);
 
                     excelCell = excelRow.createCell(NAME, HSSFCell.CELL_TYPE_STRING);;
