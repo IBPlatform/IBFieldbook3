@@ -408,8 +408,6 @@ public class DMSReaderDAO extends AbstractDAO<Study, Integer> {
         });
         return rs;
     }
-    
-    
 
     public static String getFactoresParaUsoInQuery(List<String> factoresPrincipales) {
         if (factoresPrincipales == null) {
@@ -419,9 +417,27 @@ public class DMSReaderDAO extends AbstractDAO<Study, Integer> {
         } else if (factoresPrincipales.size() == 0) {
             return "";
         }
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         for (String nombreFactor : factoresPrincipales) {
-            sb.append("'" + nombreFactor + "',");
+            sb.append("'");
+            sb.append(nombreFactor);
+            sb.append("',");
+        }
+        return sb.substring(0, sb.length() - 1);
+    }
+    
+    public static String getIntegersParaUsoInQuery(List<Integer> integers) {
+        if (integers == null) {
+            return "";
+        } else if (integers.isEmpty()) {
+            return "";
+        } else if (integers.size() == 0) {
+            return "";
+        }
+        StringBuilder sb = new StringBuilder();
+        for (Integer numero : integers) {
+            sb.append(numero);
+            sb.append(",");
         }
         return sb.substring(0, sb.length() - 1);
     }
