@@ -712,6 +712,11 @@ public class HelperWorkbookReader {
             List<Integer> variates,
             String orden
             ){
+        if(variates == null){
+            log.error("No existen variates para recuperar DATA_N");
+        }else if(variates.isEmpty()){
+            log.error("No existen variates para recuperar DATA_N");
+        }
         List<DataN> resultado;
         String consultaHQL = "from DataN as dataN "
                 + "where dataN.dataNPK.variatid in (:VariatesStr) "
@@ -732,6 +737,11 @@ public class HelperWorkbookReader {
             List<Integer> variates,
             String orden
             ){
+        if(variates == null){
+            log.error("No existen variates para recuperar DATA_C");
+        }else if(variates.isEmpty()){
+            log.error("No existen variates para recuperar DATA_C");
+        }
         List<DataC> resultado;
         String consultaHQL = "from DataC as dataC "
                 + "where dataC.dataCPK.variatid in (:VariatesStr) "
