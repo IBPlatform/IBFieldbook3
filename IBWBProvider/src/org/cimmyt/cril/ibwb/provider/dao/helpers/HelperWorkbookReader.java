@@ -6,13 +6,18 @@ package org.cimmyt.cril.ibwb.provider.dao.helpers;
 
 import com.sun.rowset.CachedRowSetImpl;
 import ibfb.domain.core.Measurement;
+import ibfb.domain.core.MeasurementData;
 import java.math.BigInteger;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
 import java.util.*;
+import javax.management.Query;
 import javax.sql.rowset.RowSetMetaDataImpl;
 import org.apache.log4j.Logger;
+import org.cimmyt.cril.ibwb.domain.DataC;
+import org.cimmyt.cril.ibwb.domain.DataN;
+import org.cimmyt.cril.ibwb.domain.Variate;
 import org.cimmyt.cril.ibwb.provider.dao.DMSReaderDAO;
 import org.hibernate.Hibernate;
 import org.hibernate.SQLQuery;
@@ -269,12 +274,17 @@ public class HelperWorkbookReader {
         log.info("Definiendo orden de busquedas");
         String orden = HelperWorkbookReader.getOrder(isLocal, isCentral);
         
-//        Integer cuantosFR = HelperWorkbookReader.getNumeroFactoresResultado(
-//                session,
-//                query,
-//                studyId,
-//                factoresResultadoStr
-//                );
+        Integer cuantosFR = HelperWorkbookReader.getNumeroFactoresResultado(
+                session,
+                query,
+                studyId,
+                factoresResultadoStr
+                );
+        
+        if(! cuantosFR.equals(factoresSalida.size())){
+            log.error("No se encontraron todos los factores solicitados.");
+            return null;
+        }
 
 //        resultado = HelperWorkbookReader.getFactoresResultado(
 //                session,
@@ -329,6 +339,7 @@ public class HelperWorkbookReader {
             //Condiciones para cambio de fila
             if(!ounitTemp.equals(celdas[0])){
                 measurement.setFactorLabelData(factorLabelList);
+                measurement.setOunitId(ounitTemp);
                 measurementList.add(measurement);
                 measurement = new Measurement();
                 factorLabelList = new ArrayList<Object>();
@@ -340,8 +351,61 @@ public class HelperWorkbookReader {
             factorLabelList.set(ordenFactoresSalida.get((String) celdas[1]), celdas[2]);
         }
         measurement.setFactorLabelData(factorLabelList);
+        measurement.setOunitId(ounitTemp);
         measurementList.add(measurement);
+        
         log.info("Getting trial randomization fast.... DONE");
+        
+        log.info("Getting variates fast....");
+        List<Integer> listVariates = getVariatesByRepresno(session, query, trepresNo);
+        if(listVariates == null){
+            log.info("No se encontraron variates por recuperar.");
+        }else if(listVariates.isEmpty()){
+            log.info("No se encontraron variates por recuperar.");
+        }else if(listVariates.size() == 0){
+            log.info("No se encontraron variates por recuperar.");
+        }else{
+            List<DataN> dataNs = getDataN(session, listVariates, orden);
+            List<DataC> dataCs = getDataC(session, listVariates, orden);
+            List<Variate> variates = getVariates(session, listVariates, orden);
+            Map<Integer, Integer> mapaVariates = new HashMap<Integer, Integer>();
+
+            Map<Integer, Integer> mapaOunitId = new HashMap<Integer, Integer>();
+
+            for(Variate variate : variates){
+                mapaVariates.put(variate.getVariatid(), variates.indexOf(variate));
+            }
+
+            for(Measurement measurement1 : measurementList){
+                measurement1.initMeasurementData(variates.size());
+                mapaOunitId.put(measurement1.getOunitId(), measurementList.indexOf(measurement1));
+            }
+
+            for(DataN dataN : dataNs){
+                Integer indiceY = mapaOunitId.get(dataN.getDataNPK().getOunitid());
+                Integer indiceX = mapaVariates.get(dataN.getDataNPK().getVariatid());
+                if(indiceY != null){
+    //                log.info(" indice x: " + indiceX + " indice y: " + indiceY);
+    //                if(indiceX == null || indiceY == null){
+    //                    log.info(" indice x: " + dataN.getDataNPK().getVariatid() + " indice y: " + dataN.getDataNPK().getOunitid());
+    //                }
+                    Measurement measurementTemp = measurementList.get(indiceY);
+                    MeasurementData measurementData = measurementTemp.getMeasurementsData().get(indiceX);
+                    measurementData.setData(dataN);
+                }
+            }
+
+            for(DataC dataC : dataCs){
+                Integer indiceY = mapaOunitId.get(dataC.getDataCPK().getOunitid());
+                Integer indiceX = mapaVariates.get(dataC.getDataCPK().getVariatid());
+                if(indiceY != null){
+                    Measurement measurementTemp = measurementList.get(indiceY);
+                    MeasurementData measurementData = measurementTemp.getMeasurementsData().get(indiceX);
+                    measurementData.setData(dataC);
+                }
+            }
+        }
+        log.info("Getting variates fast.... DONE");
         return measurementList;
     }
     
@@ -617,5 +681,89 @@ public class HelperWorkbookReader {
             log.error("No se logro recuperar estructura");
         }
         return resultado;
+    }
+    
+    public static List<Integer> getVariatesByRepresno(
+            Session session,
+            SQLQuery query,
+            Integer represNo
+            ){
+        String consultaSQL = "select variatid "
+                + "from veffect "
+                + "WHERE veffect.REPRESNO = " + represNo + ";";
+        query = session.createSQLQuery(consultaSQL);
+        query.addScalar("variatid", Hibernate.INTEGER);
+        List resultado = query.list();
+        if (resultado != null) {
+            if (resultado.size() > 0) {
+                return resultado;
+            } else {
+                log.error("No se encontro ningun variate para el represNo " + represNo);
+                return null;
+            }
+        } else {
+            log.error("No se encontro ningun variate para el represNo " + represNo);
+            return null;
+        }
+    }
+    
+    public static List<DataN> getDataN(
+            Session session,
+            List<Integer> variates,
+            String orden
+            ){
+        List<DataN> resultado;
+        String consultaHQL = "from DataN as dataN "
+                + "where dataN.dataNPK.variatid in (:VariatesStr) "
+                + "order by dataN.dataNPK.ounitid " + orden + ", dataN.dataNPK.variatid " + orden;
+        org.hibernate.Query query = session.createQuery(consultaHQL);
+        query.setParameterList("VariatesStr", variates.toArray());
+        resultado = query.list();
+        if(resultado != null){
+            return resultado;
+        }else{
+            log.error("No se encontraron datos en data_n.");
+            return null;
+        }
+    }
+    
+    public static List<DataC> getDataC(
+            Session session,
+            List<Integer> variates,
+            String orden
+            ){
+        List<DataC> resultado;
+        String consultaHQL = "from DataC as dataC "
+                + "where dataC.dataCPK.variatid in (:VariatesStr) "
+                + "order by dataC.dataCPK.ounitid " + orden + ", dataC.dataCPK.variatid " + orden;
+        org.hibernate.Query query = session.createQuery(consultaHQL);
+        query.setParameterList("VariatesStr", variates.toArray());
+        resultado = query.list();
+        if(resultado != null){
+            return resultado;
+        }else{
+            log.error("No se encontraron datos en data_c.");
+            return null;
+        }
+    }
+    
+    public static List<Variate> getVariates(
+            Session session,
+            List<Integer> variates,
+            String orden
+            ){
+        List<Variate> resultado;
+        String consultaHQL = "from Variate as variate "
+                + "where variatid in (:VariatesStr) "
+                + "order by variatid " + orden;
+        org.hibernate.Query query = session.createQuery(consultaHQL);
+        query.setParameterList("VariatesStr", variates.toArray());
+        resultado = query.list();
+        if(resultado != null){
+            return resultado;
+        }else{
+            log.error("No se encontraron variates a partir de la lista de variates  de veffect proporcionada.");
+            return null;
+        }
     }
 }
