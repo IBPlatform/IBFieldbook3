@@ -2169,13 +2169,13 @@ public final class StudyEditorTopComponent extends TopComponent {
     }//GEN-LAST:event_jButtonCopyGIDActionPerformed
 
     private void jTableEntriesPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jTableEntriesPropertyChange
-       this.jLabelTotalGermp.setText(String.valueOf(this.jTableEntries.getRowCount()));
+        this.jLabelTotalGermp.setText(String.valueOf(this.jTableEntries.getRowCount()));
     }//GEN-LAST:event_jTableEntriesPropertyChange
 
     private void jButtonImportCrossInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonImportCrossInfoActionPerformed
-               
-        ImportData importData = new ImportData(jTableEntries);        
-     
+
+        ImportData importData = new ImportData(jTableEntries);
+
         FileFilter[] filtros = new FileFilter[10];
         filtros = selectorArchivo.getChoosableFileFilters();
         for (int i = 0; i < filtros.length; i++) {
@@ -2186,18 +2186,18 @@ public final class StudyEditorTopComponent extends TopComponent {
         selectorArchivo.setSelectedFile(archivoNulo);
         selectorArchivo.setFileSelectionMode(JFileChooser.FILES_ONLY);
         selectorArchivo.addChoosableFileFilter(new ExcelFiltro());
-            
-  
+
+
         int resultado = selectorArchivo.showOpenDialog(null);
         if (resultado == JFileChooser.CANCEL_OPTION) {
             return;
-        }        
+        }
         importData.importFromCrossInfoToGermplasm(selectorArchivo.getSelectedFile());
-        
+
         fillObservationsData();
         DialogUtil.displayInfo(StudyEditorTopComponent.class, "StudyEditorTopComponent.datasyncronized");
         this.jTabbedPaneEditor.setSelectedIndex(7);
-        
+
     }//GEN-LAST:event_jButtonImportCrossInfoActionPerformed
 
     @Override
@@ -2223,7 +2223,7 @@ public final class StudyEditorTopComponent extends TopComponent {
 
         TableColumn columnValue = jTableTrialConditions.getColumnModel().getColumn(5);
         DefaultTableCellRenderer valueCellRenderer = new DefaultTableCellRenderer();
-        
+
         valueCellRenderer.setToolTipText(NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.fillValue"));
         valueCellRenderer.setBackground(Color.YELLOW);
         columnValue.setCellRenderer(valueCellRenderer);
@@ -2657,7 +2657,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         csv = new CSVOziel(this.jTableObservations, new JList());
         int instanceCounter = observationsTableModel.getTrialCounter();
         ImportData importData = new ImportData(jTableObservations, csv, instanceCounter);
-    
+
         WizardDescriptor.Iterator iterator = new importingWizardIterator();
         WizardDescriptor wizardDescriptor = new WizardDescriptor(iterator);
         importingVisualPanel2.setWizardDescriptor(wizardDescriptor);
@@ -2841,11 +2841,13 @@ public final class StudyEditorTopComponent extends TopComponent {
                 rowToAdd[factorLabelColumn] = factorLabel;
                 factorLabelColumn++;
             }
-            for (MeasurementData data : measurement.getMeasurementsData()) {
-                if (data.getVariateid() != null) {
-                    int variateColumIndex = tableModel.getHeaderIndexForVariate(data.getVariateid());
-                    if (variateColumIndex != -1) {
-                        rowToAdd[variateColumIndex] = data.getValueData();
+            if (measurement.getMeasurementsData() != null) {
+                for (MeasurementData data : measurement.getMeasurementsData()) {
+                    if (data.getVariateid() != null) {
+                        int variateColumIndex = tableModel.getHeaderIndexForVariate(data.getVariateid());
+                        if (variateColumIndex != -1) {
+                            rowToAdd[variateColumIndex] = data.getValueData();
+                        }
                     }
                 }
             }
