@@ -716,38 +716,35 @@ public class HelperWorkbookRead {
     private void fillObservationsDataFast() {
 
         Integer studyId = this.workbookStudy.getStudy().getStudyid();
-        int variateCount = this.workbookStudy.getVariates().size();
+//        int variateCount = this.workbookStudy.getVariates().size();
         
         List<String> factorsReturn = getFactoresReturnList();
         
         fillFactorLabelDataOptimized(studyId, 0, getFactoresKeyList(), factorsReturn, factorTrial.getFname());
         
-        List<Measurement> measurementList = workbookStudy.getMeasurements();
+//        List<Measurement> measurementList = workbookStudy.getMeasurements();
         
-        log.info("Getting Data Trial ...");
-        List<Object> dataList;
-        if(! workbookStudy.getVariates().isEmpty()){
-            dataList = this.servicioApp.getObservationsDataMeasurementEffect(studyId, effectid);
-        }else{
-            dataList = new ArrayList<Object>();
-        }
-        log.info("Getting Data Trial Done...");
-        
-        
-        log.info("Getting List of Obsunit ...");
-        List<Obsunit> obsunits = this.servicioApp.getObsunitListByEffectid(studyId, effectid);
-        log.info("Getting List of Obsunit...");
-        int rowIndex = 0;
-        for (Obsunit obsUnit : obsunits) {
-            //Measurement measurement = new Measurement();
-            Measurement measurement = measurementList.get(rowIndex);
-            measurement.initMeasurementData(variateCount);
-
-            assignMeasurementData(measurement, obsUnit, dataList);
-
-            //measurementList.add(measurement);
-            rowIndex++;
-        }
+//        log.info("Getting Data Trial ...");
+//        List<Object> dataList;
+//        if(! workbookStudy.getVariates().isEmpty()){
+//            dataList = this.servicioApp.getObservationsDataMeasurementEffect(studyId, effectid);
+//        }else{
+//            dataList = new ArrayList<Object>();
+//        }
+//        log.info("Getting Data Trial Done...");
+//        
+//        
+//        log.info("Getting List of Obsunit ...");
+//        List<Obsunit> obsunits = this.servicioApp.getObsunitListByEffectid(studyId, effectid);
+//        log.info("Getting List of Obsunit...");
+//        int rowIndex = 0;
+//        for (Obsunit obsUnit : obsunits) {
+//            Measurement measurement = measurementList.get(rowIndex);
+//            measurement.initMeasurementData(variateCount);
+//
+//            assignMeasurementData(measurement, obsUnit, dataList);
+//            rowIndex++;
+//        }
     }
 
     /**

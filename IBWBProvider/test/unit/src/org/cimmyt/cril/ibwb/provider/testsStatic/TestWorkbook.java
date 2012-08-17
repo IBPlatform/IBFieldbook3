@@ -445,8 +445,8 @@ public class TestWorkbook extends TestService {
 
     public static void main(String[] args) {
         TestWorkbook tt = new TestWorkbook();
-        tt.testWorkbook();
+//        tt.testWorkbook();
         //tt.testSaveWorkbook();
-//        tt.testWorkbookReadFactorsVeryFast2();
+        tt.testWorkbookReadFactorsVeryFast();
     }
 }
