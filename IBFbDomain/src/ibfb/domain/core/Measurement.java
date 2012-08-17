@@ -22,6 +22,9 @@ public class Measurement {
     private Integer plot;
     private Integer row;
     private Integer column;
+    
+    private Integer ounitId;
+    
     /**
      * Each value for factor labels
      */
@@ -30,6 +33,15 @@ public class Measurement {
      * Each value for data_n and data_c
      */
     private List<MeasurementData> measurementsData;
+    
+    public Integer getOunitId() {
+        return ounitId;
+    }
+    
+    public void setOunitId(Integer ounitId) {
+        this.ounitId = ounitId;
+    }
+        
     
     public Integer getBlock() {
         return block;
@@ -127,15 +139,12 @@ public class Measurement {
     public void setMeasurementData(int index, MeasurementData measurementData) {
        measurementsData.set(index, measurementData);
     }
-
+    
     public List<Object> getFactorLabelData() {
         return factorLabelData;
     }
-
+    
     public void setFactorLabelData(List<Object> factorLabelData) {
         this.factorLabelData = factorLabelData;
     }
-    
-    
-    
 }
