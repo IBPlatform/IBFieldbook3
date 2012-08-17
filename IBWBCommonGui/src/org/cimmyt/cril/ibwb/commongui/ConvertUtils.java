@@ -13,7 +13,7 @@ import java.util.Date;
  */
 public class ConvertUtils {
 
-    private static final String DATE_PATTERN = "yyyyMMdd";
+    public static final String DATE_PATTERN = "yyyyMMdd";
     private static final SimpleDateFormat format = new SimpleDateFormat(DATE_PATTERN);
 
     /**
