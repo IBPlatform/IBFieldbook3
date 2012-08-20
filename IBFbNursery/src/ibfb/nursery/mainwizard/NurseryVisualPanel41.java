@@ -62,6 +62,7 @@ public final class NurseryVisualPanel41 extends JPanel {
         checkButtonsStatus();
         if (isForWheat) {
             loadNamesForWheat();
+            loadQueryCenter();
         }
     }
 
@@ -308,12 +309,17 @@ public final class NurseryVisualPanel41 extends JPanel {
 }//GEN-LAST:event_radGermplasmFromDB1ActionPerformed
 
     private void cboGermplasmListItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cboGermplasmListItemStateChanged
-        this.setCursor(new java.awt.Cursor(java.awt.Cursor.WAIT_CURSOR));
-        readGermplsmEntriesFromDb();
-        if (isForWheat) {
-            completeDataFromDatabase();
+
+        if (evt.getStateChange() == 1) {
+            this.setCursor(new java.awt.Cursor(java.awt.Cursor.WAIT_CURSOR));
+            readGermplsmEntriesFromDb();
+            if (isForWheat) {
+                completeDataFromDatabase();
+            }
+            this.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         }
-        this.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+
 }//GEN-LAST:event_cboGermplasmListItemStateChanged
 
     private void jButtonPreviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPreviewActionPerformed
@@ -586,7 +592,7 @@ public final class NurseryVisualPanel41 extends JPanel {
 
     private void completeDataFromDatabase() {
 
-        loadQueryCenter();
+
         wheatColumnsforSearch = new ArrayList<String>();
         GermplasmEntriesTableModel tableModel = (GermplasmEntriesTableModel) this.jTableEntries.getModel();
 
