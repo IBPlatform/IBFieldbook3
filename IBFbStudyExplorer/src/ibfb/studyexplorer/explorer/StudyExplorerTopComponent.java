@@ -93,13 +93,15 @@ public final class StudyExplorerTopComponent extends TopComponent implements Exp
     private void loadStudiesFromDB() {
         changeCursorWaitStatus(true);
         String selected = NbPreferences.forModule(ConfigStudiesAction.class).get("SELECTED", "");
-
+        System.out.println("Tam SELECTED in LOAD STUDIES: "+selected.length());
+        
         studyList.clear();
 
         List<org.cimmyt.cril.ibwb.domain.Study> studyDtoList =
                 AppServicesProxy.getDefault().appServices().getStudyListByParent(0, Study.S_TYPE_EXPERIMENT);
         //AppServicesProxy.getDefault().appServices().getStudyList();
         int i = 0;
+        
         for (org.cimmyt.cril.ibwb.domain.Study studyDto : studyDtoList) {
 
             if (selected.isEmpty()) {
@@ -121,9 +123,7 @@ public final class StudyExplorerTopComponent extends TopComponent implements Exp
     @Override
     public void refreshStudyBrowser() {
         changeCursorWaitStatus(true);
-        loadStudiesFromDB();
-        //explorerManager.setRootContext(new StudyRootNode(Children.create(new StudyChildFactory(studyList), true)));
-        //explorerManager.setRootContext(new StudyRootNode(new StudyChildren()));
+        loadStudiesFromDB();      
         explorerManager.setRootContext(new MainStudyRootNode(new StudyChildren(studyList)));
         changeCursorWaitStatus(false);
     }

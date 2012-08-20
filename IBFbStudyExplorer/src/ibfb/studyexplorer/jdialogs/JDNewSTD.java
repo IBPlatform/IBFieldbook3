@@ -489,7 +489,8 @@ public class JDNewSTD extends javax.swing.JDialog {
         String selected = NbPreferences.forModule(ConfigStudiesAction.class).get("SELECTED", "");
         selected = selected + "1";
         NbPreferences.forModule(ConfigStudiesAction.class).put("SELECTED", selected);
-
+        
+        System.out.println("TAM despues de guardar SELECTED: "+selected.length());
 
         studyExplorer.refreshStudyBrowser();
     }
