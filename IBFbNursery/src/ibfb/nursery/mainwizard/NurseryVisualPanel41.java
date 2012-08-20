@@ -7,15 +7,22 @@ import ibfb.domain.core.Workbook;
 import ibfb.nursery.core.NurseryEditorTopComponent;
 import ibfb.nursery.filters.ExcelFiltro;
 import ibfb.nursery.models.GermplasmEntriesTableModel;
+import ibfb.query.classes.GermplsmRecord;
+import ibfb.query.classes.GpidInfClass;
+import ibfb.query.core.QueryCenter;
 import ibfb.settings.core.FieldbookSettings;
 import ibfb.workbook.api.GermplasmAssigmentTool;
 import ibfb.workbook.api.GermplasmListReader;
 import ibfb.workbook.core.GermplasmAssigmentToolImpl;
 import ibfb.workbook.core.GermplasmListReaderImpl;
 import java.awt.Component;
+import java.awt.Cursor;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -31,7 +38,9 @@ import org.cimmyt.cril.ibwb.commongui.OSUtils;
 import org.cimmyt.cril.ibwb.domain.Listnms;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
+import org.openide.util.Mutex;
 import org.openide.util.NbBundle;
+import org.openide.windows.WindowManager;
 
 public final class NurseryVisualPanel41 extends JPanel {
 
@@ -41,12 +50,26 @@ public final class NurseryVisualPanel41 extends JPanel {
     private Desktop.Action action = null;
     private File archivo = null;
     private ResourceBundle bundle = NbBundle.getBundle(NurseryVisualPanel41.class);
-
+    private boolean isForWheat = true;
+    private String[] nameColumn = {"Cross Name", "Selection History", "Pedigree", "CID", "SID", "GID", "INTRID", "TID", "ENT", "Folio", "Specific Name", "Name Abbreviation", "Cross Year", "Cross Location", "Cross Country", "Cross Organization", "Cross Program", "FAO In-trust", "Selection Year", "Selection Location", "Selection Country", "Name Country", "Name Year", "FAO designation Date", "24 disp", "25 disp"};
+    private ArrayList<String> wheatColumns;
+    private ArrayList<String> wheatColumnsforSearch;
+    private QueryCenter queryReadCenter;
+    private Connection dmsLocal, dmsCentral, gmsLocal, gmsCentral;
 
     public NurseryVisualPanel41() {
         initComponents();
-        //fillComboListNames();
         checkButtonsStatus();
+        if (isForWheat) {
+            loadNamesForWheat();
+        }
+    }
+
+    private void loadNamesForWheat() {
+        wheatColumns = new ArrayList<String>();
+        for (int i = 0; i < nameColumn.length; i++) {
+            wheatColumns.add(nameColumn[i].toUpperCase());
+        }
     }
 
     @Override
@@ -285,19 +308,24 @@ public final class NurseryVisualPanel41 extends JPanel {
 }//GEN-LAST:event_radGermplasmFromDB1ActionPerformed
 
     private void cboGermplasmListItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cboGermplasmListItemStateChanged
+        this.setCursor(new java.awt.Cursor(java.awt.Cursor.WAIT_CURSOR));
         readGermplsmEntriesFromDb();
+        if (isForWheat) {
+            completeDataFromDatabase();
+        }
+        this.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 }//GEN-LAST:event_cboGermplasmListItemStateChanged
 
     private void jButtonPreviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPreviewActionPerformed
         previewFile(this.jTextAreaPath.getText());
 }//GEN-LAST:event_jButtonPreviewActionPerformed
 
-    public void fillComboListNames() {        
+    public void fillComboListNames() {
         List<Listnms> germplasmList = AppServicesProxy.getDefault().appServices().getListnmsList();
         for (Listnms list : germplasmList) {
-            cboGermplasmList.addItem(list);           
+            cboGermplasmList.addItem(list);
         }
-               
+
     }
 
     public JTextField getjTextFieldTotalEntries() {
@@ -363,6 +391,8 @@ public final class NurseryVisualPanel41 extends JPanel {
     }
 
     private void readGermplsmEntriesFromDb() {
+        this.setCursor(new java.awt.Cursor(java.awt.Cursor.WAIT_CURSOR));
+
         GermplasmListReader germplasmListReader = new GermplasmListReaderImpl();
         boolean validSelection = cboGermplasmList.getSelectedIndex() > 0;
 
@@ -380,10 +410,11 @@ public final class NurseryVisualPanel41 extends JPanel {
             this.jTextAreaPath.setText("");
             this.jTextFieldTotalEntries.setText("0");
             if (radGermplasmFromDB1.isSelected()) {
-                //   DialogDisplayer.getDefault().notify(new NotifyDescriptor.Message("Please choose a Germplasm List", NotifyDescriptor.ERROR_MESSAGE));
                 DialogUtil.displayError(bundle.getString("NurseryVisualPanel41.choose"));
             }
         }
+        this.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
     }
 
     public JTextArea getjTextAreaPath() {
@@ -506,8 +537,8 @@ public final class NurseryVisualPanel41 extends JPanel {
 
         return existenFactores;
     }
-    
-        public void ajustaColumnsTable(JTable table, int margin) {
+
+    public void ajustaColumnsTable(JTable table, int margin) {
         for (int c = 0; c < table.getColumnCount(); c++) {
             ajustaColumn(table, c, 2);
         }
@@ -535,8 +566,6 @@ public final class NurseryVisualPanel41 extends JPanel {
         width += 2 * margin;
         col.setPreferredWidth(width);
     }
-
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroupGMS;
     private javax.swing.JComboBox cboGermplasmList;
@@ -554,4 +583,132 @@ public final class NurseryVisualPanel41 extends JPanel {
     private javax.swing.JRadioButton radGermplasmFromDB1;
     private javax.swing.JRadioButton radGermplasmFromTemplate;
     // End of variables declaration//GEN-END:variables
+
+    private void completeDataFromDatabase() {
+
+        loadQueryCenter();
+        wheatColumnsforSearch = new ArrayList<String>();
+        GermplasmEntriesTableModel tableModel = (GermplasmEntriesTableModel) this.jTableEntries.getModel();
+
+
+        if (tableModel.getRowCount() <= 0) {
+            return;
+        }
+
+        int gidColumn = tableModel.findColumn("GID");
+        System.out.println("gidColumn found in: " + gidColumn);
+
+        if (gidColumn < 0) {
+            return;
+        }
+
+        for (int i = 0; i < tableModel.getColumnCount(); i++) {
+            String col = tableModel.getColumnName(i).toUpperCase();
+
+            if (col.equals("CROSS NAME") || col.equals("PEDIGREE")) {
+                wheatColumnsforSearch.add("PEDIGREE");
+            } else {
+
+                if (wheatColumns.contains(col) && (!col.equals("GID"))) {
+                    wheatColumnsforSearch.add(tableModel.getColumnName(i));
+                }
+            }
+
+        }
+
+        for (int i = 0; i < wheatColumnsforSearch.size(); i++) {
+            System.out.println("COLUMN TO FIND -> " + wheatColumnsforSearch.get(i));
+
+        }
+
+
+
+
+        int crossColumn = tableModel.findColumn("CROSS NAME");
+        if (crossColumn < 0) {
+            crossColumn = tableModel.findColumn("PEDIGREE");
+        }
+
+
+        if (crossColumn >= 0) {
+            GermplasmEntriesTableModel.setIsFromCrossInfo(true);
+
+            for (int i = 0; i < tableModel.getRowCount(); i++) {
+
+                GermplsmRecord germplsmRecord = new GermplsmRecord();
+                GpidInfClass gpidinfClass = new GpidInfClass();
+
+                int gid = Integer.parseInt(tableModel.getValueAt(i, gidColumn).toString());
+                germplsmRecord = queryReadCenter.getGermplsmRecord(gid);
+
+                try {
+                    String outCrossName = queryReadCenter.arma_pedigree(germplsmRecord.getGid(), 0, gpidinfClass, 0, 0, 0, 0);
+                    //System.out.println("EL CROSSNAME: " + outCrossName);
+                    tableModel.setValueAt(outCrossName, i, crossColumn);
+
+                } catch (Exception e) {
+                    System.out.println("ERROR" + e);
+                }
+
+
+
+            }
+            GermplasmEntriesTableModel.setIsFromCrossInfo(false);
+
+        }
+
+    }
+
+    private void loadQueryCenter() {
+        queryReadCenter = new QueryCenter();
+        queryReadCenter.readAndLoadDatabases();
+        queryReadCenter.setFnameKeyEntryNumber("Entry number");
+        queryReadCenter.setFnameKeyOcc("occ");
+        queryReadCenter.setFnamePedigree("cross name");
+        queryReadCenter.readFlexPedConfig();
+    }
+
+    private boolean loadConnections() {
+        boolean hayConexion = false;
+        try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+        } catch (Exception e) {
+            System.out.println("No se ha podido cargar el Driver JDBC-ODBC");
+        }
+
+        try {
+            dmsLocal = DriverManager.getConnection("jdbc:mysql://localhost:3306/iwis_local_dms", "root", "");
+            dmsCentral = DriverManager.getConnection("jdbc:mysql://localhost:3306/iwis_central_short", "root", "");
+            gmsLocal = DriverManager.getConnection("jdbc:mysql://localhost:3306/iwis_local_gms", "root", "");
+            gmsCentral = DriverManager.getConnection("jdbc:mysql://localhost:3306/iwis_central_gms", "root", "");
+            hayConexion = true;
+        } catch (SQLException ex) {
+            System.out.println("ERROR AL CONECTAR CON LA BASE DE DATOS, MYSQL " + ex);
+        }
+        return hayConexion;
+    }
+
+    private static void changeCursorWaitStatus(final boolean isWaiting) {
+        Mutex.EVENT.writeAccess(new Runnable() {
+
+            @Override
+            public void run() {
+                try {
+                    JFrame mainFrame =
+                            (JFrame) WindowManager.getDefault().getMainWindow();
+                    Component glassPane = mainFrame.getGlassPane();
+                    if (isWaiting) {
+                        glassPane.setVisible(true);
+
+                        glassPane.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+                    } else {
+                        glassPane.setVisible(false);
+
+                        glassPane.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+                    }
+                } catch (Exception e) {
+                }
+            }
+        });
+    }
 }
