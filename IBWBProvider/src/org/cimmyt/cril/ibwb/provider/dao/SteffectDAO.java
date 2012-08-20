@@ -82,7 +82,7 @@ public class SteffectDAO extends AbstractDAO<Steffect, Integer> {
         }else{
             sbHql.append("ASC");
         }
-        log.info(sbHql.toString());
+      //  log.info(sbHql.toString());
         List<Steffect> listSteffects = getHibernateTemplate().find(sbHql.toString(), parametros);
         
         if(listSteffects != null){
@@ -107,7 +107,7 @@ public class SteffectDAO extends AbstractDAO<Steffect, Integer> {
         }else{
             sbSQLNat.append("ASC");
         }
-        log.info(sbSQLNat.toString());
+     //   log.info(sbSQLNat.toString());
         List<Integer> listEffectsid = this.executeQueryCustomListOfGSqlNat(sbSQLNat.toString());
         
         if(listEffectsid != null){

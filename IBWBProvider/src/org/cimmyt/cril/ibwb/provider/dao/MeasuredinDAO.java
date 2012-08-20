@@ -119,8 +119,8 @@ public class MeasuredinDAO extends AbstractDAO<Measuredin, Integer> {
         } else {
             sbHql.append("ASC");
         }
-        log.info(sbHql.toString());
-        log.info("Where parameters :" + parametros);
+      //  log.info(sbHql.toString());
+       // log.info("Where parameters :" + parametros);
         List<Measuredin> listMeasuredins = getHibernateTemplate().find(sbHql.toString(), parametros);
         if (listMeasuredins.size() > 0) {
             measuredin = listMeasuredins.get(0);

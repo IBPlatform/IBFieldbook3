@@ -84,7 +84,7 @@ public class DmsattrDAO extends AbstractDAO<Dmsattr, Integer> {
         }else{
             sbHql.append("ASC");
         }
-        log.info(sbHql.toString());
+    //    log.info(sbHql.toString());
         List<Dmsattr> listScales = getHibernateTemplate().find(sbHql.toString(), parametros);
         if(listScales.size()>0){
             dmsattr = listScales.get(0);

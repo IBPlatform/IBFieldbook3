@@ -187,7 +187,7 @@ public class ScaleDAO extends AbstractDAO<Scale, Integer> {
         }else{
             sbHql.append("ASC");
         }
-        log.info(sbHql.toString());
+    //    log.info(sbHql.toString());
         List<Scale> scales = getHibernateTemplate().find(sbHql.toString());
         return scales;
     }

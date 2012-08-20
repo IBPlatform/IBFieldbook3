@@ -79,7 +79,7 @@ public class LevelCDAO extends AbstractDAO<LevelC, Integer> {
         }else{
             sbHql.append("ASC");
         }
-        log.info(sbHql.toString());
+    //    log.info(sbHql.toString());
         List<LevelC> levelsC = getHibernateTemplate().find(sbHql.toString());
         return levelsC;
     }

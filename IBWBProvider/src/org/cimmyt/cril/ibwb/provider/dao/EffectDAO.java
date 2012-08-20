@@ -81,7 +81,7 @@ public class EffectDAO extends AbstractDAO<Effect, Integer> {
                 sbHql.append(", e.effectPK.factorid ");
                 sbHql.append(orden);
                 
-                log.info(sbHql.toString());
+            //    log.info(sbHql.toString());
                 Query query = session.createQuery(sbHql.toString());
                 query.setParameterList("ids", parametros);
                 return  query.list();

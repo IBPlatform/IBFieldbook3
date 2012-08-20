@@ -108,7 +108,7 @@ public class VariateDAO extends AbstractDAO<Variate, Integer> {
         }else{
             sbHql.append("ASC");
         }
-        log.info(sbHql.toString());
+    //    log.info(sbHql.toString());
         //List<Variate> variates = getHibernateTemplate().find(sbHql.toString());
         List<Variate> variates = new ArrayList<Variate>();
         

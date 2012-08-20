@@ -117,7 +117,7 @@ public class FactorDAO extends AbstractDAO<Factor, Integer> {
         }else{
             sbHql.append("ASC");
         }
-        log.info(sbHql.toString());
+   //     log.info(sbHql.toString());
         //List<Factor> factorList = getHibernateTemplate().find(sbHql.toString());
         List<Factor> factorList = new ArrayList<Factor>();
         List<Object> tempList = getHibernateTemplate().find(sbHql.toString());
@@ -152,7 +152,7 @@ public class FactorDAO extends AbstractDAO<Factor, Integer> {
         }else{
             sbHql.append("ASC");
         }
-        log.info(sbHql.toString());
+  //      log.info(sbHql.toString());
         List<Factor> factorList = getHibernateTemplate().find(sbHql.toString());
         return factorList;
     }
@@ -176,7 +176,7 @@ public class FactorDAO extends AbstractDAO<Factor, Integer> {
         }else{
             sbHql.append("ASC");
         }
-        log.info(sbHql.toString());
+    //    log.info(sbHql.toString());
         List<Factor> factorList = getHibernateTemplate().find(sbHql.toString());
         return factorList;
     }
@@ -204,7 +204,7 @@ public class FactorDAO extends AbstractDAO<Factor, Integer> {
                 }
                 sbHql.append(orden);
                 
-                log.info(sbHql.toString());
+      //          log.info(sbHql.toString());
                 Query query = session.createQuery(sbHql.toString());
                 query.setParameterList("ids", parametros);
                 return  query.list();
@@ -233,7 +233,7 @@ public class FactorDAO extends AbstractDAO<Factor, Integer> {
         }else{
             sbHql.append("ASC");
         }
-        log.info(sbHql.toString());
+    //    log.info(sbHql.toString());
         List<Factor> factorList = getHibernateTemplate().find(sbHql.toString());
         if(factorList == null){
             return null;

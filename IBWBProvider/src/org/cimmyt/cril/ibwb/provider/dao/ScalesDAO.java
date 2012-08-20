@@ -89,7 +89,7 @@ public class ScalesDAO extends AbstractDAO<Scales, Integer> {
         }else{
             sbHql.append("ASC");
         }
-        log.info(sbHql.toString());
+      //  log.info(sbHql.toString());
         List<Scales> listScales = getHibernateTemplate().find(sbHql.toString(), parametros);
         if(listScales.size()>0){
             scales = listScales.get(0);
@@ -113,7 +113,7 @@ public class ScalesDAO extends AbstractDAO<Scales, Integer> {
         }else{
             sbHql.append("ASC");
         }
-        log.info(sbHql.toString());
+    //    log.info(sbHql.toString());
         List<Scales> listScales = getHibernateTemplate().find(sbHql.toString(), parametros);
         if(listScales.size()>0){
             scales = listScales.get(0);

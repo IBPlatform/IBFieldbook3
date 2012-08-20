@@ -100,7 +100,7 @@ public class StudyDAO extends AbstractDAO<Study, Integer> {
         }else{
             sbHql.append("ASC");
         }
-        log.info(sbHql.toString());
+    //    log.info(sbHql.toString());
         List<Study> liststuList = getHibernateTemplate().find(sbHql.toString(), parametros);
         return liststuList;
     }

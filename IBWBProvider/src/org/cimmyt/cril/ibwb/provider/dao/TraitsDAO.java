@@ -303,7 +303,7 @@ public class TraitsDAO extends AbstractDAO<Traits, Integer> {
         } else {
             sbHql.append("ASC");
         }
-        log.info(sbHql.toString());
+   //     log.info(sbHql.toString());
         List<Traits> listTraitses = getHibernateTemplate().find(sbHql.toString(), parametros);
         if (listTraitses.size() > 0) {
             traits = listTraitses.get(0);
