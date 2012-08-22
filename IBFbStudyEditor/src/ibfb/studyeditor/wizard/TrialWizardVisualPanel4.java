@@ -4,6 +4,10 @@ import ibfb.domain.core.Factor;
 import ibfb.domain.core.GermplasmList;
 import ibfb.domain.core.ListOfEntries;
 import ibfb.domain.core.Workbook;
+import ibfb.query.classes.GermplsmRecord;
+import ibfb.query.classes.GpidInfClass;
+import ibfb.query.classes.NamesRecord;
+import ibfb.query.core.QueryCenter;
 import ibfb.settings.core.FieldbookSettings;
 import ibfb.studyeditor.core.StudyEditorTopComponent;
 import ibfb.studyeditor.core.model.GermplasmEntriesTableModel;
@@ -31,18 +35,44 @@ import org.openide.NotifyDescriptor;
 import org.openide.util.NbBundle;
 
 public final class TrialWizardVisualPanel4 extends JPanel {
-    private ResourceBundle bundle = NbBundle.getBundle(TrialWizardVisualPanel4.class);
 
+    private ResourceBundle bundle = NbBundle.getBundle(TrialWizardVisualPanel4.class);
     private JFileChooser selectorArchivo = new JFileChooser();
     private Workbook myWorkbook;
     private Desktop desktop = null;
     private Desktop.Action action = null;
     private File archivo = null;
+    private boolean isForWheat = true;
+    private String[] nameColumn = {"Cross Name", "Selection History", "Pedigree", "CID", "SID", "GID", "INTRID", "TID", "ENT", "Folio", "Specific Name", "Name Abbreviation", "Cross Year", "Cross Location", "Cross Country", "Cross Organization", "Cross Program", "FAO In-trust", "Selection Year", "Selection Location", "Selection Country", "Name Country", "Name Year", "FAO designation Date", "24 disp", "25 disp"};
+    private ArrayList<String> wheatColumns;
+    private ArrayList<String> wheatColumnsforSearch;
+    private QueryCenter queryReadCenter;
+    private String outSelectionHistory;
 
     public TrialWizardVisualPanel4() {
         initComponents();
         fillComboListNames();
         checkButtonsStatus();
+        if (isForWheat) {
+            loadNamesForWheat();
+            loadQueryCenter();
+        }
+    }
+
+    private void loadQueryCenter() {
+        queryReadCenter = new QueryCenter();
+        queryReadCenter.readAndLoadDatabases();
+        queryReadCenter.setFnameKeyEntryNumber("Entry number");
+        queryReadCenter.setFnameKeyOcc("occ");
+        queryReadCenter.setFnamePedigree("cross name");
+        queryReadCenter.readFlexPedConfig();
+    }
+
+    private void loadNamesForWheat() {
+        wheatColumns = new ArrayList<String>();
+        for (int i = 0; i < nameColumn.length; i++) {
+            wheatColumns.add(nameColumn[i].toUpperCase());
+        }
     }
 
     @Override
@@ -281,19 +311,144 @@ public final class TrialWizardVisualPanel4 extends JPanel {
 }//GEN-LAST:event_radGermplasmFromDB1ActionPerformed
 
     private void cboGermplasmListItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cboGermplasmListItemStateChanged
-        readGermplsmEntriesFromDb();
+        if (evt.getStateChange() == 1) {
+            this.setCursor(new java.awt.Cursor(java.awt.Cursor.WAIT_CURSOR));
+            readGermplsmEntriesFromDb();
+            if (isForWheat) {
+                completeDataFromDatabase();
+            }
+            this.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        }
 }//GEN-LAST:event_cboGermplasmListItemStateChanged
+
+    private void completeDataFromDatabase() {
+
+
+        wheatColumnsforSearch = new ArrayList<String>();
+        GermplasmEntriesTableModel tableModel = (GermplasmEntriesTableModel) this.jTableEntries.getModel();
+        List<NamesRecord> listNL = null;
+
+        if (tableModel.getRowCount() <= 0) {
+            return;
+        }
+
+        int gidColumn = tableModel.findColumn("GID");
+        System.out.println("gidColumn found in: " + gidColumn);
+
+        if (gidColumn < 0) {
+            return;
+        }
+
+        for (int i = 0; i < tableModel.getColumnCount(); i++) {
+            String col = tableModel.getColumnName(i).toUpperCase();
+
+            if (col.equals("CROSS NAME") || col.equals("PEDIGREE")) {
+                wheatColumnsforSearch.add("PEDIGREE");
+            } else {
+
+                if (wheatColumns.contains(col) && (!col.equals("GID"))) {
+                    wheatColumnsforSearch.add(tableModel.getColumnName(i));
+                }
+            }
+
+        }
+
+        for (int i = 0; i < wheatColumnsforSearch.size(); i++) {
+            System.out.println("COLUMN TO FIND -> " + wheatColumnsforSearch.get(i));
+
+        }
+
+
+
+
+        int crossColumn = tableModel.findColumn("CROSS NAME");
+        if (crossColumn < 0) {
+            crossColumn = tableModel.findColumn("PEDIGREE");
+        }
+
+
+        int selHistColumn = tableModel.findColumn("SELECTION HISTORY");
+
+        GermplasmEntriesTableModel.setIsFromCrossInfo(true);
+
+        for (int i = 0; i < tableModel.getRowCount(); i++) {
+
+            GermplsmRecord germplsmRecord = new GermplsmRecord();
+            GpidInfClass gpidinfClass = new GpidInfClass();
+
+            int gid = Integer.parseInt(tableModel.getValueAt(i, gidColumn).toString());
+            germplsmRecord = queryReadCenter.getGermplsmRecord(gid);
+
+
+            try {
+
+                outSelectionHistory = "";
+                String outCrossName = "";
+
+                if (crossColumn >= 0) {
+                    outCrossName = queryReadCenter.arma_pedigree(germplsmRecord.getGid(), 0, gpidinfClass, 0, 0, 0, 0);
+                    if (outCrossName.isEmpty()) {
+                        outCrossName = "";
+                    }
+                    tableModel.setValueAt(outCrossName, i, crossColumn);
+                    System.out.println("EL CROSSNAME: " + outCrossName);
+                }
+
+                if (selHistColumn >= 0) {
+                    listNL = queryReadCenter.getNamesList(germplsmRecord.getGid());
+                    getFieldsFromArrayNames(listNL);
+                    if (outSelectionHistory.isEmpty()) {
+                        outSelectionHistory = "";
+                    }
+                    tableModel.setValueAt(outSelectionHistory, i, selHistColumn);
+                    System.out.println("HIstoria de seleccion: " + outSelectionHistory);
+                }
+
+
+            } catch (Exception e) {
+                System.out.println("ERROR" + e);
+            }
+        }
+        GermplasmEntriesTableModel.setIsFromCrossInfo(false);
+
+
+
+    }
+
+    private void getFieldsFromArrayNames(List<NamesRecord> p_ALN) {
+        if (p_ALN.isEmpty()) {
+            return;
+        }
+        try {
+            for (NamesRecord namesrecord : p_ALN) {
+                if (namesrecord.getNtype() == 1027 || namesrecord.getNtype() == 1028) {
+                    if (namesrecord.getNstat() == 1) {
+                        if (!namesrecord.getNval().startsWith("###")) {
+                            outSelectionHistory = namesrecord.getNval();
+                        }
+                    }
+                    if (outSelectionHistory.equals("")) {
+                        if (!namesrecord.getNval().startsWith("###")) {
+                            outSelectionHistory = namesrecord.getNval();
+                        }
+                    }
+                }
+
+            }
+        } catch (Exception e) {
+        }
+    }
 
     private void jButtonPreviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPreviewActionPerformed
         previewFile(this.jTextAreaPath.getText());
 }//GEN-LAST:event_jButtonPreviewActionPerformed
 
     private void fillComboListNames() {
-       
-        
-        cboGermplasmList.setModel(new DefaultComboBoxModel(new String[] {NbBundle.getMessage(TrialWizardVisualPanel4.class,"TrialWizardVisualPanel4.selectOne") }));
 
-        
+
+        cboGermplasmList.setModel(new DefaultComboBoxModel(new String[]{NbBundle.getMessage(TrialWizardVisualPanel4.class, "TrialWizardVisualPanel4.selectOne")}));
+
+
         List<Listnms> germplasmList = AppServicesProxy.getDefault().appServices().getListnmsList();
         for (Listnms list : germplasmList) {
             cboGermplasmList.addItem(list);
@@ -380,7 +535,7 @@ public final class TrialWizardVisualPanel4 extends JPanel {
             this.jTextAreaPath.setText("");
             this.jTextFieldTotalEntries.setText("0");
             if (radGermplasmFromDB1.isSelected()) {
-             //   DialogDisplayer.getDefault().notify(new NotifyDescriptor.Message("Please choose a Germplasm List", NotifyDescriptor.ERROR_MESSAGE));
+                //   DialogDisplayer.getDefault().notify(new NotifyDescriptor.Message("Please choose a Germplasm List", NotifyDescriptor.ERROR_MESSAGE));
                 DialogUtil.displayError(bundle.getString("TrialWizardVisualPanel4.pleaseChooseAGermplasmList"));
             }
         }
@@ -412,9 +567,9 @@ public final class TrialWizardVisualPanel4 extends JPanel {
             if (archivoNulo.exists()) {
                 selectorArchivo.setSelectedFile(archivoNulo);
             } else {
-             archivoNulo = new File("");
+                archivoNulo = new File("");
             }
-            
+
             selectorArchivo.setSelectedFile(archivoNulo);
         }
 
@@ -479,7 +634,7 @@ public final class TrialWizardVisualPanel4 extends JPanel {
         List<List<Object>> rowList = gat.getMappedColumns(columnList, germplasmList);
         GermplasmEntriesTableModel tableModel = new GermplasmEntriesTableModel(this.myWorkbook.getEntryFactors(), rowList);
         this.jTableEntries.setModel(tableModel);
-        ajustaColumnsTable(this.jTableEntries, 2);   
+        ajustaColumnsTable(this.jTableEntries, 2);
     }
 
     public void ajustaColumnsTable(JTable table, int margin) {
@@ -510,7 +665,7 @@ public final class TrialWizardVisualPanel4 extends JPanel {
         width += 2 * margin;
         col.setPreferredWidth(width);
     }
-    
+
     @SuppressWarnings("unchecked")
     public boolean existenFactores(final Workbook workbook) {
         boolean existenFactores = false;
