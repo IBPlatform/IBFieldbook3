@@ -1,20 +1,16 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package ibfb.studyeditor.export;
 
 import com.csvreader.CsvWriter;
 import ibfb.studyeditor.core.model.ObservationsTableModel;
 import ibfb.studyeditor.roweditors.CSVOziel;
 import java.awt.Desktop;
-import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 import java.util.ResourceBundle;
 import javax.swing.JTable;
+import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 import org.openide.NotifyDescriptor;
 import org.openide.util.NbBundle;
 
@@ -90,7 +86,7 @@ public class FieldbookRExport {
             csvOutput.write("REP");
             csvOutput.write("BLK");
             csvOutput.write("ENTRY");
-            //csvOutput.write("GY");
+            csvOutput.write("GY");
             csv.writeTraitsR(csvOutput, modeloFiltro);
             csvOutput.endRecord();
             csv.writeDATAR(csvOutput, modeloFiltro);

@@ -113,13 +113,13 @@ public class CSVOziel {
 
             for (int i = 0; i < tot; i++) {
                 String valor = tableModel.getVariateList().get(i).getVariateName();
-                //if (!valor.equals("GY")) {
+                if (!valor.equals("GY")) {
                     
                 if(valor.isEmpty()){
                     valor=".";
                 }
                 csvOutput.write(valor);
-                //}
+                }
             }
 
         } catch (IOException ex) {
@@ -293,7 +293,7 @@ public class CSVOziel {
                 csvOutput.write(tableModel.getValueAt(i, entryColumn).toString());
                 }
                 try {
-//                    csvOutput.write(tableModel.getValueAt(i, tableModel.findColumn("GY")).toString());
+                   csvOutput.write(tableModel.getValueAt(i, tableModel.findColumn("GY")).toString());
                 } catch (NullPointerException ex) {
                     String cad = ".";
                     
@@ -304,14 +304,14 @@ public class CSVOziel {
                 for (int j = 0; j < tot; j++) {
                     String valor = tableModel.getVariateList().get(j).getVariateName();
 
-                    //if (!valor.equals("GY")) {
+                    if (!valor.equals("GY")) {
                         try {
                             csvOutput.write(tableModel.getValueAt(i, tableModel.findColumn(valor)).toString());
                         } catch (NullPointerException ex) {
                             String cad = ".";
                             csvOutput.write(cad);
                         }
-                    //}
+                    }
 
                 }
 

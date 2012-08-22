@@ -1,4 +1,3 @@
-
 package ibfb.studyeditor.exportwizard;
 
 import java.util.ResourceBundle;
@@ -7,10 +6,12 @@ import javax.swing.JPanel;
 import org.openide.util.NbBundle;
 
 public final class exportVisualPanel1 extends JPanel {
-    
+
     private ResourceBundle bundle = NbBundle.getBundle(exportVisualPanel1.class);
 
-    /** Creates new form exportVisualPanel1 */
+    /**
+     * Creates new form exportVisualPanel1
+     */
     public exportVisualPanel1() {
         initComponents();
     }
@@ -128,41 +129,46 @@ public final class exportVisualPanel1 extends JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblImgFieldlogMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImgFieldlogMouseClicked
-      this.jRadioButtonToFieldlog.setSelected(true);
+        this.jRadioButtonToFieldlog.setSelected(true);
     }//GEN-LAST:event_lblImgFieldlogMouseClicked
 
     private void lblImgRMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImgRMouseClicked
-      this.jRadioButtonToR.setSelected(true);
+        if (this.lblImgR.isEnabled()) {
+            this.jRadioButtonToR.setSelected(true);
+        }
     }//GEN-LAST:event_lblImgRMouseClicked
 
     private void lblImgExcelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImgExcelMouseClicked
-       this.jRadioButtonToExcel.setSelected(true);
+        this.jRadioButtonToExcel.setSelected(true);
     }//GEN-LAST:event_lblImgExcelMouseClicked
 
     private void lblImgFieldlogMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImgFieldlogMouseEntered
-     this.lblImgFieldlog.setIcon(new ImageIcon(getClass().getResource("/ibfb/studyeditor/images/fieldlog2.png")));  
+        this.lblImgFieldlog.setIcon(new ImageIcon(getClass().getResource("/ibfb/studyeditor/images/fieldlog2.png")));
     }//GEN-LAST:event_lblImgFieldlogMouseEntered
 
     private void lblImgFieldlogMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImgFieldlogMouseExited
-       this.lblImgFieldlog.setIcon(new ImageIcon(getClass().getResource("/ibfb/studyeditor/images/fieldlog.png"))); 
+        this.lblImgFieldlog.setIcon(new ImageIcon(getClass().getResource("/ibfb/studyeditor/images/fieldlog.png")));
     }//GEN-LAST:event_lblImgFieldlogMouseExited
 
     private void lblImgRMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImgRMouseEntered
-       this.lblImgR.setIcon(new ImageIcon(getClass().getResource("/ibfb/studyeditor/images/rBig2.png")));  
+        if (this.lblImgR.isEnabled()) {
+            this.lblImgR.setIcon(new ImageIcon(getClass().getResource("/ibfb/studyeditor/images/rBig2.png")));
+        }
     }//GEN-LAST:event_lblImgRMouseEntered
 
     private void lblImgRMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImgRMouseExited
-      this.lblImgR.setIcon(new ImageIcon(getClass().getResource("/ibfb/studyeditor/images/rBig.png")));  
+        if (this.lblImgR.isEnabled()) {
+            this.lblImgR.setIcon(new ImageIcon(getClass().getResource("/ibfb/studyeditor/images/rBig.png")));
+        }
     }//GEN-LAST:event_lblImgRMouseExited
 
     private void lblImgExcelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImgExcelMouseEntered
-       this.lblImgExcel.setIcon(new ImageIcon(getClass().getResource("/ibfb/studyeditor/images/excelBig2.png")));  
+        this.lblImgExcel.setIcon(new ImageIcon(getClass().getResource("/ibfb/studyeditor/images/excelBig2.png")));
     }//GEN-LAST:event_lblImgExcelMouseEntered
 
     private void lblImgExcelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImgExcelMouseExited
-       this.lblImgExcel.setIcon(new ImageIcon(getClass().getResource("/ibfb/studyeditor/images/excelBig1.png")));  
+        this.lblImgExcel.setIcon(new ImageIcon(getClass().getResource("/ibfb/studyeditor/images/excelBig1.png")));
     }//GEN-LAST:event_lblImgExcelMouseExited
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroupExport;
     public javax.swing.JRadioButton jRadioButtonToExcel;
@@ -172,4 +178,9 @@ public final class exportVisualPanel1 extends JPanel {
     private javax.swing.JLabel lblImgFieldlog;
     private javax.swing.JLabel lblImgR;
     // End of variables declaration//GEN-END:variables
+
+    void enabledR(boolean b) {
+        this.jRadioButtonToR.setEnabled(b);
+        this.lblImgR.setEnabled(b);
+    }
 }
