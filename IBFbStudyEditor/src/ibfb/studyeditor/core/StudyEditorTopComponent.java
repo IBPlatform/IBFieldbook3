@@ -1781,7 +1781,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         
 
           if(!hasGY()){
-            DialogUtil.displayWarning("NO GY COLUMN");
+            DialogUtil.displayWarning(NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.noGY"));
            
           }
         
