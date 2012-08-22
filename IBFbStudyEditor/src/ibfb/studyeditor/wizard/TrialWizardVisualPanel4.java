@@ -391,7 +391,7 @@ public final class TrialWizardVisualPanel4 extends JPanel {
                         outCrossName = "";
                     }
                     tableModel.setValueAt(outCrossName, i, crossColumn);
-                    System.out.println("EL CROSSNAME: " + outCrossName);
+                    //System.out.println("EL CROSSNAME: " + outCrossName);
                 }
 
                 if (selHistColumn >= 0) {
@@ -401,7 +401,7 @@ public final class TrialWizardVisualPanel4 extends JPanel {
                         outSelectionHistory = "";
                     }
                     tableModel.setValueAt(outSelectionHistory, i, selHistColumn);
-                    System.out.println("HIstoria de seleccion: " + outSelectionHistory);
+                   // System.out.println("HIstoria de seleccion: " + outSelectionHistory);
                 }
 
 
