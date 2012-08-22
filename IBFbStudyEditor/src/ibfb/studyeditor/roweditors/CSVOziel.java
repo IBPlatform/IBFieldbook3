@@ -114,7 +114,11 @@ public class CSVOziel {
             for (int i = 0; i < tot; i++) {
                 String valor = tableModel.getVariateList().get(i).getVariateName();
                 //if (!valor.equals("GY")) {
-                    csvOutput.write(valor);
+                    
+                if(valor.isEmpty()){
+                    valor=".";
+                }
+                csvOutput.write(valor);
                 //}
             }
 
@@ -149,7 +153,7 @@ public class CSVOziel {
                     try {
                         csvOutput.write(modeloFiltro.getValueAt(i, modeloFiltro.findColumn(valor)).toString());
                     } catch (NullPointerException ex) {
-                        String cad = null;
+                        String cad = ".";
                         csvOutput.write(cad);
                     }
                 }
@@ -276,14 +280,23 @@ public class CSVOziel {
 
             for (int i = 0; i < total; i++) {
 
+                if(trialColumn>=0){
                 csvOutput.write(tableModel.getValueAt(i, trialColumn).toString());
+                }
+                if(repColumn>=0){
                 csvOutput.write(tableModel.getValueAt(i, repColumn).toString());
+                }
+                if(blockColumn>=0){
                 csvOutput.write(tableModel.getValueAt(i, blockColumn).toString());
+                }
+                if(entryColumn>=0){
                 csvOutput.write(tableModel.getValueAt(i, entryColumn).toString());
+                }
                 try {
 //                    csvOutput.write(tableModel.getValueAt(i, tableModel.findColumn("GY")).toString());
                 } catch (NullPointerException ex) {
-                    String cad = null;
+                    String cad = ".";
+                    
                     csvOutput.write(cad);
                 }
 
@@ -295,7 +308,7 @@ public class CSVOziel {
                         try {
                             csvOutput.write(tableModel.getValueAt(i, tableModel.findColumn(valor)).toString());
                         } catch (NullPointerException ex) {
-                            String cad = null;
+                            String cad = ".";
                             csvOutput.write(cad);
                         }
                     //}
