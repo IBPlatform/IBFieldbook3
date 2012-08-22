@@ -1762,30 +1762,29 @@ public final class StudyEditorTopComponent extends TopComponent {
         excelExporter.exportToExcel(triallOption, trialStart, trialEnd, trialSelected);
     }
 
-    
-    public boolean hasGY(){
-       boolean hasGY=false;
-       
-          ObservationsTableModel modeloOriginal = (ObservationsTableModel) jTableObservations.getModel();
+    public boolean hasGY() {
+        boolean hasGY = false;
 
-          if(modeloOriginal.findColumn("GY")>=0){
-            
-           hasGY=true;
+        ObservationsTableModel modeloOriginal = (ObservationsTableModel) jTableObservations.getModel();
+
+        if (modeloOriginal.findColumn("GY") >= 0) {
+
+            hasGY = true;
         }
-     
-          return hasGY;
-    }
-    
-    private void jButtonCSVTraitsExport1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCSVTraitsExport1ActionPerformed
-       
-        
 
-          if(!hasGY()){
+        return hasGY;
+    }
+
+    private void jButtonCSVTraitsExport1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCSVTraitsExport1ActionPerformed
+
+
+
+        if (!hasGY()) {
             DialogUtil.displayWarning(NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.noGY"));
-           
-          }
-        
-        
+
+        }
+
+
         if (!iniciaExportWizard2()) {
             return;
         }
@@ -2132,9 +2131,9 @@ public final class StudyEditorTopComponent extends TopComponent {
     }
 
     private void exportToR() {
-        
-        
-    
+
+
+
         FieldbookRExport.exportToR(jTableObservations, trialFile, csv, triallOption, trialStart, trialEnd, trialSelected);
     }
 
@@ -2732,7 +2731,7 @@ public final class StudyEditorTopComponent extends TopComponent {
 
                     break;
                 case 1://to R
-  
+
                     exportToR();
                     break;
                 case 2:// to excel file

@@ -38,10 +38,19 @@ public class DesignsUtils {
     ArrayList<KSValues> rep4;
     String[] cabeceras;
     int[] posiciones;
+    int germplasmEntries = 0;
 
     public DesignsUtils(JTable jTableDesign, JTextField jTextFieldEntries) {
         this.jTableDesign = jTableDesign;
         this.jTextFieldEntries = jTextFieldEntries;
+    }
+
+    public int getGermplasmEntries() {
+        return germplasmEntries;
+    }
+
+    public void setGermplasmEntries(int germplasmEntries) {
+        this.germplasmEntries = germplasmEntries;
     }
 
     /**
@@ -456,13 +465,12 @@ public class DesignsUtils {
                     NbPreferences.forModule(MacthColumsWizardPanel1.class).put("ROW", "ROW");
                     NbPreferences.forModule(MacthColumsWizardPanel1.class).put("COL", "COLUMN");
 
-
-
-
-
                 } else {
 
                     String[] hs = getHeadersFromFile(designBean.getUserDefinedDesign());
+
+
+
 
                     if (hs.length < 7) {
 
@@ -491,6 +499,10 @@ public class DesignsUtils {
                             jTableDesign.setValueAt(block, fila, 3);
                             jTableDesign.setValueAt(blockPerReplicate, fila, 4);
                             jTableDesign.setValueAt(userDefinedDesign, fila, 5);
+
+                            if (this.getGermplasmEntries() != block) {
+                                DialogUtil.displayWarning(DesignsUtils.class, "DesignsUtils.noMathEntryNumber");
+                            }
 
 
 

@@ -21,8 +21,8 @@ import javax.swing.table.TableRowSorter;
 import org.openide.util.NbBundle;
 
 public final class TrialWizardVisualPanel9 extends JPanel {
-    private ResourceBundle bundle = NbBundle.getBundle(TrialWizardVisualPanel9.class);
 
+    private ResourceBundle bundle = NbBundle.getBundle(TrialWizardVisualPanel9.class);
     StudyEditorTopComponent studyWindow = TrialWizardWizardIterator.studyTopComponent;
     DefaultTableCellRenderer tcr = new DefaultTableCellRenderer();
     TableRowSorter<TableModel> sorter;
@@ -39,6 +39,7 @@ public final class TrialWizardVisualPanel9 extends JPanel {
         deshabilitaSorters();
         this.jTableDesign.getTableHeader().addMouseListener(new ColumnFitAdapter());
         designsUtils = new DesignsUtils(jTableDesign, jTextFieldEntries);
+        designsUtils.setGermplasmEntries(0);
         this.trialWizardWizardPanel9 = trialWizardWizardPanel9;
         jSpinnerTrial.setVisible(false);
         jRadioButtonFilter4.setVisible(false);
@@ -392,6 +393,8 @@ public final class TrialWizardVisualPanel9 extends JPanel {
         int square = (int) Math.sqrt(Integer.parseInt(this.jTextFieldEntries.getText()));
         boolean conLattice = false;
         boolean conAlpha = false;
+        designsUtils.setGermplasmEntries(Integer.parseInt(this.jTextFieldEntries.getText()));
+
 
         if (!hayFactores) {
             conAlpha = true;
@@ -406,9 +409,9 @@ public final class TrialWizardVisualPanel9 extends JPanel {
             conLattice = true;
         }
 
-        
-        conAlpha=designsUtils.alphaIsValid(numEntries); 
-        
+
+        conAlpha = designsUtils.alphaIsValid(numEntries);
+
         String inicio = designsUtils.assignMainCellEditor(conAlpha, conLattice);
 
         for (int j = 0; j < instances; j++) {
@@ -424,7 +427,7 @@ public final class TrialWizardVisualPanel9 extends JPanel {
         studyWindow.jSpinnerTrialStudy.setModel(modeloDesign);
 
         if (conAlpha) {
-            int selected= designsUtils.assignCellEditorAlpha(numEntries); 
+            int selected = designsUtils.assignCellEditorAlpha(numEntries);
             designsUtils.generateBlocksSize(selected);
             designsUtils.assignCellEditorBlockSize();
             trialWizardWizardPanel9.change();
@@ -440,7 +443,8 @@ public final class TrialWizardVisualPanel9 extends JPanel {
 
     /**
      * All designs are filled correctly?
-     * @return 
+     *
+     * @return
      */
     public boolean allDesignsFilled() {
         boolean allDesignsFilled = true;
@@ -451,10 +455,10 @@ public final class TrialWizardVisualPanel9 extends JPanel {
                 break;
             }
         }
-        
+
         return allDesignsFilled;
     }
-    
+
     private void deshabilitaSorters() {
         for (int i = 0; i < 6; i++) {
             sorter.setSortable(i, false);
