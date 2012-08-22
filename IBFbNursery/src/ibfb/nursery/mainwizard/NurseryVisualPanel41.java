@@ -9,6 +9,7 @@ import ibfb.nursery.filters.ExcelFiltro;
 import ibfb.nursery.models.GermplasmEntriesTableModel;
 import ibfb.query.classes.GermplsmRecord;
 import ibfb.query.classes.GpidInfClass;
+import ibfb.query.classes.NamesRecord;
 import ibfb.query.core.QueryCenter;
 import ibfb.settings.core.FieldbookSettings;
 import ibfb.workbook.api.GermplasmAssigmentTool;
@@ -20,9 +21,7 @@ import java.awt.Cursor;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -56,6 +55,7 @@ public final class NurseryVisualPanel41 extends JPanel {
     private ArrayList<String> wheatColumnsforSearch;
     private QueryCenter queryReadCenter;
     private Connection dmsLocal, dmsCentral, gmsLocal, gmsCentral;
+    private String outSelectionHistory;
 
     public NurseryVisualPanel41() {
         initComponents();
@@ -592,7 +592,7 @@ public final class NurseryVisualPanel41 extends JPanel {
 
         wheatColumnsforSearch = new ArrayList<String>();
         GermplasmEntriesTableModel tableModel = (GermplasmEntriesTableModel) this.jTableEntries.getModel();
-
+        List<NamesRecord> listNL = null;
 
         if (tableModel.getRowCount() <= 0) {
             return;
@@ -633,30 +633,76 @@ public final class NurseryVisualPanel41 extends JPanel {
         }
 
 
-        if (crossColumn >= 0) {
-            GermplasmEntriesTableModel.setIsFromCrossInfo(true);
+        int selHistColumn = tableModel.findColumn("SELECTION HISTORY");
 
-            for (int i = 0; i < tableModel.getRowCount(); i++) {
+        GermplasmEntriesTableModel.setIsFromCrossInfo(true);
 
-                GermplsmRecord germplsmRecord = new GermplsmRecord();
-                GpidInfClass gpidinfClass = new GpidInfClass();
+        for (int i = 0; i < tableModel.getRowCount(); i++) {
 
-                int gid = Integer.parseInt(tableModel.getValueAt(i, gidColumn).toString());
-                germplsmRecord = queryReadCenter.getGermplsmRecord(gid);
+            GermplsmRecord germplsmRecord = new GermplsmRecord();
+            GpidInfClass gpidinfClass = new GpidInfClass();
 
-                try {
-                    String outCrossName = queryReadCenter.arma_pedigree(germplsmRecord.getGid(), 0, gpidinfClass, 0, 0, 0, 0);
-                    //System.out.println("EL CROSSNAME: " + outCrossName);
+            int gid = Integer.parseInt(tableModel.getValueAt(i, gidColumn).toString());
+            germplsmRecord = queryReadCenter.getGermplsmRecord(gid);
+
+
+            try {
+
+                outSelectionHistory = "";
+                String outCrossName = "";
+
+                if (crossColumn >= 0) {
+                    outCrossName = queryReadCenter.arma_pedigree(germplsmRecord.getGid(), 0, gpidinfClass, 0, 0, 0, 0);
+                    if (outCrossName.isEmpty()) {
+                        outCrossName = "";
+                    }
                     tableModel.setValueAt(outCrossName, i, crossColumn);
-
-                } catch (Exception e) {
-                    System.out.println("ERROR" + e);
+                  //  System.out.println("EL CROSSNAME: " + outCrossName);
                 }
+
+                if (selHistColumn >= 0) {
+                    listNL = queryReadCenter.getNamesList(germplsmRecord.getGid());
+                    getFieldsFromArrayNames(listNL);
+                    if (outSelectionHistory.isEmpty()) {
+                        outSelectionHistory = "";
+                    }
+                    tableModel.setValueAt(outSelectionHistory, i, selHistColumn);
+                   // System.out.println("HIstoria de seleccion: " + outSelectionHistory);
+                }
+
+
+            } catch (Exception e) {
+                System.out.println("ERROR" + e);
             }
-            GermplasmEntriesTableModel.setIsFromCrossInfo(false);
-
         }
+        GermplasmEntriesTableModel.setIsFromCrossInfo(false);
 
+
+
+    }
+
+    private void getFieldsFromArrayNames(List<NamesRecord> p_ALN) {
+        if (p_ALN.isEmpty()) {
+            return;
+        }
+        try {
+            for (NamesRecord namesrecord : p_ALN) {
+                if (namesrecord.getNtype() == 1027 || namesrecord.getNtype() == 1028) {
+                    if (namesrecord.getNstat() == 1) {
+                        if (!namesrecord.getNval().startsWith("###")) {
+                            outSelectionHistory = namesrecord.getNval();
+                        }
+                    }
+                    if (outSelectionHistory.equals("")) {
+                        if (!namesrecord.getNval().startsWith("###")) {
+                            outSelectionHistory = namesrecord.getNval();
+                        }
+                    }
+                }
+
+            }
+        } catch (Exception e) {
+        }
     }
 
     private void loadQueryCenter() {
