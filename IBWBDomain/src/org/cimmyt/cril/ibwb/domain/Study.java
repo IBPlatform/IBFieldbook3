@@ -26,7 +26,11 @@ public class Study extends BaseFilter implements Serializable{
     public static final String STYPE_EXPERIMENT ="E";
     public static final String STYPE_NURSERY ="N";
     public static final String STYPE_SURVEY ="S";
-    public static final String STYPE_TRIAL ="T";    
+    public static final String STYPE_TRIAL ="T";  
+    
+    public static final int SSTATUS_ACTIVE = 0;
+    public static final int SSTATUS_DELETED = 9;
+
     
     private static final long serialVersionUID = 1L;
     @Id

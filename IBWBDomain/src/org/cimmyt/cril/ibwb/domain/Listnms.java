@@ -24,6 +24,11 @@ public class Listnms extends BaseFilter implements Serializable {
     public static final String LIST_TYPE_LIST = "LST";
     public static final String LIST_TYPE_HARVEST = "Harvest";
     
+    public static final int LSSTATUS_FOLDER = 0;
+    public static final int LSSTATUS_OPEN_LIST = 1;
+    public static final int LSSTATUS_DELETED = 9;
+    
+    
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)

@@ -17,7 +17,15 @@ import org.cimmyt.cril.ibwb.domain.filter.BaseFilter;
 @Entity
 @Table(name = "listdata")
 public class Listdata extends BaseFilter implements Serializable {
-
+    /**
+     * Status for active list entry
+     */
+    public static final int LRSTATUS_ACTIVE = 0;
+    /*
+     * Status for deleted list entry
+     */
+    public static final int LSSTATUS_DELETED = 9;
+    
     private static final long serialVersionUID = 1L;
     
     @EmbeddedId
