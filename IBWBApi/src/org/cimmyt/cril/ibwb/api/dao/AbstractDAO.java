@@ -224,6 +224,13 @@ public abstract class AbstractDAO<T, PK extends Serializable> extends HibernateD
         }
     }
 
+    public void setQueryNotEqual(String campo, Integer valor) {
+        if (valor != null) {
+            criterions.add(HelperAbstractDAO.getQueryNotEqual(campo, valor));
+        }
+    }
+    
+
     public void setQueryPivote(String campo, Integer valor) {
         if (valor != null) {
             pivots.add(HelperAbstractDAO.getQueryAP(campo, valor));
