@@ -1,15 +1,18 @@
 package ibfb.studyexplorer.explorer.listNames;
 
 import java.util.List;
+import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 import org.cimmyt.cril.ibwb.api.AppServicesProxy;
 import org.cimmyt.cril.ibwb.api.Services;
+import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 import org.cimmyt.cril.ibwb.commongui.TableBindingUtil;
 import org.cimmyt.cril.ibwb.domain.Listnms;
 import org.openide.util.NbBundle;
 import org.openide.windows.TopComponent;
 import org.openide.windows.WindowManager;
 import org.netbeans.api.settings.ConvertAsProperties;
+import org.openide.NotifyDescriptor;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.util.Lookup;
@@ -28,7 +31,7 @@ persistenceType = TopComponent.PERSISTENCE_NEVER)
 @TopComponent.OpenActionRegistration(displayName = "#CTL_ListNamesExplorerAction",
 preferredID = "ListNamesExplorerTopComponent")
 public final class ListNamesExplorerTopComponent extends TopComponent {
-
+    private ResourceBundle bundle = NbBundle.getBundle(ListNamesExplorerTopComponent.class);
     private List<Listnms> germplamList;
     
     public ListNamesExplorerTopComponent() {
@@ -78,6 +81,11 @@ public final class ListNamesExplorerTopComponent extends TopComponent {
         pMnuDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyexplorer/explorer/listNames/delete.png"))); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(pMnuDelete, org.openide.util.NbBundle.getMessage(ListNamesExplorerTopComponent.class, "ListNamesExplorerTopComponent.pMnuDelete.text")); // NOI18N
         pMnuDelete.setToolTipText(org.openide.util.NbBundle.getMessage(ListNamesExplorerTopComponent.class, "ListNamesExplorerTopComponent.pMnuDelete.toolTipText")); // NOI18N
+        pMnuDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pMnuDeleteActionPerformed(evt);
+            }
+        });
         popMnu.add(pMnuDelete);
 
         tblGermplasmList.setComponentPopupMenu(popMnu);
@@ -237,6 +245,10 @@ public final class ListNamesExplorerTopComponent extends TopComponent {
         openListDataWindow();
     }//GEN-LAST:event_btnOpenListActionPerformed
 
+    private void pMnuDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pMnuDeleteActionPerformed
+        deleteRecord();
+    }//GEN-LAST:event_pMnuDeleteActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnEdit;
@@ -283,7 +295,14 @@ public final class ListNamesExplorerTopComponent extends TopComponent {
         filter.setGlobalsearch(txtSearch.getText());
         germplamList = AppServicesProxy.getDefault().appServices().getListListnms(filter, 0, 0, false);
         lblListsFound.setText(germplamList.size() + " " + NbBundle.getMessage(ListNamesExplorerTopComponent.class, "ListNamesExplorerTopComponent.lblListsFound.text"));
-        TableBindingUtil.createColumnsFromDB(Listnms.class, germplamList, tblGermplasmList, "listid,listname,listdesc", "ListId,Name, Description");
+        
+        StringBuilder headers = new StringBuilder(bundle.getString("ListNamesExplorerTopComponent.headerListid"));
+        headers.append(",");
+        headers.append(bundle.getString("ListNamesExplorerTopComponent.headerListname"));
+        headers.append(",");
+        headers.append(bundle.getString("ListNamesExplorerTopComponent.headerListdesc"));
+        
+        TableBindingUtil.createColumnsFromDB(Listnms.class, germplamList, tblGermplasmList, "listid,listname,listdesc", headers.toString());
     }
 
     private void openListDataWindow() {
@@ -296,7 +315,8 @@ public final class ListNamesExplorerTopComponent extends TopComponent {
             ldwtc.open();
             ldwtc.requestActive();
         } else {
-            JOptionPane.showMessageDialog(this, "Please select a Germplasm List and press Open button", "List selection required", JOptionPane.INFORMATION_MESSAGE);
+            
+            JOptionPane.showMessageDialog(this, bundle.getString("ListNamesExplorerTopComponent.selectGermplasmList"),bundle.getString("ListNamesExplorerTopComponent.listRequired"), JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
@@ -307,5 +327,12 @@ public final class ListNamesExplorerTopComponent extends TopComponent {
     }
 
     private void deleteRecord() {
+         String confirmation =  bundle.getString("ListNamesExplorerTopComponent.deleteConfirmation");
+         String title = bundle.getString("ListNamesExplorerTopComponent.deleteTitle");
+         if (DialogUtil.displayConfirmation(confirmation,title, NotifyDescriptor.OK_CANCEL_OPTION)) {
+             Listnms listnms = germplamList.get(tblGermplasmList.getSelectedRow()); 
+             AppServicesProxy.getDefault().appServices().deleteListnms(listnms);
+             updateListNameTable();
+         }
     }
 }

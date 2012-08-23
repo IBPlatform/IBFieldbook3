@@ -3,6 +3,7 @@ package ibfb.studyexplorer.core.nodes;
 import ibfb.domain.core.SelectedExperiment;
 import ibfb.domain.core.Study;
 import ibfb.nursery.actions.OpenNurseryAction;
+import ibfb.studyexplorer.actions.DeleteStudyAction;
 import org.openide.nodes.Children;
 import org.openide.nodes.AbstractNode;
 import ibfb.studyexplorer.actions.OpenStudyAction;
@@ -26,7 +27,7 @@ public class StudyExperimentNode extends AbstractNode {
 
     @Override
     public Action[] getActions(boolean context) {
-        SystemAction[] actions = new SystemAction[1];
+        SystemAction[] actions = new SystemAction[2];
 
         if (study.getStudyType().equals("T")) {
 
@@ -34,6 +35,8 @@ public class StudyExperimentNode extends AbstractNode {
         } else {
             actions[0] = SystemAction.get(OpenNurseryAction.class);
         }
+        
+        actions[1] = SystemAction.get(DeleteStudyAction.class);
 
         return actions;
     }

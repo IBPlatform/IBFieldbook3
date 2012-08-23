@@ -1,10 +1,12 @@
 package ibfb.studyexplorer.explorer.listNames;
 
-
+import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 import java.util.Set;
 import org.cimmyt.cril.ibwb.api.AppServicesProxy;
 import org.cimmyt.cril.ibwb.api.Services;
+import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 import org.cimmyt.cril.ibwb.commongui.TableBindingUtil;
 import org.cimmyt.cril.ibwb.domain.Listdata;
 import org.cimmyt.cril.ibwb.domain.ListdataPK;
@@ -13,6 +15,7 @@ import org.openide.util.NbBundle;
 import org.openide.windows.TopComponent;
 import org.openide.windows.WindowManager;
 import org.netbeans.api.settings.ConvertAsProperties;
+import org.openide.NotifyDescriptor;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.util.Lookup;
@@ -24,22 +27,26 @@ autostore = false)
 persistenceType = TopComponent.PERSISTENCE_NEVER)
 @TopComponent.Registration(mode = "editor", openAtStartup = false)
 @ActionID(category = "Window", id = "ibfb.studyexplorer.explorer.listNames.ListDataWindowTopComponent")
-@ActionReference(path = "Menu/Window" /*, position = 333 */)
+@ActionReference(path = "Menu/Window" /*
+ * , position = 333
+ */)
 @TopComponent.OpenActionRegistration(displayName = "#CTL_ListDataWindowAction",
 preferredID = "ListDataWindowTopComponent")
 public final class ListDataWindowTopComponent extends TopComponent {
 
+    private ResourceBundle bundle = NbBundle.getBundle(ListDataWindowTopComponent.class);
     private Listnms parentListname;
+    private List<Listdata> listdataEntries;
 
     public ListDataWindowTopComponent(Listnms listnms) {
         this.parentListname = listnms;
         initComponents();
         String theName = NbBundle.getMessage(ListDataWindowTopComponent.class, "CTL_ListDataWindowTopComponent");
-        setName(theName + "("+listnms.getListname()+")");
+        setName(theName + "(" + listnms.getListname() + ")");
         setToolTipText(NbBundle.getMessage(ListDataWindowTopComponent.class, "HINT_ListDataWindowTopComponent"));
         this.parentListname = listnms;
         updateListData();
-       
+
     }
 
     public ListDataWindowTopComponent() {
@@ -52,6 +59,8 @@ public final class ListDataWindowTopComponent extends TopComponent {
     private void initComponents() {
         bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
+        popMnu = new javax.swing.JPopupMenu();
+        pMnuDelete = new javax.swing.JMenuItem();
         jLabel1 = new javax.swing.JLabel();
         txtListName = new javax.swing.JTextField();
         txtSearchText = new javax.swing.JTextField();
@@ -63,6 +72,18 @@ public final class ListDataWindowTopComponent extends TopComponent {
         txtDescription = new javax.swing.JTextField();
         lblListId = new javax.swing.JLabel();
         txtListId = new javax.swing.JTextField();
+        tblBarMenu = new javax.swing.JToolBar();
+        btnDelete = new javax.swing.JButton();
+
+        pMnuDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyexplorer/explorer/listNames/delete.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(pMnuDelete, org.openide.util.NbBundle.getMessage(ListDataWindowTopComponent.class, "ListDataWindowTopComponent.pMnuDelete.text")); // NOI18N
+        pMnuDelete.setToolTipText(org.openide.util.NbBundle.getMessage(ListDataWindowTopComponent.class, "ListDataWindowTopComponent.pMnuDelete.toolTipText")); // NOI18N
+        pMnuDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pMnuDeleteActionPerformed(evt);
+            }
+        });
+        popMnu.add(pMnuDelete);
 
         org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(ListDataWindowTopComponent.class, "ListDataWindowTopComponent.jLabel1.text")); // NOI18N
 
@@ -91,6 +112,8 @@ public final class ListDataWindowTopComponent extends TopComponent {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblListData.setComponentPopupMenu(popMnu);
+        tblListData.setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
         jScrollPane1.setViewportView(tblListData);
 
         org.openide.awt.Mnemonics.setLocalizedText(lblEntriesFound, org.openide.util.NbBundle.getMessage(ListDataWindowTopComponent.class, "ListDataWindowTopComponent.lblEntriesFound.text")); // NOI18N
@@ -109,66 +132,82 @@ public final class ListDataWindowTopComponent extends TopComponent {
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${parentListname.listid}"), txtListId, org.jdesktop.beansbinding.BeanProperty.create("text"));
         bindingGroup.addBinding(binding);
 
+        tblBarMenu.setFloatable(false);
+        tblBarMenu.setRollover(true);
+
+        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyexplorer/explorer/listNames/delete.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(btnDelete, org.openide.util.NbBundle.getMessage(ListDataWindowTopComponent.class, "ListDataWindowTopComponent.btnDelete.text")); // NOI18N
+        btnDelete.setToolTipText(org.openide.util.NbBundle.getMessage(ListDataWindowTopComponent.class, "ListDataWindowTopComponent.btnDelete.toolTipText")); // NOI18N
+        btnDelete.setFocusable(false);
+        btnDelete.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnDelete.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+        tblBarMenu.add(btnDelete);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 439, Short.MAX_VALUE)
-                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(24, 24, 24)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel3)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblListId)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtSearchText, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblEntriesFound)
-                        .addGap(40, 40, 40))
+                            .addComponent(txtDescription)
+                            .addComponent(txtListName)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtListName, javax.swing.GroupLayout.DEFAULT_SIZE, 373, Short.MAX_VALUE)
-                            .addComponent(txtDescription, javax.swing.GroupLayout.DEFAULT_SIZE, 373, Short.MAX_VALUE))
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtListId, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(44, 44, 44)
+                                .addComponent(txtSearchText, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(35, 35, 35)
+                                .addComponent(lblEntriesFound))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblListId)
+                                .addGap(48, 48, 48)
+                                .addComponent(txtListId, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tblBarMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(4, 4, 4)
+                .addComponent(tblBarMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblListId)
                     .addComponent(txtListId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1)
                     .addComponent(txtListName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtSearchText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblEntriesFound, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtSearchText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblEntriesFound, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(jLabel2)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
-                .addGap(20, 20, 20))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         bindingGroup.bind();
@@ -177,13 +216,26 @@ public final class ListDataWindowTopComponent extends TopComponent {
     private void txtSearchTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchTextKeyReleased
         updateListData();
 }//GEN-LAST:event_txtSearchTextKeyReleased
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        deleteRecord();
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void pMnuDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pMnuDeleteActionPerformed
+        deleteRecord();
+    }//GEN-LAST:event_pMnuDeleteActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDelete;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblEntriesFound;
     private javax.swing.JLabel lblListId;
+    private javax.swing.JMenuItem pMnuDelete;
+    private javax.swing.JPopupMenu popMnu;
+    private javax.swing.JToolBar tblBarMenu;
     private javax.swing.JTable tblListData;
     private javax.swing.JTextField txtDescription;
     private javax.swing.JTextField txtListId;
@@ -221,7 +273,6 @@ public final class ListDataWindowTopComponent extends TopComponent {
     public void setParentListname(Listnms parentListname) {
         this.parentListname = parentListname;
     }
-  
 
     private void updateListData() {
 
@@ -231,14 +282,28 @@ public final class ListDataWindowTopComponent extends TopComponent {
         filter.setGlobalsearch(txtSearchText.getText());
         //int total = AppServicesProxy.getDefault().appServices().getTotalListdata(filter);
 
-        List<Listdata> listdata = AppServicesProxy.getDefault().appServices().getListListdata(filter, 0, 0, false);
-        lblEntriesFound.setText(listdata.size() + " Entries found");
-        TableBindingUtil.createColumnsFromDB(Listdata.class, listdata, tblListData, "gid,desig,entrycd,source,entryid", "GID,Designation,EntryCD,Source,Entry Id");
+        listdataEntries = AppServicesProxy.getDefault().appServices().getListListdata(filter, 0, 0, false);
+
+        StringBuilder header = new StringBuilder(bundle.getString("ListDataWindowTopComponent.headerGid"));
+        header.append(",");
+        header.append(bundle.getString("ListDataWindowTopComponent.headerDesignation"));
+        header.append(",");
+        header.append(bundle.getString("ListDataWindowTopComponent.headerEntryCD"));
+        header.append(",");
+        header.append(bundle.getString("ListDataWindowTopComponent.headerSource"));
+        header.append(",");
+        header.append(bundle.getString("ListDataWindowTopComponent.headerEntryId"));
+
+
+        lblEntriesFound.setText(listdataEntries.size() + " " + bundle.getString("ListDataWindowTopComponent.entriesFound"));
+        TableBindingUtil.createColumnsFromDB(Listdata.class, listdataEntries, tblListData, "gid,desig,entrycd,source,entryid", header.toString());
 
     }
-    
+
     /**
-     * Return current instance of TraitEditorTopComponent using current Traits object
+     * Return current instance of TraitEditorTopComponent using current Traits
+     * object
+     *
      * @param scales Scale object to check
      * @return TraitEditorTopComponent instance if found or null if not found
      */
@@ -260,6 +325,19 @@ public final class ListDataWindowTopComponent extends TopComponent {
             }
         }
         return listDataWindowTopComponent;
-    }    
-    
+    }
+
+    private void deleteRecord() {
+        String confirmation = bundle.getString("ListDataWindowTopComponent.deleteConfirmation");
+        String title = bundle.getString("ListDataWindowTopComponent.deleteTitle");
+        if (DialogUtil.displayConfirmation(confirmation, title, NotifyDescriptor.OK_CANCEL_OPTION)) {
+
+            int[] selectedRows = tblListData.getSelectedRows();
+
+            for (int index = 0; index < selectedRows.length; index++) {
+                AppServicesProxy.getDefault().appServices().deleteListData(listdataEntries.get(selectedRows[index]) );
+            }
+            updateListData();
+        }
+    }
 }
