@@ -25,6 +25,7 @@ import org.cimmyt.cril.ibwb.domain.Study;
 import org.cimmyt.cril.ibwb.domain.Variate;
 import org.cimmyt.cril.ibwb.provider.datasources.DMSReaderProxy;
 import org.cimmyt.cril.ibwb.provider.utils.ConverterDTOtoDomain;
+import org.cimmyt.cril.ibwb.provider.utils.DecimalUtils;
 import org.openide.util.Exceptions;
 
 /**
@@ -482,6 +483,17 @@ public class HelperWorkbookRead {
             List<Object> row = new ArrayList<Object>();
             for (Factor factors : factorsDtoEntrys) {
                 try {
+                    // fill factors as integers
+                    // if facto is numeric, then check if its scale number an method enumerated
+                    if (factors.getLtype().equals("N") ) {
+                        Double value = (Double)factors.getLevel(i);
+                        if (DecimalUtils.isIntegerValue(value)) {
+                            row.add(DecimalUtils.getValueAsInteger(value));
+                        }
+                        row.add(i);
+                       } else {
+                        row.add(factors.getLevel(i));
+                    }                    
                     row.add(factors.getLevel(i));
                 } catch (Exception e) {
                     if (factors.getLtype().equals("N")) {

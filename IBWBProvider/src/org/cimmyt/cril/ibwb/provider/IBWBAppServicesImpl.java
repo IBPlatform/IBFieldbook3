@@ -2815,4 +2815,42 @@ public class IBWBAppServicesImpl implements AppServices {
         }
         return cimmytWheatName;
     }
+    
+    /**
+     * Deletes logically a study from database
+     *
+     * @param study Study to delete
+     */
+    @Override
+    public void deleteStudy(Study study) {
+        // only delete from local studys
+        if (study != null && study.getStudyid().intValue() < 0) {
+           serviciosLocal.deleteStudy(study);
+        }
+    }
+    
+     /**
+     * Deletes logically a list
+     * @param listnms List to delete
+     */
+    @Override
+    public void deleteListnms(Listnms listnms) {
+        // only delete list from local database
+        if (listnms != null && listnms.getListid().intValue() < 0) {
+            serviciosLocal.deleteListnms(listnms);
+        }
+    }
+    
+    /**
+     * Delete logically a germplasm entry
+     *
+     * @param listdata Entro to delete
+     */
+    @Override
+    public void deleteListData(Listdata listdata) {
+        // only delete from local databaase 
+        if (listdata != null && listdata.getListdataPK().getListid().intValue() < 0 ) {
+            serviciosLocal.deleteListdata(listdata);
+        }
+    }
 }

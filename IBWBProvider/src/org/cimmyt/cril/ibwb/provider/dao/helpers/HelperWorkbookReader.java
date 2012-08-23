@@ -19,6 +19,7 @@ import org.cimmyt.cril.ibwb.domain.DataC;
 import org.cimmyt.cril.ibwb.domain.DataN;
 import org.cimmyt.cril.ibwb.domain.Variate;
 import org.cimmyt.cril.ibwb.provider.dao.DMSReaderDAO;
+import org.cimmyt.cril.ibwb.provider.utils.DecimalUtils;
 import org.hibernate.Hibernate;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;

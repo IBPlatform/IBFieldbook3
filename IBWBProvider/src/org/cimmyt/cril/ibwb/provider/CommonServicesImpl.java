@@ -1038,7 +1038,7 @@ public class CommonServicesImpl implements CommonServices {
 
     @Override
     public void deleteListdata(Listdata listdata) {
-        this.listdataDAO.delete(listdata);
+        this.listdataDAO.logicalDelete(listdata);
     }
 
 //    public Listdata getListdata(Listdata listdata) {
@@ -1081,7 +1081,9 @@ public class CommonServicesImpl implements CommonServices {
 
     @Override
     public void deleteListnms(Listnms listnms) {
-        this.listnmsDAO.delete(listnms);
+        // first delete all entries
+        this.listdataDAO.logicalDeleteAllEntries(listnms.getListid());
+        this.listnmsDAO.logicalDelete(listnms);
     }
 
     public Listnms getListnms(Listnms listnms) {
@@ -1877,7 +1879,7 @@ public class CommonServicesImpl implements CommonServices {
 
     @Override
     public void deleteStudy(Study study) {
-        this.studyDAO.delete(study);
+        this.studyDAO.logicalDelete(study);
     }
 
     public Study getStudy(Study study) {

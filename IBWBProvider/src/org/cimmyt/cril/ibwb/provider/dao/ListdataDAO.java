@@ -1,6 +1,7 @@
 package org.cimmyt.cril.ibwb.provider.dao;
 
 import java.sql.SQLException;
+import java.util.List;
 import org.cimmyt.cril.ibwb.api.dao.AbstractDAO;
 import org.cimmyt.cril.ibwb.api.dao.utils.ValidatingDataType;
 import org.cimmyt.cril.ibwb.domain.Listdata;
@@ -45,12 +46,18 @@ public class ListdataDAO extends AbstractDAO<Listdata, ListdataPK> {
     protected void buildCriteria(DetachedCriteria criteria, Listdata filter) {
         if (filter.getListdataPK() != null && filter.getListdataPK().getListid() != null) {
             Criterion critListId = Restrictions.eq("listdataPK.listid", filter.getListdataPK().getListid());
+
+            // filter only active entries
+            Criterion activeEntries = Restrictions.eq("lrstatus", Listdata.LRSTATUS_ACTIVE);
+
             //criteria.add(Restrictions.eq("listdataPK.listid", filter.getListdataPK().getListid()));
             //} 
             if (filter.getGlobalsearch() != null && !filter.getGlobalsearch().isEmpty()) {
                 Criterion critDesig = Restrictions.like("desig", filter.getGlobalsearch(), MatchMode.ANYWHERE);
                 Criterion critEntrycd = Restrictions.like("entrycd", filter.getGlobalsearch(), MatchMode.ANYWHERE);
                 Criterion critSource = Restrictions.like("source", filter.getGlobalsearch(), MatchMode.ANYWHERE);
+
+
                 Disjunction disjunction = Restrictions.disjunction();
                 disjunction.add(critDesig);
                 disjunction.add(critEntrycd);
@@ -69,19 +76,19 @@ public class ListdataDAO extends AbstractDAO<Listdata, ListdataPK> {
                     disjunction.add(Restrictions.eq("listdataPK.gid", number));
                     disjunction.add(Restrictions.eq("entryid", number));
                 }
+                criteria.add(activeEntries);
                 criteria.add(Restrictions.and(critListId, disjunction));
+
             } else {
+                criteria.add(activeEntries);
                 criteria.add(critListId);
             }
 
 
 
         }
-        //if (isCentral()) {
+        // always sort in ascendant way
         criteria.addOrder(Order.asc("entryid"));
-        //} else {
-        //    criteria.addOrder(Order.desc("entryid"));
-        //}
     }
 
     @Override
@@ -208,5 +215,42 @@ public class ListdataDAO extends AbstractDAO<Listdata, ListdataPK> {
             result--;
         }
         return result--;
+    }
+
+    /**
+     * Delete logically a germplasm entry
+     *
+     * @param listdata Entro to delete
+     */
+    public void logicalDelete(Listdata listdata) {
+        listdata = read(listdata.getListdataPK());
+        listdata.setLrstatus(Listdata.LSSTATUS_DELETED);
+        getHibernateTemplate().update(listdata);
+    }
+
+    /**
+     * Deletes logically a list of germplasm entries
+     *
+     * @param listdataEntries List of germplasm list entries to delete
+     */
+    public void logicalDelete(List<Listdata> listdataEntries) {
+        for (Listdata listdata : listdataEntries) {
+            logicalDelete(listdata);
+        }
+    }
+
+    /**
+     * Deletes logically all entries of a list
+     *
+     * @param listId listid to delete
+     */
+    public void logicalDeleteAllEntries(final Integer listId) {
+        final String updateListdataStatus = " update Listdata listdata set listdata.lrstatus = " 
+                + Listdata.LSSTATUS_DELETED + " where listdata.listdataPK.listid = " + listId;
+        try {
+            getHibernateTemplate().bulkUpdate(updateListdataStatus);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

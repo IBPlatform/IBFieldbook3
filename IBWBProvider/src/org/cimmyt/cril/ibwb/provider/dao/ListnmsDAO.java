@@ -85,7 +85,7 @@ public class ListnmsDAO extends AbstractDAO<Listnms, Integer> {
     @Override
     public String getConsulta(Listnms filtro) {
         String query = "from Listnms as l";
-        
+
         if (filtro.getGlobalsearch() == null) {
             setQuery("l.listid", filtro.getListid());
             setQuery("l.listname", filtro.getListname());
@@ -94,7 +94,9 @@ public class ListnmsDAO extends AbstractDAO<Listnms, Integer> {
             setQuery("l.listuid", filtro.getListuid());
             setQuery("l.listdesc", filtro.getListdesc());
             setQuery("l.lhierarchy", filtro.getLhierarchy());
-            setQuery("l.liststatus", filtro.getListstatus());
+            //setQuery("l.liststatus", filtro.getListstatus());
+            // only active lists
+            setQueryNotEqual("l.liststatus", Listnms.LSSTATUS_DELETED);
         } else {
             global = true;
             if (ValidatingDataType.isNumeric(filtro.getGlobalsearch())) {
@@ -105,11 +107,16 @@ public class ListnmsDAO extends AbstractDAO<Listnms, Integer> {
                 setQuery("l.listuid", Integer.valueOf(filtro.getGlobalsearch()));
                 setQueryInTo("l.listdesc", filtro.getGlobalsearch());
                 setQuery("l.lhierarchy", Integer.valueOf(filtro.getGlobalsearch()));
-                setQuery("l.liststatus", Integer.valueOf(filtro.getGlobalsearch()));
+                //setQuery("l.liststatus", Integer.valueOf(filtro.getGlobalsearch()));
+                // only active lists
+                setQueryNotEqual("l.liststatus", Listnms.LSSTATUS_DELETED);                        
             } else {
                 setQueryInTo("l.listname", filtro.getGlobalsearch());
                 setQueryInTo("l.listtype", filtro.getGlobalsearch());
                 setQueryInTo("l.listdesc", filtro.getGlobalsearch());
+                // only active lists
+                setQueryNotEqual("l.liststatus", Listnms.LSSTATUS_DELETED);                        
+                
             }
         }
         return query;
@@ -129,10 +136,21 @@ public class ListnmsDAO extends AbstractDAO<Listnms, Integer> {
                         DetachedCriteria criteria = DetachedCriteria.forClass(Listnms.class);
                         criteria.add(Restrictions.ne("listid", 0));
                         criteria.add(Restrictions.ne("liststatus", 0));
+                        criteria.add(Restrictions.ne("liststatus", 9));
                         return getHibernateTemplate().findByCriteria(criteria);
                     }
                 });
 
         return resultList;
+    }
+    
+    /**
+     * Deletes logically a list
+     * @param listnms List to delete
+     */
+    public void logicalDelete(Listnms listnms) {
+        listnms = read(listnms.getListid());
+        listnms.setListstatus(Listnms.LSSTATUS_DELETED);
+        getHibernateTemplate().update(listnms);
     }
 }

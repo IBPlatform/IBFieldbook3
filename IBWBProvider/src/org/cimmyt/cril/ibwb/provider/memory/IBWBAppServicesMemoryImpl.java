@@ -1320,4 +1320,19 @@ public class IBWBAppServicesMemoryImpl implements AppServices {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
+    @Override
+    public void deleteStudy(Study study) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void deleteListnms(Listnms listnms) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void deleteListData(Listdata listdata) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
 }
