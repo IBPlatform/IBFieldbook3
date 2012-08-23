@@ -675,7 +675,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                 .addGap(33, 33, 33)
                 .addComponent(lblStudyConditions)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 515, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 571, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -784,7 +784,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                 .addContainerGap()
                 .addComponent(pnlTrialInformationFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 635, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 695, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -883,7 +883,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                 .addContainerGap()
                 .addComponent(pnlExperimentalConditionFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 635, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 695, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -990,7 +990,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                 .addContainerGap()
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 611, Short.MAX_VALUE)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 667, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1018,7 +1018,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         pnlOtherTreatmentLayout.setVerticalGroup(
             pnlOtherTreatmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlOtherTreatmentLayout.createSequentialGroup()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 599, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -1175,9 +1175,9 @@ public final class StudyEditorTopComponent extends TopComponent {
             pnlExperimentalDesignLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlExperimentalDesignLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(pnlExperimConditionsFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlExperimConditionsFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 595, Short.MAX_VALUE)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 651, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1277,7 +1277,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                     .addGroup(jPanelTraitsLayout.createSequentialGroup()
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(pnlSelectList, javax.swing.GroupLayout.DEFAULT_SIZE, 577, Short.MAX_VALUE))
+                        .addComponent(pnlSelectList, javax.swing.GroupLayout.DEFAULT_SIZE, 633, Short.MAX_VALUE))
                     .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelTraitsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1297,7 +1297,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         );
         pnlTraitsLayout.setVerticalGroup(
             pnlTraitsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelTraits, javax.swing.GroupLayout.DEFAULT_SIZE, 736, Short.MAX_VALUE)
+            .addComponent(jPanelTraits, javax.swing.GroupLayout.DEFAULT_SIZE, 792, Short.MAX_VALUE)
         );
 
         jTabbedPaneEditor.addTab(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.pnlTraits.TabConstraints.tabTitle"), pnlTraits); // NOI18N
@@ -1413,6 +1413,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         btnPrintLabels.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyeditor/images/print24.png"))); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(btnPrintLabels, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.btnPrintLabels.text")); // NOI18N
         btnPrintLabels.setToolTipText(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.btnPrintLabels.toolTipText")); // NOI18N
+        btnPrintLabels.setEnabled(false);
         btnPrintLabels.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnPrintLabels.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnPrintLabels.addActionListener(new java.awt.event.ActionListener() {
@@ -1435,6 +1436,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         jButtonCSVTraitsExport1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyeditor/images/export.png"))); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(jButtonCSVTraitsExport1, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jButtonCSVTraitsExport1.text")); // NOI18N
         jButtonCSVTraitsExport1.setToolTipText(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jButtonCSVTraitsExport1.toolTipText")); // NOI18N
+        jButtonCSVTraitsExport1.setEnabled(false);
         jButtonCSVTraitsExport1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonCSVTraitsExport1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jButtonCSVTraitsExport1.addActionListener(new java.awt.event.ActionListener() {
@@ -1446,6 +1448,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         jButtonCSVTraitsImport1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyeditor/images/csvFile.png"))); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(jButtonCSVTraitsImport1, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jButtonCSVTraitsImport1.text")); // NOI18N
         jButtonCSVTraitsImport1.setToolTipText(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jButtonCSVTraitsImport1.toolTipText")); // NOI18N
+        jButtonCSVTraitsImport1.setEnabled(false);
         jButtonCSVTraitsImport1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonCSVTraitsImport1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jButtonCSVTraitsImport1.addActionListener(new java.awt.event.ActionListener() {
@@ -1504,8 +1507,8 @@ public final class StudyEditorTopComponent extends TopComponent {
                 .addComponent(pnlMeasurementFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 635, Short.MAX_VALUE)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 635, Short.MAX_VALUE))
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 695, Short.MAX_VALUE)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 695, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -1517,7 +1520,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         );
         pnlMeasurementLayout.setVerticalGroup(
             pnlMeasurementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, 736, Short.MAX_VALUE)
+            .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, 792, Short.MAX_VALUE)
         );
 
         jTabbedPaneEditor.addTab(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.pnlMeasurement.TabConstraints.tabTitle"), pnlMeasurement); // NOI18N
@@ -1887,8 +1890,9 @@ public final class StudyEditorTopComponent extends TopComponent {
                 try {
                     String valor = get();
                     DialogUtil.displayInfo(NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.saved"));
+                    enableMeasurementButtons();
                     RefreshBrowserHelper.refreshStudyBrowser();
-
+                    
                 } catch (InterruptedException ex) {
                     Exceptions.printStackTrace(ex);
                 } catch (ExecutionException ex) {
@@ -2895,6 +2899,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         changeCursorWaitStatus(false);
 
         ObservationTableTooltips.assignTooltips(jTableObservations);
+        enableMeasurementButtons();
     }
 
     private int getTotalTrialsFromObservations() {
@@ -3027,6 +3032,14 @@ public final class StudyEditorTopComponent extends TopComponent {
         return result;
 
     }
+    
+    public void enableMeasurementButtons() {
+        btnPrintLabels.setEnabled(true);
+        jButtonSaveToExcel.setEnabled(true);
+        jButtonCSVTraitsExport1.setEnabled(true);
+        jButtonCSVTraitsImport1.setEnabled(true);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JPanel JPanelData;
     private javax.swing.JButton btnPrintLabels;
