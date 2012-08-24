@@ -1,6 +1,7 @@
 package ibfb.studyexplorer.core.nodes;
 
 import ibfb.domain.core.SelectedExperiment;
+import ibfb.domain.core.SelectedStudy;
 import ibfb.domain.core.Study;
 import ibfb.nursery.actions.OpenNurseryAction;
 import ibfb.studyexplorer.actions.DeleteStudyAction;
@@ -27,6 +28,7 @@ public class StudyExperimentNode extends AbstractNode {
 
     @Override
     public Action[] getActions(boolean context) {
+
         SystemAction[] actions = new SystemAction[2];
 
         if (study.getStudyType().equals("T")) {
@@ -35,8 +37,12 @@ public class StudyExperimentNode extends AbstractNode {
         } else {
             actions[0] = SystemAction.get(OpenNurseryAction.class);
         }
-        
+
+
         actions[1] = SystemAction.get(DeleteStudyAction.class);
+
+
+        actions[1].setEnabled(this.study.getStudyid().intValue() < 0);
 
         return actions;
     }

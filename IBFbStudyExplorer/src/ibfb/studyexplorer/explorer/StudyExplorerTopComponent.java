@@ -45,11 +45,10 @@ preferredID = "StudyExplorerTopComponent")
 public final class StudyExplorerTopComponent extends TopComponent implements ExplorerManager.Provider, LookupListener, StudyExplorerListener {
 
     private ExplorerManager explorerManager = new ExplorerManager();
-    private  Study actualStudy;
+    private Study actualStudy;
     private List<Study> studyList = new ArrayList<Study>();
     private org.openide.util.Lookup.Result<Study> result;
     private List<Study> selectedStudyList;
-    
 
     public List<Study> getSelectedStudyList() {
         return selectedStudyList;
@@ -93,21 +92,21 @@ public final class StudyExplorerTopComponent extends TopComponent implements Exp
     private void loadStudiesFromDB() {
         changeCursorWaitStatus(true);
         String selected = NbPreferences.forModule(ConfigStudiesAction.class).get("SELECTED", "");
-        System.out.println("Tam SELECTED in LOAD STUDIES: "+selected.length());
-        
+        System.out.println("Tam SELECTED in LOAD STUDIES: " + selected.length());
+
         studyList.clear();
 
         List<org.cimmyt.cril.ibwb.domain.Study> studyDtoList =
                 AppServicesProxy.getDefault().appServices().getStudyListByParent(0, Study.S_TYPE_EXPERIMENT);
         //AppServicesProxy.getDefault().appServices().getStudyList();
         int i = 0;
-        
+
         for (org.cimmyt.cril.ibwb.domain.Study studyDto : studyDtoList) {
 
             if (selected.isEmpty()) {
                 studyList.add(castStudy(studyDto));
             } else {
-                if ( i < selected.length() && selected.charAt(i) == '1') {
+                if (i < selected.length() && selected.charAt(i) == '1') {
                     studyList.add(castStudy(studyDto));
                 }
 
@@ -123,7 +122,7 @@ public final class StudyExplorerTopComponent extends TopComponent implements Exp
     @Override
     public void refreshStudyBrowser() {
         changeCursorWaitStatus(true);
-        loadStudiesFromDB();      
+        loadStudiesFromDB();
         explorerManager.setRootContext(new MainStudyRootNode(new StudyChildren(studyList)));
         changeCursorWaitStatus(false);
     }
@@ -139,12 +138,9 @@ public final class StudyExplorerTopComponent extends TopComponent implements Exp
 
     public void refreshStudyBrowserOnClose() {
         changeCursorWaitStatus(true);
-     
+
         changeCursorWaitStatus(false);
     }
-    
-
-    
 
     public Study castStudy(org.cimmyt.cril.ibwb.domain.Study studyDto) {
         Study study = new Study();
@@ -212,9 +208,9 @@ public final class StudyExplorerTopComponent extends TopComponent implements Exp
     @Override
     public void resultChanged(LookupEvent ev) {
         Collection<? extends Study> allStudies = result.allInstances();
-        for (Study study : allStudies) {  
-            actualStudy=study;
-            System.out.println("seleccionado: "+ study.getStudy());
+        for (Study study : allStudies) {
+            actualStudy = study;
+            System.out.println("seleccionado: " + study.getStudy());
             setProperties(study);
         }
 
@@ -310,30 +306,23 @@ public final class StudyExplorerTopComponent extends TopComponent implements Exp
         }
 
     }
-    
-    
-  
-    
-    
-    
-     public void deleteNode() {
-         
-         Node[] selectedNodes = this.explorerManager.getSelectedNodes();
-       
-         if (selectedNodes.length == 0) {
-           
+
+    public void deleteNode() {
+
+        Node[] selectedNodes = this.explorerManager.getSelectedNodes();
+
+        if (selectedNodes.length == 0) {
         } else {
             Node firstNode = selectedNodes[0];
-             try {
-                 firstNode.destroy();
-             } catch (IOException ex) {
-                 Exceptions.printStackTrace(ex);
-             }
-            
+            try {
+                firstNode.destroy();
+            } catch (IOException ex) {
+                Exceptions.printStackTrace(ex);
+            }
+
         }
 
-      
-        
+
+
     }
-    
 }
