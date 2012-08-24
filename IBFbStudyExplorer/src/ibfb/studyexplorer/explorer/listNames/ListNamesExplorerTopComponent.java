@@ -293,8 +293,8 @@ public final class ListNamesExplorerTopComponent extends TopComponent {
     public void updateListNameTable() {
         Listnms filter = new Listnms(true);
         filter.setGlobalsearch(txtSearch.getText());
-        germplamList = AppServicesProxy.getDefault().appServices().getListListnms(filter, 0, 0, false);
-        lblListsFound.setText(germplamList.size() + " " + NbBundle.getMessage(ListNamesExplorerTopComponent.class, "ListNamesExplorerTopComponent.lblListsFound.text"));
+         germplamList = AppServicesProxy.getDefault().appServices().getListListnms(filter, 0, 0, false);
+        lblListsFound.setText(germplamList .size() + " " + NbBundle.getMessage(ListNamesExplorerTopComponent.class, "ListNamesExplorerTopComponent.lblListsFound.text"));
         
         StringBuilder headers = new StringBuilder(bundle.getString("ListNamesExplorerTopComponent.headerListid"));
         headers.append(",");
@@ -302,7 +302,8 @@ public final class ListNamesExplorerTopComponent extends TopComponent {
         headers.append(",");
         headers.append(bundle.getString("ListNamesExplorerTopComponent.headerListdesc"));
         
-        TableBindingUtil.createColumnsFromDB(Listnms.class, germplamList, tblGermplasmList, "listid,listname,listdesc", headers.toString());
+        TableBindingUtil.createColumnsFromDB(Listnms.class, germplamList , tblGermplasmList, "listid,listname,listdesc", headers.toString());
+        
     }
 
     private void openListDataWindow() {
