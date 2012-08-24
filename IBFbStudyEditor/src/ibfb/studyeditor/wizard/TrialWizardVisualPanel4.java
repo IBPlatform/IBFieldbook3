@@ -30,6 +30,9 @@ import javax.swing.table.*;
 import org.cimmyt.cril.ibwb.api.AppServicesProxy;
 import org.cimmyt.cril.ibwb.commongui.OSUtils;
 import org.cimmyt.cril.ibwb.domain.Listnms;
+import org.netbeans.api.progress.ProgressHandle;
+import org.netbeans.api.progress.ProgressHandleFactory;
+import org.netbeans.api.progress.ProgressUtils;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.util.NbBundle;
@@ -48,6 +51,10 @@ public final class TrialWizardVisualPanel4 extends JPanel {
     private ArrayList<String> wheatColumnsforSearch;
     private QueryCenter queryReadCenter;
     private String outSelectionHistory;
+    private boolean ready = false;
+    private ProgressHandle handle;
+    private String porcentaje;
+
 
     public TrialWizardVisualPanel4() {
         initComponents();
@@ -59,6 +66,25 @@ public final class TrialWizardVisualPanel4 extends JPanel {
         }
     }
 
+    
+     public void showProgressStatus() {
+
+        handle = ProgressHandleFactory.createHandle(bundle.getString("TrialWizardVisualPanel4.loading"));
+        
+        
+        ProgressUtils.showProgressDialogAndRun(new Runnable() {
+            @Override
+            public void run() {
+                porcentaje = "0";
+                handle.start(100);
+                handle.progress(bundle.getString("TrialWizardVisualPanel4.completado") + porcentaje + " %");
+                completeDataFromDatabase();
+            }
+        }, handle, true);
+
+    }
+    
+    
     private void loadQueryCenter() {
         queryReadCenter = new QueryCenter();
         queryReadCenter.readAndLoadDatabases();
@@ -155,6 +181,11 @@ public final class TrialWizardVisualPanel4 extends JPanel {
                 cboGermplasmListItemStateChanged(evt);
             }
         });
+        cboGermplasmList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboGermplasmListActionPerformed(evt);
+            }
+        });
 
         lblImgDb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyeditor/images/database.png"))); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(lblImgDb, org.openide.util.NbBundle.getMessage(TrialWizardVisualPanel4.class, "TrialWizardVisualPanel4.lblImgDb.text")); // NOI18N
@@ -183,7 +214,7 @@ public final class TrialWizardVisualPanel4 extends JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblImgExcel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -269,7 +300,7 @@ public final class TrialWizardVisualPanel4 extends JPanel {
                     .addContainerGap()
                     .addComponent(pnlSelectGermplasm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(18, 18, 18)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
                     .addGap(66, 66, 66)))
         );
 
@@ -311,14 +342,14 @@ public final class TrialWizardVisualPanel4 extends JPanel {
 }//GEN-LAST:event_radGermplasmFromDB1ActionPerformed
 
     private void cboGermplasmListItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cboGermplasmListItemStateChanged
-        if (evt.getStateChange() == 1) {
-            this.setCursor(new java.awt.Cursor(java.awt.Cursor.WAIT_CURSOR));
-            readGermplsmEntriesFromDb();
-            if (isForWheat) {
-                completeDataFromDatabase();
-            }
-            this.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        }
+//        if (evt.getStateChange() == 1) {
+//            this.setCursor(new java.awt.Cursor(java.awt.Cursor.WAIT_CURSOR));
+//            readGermplsmEntriesFromDb();
+//            if (isForWheat) {
+//                completeDataFromDatabase();
+//            }
+//            this.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+//        }
 }//GEN-LAST:event_cboGermplasmListItemStateChanged
 
     private void completeDataFromDatabase() {
@@ -359,8 +390,6 @@ public final class TrialWizardVisualPanel4 extends JPanel {
         }
 
 
-
-
         int crossColumn = tableModel.findColumn("CROSS NAME");
         if (crossColumn < 0) {
             crossColumn = tableModel.findColumn("PEDIGREE");
@@ -372,6 +401,11 @@ public final class TrialWizardVisualPanel4 extends JPanel {
         GermplasmEntriesTableModel.setIsFromCrossInfo(true);
 
         for (int i = 0; i < tableModel.getRowCount(); i++) {
+            
+            int perc = (int) ((i + 1) * 100 / tableModel.getRowCount());
+
+            porcentaje = String.valueOf(perc);
+            handle.progress("Porcentaje completado: " + porcentaje + " %");
 
             GermplsmRecord germplsmRecord = new GermplsmRecord();
             GpidInfClass gpidinfClass = new GpidInfClass();
@@ -443,6 +477,18 @@ public final class TrialWizardVisualPanel4 extends JPanel {
         previewFile(this.jTextAreaPath.getText());
 }//GEN-LAST:event_jButtonPreviewActionPerformed
 
+    private void cboGermplasmListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboGermplasmListActionPerformed
+        if (!ready) {
+            return;
+        }
+        
+        readGermplsmEntriesFromDb();
+
+        if (isForWheat) {
+            showProgressStatus();
+        }
+    }//GEN-LAST:event_cboGermplasmListActionPerformed
+
     private void fillComboListNames() {
 
 
@@ -453,6 +499,7 @@ public final class TrialWizardVisualPanel4 extends JPanel {
         for (Listnms list : germplasmList) {
             cboGermplasmList.addItem(list);
         }
+         ready = true;
     }
 
     public JTextField getjTextFieldTotalEntries() {
