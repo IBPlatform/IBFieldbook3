@@ -109,15 +109,17 @@ public class ListnmsDAO extends AbstractDAO<Listnms, Integer> {
                 setQuery("l.lhierarchy", Integer.valueOf(filtro.getGlobalsearch()));
                 //setQuery("l.liststatus", Integer.valueOf(filtro.getGlobalsearch()));
                 // only active lists
-                setQueryNotEqual("l.liststatus", Listnms.LSSTATUS_DELETED);                        
+
             } else {
                 setQueryInTo("l.listname", filtro.getGlobalsearch());
                 setQueryInTo("l.listtype", filtro.getGlobalsearch());
                 setQueryInTo("l.listdesc", filtro.getGlobalsearch());
                 // only active lists
-                setQueryNotEqual("l.liststatus", Listnms.LSSTATUS_DELETED);                        
-                
+
             }
+            addFinalCriteria = true;
+
+
         }
         return query;
     }
@@ -143,14 +145,27 @@ public class ListnmsDAO extends AbstractDAO<Listnms, Integer> {
 
         return resultList;
     }
-    
+
     /**
      * Deletes logically a list
+     *
      * @param listnms List to delete
      */
     public void logicalDelete(Listnms listnms) {
         listnms = read(listnms.getListid());
         listnms.setListstatus(Listnms.LSSTATUS_DELETED);
         getHibernateTemplate().update(listnms);
+    }
+
+    @Override
+    protected String getFinalCriteria() {
+        StringBuilder finalCriteria = new StringBuilder();
+        if (criterions.isEmpty()) {
+            finalCriteria.append(" where ");
+        } else if ( criterions.size() > 0 ) {
+            finalCriteria.append(" and ");
+        }
+        finalCriteria.append(" l.liststatus <> " ).append(Listnms.LSSTATUS_DELETED );
+        return finalCriteria.toString();
     }
 }
