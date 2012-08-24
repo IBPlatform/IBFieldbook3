@@ -53,5 +53,6 @@ public class TrialWizardWizardPanel8 implements WizardDescriptor.Panel {
     public void storeSettings(Object settings) {
         component.copyValues(TrialWizardWizardIterator.myExcelReader.getMyWorkbook());
         TrialWizardUtil.assignTraits();
+    
     }
 }

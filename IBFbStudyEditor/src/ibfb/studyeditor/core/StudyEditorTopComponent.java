@@ -34,6 +34,7 @@ import ibfb.studyeditor.export.FieldBookExcelExporter;
 import ibfb.studyeditor.export.FieldbookCSVExporter;
 import ibfb.studyeditor.export.FieldbookRExport;
 import ibfb.studyeditor.exportwizard.exportWizardIterator;
+import ibfb.studyeditor.gywizard.GYwizardWizardIterator;
 import ibfb.studyeditor.importwizard.ImportData;
 import ibfb.studyeditor.importwizard.importingVisualPanel2;
 import ibfb.studyeditor.importwizard.importingWizardIterator;
@@ -167,6 +168,9 @@ public final class StudyEditorTopComponent extends TopComponent {
     private List<Variate> availableTraits = new ArrayList<Variate>();
     private List<Variate> selectedTraits = new ArrayList<Variate>();
     private DoubleListPanel<Variate> doubleListPanel;
+    private Variate traitToEvaluate;
+    private String stringTraitToEvaluate="GY";
+    
     private SelectCommand unselectedCommand = new SelectCommand() {
 
         @Override
@@ -183,6 +187,34 @@ public final class StudyEditorTopComponent extends TopComponent {
             jTextFieldDescriptionSelected.setText(variate.getDescription());
         }
     };
+
+    public String getStringTraitToEvaluate() {
+        return stringTraitToEvaluate;
+    }
+
+    public void setStringTraitToEvaluate(String stringTraitToEvaluate) {
+        this.stringTraitToEvaluate = stringTraitToEvaluate;
+    }
+
+    public Variate getTraitToEvaluate() {
+        return traitToEvaluate;
+    }
+
+    public void setTraitToEvaluate(Variate traitToEvaluate) {
+        this.traitToEvaluate = traitToEvaluate;
+    }
+
+    public List<Variate> getSelectedTraits() {
+        
+    
+        return selectedTraits;
+    }
+
+    public void setSelectedTraits(List<Variate> selectedTraits) {
+        this.selectedTraits = selectedTraits;
+    }
+    
+    
     /**
      * Current study already exists?
      */
@@ -1767,24 +1799,23 @@ public final class StudyEditorTopComponent extends TopComponent {
 
     public boolean hasGY() {
         boolean hasGY = false;
-
         ObservationsTableModel modeloOriginal = (ObservationsTableModel) jTableObservations.getModel();
-
-        if (modeloOriginal.findColumn("GY") >= 0) {
-
+        if (modeloOriginal.findColumn(getStringTraitToEvaluate()) >= 0) {
             hasGY = true;
         }
-
         return hasGY;
     }
+    
 
     private void jButtonCSVTraitsExport1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCSVTraitsExport1ActionPerformed
 
-
-
         if (!hasGY()) {
-            DialogUtil.displayWarning(NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.noGY"));
-
+           // DialogUtil.displayWarning(NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.noGY"));
+         if(this.getSelectedTraits().size()>0){
+            if(!loadGY()){
+            this.setStringTraitToEvaluate("GY");
+            }  
+         }           
         }
 
 
@@ -1833,6 +1864,19 @@ public final class StudyEditorTopComponent extends TopComponent {
         }
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
+    private boolean loadGY(){
+        WizardDescriptor wiz = new WizardDescriptor(new GYwizardWizardIterator());
+                 // {0} will be replaced by WizardDescriptor.Panel.getComponent().getName()
+                 // {1} will be replaced by WizardDescriptor.Iterator.name()
+                 wiz.setTitleFormat(new MessageFormat("{0} ({1})"));
+                 wiz.setTitle(NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.gytitle"));
+                 if (DialogDisplayer.getDefault().notify(wiz) == WizardDescriptor.FINISH_OPTION) {
+                   return true;
+                 }else{
+                   return false;
+                 }
+    }
+    
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // INCLUDE
         int columna = 5;
@@ -2136,9 +2180,7 @@ public final class StudyEditorTopComponent extends TopComponent {
 
     private void exportToR() {
 
-
-
-        FieldbookRExport.exportToR(jTableObservations, trialFile, csv, triallOption, trialStart, trialEnd, trialSelected);
+        FieldbookRExport.exportToR(jTableObservations, trialFile, csv, triallOption, trialStart, trialEnd, trialSelected,this.getStringTraitToEvaluate());
     }
 
     private void jMenuItemUnSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemUnSelectActionPerformed
@@ -2358,6 +2400,7 @@ public final class StudyEditorTopComponent extends TopComponent {
 
     public void fillObservationsData() {
         List<Variate> selectedVariates = doubleListPanel.getTargetList();
+        this.setSelectedTraits(selectedVariates);       
         ObservationsTableModel tableModel = new ObservationsTableModel(myWorkbook, selectedVariates);
         jTableObservations.setModel(tableModel);
         sorterMeasurements = new TableRowSorter<TableModel>(tableModel);
@@ -2637,7 +2680,7 @@ public final class StudyEditorTopComponent extends TopComponent {
 
         for (int col = 0; col < tableColumns.getColumnCount(); col++) {
             TableColumn tableColumn = tableColumns.getColumn(col);
-            if (tableColumn.getHeaderValue().toString().equals("GY")) {
+            if (tableColumn.getHeaderValue().toString().equals(stringTraitToEvaluate)) {
                 return true;
             }
         }

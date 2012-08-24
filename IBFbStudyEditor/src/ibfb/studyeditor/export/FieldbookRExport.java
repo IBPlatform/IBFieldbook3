@@ -23,7 +23,7 @@ public class FieldbookRExport {
     private static ResourceBundle bundle = NbBundle.getBundle(FieldbookRExport.class);
 
     public static void exportToR(JTable jTableObservations, String trialFile, CSVOziel csv, int triallOption,
-            int trialStart, int trialEnd, int trialSelected) {
+            int trialStart, int trialEnd, int trialSelected,String stringTraitToEvaluate) {
 
         ObservationsTableModel modeloOriginal = (ObservationsTableModel) jTableObservations.getModel();
 
@@ -56,7 +56,7 @@ public class FieldbookRExport {
             }
         }
 
-        Export_to_R(new File(trialFile), modeloFilter, csv);
+        Export_to_R(new File(trialFile), modeloFilter, csv,stringTraitToEvaluate);
 
         String fileSaved = bundle.getString("StudyEditorExport.dataSavedTo");
         fileSaved = fileSaved + " " + trialFile + bundle.getString("StudyEditorExport.dataSavedToEnd");
@@ -77,7 +77,7 @@ public class FieldbookRExport {
         }
     }
 
-    private static void Export_to_R(File file, ObservationsTableModel modeloFiltro, CSVOziel csv) {
+    private static void Export_to_R(File file, ObservationsTableModel modeloFiltro, CSVOziel csv,String stringTraitToEvaluate) {
         String outputFile = file.toString() + ".csv";
         boolean alreadyExists = new File(outputFile).exists();
         try {
@@ -87,6 +87,7 @@ public class FieldbookRExport {
             csvOutput.write("BLK");
             csvOutput.write("ENTRY");
             csvOutput.write("GY");
+            csv.DefineTraitToEvaluate(stringTraitToEvaluate);
             csv.writeTraitsR(csvOutput, modeloFiltro);
             csvOutput.endRecord();
             csv.writeDATAR(csvOutput, modeloFiltro);

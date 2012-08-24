@@ -164,6 +164,7 @@ public final class TrialWizardVisualPanel8 extends JPanel {
         StudyEditorTopComponent studyWindow = TrialWizardWizardIterator.studyTopComponent;
         studyWindow.cleanFields();
         studyWindow.assignTraits(doubleListPanel.getSourceList(), doubleListPanel.getTargetList());
+        studyWindow.setSelectedTraits(selectedTraits);
     }
 
     @SuppressWarnings("unchecked")

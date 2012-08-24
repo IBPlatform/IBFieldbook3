@@ -12,7 +12,7 @@ public class importingWizardPanel1 implements WizardDescriptor.Panel {
 
   
     private importingVisualPanel1 component;
-
+   
    
     public Component getComponent() {
         if (component == null) {
@@ -28,12 +28,12 @@ public class importingWizardPanel1 implements WizardDescriptor.Panel {
 
     }
 
-    @Override
+ @Override
     public boolean isValid() {
 
         return true;
 
-    }
+        }
 
     @Override
     public final void addChangeListener(ChangeListener l) {
