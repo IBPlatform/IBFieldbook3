@@ -907,6 +907,7 @@ public class JDExpert extends javax.swing.JDialog {
         studyWindow.setMyWorkbook(workbook);
         studyWindow.configMyList();
         studyWindow.assignTraits(new ArrayList<Variate>(), workbook.getVariates());
+        studyWindow.setSelectedTraits( workbook.getVariates());
     }
 
     private void quitaCellEditors(StudyEditorTopComponent studyWindow) {
