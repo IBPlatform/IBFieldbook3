@@ -17,11 +17,10 @@ import ibfb.workbook.api.GermplasmListReader;
 import ibfb.workbook.core.GermplasmAssigmentToolImpl;
 import ibfb.workbook.core.GermplasmListReaderImpl;
 import java.awt.Component;
-import java.awt.Cursor;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
-import java.sql.*;
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -35,11 +34,12 @@ import org.cimmyt.cril.ibwb.api.AppServicesProxy;
 import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 import org.cimmyt.cril.ibwb.commongui.OSUtils;
 import org.cimmyt.cril.ibwb.domain.Listnms;
+import org.netbeans.api.progress.ProgressHandle;
+import org.netbeans.api.progress.ProgressHandleFactory;
+import org.netbeans.api.progress.ProgressUtils;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
-import org.openide.util.Mutex;
 import org.openide.util.NbBundle;
-import org.openide.windows.WindowManager;
 
 public final class NurseryVisualPanel41 extends JPanel {
 
@@ -56,6 +56,9 @@ public final class NurseryVisualPanel41 extends JPanel {
     private QueryCenter queryReadCenter;
     private Connection dmsLocal, dmsCentral, gmsLocal, gmsCentral;
     private String outSelectionHistory;
+    private boolean ready = false;
+    private ProgressHandle handle;
+    private String porcentaje;
 
     public NurseryVisualPanel41() {
         initComponents();
@@ -151,6 +154,16 @@ public final class NurseryVisualPanel41 extends JPanel {
         cboGermplasmList.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cboGermplasmListItemStateChanged(evt);
+            }
+        });
+        cboGermplasmList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboGermplasmListActionPerformed(evt);
+            }
+        });
+        cboGermplasmList.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                cboGermplasmListPropertyChange(evt);
             }
         });
 
@@ -309,19 +322,46 @@ public final class NurseryVisualPanel41 extends JPanel {
 }//GEN-LAST:event_radGermplasmFromDB1ActionPerformed
 
     private void cboGermplasmListItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cboGermplasmListItemStateChanged
-        if (evt.getStateChange() == 1) {
-            this.setCursor(new java.awt.Cursor(java.awt.Cursor.WAIT_CURSOR));
-            readGermplsmEntriesFromDb();
-            if (isForWheat) {
-                completeDataFromDatabase();
-            }
-            this.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        }
+
 }//GEN-LAST:event_cboGermplasmListItemStateChanged
 
     private void jButtonPreviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPreviewActionPerformed
         previewFile(this.jTextAreaPath.getText());
 }//GEN-LAST:event_jButtonPreviewActionPerformed
+
+    private void cboGermplasmListPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_cboGermplasmListPropertyChange
+    }//GEN-LAST:event_cboGermplasmListPropertyChange
+
+
+    public void showProgressStatus() {
+
+        handle = ProgressHandleFactory.createHandle(bundle.getString("NurseryVisualPanel41.loading"));
+        
+        
+        ProgressUtils.showProgressDialogAndRun(new Runnable() {
+            @Override
+            public void run() {
+                porcentaje = "0";
+                handle.start(100);
+                handle.progress(bundle.getString("NurseryVisualPanel41.completado") + porcentaje + " %");
+                completeDataFromDatabase();
+            }
+        }, handle, true);
+
+    }
+    
+    private void cboGermplasmListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboGermplasmListActionPerformed
+        if (!ready) {
+            return;
+        }
+        
+        readGermplsmEntriesFromDb();
+
+        if (isForWheat) {
+            showProgressStatus();
+        }
+
+    }//GEN-LAST:event_cboGermplasmListActionPerformed
 
     public void fillComboListNames() {
         List<Listnms> germplasmList = AppServicesProxy.getDefault().appServices().getListnmsList();
@@ -329,6 +369,7 @@ public final class NurseryVisualPanel41 extends JPanel {
             cboGermplasmList.addItem(list);
         }
 
+        ready = true;
     }
 
     public JTextField getjTextFieldTotalEntries() {
@@ -394,7 +435,7 @@ public final class NurseryVisualPanel41 extends JPanel {
     }
 
     private void readGermplsmEntriesFromDb() {
-        this.setCursor(new java.awt.Cursor(java.awt.Cursor.WAIT_CURSOR));
+
 
         GermplasmListReader germplasmListReader = new GermplasmListReaderImpl();
         boolean validSelection = cboGermplasmList.getSelectedIndex() > 0;
@@ -416,7 +457,7 @@ public final class NurseryVisualPanel41 extends JPanel {
                 DialogUtil.displayError(bundle.getString("NurseryVisualPanel41.choose"));
             }
         }
-        this.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
 
     }
 
@@ -639,6 +680,13 @@ public final class NurseryVisualPanel41 extends JPanel {
 
         for (int i = 0; i < tableModel.getRowCount(); i++) {
 
+            int perc = (int) ((i + 1) * 100 / tableModel.getRowCount());
+
+            porcentaje = String.valueOf(perc);
+            handle.progress("Porcentaje completado: " + porcentaje + " %");
+
+
+
             GermplsmRecord germplsmRecord = new GermplsmRecord();
             GpidInfClass gpidinfClass = new GpidInfClass();
 
@@ -657,7 +705,7 @@ public final class NurseryVisualPanel41 extends JPanel {
                         outCrossName = "";
                     }
                     tableModel.setValueAt(outCrossName, i, crossColumn);
-                  //  System.out.println("EL CROSSNAME: " + outCrossName);
+                    //  System.out.println("EL CROSSNAME: " + outCrossName);
                 }
 
                 if (selHistColumn >= 0) {
@@ -667,7 +715,7 @@ public final class NurseryVisualPanel41 extends JPanel {
                         outSelectionHistory = "";
                     }
                     tableModel.setValueAt(outSelectionHistory, i, selHistColumn);
-                   // System.out.println("HIstoria de seleccion: " + outSelectionHistory);
+                    // System.out.println("HIstoria de seleccion: " + outSelectionHistory);
                 }
 
 
@@ -714,47 +762,25 @@ public final class NurseryVisualPanel41 extends JPanel {
         queryReadCenter.readFlexPedConfig();
     }
 
-    private boolean loadConnections() {
-        boolean hayConexion = false;
-        try {
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
-        } catch (Exception e) {
-            System.out.println("No se ha podido cargar el Driver JDBC-ODBC");
-        }
+//    private boolean loadConnections() {
+//        boolean hayConexion = false;
+//        try {
+//            Class.forName("com.mysql.jdbc.Driver").newInstance();
+//        } catch (Exception e) {
+//            System.out.println("No se ha podido cargar el Driver JDBC-ODBC");
+//        }
+//
+//        try {
+//            dmsLocal = DriverManager.getConnection("jdbc:mysql://localhost:3306/iwis_local_dms", "root", "");
+//            dmsCentral = DriverManager.getConnection("jdbc:mysql://localhost:3306/iwis_central_short", "root", "");
+//            gmsLocal = DriverManager.getConnection("jdbc:mysql://localhost:3306/iwis_local_gms", "root", "");
+//            gmsCentral = DriverManager.getConnection("jdbc:mysql://localhost:3306/iwis_central_gms", "root", "");
+//            hayConexion = true;
+//        } catch (SQLException ex) {
+//            System.out.println("ERROR AL CONECTAR CON LA BASE DE DATOS, MYSQL " + ex);
+//        }
+//        return hayConexion;
+//    }
 
-        try {
-            dmsLocal = DriverManager.getConnection("jdbc:mysql://localhost:3306/iwis_local_dms", "root", "");
-            dmsCentral = DriverManager.getConnection("jdbc:mysql://localhost:3306/iwis_central_short", "root", "");
-            gmsLocal = DriverManager.getConnection("jdbc:mysql://localhost:3306/iwis_local_gms", "root", "");
-            gmsCentral = DriverManager.getConnection("jdbc:mysql://localhost:3306/iwis_central_gms", "root", "");
-            hayConexion = true;
-        } catch (SQLException ex) {
-            System.out.println("ERROR AL CONECTAR CON LA BASE DE DATOS, MYSQL " + ex);
-        }
-        return hayConexion;
-    }
-
-    private static void changeCursorWaitStatus(final boolean isWaiting) {
-        Mutex.EVENT.writeAccess(new Runnable() {
-
-            @Override
-            public void run() {
-                try {
-                    JFrame mainFrame =
-                            (JFrame) WindowManager.getDefault().getMainWindow();
-                    Component glassPane = mainFrame.getGlassPane();
-                    if (isWaiting) {
-                        glassPane.setVisible(true);
-
-                        glassPane.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-                    } else {
-                        glassPane.setVisible(false);
-
-                        glassPane.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-                    }
-                } catch (Exception e) {
-                }
-            }
-        });
-    }
+    
 }
