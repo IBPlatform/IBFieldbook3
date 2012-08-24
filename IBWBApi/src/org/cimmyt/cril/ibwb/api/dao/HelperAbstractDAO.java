@@ -40,6 +40,15 @@ public class HelperAbstractDAO {
 		return criterio;
 	}
         
+	public static Criterion getQueryAndNotEqual(String campo, Integer valor){
+		Criterion criterio = new Criterion();
+		criterio.setCampo(campo);
+		criterio.setValor(valor.toString());
+		criterio.setConsulta(" " + campo + " <> " + valor + " ");
+                criterio.setOperador("and");
+		return criterio;
+	}        
+        
         
 	public static Criterion getQueryAP(String campo, BigDecimal valor){
 		Criterion criterio = new Criterion();

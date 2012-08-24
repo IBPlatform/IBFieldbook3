@@ -38,11 +38,13 @@ public abstract class AbstractDAO<T, PK extends Serializable> extends HibernateD
 
     private Class<T> type;
     private String accessType;
-    private List<Criterion> criterions = new ArrayList<Criterion>();
+    protected List<Criterion> criterions = new ArrayList<Criterion>();
     private List<Criterion> pivots = new ArrayList<Criterion>();
     private List<Order> orders = new ArrayList<Order>();
     private List<Intersection> intersections = new ArrayList<Intersection>();
     protected boolean global = false;
+    
+    protected boolean addFinalCriteria;
 
     public AbstractDAO(Class<T> type) {
         this.type = type;
@@ -229,7 +231,12 @@ public abstract class AbstractDAO<T, PK extends Serializable> extends HibernateD
             criterions.add(HelperAbstractDAO.getQueryNotEqual(campo, valor));
         }
     }
-    
+
+    public void setQueryAndNotEqual(String campo, Integer valor) {
+        if (valor != null) {
+            criterions.add(HelperAbstractDAO.getQueryAndNotEqual(campo, valor));
+        }
+    }
 
     public void setQueryPivote(String campo, Integer valor) {
         if (valor != null) {
@@ -350,12 +357,13 @@ public abstract class AbstractDAO<T, PK extends Serializable> extends HibernateD
     private String getCriterionsOr() {
         String consulta = "";
         if (!criterions.isEmpty()) {
-            consulta += " where ";
+            consulta += " where (";
             for (Criterion criterio : criterions) {
                 consulta += criterio.getConsulta() + " or ";
             }
             consulta += "@";
             consulta = consulta.replace(" or @", " ");
+            consulta += " ) ";
         }
         return consulta;
     }
@@ -462,6 +470,11 @@ public abstract class AbstractDAO<T, PK extends Serializable> extends HibernateD
                 } else {
                     queryStringBuffer.append(getCriterions());
                 }
+                
+                if (addFinalCriteria) {
+                    queryStringBuffer.append(getFinalCriteria());
+                } 
+                
 //                }
                 queryStringBuffer.append(getOrders());
 
@@ -703,7 +716,7 @@ public abstract class AbstractDAO<T, PK extends Serializable> extends HibernateD
             public Object doInHibernate(Session session)
                     throws HibernateException, SQLException {
                 SQLQuery query = session.createSQLQuery(querySQL);
-          
+
                 return query.list();
             }
         });
@@ -759,5 +772,9 @@ public abstract class AbstractDAO<T, PK extends Serializable> extends HibernateD
             }
         });
         return result;
+    }
+    
+    protected String getFinalCriteria() {
+        return "";
     }
 }
