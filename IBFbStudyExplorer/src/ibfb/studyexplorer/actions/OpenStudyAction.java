@@ -305,6 +305,7 @@ public class OpenStudyAction extends SystemAction {
     private void fillTraits(StudyEditorTopComponent studyWindow, Workbook workbook) {
         studyWindow.assignTraits(new ArrayList<Variate>(), workbook.getVariates());
         studyWindow.setMyWorkbook(workbook);
+        studyWindow.setSelectedTraits(workbook.getVariates());
     }
     
       public boolean existeTrial(String trial) {
