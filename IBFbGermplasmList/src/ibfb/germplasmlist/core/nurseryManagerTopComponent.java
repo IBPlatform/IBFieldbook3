@@ -1493,7 +1493,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
 
 
             List<GermplasmSearch> germplasmSearchs = AppServicesProxy.getDefault().appServices().getGermplasmByListStudyTrialPlotCross(listFemale, listMale);
-
+         
             for (GermplasmSearch gs : germplasmSearchs) {
 
                 gms++;
