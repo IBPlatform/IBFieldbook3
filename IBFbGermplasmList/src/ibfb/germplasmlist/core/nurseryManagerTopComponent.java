@@ -219,6 +219,8 @@ public final class nurseryManagerTopComponent extends TopComponent {
         jlblEntries = new javax.swing.JLabel();
         jLabelEntries = new javax.swing.JLabel();
         jButtonSaveCross = new javax.swing.JButton();
+        jDateChooserStart = new com.toedter.calendar.JDateChooser();
+        jlblDate = new javax.swing.JLabel();
         jSeparator6 = new javax.swing.JToolBar.Separator();
 
         jTabbedPaneMale.setBackground(new java.awt.Color(0, 102, 255));
@@ -333,7 +335,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
                     .addComponent(jLabel1)
                     .addComponent(cboGermplasmListMale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollEntriesDbMale, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                .addComponent(jScrollEntriesDbMale, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnRemoveMaleDb)
@@ -412,7 +414,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonBrowseExcelMale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollEntiresExcelMale, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
+                .addComponent(jScrollEntiresExcelMale, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1))
         );
@@ -497,7 +499,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldSelectedEntriesFemale, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -541,7 +543,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
                     .addComponent(jLabel5)
                     .addComponent(cboGermplasmListFemale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollEntriesDbFemale, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
+                .addComponent(jScrollEntriesDbFemale, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(7, 7, 7)
@@ -623,7 +625,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonBrowseExcelFemale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollEntiresExcelFemale, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
+                .addComponent(jScrollEntiresExcelFemale, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRemoveFemaleExcel))
         );
@@ -692,7 +694,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(lblNumericFieldWidth)
                         .addGap(18, 18, 18)
-                        .addComponent(spnNumFieldWidth, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE))
+                        .addComponent(spnNumFieldWidth))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -800,6 +802,11 @@ public final class nurseryManagerTopComponent extends TopComponent {
             }
         });
 
+        jDateChooserStart.setDate(new java.util.Date());
+
+        jlblDate.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        org.openide.awt.Mnemonics.setLocalizedText(jlblDate, org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jlblDate.text")); // NOI18N
+
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
         jPanel13Layout.setHorizontalGroup(
@@ -808,12 +815,16 @@ public final class nurseryManagerTopComponent extends TopComponent {
                 .addContainerGap()
                 .addComponent(jlblListName)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextFieldListName)
+                .addComponent(jTextFieldListName, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jlblDescription)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldDescription)
-                .addGap(42, 42, 42)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jlblDate, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jDateChooserStart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jlblEntries)
                 .addGap(18, 18, 18)
                 .addComponent(jLabelEntries)
@@ -830,7 +841,9 @@ public final class nurseryManagerTopComponent extends TopComponent {
                 .addComponent(jTextFieldDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(jlblEntries)
                 .addComponent(jLabelEntries)
-                .addComponent(jButtonSaveCross))
+                .addComponent(jButtonSaveCross)
+                .addComponent(jDateChooserStart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jlblDate))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -902,9 +915,17 @@ public final class nurseryManagerTopComponent extends TopComponent {
 
         Listnms listnms = new Listnms();
         listnms.setListname(this.jTextFieldListName.getText());
-        int fecha = ConvertUtils.getDateAsInteger(new java.util.Date());
-        listnms.setListdate(fecha);
 
+       int fecha;
+        try{
+        fecha = ConvertUtils.getDateAsInteger(this.jDateChooserStart.getDate());    
+        }catch(Exception ex){
+         fecha=   ConvertUtils.getDateAsInteger(new java.util.Date());
+        }
+
+   
+        listnms.setListdate(fecha);
+        
         listnms.setListtype(Listnms.LIST_TYPE_HARVEST);
         listnms.setListuid(0);
         listnms.setListdesc(this.jTextFieldDescription.getText());
@@ -1893,6 +1914,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
     private javax.swing.JCheckBox jChkLeading;
     private javax.swing.JComboBox jComboBoxConvection;
     private javax.swing.JComboBox jComboBoxMethods;
+    private com.toedter.calendar.JDateChooser jDateChooserStart;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel19;
@@ -1939,6 +1961,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
     private javax.swing.JTextField jTextFieldSelectedFinalMale;
     private javax.swing.JTextField jTextPrefix;
     private javax.swing.JTextField jTextSuffix;
+    private javax.swing.JLabel jlblDate;
     private javax.swing.JLabel jlblDescription;
     private javax.swing.JLabel jlblEntries;
     private javax.swing.JLabel jlblListName;
