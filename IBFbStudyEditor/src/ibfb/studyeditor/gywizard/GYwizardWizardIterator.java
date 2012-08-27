@@ -52,7 +52,7 @@ public final class GYwizardWizardIterator implements WizardDescriptor.Iterator<W
                     jc.putClientProperty(WizardDescriptor.PROP_AUTO_WIZARD_STYLE, true);
                     jc.putClientProperty(WizardDescriptor.PROP_CONTENT_DISPLAYED, true);
                     jc.putClientProperty(WizardDescriptor.PROP_CONTENT_NUMBERED, true);
-                     jc.putClientProperty("WizardPanel_image", ImageUtilities.loadImage("/ibfb/studyeditor/images/logoWizardGY.png", true));
+                     jc.putClientProperty("WizardPanel_image", ImageUtilities.loadImage("ibfb/studyeditor/images/logoWizardGY.png", true));
 
                 }
             }

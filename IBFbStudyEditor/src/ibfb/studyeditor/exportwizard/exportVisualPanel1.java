@@ -9,9 +9,7 @@ public final class exportVisualPanel1 extends JPanel {
 
     private ResourceBundle bundle = NbBundle.getBundle(exportVisualPanel1.class);
 
-    /**
-     * Creates new form exportVisualPanel1
-     */
+ 
     public exportVisualPanel1() {
         initComponents();
     }
@@ -35,12 +33,27 @@ public final class exportVisualPanel1 extends JPanel {
         buttonGroupExport.add(jRadioButtonToFieldlog);
         jRadioButtonToFieldlog.setSelected(true);
         org.openide.awt.Mnemonics.setLocalizedText(jRadioButtonToFieldlog, org.openide.util.NbBundle.getMessage(exportVisualPanel1.class, "exportVisualPanel1.jRadioButtonToFieldlog.text")); // NOI18N
+        jRadioButtonToFieldlog.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonToFieldlogActionPerformed(evt);
+            }
+        });
 
         buttonGroupExport.add(jRadioButtonToExcel);
         org.openide.awt.Mnemonics.setLocalizedText(jRadioButtonToExcel, org.openide.util.NbBundle.getMessage(exportVisualPanel1.class, "exportVisualPanel1.jRadioButtonToExcel.text")); // NOI18N
+        jRadioButtonToExcel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonToExcelActionPerformed(evt);
+            }
+        });
 
         buttonGroupExport.add(jRadioButtonToR);
         org.openide.awt.Mnemonics.setLocalizedText(jRadioButtonToR, org.openide.util.NbBundle.getMessage(exportVisualPanel1.class, "exportVisualPanel1.jRadioButtonToR.text")); // NOI18N
+        jRadioButtonToR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonToRActionPerformed(evt);
+            }
+        });
 
         lblImgFieldlog.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyeditor/images/fieldlog.png"))); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(lblImgFieldlog, org.openide.util.NbBundle.getMessage(exportVisualPanel1.class, "exportVisualPanel1.lblImgFieldlog.text")); // NOI18N
@@ -62,11 +75,11 @@ public final class exportVisualPanel1 extends JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblImgRMouseClicked(evt);
             }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lblImgRMouseEntered(evt);
-            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 lblImgRMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblImgRMouseEntered(evt);
             }
         });
 
@@ -130,16 +143,19 @@ public final class exportVisualPanel1 extends JPanel {
 
     private void lblImgFieldlogMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImgFieldlogMouseClicked
         this.jRadioButtonToFieldlog.setSelected(true);
+          setIsForR();
     }//GEN-LAST:event_lblImgFieldlogMouseClicked
 
     private void lblImgRMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImgRMouseClicked
         if (this.lblImgR.isEnabled()) {
             this.jRadioButtonToR.setSelected(true);
+              setIsForR();
         }
     }//GEN-LAST:event_lblImgRMouseClicked
 
     private void lblImgExcelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImgExcelMouseClicked
         this.jRadioButtonToExcel.setSelected(true);
+          setIsForR();
     }//GEN-LAST:event_lblImgExcelMouseClicked
 
     private void lblImgFieldlogMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImgFieldlogMouseEntered
@@ -168,7 +184,27 @@ public final class exportVisualPanel1 extends JPanel {
 
     private void lblImgExcelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImgExcelMouseExited
         this.lblImgExcel.setIcon(new ImageIcon(getClass().getResource("/ibfb/studyeditor/images/excelBig1.png")));
+       
     }//GEN-LAST:event_lblImgExcelMouseExited
+
+    private void jRadioButtonToRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonToRActionPerformed
+      setIsForR();
+    }//GEN-LAST:event_jRadioButtonToRActionPerformed
+
+    private void jRadioButtonToFieldlogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonToFieldlogActionPerformed
+          setIsForR();
+    }//GEN-LAST:event_jRadioButtonToFieldlogActionPerformed
+
+    private void jRadioButtonToExcelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonToExcelActionPerformed
+         setIsForR();
+    }//GEN-LAST:event_jRadioButtonToExcelActionPerformed
+
+    
+    private void setIsForR(){
+        exportWizardIterator.isForR=this.jRadioButtonToR.isSelected();
+    }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroupExport;
     public javax.swing.JRadioButton jRadioButtonToExcel;

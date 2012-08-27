@@ -34,6 +34,7 @@ import ibfb.studyeditor.export.FieldBookExcelExporter;
 import ibfb.studyeditor.export.FieldbookCSVExporter;
 import ibfb.studyeditor.export.FieldbookRExport;
 import ibfb.studyeditor.exportwizard.exportWizardIterator;
+import ibfb.studyeditor.exportwizard.exportWizardPanelGYTrait;
 import ibfb.studyeditor.gywizard.GYwizardWizardIterator;
 import ibfb.studyeditor.importwizard.ImportData;
 import ibfb.studyeditor.importwizard.importingVisualPanel2;
@@ -99,6 +100,7 @@ import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.util.Exceptions;
 import org.openide.util.Mutex;
+import org.openide.util.NbPreferences;
 import org.openide.windows.WindowManager;
 
 @ConvertAsProperties(dtd = "-//ibfb.studyeditor.core//StudyEditor//EN",
@@ -169,8 +171,7 @@ public final class StudyEditorTopComponent extends TopComponent {
     private List<Variate> selectedTraits = new ArrayList<Variate>();
     private DoubleListPanel<Variate> doubleListPanel;
     private Variate traitToEvaluate;
-    private String stringTraitToEvaluate="GY";
-    
+    private String stringTraitToEvaluate = "GY";
     private SelectCommand unselectedCommand = new SelectCommand() {
 
         @Override
@@ -205,16 +206,14 @@ public final class StudyEditorTopComponent extends TopComponent {
     }
 
     public List<Variate> getSelectedTraits() {
-        
-    
+
+
         return selectedTraits;
     }
 
     public void setSelectedTraits(List<Variate> selectedTraits) {
         this.selectedTraits = selectedTraits;
     }
-    
-    
     /**
      * Current study already exists?
      */
@@ -1806,21 +1805,38 @@ public final class StudyEditorTopComponent extends TopComponent {
         return hasGY;
     }
     
+    
+        public boolean hasGYbyDefault() {
+        boolean hasGY = false;
+        ObservationsTableModel modeloOriginal = (ObservationsTableModel) jTableObservations.getModel();
+        if (modeloOriginal.findColumn("GY") >= 0) {
+            hasGY = true;
+        }
+        return hasGY;
+    }
+    
 
     private void jButtonCSVTraitsExport1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCSVTraitsExport1ActionPerformed
+//
+//        if (!hasGY()) {
+//           // DialogUtil.displayWarning(NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.noGY"));
+//         if(this.getSelectedTraits().size()>0){
+//           
+////            if(!loadGY()){
+////            this.setStringTraitToEvaluate("GY");
+////            }
+//             
+//             
+//         }           
+//        }
 
-        if (!hasGY()) {
-           // DialogUtil.displayWarning(NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.noGY"));
-         if(this.getSelectedTraits().size()>0){
-            if(!loadGY()){
-            this.setStringTraitToEvaluate("GY");
-            }  
-         }           
-        }
-
+        NbPreferences.forModule(exportWizardPanelGYTrait.class).put("traitIndex", "-1");
 
         if (!iniciaExportWizard2()) {
-            return;
+            this.setStringTraitToEvaluate("GY");
+            NbPreferences.forModule(exportWizardPanelGYTrait.class).put("traitIndex", "-1");
+
+
         }
 }//GEN-LAST:event_jButtonCSVTraitsExport1ActionPerformed
 
@@ -1864,19 +1880,19 @@ public final class StudyEditorTopComponent extends TopComponent {
         }
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
-    private boolean loadGY(){
+    private boolean loadGY() {
         WizardDescriptor wiz = new WizardDescriptor(new GYwizardWizardIterator());
-                 // {0} will be replaced by WizardDescriptor.Panel.getComponent().getName()
-                 // {1} will be replaced by WizardDescriptor.Iterator.name()
-                 wiz.setTitleFormat(new MessageFormat("{0} ({1})"));
-                 wiz.setTitle(NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.gytitle"));
-                 if (DialogDisplayer.getDefault().notify(wiz) == WizardDescriptor.FINISH_OPTION) {
-                   return true;
-                 }else{
-                   return false;
-                 }
+        // {0} will be replaced by WizardDescriptor.Panel.getComponent().getName()
+        // {1} will be replaced by WizardDescriptor.Iterator.name()
+        wiz.setTitleFormat(new MessageFormat("{0} ({1})"));
+        wiz.setTitle(NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.gytitle"));
+        if (DialogDisplayer.getDefault().notify(wiz) == WizardDescriptor.FINISH_OPTION) {
+            return true;
+        } else {
+            return false;
+        }
     }
-    
+
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // INCLUDE
         int columna = 5;
@@ -1936,7 +1952,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                     DialogUtil.displayInfo(NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.saved"));
                     enableMeasurementButtons();
                     RefreshBrowserHelper.refreshStudyBrowser();
-                    
+
                 } catch (InterruptedException ex) {
                     Exceptions.printStackTrace(ex);
                 } catch (ExecutionException ex) {
@@ -2180,7 +2196,7 @@ public final class StudyEditorTopComponent extends TopComponent {
 
     private void exportToR() {
 
-        FieldbookRExport.exportToR(jTableObservations, trialFile, csv, triallOption, trialStart, trialEnd, trialSelected,this.getStringTraitToEvaluate());
+        FieldbookRExport.exportToR(jTableObservations, trialFile, csv, triallOption, trialStart, trialEnd, trialSelected, this.getStringTraitToEvaluate());
     }
 
     private void jMenuItemUnSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemUnSelectActionPerformed
@@ -2400,7 +2416,7 @@ public final class StudyEditorTopComponent extends TopComponent {
 
     public void fillObservationsData() {
         List<Variate> selectedVariates = doubleListPanel.getTargetList();
-        this.setSelectedTraits(selectedVariates);       
+        this.setSelectedTraits(selectedVariates);
         ObservationsTableModel tableModel = new ObservationsTableModel(myWorkbook, selectedVariates);
         jTableObservations.setModel(tableModel);
         sorterMeasurements = new TableRowSorter<TableModel>(tableModel);
@@ -3075,14 +3091,13 @@ public final class StudyEditorTopComponent extends TopComponent {
         return result;
 
     }
-    
+
     public void enableMeasurementButtons() {
         btnPrintLabels.setEnabled(true);
         jButtonSaveToExcel.setEnabled(true);
         jButtonCSVTraitsExport1.setEnabled(true);
         jButtonCSVTraitsImport1.setEnabled(true);
     }
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JPanel JPanelData;
     private javax.swing.JButton btnPrintLabels;

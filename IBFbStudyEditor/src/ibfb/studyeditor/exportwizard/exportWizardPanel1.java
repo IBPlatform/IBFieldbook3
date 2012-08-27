@@ -9,10 +9,13 @@ import org.openide.windows.WindowManager;
 
 public class exportWizardPanel1 implements WizardDescriptor.Panel {
 
+  
+
     private exportVisualPanel1 component;
 
     @Override
     public Component getComponent() {
+       
         if (component == null) {
             component = new exportVisualPanel1();
         }
@@ -43,9 +46,10 @@ public class exportWizardPanel1 implements WizardDescriptor.Panel {
 
     @Override
     public void readSettings(Object settings) {
+      
         StudyEditorTopComponent studyEditor = (StudyEditorTopComponent) WindowManager.getDefault().getRegistry().getActivated();
 
-        if (studyEditor.hasGY()) {
+        if (studyEditor.getSelectedTraits().size()>0){      
             component.enabledR(true);
         } else {
             component.enabledR(false);
@@ -58,16 +62,15 @@ public class exportWizardPanel1 implements WizardDescriptor.Panel {
 
         StudyEditorTopComponent studyEditor = (StudyEditorTopComponent) WindowManager.getDefault().getRegistry().getActivated();
 
-
-
-
         if (component.jRadioButtonToFieldlog.isSelected()) {
+            
             studyEditor.opcionFiltro = 1;
             studyEditor.opcionExport = 0;
             return;
         }
 
         if (component.jRadioButtonToR.isSelected()) {
+            
             studyEditor.opcionFiltro = 1;
             studyEditor.opcionExport = 1;
 
@@ -76,9 +79,16 @@ public class exportWizardPanel1 implements WizardDescriptor.Panel {
         }
 
         if (component.jRadioButtonToExcel.isSelected()) {
+             
             studyEditor.opcionFiltro = 0;
             studyEditor.opcionExport = 2;
         }
 
+       if(studyEditor.hasGY() ){
+           
+       }
+        
     }
+    
+
 }
