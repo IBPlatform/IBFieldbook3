@@ -1838,6 +1838,7 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
                 List<GermplasmSearch> listToSearchBCID = new ArrayList<GermplasmSearch>();
 
                 AdvanceLineTopComponent advanceEditor = new AdvanceLineTopComponent();
+                advanceEditor.setModelo(modelo);
                 advanceEditor.setConvection(convention);
                 advanceEditor.setMethodId(methodId);
                 advanceEditor.setLocationId(locationId);
@@ -1948,8 +1949,8 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
 
                             Integer gidToSearch = ConvertUtils.getValueAsInteger(germplasmData.get(i).get(colGID));
 
-                            System.out.println("gidToSearch: " + gidToSearch);
-
+                           // System.out.println("gidToSearch: " + gidToSearch);
+                            
                             Names cimmytName = AppServicesProxy.getDefault().appServices().getCimmytWheatName(gidToSearch);
                             if (cimmytName == null) {
                                 data = metodos.giveMeDataDerivative(nuevo[colDesig].toString(), samples);

@@ -4,6 +4,7 @@ import ibfb.domain.core.Factor;
 import ibfb.domain.core.GermplasmList;
 import ibfb.nursery.inventory.InventoryTopComponent;
 import ibfb.nursery.models.GermplasmEntriesTableModel;
+import ibfb.nursery.models.ObservationsTableModel;
 import ibfb.settings.core.FieldbookSettings;
 import ibfb.workbook.api.GermplasmListReader;
 import ibfb.workbook.core.GermplasmListReaderImpl;
@@ -65,7 +66,17 @@ public final class AdvanceLineTopComponent extends TopComponent {
     private String desigArray[]={"DESIG","CROSS","CROSS NAME"};
     private String entryArray[]={"ENTRY","ENTRY NUMBER"};
     private String bcidArray[]={"BCID","CROSS","CROSS NAME"};
+    ObservationsTableModel modelo;
 
+    public ObservationsTableModel getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(ObservationsTableModel modelo) {
+        this.modelo = modelo;
+    }
+
+    
     public List<GermplasmSearch> getListToSearchBCID() {
         return listToSearchBCID;
     }
@@ -620,9 +631,6 @@ public final class AdvanceLineTopComponent extends TopComponent {
 
     private void saveListForWheat() {
         
-
-        
-
      //   List<GermplasmSearch> listFemale = new ArrayList<GermplasmSearch>();
        // List<GermplasmSearch> listMale = new ArrayList<GermplasmSearch>();
         
@@ -653,10 +661,20 @@ public final class AdvanceLineTopComponent extends TopComponent {
          currentSourceGid = 0;
 
         // get selected method from combo
-        int selectedMethodId = getMethodId();
-        int numOfParents = getNumberOfParents();
+        //int selectedMethodId = getMethodId();
+        
+
+         
+         
+                
+       int numOfParents = getNumberOfParents();
 
         for (int i = 0; i < jTableEntries.getRowCount(); i++) {
+            
+            
+         int selectedMethodId=giveMethodSelection(i);
+            
+            
             Listdata listdata = new Listdata(true);
             Listdata listdataBCID = new Listdata(true);
 
@@ -696,7 +714,7 @@ public final class AdvanceLineTopComponent extends TopComponent {
 
             // this values are used when a germplasm is going to be added
             listdata.setHarvestDate(harvestDate);
-            listdata.setMethodId(methodId);
+            listdata.setMethodId(selectedMethodId);
             listdata.setLocationId(locationId);
 
             // asigns GPID1 and GPDI2
@@ -955,5 +973,30 @@ public final class AdvanceLineTopComponent extends TopComponent {
 
     public void setSourceGidList(List<Integer> sourceGidList) {
         this.sourceGidList = sourceGidList;
+    }
+
+    private int giveMethodSelection(int renglon) {
+        int method = 0;
+
+        int colSelection = modelo.getHeaderIndex(GermplasmEntriesTableModel.PLANTS_SELECTED);
+
+
+        if (colSelection > 0) {
+            int elMetodo = Integer.parseInt(modelo.getValueAt(renglon, colSelection).toString());
+
+            if (elMetodo > 0) {
+                return 205;
+            }
+
+            if (elMetodo == 0) {
+                return 206;
+            }
+            
+            if (elMetodo < 0) {
+                return 207;
+            }
+        }
+
+        return method;
     }
 }
