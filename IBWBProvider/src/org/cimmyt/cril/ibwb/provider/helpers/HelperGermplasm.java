@@ -46,7 +46,8 @@ public class HelperGermplasm {
 
     public List<Listdata> saveGermplasmNews(
             List<Listdata> listGermplsm,
-            Listnms listnms) {
+            Listnms listnms
+            ) {
         if (listnms.getListid() == null) {
             appServices.addListnms(listnms);
         } else if (listnms.getListid() == 0) {
@@ -157,7 +158,7 @@ public class HelperGermplasm {
         Germplsm germplsm = new Germplsm();
         //germplsm.setGid(userId); -> Utogenerado
         if (listdata.getMethodId() != null) {
-            germplsm.setMethn(listdata.getMethodId());
+            germplsm.setMethn(listdata.getMethodId());//Asigmar metodo de la lista 107 para cruzas no 101
         } else {
             germplsm.setMethn(getMethod(nameGermplasm));//methn 31 si tiene - al final si no el   metodo = 1 unknow
         }
@@ -289,7 +290,7 @@ public class HelperGermplasm {
         //names
         //names.setNid(userId);//nid = autoincrement
         names.setGid(germplsm.getGid());//gid = germplasm
-        names.setNtype(1028);//ntype = 5
+        names.setNtype(1028);//historia de seleccion = 1028
         // tmsanchez 20120424
         names.setNstat(0);//nstat = 0
 
@@ -304,7 +305,7 @@ public class HelperGermplasm {
         //names
         //names.setNid(userId);//nid = autoincrement
         names.setGid(germplsm.getGid());//gid = germplasm
-        names.setNtype(1027);//ntype = 5
+        names.setNtype(1029);//pedigri = 1029 
         // tmsanchez 20120424
         names.setNstat(1);//nstat = 0
 
@@ -313,7 +314,7 @@ public class HelperGermplasm {
         names.setNlocn(0);//nlocn 0
         names.setNdate(UtilDate.getDateAsInteger(new Date()));//ndate añomesdia
         names.setNref(0);//nref 0
-        servicioLocal.addNames(names);
+//        servicioLocal.addNames(names);
 
         listdata.setGid(germplsm.getGid());
 //        servicioLocal.addListdata(listdata);
