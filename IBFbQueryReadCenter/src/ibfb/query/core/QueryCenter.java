@@ -137,7 +137,7 @@ public class QueryCenter {
             Connection dmsLocal = ConnectionUtils.getConnection(DatabaseType.MYSQL, dmsLocalUrl, dmsUserLocal, dmsPwdLocal);
             Connection gmsLocal = ConnectionUtils.getConnection(DatabaseType.MYSQL, gmsLocalUrl, gmsUserLocal, gmsPwdLocal);
 
-            this.sendConnections(gmsCentral, dmsCentral, gmsLocal, dmsCentral);//central gms, central dms, local gms, local dms;
+            this.sendConnections(gmsCentral, dmsCentral, gmsLocal, dmsLocal);//central gms, central dms, local gms, local dms;
             System.out.println("TODO CORRECTO AL CARGAR CONEXIONES QUERY CENTER");
         } catch (Exception e) {
             e.printStackTrace();
@@ -1553,6 +1553,7 @@ public class QueryCenter {
 //        }
 //        return pr;
 //    }
+    
     public ResultSet getTrialRandomization(int p_tid, int p_occ) {
         ResultSet pr = null;
         Statement st = null;
