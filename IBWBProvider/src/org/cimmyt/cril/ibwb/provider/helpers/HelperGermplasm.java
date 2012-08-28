@@ -203,6 +203,9 @@ public class HelperGermplasm {
         } else {
             germplsm.setGdate(listdata.getHarvestDate());
         }
+        
+        germplsm.setSid(0);
+        germplsm.setCid(0);
 
 
         //los demas 0 (por default tienen 0 asi que ya no se asigna)
