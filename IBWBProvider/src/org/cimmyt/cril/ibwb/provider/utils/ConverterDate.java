@@ -10,9 +10,19 @@ public class ConverterDate {
 			Calendar fechaCalendar = Calendar.getInstance();
 			fechaCalendar.setTime(fecha);
 			StringBuffer resultado = new StringBuffer();
-			resultado.append(fechaCalendar.get(Calendar.DATE));
-			resultado.append(fechaCalendar.get(Calendar.MONTH)+ 1);
 			resultado.append(fechaCalendar.get(Calendar.YEAR));
+                        Integer mesTemp = fechaCalendar.get(Calendar.MONTH) + 1;
+                        if(mesTemp < 10){
+                            resultado.append("0" + mesTemp);
+                        }else{
+                            resultado.append(mesTemp);
+                        }
+                        Integer diaTemp = fechaCalendar.get(Calendar.DATE);
+                        if(diaTemp < 10){
+                            resultado.append("0" + diaTemp);
+                        }else {
+                            resultado.append(diaTemp);
+                        }
 			return Integer.valueOf(resultado.toString());
 		}
 		return null;
