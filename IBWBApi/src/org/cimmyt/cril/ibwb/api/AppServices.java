@@ -3,6 +3,7 @@ package org.cimmyt.cril.ibwb.api;
 import ibfb.domain.core.Measurement;
 
 import ibfb.domain.core.Workbook;
+import ibfb.query.core.QueryCenter;
 import java.sql.ResultSet;
 import java.util.List;
 
@@ -1820,7 +1821,8 @@ public interface AppServices {
             String nameGermplasmBCID,
             Listdata listdata,
             Listnms listnms,
-            Integer userId);
+            Integer userId,
+            QueryCenter queryCenter);
 
     public List<GermplasmSearch> getGermplasmByListStudyTrialPlotCross(
             AppServices appServices,
