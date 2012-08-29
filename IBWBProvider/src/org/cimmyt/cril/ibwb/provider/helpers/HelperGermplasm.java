@@ -754,11 +754,11 @@ public class HelperGermplasm {
         log.info("Iniciando el proceso de recuperacion de maximos para los fmale");
         for(GermplasmSearch gs : listFmale){
             
-            if(gs.getGermplsm() != null && gs.getNames() != null){
-                log.info("Gnpgs: " + gs.getGermplsm().getGnpgs() + " Ntype: " + gs.getNames().getNtype());
-            }else{
-                log.info("Germplasm: " + gs.getGermplsm() + " Names: " + gs.getNames());
-            }
+//            if(gs.getGermplsm() != null && gs.getNames() != null){
+//                log.info("Gnpgs: " + gs.getGermplsm().getGnpgs() + " Ntype: " + gs.getNames().getNtype());
+//            }else{
+//                log.info("Germplasm: " + gs.getGermplsm() + " Names: " + gs.getNames());
+//            }
             
             if(gs.getGermplsm().getGnpgs() == -1 && gs.getNames().getNtype() == 1028){
                 gs.setMax(appServices.getMaxForSelection(gs.getStudyId(), gs.getBcid(), 1028));
@@ -768,7 +768,7 @@ public class HelperGermplasm {
             }else{
                 gs.setMax(0);
             }
-            log.info("Max: " + gs.getMax());
+//            log.info("Max: " + gs.getMax());
         }
         log.info("seteando los datos del male a los objetos GermplasmSearchFmale");
         for(GermplasmSearch gs : listMale){
