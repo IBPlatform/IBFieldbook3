@@ -2,6 +2,7 @@ package org.cimmyt.cril.ibwb.provider;
 
 import ibfb.domain.core.Measurement;
 import ibfb.domain.core.Workbook;
+import ibfb.query.core.QueryCenter;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
@@ -2181,9 +2182,16 @@ public class IBWBAppServicesImpl implements AppServices {
             String nameGermplasmBCID,
             Listdata listdata,
             Listnms listnms,
-            Integer userId) {
+            Integer userId,
+            QueryCenter queryCenter
+            ) {
         HelperGermplasm helperGermplasm = new HelperGermplasm(new Listnms(), this, serviciosLocal, userId);
-        return helperGermplasm.agregarGermPlasmCimmytWheat(nameGermplasmHistory, nameGermplasmBCID, listdata, listnms);
+        return helperGermplasm.agregarGermPlasmCimmytWheat(
+                nameGermplasmHistory,
+                nameGermplasmBCID,
+                listdata,
+                listnms,
+                queryCenter);
     }
 
     public List<GermplasmSearch> getGermplasmByListStudyTrialPlotCross(

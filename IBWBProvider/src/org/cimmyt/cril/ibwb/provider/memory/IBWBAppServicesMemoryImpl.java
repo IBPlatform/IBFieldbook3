@@ -7,6 +7,7 @@ package org.cimmyt.cril.ibwb.provider.memory;
 import ibfb.domain.core.IBFStudy;
 import ibfb.domain.core.Measurement;
 import ibfb.domain.core.Workbook;
+import ibfb.query.core.QueryCenter;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
@@ -1331,7 +1332,7 @@ public class IBWBAppServicesMemoryImpl implements AppServices {
     }
 
     @Override
-    public Listdata agregarGermPlasmCimmytWheat(String nameGermplasmHistory, String nameGermplasmBCID, Listdata listdata, Listnms listnms, Integer userId) {
+    public Listdata agregarGermPlasmCimmytWheat(String nameGermplasmHistory, String nameGermplasmBCID, Listdata listdata, Listnms listnms, Integer userId, QueryCenter queryCenter) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 

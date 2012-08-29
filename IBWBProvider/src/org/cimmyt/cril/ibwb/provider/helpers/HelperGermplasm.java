@@ -5,7 +5,9 @@
 package org.cimmyt.cril.ibwb.provider.helpers;
 
 //import com.sun.tools.internal.xjc.model.nav.NType;
+import ibfb.query.classes.GpidInfClass;
 import ibfb.domain.core.Workbook;
+import ibfb.query.core.QueryCenter;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
@@ -79,6 +81,7 @@ public class HelperGermplasm {
         } else if (listnms.getListid() == 0) {
             appServices.addListnms(listnms);
         }
+        QueryCenter queryCenter = loadQueryCenter();
         List<Listdata> listDatas = new ArrayList<Listdata>(0);
         for (Listdata listdataT : listGermplsm) {
 
@@ -87,7 +90,7 @@ public class HelperGermplasm {
             String nameGermplasm = listdataT.getDesig();//----------------------->Definir cual es el nombre History
             String nameGermplasmBCID = listdataT.getNameBCID();//----------------------->Definir cual es el nombre BCID
             
-            agregarGermPlasmCimmytWheat(nameGermplasm, nameGermplasmBCID, listdataT, listnms);
+            agregarGermPlasmCimmytWheat(nameGermplasm, nameGermplasmBCID, listdataT, listnms, queryCenter);
             //agregarGermPlasmCimmytWheat(nameGermplasm, nameGermplasmBCID, listdataT);
             
             
@@ -232,7 +235,13 @@ public class HelperGermplasm {
         return listdata;
     }
     
-    public Listdata agregarGermPlasmCimmytWheat(String nameGermplasmHistory, String nameGermplasmBCID, Listdata listdata, Listnms listnms) {
+    public Listdata agregarGermPlasmCimmytWheat(
+            String nameGermplasmHistory,
+            String nameGermplasmBCID,
+            Listdata listdata,
+            Listnms listnms,
+            QueryCenter queryCenter
+            ) {
 
         Germplsm germplsm = new Germplsm();
         //germplsm.setGid(userId); -> Utogenerado
@@ -288,6 +297,8 @@ public class HelperGermplasm {
         //los demas 0 (por default tienen 0 asi que ya no se asigna)
         servicioLocal.addGermplsm(germplsm);
 
+        
+        
         Names names = new Names();
         //names
         //names.setNid(userId);//nid = autoincrement
@@ -303,16 +314,43 @@ public class HelperGermplasm {
         names.setNref(0);//nref 0
         servicioLocal.addNames(names);
         
+        
+        
         names = new Names();
         //names
         //names.setNid(userId);//nid = autoincrement
         names.setGid(germplsm.getGid());//gid = germplasm
-        names.setNtype(1027);//nombre bcid = 1027, pedigri = 1029 
+        names.setNtype(1027);//nombre bcid = 1027
         // tmsanchez 20120424
         names.setNstat(1);//nstat = 0
 
         names.setNuid(userId);//nuid = numero de usuario tienen que pasar o 0
         names.setNval(nameGermplasmBCID);//nval = nombre del germoplasma
+        names.setNlocn(0);//nlocn 0
+        names.setNdate(UtilDate.getDateAsInteger(new Date()));//ndate añomesdia
+        names.setNref(0);//nref 0
+        servicioLocal.addNames(names);
+        
+        
+        
+        names = new Names();
+        //names
+        //names.setNid(userId);//nid = autoincrement
+        names.setGid(germplsm.getGid());//gid = germplasm
+        names.setNtype(1029);//pedigri = 1029 
+        // tmsanchez 20120424
+        names.setNstat(1);//nstat = 0
+
+        names.setNuid(userId);//nuid = numero de usuario tienen que pasar o 0
+        String arma_pedigree;
+        try {
+            arma_pedigree = queryCenter.arma_pedigree(germplsm.getGid(), 0, new GpidInfClass(), 0, 0, 0, 0);
+            log.info("Pedigree armado para GID: " + germplsm.getGid() + ":" + arma_pedigree);
+        }catch (Exception e){
+            log.info(e);
+            arma_pedigree = "";
+        }
+        names.setNval(arma_pedigree);//nval = nombre del germoplasma
         names.setNlocn(0);//nlocn 0
         names.setNdate(UtilDate.getDateAsInteger(new Date()));//ndate añomesdia
         names.setNref(0);//nref 0
@@ -1014,5 +1052,15 @@ public class HelperGermplasm {
             log.error("Error al trabajar con el resulset. ", ex);
             return false;
         }
+    }
+    
+    private QueryCenter loadQueryCenter() {
+        QueryCenter queryReadCenter = new QueryCenter();
+        queryReadCenter.readAndLoadDatabases();
+        queryReadCenter.setFnameKeyEntryNumber("Entry number");
+        queryReadCenter.setFnameKeyOcc("occ");
+        queryReadCenter.setFnamePedigree("cross name");
+        queryReadCenter.readFlexPedConfig();
+        return queryReadCenter;
     }
 }
