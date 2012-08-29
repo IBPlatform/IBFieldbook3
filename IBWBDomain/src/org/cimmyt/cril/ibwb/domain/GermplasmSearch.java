@@ -25,9 +25,9 @@ public class GermplasmSearch {
     private Names namesMale;
     
     private String lid;
-    private Integer max;//exacto el maximo
-    private String bcid;
-    private String charBCID;
+    private Integer max;//exacto el maximo para armar el BCID
+    private String bcid;//estructura BCID recuperada
+    private String charBCID;//ultimo caracter a asignar
     private Integer methodGermplasm;
 
     /**
