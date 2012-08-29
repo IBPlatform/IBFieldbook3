@@ -2180,9 +2180,10 @@ public class IBWBAppServicesImpl implements AppServices {
             String nameGermplasmHistory,
             String nameGermplasmBCID,
             Listdata listdata,
+            Listnms listnms,
             Integer userId) {
         HelperGermplasm helperGermplasm = new HelperGermplasm(new Listnms(), this, serviciosLocal, userId);
-        return helperGermplasm.agregarGermPlasmCimmytWheat(nameGermplasmHistory, nameGermplasmBCID, listdata);
+        return helperGermplasm.agregarGermPlasmCimmytWheat(nameGermplasmHistory, nameGermplasmBCID, listdata, listnms);
     }
 
     public List<GermplasmSearch> getGermplasmByListStudyTrialPlotCross(

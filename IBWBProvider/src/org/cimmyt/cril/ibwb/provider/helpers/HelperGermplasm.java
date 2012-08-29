@@ -87,7 +87,8 @@ public class HelperGermplasm {
             String nameGermplasm = listdataT.getDesig();//----------------------->Definir cual es el nombre History
             String nameGermplasmBCID = listdataT.getNameBCID();//----------------------->Definir cual es el nombre BCID
             
-            agregarGermPlasmCimmytWheat(nameGermplasm, nameGermplasmBCID, listdataT);
+            agregarGermPlasmCimmytWheat(nameGermplasm, nameGermplasmBCID, listdataT, listnms);
+            //agregarGermPlasmCimmytWheat(nameGermplasm, nameGermplasmBCID, listdataT);
             
             
             listdataT.setListdataPK(new ListdataPK(listnms.getListid(), 0));
@@ -231,7 +232,7 @@ public class HelperGermplasm {
         return listdata;
     }
     
-    public Listdata agregarGermPlasmCimmytWheat(String nameGermplasmHistory, String nameGermplasmBCID, Listdata listdata) {
+    public Listdata agregarGermPlasmCimmytWheat(String nameGermplasmHistory, String nameGermplasmBCID, Listdata listdata, Listnms listnms) {
 
         Germplsm germplsm = new Germplsm();
         //germplsm.setGid(userId); -> Utogenerado
@@ -277,7 +278,8 @@ public class HelperGermplasm {
 
 
         if (listdata.getHarvestDate() == null) {
-            germplsm.setGdate(UtilDate.getDateAsInteger(new Date()));//gdate la fecha en que se da de alta el registro añomesdia
+            //germplsm.setGdate(UtilDate.getDateAsInteger(new Date()));//gdate la fecha en que se da de alta el registro añomesdia
+            germplsm.setGdate(listnms.getListdate());
         } else {
             germplsm.setGdate(listdata.getHarvestDate());
         }
