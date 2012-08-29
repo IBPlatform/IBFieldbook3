@@ -305,7 +305,7 @@ public class HelperGermplasm {
         //names
         //names.setNid(userId);//nid = autoincrement
         names.setGid(germplsm.getGid());//gid = germplasm
-        names.setNtype(1029);//pedigri = 1029 
+        names.setNtype(1027);//nombre bcid = 1027, pedigri = 1029 
         // tmsanchez 20120424
         names.setNstat(1);//nstat = 0
 
@@ -314,7 +314,7 @@ public class HelperGermplasm {
         names.setNlocn(0);//nlocn 0
         names.setNdate(UtilDate.getDateAsInteger(new Date()));//ndate añomesdia
         names.setNref(0);//nref 0
-//        servicioLocal.addNames(names);
+        servicioLocal.addNames(names);
 
         listdata.setGid(germplsm.getGid());
 //        servicioLocal.addListdata(listdata);
@@ -753,14 +753,22 @@ public class HelperGermplasm {
         }
         log.info("Iniciando el proceso de recuperacion de maximos para los fmale");
         for(GermplasmSearch gs : listFmale){
+            
+            if(gs.getGermplsm() != null && gs.getNames() != null){
+                log.info("Gnpgs: " + gs.getGermplsm().getGnpgs() + " Ntype: " + gs.getNames().getNtype());
+            }else{
+                log.info("Germplasm: " + gs.getGermplsm() + " Names: " + gs.getNames());
+            }
+            
             if(gs.getGermplsm().getGnpgs() == -1 && gs.getNames().getNtype() == 1028){
-                gs.setMax(appServices.getMaxForSelection(gs.getStudyId(), gs.getNames().getNval(), 1028));
+                gs.setMax(appServices.getMaxForSelection(gs.getStudyId(), gs.getBcid(), 1028));
             }else if (gs.getGermplsm().getGnpgs() == 2 && gs.getNames().getNtype() == 1027){
-                Integer max = appServices.getMaxForSelection(gs.getStudyId(), gs.getNames().getNval(), 1027);
+                Integer max = appServices.getMaxForSelection(gs.getStudyId(), gs.getBcid(), 1027);
                 gs.setMax(max);
             }else{
                 gs.setMax(0);
             }
+            log.info("Max: " + gs.getMax());
         }
         log.info("seteando los datos del male a los objetos GermplasmSearchFmale");
         for(GermplasmSearch gs : listMale){

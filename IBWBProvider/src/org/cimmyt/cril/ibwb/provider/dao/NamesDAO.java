@@ -4,6 +4,7 @@ package org.cimmyt.cril.ibwb.provider.dao;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.log4j.Logger;
 import org.cimmyt.cril.ibwb.api.dao.AbstractDAO;
 import org.cimmyt.cril.ibwb.api.dao.utils.ValidatingDataType;
 import org.cimmyt.cril.ibwb.domain.Germplsm;
@@ -18,6 +19,8 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.HibernateCallback;
 
 public class NamesDAO extends AbstractDAO<Names, Integer> {
+    
+    private static Logger log = Logger.getLogger(NamesDAO.class);
 
     public NamesDAO() {
         super(Names.class);
@@ -178,16 +181,15 @@ public class NamesDAO extends AbstractDAO<Names, Integer> {
             return inicial;
         }else{
             String resultado = result.get(0).toString();
-            String consecutivo = resultado.substring(cadena.length(), resultado.length());
+            String consecutivo = resultado.substring(cadena.length(), resultado.length()-1);
             StringBuilder sb = new StringBuilder();
             for(char c : consecutivo.toCharArray()){
-                if(c > 49 && c < 58 || c == '-'){
+                if(c > 47 && c < 58){
                     sb.append(c);
                 }else{
-                    sb = new StringBuilder();
                     break;
                 }
-            }
+            }            
             if(! sb.toString().isEmpty()){
                 Integer numeroConsecutivo = Integer.valueOf(sb.toString());
                 return numeroConsecutivo;

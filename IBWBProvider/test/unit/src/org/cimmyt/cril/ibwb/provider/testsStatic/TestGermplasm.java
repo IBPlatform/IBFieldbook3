@@ -79,7 +79,7 @@ public class TestGermplasm extends TestService {
     
     private List<GermplasmSearch> getListGermplasmSearchFmale(){
         List<GermplasmSearch> result = new ArrayList<GermplasmSearch>();
-        for(int i = 301 ; i<511; i++){
+        for(int i = 1 ; i<=200; i++){
             GermplasmSearch gs = new GermplasmSearch();
             gs.setStudyId(40165);
             gs.setTrial(1);
@@ -93,7 +93,7 @@ public class TestGermplasm extends TestService {
         List<GermplasmSearch> result = new ArrayList<GermplasmSearch>();
         for(int i = 1 ; i<201; i++){
             GermplasmSearch gs = new GermplasmSearch();
-            gs.setStudyId(19973);
+            gs.setStudyId(40170);
             gs.setTrial(1);
             switch(i){
                 case 	1	: gs.setPlot(	25	); break;
@@ -310,7 +310,7 @@ public class TestGermplasm extends TestService {
     }
     
     private void getGermplasmByListStudyTrialPlotCross(){
-        List<GermplasmSearch> germplasmSearchs = HelperGermplasm.getGermplasmByListStudyTrialPlotCross(servicios, getListGermplasmSearch(), new ArrayList());
+        List<GermplasmSearch> germplasmSearchs = HelperGermplasm.getGermplasmByListStudyTrialPlotCross(servicios, getListGermplasmSearchFmale(), getListGermplasmSearchMale());
         for(GermplasmSearch gs : germplasmSearchs){
             System.out.println("BSCID: " + gs.getBcid() + " LOCID: " + gs.getLid());
         }

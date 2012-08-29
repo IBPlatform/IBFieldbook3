@@ -1038,11 +1038,6 @@ public class IBWBAppServicesImpl implements AppServices {
     }
 
     public Integer getMaxForSelection(Integer studyId, String cadena, Integer ntype) {
-//        if (studyId > 0) {
-//            return this.serviciosCentral.getMaxForSelection(cadena, ntype);
-//        } else {
-//            return this.serviciosLocal.getMaxForSelection(cadena, ntype);
-//        }
         Integer tempC = this.serviciosCentral.getMaxForSelection(cadena, ntype);
         Integer tempL = this.serviciosLocal.getMaxForSelection(cadena, ntype);
         if (tempC > tempL) {
