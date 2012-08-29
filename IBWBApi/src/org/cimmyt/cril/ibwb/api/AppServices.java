@@ -1819,6 +1819,7 @@ public interface AppServices {
             String nameGermplasmHistory,
             String nameGermplasmBCID,
             Listdata listdata,
+            Listnms listnms,
             Integer userId);
 
     public List<GermplasmSearch> getGermplasmByListStudyTrialPlotCross(
