@@ -53,7 +53,9 @@ import java.awt.datatransfer.StringSelection;
 import java.io.File;
 import java.text.MessageFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.ExecutionException;
 import java.util.regex.PatternSyntaxException;
 import javax.swing.DefaultCellEditor;
@@ -1835,8 +1837,6 @@ public final class StudyEditorTopComponent extends TopComponent {
         if (!iniciaExportWizard2()) {
             this.setStringTraitToEvaluate("GY");
             NbPreferences.forModule(exportWizardPanelGYTrait.class).put("traitIndex", "-1");
-
-
         }
 }//GEN-LAST:event_jButtonCSVTraitsExport1ActionPerformed
 
@@ -2624,10 +2624,39 @@ public final class StudyEditorTopComponent extends TopComponent {
         }
     }
 
-    private int[] randomize(int tam) {
+    private int[] randomizeDif(int tam) {
+        
+        Random r;
+        r=new Random();
+        r.setSeed(new Date().getTime());
+        
+        
         int vector[] = new int[tam];
         int i = 0, j;
-        vector[i] = (int) (Math.random() * tam);
+        vector[i] = (int) (r.nextDouble() * tam);
+        
+        for (i = 1; i < tam; i++) {
+            vector[i] = (int) (r.nextDouble() * tam);
+            for (j = 0; j < i; j++) {
+                if (vector[i] == vector[j]) {
+                    i--;
+                }
+            }
+        }
+        return vector;
+    }
+    
+        private int[] randomize(int tam) {
+        
+        Random r;
+        r=new Random();
+        r.setSeed(new Date().getTime());
+        
+        
+        int vector[] = new int[tam];
+        int i = 0, j;
+         vector[i] = (int) (Math.random() * tam);
+        
         for (i = 1; i < tam; i++) {
             vector[i] = (int) (Math.random() * tam);
             for (j = 0; j < i; j++) {
@@ -2638,6 +2667,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         }
         return vector;
     }
+    
 
     public void printLabels() {
         TraitsReportHelper.printTraitsReport(jTableObservations);

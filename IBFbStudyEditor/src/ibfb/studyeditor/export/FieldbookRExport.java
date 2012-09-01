@@ -14,10 +14,6 @@ import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 import org.openide.NotifyDescriptor;
 import org.openide.util.NbBundle;
 
-/**
- *
- * @author TMSANCHEZ
- */
 public class FieldbookRExport {
 
     private static ResourceBundle bundle = NbBundle.getBundle(FieldbookRExport.class);
@@ -66,8 +62,6 @@ public class FieldbookRExport {
 
                 if (Desktop.isDesktopSupported() == true) {
                     Desktop desktop = Desktop.getDesktop();
-                    //String folderLocation = OSUtils.extractFilePath(trialFile + ".csv");
-                    //File theFile = new File(folderLocation);
                     File theFile = new File(trialFile + ".csv");
                     desktop.open(theFile);
                 }

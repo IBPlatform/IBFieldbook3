@@ -6,6 +6,7 @@ import java.util.NoSuchElementException;
 import javax.swing.JComponent;
 import javax.swing.event.ChangeListener;
 import org.openide.WizardDescriptor;
+import org.openide.util.ImageUtilities;
 import org.openide.windows.WindowManager;
 
 public final class exportWizardIterator implements WizardDescriptor.Iterator {
@@ -39,6 +40,8 @@ public final class exportWizardIterator implements WizardDescriptor.Iterator {
                     jc.putClientProperty("WizardPanel_autoWizardStyle", Boolean.TRUE);
                     jc.putClientProperty("WizardPanel_contentDisplayed", Boolean.TRUE);
                     jc.putClientProperty("WizardPanel_contentNumbered", Boolean.TRUE);
+                    jc.putClientProperty("WizardPanel_image", ImageUtilities.loadImage("ibfb/studyeditor/images/logoExport.png", true));
+
                 }
             }
         }
@@ -117,7 +120,6 @@ public final class exportWizardIterator implements WizardDescriptor.Iterator {
         index--;
     }
 
-    // If nothing unusual changes in the middle of the wizard, simply:
     @Override
     public void addChangeListener(ChangeListener l) {
     }
