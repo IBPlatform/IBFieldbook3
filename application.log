@@ -1,880 +1,456 @@
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PSTRIL_STD_Coefficient_of_Infection  VariateId: -96
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PSTRIL_Modified_Cobb_Scale  VariateId: -97
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: STRIT_STD_double_digit  VariateId: -98
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: STRIT_double_digit_t  VariateId: -99
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: FNIVAL_STD_double_digit  VariateId: -100
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: FNIVAL_0-9T  VariateId: -101
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: STUDY   FactorId: -386
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1866 scaleid: 1002 tmethid: 3316
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: OCC   FactorId: -397
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1864 scaleid: 1001 tmethid: 3001
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: ENTRY NUMBER   FactorId: -413
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1861 scaleid: 1001 tmethid: 3001
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PLOT   FactorId: -436
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1865 scaleid: 1001 tmethid: 3001
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -22 factorid: -386
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -23 factorid: -386
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -23 factorid: -397
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -24 factorid: -386
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -24 factorid: -397
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -24 factorid: -413
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -24 factorid: -436
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Study Conditions Data....
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Study Conditions DONE!!!!
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Trial Conditions Data....
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Trial Conditions DONE!!!!....
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Trial Germplasm Data....
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Trial Germplasm DONE!!!
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Observations Data....
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - filling FactorLabelData... 
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperWorkbookReader - Getting trial randomization fast
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperWorkbookReader - Definiendo orden de busquedas
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperWorkbookReader - Getting trial randomization fast.... DONE
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperWorkbookReader - Getting variates fast....
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperWorkbookReader - Getting variates fast.... DONE
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - filling FactorLabelData DONE... 
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Observations Data DONE!!!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Traits table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Traits table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Extrayendo las diferentes convinaciones de studio y trial para fmale
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Recuperando la organization, program, harvdate y lid
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: Organization   FactorId: 1702955
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1803 scaleid: 1002 tmethid: 3012
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: Organization labelid: 1702960
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: HARVDATE   FactorId: 1702964
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1818 scaleid: 1001 tmethid: 3027
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: HARVDATE labelid: 1702977
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: LID   FactorId: 1702964
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1811 scaleid: 1002 tmethid: 3020
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: LID labelid: 1702968
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Extrayendo las diferentes convinaciones de studio y trial para Male
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Recuperando lista de factores por estudio y trial detectado para ejecutarquery center 
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperGmsReader - Definiendo orden de busquedas
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperGmsReader - --> Recuperando el nombre del estudio
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperGmsReader - --> Termina Recuperacion del nombre del estudio.
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperGmsReader - --> Recuperando factores principales.
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperGmsReader - --> Termina Recuperando factores principales.
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperGmsReader - --> Recuperando factores salida.
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperGmsReader - --> Termina Recuperando factores salida.
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperGmsReader - Getting trial randomization
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperGmsReader - Getting trial randomization.... DONE
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperGmsReader - Definiendo orden de busquedas
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperGmsReader - --> Recuperando el nombre del estudio
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperGmsReader - --> Termina Recuperacion del nombre del estudio.
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperGmsReader - --> Recuperando factores principales.
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperGmsReader - --> Termina Recuperando factores principales.
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperGmsReader - --> Recuperando factores salida.
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperGmsReader - --> Termina Recuperando factores salida.
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperGmsReader - Getting trial randomization
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperGmsReader - Getting trial randomization.... DONE
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Iterando en los resulset para optener el gid del germoplasma
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Y recuperar los germplasm y los names
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988512
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988512
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988511
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988511
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988510
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988510
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988509
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988509
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988508
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988508
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988507
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988507
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988506
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988506
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988505
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988505
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988504
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988504
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988503
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988503
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988502
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988502
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988501
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988501
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988500
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988500
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988499
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988499
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988498
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988498
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988497
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988497
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988496
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988496
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988495
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988495
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988494
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988494
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988493
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988493
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988492
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988492
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988491
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988491
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988490
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988490
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988489
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988489
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988488
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988488
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988487
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988487
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988486
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988486
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988485
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988485
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988484
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988484
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988483
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988483
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988482
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988482
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988481
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988481
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988480
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988480
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988479
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988479
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988478
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988478
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988477
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988477
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988476
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988476
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988475
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988475
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988474
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988474
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988473
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988473
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988472
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988472
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988471
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988471
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988470
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988470
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988469
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988469
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988468
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988468
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988467
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988467
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988466
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988466
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988465
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988465
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988464
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988464
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988463
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988463
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988462
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988462
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988461
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988461
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988460
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988460
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988459
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988459
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988458
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988458
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988457
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988457
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988456
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988456
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988455
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988455
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988454
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988454
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988453
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988453
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988452
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988452
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988451
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988451
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988450
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988450
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988449
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988449
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988448
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988448
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988447
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988447
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988446
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988446
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988445
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988445
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988444
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988444
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988443
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988443
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988442
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988442
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988441
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988441
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988440
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988440
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988439
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988439
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988438
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988438
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988437
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988437
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988436
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988436
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988435
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988435
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988434
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988434
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988433
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988433
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988432
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988432
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988431
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988431
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988430
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988430
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988429
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988429
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988428
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988428
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988427
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988427
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988426
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988426
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988425
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988425
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988424
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988424
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988423
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988423
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988422
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988422
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988421
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988421
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988420
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988420
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988419
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988419
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988418
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988418
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988417
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988417
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988416
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988416
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988415
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988415
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988414
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988414
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988413
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988413
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988412
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988412
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988411
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988411
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988410
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988410
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988409
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988409
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988408
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988408
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988407
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988407
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988406
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988406
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988405
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988405
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988404
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988404
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988403
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988403
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988402
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988402
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988401
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988401
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988400
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988400
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988399
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988399
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988398
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988398
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988397
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988397
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988396
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988396
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988395
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988395
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988394
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988394
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988393
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988393
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988392
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988392
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988391
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988391
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988390
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988390
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988389
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988389
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988388
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988388
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988387
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988387
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988386
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988386
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988385
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988385
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988384
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988384
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988383
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988383
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988382
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988382
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988381
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988381
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988380
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988380
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988379
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988379
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988378
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988378
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988377
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988377
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988376
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988376
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988375
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988375
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988374
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988374
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988373
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988373
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988372
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988372
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988371
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988371
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988370
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988370
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988369
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988369
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988368
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988368
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988367
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988367
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988366
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988366
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988365
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988365
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988364
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988364
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988363
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988363
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988362
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988362
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988361
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988361
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988360
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988360
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988359
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988359
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988358
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988358
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988357
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988357
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988356
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988356
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988355
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988355
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988354
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988354
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988353
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988353
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988352
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988352
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988351
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988351
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988350
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988350
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988349
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988349
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988348
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988348
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988347
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988347
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988346
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988346
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988345
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988345
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988344
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988344
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988343
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988343
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988342
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988342
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988341
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988341
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988340
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988340
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988339
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988339
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988338
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988338
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988337
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988337
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988336
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988336
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988335
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988335
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988334
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988334
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988333
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988333
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988332
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988332
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988331
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988331
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988330
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988330
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988329
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988329
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988328
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988328
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988327
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988327
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988326
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988326
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988325
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988325
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988324
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988324
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988323
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988323
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988322
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988322
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988321
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988321
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988320
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988320
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988319
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988319
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988318
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988318
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988317
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988317
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988316
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988316
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988315
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988315
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988314
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988314
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988313
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988313
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 2673608
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 2673608
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 2673608
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 2673608
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 2673608
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 2673608
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 2673608
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 2673608
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 2673608
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 2673608
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 2673608
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 2673608
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 2673608
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 2673608
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 2673608
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 2673608
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 2673608
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 2673608
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 2673706
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 2673706
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 2673706
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 2673706
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 2673706
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 2673706
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 2673706
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 2673706
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 2673706
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 2673706
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 2673706
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 2673706
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 2673706
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 2673706
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 2673706
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 2673706
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5106311
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5106311
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5106311
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5106311
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5106311
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5106311
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5106311
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5106311
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5106311
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5106311
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5106311
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5106311
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5106311
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5106311
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5106311
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5106311
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5106311
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5106311
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5106311
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5106311
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 3825306
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 3825306
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 3825306
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 3825306
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 3825306
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 3825306
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905079
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905079
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905079
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905079
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905079
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905079
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905079
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905079
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905079
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905079
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905079
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905079
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905072
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905072
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905072
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905072
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905072
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905072
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905072
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905072
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905071
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905071
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905071
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905071
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905071
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905071
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905071
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905071
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905071
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905071
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905115
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905115
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905115
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905115
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905115
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905115
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905115
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905115
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905115
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905115
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5106291
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5106291
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5106291
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5106291
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5106291
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5106291
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5106291
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5106291
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5129117
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5129117
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5129117
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5129117
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5129117
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5129117
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5129117
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5129117
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905282
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905282
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905282
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905282
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905282
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905282
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905282
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905282
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905282
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905282
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905277
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905277
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905277
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905277
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905277
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905277
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905617
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905617
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905617
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905617
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905617
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905617
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905617
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905617
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905617
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905617
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5106250
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5106250
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5106250
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5106250
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5106250
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5106250
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905548
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905548
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905548
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905548
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905548
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905548
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5129063
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5129063
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5129063
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5129063
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5129063
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5129063
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5106783
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5106783
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5106635
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5106635
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5106650
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5106650
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5106646
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5106646
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5106646
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5106646
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5106646
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5106646
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5106646
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5106646
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5106691
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5106691
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905343
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905343
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905343
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905343
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905340
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905340
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905649
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905649
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905649
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905649
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905649
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905649
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5106645
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5106645
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5106645
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5106645
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905746
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905746
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905746
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905746
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905746
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905746
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905728
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905728
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905728
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905728
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5106659
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5106659
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5090612
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5090612
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5090643
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5090643
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5090643
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5090643
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5090655
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5090655
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5090655
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5090655
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5106224
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5106224
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 3822783
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 3822783
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 3822783
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 3822783
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 3822783
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 3822783
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 3822783
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 3822783
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 3822783
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 3822783
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 3825288
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 3825288
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 3825288
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 3825288
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 3825288
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 3825288
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 3825288
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 3825288
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 3825288
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 3825288
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 3825288
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 3825288
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 3825288
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 3825288
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 3617481
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 3617481
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 3617481
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 3617481
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 3617481
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 3617481
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 3617481
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 3617481
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 3617481
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 3617481
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4755016
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4755016
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4755015
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4755015
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4757905
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4757905
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4757904
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4757904
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4757903
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4757903
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4884051
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4884051
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4884051
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4884051
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4884055
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4884055
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4880451
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4880451
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4880411
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4880411
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4880410
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4880410
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 3822784
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 3822784
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 3822784
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 3822784
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 3822784
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 3822784
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 3822784
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 3822784
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 3822784
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 3822784
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4746368
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4746368
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4746368
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4746368
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 380402
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 380402
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 380402
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 380402
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 380402
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 380402
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 380402
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 380402
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 3825298
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 3825298
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 3825298
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 3825298
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 3825298
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 3825298
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 3825298
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 3825298
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 3825298
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 3825298
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 3825298
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 3825298
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 3825298
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 3825298
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 3825298
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 3825298
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 3825298
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 3825298
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 1491661
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 1491661
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 1491661
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 1491661
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 1491661
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 1491661
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 1491661
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 1491661
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5149478
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5149478
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5149478
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5149478
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5149478
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5149478
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5149516
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5149516
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5149516
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5149516
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5149516
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5149516
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5149516
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5149516
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5149516
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5149516
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5247370
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5247370
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5247370
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5247370
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5247370
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5247370
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 2430154
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 2430154
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 2430154
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 2430154
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 2430154
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 2430154
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 2430154
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 2430154
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 2430154
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 2430154
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 2430154
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 2430154
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 2430154
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 2430154
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4746124
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4746124
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4746124
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4746124
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4746124
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4746124
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4746124
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4746124
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4746124
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4746124
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4746124
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4746124
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4746124
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4746124
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4746124
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4746124
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4746124
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4746124
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4746124
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4746124
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4746121
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4746121
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4746121
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4746121
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4746121
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4746121
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4746121
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4746121
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4746121
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4746121
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4746122
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4746122
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4746122
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4746122
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4746122
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4746122
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4746122
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4746122
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4746122
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4746122
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4758400
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4758400
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4758399
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4758399
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Iniciando el proceso de recuperacion de maximos para los fmale
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - seteando los datos del male a los objetos GermplasmSearchFmale
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: ENTRY CD  with value: 12 SAWSN:231
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: DESIG  with value: CP02645-2C-0Y-030M-5Y-1Y-0M
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: GID  with value: 611917
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FTID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FOCC  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FENT  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: MTID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: MOCC  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: MENT  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: STID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SOCC  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SENT  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FREE  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: TYPE  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: CID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: CROSS NAME  with value: LIRA/SHA5
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SELECTION HISTORY  with value: CP02645-2C-0Y-030M-5Y-1Y-0M
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: INTRID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: IsCheck  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: ENTRY NUMBER  with value: 232
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: ENTRY CD  with value: 12 SAWSN:232
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: DESIG  with value: CP02645-2C-0Y-030M-7Y-2Y-0M
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: GID  with value: 161815
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FTID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FOCC  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FENT  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: MTID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: MOCC  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: MENT  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: STID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SOCC  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SENT  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FREE  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: TYPE  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: CID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: CROSS NAME  with value: LIRA/SHA5
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SELECTION HISTORY  with value: CP02645-2C-0Y-030M-7Y-2Y-0M
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: INTRID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: IsCheck  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: ENTRY NUMBER  with value: 233
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: ENTRY CD  with value: 12 SAWSN:233
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: DESIG  with value: CP02645-2C-0Y-030M-9Y-2Y-0M
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: GID  with value: 612160
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FTID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FOCC  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FENT  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: MTID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: MOCC  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: MENT  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: STID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SOCC  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SENT  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FREE  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: TYPE  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: CID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: CROSS NAME  with value: LIRA/SHA5
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SELECTION HISTORY  with value: CP02645-2C-0Y-030M-9Y-2Y-0M
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: INTRID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: IsCheck  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: ENTRY NUMBER  with value: 234
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: ENTRY CD  with value: 12 SAWSN:234
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: DESIG  with value: CP02645-9C-0Y-030M-8Y-3Y-0M
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: GID  with value: 611893
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FTID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FOCC  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FENT  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: MTID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: MOCC  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: MENT  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: STID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SOCC  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SENT  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FREE  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: TYPE  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: CID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: CROSS NAME  with value: LIRA/SHA5
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SELECTION HISTORY  with value: CP02645-9C-0Y-030M-8Y-3Y-0M
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: INTRID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: IsCheck  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: ENTRY NUMBER  with value: 235
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: ENTRY CD  with value: 12 SAWSN:235
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: DESIG  with value: CP02645-10C-0Y-030M-2Y-2Y-0M
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: GID  with value: 270527
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FTID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FOCC  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FENT  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: MTID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: MOCC  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: MENT  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: STID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SOCC  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SENT  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FREE  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: TYPE  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: CID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: CROSS NAME  with value: LIRA/SHA5
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SELECTION HISTORY  with value: CP02645-10C-0Y-030M-2Y-2Y-0M
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: INTRID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: IsCheck  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: ENTRY NUMBER  with value: 236
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: ENTRY CD  with value: 12 SAWSN:236
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: DESIG  with value: CP02645-11C-0Y-030M-1Y-1Y-0M
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: GID  with value: 611886
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FTID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FOCC  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FENT  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: MTID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: MOCC  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: MENT  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: STID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SOCC  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SENT  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FREE  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: TYPE  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: CID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: CROSS NAME  with value: LIRA/SHA5
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SELECTION HISTORY  with value: CP02645-11C-0Y-030M-1Y-1Y-0M
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: INTRID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: IsCheck  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: ENTRY NUMBER  with value: 237
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: ENTRY CD  with value: 12 SAWSN:237
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: DESIG  with value: CP02645-11C-0Y-030M-5Y-2Y-0M
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: GID  with value: 222428
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FTID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FOCC  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FENT  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: MTID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: MOCC  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: MENT  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: STID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SOCC  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SENT  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FREE  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: TYPE  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: CID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: CROSS NAME  with value: LIRA/SHA5
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SELECTION HISTORY  with value: CP02645-11C-0Y-030M-5Y-2Y-0M
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: INTRID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: IsCheck  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: ENTRY NUMBER  with value: 238
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: ENTRY CD  with value: 12 SAWSN:238
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: DESIG  with value: CP02645-11C-0Y-030M-7Y-2Y-0M
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: GID  with value: 611881
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FTID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FOCC  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FENT  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: MTID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: MOCC  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: MENT  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: STID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SOCC  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SENT  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FREE  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: TYPE  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: CID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: CROSS NAME  with value: LIRA/SHA5
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SELECTION HISTORY  with value: CP02645-11C-0Y-030M-7Y-2Y-0M
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: INTRID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: IsCheck  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: ENTRY NUMBER  with value: 239
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: ENTRY CD  with value: 12 SAWSN:239
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: DESIG  with value: CP02645-11C-0Y-030M-7Y-3Y-0M
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: GID  with value: 612140
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FTID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FOCC  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FENT  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: MTID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: MOCC  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: MENT  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: STID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SOCC  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SENT  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FREE  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: TYPE  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: CID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: CROSS NAME  with value: LIRA/SHA5
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SELECTION HISTORY  with value: CP02645-11C-0Y-030M-7Y-3Y-0M
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: INTRID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: IsCheck  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: ENTRY NUMBER  with value: 240
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: ENTRY CD  with value: 12 SAWSN:240
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: DESIG  with value: LOCAL CHECK
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: GID  with value: 304660
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FTID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FOCC  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FENT  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: MTID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: MOCC  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: MENT  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: STID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SOCC  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SENT  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FREE  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: TYPE  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: CID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: CROSS NAME  with value: LOCAL CHECK
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SELECTION HISTORY  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: INTRID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: IsCheck  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: ENTRY NUMBER  with value: 241
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: ENTRY CD  with value: 12 SAWSN:241
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: DESIG  with value: F30069-A-901Y-902D-0Y
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: GID  with value: 685048
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FTID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FOCC  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FENT  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: MTID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: MOCC  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: MENT  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: STID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SOCC  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SENT  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FREE  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: TYPE  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: CID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: CROSS NAME  with value: BR12*3/3/BR14//LD*6/FB6628
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SELECTION HISTORY  with value: F30069-A-901Y-902D-0Y
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: INTRID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: IsCheck  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: ENTRY NUMBER  with value: 242
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: ENTRY CD  with value: 12 SAWSN:242
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: DESIG  with value: TR814321-15R-1R-2R-0R-0SY
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: GID  with value: 677247
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FTID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FOCC  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FENT  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: MTID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: MOCC  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: MENT  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: STID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SOCC  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SENT  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: FREE  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: TYPE  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: CID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: CROSS NAME  with value: MAYA/7/H//RA/2F2/3/BB/5YG//RA/2F2/6/BB/CNO67/3/CNO67/TOTA//JAR/4/2F5/5/2F2/8/BB/RN//MAYA/3/TOL73
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: SELECTION HISTORY  with value: TR814321-15R-1R-2R-0R-0SY
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: INTRID  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: IsCheck  with value: 
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbook - Saving levels for entrys DONE!
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbook - Saving levels for plots....
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbook - Saving levels for plots DONE!
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.IBWBAppServicesImpl - Savin workbook DONE!
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Read study full: -16
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Read list all factors.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -37 factorid: -619
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -38 factorid: -619
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -38 factorid: -630
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -39 factorid: -619
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -39 factorid: -630
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -39 factorid: -631
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -39 factorid: -652
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: STUDY   FactorId: -619
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1866 scaleid: 1002 tmethid: 3316
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: OCC   FactorId: -630
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1864 scaleid: 1001 tmethid: 3001
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: ENTRY NUMBER   FactorId: -631
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1861 scaleid: 1001 tmethid: 3001
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PLOT   FactorId: -652
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1865 scaleid: 1001 tmethid: 3001
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.dao.FactorDAO -  -- getFactorsByFactorsids[-619, -630, -631, -652]
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: STUDY   FactorId: -619
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1866 scaleid: 1002 tmethid: 3316
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: STUDY labelid: -619
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: NID   FactorId: -619
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: -1 scaleid: 1001 tmethid: -1
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: NID labelid: -620
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: Cycle   FactorId: -619
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1800 scaleid: 1002 tmethid: 16
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: Cycle labelid: -621
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: Offset   FactorId: -619
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1801 scaleid: 1001 tmethid: 3010
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: Offset labelid: -622
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: Entries   FactorId: -619
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1802 scaleid: 1001 tmethid: 3011
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: Entries labelid: -623
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: Organization   FactorId: -619
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1803 scaleid: 1002 tmethid: 3012
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: Organization labelid: -624
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: Program   FactorId: -619
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1804 scaleid: 1002 tmethid: 3013
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: Program labelid: -625
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: Check_Freq   FactorId: -619
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1805 scaleid: 1001 tmethid: 3014
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: Check_Freq labelid: -626
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: New_Cycle   FactorId: -619
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1806 scaleid: 1002 tmethid: 3015
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: New_Cycle labelid: -627
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: Check_N   FactorId: -619
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1807 scaleid: 1001 tmethid: 3016
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: Check_N labelid: -628
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: Offset_N   FactorId: -619
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1808 scaleid: 1001 tmethid: 3017
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: Offset_N labelid: -629
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: OCC   FactorId: -630
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1864 scaleid: 1001 tmethid: 3001
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: OCC labelid: -630
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: ENTRY NUMBER   FactorId: -631
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1861 scaleid: 1001 tmethid: 3001
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: ENTRY NUMBER labelid: -631
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: ENTRY CD   FactorId: -631
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1861 scaleid: 1003 tmethid: 253
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: ENTRY CD labelid: -632
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: DESIG   FactorId: -631
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1834 scaleid: 1004 tmethid: 253
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: DESIG labelid: -633
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: GID   FactorId: -631
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1834 scaleid: 1005 tmethid: 253
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: GID labelid: -634
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: FTID   FactorId: -631
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1821 scaleid: 1001 tmethid: 3030
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: FTID labelid: -635
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: FOCC   FactorId: -631
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1822 scaleid: 1001 tmethid: 3031
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: FOCC labelid: -636
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: FENT   FactorId: -631
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1823 scaleid: 1001 tmethid: 3032
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: FENT labelid: -637
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: MTID   FactorId: -631
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1825 scaleid: 1001 tmethid: 3033
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: MTID labelid: -638
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: MOCC   FactorId: -631
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1826 scaleid: 1001 tmethid: 3034
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: MOCC labelid: -639
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: MENT   FactorId: -631
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1827 scaleid: 1001 tmethid: 3035
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: MENT labelid: -640
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: STID   FactorId: -631
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1829 scaleid: 1001 tmethid: 3036
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: STID labelid: -641
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SOCC   FactorId: -631
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1830 scaleid: 1001 tmethid: 3037
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: SOCC labelid: -642
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SENT   FactorId: -631
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1831 scaleid: 1001 tmethid: 3038
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: SENT labelid: -643
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: FREE   FactorId: -631
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1844 scaleid: 1002 tmethid: 3050
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: FREE labelid: -644
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: TYPE   FactorId: -631
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1850 scaleid: 1002 tmethid: 3056
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: TYPE labelid: -645
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: CID   FactorId: -631
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1832 scaleid: 1001 tmethid: 3039
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: CID labelid: -646
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SID   FactorId: -631
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1833 scaleid: 1001 tmethid: 3040
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: SID labelid: -647
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: CROSS NAME   FactorId: -631
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1835 scaleid: 1002 tmethid: 3041
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: CROSS NAME labelid: -648
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SELECTION HISTORY   FactorId: -631
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1836 scaleid: 1002 tmethid: 3042
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: SELECTION HISTORY labelid: -649
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: INTRID   FactorId: -631
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1837 scaleid: 1002 tmethid: 3043
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: INTRID labelid: -650
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: IsCheck   FactorId: -631
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1839 scaleid: 1001 tmethid: 3045
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: IsCheck labelid: -651
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PLOT   FactorId: -652
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1865 scaleid: 1001 tmethid: 3001
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: PLOT labelid: -652
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -37 factorid: -619
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -38 factorid: -619
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -38 factorid: -630
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -39 factorid: -619
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -39 factorid: -630
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -39 factorid: -631
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -39 factorid: -652
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: STUDY   FactorId: -619
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1866 scaleid: 1002 tmethid: 3316
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: OCC   FactorId: -630
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1864 scaleid: 1001 tmethid: 3001
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: ENTRY NUMBER   FactorId: -631
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1861 scaleid: 1001 tmethid: 3001
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PLOT   FactorId: -652
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1865 scaleid: 1001 tmethid: 3001
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - fill all variate as traits
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PLANTAS SELECCIONADAS  VariateId: -114
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: STUDY   FactorId: -619
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1866 scaleid: 1002 tmethid: 3316
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: OCC   FactorId: -630
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1864 scaleid: 1001 tmethid: 3001
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: ENTRY NUMBER   FactorId: -631
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1861 scaleid: 1001 tmethid: 3001
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PLOT   FactorId: -652
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1865 scaleid: 1001 tmethid: 3001
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -37 factorid: -619
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -38 factorid: -619
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -38 factorid: -630
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -39 factorid: -619
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -39 factorid: -630
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -39 factorid: -631
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -39 factorid: -652
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Study Conditions Data....
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Study Conditions DONE!!!!
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Trial Conditions Data....
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Trial Conditions DONE!!!!....
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Trial Germplasm Data....
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Trial Germplasm DONE!!!
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Observations Data....
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - filling FactorLabelData... 
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperWorkbookReader - Getting trial randomization fast
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperWorkbookReader - Definiendo orden de busquedas
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperWorkbookReader - Getting trial randomization fast.... DONE
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperWorkbookReader - Getting variates fast....
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperWorkbookReader - Getting variates fast.... DONE
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - filling FactorLabelData DONE... 
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Observations Data DONE!!!
