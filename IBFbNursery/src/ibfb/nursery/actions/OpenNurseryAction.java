@@ -252,6 +252,7 @@ public class OpenNurseryAction extends SystemAction {
     private void fillTraits(NurseryEditorTopComponent nurseryWindow, Workbook workbook) {
         nurseryWindow.assignTraits(new ArrayList<Variate>(), workbook.getVariates());
         nurseryWindow.setMyWorkbook(workbook);
+        nurseryWindow.setSelectedTraits(workbook.getVariates());
     }
     
     public boolean existeNursery(String nursery) {

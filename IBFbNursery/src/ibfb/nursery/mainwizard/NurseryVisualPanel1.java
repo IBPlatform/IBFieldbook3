@@ -26,7 +26,6 @@ public final class NurseryVisualPanel1 extends JPanel {
     private File archivo = null;
     private JFileChooser selectorArchivo = new JFileChooser();
     private ResourceBundle bundle = NbBundle.getBundle(NurseryVisualPanel1.class);
-
     
     public NurseryVisualPanel1() {
         initComponents();

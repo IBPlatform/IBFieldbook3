@@ -61,6 +61,7 @@ public final class NurseryVisualPanel10 extends JPanel {
         nurseryWindow.cleanFields();
         nurseryWindow.configMyList();
         nurseryWindow.assignTraits(doubleListPanel.getSourceList(), doubleListPanel.getTargetList());
+        nurseryWindow.setSelectedTraits(selectedTraits);
     }
 
     private void configMyList() {

@@ -703,6 +703,7 @@ public class JDQuickCreation extends javax.swing.JDialog {
         nurseryWindow.setMyWorkbook(workbook);
         nurseryWindow.configMyList();
         nurseryWindow.assignTraits(new ArrayList<Variate>(), workbook.getVariates());
+        nurseryWindow.setSelectedTraits( workbook.getVariates());
     }
 
     private void fillDesign(NurseryEditorTopComponent nurseryWindow) {

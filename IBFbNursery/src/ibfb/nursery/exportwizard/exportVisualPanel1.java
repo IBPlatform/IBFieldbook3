@@ -7,7 +7,6 @@ import org.openide.util.NbBundle;
 
 public final class exportVisualPanel1 extends JPanel {
 
-    /** Creates new form exportVisualPanel1 */
     public exportVisualPanel1() {
         initComponents();
     }
@@ -26,14 +25,24 @@ public final class exportVisualPanel1 extends JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jRadioButtonToR = new javax.swing.JRadioButton();
-        jLabel2 = new javax.swing.JLabel();
+        lblImgR = new javax.swing.JLabel();
 
         buttonGroupExport.add(jRadioButtonToFieldlog);
         jRadioButtonToFieldlog.setSelected(true);
         org.openide.awt.Mnemonics.setLocalizedText(jRadioButtonToFieldlog, org.openide.util.NbBundle.getMessage(exportVisualPanel1.class, "exportVisualPanel1.jRadioButtonToFieldlog.text")); // NOI18N
+        jRadioButtonToFieldlog.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonToFieldlogActionPerformed(evt);
+            }
+        });
 
         buttonGroupExport.add(jRadioButtonToExcel);
         org.openide.awt.Mnemonics.setLocalizedText(jRadioButtonToExcel, org.openide.util.NbBundle.getMessage(exportVisualPanel1.class, "exportVisualPanel1.jRadioButtonToExcel.text")); // NOI18N
+        jRadioButtonToExcel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonToExcelActionPerformed(evt);
+            }
+        });
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/nursery/images/fieldlog.png"))); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(exportVisualPanel1.class, "exportVisualPanel1.jLabel1.text")); // NOI18N
@@ -41,11 +50,11 @@ public final class exportVisualPanel1 extends JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
             }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel1MouseEntered(evt);
-            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jLabel1MouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel1MouseEntered(evt);
             }
         });
 
@@ -65,18 +74,23 @@ public final class exportVisualPanel1 extends JPanel {
 
         buttonGroupExport.add(jRadioButtonToR);
         org.openide.awt.Mnemonics.setLocalizedText(jRadioButtonToR, org.openide.util.NbBundle.getMessage(exportVisualPanel1.class, "exportVisualPanel1.jRadioButtonToR.text")); // NOI18N
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/nursery/images/rBig.png"))); // NOI18N
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel2, org.openide.util.NbBundle.getMessage(exportVisualPanel1.class, "exportVisualPanel1.jLabel2.text")); // NOI18N
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
+        jRadioButtonToR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonToRActionPerformed(evt);
             }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel2MouseEntered(evt);
+        });
+
+        lblImgR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/nursery/images/rBig.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lblImgR, org.openide.util.NbBundle.getMessage(exportVisualPanel1.class, "exportVisualPanel1.lblImgR.text")); // NOI18N
+        lblImgR.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblImgRMouseClicked(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel2MouseExited(evt);
+                lblImgRMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblImgRMouseEntered(evt);
             }
         });
 
@@ -85,46 +99,39 @@ public final class exportVisualPanel1 extends JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(jRadioButtonToFieldlog, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addComponent(lblImgR, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jRadioButtonToR)
                         .addGap(67, 67, 67)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(jLabel3))
+                        .addGap(83, 83, 83)
+                        .addComponent(jRadioButtonToExcel))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addComponent(jRadioButtonToExcel)))
-                .addContainerGap(73, Short.MAX_VALUE))
+                        .addGap(67, 67, 67)
+                        .addComponent(jLabel3)))
+                .addGap(84, 84, 84))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jRadioButtonToFieldlog, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
-                            .addComponent(jRadioButtonToR, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jRadioButtonToExcel)
-                        .addGap(63, 63, 63)))
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButtonToFieldlog, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
+                    .addComponent(jRadioButtonToR, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jRadioButtonToExcel))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblImgR, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(108, 108, 108))
+                .addGap(47, 47, 47))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -152,25 +159,53 @@ public final class exportVisualPanel1 extends JPanel {
        this.jLabel3.setIcon(new ImageIcon(getClass().getResource("/ibfb/nursery/images/excelBig1.png")));  
     }//GEN-LAST:event_jLabel3MouseExited
 
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+    private void jRadioButtonToFieldlogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonToFieldlogActionPerformed
+        setIsForR();
+    }//GEN-LAST:event_jRadioButtonToFieldlogActionPerformed
 
-        this.jRadioButtonToR.setSelected(true);     }//GEN-LAST:event_jLabel2MouseClicked
+    private void jRadioButtonToRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonToRActionPerformed
+        setIsForR();
+    }//GEN-LAST:event_jRadioButtonToRActionPerformed
 
-    private void jLabel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseEntered
+    private void jRadioButtonToExcelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonToExcelActionPerformed
+        setIsForR();
+    }//GEN-LAST:event_jRadioButtonToExcelActionPerformed
 
-        this.jLabel2.setIcon(new ImageIcon(getClass().getResource("/ibfb/nursery/images/rBig2.png")));     }//GEN-LAST:event_jLabel2MouseEntered
+    private void lblImgRMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImgRMouseClicked
+        if (this.lblImgR.isEnabled()) {
+            this.jRadioButtonToR.setSelected(true);
+              setIsForR();
+        }
+    }//GEN-LAST:event_lblImgRMouseClicked
 
-    private void jLabel2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseExited
+    private void lblImgRMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImgRMouseExited
+          if (this.lblImgR.isEnabled()) {
+            this.lblImgR.setIcon(new ImageIcon(getClass().getResource("/ibfb/nursery/images/rBig.png")));
+        }
+    }//GEN-LAST:event_lblImgRMouseExited
 
-        this.jLabel2.setIcon(new ImageIcon(getClass().getResource("/ibfb/nursery/images/rBig.png")));     }//GEN-LAST:event_jLabel2MouseExited
+    private void lblImgRMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImgRMouseEntered
+         if (this.lblImgR.isEnabled()) {
+            this.lblImgR.setIcon(new ImageIcon(getClass().getResource("/ibfb/nursery/images/rBig2.png")));
+        }
+    }//GEN-LAST:event_lblImgRMouseEntered
 
+      private void setIsForR(){
+        exportWizardIterator.isForR=this.jRadioButtonToR.isSelected();
+    }
+        
+      public void enabledR(boolean b) {
+        this.jRadioButtonToR.setEnabled(b);
+        this.lblImgR.setEnabled(b);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroupExport;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     public javax.swing.JRadioButton jRadioButtonToExcel;
     public javax.swing.JRadioButton jRadioButtonToFieldlog;
     public javax.swing.JRadioButton jRadioButtonToR;
+    private javax.swing.JLabel lblImgR;
     // End of variables declaration//GEN-END:variables
 }

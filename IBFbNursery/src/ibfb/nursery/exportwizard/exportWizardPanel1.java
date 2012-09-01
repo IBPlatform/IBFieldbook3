@@ -22,7 +22,9 @@ public class exportWizardPanel1 implements WizardDescriptor.Panel {
         }
         return component;
     }
-
+    
+    
+  
     @Override
     public HelpCtx getHelp() {
         
@@ -47,6 +49,14 @@ public class exportWizardPanel1 implements WizardDescriptor.Panel {
    
     @Override
     public void readSettings(Object settings) {
+         NurseryEditorTopComponent nurseryEditor = (NurseryEditorTopComponent) WindowManager.getDefault().getRegistry().getActivated();
+
+        if (nurseryEditor.getSelectedTraits().size()>0){      
+            component.enabledR(true);
+        } else {
+            component.enabledR(false);
+
+        }
     }
 
     @Override

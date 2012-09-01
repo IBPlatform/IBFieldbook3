@@ -18,6 +18,7 @@ public class CSVOziel {
     private JTable jTableObservations;
     private JList lista;
     private DefaultListModel listModel = new DefaultListModel();
+    private String stringTraitToEvaluate="GY";
 
     public CSVOziel(JTable jTableObservations, JList list) {
         this.jTableObservations = jTableObservations;
@@ -97,7 +98,10 @@ public class CSVOziel {
                 String cadena = listModel.getElementAt(i).toString();
                 int espacio = cadena.indexOf("(");
                 String valor = cadena.substring(0, espacio - 1).trim();
-                if (!valor.equals("GY")) {
+                if (!valor.equals(stringTraitToEvaluate)) {
+                    if(valor.isEmpty()){
+                    valor=".";
+                }
                     csvOutput.write(valor);
                 }
             }
@@ -112,10 +116,14 @@ public class CSVOziel {
             int tot = tableModel.getVariateList().size();
 
             for (int i = 0; i < tot; i++) {
-                String valor = tableModel.getVariateList().get(i).getVariateName();
-                //if (!valor.equals("GY")) {
+               String valor = tableModel.getVariateList().get(i).getVariateName();
+                if (!valor.equals(stringTraitToEvaluate)) {
+                    
+                if(valor.isEmpty()){
+                    valor=".";
+                }
                 csvOutput.write(valor);
-                //}
+                }
             }
 
         } catch (IOException ex) {
@@ -163,6 +171,8 @@ public class CSVOziel {
         }
 
     }
+    
+   
 
     public void writeDATA(CsvWriter csvOutput, ObservationsTableModel tableModel) {
         int total = tableModel.getRowCount();
@@ -183,6 +193,10 @@ public class CSVOziel {
                 csvOutput.write("1");
                 csvOutput.write(tableModel.getValueAt(i, plotColumn).toString());
                 csvOutput.write(tableModel.getValueAt(i, entryColumn).toString());
+                
+                
+                
+                
                 writeColums(csvOutput, 2);
                 csvOutput.write(tableModel.getValueAt(i, designColumn).toString());
                 writeColums(csvOutput, 15);
@@ -193,11 +207,13 @@ public class CSVOziel {
 
                 for (int j = 0; j < tot; j++) {
                     String valor = tableModel.getVariateList().get(j).getVariateName();
-                    try {
-                        csvOutput.write(tableModel.getValueAt(i, tableModel.findColumn(valor)).toString());
-                    } catch (NullPointerException ex) {
-                        String cad = null;
-                        csvOutput.write(cad);
+                   if (!valor.equals(stringTraitToEvaluate)) {
+                        try {
+                            csvOutput.write(tableModel.getValueAt(i, tableModel.findColumn(valor)).toString());
+                        } catch (NullPointerException ex) {
+                            String cad = ".";
+                            csvOutput.write(cad);
+                        }
                     }
 
                 }
@@ -227,7 +243,7 @@ public class CSVOziel {
                 csvOutput.write(modeloFilter.getValueAt(i, modeloFilter.findColumn("BLOCK")).toString());
                 csvOutput.write(modeloFilter.getValueAt(i, modeloFilter.findColumn("ENTRY")).toString());
                 try {
-                    csvOutput.write(modeloFilter.getValueAt(i, modeloFilter.findColumn("GY")).toString());
+                    csvOutput.write(modeloFilter.getValueAt(i, modeloFilter.findColumn(stringTraitToEvaluate)).toString());
                 } catch (NullPointerException ex) {
                     String cad = null;
                     csvOutput.write(cad);
@@ -239,7 +255,7 @@ public class CSVOziel {
                     int espacio = cadena.indexOf("(");
                     String valor = cadena.substring(0, espacio - 1).trim();
 
-                    if (!valor.equals("GY")) {
+                    if (!valor.equals(stringTraitToEvaluate)) {
                         try {
                             csvOutput.write(modeloFilter.getValueAt(i, modeloFilter.findColumn(valor)).toString());
                         } catch (NullPointerException ex) {
@@ -283,10 +299,11 @@ public class CSVOziel {
                  csvOutput.write("1"); // blocki
                 
                 csvOutput.write(tableModel.getValueAt(i, entryColumn).toString());
-                try {
-//                    csvOutput.write(tableModel.getValueAt(i, tableModel.findColumn("GY")).toString());
+              try {
+                   csvOutput.write(tableModel.getValueAt(i, tableModel.findColumn(stringTraitToEvaluate)).toString());
                 } catch (NullPointerException ex) {
-                    String cad = null;
+                    String cad = ".";
+                    
                     csvOutput.write(cad);
                 }
 
@@ -294,14 +311,14 @@ public class CSVOziel {
                 for (int j = 0; j < tot; j++) {
                     String valor = tableModel.getVariateList().get(j).getVariateName();
 
-                    //if (!valor.equals("GY")) {
+                     if (!valor.equals(stringTraitToEvaluate)) {
                         try {
                             csvOutput.write(tableModel.getValueAt(i, tableModel.findColumn(valor)).toString());
                         } catch (NullPointerException ex) {
-                            String cad = null;
+                            String cad = ".";
                             csvOutput.write(cad);
                         }
-                    //}
+                    }
 
                 }
 
@@ -582,5 +599,9 @@ public class CSVOziel {
             }
         }
         return col;
+    }
+    
+    public void DefineTraitToEvaluate(String stringTraitToEval) {
+        this.stringTraitToEvaluate=stringTraitToEval;
     }
 }

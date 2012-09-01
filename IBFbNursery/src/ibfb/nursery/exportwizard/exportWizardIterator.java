@@ -1,24 +1,33 @@
 
 package ibfb.nursery.exportwizard;
 
+
+import ibfb.nursery.core.NurseryEditorTopComponent;
 import java.awt.Component;
 import java.util.NoSuchElementException;
 import javax.swing.JComponent;
 import javax.swing.event.ChangeListener;
 import org.openide.WizardDescriptor;
+import org.openide.util.ImageUtilities;
+import org.openide.windows.WindowManager;
 
 public final class exportWizardIterator implements WizardDescriptor.Iterator {
 
 
     private int index;
     private WizardDescriptor.Panel[] panels;
+    public static boolean isForR = false;
+    public static boolean hasGYTrait = false;
+    public static int indexTrait = -1;
+    NurseryEditorTopComponent nurseryEditor = (NurseryEditorTopComponent) WindowManager.getDefault().getRegistry().getActivated();
 
   
     private WizardDescriptor.Panel[] getPanels() {
         if (panels == null) {
             panels = new WizardDescriptor.Panel[]{
                 new exportWizardPanel1(),
-               // new exportWizardPanel2(),
+               new exportWizardPanelGYTrait(),
+                // new exportWizardPanel2(),
                 new exportWizardPanel3()
                 
             };
@@ -37,6 +46,8 @@ public final class exportWizardIterator implements WizardDescriptor.Iterator {
                     jc.putClientProperty("WizardPanel_contentDisplayed", Boolean.TRUE);
                     // Turn on numbering of all steps
                     jc.putClientProperty("WizardPanel_contentNumbered", Boolean.TRUE);
+                    jc.putClientProperty("WizardPanel_image", ImageUtilities.loadImage("ibfb/nursery/images/logoExport.png", true));
+
                 }
             }
         }
@@ -68,6 +79,18 @@ public final class exportWizardIterator implements WizardDescriptor.Iterator {
         if (!hasNext()) {
             throw new NoSuchElementException();
         }
+         if (current() instanceof exportWizardPanel1) {
+
+            if (isForR) {
+
+                if (nurseryEditor.hasGYbyDefault()) {
+                    index++;
+                }
+
+            } else {
+                index++;
+            }
+        }
         index++;
     }
 
@@ -76,10 +99,26 @@ public final class exportWizardIterator implements WizardDescriptor.Iterator {
         if (!hasPrevious()) {
             throw new NoSuchElementException();
         }
+        if (current() instanceof exportWizardPanel2) {
+
+            if (!isForR) {
+
+                index--;
+            }
+
+            if (nurseryEditor.getSelectedTraits().size() <= 0) {
+                index--;
+            }
+
+
+
+            if (nurseryEditor.hasGYbyDefault()) {
+                index--;
+            }
+        }
         index--;
     }
 
-    // If nothing unusual changes in the middle of the wizard, simply:
     @Override
     public void addChangeListener(ChangeListener l) {
     }

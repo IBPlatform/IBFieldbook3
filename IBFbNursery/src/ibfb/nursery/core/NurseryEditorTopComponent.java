@@ -11,6 +11,7 @@ import ibfb.nursery.editors.NurseryConditionsRowEditor;
 import ibfb.nursery.exportwizard.FieldBookExcelExporter;
 import ibfb.nursery.exportwizard.exportVisualPanel3;
 import ibfb.nursery.exportwizard.exportWizardIterator;
+import ibfb.nursery.exportwizard.exportWizardPanelGYTrait;
 import ibfb.nursery.filters.ExcelFiltro;
 import ibfb.nursery.importwizard.ImportData;
 import ibfb.nursery.importwizard.importingVisualPanel2;
@@ -140,6 +141,8 @@ public final class NurseryEditorTopComponent extends TopComponent {
     private JTable tableChecks;
     private String method;
     public static Configuration config = null;
+    private Variate traitToEvaluate;
+    private String stringTraitToEvaluate = "GY";
 
     public NurseryEditorTopComponent() {
         initComponents();
@@ -175,6 +178,8 @@ public final class NurseryEditorTopComponent extends TopComponent {
         createBallonTips();
         posiciones = new ArrayList<Integer>();
     }
+    
+    
     private SelectCommand unselectedCommand = new SelectCommand() {
 
         @Override
@@ -208,6 +213,40 @@ public final class NurseryEditorTopComponent extends TopComponent {
         this.byPosition = byPosition;
     }
 
+    
+        public List<Variate> getSelectedTraits() {
+        return selectedTraits;
+    }
+
+    public void setSelectedTraits(List<Variate> selectedTraits) {
+        this.selectedTraits = selectedTraits;
+    }
+    
+    public Variate getTraitToEvaluate() {
+        return traitToEvaluate;
+    }
+
+    public void setTraitToEvaluate(Variate traitToEvaluate) {
+        this.traitToEvaluate = traitToEvaluate;
+    }
+    
+        public String getStringTraitToEvaluate() {
+        return stringTraitToEvaluate;
+    }
+
+    public void setStringTraitToEvaluate(String stringTraitToEvaluate) {
+        this.stringTraitToEvaluate = stringTraitToEvaluate;
+    }
+    
+            public boolean hasGYbyDefault() {
+        boolean hasGY = false;
+        ObservationsTableModel modeloOriginal = (ObservationsTableModel) jTableObservations.getModel();
+        if (modeloOriginal.findColumn("GY") >= 0) {
+            hasGY = true;
+        }
+        return hasGY;
+    }
+            
     private void importFromFieldroid() {
         try {
 
@@ -1429,7 +1468,7 @@ public final class NurseryEditorTopComponent extends TopComponent {
 }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void exportToR() {
-        FieldbookRExport.exportToR(jTableObservations, trialFile, csv, triallOption, trialStart, trialEnd, trialSelected);
+        FieldbookRExport.exportToR(jTableObservations, trialFile, csv, triallOption, trialStart, trialEnd, trialSelected, this.getStringTraitToEvaluate());
     }
 
     private void jMenuItemUnSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemUnSelectActionPerformed
@@ -1752,10 +1791,12 @@ public final class NurseryEditorTopComponent extends TopComponent {
 
     private void jButtonCSVTraitsExport1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCSVTraitsExport1ActionPerformed
 
-        if (!iniciaExportWizard2()) {
-            return;
-        }
+        NbPreferences.forModule(exportWizardPanelGYTrait.class).put("traitIndex", "-1");
 
+        if (!iniciaExportWizard2()) {
+            this.setStringTraitToEvaluate("GY");
+            NbPreferences.forModule(exportWizardPanelGYTrait.class).put("traitIndex", "-1");
+        }
     }//GEN-LAST:event_jButtonCSVTraitsExport1ActionPerformed
 
     private void jButtonCSVTraitsImport1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCSVTraitsImport1ActionPerformed
@@ -1853,6 +1894,7 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
                 GermplasmEntriesTableModel tableModelAdvance = new GermplasmEntriesTableModel();
 
                 List<List<Object>> germplasmData = tableModel.getGermplasmData();
+                
                 List<List<Object>> germplasmDataAdvance = tableModelAdvance.getGermplasmData();
 
                 int colEntry = tableModel.getHeaderIndex(GermplasmEntriesTableModel.ENTRY);
@@ -1873,6 +1915,9 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
                 }
 
                 int colGID = tableModel.getHeaderIndex(GermplasmEntriesTableModel.GID);
+                 System.out.println("COL GID=" + colGID + "\n");
+                
+                
                 if (colEntry < 0) {
                     return;
                 }
@@ -1905,12 +1950,13 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
                 org.cimmyt.cril.ibwb.domain.Study estudio = AppServicesProxy.getDefault().appServices().getStudyByName(jTextFieldStudy.getText());
                 int currentStudy = estudio.getStudyid();
 
+                System.out.println("HASTA AQUI  OZIELLLLL");
                 for (int i = 0; i < tableModel.getRowCount(); i++) {
                     GermplasmSearch gsF = new GermplasmSearch();
                     //gsF.setStudyId(40165);
                     gsF.setStudyId(currentStudy);
 
-                    System.out.println("Study ID=" + currentStudy);
+                   // System.out.println("Study ID=" + currentStudy);
 
                     gsF.setTrial(1); //BECAUSE THIS IS A NURSERY
                     gsF.setPlot(ConvertUtils.getValueAsInteger(germplasmData.get(i).get(colEntry)));
@@ -1924,16 +1970,11 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
 //                    System.out.println("DESIG: " + gs.getNames().getNval() + "     BCID:" + gs.getBcid() + "    GID: " + gs.getNames().getGid());
 //                }
 
-
-
-
-
-
-
                 for (int i = 0; i < tableModel.getRowCount(); i++) {
 
                     Object[] nuevo = germplasmData.get(i).toArray();
                     ArrayList<String> data;
+                    
                     Integer sourceGid = ConvertUtils.getValueAsInteger(germplasmData.get(i).get(colGID));
 
                     if (samplesMethod == 0) {
