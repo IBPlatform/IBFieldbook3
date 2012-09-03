@@ -1,6 +1,7 @@
 package org.cimmyt.cril.ibwb.provider.dao;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import org.cimmyt.cril.ibwb.api.dao.AbstractDAO;
 import org.cimmyt.cril.ibwb.api.dao.utils.ValidatingDataType;
@@ -103,7 +104,7 @@ public class ListdataDAO extends AbstractDAO<Listdata, ListdataPK> {
         if (filtro.getGlobalsearch() == null) {
             if (filtro.getListdataPK() != null) {
                 setQuery("l.listdataPK.listid", filtro.getListdataPK().getListid());
-                setQuery("l.listdataPK.llrecid", filtro.getListdataPK().getLrecid());
+                setQuery("l.listdataPK.lrecid", filtro.getListdataPK().getLrecid());
             }
             setQuery("l.entryid", filtro.getEntryid());
             setQuery("l.entrycd", filtro.getEntrycd());
@@ -116,13 +117,13 @@ public class ListdataDAO extends AbstractDAO<Listdata, ListdataPK> {
             global = true;
             if (ValidatingDataType.isNumeric(filtro.getGlobalsearch())) {
                 setQuery("l.listdataPK.listid", Integer.valueOf(filtro.getGlobalsearch()));
-                setQuery("l.listdataPK.llrecid", Integer.valueOf(filtro.getGlobalsearch()));
+                setQuery("l.listdataPK.lrecid", Integer.valueOf(filtro.getGlobalsearch()));
                 setQuery("l.entryid", Integer.valueOf(filtro.getGlobalsearch()));
                 setQueryInTo("l.entrycd", filtro.getGlobalsearch());
                 setQueryInTo("l.source", filtro.getGlobalsearch());
                 setQuery("l.desig", filtro.getGlobalsearch());
                 setQuery("l.grpname", filtro.getGlobalsearch());
-                setQuery("l.llrecid", Integer.valueOf(filtro.getGlobalsearch()));
+//                setQuery("l.lrecid", Integer.valueOf(filtro.getGlobalsearch()));
                 setQuery("l.lrstatus", Integer.valueOf(filtro.getGlobalsearch()));
             } else {
                 setQueryInTo("l.entrycd", filtro.getGlobalsearch());
@@ -252,5 +253,28 @@ public class ListdataDAO extends AbstractDAO<Listdata, ListdataPK> {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    
+    /**
+     * Return a list of grouping Listdata by idListnms
+     * @param idListnms ID for Listnms
+     * @return list of Listdata or empty list if Listnms id not found
+     */
+    public List<Listdata> getListdataByIdlistnms(final Integer idListnms) {
+        List<Listdata> listdataList = new ArrayList<Listdata>();
+
+        String order = "";
+//        if (isLocal()) {
+//            order = " order by l.entryid desc";
+//        } else {
+            order = " order by l.entryid";
+//        }
+        
+        final String queryString = " from Listdata as l where "
+                + " l.listdataPK.listid = ? " + order;
+        
+        listdataList = getHibernateTemplate().find(queryString, idListnms);
+        
+        return listdataList;
     }
 }

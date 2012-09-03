@@ -8,6 +8,8 @@ import org.apache.log4j.Logger;
 import org.cimmyt.cril.ibwb.api.dao.AbstractDAO;
 import org.cimmyt.cril.ibwb.api.dao.utils.ValidatingDataType;
 import org.cimmyt.cril.ibwb.domain.Germplsm;
+import org.cimmyt.cril.ibwb.domain.Listdata;
+import org.cimmyt.cril.ibwb.domain.Listnms;
 import org.cimmyt.cril.ibwb.domain.Names;
 
 import org.hibernate.HibernateException;
@@ -227,5 +229,119 @@ public class NamesDAO extends AbstractDAO<Names, Integer> {
             consecutivoNuevo.append(siguienteConsecutivo);
             return consecutivoNuevo.toString();
         }
+    }
+    
+    public Listnms getNamesCentral(final Listnms listnms){
+        Listnms listnmsR = (Listnms) getHibernateTemplate().execute(
+                new HibernateCallback() {
+                    public Object doInHibernate(
+                            final org.hibernate.Session session)
+                            throws HibernateException, SQLException {
+                        for(Listdata listdata : listnms.getLisdatas()){
+                            Integer gid = listdata.getGid();
+                            if(gid > 0){
+                                listdata.setName1028(getNames(session, gid, 1028));
+                                listdata.setName1027(getNames(session, gid, 1027));
+                                listdata.setName1029(getNames(session, gid, 1029));
+                            }else{
+                                gid = listdata.getGpid1();
+                                if(listdata.getName1028() == null){
+                                    listdata.setName1028(getNames(session, gid, 1028));
+                                }
+                                if(listdata.getName1027() == null){
+                                    listdata.setName1027(getNames(session, gid, 1027));
+                                }
+                                if(listdata.getName1029() == null){
+                                    listdata.setName1029(getNames(session, gid, 1029));
+                                }
+                            }
+                            if(listdata.getName1027() == null ||
+                                    listdata.getName1029() == null){
+                                Integer gpid1;
+                                if(gid > 0){
+                                    Germplsm germplsmT = getGermplsm(session, listdata.getGid());
+                                    gpid1 = germplsmT.getGpid1();
+                                }else{
+                                    if(listdata.getGpid1() != null){
+                                        gpid1 = listdata.getGpid1();
+                                    }else{
+                                        gpid1 = 0;
+                                    }
+                                }
+                                if(listdata.getName1027() == null){
+                                    listdata.setName1027(getNames(session, gpid1, 1027));
+                                }
+                                if(listdata.getName1029() == null){
+                                    listdata.setName1029(getNames(session, gpid1, 1029));
+                                }
+                            }
+                        }
+                        return listnms;
+                    }
+                });
+        System.out.println("Listnms : " + listnmsR.getListname());
+        return listnmsR;
+    }
+    
+    public Listnms getNamesLocal(final Listnms listnms){
+        Listnms listnmsR = (Listnms) getHibernateTemplate().execute(
+                new HibernateCallback() {
+                    public Object doInHibernate(
+                            final org.hibernate.Session session)
+                            throws HibernateException, SQLException {
+                        for(Listdata listdata : listnms.getLisdatas()){
+                            Integer gid = listdata.getGid();
+                            if(gid < 0){
+                                listdata.setName1028(getNames(session, gid, 1028));
+                                listdata.setName1027(getNames(session, gid, 1027));
+                                listdata.setName1029(getNames(session, gid, 1029));
+                                if(listdata.getName1027() == null ||
+                                       listdata.getName1029() == null){
+                                    Germplsm germplsmT = getGermplsm(session, gid);
+                                    Integer gpid1 = germplsmT.getGpid1();
+                                    if(gpid1 < 0){
+                                        if(listdata.getName1027() == null){
+                                            listdata.setName1027(getNames(session, gpid1, 1027));
+                                        }
+                                        if(listdata.getName1029() == null){
+                                            listdata.setName1029(getNames(session, gpid1, 1029));
+                                        }
+                                    }else{
+                                        listdata.setGpid1(gpid1);
+                                    }
+                                }
+                            }
+                        }
+                        return listnms;
+                    }
+                });
+        System.out.println("Listnms : " + listnmsR.getListname());
+        return listnmsR;
+    }
+    
+    private Names getNames(Session session, Integer gid, Integer ntype){
+        String queryString = "from Names as n "
+                + " where n.gid = :GID and n.ntype = :NTYPE";
+        Query query = session.createQuery(queryString);
+        query.setParameter("GID", gid);
+        query.setParameter("NTYPE", ntype);
+        Names nameR;
+        try{
+            nameR = (Names) query.uniqueResult();
+        }catch(Exception e){
+            log.error("Mas de un resultado para: " + gid + " type: " + ntype, e);
+            List<Names> namesList = query.list();
+            nameR = (Names) namesList.get(0);
+        }
+        return nameR;
+    }
+    
+    private Germplsm getGermplsm(Session session, Integer gid){
+        String queryString = "from Germplsm as g "
+                + " where g.gid = :GID";
+        Query query = session.createQuery(queryString);
+        query.setParameter("GID", gid);
+        Germplsm germplsmR = (Germplsm) query.uniqueResult();
+        return germplsmR;
     }
 }

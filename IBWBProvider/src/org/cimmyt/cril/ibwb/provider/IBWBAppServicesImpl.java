@@ -704,6 +704,24 @@ public class IBWBAppServicesImpl implements AppServices {
             return this.serviciosCentral.getListnms(idListnms);
         }
     }
+    
+    @Override
+    public Listnms getFullListnms(Integer idListnms){
+        Listnms listnms;
+        if(idListnms.intValue() < 0){
+            listnms = this.serviciosLocal.getListnms(idListnms);
+            listnms.setLisdatas(this.serviciosLocal.getListdataByIdlistnms(idListnms));
+            listnms = this.serviciosLocal.getNamesCentral(listnms);
+            listnms = this.serviciosCentral.getNamesCentral(listnms);
+            //Recuperar la informacion local pripero y despues la central
+        }else{
+            listnms = this.serviciosCentral.getListnms(idListnms);
+            listnms.setLisdatas(this.serviciosCentral.getListdataByIdlistnms(idListnms));
+            //Recuperar la informacion central
+            listnms = this.serviciosCentral.getNamesCentral(listnms);
+        }
+        return listnms;
+    }
 
 //-----------------------------------Location---------------------------
     @Override

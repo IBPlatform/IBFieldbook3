@@ -1336,4 +1336,9 @@ public class IBWBAppServicesMemoryImpl implements AppServices {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
+    @Override
+    public Listnms getFullListnms(Integer idListnms) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
 }

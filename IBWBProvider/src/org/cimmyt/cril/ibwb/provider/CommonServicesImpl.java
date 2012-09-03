@@ -1067,6 +1067,10 @@ public class CommonServicesImpl implements CommonServices {
     public List<Listdata> getListListdataFiltro(Listdata filter, int start, int pageSize, boolean paged) {
         return listdataDAO.getList(filter, start, pageSize, paged);
     }
+    
+    public List<Listdata> getListdataByIdlistnms(Integer idListnms){
+        return listdataDAO.getListdataByIdlistnms(idListnms);
+    }
 
 //-----------------------------------Listnms---------------------------
     @Override
@@ -1337,6 +1341,14 @@ public class CommonServicesImpl implements CommonServices {
     
     public Integer getMaxForSelection(String cadena, Integer ntype){
         return namesDAO.getMaxForSelection(cadena, ntype);
+    }
+    
+    public Listnms getNamesCentral(final Listnms listnms){
+        return namesDAO.getNamesCentral(listnms);
+    }
+    
+    public Listnms getNamesLocal(final Listnms listnms){
+        return namesDAO.getNamesLocal(listnms);
     }
 
 //-----------------------------------Obsunit---------------------------

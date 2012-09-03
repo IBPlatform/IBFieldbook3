@@ -120,10 +120,41 @@ public class TestListas extends TestService {
 //        }
         servicios.addNewsGermplasm(listnms, dataList, 1);
     }
+    
+    public void testGetListnmsFull() {
+        Listnms listnms = servicios.getFullListnms(2838);
+        printListnms(listnms);
+    }
+    
+    private void printListnms(Listnms listnms){
+        System.out.println("Name: " + listnms.getListname());
+        System.out.println("Desc: " + listnms.getListdesc());
+        System.out.println("Type: " + listnms.getListtype());
+        System.out.println("Date: " + listnms.getListdate());
+        System.out.println("EntryCD \t Design \t\t\t Grpname \t\t 1027" );
+        for(Listdata listdata : listnms.getLisdatas()){
+            System.out.print(listdata.getEntrycd() + "\t");
+            System.out.print(listdata.getDesig() + "\t\t");
+            System.out.print(listdata.getGrpname() + "\t\t");
+            if(listdata.getName1027() != null){
+                System.out.print(listdata.getName1027().getNval());
+            }
+            System.out.print("\t\t");
+            if(listdata.getName1028() != null){
+                System.out.print(listdata.getName1028().getNval());
+            }
+            System.out.print("\t\t");
+            if(listdata.getName1029() != null){
+                System.out.print(listdata.getName1029().getNval());
+            }
+            System.out.println();
+        }
+    }
 
     public static void main(String[] args) {
         TestListas tl = new TestListas();
 //        tl.testAddListnms();
-        tl.testAddNewsGermplasm();
+//        tl.testAddNewsGermplasm();
+        tl.testGetListnmsFull();
     }
 }
