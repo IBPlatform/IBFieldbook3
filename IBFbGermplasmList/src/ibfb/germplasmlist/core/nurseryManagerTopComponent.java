@@ -8,6 +8,7 @@ import ibfb.germplasmlist.filters.ExcelFiltro;
 import ibfb.germplasmlist.models.GermplasmEntriesTableModel;
 import ibfb.germplasmlist.models.GermplasmTransferHandlerSelection;
 import ibfb.germplasmlist.models.RemoveGermplasmTransferHandler;
+import ibfb.lists.core.SelectListDialog;
 import ibfb.settings.core.FieldbookSettings;
 import ibfb.studyexplorer.explorer.listNames.ListDataWindowTopComponent;
 import ibfb.workbook.api.GermplasmAssigmentTool;
@@ -65,6 +66,9 @@ preferredID = "nurseryManagerTopComponent")
 })
 public final class nurseryManagerTopComponent extends TopComponent {
 
+    private static final int CONVENTION_CIMMYT_WHEAT = 0;
+    private static final int CONVENTION_CIMMYT_MAIZE = 1;
+    private static final int CONVENTION_OTHER_CROPS = 2;
     public static final int DEFAULT_CROSS = 101; // SINGLE PLANT
     private JFileChooser selectorArchivo = new JFileChooser();
     private Workbook myWorkbook;
@@ -102,6 +106,8 @@ public final class nurseryManagerTopComponent extends TopComponent {
     public int TYPE = 11;
     private String[] headers = {"ENTRY", "BCID", "CROSS", "GID", "METHOD", "FDESIG", "FGID", "MDESIG", "MGID"};
     private String[] headersScript = {"ENTRY", "BCID", "CROSS", "GID", "METHOD", "FTID", "FOCC", "FENTRY", "FDESIG", "FGID", "MTID", "MOCC", "MENTRY", "MDESIG", "MGID"};
+    private String[] otherCropsheaders = {"ENTRY", "CROSS", "GID", "METHOD", "FDESIG", "FGID", "MDESIG", "MGID"};
+    private String[] otherCropsheadersScript = {"ENTRY", "CROSS", "GID", "METHOD", "FTID", "FOCC", "FENTRY", "FDESIG", "FGID", "MTID", "MOCC", "MENTRY", "MDESIG", "MGID"};
     private ArrayList<String> tempListCross;
     /**
      * Methods in Combo box, used to retrieve selected method
@@ -122,7 +128,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
         assignModels();
 
         // by default select other crops
-        jComboBoxConvection.setSelectedIndex(2);
+        jComboBoxConvection.setSelectedIndex(CONVENTION_OTHER_CROPS);
 
         checkConvection();
 
@@ -164,6 +170,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
         jTextFieldListEntriesMale = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jSeparator10 = new javax.swing.JToolBar.Separator();
+        btnSearchMale = new javax.swing.JButton();
         btnRemoveMaleExcel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -185,6 +192,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
         jLabel8 = new javax.swing.JLabel();
         jTextFieldListEntriesFemale = new javax.swing.JTextField();
         jSeparator8 = new javax.swing.JToolBar.Separator();
+        btnSearchFemaleList = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -224,7 +232,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
         jSeparator6 = new javax.swing.JToolBar.Separator();
 
         jTabbedPaneMale.setBackground(new java.awt.Color(0, 102, 255));
-        jTabbedPaneMale.setBorder(javax.swing.BorderFactory.createTitledBorder(null, org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jTabbedPaneMale.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Grande", 0, 13), new java.awt.Color(0, 0, 204))); // NOI18N
+        jTabbedPaneMale.setBorder(javax.swing.BorderFactory.createTitledBorder(null, org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jTabbedPaneMale.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(0, 0, 204))); // NOI18N
         jTabbedPaneMale.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jTabbedPaneMaleStateChanged(evt);
@@ -309,6 +317,13 @@ public final class nurseryManagerTopComponent extends TopComponent {
                 .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        org.openide.awt.Mnemonics.setLocalizedText(btnSearchMale, org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.btnSearchMale.text")); // NOI18N
+        btnSearchMale.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchMaleActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -319,7 +334,10 @@ public final class nurseryManagerTopComponent extends TopComponent {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cboGermplasmListMale, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(cboGermplasmListMale, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSearchMale)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jScrollEntriesDbMale, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(btnRemoveMaleDb)
@@ -333,9 +351,11 @@ public final class nurseryManagerTopComponent extends TopComponent {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1)
-                    .addComponent(cboGermplasmListMale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cboGermplasmListMale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSearchMale)))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollEntriesDbMale, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
+                .addComponent(jScrollEntriesDbMale, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnRemoveMaleDb)
@@ -399,7 +419,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnRemoveMaleExcelLayout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonBrowseExcelMale, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jButton1))
@@ -414,7 +434,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonBrowseExcelMale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollEntiresExcelMale, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
+                .addComponent(jScrollEntiresExcelMale, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1))
         );
@@ -422,7 +442,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
         jTabbedPaneMale.addTab(org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.btnRemoveMaleExcel.TabConstraints.tabTitle"), btnRemoveMaleExcel); // NOI18N
 
         jTabbedPaneFemale.setBackground(new java.awt.Color(255, 102, 255));
-        jTabbedPaneFemale.setBorder(javax.swing.BorderFactory.createTitledBorder(null, org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jTabbedPaneFemale.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Grande", 0, 13), new java.awt.Color(102, 0, 102))); // NOI18N
+        jTabbedPaneFemale.setBorder(javax.swing.BorderFactory.createTitledBorder(null, org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.jTabbedPaneFemale.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(102, 0, 102))); // NOI18N
         jTabbedPaneFemale.setMaximumSize(new java.awt.Dimension(32767, 300));
         jTabbedPaneFemale.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -517,6 +537,13 @@ public final class nurseryManagerTopComponent extends TopComponent {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        org.openide.awt.Mnemonics.setLocalizedText(btnSearchFemaleList, org.openide.util.NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.btnSearchFemaleList.text")); // NOI18N
+        btnSearchFemaleList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchFemaleListActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -528,7 +555,10 @@ public final class nurseryManagerTopComponent extends TopComponent {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cboGermplasmListFemale, 0, 338, Short.MAX_VALUE))
+                        .addComponent(cboGermplasmListFemale, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnSearchFemaleList)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(btnRemoveFemaleDb)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -541,7 +571,9 @@ public final class nurseryManagerTopComponent extends TopComponent {
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel5)
-                    .addComponent(cboGermplasmListFemale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cboGermplasmListFemale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSearchFemaleList)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollEntriesDbFemale, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -610,7 +642,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonBrowseExcelFemale, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnRemoveFemaleExcel))
@@ -625,7 +657,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonBrowseExcelFemale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollEntiresExcelFemale, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
+                .addComponent(jScrollEntiresExcelFemale, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRemoveFemaleExcel))
         );
@@ -916,16 +948,16 @@ public final class nurseryManagerTopComponent extends TopComponent {
         Listnms listnms = new Listnms();
         listnms.setListname(this.jTextFieldListName.getText());
 
-       int fecha;
-        try{
-        fecha = ConvertUtils.getDateAsInteger(this.jDateChooserStart.getDate());    
-        }catch(Exception ex){
-         fecha=   ConvertUtils.getDateAsInteger(new java.util.Date());
+        int fecha;
+        try {
+            fecha = ConvertUtils.getDateAsInteger(this.jDateChooserStart.getDate());
+        } catch (Exception ex) {
+            fecha = ConvertUtils.getDateAsInteger(new java.util.Date());
         }
 
-   
+
         listnms.setListdate(fecha);
-        
+
         listnms.setListtype(Listnms.LIST_TYPE_HARVEST);
         listnms.setListuid(0);
         listnms.setListdesc(this.jTextFieldDescription.getText());
@@ -945,7 +977,10 @@ public final class nurseryManagerTopComponent extends TopComponent {
         int source = findColumn("FDESIG");
         int fgidcol = findColumn("FGID");
         int mgidcol = findColumn("MGID");
-        int bcidColumn = findColumn("BCID");
+        int bcidColumn = 0;
+        if (jComboBoxConvection.getSelectedIndex() == CONVENTION_CIMMYT_WHEAT) {
+            bcidColumn = findColumn("BCID");
+        }
 
         int gid = 0;
 
@@ -961,15 +996,20 @@ public final class nurseryManagerTopComponent extends TopComponent {
             listdata.setListdataPK(pk1);
             listdata.setEntryid(i + 1);
 
-            listdata.setDesig(this.jTableFinalList.getValueAt(i, bcidColumn).toString());
-
-
-            if (bcidColumn > 0) {
-                listdata.setNameBCID(this.jTableFinalList.getValueAt(i, bcidColumn).toString());
+            if (jComboBoxConvection.getSelectedIndex() == CONVENTION_CIMMYT_WHEAT) {
+                listdata.setDesig(this.jTableFinalList.getValueAt(i, bcidColumn).toString());
+                if (bcidColumn > 0) {
+                    listdata.setNameBCID(this.jTableFinalList.getValueAt(i, bcidColumn).toString());
+                } else {
+                    listdata.setNameBCID("");
+                    break;
+                }
             } else {
-                listdata.setNameBCID("");
-
-                break;
+                if (desig > 0) {
+                    listdata.setDesig(this.jTableFinalList.getValueAt(i, desig).toString());
+                } else {
+                    listdata.setDesig("");
+                }
             }
 
 
@@ -1006,12 +1046,21 @@ public final class nurseryManagerTopComponent extends TopComponent {
             dataList.add(listdata);
 
         }
-
         Integer loggedUserid = AppServicesProxy.getDefault().appServices().getLoggedUserId(FieldbookSettings.getLocalGmsUserId());
-        AppServicesProxy.getDefault().appServices().saveGerplasmCimmytWheat(dataList, listnms, loggedUserid);
+
+        if (jComboBoxConvection.getSelectedIndex()
+                == CONVENTION_CIMMYT_WHEAT) {
+            AppServicesProxy.getDefault().appServices().saveGerplasmCimmytWheat(dataList, listnms, loggedUserid);
+        } else {
+            AppServicesProxy.getDefault().appServices().addNewsGermplasm(listnms, dataList, loggedUserid);
+        }
+
         fillComboListNames();
+
         openRecentList(listnms);
-        changeCursorWaitStatus(false);
+
+        changeCursorWaitStatus(
+                false);
     }
 
     private void openRecentList(Listnms listnms) {
@@ -1113,7 +1162,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
             case 1://male
                 this.jTextFieldListEntriesMale.setText(String.valueOf(germplasmList.getListEntries().size()));
                 break;
-           
+
         }
 
 
@@ -1190,7 +1239,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
 
     public void addListener() {
 
-  
+
 
         ListSelectionModel cellSelectionFemaleModel = jTableEntriesDBFemale.getSelectionModel();
         cellSelectionFemaleModel.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
@@ -1239,7 +1288,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
             }
         });
         this.jTableEntriesExcelMale.setSelectionModel(cellSelectionExcelMaleModel);
-       
+
 
     }
 
@@ -1284,6 +1333,8 @@ public final class nurseryManagerTopComponent extends TopComponent {
                 maleModel = (GermplasmEntriesTableModel) this.jTableEntriesExcelMale.getModel();
                 break;
 
+
+
         }
 
 
@@ -1291,21 +1342,28 @@ public final class nurseryManagerTopComponent extends TopComponent {
         if (female != male) {
             NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.sameNumber"), NotifyDescriptor.ERROR_MESSAGE);
             DialogDisplayer.getDefault().notify(d);
+
             return;
         }
+
+
 
 
 
         if (female == 0) {
             NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.femaleEmpty"), NotifyDescriptor.ERROR_MESSAGE);
             DialogDisplayer.getDefault().notify(d);
+
             return;
         }
+
+
 
 
         if (male == 0) {
             NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.maleEmpty"), NotifyDescriptor.ERROR_MESSAGE);
             DialogDisplayer.getDefault().notify(d);
+
             return;
         }
 
@@ -1321,7 +1379,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
             }
         };
 
-        modelo.setColumnIdentifiers(headers);
+        modelo.setColumnIdentifiers(otherCropsheaders);
         modelo.setRowCount(female);
 
         int startNumber = (Integer) spnStartNo.getValue();
@@ -1361,24 +1419,29 @@ public final class nurseryManagerTopComponent extends TopComponent {
 
             modelo.setValueAt(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.notAssigned"), i, 2);//GIG
             modelo.setValueAt(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.singleCross"), i, 3);//METHOD
-            modelo.setValueAt(fdesig, i, 4);//FDESIG
-            modelo.setValueAt(fgid, i, 5);//FGIG
-            modelo.setValueAt(mdesig, i, 6);//MDESIG
-            modelo.setValueAt(mgid, i, 7);//MGID        
+            modelo.setValueAt(fdesig, i,
+                    4);//FDESIG
+            modelo.setValueAt(fgid, i,
+                    5);//FGIG
+            modelo.setValueAt(mdesig, i,
+                    6);//MDESIG
+            modelo.setValueAt(mgid, i,
+                    7);//MGID        
         }
 
 
 
 
         jTableFinalList.setModel(modelo);
-        ajustaColumnsTable(this.jTableFinalList);
 
-        if (this.jTableFinalList.getRowCount() > 0) {
+        ajustaColumnsTable(
+                this.jTableFinalList);
+
+        if (this.jTableFinalList.getRowCount()
+                > 0) {
             this.jButtonSaveCross.setEnabled(true);
         }
-
     }//GEN-LAST:event_jButtonCrossActionPerformed
-
     private void jTableEntriesExcelMalePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jTableEntriesExcelMalePropertyChange
         switch (jTabbedPaneMale.getSelectedIndex()) {
             case 0:
@@ -1502,8 +1565,8 @@ public final class nurseryManagerTopComponent extends TopComponent {
                 gsF.setTrial(focc);
                 gsF.setPlot(fent);
                 listFemale.add(gsF);
-               
-                       
+
+
                 GermplasmSearch gsM = new GermplasmSearch();
                 gsM.setCrosstype("SS");
                 gsM.setStudyId(mtid);
@@ -1514,18 +1577,18 @@ public final class nurseryManagerTopComponent extends TopComponent {
 
 
             List<GermplasmSearch> germplasmSearchs = AppServicesProxy.getDefault().appServices().getGermplasmByListStudyTrialPlotCross(listFemale, listMale);
-         
+
             for (GermplasmSearch gs : germplasmSearchs) {
 
                 gms++;
 
                 int maximo = gs.getMax() + gms;
-                
-                int met=gs.getMethodGermplasm()+(gms-1);                          
-                String fin=gs.getCharBCID();
-                
+
+                int met = gs.getMethodGermplasm() + (gms - 1);
+                String fin = gs.getCharBCID();
+
                 //String maxString = giveMaxString(maximo) + "S";
-                  
+
                 String maxString = giveMaxString(met) + fin;
                 modelo.setRowCount(gms);
                 String crossString = gs.getNames().getNval() + "/" + gs.getNamesMale().getNval();
@@ -1552,18 +1615,23 @@ public final class nurseryManagerTopComponent extends TopComponent {
             }
 
             this.jTableFinalList.setModel(modelo);
-            ajustaColumnsTable(this.jTableFinalList);
 
-            changeCursorWaitStatus(false);
+            ajustaColumnsTable(
+                    this.jTableFinalList);
 
-            if (this.jTableFinalList.getRowCount() > 0) {
+            changeCursorWaitStatus(
+                    false);
+
+            if (this.jTableFinalList.getRowCount()
+                    > 0) {
                 this.jButtonSaveCross.setEnabled(true);
             }
-
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("ERROR: " + e);
             changeCursorWaitStatus(false);
+
+
         }
 
 
@@ -1577,19 +1645,26 @@ public final class nurseryManagerTopComponent extends TopComponent {
         if (jTextFieldListName.getText().trim().isEmpty()) {
             DialogUtil.displayError(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.typeName"));
             jTextFieldListName.requestFocusInWindow();
+
             return;
         }
+
+
 
         if (this.jTextFieldDescription.getText().isEmpty()) {
             NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.description"), NotifyDescriptor.ERROR_MESSAGE);
             DialogDisplayer.getDefault().notify(d);
             jTextFieldDescription.requestFocusInWindow();
+
             return;
         }
+
+
 
         if (this.jTableFinalList.getRowCount() == 0) {
             NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.empty"), NotifyDescriptor.ERROR_MESSAGE);
             DialogDisplayer.getDefault().notify(d);
+
             return;
         }
         NotifyDescriptor d = new NotifyDescriptor.Confirmation(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.save"), NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.final"),
@@ -1606,7 +1681,8 @@ public final class nurseryManagerTopComponent extends TopComponent {
             modelo.setRowCount(0);
         }
 
-        this.jButtonSaveCross.setEnabled(false);
+        this.jButtonSaveCross.setEnabled(
+                false);
     }//GEN-LAST:event_jButtonSaveCrossActionPerformed
 
     private void jTableFinalListPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jTableFinalListPropertyChange
@@ -1713,6 +1789,14 @@ public final class nurseryManagerTopComponent extends TopComponent {
         checkConvection();
     }//GEN-LAST:event_jComboBoxConvectionActionPerformed
 
+    private void btnSearchMaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchMaleActionPerformed
+        searchMaleList();
+    }//GEN-LAST:event_btnSearchMaleActionPerformed
+
+    private void btnSearchFemaleListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchFemaleListActionPerformed
+        searchFemaleList();
+    }//GEN-LAST:event_btnSearchFemaleListActionPerformed
+
     private void openFile(int opcion) {
         FileFilter[] filtros = new FileFilter[10];
         filtros = selectorArchivo.getChoosableFileFilters();
@@ -1749,7 +1833,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
                 this.jTextAreaPathMale.setText(selectorArchivo.getSelectedFile().toString());
 
                 break;
-            
+
         }
 
 
@@ -1779,8 +1863,8 @@ public final class nurseryManagerTopComponent extends TopComponent {
             this.jTableEntriesExcelFemale.setModel(modeloTablaEntries);
             this.jTextAreaPathFemale.setText("");
             this.jTextFieldListEntriesFemale.setText("0");
-            
-            
+
+
             DialogDisplayer.getDefault().notify(new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.notValid"), NotifyDescriptor.ERROR_MESSAGE));
         }
 
@@ -1837,7 +1921,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
 
 
 
-          
+
 
         }
 
@@ -1858,7 +1942,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
                 this.jTextFieldListEntriesMale.setText(String.valueOf(germplasmList.getListEntries().size()));
                 this.jTextFieldSelectedFinalMale.setText(String.valueOf(this.jTableEntriesExcelMale.getSelectedRowCount()));
                 break;
-           
+
         }
 
 
@@ -1903,6 +1987,8 @@ public final class nurseryManagerTopComponent extends TopComponent {
     private javax.swing.JButton btnRemoveFemaleExcel;
     private javax.swing.JButton btnRemoveMaleDb;
     private javax.swing.JPanel btnRemoveMaleExcel;
+    private javax.swing.JButton btnSearchFemaleList;
+    private javax.swing.JButton btnSearchMale;
     private javax.swing.JComboBox cboGermplasmListFemale;
     private javax.swing.JComboBox cboGermplasmListMale;
     private javax.swing.JButton jButton1;
@@ -1996,7 +2082,6 @@ public final class nurseryManagerTopComponent extends TopComponent {
     }
 
     private void addDrag() {
-       
     }
 
     private void fillMethods() {
@@ -2339,7 +2424,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
             if (getStringValueFromCell(cellData).equals("ENT")) {
                 check++;
             } else {
-                
+
                 NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.notValidENT"), NotifyDescriptor.ERROR_MESSAGE);
                 DialogDisplayer.getDefault().notify(d);
                 return false;
@@ -2467,5 +2552,46 @@ public final class nurseryManagerTopComponent extends TopComponent {
         DecimalFormat format = new DecimalFormat("000000");
         cadena = format.format(maximo);
         return cadena;
+    }
+
+    private void searchFemaleList() {
+        SelectListDialog selectListDialog = new SelectListDialog();
+        selectListDialog.showSearchDialog();
+        if (selectListDialog.isListSelected()) {
+            try {
+                GermplasmListReader germplasmListReader = new GermplasmListReaderImpl();
+                GermplasmList germplasmList = germplasmListReader.getGermPlasmListFromDB(selectListDialog.getSeledtedListnms().getListid());
+                setGermplasmListIntoTable(germplasmList, this.jTableEntriesDBFemale, 0, 0);
+
+            } catch (Exception ex) {
+                System.out.println("ERROR AL LEER EXCEL GERMPLASM ENTRIES DB: " + ex);
+            }
+        } else {
+            GermplasmEntriesTableModel modeloTablaEntries = new GermplasmEntriesTableModel();
+            this.jTableEntriesDBFemale.setModel(modeloTablaEntries);
+            this.jTextAreaPathFemale.setText("");
+            this.jTextFieldListEntriesFemale.setText("0");
+        }
+
+    }
+
+    private void searchMaleList() {
+        SelectListDialog selectListDialog = new SelectListDialog();
+        selectListDialog.showSearchDialog();
+        if (selectListDialog.isListSelected()) {
+            try {
+                GermplasmListReader germplasmListReader = new GermplasmListReaderImpl();
+                GermplasmList germplasmList = germplasmListReader.getGermPlasmListFromDB(selectListDialog.getSeledtedListnms().getListid());
+                setGermplasmListIntoTable(germplasmList, this.jTableEntriesDBMale, 1, 1);
+
+            } catch (Exception ex) {
+                System.out.println("ERROR AL LEER EXCEL GERMPLASM ENTRIES DB: " + ex);
+            }
+        } else {
+            GermplasmEntriesTableModel modeloTablaEntries = new GermplasmEntriesTableModel();
+            this.jTableEntriesDBMale.setModel(modeloTablaEntries);
+            this.jTextAreaPathMale.setText("");
+            this.jTextFieldListEntriesMale.setText("0");
+        }
     }
 }

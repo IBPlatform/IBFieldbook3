@@ -10,6 +10,7 @@ import ibfb.germplasmlist.models.GermplasmSourceTransferHandler;
 import ibfb.germplasmlist.models.GermplasmTransferHandler;
 import ibfb.germplasmlist.models.RemoveGermplasmTransferHandler;
 import ibfb.germplasmlist.renders.MyRenderer;
+import ibfb.lists.core.SelectListDialog;
 import ibfb.settings.core.FieldbookSettings;
 import ibfb.studyexplorer.explorer.listNames.ListDataWindowTopComponent;
 import ibfb.workbook.api.GermplasmAssigmentTool;
@@ -162,6 +163,7 @@ public final class addChecksTopComponent extends TopComponent {
         cboGermplasmList = new javax.swing.JComboBox();
         jScrollEntriesDb = new javax.swing.JScrollPane();
         jTableEntriesDB = new javax.swing.JTable();
+        btnSearchList = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -199,6 +201,7 @@ public final class addChecksTopComponent extends TopComponent {
         cboGermplasmListChecks = new javax.swing.JComboBox();
         jScrollEntriesDbChecks = new javax.swing.JScrollPane();
         jTableEntriesDBChecks = new javax.swing.JTable();
+        btnSearchCheckList = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -341,6 +344,13 @@ public final class addChecksTopComponent extends TopComponent {
         });
         jScrollEntriesDb.setViewportView(jTableEntriesDB);
 
+        org.openide.awt.Mnemonics.setLocalizedText(btnSearchList, org.openide.util.NbBundle.getMessage(addChecksTopComponent.class, "addChecksTopComponent.btnSearchList.text")); // NOI18N
+        btnSearchList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchListActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -348,11 +358,14 @@ public final class addChecksTopComponent extends TopComponent {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollEntriesDb, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 433, Short.MAX_VALUE)
+                    .addComponent(jScrollEntriesDb, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cboGermplasmList, 0, 382, Short.MAX_VALUE)))
+                        .addComponent(cboGermplasmList, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSearchList)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -361,9 +374,11 @@ public final class addChecksTopComponent extends TopComponent {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1)
-                    .addComponent(cboGermplasmList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cboGermplasmList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSearchList)))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollEntriesDb, javax.swing.GroupLayout.DEFAULT_SIZE, 342, Short.MAX_VALUE)
+                .addComponent(jScrollEntriesDb, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -413,7 +428,7 @@ public final class addChecksTopComponent extends TopComponent {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollEntiresExcel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 433, Short.MAX_VALUE)
+                    .addComponent(jScrollEntiresExcel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -431,7 +446,7 @@ public final class addChecksTopComponent extends TopComponent {
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollEntiresExcel, javax.swing.GroupLayout.DEFAULT_SIZE, 342, Short.MAX_VALUE)
+                .addComponent(jScrollEntiresExcel, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -462,7 +477,7 @@ public final class addChecksTopComponent extends TopComponent {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollFinalSource)
+                .addComponent(jScrollFinalSource, javax.swing.GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -504,7 +519,7 @@ public final class addChecksTopComponent extends TopComponent {
             .addGroup(jPanel12Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jLabel4)
-                .addGap(0, 23, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel12Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -659,6 +674,13 @@ public final class addChecksTopComponent extends TopComponent {
         });
         jScrollEntriesDbChecks.setViewportView(jTableEntriesDBChecks);
 
+        org.openide.awt.Mnemonics.setLocalizedText(btnSearchCheckList, org.openide.util.NbBundle.getMessage(addChecksTopComponent.class, "addChecksTopComponent.btnSearchCheckList.text")); // NOI18N
+        btnSearchCheckList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchCheckListActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
@@ -670,7 +692,10 @@ public final class addChecksTopComponent extends TopComponent {
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cboGermplasmListChecks, 0, 399, Short.MAX_VALUE)))
+                        .addComponent(cboGermplasmListChecks, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSearchCheckList)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
@@ -679,9 +704,11 @@ public final class addChecksTopComponent extends TopComponent {
                 .addContainerGap()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel5)
-                    .addComponent(cboGermplasmListChecks, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cboGermplasmListChecks, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSearchCheckList)))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollEntriesDbChecks, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
+                .addComponent(jScrollEntriesDbChecks, javax.swing.GroupLayout.DEFAULT_SIZE, 367, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -749,7 +776,7 @@ public final class addChecksTopComponent extends TopComponent {
                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonBrowseExcelChecks, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollEntiresExcelChecks, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
+                .addComponent(jScrollEntiresExcelChecks, javax.swing.GroupLayout.DEFAULT_SIZE, 367, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -867,7 +894,7 @@ public final class addChecksTopComponent extends TopComponent {
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollFinalListChecks, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollFinalListChecks, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 453, Short.MAX_VALUE)
                     .addComponent(jPanel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -911,7 +938,7 @@ public final class addChecksTopComponent extends TopComponent {
             .addGroup(jPanel13Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jLabel15)
-                .addGap(0, 23, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel13Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1867,7 +1894,6 @@ public final class addChecksTopComponent extends TopComponent {
     }//GEN-LAST:event_jRadioButtonWithoutStateChanged
 
     private void cboGermplasmListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboGermplasmListActionPerformed
-        
     }//GEN-LAST:event_cboGermplasmListActionPerformed
 
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
@@ -1896,7 +1922,7 @@ public final class addChecksTopComponent extends TopComponent {
             toRemoveLocal.add(sourceEntries.get(selectedRows[i]));
         }
         sourceEntries.removeAll(toRemoveLocal);
-        
+
         GermplasmEntriesTableModelChecks tableModel = new GermplasmEntriesTableModelChecks(factores, toAdd);
         jTableFinalSource.setModel(tableModel);
         sourceTable.getSelectionModel().clearSelection();
@@ -1905,44 +1931,44 @@ public final class addChecksTopComponent extends TopComponent {
     }//GEN-LAST:event_jButtonAddActionPerformed
 
     private void jButtonRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoveActionPerformed
-       
+
         List<List<Object>> sourceEntries = new ArrayList<List<Object>>();
         JTable destTable = null;
-         
-        destTable = jTableFinalSource;
-              
-        List<List<Object>> toRemoveLocal = new ArrayList<List<Object>>();
-            int[] selectedRows = destTable.getSelectedRows();
-           
-            for (int i = 0; i < selectedRows.length; i++) {
-                toRemoveLocal.add(toAdd.get(selectedRows[i]));
 
-            }
-            toAdd.removeAll(toRemoveLocal);
-            destTable.getSelectionModel().clearSelection();
-            destTable.updateUI();
+        destTable = jTableFinalSource;
+
+        List<List<Object>> toRemoveLocal = new ArrayList<List<Object>>();
+        int[] selectedRows = destTable.getSelectedRows();
+
+        for (int i = 0; i < selectedRows.length; i++) {
+            toRemoveLocal.add(toAdd.get(selectedRows[i]));
+
+        }
+        toAdd.removeAll(toRemoveLocal);
+        destTable.getSelectionModel().clearSelection();
+        destTable.updateUI();
     }//GEN-LAST:event_jButtonRemoveActionPerformed
 
     private void jButtonRemoveChecksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoveChecksActionPerformed
         List<List<Object>> sourceEntries = new ArrayList<List<Object>>();
         JTable destTable = null;
-         
-        destTable = jTableFinalChecks;
-              
-        List<List<Object>> toRemoveLocal = new ArrayList<List<Object>>();
-            int[] selectedRows = destTable.getSelectedRows();
-           
-            for (int i = 0; i < selectedRows.length; i++) {
-                toRemoveLocal.add(toAddChecks.get(selectedRows[i]));
 
-            }
-            toAddChecks.removeAll(toRemoveLocal);
-            destTable.getSelectionModel().clearSelection();
-            destTable.updateUI();
+        destTable = jTableFinalChecks;
+
+        List<List<Object>> toRemoveLocal = new ArrayList<List<Object>>();
+        int[] selectedRows = destTable.getSelectedRows();
+
+        for (int i = 0; i < selectedRows.length; i++) {
+            toRemoveLocal.add(toAddChecks.get(selectedRows[i]));
+
+        }
+        toAddChecks.removeAll(toRemoveLocal);
+        destTable.getSelectionModel().clearSelection();
+        destTable.updateUI();
     }//GEN-LAST:event_jButtonRemoveChecksActionPerformed
 
     private void jButtonAddChecksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddChecksActionPerformed
-         List<List<Object>> sourceEntries = new ArrayList<List<Object>>();
+        List<List<Object>> sourceEntries = new ArrayList<List<Object>>();
         JTable sourceTable = null;
 
         switch (jTabbedPane3.getSelectedIndex()) {
@@ -1966,13 +1992,21 @@ public final class addChecksTopComponent extends TopComponent {
             toRemoveLocal.add(sourceEntries.get(selectedRows[i]));
         }
         sourceEntries.removeAll(toRemoveLocal);
-        
+
         GermplasmEntriesTableModelChecks tableModel = new GermplasmEntriesTableModelChecks(factores, toAddChecks);
         jTableFinalChecks.setModel(tableModel);
         sourceTable.getSelectionModel().clearSelection();
         jTableFinalChecks.updateUI();
         sourceTable.updateUI();
     }//GEN-LAST:event_jButtonAddChecksActionPerformed
+
+    private void btnSearchListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchListActionPerformed
+        searchList();
+    }//GEN-LAST:event_btnSearchListActionPerformed
+
+    private void btnSearchCheckListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchCheckListActionPerformed
+        searchChecksList();
+    }//GEN-LAST:event_btnSearchCheckListActionPerformed
 
     private void recorreIndices(List<List<Object>> germplasmData, int colEntry) {
 
@@ -2514,6 +2548,8 @@ public final class addChecksTopComponent extends TopComponent {
         return this.jTableFinalChecks.getRowCount();
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSearchCheckList;
+    private javax.swing.JButton btnSearchList;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JComboBox cboGermplasmList;
@@ -2815,5 +2851,54 @@ public final class addChecksTopComponent extends TopComponent {
         ldwtc.open();
         ldwtc.requestActive();
 
+    }
+
+    private void searchList() {
+rowListDB = new ArrayList<List<Object>>();        
+        SelectListDialog selectListDialog = new SelectListDialog();
+        selectListDialog.showSearchDialog();
+        if (selectListDialog.isListSelected()) {
+            try {
+                GermplasmListReader germplasmListReader = new GermplasmListReaderImpl();
+                GermplasmList germplasmList = germplasmListReader.getGermPlasmListFromDB(selectListDialog.getSeledtedListnms().getListid());
+                setGermplasmListIntoTable(germplasmList, this.jTableEntriesDB, 0, 0);
+
+            } catch (Exception ex) {
+                System.out.println("ERROR AL LEER EXCEL GERMPLASM ENTRIES DB: " + ex);
+            }
+        } else {
+            GermplasmEntriesTableModelChecks modeloTablaEntries = new GermplasmEntriesTableModelChecks();
+            this.jTableEntriesDB.setModel(modeloTablaEntries);
+            this.jTextAreaPath.setText("");
+            this.jTextFieldEntries.setText("0");
+        }
+        germplasmSourceTransferHandler.setSourceList(rowListDB);
+        germplasmSourceTransferHandler.setSourceTable(jTableEntriesDB);
+        germplasmSourceTransferHandler.setFactores(factores);
+    }
+
+    private void searchChecksList() {
+   
+        rowListDBChecks = new ArrayList<List<Object>>();        
+        SelectListDialog selectListDialog = new SelectListDialog();
+        selectListDialog.showSearchDialog();
+        if (selectListDialog.isListSelected()) {
+            try {
+                GermplasmListReader germplasmListReader = new GermplasmListReaderImpl();
+                GermplasmList germplasmList = germplasmListReader.getGermPlasmListFromDB(selectListDialog.getSeledtedListnms().getListid());
+                setGermplasmListIntoTable(germplasmList, this.jTableEntriesDBChecks, 0, 1);
+
+            } catch (Exception ex) {
+                System.out.println("ERROR AL LEER EXCEL GERMPLASM ENTRIES DB: " + ex);
+            }
+        } else {
+            GermplasmEntriesTableModelChecks modeloTablaEntries = new GermplasmEntriesTableModelChecks();
+            this.jTableEntriesDBChecks.setModel(modeloTablaEntries);
+            this.jTextAreaPathChecks.setText("");
+            this.jTextFieldEntriesChecks.setText("0");
+        }
+        germplasmTransferHandler.setSourceList(rowListDBChecks);
+        germplasmTransferHandler.setSourceTable(jTableEntriesDBChecks);
+        germplasmTransferHandler.setFactores(factores);
     }
 }

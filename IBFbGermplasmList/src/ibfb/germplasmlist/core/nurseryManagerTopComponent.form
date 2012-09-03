@@ -136,7 +136,10 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="cboGermplasmListMale" max="32767" attributes="0"/>
+                                  <Component id="cboGermplasmListMale" min="-2" pref="253" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="btnSearchMale" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                               <Component id="jScrollEntriesDbMale" alignment="1" pref="389" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
@@ -155,10 +158,13 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="jLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="cboGermplasmListMale" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                                  <Component id="cboGermplasmListMale" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnSearchMale" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jScrollEntriesDbMale" pref="234" max="32767" attributes="0"/>
+                          <Component id="jScrollEntriesDbMale" pref="244" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="btnRemoveMaleDb" min="-2" max="-2" attributes="0"/>
@@ -301,6 +307,16 @@
                     </Component>
                   </SubComponents>
                 </Container>
+                <Component class="javax.swing.JButton" name="btnSearchMale">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                      <ResourceString bundle="ibfb/germplasmlist/core/Bundle.properties" key="nurseryManagerTopComponent.btnSearchMale.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSearchMaleActionPerformed"/>
+                  </Events>
+                </Component>
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="btnRemoveMaleExcel">
@@ -324,7 +340,7 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jScrollPane1" pref="258" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane1" pref="260" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jButtonBrowseExcelMale" min="-2" pref="69" max="-2" attributes="0"/>
                               </Group>
@@ -344,7 +360,7 @@
                               <Component id="jButtonBrowseExcelMale" alignment="0" max="32767" attributes="1"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jScrollEntiresExcelMale" pref="235" max="32767" attributes="0"/>
+                          <Component id="jScrollEntiresExcelMale" pref="251" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -469,7 +485,10 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="cboGermplasmListFemale" pref="338" max="32767" attributes="0"/>
+                                  <Component id="cboGermplasmListFemale" min="-2" pref="240" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="btnSearchFemaleList" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="btnRemoveFemaleDb" min="-2" max="-2" attributes="0"/>
@@ -487,7 +506,10 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="jLabel5" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="cboGermplasmListFemale" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                                  <Component id="cboGermplasmListFemale" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnSearchFemaleList" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jScrollEntriesDbFemale" pref="224" max="32767" attributes="0"/>
@@ -644,6 +666,16 @@
                     </Component>
                   </SubComponents>
                 </Container>
+                <Component class="javax.swing.JButton" name="btnSearchFemaleList">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                      <ResourceString bundle="ibfb/germplasmlist/core/Bundle.properties" key="nurseryManagerTopComponent.btnSearchFemaleList.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSearchFemaleListActionPerformed"/>
+                  </Events>
+                </Component>
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="jPanel8">
@@ -667,7 +699,7 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jScrollPane2" pref="258" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane2" pref="260" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jButtonBrowseExcelFemale" min="-2" pref="69" max="-2" attributes="0"/>
                               </Group>
@@ -687,7 +719,7 @@
                               <Component id="jButtonBrowseExcelFemale" alignment="0" max="32767" attributes="1"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jScrollEntiresExcelFemale" pref="235" max="32767" attributes="0"/>
+                          <Component id="jScrollEntiresExcelFemale" pref="251" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="btnRemoveFemaleExcel" min="-2" max="-2" attributes="0"/>
                       </Group>
