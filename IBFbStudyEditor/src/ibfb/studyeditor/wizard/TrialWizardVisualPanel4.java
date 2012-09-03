@@ -36,6 +36,7 @@ import org.netbeans.api.progress.ProgressUtils;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.util.NbBundle;
+import ibfb.lists.core.SelectListDialog;
 
 public final class TrialWizardVisualPanel4 extends JPanel {
 
@@ -120,6 +121,7 @@ public final class TrialWizardVisualPanel4 extends JPanel {
         cboGermplasmList = new javax.swing.JComboBox();
         lblImgDb = new javax.swing.JLabel();
         jButtonPreview = new javax.swing.JButton();
+        btnSearchList = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableEntries = new javax.swing.JTable();
         lblTotalEntries = new javax.swing.JLabel();
@@ -200,6 +202,13 @@ public final class TrialWizardVisualPanel4 extends JPanel {
             }
         });
 
+        org.openide.awt.Mnemonics.setLocalizedText(btnSearchList, org.openide.util.NbBundle.getMessage(TrialWizardVisualPanel4.class, "TrialWizardVisualPanel4.btnSearchList.text")); // NOI18N
+        btnSearchList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchListActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlSelectGermplasmLayout = new javax.swing.GroupLayout(pnlSelectGermplasm);
         pnlSelectGermplasm.setLayout(pnlSelectGermplasmLayout);
         pnlSelectGermplasmLayout.setHorizontalGroup(
@@ -214,7 +223,7 @@ public final class TrialWizardVisualPanel4 extends JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblImgExcel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -223,7 +232,10 @@ public final class TrialWizardVisualPanel4 extends JPanel {
                         .addGap(16, 16, 16)
                         .addComponent(lblImgDb)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cboGermplasmList, 0, 457, Short.MAX_VALUE)))
+                        .addComponent(cboGermplasmList, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnSearchList)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pnlSelectGermplasmLayout.setVerticalGroup(
@@ -237,8 +249,10 @@ public final class TrialWizardVisualPanel4 extends JPanel {
                         .addContainerGap()
                         .addComponent(lblImgDb))
                     .addGroup(pnlSelectGermplasmLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(cboGermplasmList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(28, 28, 28)
+                        .addGroup(pnlSelectGermplasmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cboGermplasmList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSearchList))))
                 .addGap(18, 18, 18)
                 .addGroup(pnlSelectGermplasmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)
@@ -274,7 +288,7 @@ public final class TrialWizardVisualPanel4 extends JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(500, Short.MAX_VALUE)
+                .addContainerGap(510, Short.MAX_VALUE)
                 .addComponent(lblTotalEntries)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldTotalEntries, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -283,14 +297,14 @@ public final class TrialWizardVisualPanel4 extends JPanel {
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addContainerGap()
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 627, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(pnlSelectGermplasm, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addContainerGap()))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(386, Short.MAX_VALUE)
+                .addContainerGap(399, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTotalEntries)
                     .addComponent(jTextFieldTotalEntries, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -488,6 +502,10 @@ public final class TrialWizardVisualPanel4 extends JPanel {
             showProgressStatus();
         }
     }//GEN-LAST:event_cboGermplasmListActionPerformed
+
+    private void btnSearchListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchListActionPerformed
+        searchList();
+    }//GEN-LAST:event_btnSearchListActionPerformed
 
     private void fillComboListNames() {
 
@@ -736,7 +754,24 @@ public final class TrialWizardVisualPanel4 extends JPanel {
 
         return existenFactores;
     }
+    
+    private void searchList() {
+         SelectListDialog selectListDialog = new SelectListDialog();
+        selectListDialog.showSearchDialog();
+        if (selectListDialog.isListSelected()) {
+           try {
+               GermplasmListReader germplasmListReader = new GermplasmListReaderImpl();
+                GermplasmList germplasmList = germplasmListReader.getGermPlasmListFromDB(selectListDialog.getSeledtedListnms().getListid());
+                setGermplasmListIntoTable(germplasmList);
+                
+            } catch (Exception ex) {
+                System.out.println("ERROR AL LEER EXCEL GERMPLASM ENTRIES DB: " + ex);
+            } 
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSearchList;
     private javax.swing.ButtonGroup buttonGroupGMS;
     private javax.swing.JComboBox cboGermplasmList;
     private javax.swing.JButton jButtonPreview;

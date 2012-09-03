@@ -14,6 +14,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.swing.table.AbstractTableModel;
+import org.cimmyt.cril.ibwb.commongui.ConvertUtils;
+import org.cimmyt.cril.ibwb.commongui.DecimalUtils;
 import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 
 /**
@@ -196,7 +198,18 @@ public class ObservationsTableModel extends AbstractTableModel {
     public Object getValueAt(int rowIndex, int columnIndex) {
         //return values[rowIndex][columnIndex];
         List<Object> columnList = values.get(rowIndex);
-        return columnList.get(columnIndex);
+        Object value = columnList.get(columnIndex);
+
+        if (value != null) {
+            if (value instanceof Double) {
+               Double doubleValue = (Double)value; 
+               if (DecimalUtils.isIntegerValue(doubleValue)) {
+                   value = DecimalUtils.getValueAsInteger(value);
+               } 
+            }
+        }
+
+        return value;
     }
 
     @Override
