@@ -90,6 +90,15 @@ public class Listdata extends BaseFilter implements Serializable {
      */
     @Transient
     private Integer methodId;
+    
+    @Transient
+    private Names name1027;
+    
+    @Transient
+    private Names name1028;
+    
+    @Transient
+    private Names name1029;
 
     public Listdata() {
         setDefault();
@@ -304,6 +313,45 @@ public class Listdata extends BaseFilter implements Serializable {
         this.nameBCID = nameBCID;
     }
 
-    
-    
+    /**
+     * @return the name1027
+     */
+    public Names getName1027() {
+        return name1027;
+    }
+
+    /**
+     * @param name1027 the name1027 to set
+     */
+    public void setName1027(Names name1027) {
+        this.name1027 = name1027;
+    }
+
+    /**
+     * @return the name1028
+     */
+    public Names getName1028() {
+        return name1028;
+    }
+
+    /**
+     * @param name1028 the name1028 to set
+     */
+    public void setName1028(Names name1028) {
+        this.name1028 = name1028;
+    }
+
+    /**
+     * @return the name1029
+     */
+    public Names getName1029() {
+        return name1029;
+    }
+
+    /**
+     * @param name1029 the name1029 to set
+     */
+    public void setName1029(Names name1029) {
+        this.name1029 = name1029;
+    }
 }

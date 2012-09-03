@@ -6,11 +6,13 @@
 package org.cimmyt.cril.ibwb.domain;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import org.cimmyt.cril.ibwb.domain.filter.BaseFilter;
 
 /**
@@ -53,7 +55,10 @@ public class Listnms extends BaseFilter implements Serializable {
     private Integer lhierarchy;
     @Column(name = "liststatus")
     private Integer liststatus;
-
+    
+    @Transient
+    private List<Listdata> lisdatas;
+    
     public Listnms() {
     	setDefault();
     }
@@ -73,7 +78,7 @@ public class Listnms extends BaseFilter implements Serializable {
     	lhierarchy = 0;
     	liststatus = 1;
     }
-
+    
     public Listnms(Integer listid) {
         this.listid = listid;
     }
@@ -175,6 +180,20 @@ public class Listnms extends BaseFilter implements Serializable {
     public String toString() {
         //return "org.cimmyt.cril.ibworkbench.services.beans.Listnms[listid=" + listid + "]";
         return this.getListname();
+    }
+
+    /**
+     * @return the lisdatas
+     */
+    public List<Listdata> getLisdatas() {
+        return lisdatas;
+    }
+
+    /**
+     * @param lisdatas the lisdatas to set
+     */
+    public void setLisdatas(List<Listdata> lisdatas) {
+        this.lisdatas = lisdatas;
     }
 
 }
