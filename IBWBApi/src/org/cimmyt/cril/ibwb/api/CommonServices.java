@@ -1411,6 +1411,8 @@ public interface CommonServices {
     public List<Listdata> getListListdata(Listdata listdataFilter, int start, int pageSize, boolean paged);
 
     public List<Listdata> getListListdataFiltro(Listdata filter, int start, int pageSize, boolean paged);
+    
+    public List<Listdata> getListdataByIdlistnms(final Integer idListnms);
 
     //-----------------------------------Listnms---------------------------
     /**
@@ -1831,6 +1833,9 @@ public interface CommonServices {
     public Names getNamesByGid(Germplsm germplasm, Boolean preferido);
     
     public Integer getMaxForSelection(String cadena, Integer ntype);
+    
+    public Listnms getNamesCentral(final Listnms listnms);
+    public Listnms getNamesLocal(final Listnms listnms);
     
     //-----------------------------------Obsunit---------------------------
     /**

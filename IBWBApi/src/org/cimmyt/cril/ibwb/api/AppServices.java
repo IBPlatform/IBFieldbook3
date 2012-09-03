@@ -571,6 +571,8 @@ public interface AppServices {
     public List<Listdata> getListListdata(Listdata listdataFilter, int start, int pageSize, boolean paged);
 
     public List<Listdata> getListListdataFiltro(Listdata filter, int start, int pageSize, boolean paged);
+    
+    public Listnms getFullListnms(Integer idListnms);
 
     //-----------------------------------Listnms---------------------------
     /**
@@ -763,6 +765,7 @@ public interface AppServices {
     public Names getNamesByGid(Germplsm germplasm, Boolean preferido);
 
     public Integer getMaxForSelection(Integer studyId, String cadena, Integer ntype);
+    
 
     //-----------------------------------Obsunit---------------------------
     /**
