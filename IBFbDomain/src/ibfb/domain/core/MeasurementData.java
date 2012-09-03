@@ -38,7 +38,8 @@ public class MeasurementData {
 
     public Object getValue() {
         Object value = null;
-        if (data != null && !data.toString().isEmpty()) {
+        //if (data != null && !data.toString().isEmpty()) {
+        if (data != null) {
             if (dataType.equals(DATA_C)) {
                 DataC dataC = new DataC();
                 if (data instanceof String) {
@@ -52,7 +53,13 @@ public class MeasurementData {
             } else {
                 Double dblValor = null;
                 if (data instanceof String) {
-                    dblValor = new Double((String) data);
+                    String stringValue = (String)data;
+                    if (stringValue != null && stringValue.isEmpty()) {
+                        dblValor = null;
+                    } else {
+                        dblValor = new Double(stringValue);
+                    }
+                    
                 } else if (data instanceof Integer) {
                     dblValor = Double.parseDouble(data.toString());
                 } else if (data instanceof Double) {
