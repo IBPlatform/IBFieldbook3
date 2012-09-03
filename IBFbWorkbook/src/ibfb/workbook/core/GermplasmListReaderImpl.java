@@ -293,10 +293,12 @@ public class GermplasmListReaderImpl implements GermplasmListReader {
     @Override
     public GermplasmList getGermPlasmListFromDB(Integer listid) {
         GermplasmList germplasmList = new GermplasmList();
-
+        
+//        Listnms listnms = AppServicesProxy.getDefault().appServices().getFullListnms(listid);
+        
         fillHeader(germplasmList, listid);
         fillEntryList(germplasmList, listid);
-
+        
         return germplasmList;
     }
 
