@@ -6,6 +6,7 @@ import ibfb.domain.core.GermplasmList;
 import ibfb.domain.core.SelectedStudy;
 import ibfb.domain.core.Variate;
 import ibfb.domain.core.Workbook;
+import ibfb.lists.core.SelectListDialog;
 import ibfb.nursery.core.NurseryEditorTopComponent;
 import ibfb.nursery.filters.ExcelFiltro;
 import ibfb.nursery.models.GermplasmEntriesTableModel;
@@ -96,6 +97,7 @@ public class JDQuickCreation extends javax.swing.JDialog {
         jToolBar1 = new javax.swing.JToolBar();
         jLabel1 = new javax.swing.JLabel();
         jTextFieldTotalEntries = new javax.swing.JTextField();
+        btnSearch = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jRadioButtonNormal = new javax.swing.JRadioButton();
         jRadioButtonRandom = new javax.swing.JRadioButton();
@@ -287,6 +289,13 @@ public class JDQuickCreation extends javax.swing.JDialog {
         jTextFieldTotalEntries.setText(org.openide.util.NbBundle.getMessage(JDQuickCreation.class, "JDQuickCreation.jTextFieldTotalEntries.text")); // NOI18N
         jToolBar1.add(jTextFieldTotalEntries);
 
+        btnSearch.setText(org.openide.util.NbBundle.getMessage(JDQuickCreation.class, "JDQuickCreation.btnSearch.text")); // NOI18N
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -294,29 +303,39 @@ public class JDQuickCreation extends javax.swing.JDialog {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 607, Short.MAX_VALUE)
-                    .addComponent(jToolBar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(radGermplasmFromTemplate))
-                .addContainerGap())
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 607, Short.MAX_VALUE)
+                            .addComponent(jToolBar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(radGermplasmFromTemplate))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnSearch)
+                        .addGap(21, 21, 21))))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(radGermplasmFromDB1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jButtonSearchGSM, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jButtonPreviewGSM, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(cboGermplasmList, javax.swing.GroupLayout.Alignment.LEADING, 0, 508, Short.MAX_VALUE))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(cboGermplasmList, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 113, Short.MAX_VALUE)))
                     .addContainerGap()))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(87, 87, 87)
+                .addGap(23, 23, 23)
+                .addComponent(btnSearch)
+                .addGap(41, 41, 41)
                 .addComponent(radGermplasmFromTemplate)
                 .addGap(32, 32, 32)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -583,6 +602,10 @@ public class JDQuickCreation extends javax.swing.JDialog {
             nurseryWindow.requestActive();
         }
     }//GEN-LAST:event_jButtonFinishActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        searchList();
+    }//GEN-LAST:event_btnSearchActionPerformed
 
     private void fillStudyData(NurseryEditorTopComponent nurseryWindow) {
         nurseryWindow.setName("Nursery - " + SelectedStudy.selected.getStudy());
@@ -973,8 +996,23 @@ public class JDQuickCreation extends javax.swing.JDialog {
         col.setPreferredWidth(width);
     }
 
+ private void searchList() {
+         SelectListDialog selectListDialog = new SelectListDialog();
+        selectListDialog.showSearchDialog();
+        if (selectListDialog.isListSelected()) {
+           try {
+               GermplasmListReader germplasmListReader = new GermplasmListReaderImpl();
+                GermplasmList germplasmList = germplasmListReader.getGermPlasmListFromDB(selectListDialog.getSeledtedListnms().getListid());
+                setGermplasmListIntoTable(germplasmList);
+                this.jButtonFinish.setEnabled(true);
+            } catch (Exception ex) {
+                System.out.println("ERROR AL LEER EXCEL GERMPLASM ENTRIES DB: " + ex);
+            } 
+        }
+    }    
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSearch;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JComboBox cboGermplasmList;

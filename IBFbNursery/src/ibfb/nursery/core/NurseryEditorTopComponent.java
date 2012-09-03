@@ -2083,8 +2083,12 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
     private void checkAdvanceStatus() {
         if (this.jTextFieldNurseryName.isEnabled()) {
             this.jButtonAdvance.setEnabled(false);
+            this.jButtonCSVTraitsExport1.setEnabled(false);
+            this.jButtonCSVTraitsImport1.setEnabled(false);
         } else {
             this.jButtonAdvance.setEnabled(true);
+            this.jButtonCSVTraitsExport1.setEnabled(true);
+            this.jButtonCSVTraitsImport1.setEnabled(true);            
         }
     }
 

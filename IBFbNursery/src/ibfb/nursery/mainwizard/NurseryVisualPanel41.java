@@ -4,6 +4,7 @@ import ibfb.domain.core.Factor;
 import ibfb.domain.core.GermplasmList;
 import ibfb.domain.core.ListOfEntries;
 import ibfb.domain.core.Workbook;
+import ibfb.lists.core.SelectListDialog;
 import ibfb.nursery.core.NurseryEditorTopComponent;
 import ibfb.nursery.filters.ExcelFiltro;
 import ibfb.nursery.models.GermplasmEntriesTableModel;
@@ -95,6 +96,7 @@ public final class NurseryVisualPanel41 extends JPanel {
         cboGermplasmList = new javax.swing.JComboBox();
         jLabel4 = new javax.swing.JLabel();
         jButtonPreview = new javax.swing.JButton();
+        btnSearch = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableEntries = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
@@ -180,6 +182,13 @@ public final class NurseryVisualPanel41 extends JPanel {
             }
         });
 
+        org.openide.awt.Mnemonics.setLocalizedText(btnSearch, org.openide.util.NbBundle.getMessage(NurseryVisualPanel41.class, "NurseryVisualPanel41.btnSearch.text")); // NOI18N
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -203,7 +212,9 @@ public final class NurseryVisualPanel41 extends JPanel {
                         .addGap(16, 16, 16)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cboGermplasmList, 0, 525, Short.MAX_VALUE)))
+                        .addComponent(cboGermplasmList, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnSearch)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -217,8 +228,10 @@ public final class NurseryVisualPanel41 extends JPanel {
                         .addContainerGap()
                         .addComponent(jLabel4))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(cboGermplasmList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cboGermplasmList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSearch))))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)
@@ -254,7 +267,7 @@ public final class NurseryVisualPanel41 extends JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(572, Short.MAX_VALUE)
+                .addContainerGap(578, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldTotalEntries, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -270,7 +283,7 @@ public final class NurseryVisualPanel41 extends JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(424, Short.MAX_VALUE)
+                .addContainerGap(437, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jTextFieldTotalEntries, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -322,7 +335,6 @@ public final class NurseryVisualPanel41 extends JPanel {
 }//GEN-LAST:event_radGermplasmFromDB1ActionPerformed
 
     private void cboGermplasmListItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cboGermplasmListItemStateChanged
-
 }//GEN-LAST:event_cboGermplasmListItemStateChanged
 
     private void jButtonPreviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPreviewActionPerformed
@@ -332,13 +344,13 @@ public final class NurseryVisualPanel41 extends JPanel {
     private void cboGermplasmListPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_cboGermplasmListPropertyChange
     }//GEN-LAST:event_cboGermplasmListPropertyChange
 
-
     public void showProgressStatus() {
 
         handle = ProgressHandleFactory.createHandle(bundle.getString("NurseryVisualPanel41.loading"));
-        
-        
+
+
         ProgressUtils.showProgressDialogAndRun(new Runnable() {
+
             @Override
             public void run() {
                 porcentaje = "0";
@@ -349,12 +361,12 @@ public final class NurseryVisualPanel41 extends JPanel {
         }, handle, true);
 
     }
-    
+
     private void cboGermplasmListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboGermplasmListActionPerformed
         if (!ready) {
             return;
         }
-        
+
         readGermplsmEntriesFromDb();
 
         if (isForWheat) {
@@ -362,6 +374,10 @@ public final class NurseryVisualPanel41 extends JPanel {
         }
 
     }//GEN-LAST:event_cboGermplasmListActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        searchList();
+    }//GEN-LAST:event_btnSearchActionPerformed
 
     public void fillComboListNames() {
         List<Listnms> germplasmList = AppServicesProxy.getDefault().appServices().getListnmsList();
@@ -611,6 +627,7 @@ public final class NurseryVisualPanel41 extends JPanel {
         col.setPreferredWidth(width);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSearch;
     private javax.swing.ButtonGroup buttonGroupGMS;
     private javax.swing.JComboBox cboGermplasmList;
     private javax.swing.JButton jButtonPreview;
@@ -762,6 +779,20 @@ public final class NurseryVisualPanel41 extends JPanel {
         queryReadCenter.readFlexPedConfig();
     }
 
+    private void searchList() {
+        SelectListDialog selectListDialog = new SelectListDialog();
+        selectListDialog.showSearchDialog();
+        if (selectListDialog.isListSelected()) {
+            try {
+                GermplasmListReader germplasmListReader = new GermplasmListReaderImpl();
+                GermplasmList germplasmList = germplasmListReader.getGermPlasmListFromDB(selectListDialog.getSeledtedListnms().getListid());
+                setGermplasmListIntoTable(germplasmList);
+
+            } catch (Exception ex) {
+                System.out.println("ERROR AL LEER EXCEL GERMPLASM ENTRIES DB: " + ex);
+            }
+        }
+    }
 //    private boolean loadConnections() {
 //        boolean hayConexion = false;
 //        try {
@@ -781,6 +812,4 @@ public final class NurseryVisualPanel41 extends JPanel {
 //        }
 //        return hayConexion;
 //    }
-
-    
 }
