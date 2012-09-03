@@ -4,7 +4,7 @@
  */
 package ibfb.studyexplorer.actions;
 
-import ibfb.domain.core.SelectedStudy;
+import ibfb.studyexplorer.core.nodes.StudyNode;
 import ibfb.studyexplorer.core.nodes.StudyExperimentNode;
 import ibfb.studyexplorer.explorer.StudyExplorerTopComponent;
 import java.awt.event.ActionEvent;
@@ -19,6 +19,7 @@ import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.SystemAction;
 import org.openide.windows.WindowManager;
+
 
 /**
  *
@@ -41,9 +42,14 @@ public class DeleteStudyAction extends SystemAction {
             ExplorerManager explorerManager = studyExplorer.getExplorerManager();
             for (Node selectedNode : explorerManager.getSelectedNodes()) {
                 if (selectedNode instanceof StudyExperimentNode) {
-                    StudyExperimentNode studyExperimentNode = (StudyExperimentNode)selectedNode;
+                    StudyExperimentNode studyExperimentNode = (StudyExperimentNode) selectedNode;
                     Study studyToDelete = new Study(true);
                     studyToDelete.setStudyid(studyExperimentNode.getStudy().getStudyid());
+                    AppServicesProxy.getDefault().appServices().deleteStudy(studyToDelete);
+                } else if (selectedNode instanceof StudyNode) {
+                    StudyNode studyNode = (StudyNode) selectedNode;
+                    Study studyToDelete = new Study(true);
+                    studyToDelete.setStudyid(studyNode.getStudy().getStudyid());
                     AppServicesProxy.getDefault().appServices().deleteStudy(studyToDelete);
                 }
 

@@ -76,5 +76,11 @@ public class ExperimentNode extends AbstractNode {
     public boolean canDestroy() {
         return true;
     }
+
+    public Study getStudy() {
+        return study;
+    }
+     
+     
      
 }

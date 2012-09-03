@@ -1,7 +1,6 @@
 package ibfb.studyexplorer.core.nodes;
 
 import ibfb.domain.core.Study;
-import ibfb.studyexplorer.actions.CloseAction;
 import ibfb.studyexplorer.actions.DeleteStudyAction;
 import ibfb.studyexplorer.actions.ShowOptionsAction;
 import ibfb.studyexplorer.actions.ShowPropAction;
@@ -14,7 +13,7 @@ import org.openide.util.lookup.Lookups;
  *
  * @author TMSANCHEZ
  */
-class StudyNode extends AbstractNode {
+public class StudyNode extends AbstractNode {
 
     private Study study;
 
