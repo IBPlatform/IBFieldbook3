@@ -204,67 +204,6 @@ public class HelperWorkbookRead {
                     factorDto,
                     this.servicioApp,
                     801);
-//            if (temp == null) {
-//                factorsRemove.add(factorDto);
-//            } else {
-//                factorDto = temp;
-//            }
-//        }
-//        this.factorsDto.removeAll(factorsRemove);
-
-            // Check wisch values for labels are used to identify STUDY, TRIAL LABEL and ENTRY_LABEL
-
-//        boolean entryLabelAssiged = false;
-//        boolean trialLabelAssigned = false;
-//        for (Factor factor : factorsDto) {
-//            log.info("Reading factor " + factor.getFname());
-//            String property = factor.getMeasuredin().getTraits().getTrname();
-//            //String property = factor.getTraits().getTrabbr();
-//            String scale = factor.getMeasuredin().getScales().getScname();
-//            if (Workbook.getStringWithOutBlanks(property + scale).equalsIgnoreCase(Workbook.TRIAL_INSTANCE_NUMBER)
-////                    && factor.getMeasuredin().getTmsMethod().getTmname().equals("ENUMERATED")
-//                    ) {
-//                //Workbook.TRIAL_LABEL = factor.getFname();
-//                if (!trialLabelAssigned) {
-//                    log.info("Trial label assigned DONE!");
-//                    workbookStudy.setTrialLabel(factor.getFname());
-//                    trialLabelAssigned = true;
-//                }
-//            }
-//            if (Workbook.getStringWithOutBlanks(property + scale).equalsIgnoreCase(Workbook.GERMPLASM_ENTRY_NUMBER)) {
-//                //Workbook.ENTRY_LABEL = factor.getFname();
-//                if (!entryLabelAssiged) {
-//                    log.info("Entry label assigned DONE!");
-//                    workbookStudy.setEntryLabel(factor.getFname());
-//                    entryLabelAssiged = true;
-//                }
-//            }
-//            if (Workbook.isPlotLabel(property + scale)) {
-//                //Workbook.PLOT_LABEL = factor.getFname();
-//                log.info("Plot label assigned DONE!");
-//                workbookStudy.setPlotLabel(factor.getFname());
-//            }
-//
-//        }
-
-            //classifying factors
-//        this.factorIdStudy = 0;
-//        this.factorIdTrial = 0;
-//        this.factorIdEntry = 0;
-//        this.factorIdPlot = 0;
-//        for (Factor factorDto : this.factorsDto) {
-//            if (factorDto.getFname().equalsIgnoreCase(Workbook.STUDY)) {
-//                this.factorIdStudy = factorDto.getLabelid();
-//                //} else if (factorDto.getFname().equals(Workbook.TRIAL_LABEL)) {
-//            } else if (factorDto.getFname().equals(workbookStudy.getTrialLabel())) {
-//                this.factorIdTrial = factorDto.getLabelid();
-//                //} else if (factorDto.getFname().equals(Workbook.ENTRY_LABEL)) {
-//            } else if (factorDto.getFname().equals(workbookStudy.getEntryLabel())) {
-//                this.factorIdEntry = factorDto.getLabelid();
-//                //} else if (factorDto.getFname().equals(Workbook.PLOT_LABEL)) {
-//            } else if (factorDto.getFname().equals(workbookStudy.getPlotLabel())) {
-//                this.factorIdPlot = factorDto.getLabelid();
-//            }
 
             if (factorDto.getFactorid().equals(this.factorIdStudy)) {
                 this.mapFactorsDtoStudy.put(factorDto.getFname(), factorDto);
@@ -479,32 +418,58 @@ public class HelperWorkbookRead {
     }
 
     private void fillGermplasmData() {
-        for (int i = 0; i < factorsDtoEntrys.get(0).getSizeLevels(); i++) {
+//        for (int i = 0; i < factorsDtoEntrys.get(0).getSizeLevels(); i++) {
+//            List<Object> row = new ArrayList<Object>();
+//            for (Factor factors : factorsDtoEntrys) {
+//                try {
+//                    // fill factors as integers
+//                    // if facto is numeric, then check if its scale number an method enumerated
+//                    if (factors.getLtype().equals("N") ) {
+//                        Double value = (Double)factors.getLevel(i);
+//                        if (DecimalUtils.isIntegerValue(value)) {
+//                            row.add(DecimalUtils.getValueAsInteger(value));
+//                        }
+//                        row.add(i);
+//                       } else {
+//                        row.add(factors.getLevel(i));
+//                    }                    
+//                    row.add(factors.getLevel(i));
+//                }catch (Exception e){
+//                    if(factors.getLtype().equals("N")){
+//                        row.add("");
+//                    } else {
+//                        row.add("");
+//                    }
+//                }
+//            }
+//            germplasmData.add(row);
+//        }
+        int totalFilas = factorsDtoEntrys.get(0).getSizeLevels();
+        int factorFila = factorsDtoEntrys.get(0).getLevelNo(0);
+        for (int i = 0; i < totalFilas; i++) {
             List<Object> row = new ArrayList<Object>();
-            for (Factor factors : factorsDtoEntrys) {
-                try {
-                    // fill factors as integers
-                    // if facto is numeric, then check if its scale number an method enumerated
-                    if (factors.getLtype().equals("N") ) {
-                        Double value = (Double)factors.getLevel(i);
-                        if (DecimalUtils.isIntegerValue(value)) {
-                            row.add(DecimalUtils.getValueAsInteger(value));
-                        }
-                        row.add(i);
-                       } else {
-                        row.add(factors.getLevel(i));
-                    }                    
-                    row.add(factors.getLevel(i));
-                } catch (Exception e) {
-                    if (factors.getLtype().equals("N")) {
-                        row.add(0);
-                    } else {
-                        row.add("");
-                    }
-                }
+            for(int j=0 ; j < factorsDtoEntrys.size() ; j++){
+                row.add("");
             }
             germplasmData.add(row);
         }
+        for(Factor factor : factorsDtoEntrys){
+            int columna = factorsDtoEntrys.indexOf(factor);
+            if(factor.getLtype().equals("N")){
+                for(LevelN levelN : factor.getLevelsN()){
+                    Double value = (Double) levelN.getLvalue();
+                    if (DecimalUtils.isIntegerValue(value)) {
+                        germplasmData.get(levelN.getLevelNPK().getLevelno() - factorFila).set(columna, DecimalUtils.getValueAsInteger(value));
+                    }
+                    germplasmData.get(levelN.getLevelNPK().getLevelno() - factorFila).set(columna, value);
+                }
+            }else{
+                for(LevelC levelC : factor.getLevelsC()){
+                    germplasmData.get(levelC.getLevelCPK().getLevelno() - factorFila).set(columna, levelC.getLvalue());
+                }
+            }
+        }
+        
         System.out.print("");
     }
 

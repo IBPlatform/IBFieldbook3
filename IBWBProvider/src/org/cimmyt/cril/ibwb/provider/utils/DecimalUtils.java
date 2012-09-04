@@ -54,10 +54,17 @@ public class DecimalUtils {
      */
     public static boolean isIntegerValue(Double value) {
         boolean isIntegerValue = false;
-        
         if (value != null) {
             isIntegerValue = (value.doubleValue() - value.intValue()) == 0;
         }
+        
+//        try{
+//            
+//            Integer.valueOf(value.toString());
+//            
+//        }catch(Exception e){
+//            
+//        }
         
         return isIntegerValue;
         
