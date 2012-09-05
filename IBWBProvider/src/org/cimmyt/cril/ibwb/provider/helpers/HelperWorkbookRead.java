@@ -6,6 +6,8 @@ package org.cimmyt.cril.ibwb.provider.helpers;
 
 import ibfb.domain.core.*;
 import java.lang.reflect.InvocationTargetException;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.util.ArrayList;
@@ -286,19 +288,6 @@ public class HelperWorkbookRead {
                     factorDtoView,
                     this.mapaLabes));
         }
-
-//            for (Variate variateDto : variatesDTO) {
-//                switch (variateDto.getTraits().getTraittype().charAt(0)) {
-//                    case 'C':
-//                        variates.add(ConverterDTOtoDomain.getVariate(variateDto, llamadaTrait));
-//                        break;
-//                    case 'V':
-//                        variates.add(ConverterDTOtoDomain.getVariate(variateDto, llamadaTrait));
-//                        break;
-//                    default:
-//                        break;
-//                }
-//            }
     }
 
     public void setToStructure() {
@@ -363,7 +352,7 @@ public class HelperWorkbookRead {
                     try {
                         Condition conditionToAdd = new Condition();
                         BeanUtilsBean.getInstance().copyProperties(conditionToAdd, condition);
-                        conditionToAdd.setValue(levelN.getLvalue());
+                        conditionToAdd.setValue(DecimalUtils.getValueAsString(levelN.getLvalue()));
                         conditionToAdd.setInstance(instanceCounter);
                         conditionToAdd.setLevelNo(levelN.getLevelNPK().getLevelno());
                         trialConditions.add(conditionToAdd);
@@ -418,32 +407,6 @@ public class HelperWorkbookRead {
     }
 
     private void fillGermplasmData() {
-//        for (int i = 0; i < factorsDtoEntrys.get(0).getSizeLevels(); i++) {
-//            List<Object> row = new ArrayList<Object>();
-//            for (Factor factors : factorsDtoEntrys) {
-//                try {
-//                    // fill factors as integers
-//                    // if facto is numeric, then check if its scale number an method enumerated
-//                    if (factors.getLtype().equals("N") ) {
-//                        Double value = (Double)factors.getLevel(i);
-//                        if (DecimalUtils.isIntegerValue(value)) {
-//                            row.add(DecimalUtils.getValueAsInteger(value));
-//                        }
-//                        row.add(i);
-//                       } else {
-//                        row.add(factors.getLevel(i));
-//                    }                    
-//                    row.add(factors.getLevel(i));
-//                }catch (Exception e){
-//                    if(factors.getLtype().equals("N")){
-//                        row.add("");
-//                    } else {
-//                        row.add("");
-//                    }
-//                }
-//            }
-//            germplasmData.add(row);
-//        }
         int totalFilas = factorsDtoEntrys.get(0).getSizeLevels();
         int factorFila = factorsDtoEntrys.get(0).getLevelNo(0);
         for (int i = 0; i < totalFilas; i++) {
@@ -460,8 +423,9 @@ public class HelperWorkbookRead {
                     Double value = (Double) levelN.getLvalue();
                     if (DecimalUtils.isIntegerValue(value)) {
                         germplasmData.get(levelN.getLevelNPK().getLevelno() - factorFila).set(columna, DecimalUtils.getValueAsInteger(value));
+                    }else{
+                        germplasmData.get(levelN.getLevelNPK().getLevelno() - factorFila).set(columna, DecimalUtils.getValueAsString(value));
                     }
-                    germplasmData.get(levelN.getLevelNPK().getLevelno() - factorFila).set(columna, value);
                 }
             }else{
                 for(LevelC levelC : factor.getLevelsC()){
@@ -612,7 +576,13 @@ public class HelperWorkbookRead {
         for (Variate variate : variatesDtoConstants) {
             for (int i = 0; i < numeroDeInstancias; i++) {
                 ibfb.domain.core.Constant constant = ConverterDTOtoDomain.getConstant(variate);
-                constant.setValue(variate.getDataObject(i));
+                // TODO ajustar estructura para que se recupere los datos tipo numero sin el .0
+//                if(variate.getDtype().equals("N")){
+//                    constant.setValue(DecimalUtils.getValueAsString((Double)variate.getDataObject(i)));
+//                }else{
+//                    constant.setValue(variate.getDataObject(i));
+                    constant.setValue(DecimalUtils.getValueAsString(variate.getDataObject(i)));
+//                }
                 constant.setInstance(i + 1);
 //                constant.setOunitid(variate.getOunitidObject(i));
                 constant.setVariateId(variate.getVariatid());

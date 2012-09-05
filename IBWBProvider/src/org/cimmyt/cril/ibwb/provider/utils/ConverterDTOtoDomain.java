@@ -72,8 +72,8 @@ public class ConverterDTOtoDomain {
                 condition.setValue(null);
             }
         } else if (factorDto.getLtype().equals("N")) {
-            if (factorDto.getLevelsN().get(indexLevel)  != null) {
-                condition.setValue(factorDto.getLevelN().getLvalue());
+            if (factorDto.getLevelsN().get(indexLevel) != null) {
+                condition.setValue(DecimalUtils.getValueAsString(factorDto.getLevelN().getLvalue()));
                 condition.setLevelNo(factorDto.getLevelN().getLevelNPK().getLevelno());
             } else {
                 condition.setValue(null);
@@ -137,14 +137,14 @@ public class ConverterDTOtoDomain {
                 condition.setValue(factorDto.getLevelC().getLvalue());
                 condition.setLevelNo(factorDto.getLevelC().getLevelCPK().getLevelno());
             } else {
-                condition.setValue(null);
+                condition.setValue("");
             }
         } else if (factorDto.getLtype().equals("N")) {
             if (factorDto.getLevelN() != null) {
-                condition.setValue(factorDto.getLevelN().getLvalue());
+                condition.setValue(DecimalUtils.getValueAsString(factorDto.getLevelN().getLvalue()));
                 condition.setLevelNo(factorDto.getLevelN().getLevelNPK().getLevelno());
             } else {
-                condition.setValue(null);
+                condition.setValue("");
             }
         } else {
             condition.setValue(unknown);

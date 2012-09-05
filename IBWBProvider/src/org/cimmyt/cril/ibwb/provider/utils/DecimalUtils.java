@@ -1,5 +1,7 @@
 package org.cimmyt.cril.ibwb.provider.utils;
 
+import java.math.BigDecimal;
+
 /**
  *
  * @author tmsg
@@ -43,8 +45,24 @@ public class DecimalUtils {
                 e.printStackTrace();
             }
         }
-
         return valueAsInteger;
+    }
+    
+    public static Integer getValueAsInteger(Double value) {
+        return value.intValue();
+    }
+    
+    public static String getValueAsString(Double value) {
+        return new BigDecimal(value).toString();
+    }
+    
+    public static Object getValueAsString(Object value) {
+        try {
+            BigDecimal res = new BigDecimal((String)value);
+            return res.toString();
+	} catch (Exception e){
+            return value;
+	}
     }
  
     /**
@@ -53,20 +71,28 @@ public class DecimalUtils {
      * @return check
      */
     public static boolean isIntegerValue(Double value) {
-        boolean isIntegerValue = false;
-        if (value != null) {
-            isIntegerValue = (value.doubleValue() - value.intValue()) == 0;
-        }
-        
-//        try{
-//            
-//            Integer.valueOf(value.toString());
-//            
-//        }catch(Exception e){
-//            
+//        boolean isIntegerValue = false;
+//        
+//        if (value != null) {
+//            isIntegerValue = (value.doubleValue() - value.intValue()) == 0;
 //        }
         
-        return isIntegerValue;
-        
+        BigDecimal temp = new BigDecimal(value);
+        BigDecimal temp2 = new BigDecimal(temp.intValue());
+        if(temp.compareTo(temp2) == 0){
+            return true;
+        }else{
+            return false;
+        }
+//        return isIntegerValue;
+    }
+    
+    private static boolean isDecimal(String cadena){
+	try {
+            new BigDecimal(cadena);
+            return true;
+	} catch (Exception e){
+            return false;
+	}
     }
 }
