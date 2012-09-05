@@ -409,6 +409,10 @@ public class HelperWorkbookRead {
     private void fillGermplasmData() {
         int totalFilas = factorsDtoEntrys.get(0).getSizeLevels();
         int factorFila = factorsDtoEntrys.get(0).getLevelNo(0);
+        if(factorFila < 0){
+            factorFila = factorFila * -1;
+        }
+        
         for (int i = 0; i < totalFilas; i++) {
             List<Object> row = new ArrayList<Object>();
             for(int j=0 ; j < factorsDtoEntrys.size() ; j++){
@@ -422,14 +426,14 @@ public class HelperWorkbookRead {
                 for(LevelN levelN : factor.getLevelsN()){
                     Double value = (Double) levelN.getLvalue();
                     if (DecimalUtils.isIntegerValue(value)) {
-                        germplasmData.get(levelN.getLevelNPK().getLevelno() - factorFila).set(columna, DecimalUtils.getValueAsInteger(value));
+                        germplasmData.get(levelN.getLevelNPK().getLevelnoAbs() - factorFila).set(columna, DecimalUtils.getValueAsInteger(value));
                     }else{
-                        germplasmData.get(levelN.getLevelNPK().getLevelno() - factorFila).set(columna, DecimalUtils.getValueAsString(value));
+                        germplasmData.get(levelN.getLevelNPK().getLevelnoAbs() - factorFila).set(columna, DecimalUtils.getValueAsString(value));
                     }
                 }
             }else{
                 for(LevelC levelC : factor.getLevelsC()){
-                    germplasmData.get(levelC.getLevelCPK().getLevelno() - factorFila).set(columna, levelC.getLvalue());
+                    germplasmData.get(levelC.getLevelCPK().getLevelnoAbs() - factorFila).set(columna, levelC.getLvalue());
                 }
             }
         }
