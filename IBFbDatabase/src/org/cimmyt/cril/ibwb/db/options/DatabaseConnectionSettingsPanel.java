@@ -819,7 +819,7 @@ final class DatabaseConnectionSettingsPanel extends javax.swing.JPanel {
             if (selectedDB.equals(DatabaseType.MYSQL)) {
                 lblDatabase.setText(bundle.getString("DatabaseConnectionSettingsPanel.lblDatabaseNameText"));
             } else {
-                lblDatabase.setText(bundle.getString("Data Source Name"));
+                lblDatabase.setText(bundle.getString("DatabaseConnectionSettingsPanel.lblDataSourceNameText"));
 
             }
         }
