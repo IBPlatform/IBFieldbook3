@@ -981,8 +981,9 @@ public final class AdvanceLineTopComponent extends TopComponent {
         int colSelection = modelo.getHeaderIndex(GermplasmEntriesTableModel.PLANTS_SELECTED);
 
 
-        if (colSelection > 0) {
-            int elMetodo = Integer.parseInt(modelo.getValueAt(renglon, colSelection).toString());
+        if (colSelection > 0 && modelo.getValueAt(renglon, colSelection)!= null) {
+            //int elMetodo = Integer.parseInt(modelo.getValueAt(renglon, colSelection).toString());
+            int elMetodo = ConvertUtils.getValueAsInteger(modelo.getValueAt(renglon, colSelection));
 
             if (elMetodo > 0) {
                 return 205;
