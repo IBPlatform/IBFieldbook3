@@ -532,6 +532,7 @@ public class ExcelTrialReader {
                         filaObs = findFila(entry, plot);
                         // System.out.println("FILA ENCONTRADA: "+filaObs);
                         if (celda == null) {
+                            observationsModel.setValueAt("", filaObs, colObs);
                             continue;
                         }
                         int tipo = celda.getCellType();
