@@ -276,14 +276,10 @@ public class Variate extends BaseFilter implements Serializable {
             try{
                 return datasN.get(level).getDvalue();
             }catch(Exception e){
-                return 0;
-            }
-        }else{
-            if(dtype.equals("N")){
-                return 0;
-            }else{
                 return "";
             }
+        }else{
+            return "";
         }
     }
     
