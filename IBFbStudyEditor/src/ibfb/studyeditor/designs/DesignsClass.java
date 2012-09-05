@@ -7,6 +7,7 @@ import ibfb.studyeditor.core.model.GermplasmEntriesTableModel;
 import ibfb.studyeditor.core.model.ObservationsTableModel;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Random;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -119,6 +120,10 @@ public class DesignsClass {
 
     public void runR_alphaWindows(int treatments, int rep, int blocksize) {
 
+        Random aleatorio = new Random(System.currentTimeMillis());
+        int newSeed = (int) (aleatorio.nextDouble() * 200 + 1);
+
+
         String myCSVFile = "alpha.csv";
         FileWriter fichero = null;
         PrintWriter pw = null;
@@ -149,8 +154,8 @@ public class DesignsClass {
         }
 
 
-        try {
 
+        try {
             fichero = new FileWriter(pathRWD + File.separator + "alpha.R", false);
             pw = new PrintWriter(fichero);
             pw.println();
@@ -160,11 +165,9 @@ public class DesignsClass {
             pw.println("k <- " + blocksize);
             pw.println("r <- " + rep);
             pw.println("s<-t/k");
-            pw.println("planAlpha <- design.alpha(t,k,r,seed=55)");
+            pw.println("planAlpha <- design.alpha(t,k,r,seed=" + newSeed + ")");
             pw.println("setwd" + "(\"C:/R\")");
             pw.println("write.csv(planAlpha,\"" + myCSVFile + "\",row.names=FALSE)");
-
-
         } catch (FileNotFoundException e) {
 
             JOptionPane.showMessageDialog(null, "File not found", "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -192,6 +195,10 @@ public class DesignsClass {
 
     public void runR_alphaWindowsExtra(int treatments, int rep, int blocksize, int seed) {
 
+
+        Random aleatorio = new Random(System.currentTimeMillis());
+        int newSeed = (int) (aleatorio.nextDouble() * 200 + 1);
+
         String myCSVFile = "alpha.csv";
         FileWriter fichero = null;
         PrintWriter pw = null;
@@ -233,7 +240,7 @@ public class DesignsClass {
             pw.println("k <- " + blocksize);
             pw.println("r <- " + rep);
             pw.println("s<-t/k");
-            pw.println("planAlpha <- design.alpha(t,k,r,seed=" + seed + ")");
+            pw.println("planAlpha <- design.alpha(t,k,r,seed=" + newSeed + ")");
             pw.println("setwd" + "(\"C:/R\")");
             pw.println("write.csv(planAlpha,\"" + myCSVFile + "\",row.names=FALSE)");
 
@@ -264,6 +271,11 @@ public class DesignsClass {
     }
 
     public void runR_lattice(int trial, int treatments, int rep, int blocksize) {
+
+
+        Random aleatorio = new Random(System.currentTimeMillis());
+        int newSeed = (int) (aleatorio.nextDouble() * 200 + 1);
+
         String fileName = "lattice" + trial;
         String myCSVFile = fileName + ".csv";
         FileWriter fichero = null;
@@ -293,7 +305,7 @@ public class DesignsClass {
             pw.println();
             pw.println("library(agricolae)");
             pw.println("k <-" + blocksize);
-            pw.println("planLattice <- design.lattice(k, seed=55,type=\"" + type + "\", number=1)");
+            pw.println("planLattice <- design.lattice(k, seed=" + newSeed + ",type=\"" + type + "\", number=1)");
             pw.println("setwd" + "(\"" + pathRWD + "\")");
             pw.println("write.csv(planLattice,\"" + myCSVFile + "\",row.names=FALSE)");
         } catch (FileNotFoundException e) {
@@ -312,6 +324,9 @@ public class DesignsClass {
     }
 
     public void runR_alpha(int trial, int treatments, int rep, int blocksize) {
+
+        Random aleatorio = new Random(System.currentTimeMillis());
+        int newSeed = (int) (aleatorio.nextDouble() * 200 + 1);
 
         String fileName = "alpha" + trial;
         String myCSVFile = fileName + ".csv";
@@ -346,7 +361,7 @@ public class DesignsClass {
             pw.println("k <- " + blocksize);
             pw.println("r <- " + rep);
             pw.println("s<-t/k");
-            pw.println("planAlpha <- design.alpha(t,k,r,seed=55)");
+            pw.println("planAlpha <- design.alpha(t,k,r," + newSeed + "=55)");
             // pw.println("planAlpha <- design.alpha(t,k,r)");
             pw.println("setwd" + "(\"" + pathRWD + "\")");
             pw.println("write.csv(planAlpha,\"" + myCSVFile + "\",row.names=FALSE)");
@@ -638,9 +653,9 @@ public class DesignsClass {
 
                 try {
                     col = csvReader.get(NbPreferences.forModule(MacthColumsWizardPanel1.class).get("COL", "COLUMN")).toUpperCase();
-                    tenemosCol = true; 
-      
-                
+                    tenemosCol = true;
+
+
                 } catch (IOException e) {
                     tenemosCol = false;
 
