@@ -210,7 +210,7 @@ public final class StudyExplorerTopComponent extends TopComponent implements Exp
         Collection<? extends Study> allStudies = result.allInstances();
         for (Study study : allStudies) {
             actualStudy = study;
-            System.out.println("seleccionado: " + study.getStudy());
+           // System.out.println("seleccionado: " + study.getStudy());
             setProperties(study);
         }
 
