@@ -285,6 +285,7 @@ public class ExcelNurseryReader {
 
                         System.out.println("FILA: " + filaObs);
                         if (celda == null) {
+                            observationsModel.setValueAt("", filaObs, colObs);
                             continue;
                         }
                         int tipo = celda.getCellType();
