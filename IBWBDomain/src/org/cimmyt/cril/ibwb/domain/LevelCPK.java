@@ -42,6 +42,14 @@ public class LevelCPK implements Serializable {
     public Integer getLevelno() {
         return levelno;
     }
+    
+    public Integer getLevelnoAbs() {
+        if(levelno > 1){
+            return levelno;
+        }else{
+            return levelno * -1;
+        }
+    }
 
     public void setLevelno(Integer levelno) {
         this.levelno = levelno;
