@@ -14,6 +14,7 @@ import ibfb.workbook.api.WorkbookExcelReader;
 import ibfb.workbook.core.GermplasmAssigmentToolImpl;
 import ibfb.workbook.core.GermplasmListReaderImpl;
 import ibfb.workbook.core.WorkbookExcelReaderImpl;
+import java.awt.Component;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
@@ -25,17 +26,19 @@ import java.util.ResourceBundle;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import javax.swing.filechooser.FileFilter;
-import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+import javax.swing.table.*;
 import org.cimmyt.cril.ibwb.api.AppServicesProxy;
 import org.cimmyt.cril.ibwb.commongui.OSUtils;
+import org.cimmyt.cril.ibwb.domain.Listdata;
 import org.cimmyt.cril.ibwb.domain.Listnms;
+import org.netbeans.api.progress.ProgressHandle;
+import org.netbeans.api.progress.ProgressHandleFactory;
+import org.netbeans.api.progress.ProgressUtils;
 import org.openide.util.NbBundle;
 
 public class JDExpert extends javax.swing.JDialog {
-    private ResourceBundle bundle = NbBundle.getBundle(JDExpert.class);
 
+    private ResourceBundle bundle = NbBundle.getBundle(JDExpert.class);
     private JFileChooser selectorArchivo = new JFileChooser();
     private SpinnerNumberModel modeloinstances = new SpinnerNumberModel(1, 1, 1000, 1);
     private int instances = 1;
@@ -52,6 +55,13 @@ public class JDExpert extends javax.swing.JDialog {
     private int rowsTotales = 0;
     private ArrayList<String> otherFactors = new ArrayList<String>();
     private ArrayList<String> children = new ArrayList<String>();
+    private boolean isForWheat = true;
+    private String[] nameColumn = {"Cross Name", "Selection History", "Pedigree", "CID", "SID", "GID", "INTRID", "TID", "ENT", "Folio", "Specific Name", "Name Abbreviation", "Cross Year", "Cross Location", "Cross Country", "Cross Organization", "Cross Program", "FAO In-trust", "Selection Year", "Selection Location", "Selection Country", "Name Country", "Name Year", "FAO designation Date", "24 disp", "25 disp"};
+    private ArrayList<String> wheatColumns;
+    private ArrayList<String> wheatColumnsforSearch;
+    private ProgressHandle handle;
+    private String porcentaje;
+    private boolean ready = false;
 
     public JDExpert(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -64,7 +74,19 @@ public class JDExpert extends javax.swing.JDialog {
         deshabilitaGSM();
         fillComboListNames();
         checkButtonsStatus();
-        cboGermplasmList.setModel(new javax.swing.DefaultComboBoxModel(new String[] { bundle.getString("JDExpert.selectOne")}));
+        cboGermplasmList.setModel(new javax.swing.DefaultComboBoxModel(new String[]{bundle.getString("JDExpert.selectOne")}));
+        if (isForWheat) {
+            loadNamesForWheat();
+        }
+
+        ready = true;
+    }
+
+    private void loadNamesForWheat() {
+        wheatColumns = new ArrayList<String>();
+        for (int i = 0; i < nameColumn.length; i++) {
+            wheatColumns.add(nameColumn[i].toUpperCase());
+        }
     }
 
     public int getInstances() {
@@ -191,31 +213,32 @@ public class JDExpert extends javax.swing.JDialog {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jradExcelFile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jradTemplateDB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jradExcelFile)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane5)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButtonSearchTemplate, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonPreviewTemplate, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jradTemplateDB)
-                        .addGap(18, 18, 18)
-                        .addComponent(cboTemplateList, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(cboTemplateList, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(23, 23, 23))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(jradExcelFile))
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonPreviewTemplate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonSearchTemplate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonPreviewTemplate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonSearchTemplate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(jradExcelFile)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cboTemplateList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -258,6 +281,11 @@ public class JDExpert extends javax.swing.JDialog {
                 cboGermplasmListItemStateChanged(evt);
             }
         });
+        cboGermplasmList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboGermplasmListActionPerformed(evt);
+            }
+        });
 
         jTextAreaPathGSM.setColumns(20);
         jTextAreaPathGSM.setEditable(false);
@@ -296,7 +324,7 @@ public class JDExpert extends javax.swing.JDialog {
 
             }
         ));
-        jTableEntries.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        jTableEntries.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         jScrollPane4.setViewportView(jTableEntries);
 
         jLabel5.setText(org.openide.util.NbBundle.getMessage(JDExpert.class, "JDExpert.jLabel5.text")); // NOI18N
@@ -326,10 +354,10 @@ public class JDExpert extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldTotalEntries, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(radGermplasmFromTemplate)
-                            .addComponent(radGermplasmFromDB1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(radGermplasmFromDB1, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
+                            .addComponent(radGermplasmFromTemplate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jScrollPane3)
@@ -338,7 +366,7 @@ public class JDExpert extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButtonPreviewGSM, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(cboGermplasmList, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cboGermplasmList, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnSearch)))
                         .addGap(19, 19, 19)))
@@ -353,16 +381,18 @@ public class JDExpert extends javax.swing.JDialog {
                         .addComponent(cboGermplasmList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnSearch))
                     .addComponent(radGermplasmFromDB1))
-                .addGap(28, 28, 28)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane3, 0, 0, Short.MAX_VALUE)
-                    .addComponent(jButtonSearchGSM, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonPreviewGSM, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane3, 0, 0, Short.MAX_VALUE)
+                            .addComponent(jButtonSearchGSM, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonPreviewGSM, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(44, 44, 44)
                         .addComponent(radGermplasmFromTemplate)
-                        .addGap(13, 13, 13)))
-                .addGap(18, 18, 18)
+                        .addGap(31, 31, 31)))
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -441,7 +471,7 @@ public class JDExpert extends javax.swing.JDialog {
         jPanelInstancesLayout.setHorizontalGroup(
             jPanelInstancesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelInstancesLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(145, Short.MAX_VALUE)
                 .addComponent(jSpinnerInstances, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57))
         );
@@ -487,8 +517,43 @@ public class JDExpert extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-       searchList();
+        searchList();
     }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void cboGermplasmListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboGermplasmListActionPerformed
+        if (!ready) {
+            return;
+        }
+
+        boolean validSelection = cboGermplasmList.getSelectedIndex() > 0;
+        if (validSelection) {
+
+            Listnms selectedList = (Listnms) cboGermplasmList.getSelectedItem();
+
+            readGermplsmEntriesFromDb();
+
+            if (isForWheat) {
+                showProgressStatus(selectedList.getListid());
+            }
+        }
+    }//GEN-LAST:event_cboGermplasmListActionPerformed
+
+    private void showProgressStatus(final int listID) {
+
+        handle = ProgressHandleFactory.createHandle(bundle.getString("JDExpert.loading"));
+
+        ProgressUtils.showProgressDialogAndRun(new Runnable() {
+
+            @Override
+            public void run() {
+                porcentaje = "0";
+                handle.start(100);
+                handle.progress(bundle.getString("JDExpert.completado") + porcentaje + " %");
+                completeFullDataFromDatabase(listID);
+            }
+        }, handle, true);
+
+    }
 
     private void jButtonCancelExpertActionPerformed(java.awt.event.ActionEvent evt) {
         this.setVisible(false);
@@ -679,7 +744,7 @@ public class JDExpert extends javax.swing.JDialog {
         } else {
             this.jTextAreaPathTemplate.setText("");
             setLabelDefault();
-            JOptionPane.showMessageDialog(this,bundle.getString("JDExpert.noValidTemplate") + validateExcelReader.getValidationMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, bundle.getString("JDExpert.noValidTemplate") + validateExcelReader.getValidationMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
         }
 
     }
@@ -754,12 +819,7 @@ public class JDExpert extends javax.swing.JDialog {
         this.jTableEntries.setModel(tableModel);
         this.jTextFieldTotalEntries.setText(String.valueOf(germplasmList.getListEntries().size()));
 
-        DefaultTableCellRenderer tcrTable = new DefaultTableCellRenderer();
-        tcrTable.setHorizontalAlignment(SwingConstants.CENTER);
-        for (int col = 0; col < this.jTableEntries.getColumnCount(); col++) {
-
-            this.jTableEntries.getColumnModel().getColumn(col).setCellRenderer(tcrTable);
-        }
+        ajustaColumnsTable(this.jTableEntries, 2);
 
     }
 
@@ -846,9 +906,9 @@ public class JDExpert extends javax.swing.JDialog {
 
 
 
-        
-        
-        
+
+
+
 
         for (int j = 0; j < totalRowsToAdd; j++) {
             for (int i = 0; i < totalFactores; i++) {
@@ -903,7 +963,7 @@ public class JDExpert extends javax.swing.JDialog {
         studyWindow.setMyWorkbook(workbook);
         studyWindow.configMyList();
         studyWindow.assignTraits(new ArrayList<Variate>(), workbook.getVariates());
-        studyWindow.setSelectedTraits( workbook.getVariates());
+        studyWindow.setSelectedTraits(workbook.getVariates());
     }
 
     private void quitaCellEditors(StudyEditorTopComponent studyWindow) {
@@ -1115,7 +1175,7 @@ public class JDExpert extends javax.swing.JDialog {
         this.jTextAreaPathGSM.setEnabled(false);
         this.jButtonSearchGSM.setEnabled(false);
         this.cboGermplasmList.setEnabled(false);
-        btnSearch.setEnabled(false);        
+        btnSearch.setEnabled(false);
     }
 
     private void fillGermplsmEntries(StudyEditorTopComponent studyWindow) {
@@ -1179,22 +1239,162 @@ public class JDExpert extends javax.swing.JDialog {
             return null;
         }
     }
-    
+
     private void searchList() {
         SelectListDialog selectListDialog = new SelectListDialog();
         selectListDialog.showSearchDialog();
         if (selectListDialog.isListSelected()) {
-           try {
-               GermplasmListReader germplasmListReader = new GermplasmListReaderImpl();
+            try {
+                GermplasmListReader germplasmListReader = new GermplasmListReaderImpl();
                 GermplasmList germplasmList = germplasmListReader.getGermPlasmListFromDB(selectListDialog.getSeledtedListnms().getListid());
                 setGermplasmListIntoTable(germplasmList);
                 this.jButtonFinishExpert.setEnabled(true);
+
+                if (isForWheat) {
+                    showProgressStatus(selectListDialog.getSeledtedListnms().getListid());
+                }
             } catch (Exception ex) {
                 System.out.println("ERROR AL LEER EXCEL GERMPLASM ENTRIES DB: " + ex);
-            } 
+            }
         }
     }
-    
+
+    private void completeFullDataFromDatabase(int listID) {
+        wheatColumnsforSearch = new ArrayList<String>();
+        GermplasmEntriesTableModel tableModel = (GermplasmEntriesTableModel) this.jTableEntries.getModel();
+
+
+        Listnms listnms = null;
+        List<Listdata> listas = null;
+
+        try {
+            listnms = AppServicesProxy.getDefault().appServices().getFullListnms(listID);
+            listas = (List<Listdata>) listnms.getLisdatas();
+        } catch (Exception ex) {
+            return;
+
+        }
+
+        if (tableModel.getRowCount() <= 0) {
+            return;
+        }
+
+        int gidColumn = tableModel.findColumn("GID");
+        System.out.println("gidColumn found in: " + gidColumn);
+
+        if (gidColumn < 0) {
+            return;
+        }
+
+        for (int i = 0; i < tableModel.getColumnCount(); i++) {
+            String col = tableModel.getColumnName(i).toUpperCase();
+
+            if (col.equals("CROSS NAME") || col.equals("PEDIGREE")) {
+                wheatColumnsforSearch.add("PEDIGREE");
+            } else {
+
+                if (wheatColumns.contains(col) && (!col.equals("GID"))) {
+                    wheatColumnsforSearch.add(tableModel.getColumnName(i));
+                }
+            }
+
+        }
+
+
+        int crossColumn = tableModel.findColumn("CROSS NAME");
+        if (crossColumn < 0) {
+            crossColumn = tableModel.findColumn("PEDIGREE");
+        }
+
+        int selHistColumn = tableModel.findColumn("SELECTION HISTORY");
+
+        GermplasmEntriesTableModel.setIsFromCrossInfo(true);
+
+        for (int i = 0; i < tableModel.getRowCount(); i++) {
+
+            int perc = (int) ((i + 1) * 100 / tableModel.getRowCount());
+
+            porcentaje = String.valueOf(perc);
+            handle.progress("Porcentaje completado: " + porcentaje + " %");
+
+            String bdid = "";
+            String selHist = "";
+            String pedigree = "";
+
+
+            try {
+                bdid = listas.get(i).getName1027().getNval();//BCID
+            } catch (NullPointerException ex) {
+                bdid = "";
+            }
+            try {
+                selHist = listas.get(i).getName1028().getNval();//SELECTION HISTORY
+            } catch (NullPointerException ex) {
+                selHist = "";
+            }
+
+            try {
+                pedigree = listas.get(i).getName1029().getNval(); //PEDIGREE
+            } catch (NullPointerException ex) {
+                pedigree = "";
+            }
+
+            try {
+
+
+                if (crossColumn >= 0) {
+
+                    if (pedigree.isEmpty()) {
+                        pedigree = "";
+                    }
+                    tableModel.setValueAt(pedigree, i, crossColumn);
+
+                }
+
+                if (selHistColumn >= 0) {
+                    if (selHist.isEmpty()) {
+                        selHist = "";
+                    }
+                    tableModel.setValueAt(selHist, i, selHistColumn);
+
+                }
+
+
+            } catch (Exception e) {
+                System.out.println("ERROR" + e);
+            }
+        }
+        GermplasmEntriesTableModel.setIsFromCrossInfo(false);
+    }
+
+    public void ajustaColumnsTable(JTable table, int margin) {
+        for (int c = 0; c < table.getColumnCount(); c++) {
+            ajustaColumn(table, c, 2);
+        }
+    }
+
+    public void ajustaColumn(JTable table, int vColIndex, int margin) {
+        TableModel modelPack = table.getModel();
+        DefaultTableColumnModel colModel = (DefaultTableColumnModel) table.getColumnModel();
+        TableColumn col = colModel.getColumn(vColIndex);
+        int width = 0;
+        TableCellRenderer renderer = col.getHeaderRenderer();
+        if (renderer == null) {
+            renderer = table.getTableHeader().getDefaultRenderer();
+        }
+        Component comp = renderer.getTableCellRendererComponent(
+                table, col.getHeaderValue(), false, false, 0, 0);
+        width = comp.getPreferredSize().width;
+        for (int r = 0; r < table.getRowCount(); r++) {
+            renderer = table.getCellRenderer(r, vColIndex);
+            comp = renderer.getTableCellRendererComponent(
+                    table, table.getValueAt(r, vColIndex), false, false, r,
+                    vColIndex);
+            width = Math.max(width, comp.getPreferredSize().width);
+        }
+        width += 2 * margin;
+        col.setPreferredWidth(width);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSearch;
     private javax.swing.ButtonGroup buttonGroupGSM;
