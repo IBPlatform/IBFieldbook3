@@ -37,6 +37,7 @@ import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.util.NbBundle;
 import ibfb.lists.core.SelectListDialog;
+import org.cimmyt.cril.ibwb.domain.Listdata;
 
 public final class TrialWizardVisualPanel4 extends JPanel {
 
@@ -56,36 +57,35 @@ public final class TrialWizardVisualPanel4 extends JPanel {
     private ProgressHandle handle;
     private String porcentaje;
 
-
     public TrialWizardVisualPanel4() {
         initComponents();
         fillComboListNames();
         checkButtonsStatus();
+
         if (isForWheat) {
             loadNamesForWheat();
-            loadQueryCenter();
+            //  loadQueryCenter();
         }
     }
 
-    
-     public void showProgressStatus() {
+    public void showProgressStatus() {
 
         handle = ProgressHandleFactory.createHandle(bundle.getString("TrialWizardVisualPanel4.loading"));
-        
-        
+
         ProgressUtils.showProgressDialogAndRun(new Runnable() {
+
             @Override
             public void run() {
                 porcentaje = "0";
                 handle.start(100);
                 handle.progress(bundle.getString("TrialWizardVisualPanel4.completado") + porcentaje + " %");
-                completeDataFromDatabase();
+                // completeDataFromDatabase();
+                completeFullDataFromDatabase();
             }
         }, handle, true);
 
     }
-    
-    
+
     private void loadQueryCenter() {
         queryReadCenter = new QueryCenter();
         queryReadCenter.readAndLoadDatabases();
@@ -415,7 +415,7 @@ public final class TrialWizardVisualPanel4 extends JPanel {
         GermplasmEntriesTableModel.setIsFromCrossInfo(true);
 
         for (int i = 0; i < tableModel.getRowCount(); i++) {
-            
+
             int perc = (int) ((i + 1) * 100 / tableModel.getRowCount());
 
             porcentaje = String.valueOf(perc);
@@ -449,7 +449,7 @@ public final class TrialWizardVisualPanel4 extends JPanel {
                         outSelectionHistory = "";
                     }
                     tableModel.setValueAt(outSelectionHistory, i, selHistColumn);
-                   // System.out.println("HIstoria de seleccion: " + outSelectionHistory);
+                    // System.out.println("HIstoria de seleccion: " + outSelectionHistory);
                 }
 
 
@@ -495,11 +495,16 @@ public final class TrialWizardVisualPanel4 extends JPanel {
         if (!ready) {
             return;
         }
-        
-        readGermplsmEntriesFromDb();
 
-        if (isForWheat) {
-            showProgressStatus();
+        boolean validSelection = cboGermplasmList.getSelectedIndex() > 0;
+        if (validSelection) {
+
+            readGermplsmEntriesFromDb();
+
+            if (isForWheat) {
+
+                showProgressStatus();
+            }
         }
     }//GEN-LAST:event_cboGermplasmListActionPerformed
 
@@ -517,7 +522,7 @@ public final class TrialWizardVisualPanel4 extends JPanel {
         for (Listnms list : germplasmList) {
             cboGermplasmList.addItem(list);
         }
-         ready = true;
+        ready = true;
     }
 
     public JTextField getjTextFieldTotalEntries() {
@@ -754,22 +759,21 @@ public final class TrialWizardVisualPanel4 extends JPanel {
 
         return existenFactores;
     }
-    
+
     private void searchList() {
-         SelectListDialog selectListDialog = new SelectListDialog();
+        SelectListDialog selectListDialog = new SelectListDialog();
         selectListDialog.showSearchDialog();
         if (selectListDialog.isListSelected()) {
-           try {
-               GermplasmListReader germplasmListReader = new GermplasmListReaderImpl();
+            try {
+                GermplasmListReader germplasmListReader = new GermplasmListReaderImpl();
                 GermplasmList germplasmList = germplasmListReader.getGermPlasmListFromDB(selectListDialog.getSeledtedListnms().getListid());
                 setGermplasmListIntoTable(germplasmList);
-                
+
             } catch (Exception ex) {
                 System.out.println("ERROR AL LEER EXCEL GERMPLASM ENTRIES DB: " + ex);
-            } 
+            }
         }
     }
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSearchList;
     private javax.swing.ButtonGroup buttonGroupGMS;
@@ -788,4 +792,112 @@ public final class TrialWizardVisualPanel4 extends JPanel {
     private javax.swing.JRadioButton radGermplasmFromDB1;
     private javax.swing.JRadioButton radGermplasmFromTemplate;
     // End of variables declaration//GEN-END:variables
+
+    private void completeFullDataFromDatabase() {
+        wheatColumnsforSearch = new ArrayList<String>();
+        GermplasmEntriesTableModel tableModel = (GermplasmEntriesTableModel) this.jTableEntries.getModel();
+
+        Listnms selectedList = (Listnms) cboGermplasmList.getSelectedItem();
+        Listnms listnms = null;
+        List<Listdata> listas = null;
+
+        try {
+            listnms = AppServicesProxy.getDefault().appServices().getFullListnms(selectedList.getListid());
+            listas = (List<Listdata>) listnms.getLisdatas();
+        } catch (Exception ex) {
+            return;
+
+        }
+
+        if (tableModel.getRowCount() <= 0) {
+            return;
+        }
+
+        int gidColumn = tableModel.findColumn("GID");
+        System.out.println("gidColumn found in: " + gidColumn);
+
+        if (gidColumn < 0) {
+            return;
+        }
+
+        for (int i = 0; i < tableModel.getColumnCount(); i++) {
+            String col = tableModel.getColumnName(i).toUpperCase();
+
+            if (col.equals("CROSS NAME") || col.equals("PEDIGREE")) {
+                wheatColumnsforSearch.add("PEDIGREE");
+            } else {
+
+                if (wheatColumns.contains(col) && (!col.equals("GID"))) {
+                    wheatColumnsforSearch.add(tableModel.getColumnName(i));
+                }
+            }
+
+        }
+
+
+        int crossColumn = tableModel.findColumn("CROSS NAME");
+        if (crossColumn < 0) {
+            crossColumn = tableModel.findColumn("PEDIGREE");
+        }
+
+        int selHistColumn = tableModel.findColumn("SELECTION HISTORY");
+
+        GermplasmEntriesTableModel.setIsFromCrossInfo(true);
+
+        for (int i = 0; i < tableModel.getRowCount(); i++) {
+
+            int perc = (int) ((i + 1) * 100 / tableModel.getRowCount());
+
+            porcentaje = String.valueOf(perc);
+            handle.progress("Porcentaje completado: " + porcentaje + " %");
+
+            String bdid = "";
+            String selHist = "";
+            String pedigree = "";
+
+
+            try {
+                bdid = listas.get(i).getName1027().getNval();//BCID
+            } catch (NullPointerException ex) {
+                bdid = "";
+            }
+            try {
+                selHist = listas.get(i).getName1028().getNval();//SELECTION HISTORY
+            } catch (NullPointerException ex) {
+                selHist = "";
+            }
+
+            try {
+                pedigree = listas.get(i).getName1029().getNval(); //PEDIGREE
+            } catch (NullPointerException ex) {
+                pedigree = "";
+            }
+
+            try {
+
+
+                if (crossColumn >= 0) {
+
+                    if (pedigree.isEmpty()) {
+                        pedigree = "";
+                    }
+                    tableModel.setValueAt(pedigree, i, crossColumn);
+
+                }
+
+                if (selHistColumn >= 0) {
+                    if (selHist.isEmpty()) {
+                        selHist = "";
+                    }
+                    tableModel.setValueAt(selHist, i, selHistColumn);
+
+                }
+
+
+            } catch (Exception e) {
+                System.out.println("ERROR" + e);
+            }
+        }
+        GermplasmEntriesTableModel.setIsFromCrossInfo(false);
+    }
 }
