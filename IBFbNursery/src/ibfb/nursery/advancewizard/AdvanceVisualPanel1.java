@@ -1,7 +1,10 @@
 package ibfb.nursery.advancewizard;
 
+import ibfb.nursery.maize.PolinizationWizardIterator;
+import ibfb.nursery.maize.PolinizationWizardPanel1;
 import ibfb.nursery.naming.NamingConvention;
 import ibfb.nursery.persons.SelectLocationPanel;
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -15,10 +18,18 @@ import org.cimmyt.cril.ibwb.domain.Location;
 import org.cimmyt.cril.ibwb.domain.Methods;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
+import org.openide.WizardDescriptor;
 import org.openide.util.NbBundle;
 import org.openide.util.NbPreferences;
 
 public final class AdvanceVisualPanel1 extends JPanel {
+    
+    int maizeMethod=0;  
+    int whitParentheses=0; //0= no  1=si
+    String maizeMethodName="Autofecundadas individuamente (-)";
+    String maizeTooltip="Autofecundadas y mazorcas desgranadas individuamente (-)";
+
+    
     public static final int DEFAULT_METHOD = 205; // SINGLE PLANT
     
     /**
@@ -116,26 +127,33 @@ public final class AdvanceVisualPanel1 extends JPanel {
         jLabel1 = new javax.swing.JLabel();
         jRadioButtonSameMethodNO = new javax.swing.JRadioButton();
         jRadioButtonSameMethodYES = new javax.swing.JRadioButton();
-        jLabel3 = new javax.swing.JLabel();
-        jComboBoxMethods = new javax.swing.JComboBox();
+        jLabel5 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jRadioButtonSameNumberNO = new javax.swing.JRadioButton();
         jRadioButtonSameNumberYES = new javax.swing.JRadioButton();
-        jComboBoxSamplesPerPlot = new javax.swing.JComboBox();
-        jLabel4 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         lblHarvestDate = new javax.swing.JLabel();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        lblHarvestLocation = new javax.swing.JLabel();
+        jTextFieldLocation = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
         lblNamingConvention = new javax.swing.JLabel();
         jComboBoxConvention = new javax.swing.JComboBox();
         lblSuffix = new javax.swing.JLabel();
         jTextFieldSuffix = new javax.swing.JTextField();
-        lblHarvestLocation = new javax.swing.JLabel();
-        jTextFieldLocation = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        jComboBoxSamplesPerPlot = new javax.swing.JComboBox();
+        jLabel4 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jButtonChange = new javax.swing.JButton();
+        jLabelMaizeMethod = new javax.swing.JLabel();
+        jComboBoxMethods = new javax.swing.JComboBox();
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(AdvanceVisualPanel1.class, "AdvanceVisualPanel1.jPanel1.border.title"))); // NOI18N
 
         org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(AdvanceVisualPanel1.class, "AdvanceVisualPanel1.jLabel1.text")); // NOI18N
 
@@ -156,46 +174,41 @@ public final class AdvanceVisualPanel1 extends JPanel {
             }
         });
 
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel3, org.openide.util.NbBundle.getMessage(AdvanceVisualPanel1.class, "AdvanceVisualPanel1.jLabel3.text")); // NOI18N
-
-        jComboBoxMethods.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Single plants selection" }));
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel5, org.openide.util.NbBundle.getMessage(AdvanceVisualPanel1.class, "AdvanceVisualPanel1.jLabel5.text")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addContainerGap(17, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(50, 50, 50)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButtonSameMethodYES)
-                            .addComponent(jRadioButtonSameMethodNO)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBoxMethods, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(54, Short.MAX_VALUE))
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel1))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRadioButtonSameMethodNO)
+                    .addComponent(jRadioButtonSameMethodYES))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jRadioButtonSameMethodYES)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButtonSameMethodNO)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jComboBoxMethods, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(9, 9, 9))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(jRadioButtonSameMethodYES))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRadioButtonSameMethodNO)
+                    .addComponent(jLabel5))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(AdvanceVisualPanel1.class, "AdvanceVisualPanel1.jPanel2.border.title"))); // NOI18N
 
         org.openide.awt.Mnemonics.setLocalizedText(jLabel2, org.openide.util.NbBundle.getMessage(AdvanceVisualPanel1.class, "AdvanceVisualPanel1.jLabel2.text")); // NOI18N
 
@@ -216,46 +229,34 @@ public final class AdvanceVisualPanel1 extends JPanel {
             }
         });
 
-        jComboBoxSamplesPerPlot.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30" }));
-
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel4, org.openide.util.NbBundle.getMessage(AdvanceVisualPanel1.class, "AdvanceVisualPanel1.jLabel4.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel7, org.openide.util.NbBundle.getMessage(AdvanceVisualPanel1.class, "AdvanceVisualPanel1.jLabel7.text")); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
+                .addGap(15, 15, 15)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(149, 149, 149)
-                        .addComponent(jLabel4))
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel7))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jComboBoxSamplesPerPlot, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButtonSameNumberYES)
-                            .addComponent(jRadioButtonSameNumberNO))
-                        .addGap(40, 40, 40))))
+                    .addComponent(jRadioButtonSameNumberYES)
+                    .addComponent(jRadioButtonSameNumberNO))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(12, 12, 12)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButtonSameNumberYES)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButtonSameNumberNO)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBoxSamplesPerPlot, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
+                    .addComponent(jLabel2)
+                    .addComponent(jRadioButtonSameNumberYES))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRadioButtonSameNumberNO)
+                    .addComponent(jLabel7))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -266,22 +267,6 @@ public final class AdvanceVisualPanel1 extends JPanel {
         lblHarvestDate.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
         jDateChooser1.setToolTipText(org.openide.util.NbBundle.getMessage(AdvanceVisualPanel1.class, "AdvanceVisualPanel1.jDateChooser1.toolTipText")); // NOI18N
-
-        lblNamingConvention.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        org.openide.awt.Mnemonics.setLocalizedText(lblNamingConvention, org.openide.util.NbBundle.getMessage(AdvanceVisualPanel1.class, "AdvanceVisualPanel1.lblNamingConvention.text")); // NOI18N
-
-        jComboBoxConvention.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "CIMMYT - WHEAT", "CIMMYT - MAIZE", "OTHER CROPS" }));
-        jComboBoxConvention.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jComboBoxConventionItemStateChanged(evt);
-            }
-        });
-
-        lblSuffix.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        org.openide.awt.Mnemonics.setLocalizedText(lblSuffix, org.openide.util.NbBundle.getMessage(AdvanceVisualPanel1.class, "AdvanceVisualPanel1.lblSuffix.text")); // NOI18N
-
-        jTextFieldSuffix.setEditable(false);
-        jTextFieldSuffix.setText(org.openide.util.NbBundle.getMessage(AdvanceVisualPanel1.class, "AdvanceVisualPanel1.jTextFieldSuffix.text")); // NOI18N
 
         lblHarvestLocation.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         org.openide.awt.Mnemonics.setLocalizedText(lblHarvestLocation, org.openide.util.NbBundle.getMessage(AdvanceVisualPanel1.class, "AdvanceVisualPanel1.lblHarvestLocation.text")); // NOI18N
@@ -301,25 +286,20 @@ public final class AdvanceVisualPanel1 extends JPanel {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblHarvestDate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblNamingConvention, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                    .addComponent(lblSuffix, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblHarvestLocation, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(176, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jComboBoxConvention, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jTextFieldSuffix, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(lblHarvestDate, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(lblHarvestLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(48, 48, 48))
+                .addGap(66, 66, 66))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -328,27 +308,151 @@ public final class AdvanceVisualPanel1 extends JPanel {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblHarvestDate)
                     .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBoxConvention, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNamingConvention))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldSuffix, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblSuffix, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(lblHarvestLocation)
                     .addComponent(jTextFieldLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
-                .addGap(15, 15, 15))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel3Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jDateChooser1, jTextFieldLocation, lblHarvestDate, lblHarvestLocation});
 
-        jPanel3Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jComboBoxConvention, lblNamingConvention});
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        jPanel3Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jTextFieldSuffix, lblSuffix});
+        lblNamingConvention.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        org.openide.awt.Mnemonics.setLocalizedText(lblNamingConvention, org.openide.util.NbBundle.getMessage(AdvanceVisualPanel1.class, "AdvanceVisualPanel1.lblNamingConvention.text")); // NOI18N
+
+        jComboBoxConvention.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "CIMMYT - WHEAT", "CIMMYT - MAIZE", "OTHER CROPS" }));
+        jComboBoxConvention.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBoxConventionItemStateChanged(evt);
+            }
+        });
+
+        lblSuffix.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        org.openide.awt.Mnemonics.setLocalizedText(lblSuffix, org.openide.util.NbBundle.getMessage(AdvanceVisualPanel1.class, "AdvanceVisualPanel1.lblSuffix.text")); // NOI18N
+
+        jTextFieldSuffix.setEditable(false);
+        jTextFieldSuffix.setText(org.openide.util.NbBundle.getMessage(AdvanceVisualPanel1.class, "AdvanceVisualPanel1.jTextFieldSuffix.text")); // NOI18N
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(lblSuffix, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldSuffix, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(lblNamingConvention, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBoxConvention, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBoxConvention, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNamingConvention))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldSuffix, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSuffix, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        jPanel4Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jComboBoxConvention, lblNamingConvention});
+
+        jPanel4Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jTextFieldSuffix, lblSuffix});
+
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(AdvanceVisualPanel1.class, "AdvanceVisualPanel1.jPanel5.border.title"))); // NOI18N
+
+        jComboBoxSamplesPerPlot.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30" }));
+
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel4, org.openide.util.NbBundle.getMessage(AdvanceVisualPanel1.class, "AdvanceVisualPanel1.jLabel4.text")); // NOI18N
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addComponent(jComboBoxSamplesPerPlot, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(104, 104, 104))))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jComboBoxSamplesPerPlot, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
+        );
+
+        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(AdvanceVisualPanel1.class, "AdvanceVisualPanel1.jPanel6.border.title"))); // NOI18N
+
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel3, org.openide.util.NbBundle.getMessage(AdvanceVisualPanel1.class, "AdvanceVisualPanel1.jLabel3.text")); // NOI18N
+
+        org.openide.awt.Mnemonics.setLocalizedText(jButtonChange, org.openide.util.NbBundle.getMessage(AdvanceVisualPanel1.class, "AdvanceVisualPanel1.jButtonChange.text")); // NOI18N
+        jButtonChange.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonChangeActionPerformed(evt);
+            }
+        });
+
+        jLabelMaizeMethod.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        org.openide.awt.Mnemonics.setLocalizedText(jLabelMaizeMethod, org.openide.util.NbBundle.getMessage(AdvanceVisualPanel1.class, "AdvanceVisualPanel1.jLabelMaizeMethod.text")); // NOI18N
+
+        jComboBoxMethods.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Single plants selection" }));
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabelMaizeMethod, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(64, 64, 64)
+                        .addComponent(jButtonChange, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(jComboBoxMethods, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jComboBoxMethods, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(jLabelMaizeMethod)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonChange))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -356,20 +460,36 @@ public final class AdvanceVisualPanel1 extends JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jPanel1, jPanel2});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(10, 10, 10)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -430,27 +550,84 @@ public final class AdvanceVisualPanel1 extends JPanel {
         }
     }//GEN-LAST:event_jRadioButtonSameNumberNOActionPerformed
 
+    
+    
+    private void showMaizeWizard() {
+        
+         WizardDescriptor wiz = new WizardDescriptor(new PolinizationWizardIterator());
+                 // {0} will be replaced by WizardDescriptor.Panel.getComponent().getName()
+                 // {1} will be replaced by WizardDescriptor.Iterator.name()
+                 wiz.setTitleFormat(new MessageFormat("{0} ({1})"));
+                 wiz.setTitle("...dialog title...");
+                 if (DialogDisplayer.getDefault().notify(wiz) == WizardDescriptor.FINISH_OPTION) {
+                   
+                 maizeMethod = NbPreferences.forModule(PolinizationWizardPanel1.class).getInt("maizeMethod", 0);
+                 whitParentheses = NbPreferences.forModule(PolinizationWizardPanel1.class).getInt("whitParentheses", 0);
+                 maizeMethodName = NbPreferences.forModule(PolinizationWizardPanel1.class).get("maizeMethodName", "NO METHOD");
+                 maizeTooltip= NbPreferences.forModule(PolinizationWizardPanel1.class).get("maizeTooltip", "NO TOOLTIP");
+                 
+                 jLabelMaizeMethod.setText(maizeMethodName);
+                 jLabelMaizeMethod.setToolTipText(maizeTooltip);
+                 
+                     System.out.println("METODO A REALIZAR: "+maizeMethod);
+                     System.out.println("CON PARENTESIS: "+whitParentheses);
+                 }
+    }
+
+
     private void jComboBoxConventionItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxConventionItemStateChanged
-        
-         if(jComboBoxConvention.getSelectedIndex()==2){
-              lblSuffix.setVisible(true);
-              jTextFieldSuffix.setEditable(true);
-              jTextFieldSuffix.setVisible(true);
-             
-         }else{
-             lblSuffix.setVisible(false);
-             jTextFieldSuffix.setText("");
-             jTextFieldSuffix.setEditable(false);
-             jTextFieldSuffix.setVisible(false);
-         }
-        
+                        
+
+        if (evt.getStateChange() == 1) {
+            switch (jComboBoxConvention.getSelectedIndex()) {
+
+                case 0://wheat
+                    lblSuffix.setVisible(false);
+                    jTextFieldSuffix.setText("");
+                    jTextFieldSuffix.setEditable(false);
+                    jTextFieldSuffix.setVisible(false);
+                    jComboBoxMethods.setVisible(true);
+                    jLabelMaizeMethod.setVisible(false);
+                    jButtonChange.setVisible(false);
+                    break;
+                
+                case 1://maize
+
+                    lblSuffix.setVisible(false);
+                    jTextFieldSuffix.setText("");
+                    jTextFieldSuffix.setEditable(false);
+                    jTextFieldSuffix.setVisible(false);
+                    jComboBoxMethods.setVisible(false);
+                    jLabelMaizeMethod.setVisible(true);
+                    jButtonChange.setVisible(true);
+                    showMaizeWizard();
+                    break;
+
+                case 2:// other crops
+                    lblSuffix.setVisible(true);
+                    jTextFieldSuffix.setEditable(true);
+                    jTextFieldSuffix.setVisible(true);
+                    jComboBoxMethods.setVisible(true);
+                    jLabelMaizeMethod.setVisible(false);
+                    jButtonChange.setVisible(false);
+
+                    break;
+            }
+
+        }
+
        
     }//GEN-LAST:event_jComboBoxConventionItemStateChanged
+
+    private void jButtonChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChangeActionPerformed
+       showMaizeWizard();
+    }//GEN-LAST:event_jButtonChangeActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonChange;
     private javax.swing.JComboBox jComboBoxConvention;
     private javax.swing.JComboBox jComboBoxMethods;
     private javax.swing.JComboBox jComboBoxSamplesPerPlot;
@@ -459,9 +636,15 @@ public final class AdvanceVisualPanel1 extends JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabelMaizeMethod;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JRadioButton jRadioButtonSameMethodNO;
     private javax.swing.JRadioButton jRadioButtonSameMethodYES;
     private javax.swing.JRadioButton jRadioButtonSameNumberNO;

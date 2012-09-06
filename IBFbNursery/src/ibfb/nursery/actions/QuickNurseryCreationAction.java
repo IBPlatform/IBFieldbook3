@@ -51,7 +51,7 @@ public final class QuickNurseryCreationAction extends SystemAction implements Ac
     
     public QuickNurseryCreationAction(Study context) {
         this.context = context;
-        setEnabled(Boolean.FALSE);
+        setEnabled(Boolean.TRUE);
     }
 
     @Override

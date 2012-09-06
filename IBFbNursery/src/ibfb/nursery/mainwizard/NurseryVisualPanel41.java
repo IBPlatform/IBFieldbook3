@@ -34,6 +34,7 @@ import javax.swing.table.TableModel;
 import org.cimmyt.cril.ibwb.api.AppServicesProxy;
 import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 import org.cimmyt.cril.ibwb.commongui.OSUtils;
+import org.cimmyt.cril.ibwb.domain.Listdata;
 import org.cimmyt.cril.ibwb.domain.Listnms;
 import org.netbeans.api.progress.ProgressHandle;
 import org.netbeans.api.progress.ProgressHandleFactory;
@@ -66,7 +67,7 @@ public final class NurseryVisualPanel41 extends JPanel {
         checkButtonsStatus();
         if (isForWheat) {
             loadNamesForWheat();
-            loadQueryCenter();
+            // loadQueryCenter();
         }
     }
 
@@ -356,7 +357,7 @@ public final class NurseryVisualPanel41 extends JPanel {
                 porcentaje = "0";
                 handle.start(100);
                 handle.progress(bundle.getString("NurseryVisualPanel41.completado") + porcentaje + " %");
-                completeDataFromDatabase();
+                completeFullDataFromDatabase();
             }
         }, handle, true);
 
@@ -367,11 +368,16 @@ public final class NurseryVisualPanel41 extends JPanel {
             return;
         }
 
-        readGermplsmEntriesFromDb();
+        boolean validSelection = cboGermplasmList.getSelectedIndex() > 0;
+        if (validSelection) {
 
-        if (isForWheat) {
-            showProgressStatus();
+            readGermplsmEntriesFromDb();
+
+            if (isForWheat) {
+                showProgressStatus();
+            }
         }
+
 
     }//GEN-LAST:event_cboGermplasmListActionPerformed
 
@@ -812,4 +818,112 @@ public final class NurseryVisualPanel41 extends JPanel {
 //        }
 //        return hayConexion;
 //    }
+
+    private void completeFullDataFromDatabase() {
+        wheatColumnsforSearch = new ArrayList<String>();
+        GermplasmEntriesTableModel tableModel = (GermplasmEntriesTableModel) this.jTableEntries.getModel();
+
+        Listnms selectedList = (Listnms) cboGermplasmList.getSelectedItem();
+        Listnms listnms = null;
+        List<Listdata> listas = null;
+
+        try {
+            listnms = AppServicesProxy.getDefault().appServices().getFullListnms(selectedList.getListid());
+            listas = (List<Listdata>) listnms.getLisdatas();
+        } catch (Exception ex) {
+            return;
+
+        }
+
+        if (tableModel.getRowCount() <= 0) {
+            return;
+        }
+
+        int gidColumn = tableModel.findColumn("GID");
+        System.out.println("gidColumn found in: " + gidColumn);
+
+        if (gidColumn < 0) {
+            return;
+        }
+
+        for (int i = 0; i < tableModel.getColumnCount(); i++) {
+            String col = tableModel.getColumnName(i).toUpperCase();
+
+            if (col.equals("CROSS NAME") || col.equals("PEDIGREE")) {
+                wheatColumnsforSearch.add("PEDIGREE");
+            } else {
+
+                if (wheatColumns.contains(col) && (!col.equals("GID"))) {
+                    wheatColumnsforSearch.add(tableModel.getColumnName(i));
+                }
+            }
+
+        }
+
+
+        int crossColumn = tableModel.findColumn("CROSS NAME");
+        if (crossColumn < 0) {
+            crossColumn = tableModel.findColumn("PEDIGREE");
+        }
+
+        int selHistColumn = tableModel.findColumn("SELECTION HISTORY");
+
+        GermplasmEntriesTableModel.setIsFromCrossInfo(true);
+
+        for (int i = 0; i < tableModel.getRowCount(); i++) {
+
+            int perc = (int) ((i + 1) * 100 / tableModel.getRowCount());
+
+            porcentaje = String.valueOf(perc);
+            handle.progress("Porcentaje completado: " + porcentaje + " %");
+
+            String bdid = "";
+            String selHist = "";
+            String pedigree = "";
+
+
+            try {
+                bdid = listas.get(i).getName1027().getNval();//BCID
+            } catch (NullPointerException ex) {
+                bdid = "";
+            }
+            try {
+                selHist = listas.get(i).getName1028().getNval();//SELECTION HISTORY
+            } catch (NullPointerException ex) {
+                selHist = "";
+            }
+
+            try {
+                pedigree = listas.get(i).getName1029().getNval(); //PEDIGREE
+            } catch (NullPointerException ex) {
+                pedigree = "";
+            }
+
+            try {
+
+
+                if (crossColumn >= 0) {
+
+                    if (pedigree.isEmpty()) {
+                        pedigree = "";
+                    }
+                    tableModel.setValueAt(pedigree, i, crossColumn);
+
+                }
+
+                if (selHistColumn >= 0) {
+                    if (selHist.isEmpty()) {
+                        selHist = "";
+                    }
+                    tableModel.setValueAt(selHist, i, selHistColumn);
+
+                }
+
+
+            } catch (Exception e) {
+                System.out.println("ERROR" + e);
+            }
+        }
+        GermplasmEntriesTableModel.setIsFromCrossInfo(false);
+    }
 }

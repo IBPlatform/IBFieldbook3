@@ -16,6 +16,10 @@ import ibfb.nursery.filters.ExcelFiltro;
 import ibfb.nursery.importwizard.ImportData;
 import ibfb.nursery.importwizard.importingVisualPanel2;
 import ibfb.nursery.importwizard.importingWizardIterator;
+import ibfb.nursery.maize.MaizeEntry;
+import ibfb.nursery.maize.MaizeMethods;
+import ibfb.nursery.maize.PolinizationWizardIterator;
+import ibfb.nursery.maize.PolinizationWizardPanel1;
 import ibfb.nursery.models.*;
 import ibfb.nursery.savewizard.saveVisualPanel2;
 import ibfb.nursery.utils.*;
@@ -178,8 +182,6 @@ public final class NurseryEditorTopComponent extends TopComponent {
         createBallonTips();
         posiciones = new ArrayList<Integer>();
     }
-    
-    
     private SelectCommand unselectedCommand = new SelectCommand() {
 
         @Override
@@ -213,15 +215,14 @@ public final class NurseryEditorTopComponent extends TopComponent {
         this.byPosition = byPosition;
     }
 
-    
-        public List<Variate> getSelectedTraits() {
+    public List<Variate> getSelectedTraits() {
         return selectedTraits;
     }
 
     public void setSelectedTraits(List<Variate> selectedTraits) {
         this.selectedTraits = selectedTraits;
     }
-    
+
     public Variate getTraitToEvaluate() {
         return traitToEvaluate;
     }
@@ -229,16 +230,16 @@ public final class NurseryEditorTopComponent extends TopComponent {
     public void setTraitToEvaluate(Variate traitToEvaluate) {
         this.traitToEvaluate = traitToEvaluate;
     }
-    
-        public String getStringTraitToEvaluate() {
+
+    public String getStringTraitToEvaluate() {
         return stringTraitToEvaluate;
     }
 
     public void setStringTraitToEvaluate(String stringTraitToEvaluate) {
         this.stringTraitToEvaluate = stringTraitToEvaluate;
     }
-    
-            public boolean hasGYbyDefault() {
+
+    public boolean hasGYbyDefault() {
         boolean hasGY = false;
         ObservationsTableModel modeloOriginal = (ObservationsTableModel) jTableObservations.getModel();
         if (modeloOriginal.findColumn("GY") >= 0) {
@@ -246,7 +247,7 @@ public final class NurseryEditorTopComponent extends TopComponent {
         }
         return hasGY;
     }
-            
+
     private void importFromFieldroid() {
         try {
 
@@ -383,6 +384,18 @@ public final class NurseryEditorTopComponent extends TopComponent {
         }
 
         return location;
+    }
+
+    private void showMaizeWizard() {
+
+        WizardDescriptor wiz = new WizardDescriptor(new PolinizationWizardIterator());
+        // {0} will be replaced by WizardDescriptor.Panel.getComponent().getName()
+        // {1} will be replaced by WizardDescriptor.Iterator.name()
+        wiz.setTitleFormat(new MessageFormat("{0} ({1})"));
+        wiz.setTitle("...dialog title...");
+        if (DialogDisplayer.getDefault().notify(wiz) == WizardDescriptor.FINISH_OPTION) {
+        }
+
     }
 
     private class TraitsDropTargetCommand implements DropTargetCommand {
@@ -1517,7 +1530,6 @@ public final class NurseryEditorTopComponent extends TopComponent {
                     }
                 }
             }).execute();
-
         }
 
     }
@@ -1825,8 +1837,8 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
 
     private void jButtonSyncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSyncActionPerformed
         fillObservationsData();
-        DialogUtil.displayInfo( NbBundle.getMessage(NurseryEditorTopComponent.class, "NurseryEditorTopComponent.datasyncronized"));
-        
+        DialogUtil.displayInfo(NbBundle.getMessage(NurseryEditorTopComponent.class, "NurseryEditorTopComponent.datasyncronized"));
+
         //  this.jTabbedPane1.setSelectedIndex(7);
     }//GEN-LAST:event_jButtonSyncActionPerformed
 
@@ -1835,6 +1847,9 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
     }//GEN-LAST:event_jTextFieldNurseryNameKeyReleased
 
     private void jButtonAdvanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdvanceActionPerformed
+
+        int maizeMtd = 0;
+        int whithParentheses = 0;
 
         if (this.jTableObservations.getCellEditor() != null) {
             jTableObservations.getCellEditor().stopCellEditing();
@@ -1848,6 +1863,7 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
         } else {
             ObservationsTableModel modelo = (ObservationsTableModel) this.jTableObservations.getModel();
             MethodsClass metodos = new MethodsClass();
+            MaizeMethods maizeMethod = null;
             WizardDescriptor wiz = new WizardDescriptor(new AdvanceWizardIterator());
             wiz.setTitleFormat(new MessageFormat("{0} ({1})"));
             wiz.setTitle(NbBundle.getMessage(NurseryEditorTopComponent.class, "NurseryEditorTopComponent.wizard"));
@@ -1855,7 +1871,7 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
             AdvanceWizardIterator.breedingMethod = getSelectedBreedingMethod();
 
             if (DialogDisplayer.getDefault().notify(wiz) == WizardDescriptor.FINISH_OPTION) {
-                int convention = Integer.parseInt(NbPreferences.forModule(AdvanceWizardPanel1.class).get("methodIndex", "0"));
+                int convention = Integer.parseInt(NbPreferences.forModule(AdvanceWizardPanel1.class).get("methodIndex", "0")); //0=wheat  1=maize  1=other crops
                 int samples = Integer.parseInt(NbPreferences.forModule(AdvanceWizardPanel1.class).get("samples", "1"));
                 int samplesMethod = Integer.parseInt(NbPreferences.forModule(AdvanceWizardPanel1.class).get("samplesMethod", "0"));
                 int methodId = NbPreferences.forModule(AdvanceWizardPanel1.class).getInt("MethodId", 0);
@@ -1865,18 +1881,14 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
                 int numberOfParents = NbPreferences.forModule(AdvanceWizardPanel1.class).getInt("NumberOfParents", 0);
 
                 metodos.setConvention(convention);
-                //if (convection > 0) {
                 metodos.setSuffix(locationAbbr);
-                //}
-                //else{
-                //metodos.setSuffix(""); 
-                //}
-                /**
-                 * Source with all GID from measurement tab
-                 */
-                List<Integer> sourceGidList = new ArrayList<Integer>();
 
+                List<Integer> sourceGidList = new ArrayList<Integer>();
                 List<GermplasmSearch> listToSearchBCID = new ArrayList<GermplasmSearch>();
+
+
+
+
 
                 AdvanceLineTopComponent advanceEditor = new AdvanceLineTopComponent();
                 advanceEditor.setModelo(modelo);
@@ -1890,41 +1902,42 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
                 advanceEditor.clearEntries();
 
 
+
+
                 GermplasmEntriesTableModel tableModel = (GermplasmEntriesTableModel) this.jTableEntries.getModel();
                 GermplasmEntriesTableModel tableModelAdvance = new GermplasmEntriesTableModel();
 
                 List<List<Object>> germplasmData = tableModel.getGermplasmData();
-                
                 List<List<Object>> germplasmDataAdvance = tableModelAdvance.getGermplasmData();
 
                 int colEntry = tableModel.getHeaderIndex(GermplasmEntriesTableModel.ENTRY);
-                System.out.println("COL ENTRY=" + colEntry + "\n");
+                //System.out.println("COL ENTRY=" + colEntry + "\n");
                 if (colEntry < 0) {
                     return;
                 }
 
                 int colDesig = tableModel.getHeaderIndex(GermplasmEntriesTableModel.DESIG);
-                System.out.println("COL DESIG=" + colDesig + "\n");
+                //System.out.println("COL DESIG=" + colDesig + "\n");
                 if (colDesig < 0) {
 
                     colDesig = tableModel.findColumn("CROSS NAME");
-                    System.out.println("COL CROSS=" + colDesig + "\n");
+                    //System.out.println("COL CROSS=" + colDesig + "\n");
                     if (colDesig < 0) {
                         return;
                     }
                 }
 
                 int colGID = tableModel.getHeaderIndex(GermplasmEntriesTableModel.GID);
-                 System.out.println("COL GID=" + colGID + "\n");
-                
-                
+                //System.out.println("COL GID=" + colGID + "\n");
+
+
                 if (colEntry < 0) {
                     return;
                 }
 
                 int colSelection = 0;
 
-                if (samplesMethod == 1) {
+                if (samplesMethod == 1) {//Diferent number of plants selected
                     colSelection = modelo.getHeaderIndex(GermplasmEntriesTableModel.PLANTS_SELECTED);
                     if (colSelection < 0) {
                         String msgSaving = "PLANTS SELECTED COLUMN IS MISSING";
@@ -1950,118 +1963,267 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
                 org.cimmyt.cril.ibwb.domain.Study estudio = AppServicesProxy.getDefault().appServices().getStudyByName(jTextFieldStudy.getText());
                 int currentStudy = estudio.getStudyid();
 
-                System.out.println("HASTA AQUI  OZIELLLLL");
+
                 for (int i = 0; i < tableModel.getRowCount(); i++) {
                     GermplasmSearch gsF = new GermplasmSearch();
-                    //gsF.setStudyId(40165);
                     gsF.setStudyId(currentStudy);
-
-                   // System.out.println("Study ID=" + currentStudy);
-
                     gsF.setTrial(1); //BECAUSE THIS IS A NURSERY
                     gsF.setPlot(ConvertUtils.getValueAsInteger(germplasmData.get(i).get(colEntry)));
                     listToSearchBCID.add(gsF);
                 }
 
-                //  List<GermplasmSearch> germplasmSearchs = AppServicesProxy.getDefault().appServices().getGermplasmByListStudyTrialPlotCross(listToSearchBCID, new ArrayList());
 
+                if (convention == 1) {//MAIZE
 
-//                for (GermplasmSearch gs : germplasmSearchs) {
-//                    System.out.println("DESIG: " + gs.getNames().getNval() + "     BCID:" + gs.getBcid() + "    GID: " + gs.getNames().getGid());
-//                }
+                    maizeMethod = new MaizeMethods();
+
+                    maizeMtd = NbPreferences.forModule(PolinizationWizardPanel1.class).getInt("maizeMethod", 0);
+                    whithParentheses = NbPreferences.forModule(PolinizationWizardPanel1.class).getInt("whitParentheses", 0);
+
+                    if (whithParentheses == 0) {
+                        maizeMethod.setWithParentheses(false);
+                    } else {
+                        maizeMethod.setWithParentheses(true);
+                    }
+
+                    maizeMethod.setNurseryName(estudio.getSname());
+                    maizeMethod.setCycle(getCycle());
+                }
+
+                Object[] nuevo = null;
+                ArrayList<String> data = null;
+                ArrayList<MaizeEntry> dataMaize = null;
+                Integer sourceGid = 0;
+
 
                 for (int i = 0; i < tableModel.getRowCount(); i++) {
 
-                    Object[] nuevo = germplasmData.get(i).toArray();
-                    ArrayList<String> data;
-                    
-                    Integer sourceGid = ConvertUtils.getValueAsInteger(germplasmData.get(i).get(colGID));
+                    //   for (int i = 0; i < 1; i++) {
 
-                    if (samplesMethod == 0) {
-                        //data = metodos.giveMeDataDerivative(nuevo[colDesig].toString(), samples);
-                        // data = metodos.giveMeDataDerivative(germplasmSearchs.get(i).getNames().getNval(), samples);
+                    nuevo = germplasmData.get(i).toArray();
+                    data = null;
+                    dataMaize = null;
+                    sourceGid = 0;
+
+                    try {
+                        sourceGid = ConvertUtils.getValueAsInteger(germplasmData.get(i).get(colGID));
+                    } catch (Exception ex) {
+                        sourceGid = 0;
+                    }
+
+                    if (samplesMethod == 0) { //SAME NUMBER OF PLANT SELECTED FOR ALL SEEDS
+
+                        switch (convention) {
+                            case 0: //WHEAT
+
+                                Integer gidToSearch = ConvertUtils.getValueAsInteger(germplasmData.get(i).get(colGID));
+                                Names cimmytName = AppServicesProxy.getDefault().appServices().getCimmytWheatName(gidToSearch);
+                                if (cimmytName == null) {
+                                    data = metodos.giveMeDataDerivative(nuevo[colDesig].toString(), samples);
+                                } else {
+                                    data = metodos.giveMeDataDerivative(cimmytName.getNval(), samples);
+                                }
+
+                                break;
 
 
-                        if (convention == 0) {//WHEAT
+                            case 1: //MAIZE                               
 
+                                maizeMethod.setPolinizationNumber(i + 1);
 
-                            //  Integer gidToSearch  = Integer.parseInt(germplasmData.get(i).get(colGID).toString());
-                            // Integer gidToSearch  = Integer.parseInt(tableModel.getValueAt(i, colGID).toString());
+                                switch (maizeMtd) {
+                                    case 0:
+                                        dataMaize = maizeMethod.procesaAutofecundadasIndividualmente(nuevo[colDesig].toString(), samples);
+                                        break;
 
-                            Integer gidToSearch = ConvertUtils.getValueAsInteger(germplasmData.get(i).get(colGID));
+                                    case 1:
+                                        dataMaize = maizeMethod.procesaAutofecundadasBulked(nuevo[colDesig].toString(), samples);
+                                        break;
 
-                           // System.out.println("gidToSearch: " + gidToSearch);
-                            
-                            Names cimmytName = AppServicesProxy.getDefault().appServices().getCimmytWheatName(gidToSearch);
-                            if (cimmytName == null) {
+                                    case 2:
+                                        dataMaize = maizeMethod.procesaSibIncrease(nuevo[colDesig].toString(), samples);
+                                        break;
+
+                                    case 3:
+                                        dataMaize = maizeMethod.procesaColchicinize(nuevo[colDesig].toString(), samples);
+                                        break;
+                                }
+                                break;
+
+                            case 2: //OTHER CROPS
+
                                 data = metodos.giveMeDataDerivative(nuevo[colDesig].toString(), samples);
-                            } else {
-                                data = metodos.giveMeDataDerivative(cimmytName.getNval(), samples);
-                            }
+                                break;
 
-                        } else {
-
-                            data = metodos.giveMeDataDerivative(nuevo[colDesig].toString(), samples);
                         }
 
 
 
-                    } else {
 
-                        if (convention == 0) {
-                            thereIsValue = selectionValue(i, colSelection, modelo);
-                            if (!thereIsValue) {
-                                continue;
-                            }
-                        }
 
-                        samples = giveMeSelectionValue(i, colSelection, modelo);
 
-                        if (samples <= 0 && convention > 0) {
+                    } else {  // VALUES FROM PLANTS SELECTED TRAIT
 
-                            continue;
-                        }
 
-                        //  data = metodos.giveMeDataDerivative(nuevo[colDesig].toString(), samples);
 
-                        if (convention == 0) {//WHEAT
 
-                            Integer gidToSearch = ConvertUtils.getValueAsInteger(germplasmData.get(i).get(colGID).toString());
-                            Names cimmytName = AppServicesProxy.getDefault().appServices().getCimmytWheatName(gidToSearch);
-                            if (cimmytName != null) {
-                                data = metodos.giveMeDataDerivative(cimmytName.getNval(), samples);
-                            } else {
+
+
+
+
+
+                        switch (convention) {
+                            case 0: //WHEAT
+                                thereIsValue = selectionValue(i, colSelection, modelo);
+                                if (!thereIsValue) {
+                                    continue;
+                                }
+                                samples = giveMeSelectionValue(i, colSelection, modelo);
+
+
+                                Integer gidToSearch = ConvertUtils.getValueAsInteger(germplasmData.get(i).get(colGID).toString());
+                                Names cimmytName = AppServicesProxy.getDefault().appServices().getCimmytWheatName(gidToSearch);
+                                if (cimmytName != null) {
+                                    data = metodos.giveMeDataDerivative(cimmytName.getNval(), samples);
+                                } else {
+                                    data = metodos.giveMeDataDerivative(nuevo[colDesig].toString(), samples);
+                                }
+
+
+
+                                break;
+
+                            case 1: //MAIZE      
+
+                                samples = giveMeSelectionValue(i, colSelection, modelo);
+                                if (samples <= 0) {
+                                    continue;
+                                }
+
+
+                                maizeMethod.setPolinizationNumber(i + 1);
+
+                                switch (maizeMtd) {
+                                    case 0:
+                                        dataMaize = maizeMethod.procesaAutofecundadasIndividualmente(nuevo[colDesig].toString(), samples);
+                                        break;
+
+                                    case 1:
+                                        dataMaize = maizeMethod.procesaAutofecundadasBulked(nuevo[colDesig].toString(), samples);
+                                        break;
+
+                                    case 2:
+                                        dataMaize = maizeMethod.procesaSibIncrease(nuevo[colDesig].toString(), samples);
+                                        break;
+
+                                    case 3:
+                                        dataMaize = maizeMethod.procesaColchicinize(nuevo[colDesig].toString(), samples);
+                                        break;
+                                }
+
+                                break;
+
+                            case 2: //OTHER CROPS  
+
+                                samples = giveMeSelectionValue(i, colSelection, modelo);
+                                if (samples <= 0) {
+                                    continue;
+                                }
+
                                 data = metodos.giveMeDataDerivative(nuevo[colDesig].toString(), samples);
-                            }
-                        } else {
-                            data = metodos.giveMeDataDerivative(nuevo[colDesig].toString(), samples);
-                        }
 
+                                break;
+                        }
 
                     }
 
-                    for (int j = 0; j < data.size(); j++) {
-                        List<Object> newData = new ArrayList<Object>();
-                        // add each GID source from GRID
 
-                        sourceGidList.add(sourceGid);
-                        Object[] temp = nuevo.clone();
-                        entrada++;
-                        temp[colEntry] = entrada;
-                        temp[colDesig] = data.get(j);
-                        temp[colGID] = "Not assigned yet";
 
-                        for (int z = 0; z < temp.length; z++) {
-                            newData.add(z, temp[z]);
-                        }
-                        //  newData.add(germplasmSearchs.get(i).getNames().getNval());//FOR INVENTORY   -  DESIG
-                        newData.add("OZIEL");//FOR INVENTORY   -  DESIG
-                        newData.add("");//FOR INVENTORY   -  LOCATION
-                        newData.add("");  //FOR INVENTORY       -  COMMENTS  
-                        newData.add("");  //FOR INVENTORY       -  AMOUNT  
-                        newData.add("");  //FOR INVENTORY       -  SCALE  
 
-                        germplasmDataAdvance.add(newData);
+
+                    //ADD DATA TO NEW GERMPLASM MODEL (ADVANCE)
+                    switch (convention) {
+                        case 0: //WHEAT
+                            for (int j = 0; j < data.size(); j++) {
+                                List<Object> newData = new ArrayList<Object>();
+                                // add each GID source from GRID
+
+                                sourceGidList.add(sourceGid);
+                                Object[] temp = nuevo.clone();
+                                entrada++;
+                                temp[colEntry] = entrada;
+                                temp[colDesig] = data.get(j);
+                                temp[colGID] = "Not assigned yet";
+
+                                for (int z = 0; z < temp.length; z++) {
+                                    newData.add(z, temp[z]);
+                                }
+                                //  newData.add(germplasmSearchs.get(i).getNames().getNval());//FOR INVENTORY   -  DESIG
+                                newData.add("OZIEL");//FOR INVENTORY   -  DESIG
+                                newData.add("");//FOR INVENTORY   -  LOCATION
+                                newData.add("");  //FOR INVENTORY       -  COMMENTS  
+                                newData.add("");  //FOR INVENTORY       -  AMOUNT  
+                                newData.add("");  //FOR INVENTORY       -  SCALE  
+
+                                germplasmDataAdvance.add(newData);
+                            }
+                            break;
+
+                        case 1: //MAIZE   
+
+                            for (int j = 0; j < dataMaize.size(); j++) {
+                                List<Object> newData = new ArrayList<Object>();
+                                // add each GID source from GRID
+
+                                sourceGidList.add(sourceGid);
+                                Object[] temp = nuevo.clone();
+                                entrada++;
+                                temp[colEntry] = entrada;
+                                temp[colDesig] = dataMaize.get(j).getGenealogy();
+                                temp[colGID] = "Not assigned yet";
+
+                                for (int z = 0; z < temp.length; z++) {
+                                    newData.add(z, temp[z]);
+                                }
+                                //  newData.add(germplasmSearchs.get(i).getNames().getNval());//FOR INVENTORY   -  DESIG
+                                newData.add("OZIEL");//FOR INVENTORY   -  DESIG
+                                newData.add("");//FOR INVENTORY   -  LOCATION
+                                newData.add("");  //FOR INVENTORY       -  COMMENTS  
+                                newData.add("");  //FOR INVENTORY       -  AMOUNT  
+                                newData.add("");  //FOR INVENTORY       -  SCALE  
+
+                                germplasmDataAdvance.add(newData);
+                            }
+
+                            break;
+
+                        case 2: //OTHER CROPS  
+                            for (int j = 0; j < data.size(); j++) {
+                                List<Object> newData = new ArrayList<Object>();
+                                // add each GID source from GRID
+
+                                sourceGidList.add(sourceGid);
+                                Object[] temp = nuevo.clone();
+                                entrada++;
+                                temp[colEntry] = entrada;
+                                temp[colDesig] = data.get(j);
+                                temp[colGID] = "Not assigned yet";
+
+                                for (int z = 0; z < temp.length; z++) {
+                                    newData.add(z, temp[z]);
+                                }
+                                //  newData.add(germplasmSearchs.get(i).getNames().getNval());//FOR INVENTORY   -  DESIG
+                                newData.add("OZIEL");//FOR INVENTORY   -  DESIG
+                                newData.add("");//FOR INVENTORY   -  LOCATION
+                                newData.add("");  //FOR INVENTORY       -  COMMENTS  
+                                newData.add("");  //FOR INVENTORY       -  AMOUNT  
+                                newData.add("");  //FOR INVENTORY       -  SCALE  
+
+                                germplasmDataAdvance.add(newData);
+                            }
+
+                            break;
+
                     }
 
                 }
@@ -2088,7 +2250,7 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
         } else {
             this.jButtonAdvance.setEnabled(true);
             this.jButtonCSVTraitsExport1.setEnabled(true);
-            this.jButtonCSVTraitsImport1.setEnabled(true);            
+            this.jButtonCSVTraitsImport1.setEnabled(true);
         }
     }
 
@@ -2182,7 +2344,7 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
             return;
         }
         importData.importFromCrossInfoToGermplasm(selectorArchivo.getSelectedFile());
-        
+
         fillObservationsData();
         DialogUtil.displayInfo(NurseryEditorTopComponent.class, "NurseryEditorTopComponent.datasyncronized");
 
@@ -2608,6 +2770,29 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
         String studyName = jTextFieldStudy.getText();
         FieldbookCSVUtil fieldbookCSVUtil = new FieldbookCSVUtil(jTableObservations, studyName);
         fieldbookCSVUtil.populateFiedlbook(jTableObservations, studyName);
+    }
+
+    public String getCycle() {
+        String ciclo = "";
+        try {
+            StudyConditionsTableModel studyConditionsTableModel = (StudyConditionsTableModel) this.jTableStudyConditions.getModel();
+            List<Condition> condiciones = studyConditionsTableModel.getStudyConditions();
+
+            for (Condition condition : condiciones) {
+                if (condition.getConditionName().toUpperCase().equals("CYCLE")) {
+                    ciclo = condition.getValue().toString();
+                    return ciclo;
+                }
+
+                ciclo = "";
+            }
+
+        } catch (Exception ex) {
+            System.out.println("ERROR AL OBTENER CICLO " + ex);
+
+        }
+
+        return ciclo;
     }
 
     public void assignStudyConditions(List<Condition> studyConditions) {

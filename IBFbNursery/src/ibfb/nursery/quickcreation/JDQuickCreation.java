@@ -26,12 +26,18 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.ResourceBundle;
 import javax.swing.*;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.table.*;
 import org.cimmyt.cril.ibwb.api.AppServicesProxy;
 import org.cimmyt.cril.ibwb.commongui.OSUtils;
+import org.cimmyt.cril.ibwb.domain.Listdata;
 import org.cimmyt.cril.ibwb.domain.Listnms;
+import org.netbeans.api.progress.ProgressHandle;
+import org.netbeans.api.progress.ProgressHandleFactory;
+import org.netbeans.api.progress.ProgressUtils;
+import org.openide.util.NbBundle;
 
 public class JDQuickCreation extends javax.swing.JDialog {
 
@@ -50,6 +56,14 @@ public class JDQuickCreation extends javax.swing.JDialog {
     private ArrayList<String> children = new ArrayList<String>();
     private boolean existenConstantes = false;
     private boolean existenConditions = false;
+    private boolean isForWheat = true;
+    private String[] nameColumn = {"Cross Name", "Selection History", "Pedigree", "CID", "SID", "GID", "INTRID", "TID", "ENT", "Folio", "Specific Name", "Name Abbreviation", "Cross Year", "Cross Location", "Cross Country", "Cross Organization", "Cross Program", "FAO In-trust", "Selection Year", "Selection Location", "Selection Country", "Name Country", "Name Year", "FAO designation Date", "24 disp", "25 disp"};
+    private ArrayList<String> wheatColumns;
+    private ArrayList<String> wheatColumnsforSearch;
+    private ProgressHandle handle;
+    private String porcentaje;
+    private ResourceBundle bundle = NbBundle.getBundle(JDQuickCreation.class);
+    private boolean ready = false;
 
     public JDQuickCreation(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -57,12 +71,26 @@ public class JDQuickCreation extends javax.swing.JDialog {
         deshabilitaGSM();
         fillComboListNames();
         checkButtonsStatus();
+
+        if (isForWheat) {
+            loadNamesForWheat();
+        }
+
+        ready = true;
+
+    }
+
+    private void loadNamesForWheat() {
+        wheatColumns = new ArrayList<String>();
+        for (int i = 0; i < nameColumn.length; i++) {
+            wheatColumns.add(nameColumn[i].toUpperCase());
+        }
     }
 
     public final void fillComboListNames() {
         List<Listnms> germplasmList = AppServicesProxy.getDefault().appServices().getListnmsList();
         cboGermplasmList.removeAllItems();
-        cboGermplasmList.addItem("SELECT ONE...");
+        cboGermplasmList.addItem(bundle.getString("JDQuickCreation.selectOne"));
         for (Listnms list : germplasmList) {
             cboGermplasmList.addItem(list);
         }
@@ -127,6 +155,7 @@ public class JDQuickCreation extends javax.swing.JDialog {
             }
         });
 
+        buttonGroup1.add(jradTemplateDB);
         jradTemplateDB.setText(org.openide.util.NbBundle.getMessage(JDQuickCreation.class, "JDQuickCreation.jradTemplateDB.text")); // NOI18N
         jradTemplateDB.setEnabled(false);
         jradTemplateDB.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -183,17 +212,17 @@ public class JDQuickCreation extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jradExcelFile)
-                    .addComponent(jradTemplateDB))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jradExcelFile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jradTemplateDB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButtonSearchTemplate, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonPreviewTemplate, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(cboTemplateList, 0, 522, Short.MAX_VALUE))
+                    .addComponent(cboTemplateList, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -215,7 +244,7 @@ public class JDQuickCreation extends javax.swing.JDialog {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(JDQuickCreation.class, "JDQuickCreation.jPanel2.border.title"))); // NOI18N
 
-        buttonGroup2.add(radGermplasmFromDB1);
+        buttonGroup1.add(radGermplasmFromDB1);
         radGermplasmFromDB1.setSelected(true);
         radGermplasmFromDB1.setText(org.openide.util.NbBundle.getMessage(JDQuickCreation.class, "JDQuickCreation.radGermplasmFromDB1.text")); // NOI18N
         radGermplasmFromDB1.addActionListener(new java.awt.event.ActionListener() {
@@ -231,8 +260,13 @@ public class JDQuickCreation extends javax.swing.JDialog {
                 cboGermplasmListItemStateChanged(evt);
             }
         });
+        cboGermplasmList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboGermplasmListActionPerformed(evt);
+            }
+        });
 
-        buttonGroup2.add(radGermplasmFromTemplate);
+        buttonGroup1.add(radGermplasmFromTemplate);
         radGermplasmFromTemplate.setText(org.openide.util.NbBundle.getMessage(JDQuickCreation.class, "JDQuickCreation.radGermplasmFromTemplate.text")); // NOI18N
         radGermplasmFromTemplate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -305,9 +339,13 @@ public class JDQuickCreation extends javax.swing.JDialog {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 607, Short.MAX_VALUE)
-                            .addComponent(jToolBar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(radGermplasmFromTemplate))
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 658, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(radGermplasmFromTemplate, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -316,18 +354,18 @@ public class JDQuickCreation extends javax.swing.JDialog {
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(radGermplasmFromDB1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(radGermplasmFromDB1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jButtonSearchGSM, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jButtonPreviewGSM, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(cboGermplasmList, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(0, 113, Short.MAX_VALUE)))
+                            .addComponent(cboGermplasmList, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 154, Short.MAX_VALUE)))
                     .addContainerGap()))
         );
         jPanel2Layout.setVerticalGroup(
@@ -344,12 +382,13 @@ public class JDQuickCreation extends javax.swing.JDialog {
                 .addContainerGap(22, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addGap(26, 26, 26)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(radGermplasmFromDB1)
                         .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGap(1, 1, 1)
-                            .addComponent(cboGermplasmList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGap(27, 27, 27)
+                            .addComponent(cboGermplasmList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGap(26, 26, 26)
+                            .addComponent(radGermplasmFromDB1)))
                     .addGap(18, 18, 18)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jButtonPreviewGSM, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -360,11 +399,11 @@ public class JDQuickCreation extends javax.swing.JDialog {
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(JDQuickCreation.class, "JDQuickCreation.jPanel3.border.title"))); // NOI18N
 
-        buttonGroup1.add(jRadioButtonNormal);
+        buttonGroup2.add(jRadioButtonNormal);
         jRadioButtonNormal.setSelected(true);
         jRadioButtonNormal.setText(org.openide.util.NbBundle.getMessage(JDQuickCreation.class, "JDQuickCreation.jRadioButtonNormal.text")); // NOI18N
 
-        buttonGroup1.add(jRadioButtonRandom);
+        buttonGroup2.add(jRadioButtonRandom);
         jRadioButtonRandom.setText(org.openide.util.NbBundle.getMessage(JDQuickCreation.class, "JDQuickCreation.jRadioButtonRandom.text")); // NOI18N
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/nursery/images/random50.png"))); // NOI18N
@@ -522,8 +561,24 @@ public class JDQuickCreation extends javax.swing.JDialog {
     }//GEN-LAST:event_radGermplasmFromDB1ActionPerformed
 
     private void cboGermplasmListItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cboGermplasmListItemStateChanged
-        readGermplsmEntriesFromDb();
     }//GEN-LAST:event_cboGermplasmListItemStateChanged
+
+    private void showProgressStatus(final int listID) {
+
+        handle = ProgressHandleFactory.createHandle(bundle.getString("JDQuickCreation.loading"));
+
+        ProgressUtils.showProgressDialogAndRun(new Runnable() {
+
+            @Override
+            public void run() {
+                porcentaje = "0";
+                handle.start(100);
+                handle.progress(bundle.getString("JDQuickCreation.completado") + porcentaje + " %");
+                completeFullDataFromDatabase(listID);
+            }
+        }, handle, true);
+
+    }
 
     private void radGermplasmFromTemplateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radGermplasmFromTemplateActionPerformed
         checkButtonsStatus();
@@ -594,10 +649,6 @@ public class JDQuickCreation extends javax.swing.JDialog {
                 nurseryWindow.jTabbedPane1.setEnabledAt(2, false);
             }
 
-
-
-
-
             nurseryWindow.open();
             nurseryWindow.requestActive();
         }
@@ -606,6 +657,24 @@ public class JDQuickCreation extends javax.swing.JDialog {
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         searchList();
     }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void cboGermplasmListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboGermplasmListActionPerformed
+        if (!ready) {
+            return;
+        }
+
+        boolean validSelection = cboGermplasmList.getSelectedIndex() > 0;
+        if (validSelection) {
+
+            Listnms selectedList = (Listnms) cboGermplasmList.getSelectedItem();
+
+            readGermplsmEntriesFromDb();
+
+            if (isForWheat) {
+                showProgressStatus(selectedList.getListid());
+            }
+        }
+    }//GEN-LAST:event_cboGermplasmListActionPerformed
 
     private void fillStudyData(NurseryEditorTopComponent nurseryWindow) {
         nurseryWindow.setName("Nursery - " + SelectedStudy.selected.getStudy());
@@ -722,11 +791,11 @@ public class JDQuickCreation extends javax.swing.JDialog {
 
     @SuppressWarnings("unchecked")
     private void fillTraits(NurseryEditorTopComponent nurseryWindow) {
-         Workbook workbook = myExcelReader.getMyWorkbook();
+        Workbook workbook = myExcelReader.getMyWorkbook();
         nurseryWindow.setMyWorkbook(workbook);
         nurseryWindow.configMyList();
         nurseryWindow.assignTraits(new ArrayList<Variate>(), workbook.getVariates());
-        nurseryWindow.setSelectedTraits( workbook.getVariates());
+        nurseryWindow.setSelectedTraits(workbook.getVariates());
     }
 
     private void fillDesign(NurseryEditorTopComponent nurseryWindow) {
@@ -814,13 +883,13 @@ public class JDQuickCreation extends javax.swing.JDialog {
         } else {
             //File archivoNulo = new File("");
             //selectorArchivo.setSelectedFile(archivoNulo);
-                   File archivoNulo = new File(OSUtils.getGermplasmListsPath());
+            File archivoNulo = new File(OSUtils.getGermplasmListsPath());
             if (archivoNulo.exists()) {
                 selectorArchivo.setSelectedFile(archivoNulo);
             } else {
-             archivoNulo = new File("");
+                archivoNulo = new File("");
             }
-            
+
             selectorArchivo.setSelectedFile(archivoNulo);
         }
         selectorArchivo.setFileSelectionMode(JFileChooser.FILES_ONLY);
@@ -913,8 +982,8 @@ public class JDQuickCreation extends javax.swing.JDialog {
         GermplasmEntriesTableModel tableModel = new GermplasmEntriesTableModel(myExcelReader.getMyWorkbook().getEntryFactors(), rowList);
         this.jTableEntries.setModel(tableModel);
         this.jTextFieldTotalEntries.setText(String.valueOf(germplasmList.getListEntries().size()));
-         ajustaColumnsTable(this.jTableEntries, 2);
-        
+        ajustaColumnsTable(this.jTableEntries, 2);
+
 
     }
 
@@ -965,9 +1034,8 @@ public class JDQuickCreation extends javax.swing.JDialog {
             this.jButtonFinish.setEnabled(false);
         }
     }
-    
-    
-        public void ajustaColumnsTable(JTable table, int margin) {
+
+    public void ajustaColumnsTable(JTable table, int margin) {
         for (int c = 0; c < table.getColumnCount(); c++) {
             ajustaColumn(table, c, 2);
         }
@@ -996,21 +1064,132 @@ public class JDQuickCreation extends javax.swing.JDialog {
         col.setPreferredWidth(width);
     }
 
- private void searchList() {
-         SelectListDialog selectListDialog = new SelectListDialog();
+    private void searchList() {
+        SelectListDialog selectListDialog = new SelectListDialog();
         selectListDialog.showSearchDialog();
         if (selectListDialog.isListSelected()) {
-           try {
-               GermplasmListReader germplasmListReader = new GermplasmListReaderImpl();
+            try {
+                GermplasmListReader germplasmListReader = new GermplasmListReaderImpl();
                 GermplasmList germplasmList = germplasmListReader.getGermPlasmListFromDB(selectListDialog.getSeledtedListnms().getListid());
                 setGermplasmListIntoTable(germplasmList);
                 this.jButtonFinish.setEnabled(true);
+
+                if (isForWheat) {
+                    showProgressStatus(selectListDialog.getSeledtedListnms().getListid());
+                }
             } catch (Exception ex) {
                 System.out.println("ERROR AL LEER EXCEL GERMPLASM ENTRIES DB: " + ex);
-            } 
+            }
         }
-    }    
-    
+    }
+
+    private void completeFullDataFromDatabase(int listID) {
+        wheatColumnsforSearch = new ArrayList<String>();
+        GermplasmEntriesTableModel tableModel = (GermplasmEntriesTableModel) this.jTableEntries.getModel();
+
+
+        Listnms listnms = null;
+        List<Listdata> listas = null;
+
+        try {
+            listnms = AppServicesProxy.getDefault().appServices().getFullListnms(listID);
+            listas = (List<Listdata>) listnms.getLisdatas();
+        } catch (Exception ex) {
+            return;
+
+        }
+
+        if (tableModel.getRowCount() <= 0) {
+            return;
+        }
+
+        int gidColumn = tableModel.findColumn("GID");
+        System.out.println("gidColumn found in: " + gidColumn);
+
+        if (gidColumn < 0) {
+            return;
+        }
+
+        for (int i = 0; i < tableModel.getColumnCount(); i++) {
+            String col = tableModel.getColumnName(i).toUpperCase();
+
+            if (col.equals("CROSS NAME") || col.equals("PEDIGREE")) {
+                wheatColumnsforSearch.add("PEDIGREE");
+            } else {
+
+                if (wheatColumns.contains(col) && (!col.equals("GID"))) {
+                    wheatColumnsforSearch.add(tableModel.getColumnName(i));
+                }
+            }
+
+        }
+
+
+        int crossColumn = tableModel.findColumn("CROSS NAME");
+        if (crossColumn < 0) {
+            crossColumn = tableModel.findColumn("PEDIGREE");
+        }
+
+        int selHistColumn = tableModel.findColumn("SELECTION HISTORY");
+
+        GermplasmEntriesTableModel.setIsFromCrossInfo(true);
+
+        for (int i = 0; i < tableModel.getRowCount(); i++) {
+
+            int perc = (int) ((i + 1) * 100 / tableModel.getRowCount());
+
+            porcentaje = String.valueOf(perc);
+            handle.progress("Porcentaje completado: " + porcentaje + " %");
+
+            String bdid = "";
+            String selHist = "";
+            String pedigree = "";
+
+
+            try {
+                bdid = listas.get(i).getName1027().getNval();//BCID
+            } catch (NullPointerException ex) {
+                bdid = "";
+            }
+            try {
+                selHist = listas.get(i).getName1028().getNval();//SELECTION HISTORY
+            } catch (NullPointerException ex) {
+                selHist = "";
+            }
+
+            try {
+                pedigree = listas.get(i).getName1029().getNval(); //PEDIGREE
+            } catch (NullPointerException ex) {
+                pedigree = "";
+            }
+
+            try {
+
+
+                if (crossColumn >= 0) {
+
+                    if (pedigree.isEmpty()) {
+                        pedigree = "";
+                    }
+                    tableModel.setValueAt(pedigree, i, crossColumn);
+
+                }
+
+                if (selHistColumn >= 0) {
+                    if (selHist.isEmpty()) {
+                        selHist = "";
+                    }
+                    tableModel.setValueAt(selHist, i, selHistColumn);
+
+                }
+
+
+            } catch (Exception e) {
+                System.out.println("ERROR" + e);
+            }
+        }
+        GermplasmEntriesTableModel.setIsFromCrossInfo(false);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSearch;
     private javax.swing.ButtonGroup buttonGroup1;
