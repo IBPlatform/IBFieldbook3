@@ -141,7 +141,7 @@
                                   <Component id="btnSearchMale" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="jScrollEntriesDbMale" alignment="1" pref="389" max="32767" attributes="0"/>
+                              <Component id="jScrollEntriesDbMale" alignment="1" pref="0" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="btnRemoveMaleDb" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -164,7 +164,7 @@
                               </Group>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jScrollEntriesDbMale" pref="244" max="32767" attributes="0"/>
+                          <Component id="jScrollEntriesDbMale" pref="250" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="btnRemoveMaleDb" min="-2" max="-2" attributes="0"/>
@@ -340,7 +340,7 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jScrollPane1" pref="260" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane1" pref="276" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jButtonBrowseExcelMale" min="-2" pref="69" max="-2" attributes="0"/>
                               </Group>
@@ -512,7 +512,7 @@
                               </Group>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jScrollEntriesDbFemale" pref="224" max="32767" attributes="0"/>
+                          <Component id="jScrollEntriesDbFemale" pref="240" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
@@ -602,7 +602,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jSeparator8" min="-2" pref="6" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel9" pref="77" max="32767" attributes="0"/>
+                              <Component id="jLabel9" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jTextFieldSelectedEntriesFemale" min="-2" pref="66" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -699,7 +699,7 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jScrollPane2" pref="260" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane2" pref="275" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jButtonBrowseExcelFemale" min="-2" pref="69" max="-2" attributes="0"/>
                               </Group>

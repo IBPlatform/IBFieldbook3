@@ -9,6 +9,10 @@ import ibfb.germplasmlist.models.GermplasmEntriesTableModel;
 import ibfb.germplasmlist.models.GermplasmTransferHandlerSelection;
 import ibfb.germplasmlist.models.RemoveGermplasmTransferHandler;
 import ibfb.lists.core.SelectListDialog;
+import ibfb.query.classes.GermplsmRecord;
+import ibfb.query.classes.GpidInfClass;
+import ibfb.query.classes.NamesRecord;
+import ibfb.query.core.QueryCenter;
 import ibfb.settings.core.FieldbookSettings;
 import ibfb.studyexplorer.explorer.listNames.ListDataWindowTopComponent;
 import ibfb.workbook.api.GermplasmAssigmentTool;
@@ -109,6 +113,11 @@ public final class nurseryManagerTopComponent extends TopComponent {
     private String[] otherCropsheaders = {"ENTRY", "CROSS", "GID", "METHOD", "FDESIG", "FGID", "MDESIG", "MGID"};
     private String[] otherCropsheadersScript = {"ENTRY", "CROSS", "GID", "METHOD", "FTID", "FOCC", "FENTRY", "FDESIG", "FGID", "MTID", "MOCC", "MENTRY", "MDESIG", "MGID"};
     private ArrayList<String> tempListCross;
+    private QueryCenter queryReadCenter;
+    private String[] nameColumn = {"Cross Name", "Selection History", "Pedigree", "CID", "SID", "GID", "INTRID", "TID", "ENT", "Folio", "Specific Name", "Name Abbreviation", "Cross Year", "Cross Location", "Cross Country", "Cross Organization", "Cross Program", "FAO In-trust", "Selection Year", "Selection Location", "Selection Country", "Name Country", "Name Year", "FAO designation Date", "24 disp", "25 disp"};
+    private ArrayList<String> wheatColumns;
+    private ArrayList<String> wheatColumnsforSearch;
+       private boolean isForWheat = false;
     /**
      * Methods in Combo box, used to retrieve selected method
      */
@@ -131,9 +140,20 @@ public final class nurseryManagerTopComponent extends TopComponent {
         jComboBoxConvection.setSelectedIndex(CONVENTION_OTHER_CROPS);
 
         checkConvection();
+        
+        if (isForWheat) {
+            loadNamesForWheat();
+            loadQueryCenter();
+        }
 
     }
 
+        private void loadNamesForWheat() {
+        wheatColumns = new ArrayList<String>();
+        for (int i = 0; i < nameColumn.length; i++) {
+            wheatColumns.add(nameColumn[i].toUpperCase());
+        }
+    }
     private void assignModels() {
         GermplasmEntriesTableModel femaleModel = new GermplasmEntriesTableModel();
         GermplasmEntriesTableModel maleModel = new GermplasmEntriesTableModel();
@@ -1419,14 +1439,10 @@ public final class nurseryManagerTopComponent extends TopComponent {
 
             modelo.setValueAt(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.notAssigned"), i, 2);//GIG
             modelo.setValueAt(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.singleCross"), i, 3);//METHOD
-            modelo.setValueAt(fdesig, i,
-                    4);//FDESIG
-            modelo.setValueAt(fgid, i,
-                    5);//FGIG
-            modelo.setValueAt(mdesig, i,
-                    6);//MDESIG
-            modelo.setValueAt(mgid, i,
-                    7);//MGID        
+            modelo.setValueAt(fdesig, i,4);//FDESIG
+            modelo.setValueAt(fgid, i,5);//FGIG
+            modelo.setValueAt(mdesig, i,6);//MDESIG
+            modelo.setValueAt(mgid, i,7);//MGID        
         }
 
 
@@ -1592,8 +1608,14 @@ public final class nurseryManagerTopComponent extends TopComponent {
                 String maxString = giveMaxString(met) + fin;
                 modelo.setRowCount(gms);
                 String crossString = gs.getNames().getNval() + "/" + gs.getNamesMale().getNval();
+              
+                
+                
                 tempListCross.add(crossString);
                 String cross = "<html> <font color='purple'>" + gs.getNames().getNval() + "</font>/</font><font color='blue'>" + gs.getNamesMale().getNval() + " </font> </html>";
+               
+               // String cross=giveMeCross(gs.getNames().getGid(),gs.getNamesMale().getGid());
+                
                 modelo.setValueAt(gms, gms - 1, 0);//ENTRY
                 modelo.setValueAt(gs.getBcid() + maxString, gms - 1, 1);//BCID
                 modelo.setValueAt(cross, gms - 1, 2); //CROSS
@@ -2594,4 +2616,45 @@ public final class nurseryManagerTopComponent extends TopComponent {
             this.jTextFieldListEntriesMale.setText("0");
         }
     }
+    
+        private void loadQueryCenter() {
+        queryReadCenter = new QueryCenter();
+        queryReadCenter.readAndLoadDatabases();
+        queryReadCenter.setFnameKeyEntryNumber("Entry number");
+        queryReadCenter.setFnameKeyOcc("occ");
+        queryReadCenter.setFnamePedigree("cross name");
+        queryReadCenter.readFlexPedConfig();
+    }
+
+    private String giveMeCross(int madreGID, int padreGID) {
+       String crossName="";
+             
+       GpidInfClass gpidinfClass = new GpidInfClass();
+   
+            try {
+
+
+                    crossName = queryReadCenter.arma_pedigree(0, 0, gpidinfClass, madreGID, padreGID, 0, 0);
+                    
+                    if (crossName.isEmpty()) {
+                        crossName = "";
+                    }
+  
+             System.out.println("PEDIGREE FROM QUERY: "+crossName);       
+                    
+            } catch (Exception e) {
+                System.out.println("ERROR" + e);
+                
+            }
+       return crossName;
+    }
+    
+ 
+  
+
+
+
+    
+    
+    
 }
