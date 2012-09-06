@@ -48,6 +48,9 @@ public class DesignsClass {
 
     public void runR_latticeWindows(int treatments, int rep, int blocksize) {
 
+         Random aleatorio = new Random(System.currentTimeMillis());
+        int newSeed = (int) (aleatorio.nextDouble() * 200 + 1);
+        
         String myCSVFile = "lattice.csv";
         FileWriter fichero = null;
         PrintWriter pw = null;
@@ -90,7 +93,7 @@ public class DesignsClass {
             pw.println();
             pw.println("library(agricolae)");
             pw.println("k <-" + blocksize);
-            pw.println("planLattice <- design.lattice(k, seed=55,type=\"" + type + "\", number=1)");
+            pw.println("planLattice <- design.lattice(k, seed="+newSeed+",type=\"" + type + "\", number=1)");
             pw.println("setwd" + "(\"C:/R\")");
             pw.println("write.csv(planLattice,\"" + myCSVFile + "\",row.names=FALSE)");
 
@@ -361,7 +364,7 @@ public class DesignsClass {
             pw.println("k <- " + blocksize);
             pw.println("r <- " + rep);
             pw.println("s<-t/k");
-            pw.println("planAlpha <- design.alpha(t,k,r," + newSeed + "=55)");
+            pw.println("planAlpha <- design.alpha(t,k,r,seed=" + newSeed + ")");
             // pw.println("planAlpha <- design.alpha(t,k,r)");
             pw.println("setwd" + "(\"" + pathRWD + "\")");
             pw.println("write.csv(planAlpha,\"" + myCSVFile + "\",row.names=FALSE)");
