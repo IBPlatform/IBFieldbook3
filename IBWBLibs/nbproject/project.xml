@@ -541,6 +541,21 @@
                 <package>org.dom4j.util</package>
                 <package>org.dom4j.xpath</package>
                 <package>org.dom4j.xpp</package>
+                <package>org.generationcp.commons.exceptions</package>
+                <package>org.generationcp.commons.util</package>
+                <package>org.generationcp.commons.vaadin.actions</package>
+                <package>org.generationcp.commons.vaadin.spring</package>
+                <package>org.generationcp.commons.vaadin.util</package>
+                <package>org.generationcp.middleware.dao</package>
+                <package>org.generationcp.middleware.dao.gdms</package>
+                <package>org.generationcp.middleware.exceptions</package>
+                <package>org.generationcp.middleware.manager</package>
+                <package>org.generationcp.middleware.manager.api</package>
+                <package>org.generationcp.middleware.pojos</package>
+                <package>org.generationcp.middleware.pojos.gdms</package>
+                <package>org.generationcp.middleware.pojos.report</package>
+                <package>org.generationcp.middleware.pojos.workbench</package>
+                <package>org.generationcp.middleware.util</package>
                 <package>org.gjt.mm.mysql</package>
                 <package>org.hibernate</package>
                 <package>org.hibernate.action</package>
@@ -1106,6 +1121,10 @@
                 <binary-origin>release/modules/ext/jdom-1.0.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
+                <runtime-relative-path>ext/ibpcommons-1.0.0.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/ibpcommons-1.0.0.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
                 <runtime-relative-path>ext/aopalliance-1.0.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/aopalliance-1.0.jar</binary-origin>
             </class-path-extension>
@@ -1132,6 +1151,10 @@
             <class-path-extension>
                 <runtime-relative-path>ext/XmlSchema-1.1.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/XmlSchema-1.1.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/middleware-1.2.0.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/middleware-1.2.0.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/javax.inject-1.jar</runtime-relative-path>
