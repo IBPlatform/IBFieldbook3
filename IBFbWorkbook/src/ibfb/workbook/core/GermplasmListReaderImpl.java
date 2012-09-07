@@ -197,7 +197,11 @@ public class GermplasmListReaderImpl implements GermplasmListReader {
                 listEntry.setEntryCode(ExcelUtils.getStringValueFromCell(cellData));
 
                 cellData = rowData.getCell(COLUMN_DESIGNATION);
-                listEntry.setDesignation(ExcelUtils.getStringValueFromCell(cellData));
+                String designation = ExcelUtils.getStringValueFromCell(cellData);
+                if (designation != null && ! designation.isEmpty()) {
+                    designation = org.generationcp.middleware.manager.GermplasmDataManagerImpl.standardaizeName(designation);
+                }
+                listEntry.setDesignation(designation);
 
                 cellData = rowData.getCell(COLUMN_CROSS);
                 listEntry.setCross(ExcelUtils.getStringValueFromCell(cellData));
