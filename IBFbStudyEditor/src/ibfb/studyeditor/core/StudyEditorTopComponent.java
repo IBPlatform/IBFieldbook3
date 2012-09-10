@@ -2462,8 +2462,18 @@ public final class StudyEditorTopComponent extends TopComponent {
             } else if (disenio.equals(DesignsClass.ALFA_DESIGN)) {
                 if (OSUtils.isMacOS()) {
                     disenios.runR_alpha(i + 1, entries, Integer.parseInt(rep), Integer.parseInt(blockSize));
-                    disenios.readAlphaDesign(i + 1, "alpha", tableModel, jTableEntries);
-                    disenios.deleteWDforMac();
+                    
+                     if (!disenios.existeArchivo("alpha")) {
+                       
+                         try {
+                            Thread.sleep(1500);
+                        } catch (InterruptedException ex) {
+                            System.out.println("ERROR EN HILO ESPERA "+ex);
+                        }
+                     }
+                     
+                    disenios.readAlphaDesign(i + 1, "alpha", tableModel, jTableEntries);   
+                   disenios.deleteWDforMac();
                 } else {
                     disenios.runR_alphaWindows(entries, Integer.parseInt(rep), Integer.parseInt(blockSize));
 

@@ -37,8 +37,8 @@ public class DesignsClass {
         if (OSUtils.isMacOS()) {
             //pathR = OSUtils.getDocumentsPath();
             //pathRWD = OSUtils.getPathRWD();
-            pathR = "/Users/Oziel/Desktop/RforMac/Resources";
-            pathRWD = "/Users/Oziel/Desktop/R";
+            pathR = "/Applications/IBFIELDBOOK/RforMac/Resources";
+            pathRWD = "/Applications/IBFIELDBOOK/Rdata";
 
         } else {
             pathR = OSUtils.getRPATH();
@@ -502,7 +502,7 @@ public class DesignsClass {
         GermplasmEntriesTableModel entriesTableModel = (GermplasmEntriesTableModel) germplasmEntries.getModel();
         System.out.println("Iniciando lectura de csv");
         //String file = this.pathRWD + File.separator + myDesign+trial + ".csv";
-        String file = this.pathRWD + File.separator + myDesign + ".csv";
+        String file = this.pathRWD + File.separator + myDesign +trial+ ".csv";
 
 
 
