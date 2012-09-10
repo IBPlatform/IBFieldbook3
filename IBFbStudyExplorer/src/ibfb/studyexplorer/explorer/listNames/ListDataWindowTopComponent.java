@@ -1,11 +1,11 @@
 package ibfb.studyexplorer.explorer.listNames;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Set;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 import org.cimmyt.cril.ibwb.api.AppServicesProxy;
-import org.cimmyt.cril.ibwb.api.Services;
 import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 import org.cimmyt.cril.ibwb.commongui.TableBindingUtil;
 import org.cimmyt.cril.ibwb.domain.Listdata;
@@ -13,12 +13,10 @@ import org.cimmyt.cril.ibwb.domain.ListdataPK;
 import org.cimmyt.cril.ibwb.domain.Listnms;
 import org.openide.util.NbBundle;
 import org.openide.windows.TopComponent;
-import org.openide.windows.WindowManager;
 import org.netbeans.api.settings.ConvertAsProperties;
 import org.openide.NotifyDescriptor;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
-import org.openide.util.Lookup;
 
 @ConvertAsProperties(dtd = "-//ibfb.studyexplorer.explorer.listNames//ListDataWindow//EN",
 autostore = false)
@@ -37,6 +35,7 @@ public final class ListDataWindowTopComponent extends TopComponent {
     private ResourceBundle bundle = NbBundle.getBundle(ListDataWindowTopComponent.class);
     private Listnms parentListname;
     private List<Listdata> listdataEntries;
+    private boolean forWheat=false;
 
     public ListDataWindowTopComponent(Listnms listnms) {
         this.parentListname = listnms;
@@ -46,7 +45,6 @@ public final class ListDataWindowTopComponent extends TopComponent {
         setToolTipText(NbBundle.getMessage(ListDataWindowTopComponent.class, "HINT_ListDataWindowTopComponent"));
         this.parentListname = listnms;
         updateListData();
-
     }
 
     public ListDataWindowTopComponent() {
@@ -213,6 +211,14 @@ public final class ListDataWindowTopComponent extends TopComponent {
         bindingGroup.bind();
     }// </editor-fold>//GEN-END:initComponents
 
+    public boolean isForWheat() {
+        return forWheat;
+    }
+
+    public void setIsForWheat(boolean forWheat) {
+        this.forWheat = forWheat;
+    }
+        
     private void txtSearchTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchTextKeyReleased
         updateListData();
 }//GEN-LAST:event_txtSearchTextKeyReleased
@@ -294,12 +300,25 @@ public final class ListDataWindowTopComponent extends TopComponent {
         header.append(",");
         header.append(bundle.getString("ListDataWindowTopComponent.headerEntryId"));
 
-
+        
         lblEntriesFound.setText(listdataEntries.size() + " " + bundle.getString("ListDataWindowTopComponent.entriesFound"));
         TableBindingUtil.createColumnsFromDB(Listdata.class, listdataEntries, tblListData, "gid,desig,entrycd,source,entryid", header.toString());
 
-    }
 
+        if(isForWheat()){
+            loadData();
+            System.out.println("ok es trigo");
+        }
+        }
+
+    public void loadData(){     
+        
+        TableColumn columna=new TableColumn();
+        columna.setHeaderValue("UNO");
+        tblListData.addColumn(columna);
+        
+    }
+    
     /**
      * Return current instance of TraitEditorTopComponent using current Traits
      * object
@@ -340,4 +359,4 @@ public final class ListDataWindowTopComponent extends TopComponent {
             updateListData();
         }
     }
-}
+    }
