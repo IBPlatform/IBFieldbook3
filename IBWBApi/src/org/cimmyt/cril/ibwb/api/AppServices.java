@@ -237,6 +237,11 @@ public interface AppServices {
      */
     public List<Dmsattr> getListDmsattr(Dmsattr dmsattrFilter, int start, int pageSize, boolean paged);
 
+    /**
+     * Returns a unique object type based Dmsattr Dmsatrec fields and DmsaType
+     * @param dmsattr
+     * @return unique Dmsattr
+     */
     public Dmsattr getDmsattrByDmsatrecAndDmsatype(Dmsattr dmsattr);
 
     //-----------------------------------Dudflds---------------------------
@@ -289,6 +294,11 @@ public interface AppServices {
      */
     public List<Effect> getListEffect(Effect effectFilter, int start, int pageSize, boolean paged);
 
+    /**
+     * Returns a list of objects of type Effect based on a list of requested effectsIds
+     * @param effectsIds
+     * @return List of Effect
+     */
     public List<Effect> getEffectsByEffectsids(final List effectsIds);
 
     //-----------------------------------Factor---------------------------
@@ -305,23 +315,45 @@ public interface AppServices {
      * @param factorFiltro Object to count total items
      */
     public int getTotalFactor(Factor factorFilter);
-
+    
     /**
      * Gets a list of Objects for pagination
      *
      * @param factorFiltro	The filter object
      * @param inicio initial record
      * @param tamanioPagina page size
-     * @return List
+     * @return List of Factor
      */
     public List<Factor> getListFactor(Factor factorFilter, int start, int pageSize, boolean paged);
-
+    
+    /**
+     * Returns a list of the main factorres basis of a study on studyid
+     * @param studyid
+     * @return List of Factor
+     */
     public List<Factor> getMainFactorsByStudyid(Integer studyid);
-
+    
+    /**
+     * Returns a list of factors which includes a major factor, including the main factor
+     * @param studyid
+     * @param factorid
+     * @return List of Factor
+     */
     public List<Factor> getGroupFactorsByStudyidAndFactorid(Integer studyid, Integer factorid);
-
+    
+    /**
+     * Return a list of factors based on the list of labelids
+     * @param factorIds
+     * @return List of Factor
+     */
     public List<Factor> getFactorsByFactorsids(List<Integer> factorIds);
-
+    
+    /**
+     * Returns a single factor based on the name of the factor and studyid
+     * @param studyid
+     * @param fname
+     * @return Factor
+     */
     public Factor getFactorByStudyidAndFname(Integer studyid, String fname);
 
     //-----------------------------------Georef---------------------------
@@ -365,7 +397,7 @@ public interface AppServices {
      * @param germplsmFiltro Object to count total items
      */
     public int getTotalGermplsm(Germplsm germplsmFilter);
-
+    
     /**
      * Gets a list of Objects for pagination
      *
@@ -375,11 +407,29 @@ public interface AppServices {
      * @return List
      */
     public List<Germplsm> getListGermplsm(Germplsm germplsmFilter, int start, int pageSize, boolean paged);
-
+    
+    /**
+     * Returns a unique germplasm based on gid
+     * @param gid
+     * @return Germplsm
+     */
     public Germplsm getGermplsm(Integer gid);
-
+    
+    /**
+     * Returns a unique germplasm based on studyid, tiral and plot
+     * @param studyId
+     * @param trial
+     * @param plot
+     * @return Germplsm
+     */
     public Germplsm getGermplsmByTidTrialPlot(Integer studyId, Integer trial, Integer plot);
-
+    
+    /**
+     * Return a list of germplasm, based on the studyid and tiral
+     * @param studyId
+     * @param trial
+     * @return List of Germplsm
+     */
     public List<Germplsm> getGermplsmListByStudyAndTrial(
             Integer studyId,
             Integer trial);
@@ -465,7 +515,12 @@ public interface AppServices {
      * @return List
      */
     public List<LevelC> getListLevelC(LevelC levelCFilter, int start, int pageSize, boolean paged);
-
+    
+    /**
+     * LevelC returns a list, based on the labelid
+     * @param labelid
+     * @return List of LevelC
+     */
     public List<LevelC> getLevelsCByLabelid(Integer labelid);
 
     //-----------------------------------LevelN---------------------------
@@ -514,10 +569,15 @@ public interface AppServices {
      * @param levelTFiltro	The filter object
      * @param inicio initial record
      * @param tamanioPagina page size
-     * @return List
+     * @return List of LevelT
      */
     public List<LevelT> getListLevelT(LevelT levelTFilter, int start, int pageSize, boolean paged);
-
+    
+    /**
+     * Return LevelC list, based on the labelid
+     * @param labelid
+     * @return List of LevelN
+     */
     public List<LevelN> getLevelnByLabelid(Integer labelid);
 
     //-----------------------------------Levels---------------------------
@@ -569,9 +629,24 @@ public interface AppServices {
      * @return List
      */
     public List<Listdata> getListListdata(Listdata listdataFilter, int start, int pageSize, boolean paged);
-
+    
+    /**
+     * Gets a list of Objects for pagination
+     *
+     * @param listdataFiltro	The filter object
+     * @param inicio initial record
+     * @param tamanioPagina page size
+     * @return List
+     */
     public List<Listdata> getListListdataFiltro(Listdata filter, int start, int pageSize, boolean paged);
     
+    /**
+     * Listnms returns a unique idListnms based on based on one idListnms,
+     * Listnms brings the inside and a list of three names listData main 
+     * type 1027, 1028 and 1029
+     * @param idListnms
+     * @return Listnms
+     */
     public Listnms getFullListnms(Integer idListnms);
 
     //-----------------------------------Listnms---------------------------
@@ -598,7 +673,12 @@ public interface AppServices {
      * @return List
      */
     public List<Listnms> getListListnms(Listnms listnmsFilter, int start, int pageSize, boolean paged);
-
+    
+    /**
+     * Returns a single Listnms based on idListnms
+     * @param idListnms
+     * @return Listnms
+     */
     public Listnms getListnms(Integer idListnms);
     //-----------------------------------Location---------------------------
 
@@ -759,11 +839,33 @@ public interface AppServices {
      * @return List
      */
     public List<Names> getListNames(Names namesFilter, int start, int pageSize, boolean paged);
-
+    
+    /**
+     * Returns a String, based on the studyId, the initial name of the BCID, and nType
+     * maximum aggregate
+     * @param studyId
+     * @param cadena
+     * @param ntype
+     * @return String
+     */
     public String getNextMaxForBCID(Integer studyId, String cadena, Integer ntype);
-
+    
+    /**
+     * Returns an Names, based on a Germplasm, and the preferred
+     * @param germplasm
+     * @param preferido
+     * @return Names
+     */
     public Names getNamesByGid(Germplsm germplasm, Boolean preferido);
-
+    
+    /**
+     * Returns a Integer, based on the studyId, the initial name of the BCID, and nType
+     * maximum aggregate
+     * @param studyId
+     * @param cadena
+     * @param ntype
+     * @return Integer
+     */
     public Integer getMaxForSelection(Integer studyId, String cadena, Integer ntype);
     
 
@@ -1128,11 +1230,26 @@ public interface AppServices {
      */
     public List<Steffect> getListSteffect(Steffect steffectFilter, int start, int pageSize, boolean paged);
 
+    /**
+     * Return Steffect list, based on the studyid
+     * @param studyid
+     * @return List of Steffect
+     */
     public List<Steffect> getSteffectByStudyid(Integer studyid);
 
+    /**
+     * Return Integer effectid list, based on the studyid
+     * @param studyid
+     * @return List of Integer
+     */
     public List<Integer> getEffectidsByStudyid(Integer studyid);
 
 //-----------------------------------Study---------------------------
+    /**
+     * Return a Study , based on the studyid
+     * @param studyid
+     * @return Study
+     */
     public Study getStudy(Integer idStudy);
 
     /**
@@ -1198,10 +1315,20 @@ public interface AppServices {
      * @return List<Study>
      */
     public List<Study> getStudysOnlyTrial();
-
+    
+    /**
+     * Return instance list, based on the studyid
+     * @param studyid
+     * @return List of Integer
+     */
     public List<Integer> getTrialsByStudyid(Integer studyid);
 
     //-----------------------------------Tmethod---------------------------
+    /**
+     * Returns a Tmethod, based on a tmethodId
+     * @param tmethodId
+     * @return Tmethod
+     */
     public Tmethod getTmethod(Integer tmethodId);
 
     /**
@@ -1229,8 +1356,13 @@ public interface AppServices {
     public List<Tmethod> getListTmethod(Tmethod tmethodFilter, int start, int pageSize, boolean paged);
 
 //-----------------------------------Tmethod---------------------------
+    /**
+     * Returns a TmsMethod, based on a tmethodId
+     * @param tmethodId
+     * @return TmsMethod
+     */
     public TmsMethod getTmsMethod(Integer tmethodId);
-
+    
     /**
      * Gets a list of Objects TmsMethod
      *
@@ -1455,12 +1587,16 @@ public interface AppServices {
     public List<Trait> getListTraitCentral(Trait filter, int start, int pageSize, boolean paged);
 
     /**
-     *
-     * @return
+     *Return TraitGroups list
+     * @return List of String
      */
     public List<String> getTraitGroups();
 //-----------------------------------Traits---------------------------
 
+    /**
+     * Returns an Traits, based on traitId
+     * @return Traits
+     */
     public Traits getTraits(Integer traitId);
 
     /**
@@ -1485,15 +1621,23 @@ public interface AppServices {
     public int getTotalTraits(Traits traitsFilter);
 
     /**
-     * Gets a list of Objects for pagination
+     * Gets a list of Traits for pagination with Measuredin, Scales and Methods
      *
      * @param traitsFiltro	The filter object
      * @param inicio initial record
      * @param tamanioPagina page size
-     * @return List
+     * @return List of Traits
      */
     public List<Traits> getListTraits(Traits traitsFilter, int start, int pageSize, boolean paged);
 
+    /**
+     * Gets a list of Traits for pagination without dependency objects
+     * @param traitsFilter
+     * @param start
+     * @param pageSize
+     * @param paged
+     * @return List of Traits
+     */
     public List<Traits> getListTraitsOnly(Traits traitsFilter, int start, int pageSize, boolean paged);
 
     /**
@@ -1630,6 +1774,12 @@ public interface AppServices {
      */
     public List<Variate> getListVariateTraits(Integer studyId);
 
+    /**
+     * Return a list of variates, based on the studyid and effectid
+     * @param studyId
+     * @param effectid
+     * @return List of Variate
+     */
     public List<Variate> getListVariateTraitsByEffectid(Integer studyId, Integer effectid);
 
 //-----------------------------------Veffect---------------------------
@@ -1660,19 +1810,44 @@ public interface AppServices {
 //------------------------------------------------------------------------------------------------------------
 //-------------------------------------Estructura de trabajo de la dll----------------------------------------
 //------------------------------------------------------------------------------------------------------------
+    /**
+     * Returns a Workbook, based on a Workbook with studyId
+     * Workbook contains study, trials instances, entrys, constants, variates,
+     * an all data
+     * @param workbook
+     * @param datos
+     * @return Workbook
+     */
     public Workbook getWorkbookFull(Workbook workbook, boolean datos);
-
+    
+    /**
+     * Workbook contains study, trials instances, entrys, constants, variates,
+     * an all data
+     * Returns a Workbook, based on a studyId
+     * @param studyid
+     * @param datos
+     * @return Workbook
+     */
     public Workbook getWorkbookFull(Integer studyid, boolean datos);
-
+    
     /**
      * Save all information from a Workbook into Database
-     *
+     * 
      * @param workbook
      */
     public void saveWorkbookFull(Workbook workbook);
-
+    
+    /**
+     * Save all information from a Workbook(Nursery) into Database
+     * @param workbook 
+     */
     public void saveWorkbookNurseryFull(Workbook workbook);
-
+    
+    /**
+     * Return Study with main factors and all dependences, based on a studyid
+     * @param studyid
+     * @return Study
+     */
     public Study getStudyFactorsTrialAndEntryFull(Integer studyid);
 
     /**
@@ -1739,6 +1914,11 @@ public interface AppServices {
      */
     public List<Obsunit> getObsunitListByStudy(final Integer studyId);
 
+    /**
+     * Return Obsunit List, based on the studyid
+     * @param studyId
+     * @return Obsunit
+     */
     public List<Obsunit> getObsunitListByStudyTrials(final Integer studyId);
 
     /**
@@ -1781,22 +1961,57 @@ public interface AppServices {
      * @param workbook
      */
     public void updateWorkbook(Workbook workbook);
-
+    
+    /**
+     * Migration process of a study among different databases
+     * @param studyId 
+     */
     public void migrateWorkbook(Integer studyId);
 
+    /**
+     * Return a Resulset of measurements, based on studyid, factorid, factorsMain
+     * and factorsOut
+     * @param studyId
+     * @param trialFactorId
+     * @param factoresPrincipales
+     * @param factoresSalida
+     * @return ResultSet
+     */
     public ResultSet getTrialRandomization(
             Integer studyId,
             Integer trialFactorId,
             List<String> factoresPrincipales,
             List<String> factoresSalida);
 
+    /**
+     * Return a Resulset of measurements, based on studyid, factorid, 
+     * factorsMain, factorsOut and trialName
+     * @param studyId
+     * @param trialFactorId
+     * @param factoresPrincipales
+     * @param factoresSalida
+     * @param trialNmame
+     * @return ResultSet
+     */
     public ResultSet getTrialRandomization(
             Integer studyId,
             Integer trialFactorId,
             List<String> factoresPrincipales,
             List<String> factoresSalida,
             String trialNmame);
-
+    
+    /**
+     * Optimized Method
+     * Return a List of measurements, based on studyid, factorid, 
+     * factorsMain, factorsOut and trialName
+     * 
+     * @param studyId
+     * @param trialFactorId
+     * @param factoresPrincipales
+     * @param factoresSalida
+     * @param trialNmame
+     * @return ResultSet
+     */
     public List<Measurement> getTrialRandomizationVeryFast(
             Integer studyId,
             Integer trialFactorId,
@@ -1804,6 +2019,18 @@ public interface AppServices {
             List<String> factoresSalida,
             String trialNmame);
 
+    /**
+     * Optimized Method
+     * Return a Resulset of measurements, based on studyid, factorid, 
+     * factorsMain, factorsOut and trialName
+     * 
+     * @param studyId
+     * @param trialFactorId
+     * @param factoresPrincipales
+     * @param factoresSalida
+     * @param trialNmame
+     * @return ResultSet
+     */
     public ResultSet getTrialRandomizationFast(
             Integer studyId,
             Integer trialFactorId,
@@ -1811,14 +2038,35 @@ public interface AppServices {
             List<String> factoresSalida,
             String trialNmame);
 
+    /**
+     * Return List of StudySearch complemented with all information
+     * necesary for GermplasmSearch
+     * @param studySearch
+     * @return StudySearch
+     */
     public StudySearch getListGermplasmAndPlotByStudyidAndTrial(
             StudySearch studySearch);
 
+    /**
+     * Save ListNms, Listdata, Germplasm and Names special method for wheat
+     * @param listGermplsm
+     * @param listnms
+     * @param userId
+     * @return List of Listdata
+     */
     public List<Listdata> saveGerplasmCimmytWheat(
             List<Listdata> listGermplsm,
             Listnms listnms,
             Integer userId);
 
+    /**
+     * Save ListNms, Listdata, Germplasm and Names special method for wheat
+     * and cross
+     * @param listGermplsm
+     * @param listnms
+     * @param userId
+     * @return List of Listdata
+     */
     public Listdata agregarGermPlasmCimmytWheat(
             String nameGermplasmHistory,
             String nameGermplasmBCID,
@@ -1827,6 +2075,15 @@ public interface AppServices {
             Integer userId,
             QueryCenter queryCenter);
 
+    /**
+     * Return a List of GermplasmSearch, with all atributs of cross
+     * snameFmale, snameMale, germplsmFmale, namesFmale, germplsmMale,
+     * namesMale, lid, max, bcid, charBCID, methodGermplasm
+     * @param appServices
+     * @param listFmale
+     * @param listMale
+     * @return List of GermplasmSearch
+     */
     public List<GermplasmSearch> getGermplasmByListStudyTrialPlotCross(
             AppServices appServices,
             List<GermplasmSearch> listFmale,
@@ -1858,7 +2115,16 @@ public interface AppServices {
      */
     public List<Scales> getScalesForInventory();
 
-    public List<GermplasmSearch> getGermplasmByListStudyTrialPlotCross(List<GermplasmSearch> listFmale,
+    /**
+     * Return a List of GermplasmSearch, with all atributs of cross
+     * snameFmale, snameMale, germplsmFmale, namesFmale, germplsmMale,
+     * namesMale, lid, max, bcid, charBCID, methodGermplasm
+     * @param listFmale
+     * @param listMale
+     * @return List of GermplasmSearch
+     */
+    public List<GermplasmSearch> getGermplasmByListStudyTrialPlotCross(
+            List<GermplasmSearch> listFmale,
             List<GermplasmSearch> listMale);
 
     /**
