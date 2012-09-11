@@ -28,7 +28,7 @@ public class GermplasmSearch {
     private Integer max;//exacto el maximo para armar el BCID
     private String bcid;//estructura BCID recuperada
     private String charBCID;//ultimo caracter a asignar
-    private Integer methodGermplasm;
+    private Integer methodGermplasm;//Metodo a asignar recuperado en base a los algoritmos
 
     /**
      * @return the studyId
