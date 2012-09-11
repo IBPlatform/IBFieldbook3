@@ -183,19 +183,19 @@ public class HelperWorkbookRead {
         this.effectid = hceaf.getEffectid();
         this.factorsDto = HelperFactor.getFactorsByEffectid(this.effectid, this.servicioApp);
 
-        factorStudy = hceaf.getFactorStudy();
-        factorTrial = hceaf.getFactorTrial();
-        factorEntry = hceaf.getFactorEntry();
-        factorPlot = hceaf.getFactorPlot();
+        this.factorStudy = hceaf.getFactorStudy();
+        this.factorTrial = hceaf.getFactorTrial();
+        this.factorEntry = hceaf.getFactorEntry();
+        this.factorPlot = hceaf.getFactorPlot();
 
-        this.factorIdStudy = factorStudy.getLabelid();
-        this.factorIdTrial = factorTrial.getLabelid();
-        this.factorIdEntry = factorEntry.getLabelid();
-        this.factorIdPlot = factorPlot.getLabelid();
+        this.factorIdStudy = this.factorStudy.getLabelid();
+        this.factorIdTrial = this.factorTrial.getLabelid();
+        this.factorIdEntry = this.factorEntry.getLabelid();
+        this.factorIdPlot = this.factorPlot.getLabelid();
 
-        workbookStudy.setTrialLabel(factorTrial.getFname());
-        workbookStudy.setEntryLabel(factorEntry.getFname());
-        workbookStudy.setPlotLabel(factorPlot.getFname());
+        this.workbookStudy.setTrialLabel(this.factorTrial.getFname());
+        this.workbookStudy.setEntryLabel(this.factorEntry.getFname());
+        this.workbookStudy.setPlotLabel(this.factorPlot.getFname());
         //Obteniendo de la base todos los dto relacionados con el factor
 //        List<Factor> factorsRemove = new ArrayList<Factor>();
         for (Factor factorDto : this.factorsDto) {
