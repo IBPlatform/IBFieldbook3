@@ -58,4 +58,14 @@ public class ContinuousFunctionDAO extends AbstractDAO<ContinuousFunction, Integ
         throw new UnsupportedOperationException("Not supported yet.");
     }
     
+    private String createTable(){
+        StringBuilder s = new StringBuilder();
+        s.append("CREATE TABLE `continuous-function` (");
+        s.append("`transid` INT(10) NOT NULL DEFAULT '0',");
+        s.append("`function` VARCHAR(255) NULL DEFAULT NULL,");
+        s.append("`funabbr` VARCHAR(255) NULL DEFAULT NULL,");
+        s.append("PRIMARY KEY (`transid`)");
+        s.append(")");
+        return s.toString();
+    }
 }

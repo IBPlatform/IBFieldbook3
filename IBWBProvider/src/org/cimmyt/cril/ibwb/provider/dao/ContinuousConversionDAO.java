@@ -58,4 +58,14 @@ public class ContinuousConversionDAO extends AbstractDAO<ContinuousConversion, I
         throw new UnsupportedOperationException("Not supported yet.");
     }
     
+    private String createTable(){
+        StringBuilder s = new StringBuilder();
+        s.append("CREATE TABLE `continuous-conversion` (");
+        s.append("`transid` INT(10) NOT NULL DEFAULT '0',");
+        s.append("`operator` DOUBLE NULL DEFAULT NULL,");
+        s.append("`factor` DOUBLE NULL DEFAULT NULL,");
+        s.append("PRIMARY KEY (`transid`)");
+        s.append(")");
+        return s.toString();
+    }
 }

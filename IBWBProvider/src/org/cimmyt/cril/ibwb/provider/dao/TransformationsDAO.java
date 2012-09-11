@@ -57,5 +57,45 @@ public class TransformationsDAO extends AbstractDAO<Transformations, Integer> {
     public String getConsulta(Transformations filtro) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    /**
+     * Checks if Transformations table already exists in database
+     * @return <code>true</code> if exists, <code>false</code> if does not exist.
+     */
+    public boolean existsTable() {
+        Boolean result = false;
+        log.info("Checking if Transformations table exists");
+        result = (Boolean) getHibernateTemplate().execute(new HibernateCallback() {
+
+            @Override
+            public Object doInHibernate(Session session) throws HibernateException, SQLException {
+                Boolean result = false;
+                SQLQuery query = session.createSQLQuery("select * from transformations where 1 = 2");
+                try {
+                    query.list();
+                    result = true;
+                    log.info("Transformations table found!");
+                } catch (Exception e) {
+                    result = false;
+                    //log.error("Transformations table not found", e);
+                    log.error("Transformations table not found");
+                }
+                return result;
+            }
+        });
+        log.info("Checking if Transformations table exists DONE....");
+        return result;
+    }
     
+    private String createTable(){
+        StringBuilder s = new StringBuilder();
+        s.append("CREATE TABLE `transformations` (");
+        s.append("`transid` INT(10) NOT NULL DEFAULT '0',");
+        s.append("`fromscaleid` INT(10) NULL DEFAULT NULL,");
+        s.append("`toscaleid` INT(10) NULL DEFAULT NULL,");
+        s.append("`transtype` INT(10) NULL DEFAULT NULL,");
+        s.append("PRIMARY KEY (`transid`)");
+        s.append(")");
+        return s.toString();
+    }
 }
