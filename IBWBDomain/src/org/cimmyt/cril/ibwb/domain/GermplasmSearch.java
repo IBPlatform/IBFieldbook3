@@ -9,21 +9,17 @@ package org.cimmyt.cril.ibwb.domain;
  * @author TMSANCHEZ
  */
 public class GermplasmSearch {
-     
+
     private Integer studyId;
     private Integer trial;
     private Integer plot;
     private String crosstype;
-    
     private String snameFmale;
     private String snameMale;
-    
     private Germplsm germplsm;
     private Names names;
-    
     private Germplsm germplsmMale;
     private Names namesMale;
-    
     private String lid;
     private Integer max;//exacto el maximo para armar el BCID
     private String bcid;//estructura BCID recuperada
@@ -239,6 +235,38 @@ public class GermplasmSearch {
     public void setCrosstype(String crosstype) {
         this.crosstype = crosstype;
     }
-    
-    
+
+    public String getMethodName() {
+        String methodName = "";
+        switch (this.methodGermplasm) {
+            case 2:
+                methodName = "UNKNOWN GENERATIVE METHOD CF";
+                break;
+            case 102:
+                methodName = "THREE-WAY CROSS";
+                break;
+            case 103:
+                methodName = "DOUBLE CROSS";
+                break;
+            case 107:
+                methodName = "BACKCROSS";
+                break;
+        }
+        return methodName;
+    }
+
+    public static int getMethodNumber(String methodName) {
+        
+        if (methodName.equals("UNKNOWN GENERATIVE METHOD CF")) {
+            return 2;
+        } else if (methodName.equals("THREE-WAY CROSS")) {
+            return 102;
+        } else if (methodName.equals("DOUBLE CROSS")) {
+            return 103;
+        } else if (methodName.equals("BACKCROSS")) {
+            return 107;
+        } else {
+            return 0;
+        }
+    }
 }
