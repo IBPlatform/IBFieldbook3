@@ -1037,7 +1037,13 @@ public final class nurseryManagerTopComponent extends TopComponent {
                 listdata.setGid(0);
             }
 
-            listdata.setMethodId(selectedMethodId);
+            // if is cimmyt wheat method will be assigned once germplasm has been saved
+            if (jComboBoxConvection.getSelectedIndex() == CONVENTION_CIMMYT_WHEAT) {
+                listdata.setMethodId(null);
+            } else {
+                listdata.setMethodId(selectedMethodId);
+            }
+
             listdata.setGnpgs(numberOfParents);
 
             // assign parents
@@ -2110,7 +2116,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
                 sortedMethods.add(methods.getMname().toUpperCase());
                 methodsInCombo.add(methods);
                 if (methods.getMid().intValue() == DEFAULT_CROSS) {
-                    selectedMethodName = methods.getMname();
+                    selectedMethodName = methods.getMname().toUpperCase();
                 }
             }
         }
@@ -2383,7 +2389,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
         String methodName = (String) jComboBoxMethods.getSelectedItem();
         for (Methods methods : methodsInCombo) {
 
-            if (methods.getMname().equals(methodName)) {
+            if (methods.getMname().toUpperCase().equals(methodName.toUpperCase())) {
                 selectedMethod = methods;
             }
         }
