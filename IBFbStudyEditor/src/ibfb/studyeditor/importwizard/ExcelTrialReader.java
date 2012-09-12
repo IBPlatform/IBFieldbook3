@@ -15,6 +15,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.cimmyt.cril.ibwb.commongui.DecimalUtils;
 
 public class ExcelTrialReader {
 
@@ -255,12 +256,9 @@ public class ExcelTrialReader {
         return result;
     }
 
-    
-    
-    
     private int findMachesForGermplasm(Sheet sheet) {
 
-  
+
         int result = 0;
 
         Row fila = sheet.getRow(0); //Encabezados
@@ -282,23 +280,20 @@ public class ExcelTrialReader {
 
                 if (!celda.getStringCellValue().toUpperCase().trim().equals("GID")) {
 
-                    
-                    if(celda.getStringCellValue().toUpperCase().trim().equals("PEDIGREE")){
-                        
-                       if (encabezados.contains("CROSS NAME") || (encabezados.contains("PEDIGREE")) ) {
-                        MatchesClass match = new MatchesClass();
-                        match.setColIBF(encabezados.indexOf("PEDIGREE"));
-                        match.setColCross(i);
-                        matchesArray.add(match);
-                        result++;  
-                       } 
-                        
-                        
-                    }
-                    
-                    
-                   else if (encabezados.contains(celda.getStringCellValue().toUpperCase().trim())) {    
-                        
+
+                    if (celda.getStringCellValue().toUpperCase().trim().equals("PEDIGREE")) {
+
+                        if (encabezados.contains("CROSS NAME") || (encabezados.contains("PEDIGREE"))) {
+                            MatchesClass match = new MatchesClass();
+                            match.setColIBF(encabezados.indexOf("PEDIGREE"));
+                            match.setColCross(i);
+                            matchesArray.add(match);
+                            result++;
+                        }
+
+
+                    } else if (encabezados.contains(celda.getStringCellValue().toUpperCase().trim())) {
+
                         MatchesClass match = new MatchesClass();
                         match.setColIBF(encabezados.indexOf(celda.getStringCellValue().toUpperCase().trim()));
                         match.setColCross(i);
@@ -319,8 +314,6 @@ public class ExcelTrialReader {
         return result;
     }
 
-    
-    
     private void fillGIDs(Sheet sheet, int colGID) {
         try {
             gids = new ArrayList<String>();
@@ -540,7 +533,12 @@ public class ExcelTrialReader {
 
                             result = celda.getNumericCellValue();
                             if (filaObs >= 0) {
-                                observationsModel.setValueAt(String.valueOf(result), filaObs, colObs);
+                                if (DecimalUtils.isIntegerValue(result)) {
+                                    Integer intValue = DecimalUtils.getValueAsInteger(result);
+                                    observationsModel.setValueAt(intValue.toString(), filaObs, colObs);
+                                } else {
+                                    observationsModel.setValueAt(String.valueOf(result), filaObs, colObs);
+                                }
                             }
 
                         } else {
@@ -548,15 +546,18 @@ public class ExcelTrialReader {
                                 if (variateDataType.equals("N")) {
                                     result = Double.parseDouble(celda.getStringCellValue().toString());
                                     if (filaObs >= 0) {
-                                        observationsModel.setValueAt(String.valueOf(result), filaObs, colObs);
+                                        if (DecimalUtils.isIntegerValue(result)) {
+                                            Integer intValue = DecimalUtils.getValueAsInteger(result);
+                                            observationsModel.setValueAt(intValue.toString(), filaObs, colObs);
+                                        } else {
+                                            observationsModel.setValueAt(String.valueOf(result), filaObs, colObs);
+                                        }
                                     }
                                 } else if (variateDataType.equals("C")) {
                                     String stringResult = (String) celda.getStringCellValue().toString();
                                     if (filaObs >= 0) {
                                         observationsModel.setValueAt(stringResult, filaObs, colObs);
                                     }
-
-
                                 }
                             }
                         }
@@ -578,10 +579,9 @@ public class ExcelTrialReader {
     public void setModel(ObservationsTableModel tableModel) {
         this.observationsModel = tableModel;
     }
-    
-    
-    public void setGermplasmModel(GermplasmEntriesTableModel tableModel){
-        this.germplasmModel=tableModel;
+
+    public void setGermplasmModel(GermplasmEntriesTableModel tableModel) {
+        this.germplasmModel = tableModel;
     }
 
     private boolean validaHeadersObservations(int obsTrial, int obsEntry, int obsPlot) {
@@ -631,7 +631,7 @@ public class ExcelTrialReader {
             int colNumber = 0;
             int rowIndex = 0;
             InputStream inputStream = new FileInputStream(fileName);
-            excelBook =  WorkbookFactory.create(inputStream);
+            excelBook = WorkbookFactory.create(inputStream);
             sheetData = excelBook.getSheetAt(0);
             rowData = sheetData.getRow(rowIndex);
             cellData = rowData.getCell(colNumber);
@@ -655,9 +655,9 @@ public class ExcelTrialReader {
             }
 
             fillGIDs(sheetData, colGID);
-        
-            
-               germplasmModel.setIsFromCrossInfo(true);
+
+
+            germplasmModel.setIsFromCrossInfo(true);
 
             for (int j = 0; j < germplasmModel.getRowCount(); j++) {
 
@@ -665,7 +665,7 @@ public class ExcelTrialReader {
 
                 int rowOfGID = findRowForGID(gid.toString());
 
-                
+
 
                 if (rowOfGID >= 0) {
                     for (int i = 0; i < matchesArray.size(); i++) {
@@ -681,9 +681,9 @@ public class ExcelTrialReader {
                 }
 
             }
-           germplasmModel.setIsFromCrossInfo(false);
+            germplasmModel.setIsFromCrossInfo(false);
         } catch (Exception e) {
-           germplasmModel.setIsFromCrossInfo(false);
+            germplasmModel.setIsFromCrossInfo(false);
             log.error("Error al leer excel ", e);
         }
 
