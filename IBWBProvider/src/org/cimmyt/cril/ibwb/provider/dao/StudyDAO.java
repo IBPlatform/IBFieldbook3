@@ -121,5 +121,20 @@ public class StudyDAO extends AbstractDAO<Study, Integer> {
         study = read(study.getStudyid());
         study.setSstatus(Study.SSTATUS_DELETED);
         update(study);
+        deleteStudyChildren(study.getStudyid());
+    }
+    
+    /**
+     * Deletes all children for a Study by checking which shrierarchy belongs to StudyId
+     * @param studyId Study Id
+     */
+    private void deleteStudyChildren(final Integer studyId) {
+        final String updateListdataStatus = " update Study study set study.sstatus = " 
+                + Study.SSTATUS_DELETED + " where study.shierarchy= " + studyId;
+        try {
+            getHibernateTemplate().bulkUpdate(updateListdataStatus);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
