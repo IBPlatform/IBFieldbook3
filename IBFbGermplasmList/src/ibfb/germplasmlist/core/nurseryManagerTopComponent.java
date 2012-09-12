@@ -970,20 +970,24 @@ public final class nurseryManagerTopComponent extends TopComponent {
         AppServicesProxy.getDefault().appServices().addListnms(listnms);
         List<Listdata> dataList = new ArrayList<Listdata>();
 
-        int desig = 0;
+        int desig = -1;
+        int source = -1;
+        int bcidColumn = -1;
 
-        desig = findColumn("CROSS");
+        if (jComboBoxConvection.getSelectedIndex() == CONVENTION_CIMMYT_WHEAT) {
+            source = findColumn("FEMALE/MALE");
+            bcidColumn = findColumn("BCID");
+        } else {
+            desig = findColumn("CROSS");
+            source = findColumn("FDESIG");
+        }
 
         listnms.setListtype(Listnms.LIST_TYPE_HARVEST);
 
         int entryCD = findColumn("ENTRY");
-        int source = findColumn("FDESIG");
         int fgidcol = findColumn("FGID");
         int mgidcol = findColumn("MGID");
-        int bcidColumn = 0;
-        if (jComboBoxConvection.getSelectedIndex() == CONVENTION_CIMMYT_WHEAT) {
-            bcidColumn = findColumn("BCID");
-        }
+
 
         int gid = 0;
 
@@ -1039,7 +1043,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
 
             // if is cimmyt wheat method will be assigned once germplasm has been saved
             if (jComboBoxConvection.getSelectedIndex() == CONVENTION_CIMMYT_WHEAT) {
-                String methodName = (String)jTableFinalList.getValueAt(i, 4);
+                String methodName = (String) jTableFinalList.getValueAt(i, 4);
                 listdata.setMethodId(GermplasmSearch.getMethodNumber(methodName));
             } else {
                 listdata.setMethodId(selectedMethodId);
@@ -1597,7 +1601,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
 
                 int met = gs.getMethodGermplasm() + (gms - 1);
                 String fin = gs.getCharBCID();
-                
+
 
                 //String maxString = giveMaxString(maximo) + "S";
 
