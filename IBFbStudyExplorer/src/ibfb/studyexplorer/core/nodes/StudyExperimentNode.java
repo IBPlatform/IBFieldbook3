@@ -9,6 +9,7 @@ import org.openide.nodes.Children;
 import org.openide.nodes.AbstractNode;
 import ibfb.studyexplorer.actions.OpenStudyAction;
 import javax.swing.Action;
+import org.openide.util.NbBundle;
 import org.openide.util.actions.SystemAction;
 import org.openide.util.lookup.Lookups;
 
@@ -41,6 +42,12 @@ public class StudyExperimentNode extends AbstractNode {
 
         actions[1] = SystemAction.get(DeleteStudyAction.class);
 
+        DeleteStudyAction deleteStudyAction = (DeleteStudyAction)actions[1];
+        if (study.getStudyType().equals("T")) {
+           deleteStudyAction.setDeleteTitle(NbBundle.getMessage(DeleteStudyAction.class, "DeleteStudyTrial.title")); 
+        } else {
+           deleteStudyAction.setDeleteTitle(NbBundle.getMessage(DeleteStudyAction.class, "DeleteStudyNursery.title"));  
+        }
 
         actions[1].setEnabled(this.study.getStudyid().intValue() < 0);
 

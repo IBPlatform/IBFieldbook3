@@ -20,13 +20,12 @@ import org.openide.util.NbBundle;
 import org.openide.util.actions.SystemAction;
 import org.openide.windows.WindowManager;
 
-
 /**
  *
  * @author tmsg
  */
 public class DeleteStudyAction extends SystemAction {
-
+    private String deleteTitle;
     private ResourceBundle bundle = NbBundle.getBundle(DeleteStudyAction.class);
 
     public DeleteStudyAction() {
@@ -65,11 +64,23 @@ public class DeleteStudyAction extends SystemAction {
 
     @Override
     public String getName() {
-        return bundle.getString("DeleteStudyAction.title");
+        if (this.deleteTitle == null) {
+            return bundle.getString("DeleteStudyAction.title");
+        } else {
+            return this.deleteTitle;
+        }
     }
 
     @Override
     public HelpCtx getHelpCtx() {
         return null;
+    }
+
+    /**
+     * Assign title for deleting message
+     * @param title n
+     */
+    public void setDeleteTitle(String title) {
+        this.deleteTitle = title;
     }
 }
