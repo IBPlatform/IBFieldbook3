@@ -105,7 +105,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
     public int CROSSTYPE = 10;
     public int TYPE = 11;
     private String[] headers = {"ENTRY", "BCID", "CROSS", "GID", "METHOD", "FDESIG", "FGID", "MDESIG", "MGID"};
-    private String[] headersScript = {"ENTRY", "BCID", "CROSS", "GID", "METHOD", "FTID", "FOCC", "FENTRY", "FDESIG", "FGID", "MTID", "MOCC", "MENTRY", "MDESIG", "MGID"};
+    private String[] headersScript = {"ENTRY", "BCID", "FEMALE/MALE", "GID", "METHOD", "FTID", "FOCC", "FENTRY", "FDESIG", "FGID", "MTID", "MOCC", "MENTRY", "MDESIG", "MGID"};
     private String[] otherCropsheaders = {"ENTRY", "CROSS", "GID", "METHOD", "FDESIG", "FGID", "MDESIG", "MGID"};
     private String[] otherCropsheadersScript = {"ENTRY", "CROSS", "GID", "METHOD", "FTID", "FOCC", "FENTRY", "FDESIG", "FGID", "MTID", "MOCC", "MENTRY", "MDESIG", "MGID"};
     private ArrayList<String> tempListCross;
@@ -1039,7 +1039,8 @@ public final class nurseryManagerTopComponent extends TopComponent {
 
             // if is cimmyt wheat method will be assigned once germplasm has been saved
             if (jComboBoxConvection.getSelectedIndex() == CONVENTION_CIMMYT_WHEAT) {
-                listdata.setMethodId(null);
+                String methodName = (String)jTableFinalList.getValueAt(i, 4);
+                listdata.setMethodId(GermplasmSearch.getMethodNumber(methodName));
             } else {
                 listdata.setMethodId(selectedMethodId);
             }
@@ -1596,6 +1597,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
 
                 int met = gs.getMethodGermplasm() + (gms - 1);
                 String fin = gs.getCharBCID();
+                
 
                 //String maxString = giveMaxString(maximo) + "S";
 
@@ -1614,7 +1616,8 @@ public final class nurseryManagerTopComponent extends TopComponent {
                 modelo.setValueAt(gs.getBcid() + maxString, gms - 1, 1);//BCID
                 modelo.setValueAt(cross, gms - 1, 2); //CROSS
                 modelo.setValueAt(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.notAssigned"), gms - 1, 3); //GID                        
-                modelo.setValueAt(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.singleCross"), gms - 1, 4);//METHOD
+                //modelo.setValueAt(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.singleCross"), gms - 1, 4);//METHOD
+                modelo.setValueAt(gs.getMethodName(), gms - 1, 4);//METHOD
 
                 modelo.setValueAt(listFemale.get(gms - 1).getStudyId(), gms - 1, 5);//FTID
                 modelo.setValueAt(listFemale.get(gms - 1).getTrial(), gms - 1, 6);//FOCC
