@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import org.apache.log4j.Logger;
 import org.apache.poi.ss.usermodel.*;
+import org.cimmyt.cril.ibwb.commongui.DecimalUtils;
 import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 
 public class ExcelNurseryReader {
@@ -77,10 +78,10 @@ public class ExcelNurseryReader {
                 return;
             }
             ArrayList traits = readVariates(rowVariate);
-            
+
             String entryLabel = observationsModel.getEntryLabel();
             String plotLabel = observationsModel.getPlotLabel();
-            
+
             int colEntry = findCol(entryLabel);
             int colPlot = findCol(plotLabel);
 
@@ -293,15 +294,22 @@ public class ExcelNurseryReader {
                         if (tipo == 0) {
                             result = celda.getNumericCellValue();
                             if (filaObs >= 0) {
-                                observationsModel.setValueAt(String.valueOf(result), filaObs, colObs);
+                                if (DecimalUtils.isIntegerValue(result)) {
+                                    Integer intValue = DecimalUtils.getValueAsInteger(result);
+                                    observationsModel.setValueAt(intValue.toString(), filaObs, colObs);
+                                } else {
+                                    observationsModel.setValueAt(String.valueOf(result), filaObs, colObs);
+                                }
                             }
 
                         } else {
                             if (celda.getStringCellValue() != null && !celda.getStringCellValue().trim().isEmpty()) {
-                                // result = Double.parseDouble(celda.getStringCellValue().toString());
+                                
                                 resultCad = celda.getStringCellValue().toString();
                                 if (filaObs >= 0) {
+                                    
                                     observationsModel.setValueAt(resultCad, filaObs, colObs);
+                                    
                                 }
                             }
                         }
@@ -397,7 +405,7 @@ public class ExcelNurseryReader {
     private int findMachesForGermplasm(Sheet sheet) {
 
         int result = 0;
-        
+
         Row fila = sheet.getRow(0); //Encabezados
         int cells = fila.getLastCellNum();
 
@@ -417,42 +425,42 @@ public class ExcelNurseryReader {
 
                 if (!celda.getStringCellValue().toUpperCase().trim().equals("GID")) {
 
-                    
+
                     String celdaValue = celda.getStringCellValue().toUpperCase().trim();
-                   
-                    
+
+
                     if (celdaValue.equals("PEDIGREE") || celdaValue.equals("CROSS NAME")) {
 
                         if (celdaValue.equals("PEDIGREE")) {
                             if (encabezados.contains("PEDIGREE") || encabezados.contains("CROSS NAME")) {
                                 MatchesClass match = new MatchesClass();
-                                match.setColIBF(giveMeColSinon(encabezados,"PEDIGREE","CROSS NAME"));
+                                match.setColIBF(giveMeColSinon(encabezados, "PEDIGREE", "CROSS NAME"));
                                 match.setColCross(i);
                                 matchesArray.add(match);
                                 result++;
                             }
-                            
+
                         }
 
 
                         if (celdaValue.equals("CROSS NAME")) {
-                             if (encabezados.contains("PEDIGREE") || encabezados.contains("CROSS NAME")){
+                            if (encabezados.contains("PEDIGREE") || encabezados.contains("CROSS NAME")) {
                                 MatchesClass match = new MatchesClass();
-                                match.setColIBF(giveMeColSinon(encabezados,"PEDIGREE","CROSS NAME"));
+                                match.setColIBF(giveMeColSinon(encabezados, "PEDIGREE", "CROSS NAME"));
                                 match.setColCross(i);
                                 matchesArray.add(match);
                                 result++;
                             }
-                            
+
                         }
 
                         continue;
                     }
 
 
-                    
-                    
-                    
+
+
+
                     if (encabezados.contains(celda.getStringCellValue().toUpperCase().trim())) {
                         MatchesClass match = new MatchesClass();
                         match.setColIBF(encabezados.indexOf(celda.getStringCellValue().toUpperCase().trim()));
@@ -510,13 +518,13 @@ public class ExcelNurseryReader {
 
             for (int j = 0; j < germplasmModel.getRowCount(); j++) {
 
-             //   Object gid = germplasmModel.getValueAt(j, colGIDgsm);
+                //   Object gid = germplasmModel.getValueAt(j, colGIDgsm);
 
-                int elGID=(int)Double.parseDouble(germplasmModel.getValueAt(j, colGIDgsm).toString());
-                System.out.println("INT GID: "+elGID);
-                
-                
-               // int rowOfGID = findRowForGID(gid.toString());
+                int elGID = (int) Double.parseDouble(germplasmModel.getValueAt(j, colGIDgsm).toString());
+                System.out.println("INT GID: " + elGID);
+
+
+                // int rowOfGID = findRowForGID(gid.toString());
                 int rowOfGID = findRowForGID(String.valueOf(elGID));
 
 
@@ -527,12 +535,12 @@ public class ExcelNurseryReader {
                         Cell celda = fila.getCell(matchesArray.get(i).getColCross());
                         String valor = getStringValueFromCell(celda);
 
-                   
-                        
+
+
                         germplasmModel.setValueAt(valor, j, matchesArray.get(i).getColIBF());
-                   
-                    
-                    
+
+
+
                     }
                 } else {
                     System.out.println(elGID + " NO ENCONTRADO");
@@ -598,11 +606,11 @@ public class ExcelNurseryReader {
     }
 
     private int findRowForGID(String elGID) {
-      //  System.out.println("TAM GIDS: "+gids.size());
-       // System.out.print("ELEMENTOS GIDS: ");
-        for (int i = 0; i < gids.size(); i++) {   
-            System.out.print(gids.get(i)+" , ");
-            
+        //  System.out.println("TAM GIDS: "+gids.size());
+        // System.out.print("ELEMENTOS GIDS: ");
+        for (int i = 0; i < gids.size(); i++) {
+            System.out.print(gids.get(i) + " , ");
+
         }
         System.out.println("");
         int result = -1;
@@ -633,17 +641,17 @@ public class ExcelNurseryReader {
     }
 
     private int giveMeColSinon(ArrayList<String> encabezados, String pedigreE, String crosS_NAME) {
-        int result=-1;
-        
-        
-        if(encabezados.contains(pedigreE)){
-            return encabezados.indexOf(pedigreE) ;
+        int result = -1;
+
+
+        if (encabezados.contains(pedigreE)) {
+            return encabezados.indexOf(pedigreE);
         }
-        if(encabezados.contains(crosS_NAME)){
-           return encabezados.indexOf(crosS_NAME) ;
+        if (encabezados.contains(crosS_NAME)) {
+            return encabezados.indexOf(crosS_NAME);
         }
-        
-        
+
+
         return result;
     }
 }
