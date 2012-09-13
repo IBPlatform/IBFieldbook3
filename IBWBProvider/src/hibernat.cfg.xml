@@ -82,6 +82,11 @@
         <mapping class="org.cimmyt.cril.ibwb.domain.ImsLabelOtherinfo" />
         <mapping class="org.cimmyt.cril.ibwb.domain.ImsLabelinfo" />
         <mapping class="org.cimmyt.cril.ibwb.domain.ImsLot" />
-        <mapping class="org.cimmyt.cril.ibwb.domain.ImsTransaction" />        
+        <mapping class="org.cimmyt.cril.ibwb.domain.ImsTransaction" />
+        
+        <mapping class="org.cimmyt.cril.ibwb.domain.Transformations" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.DiscreteConversion" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.ContinuousFunction" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.ContinuousConversion" />
     </session-factory>
 </hibernate-configuration>
