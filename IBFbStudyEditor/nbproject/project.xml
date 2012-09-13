@@ -259,10 +259,6 @@
                 <binary-origin>release/modules/ext/iText-2.1.7.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
-                <runtime-relative-path>ext/jasperreports-3.7.6.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/jasperreports-3.7.6.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
                 <runtime-relative-path>ext/batik-xml.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/batik-xml.jar</binary-origin>
             </class-path-extension>
@@ -313,6 +309,10 @@
             <class-path-extension>
                 <runtime-relative-path>ext/iTextAsian.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/iTextAsian.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/jasperreports-4.7.0.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/jasperreports-4.7.0.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/batik-bridge.jar</runtime-relative-path>

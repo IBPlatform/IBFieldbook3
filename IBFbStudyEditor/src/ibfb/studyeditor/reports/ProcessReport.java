@@ -39,9 +39,8 @@ public class ProcessReport {
             protected String doInBackground() throws Exception {
                 streamReport = new FileInputStream(reportFile);
                 JasperReport report = (JasperReport) JRLoader.loadObject(streamReport);
-
-
-                jasperPrint = JasperFillManager.fillReport(report, new HashMap<Object, Object>(), datasource);
+                report.setProperty("net.sf.jasperreports.components.barcode4j.image.producer", "image");
+                jasperPrint = JasperFillManager.fillReport(report, new HashMap<String, Object>(), datasource);
                 return "";
             }
 
