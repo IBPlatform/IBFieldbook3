@@ -3532,4 +3532,88 @@ public interface CommonServices {
      * @return
      */
     public List<InventoryData> getInventoryDataFromList(final Integer listId);
+    
+    //-----------------------------------ContinuousConversion---------------------------
+    public void addContinuousConversion(ContinuousConversion continuousConversion);
+    
+    public void updateContinuousConversion(ContinuousConversion continuousConversion);
+    
+    public void deleteContinuousConversion(ContinuousConversion continuousConversion);
+    
+    public ContinuousConversion getContinuousConversion(ContinuousConversion continuousConversion);
+    
+    public ContinuousConversion getContinuousConversion(Integer idAtributs);
+    
+    public List<ContinuousConversion> getContinuousConversionList();
+    
+    public int getTotalContinuousConversion(ContinuousConversion continuousConversion);
+    
+    public List<ContinuousConversion> getListContinuousConversion(ContinuousConversion filter, int start, int pageSize, boolean paged);
+    
+    public boolean existsTableContinuousConversion();
+    
+    public void createTableContinuousConversion();
+    
+    //-----------------------------------ContinuousFunction---------------------------
+    public void addContinuousFunction(ContinuousFunction continuousFunction);
+
+    public void updateContinuousFunction(ContinuousFunction continuousFunction);
+
+    public void deleteContinuousFunction(ContinuousFunction continuousFunction);
+
+    public ContinuousFunction getContinuousFunction(ContinuousFunction continuousFunction);
+
+    public ContinuousFunction getContinuousFunction(Integer idAtributs);
+
+    public List<ContinuousFunction> getContinuousFunctionList();
+
+    public int getTotalContinuousFunction(ContinuousFunction continuousFunction);
+
+    public List<ContinuousFunction> getListContinuousFunction(ContinuousFunction filter, int start, int pageSize, boolean paged);
+    
+    public boolean existsTableContinuousFunction();
+    
+    public void createTableContinuousFunction();
+    
+    //-----------------------------------DiscreteConversion---------------------------
+    public void addDiscreteConversion(DiscreteConversion discreteConversion);
+
+    public void updateDiscreteConversion(DiscreteConversion discreteConversion);
+
+    public void deleteDiscreteConversion(DiscreteConversion discreteConversion);
+
+    public DiscreteConversion getDiscreteConversion(DiscreteConversion discreteConversion);
+
+    public DiscreteConversion getDiscreteConversion(Integer idAtributs);
+
+    public List<DiscreteConversion> getDiscreteConversionList();
+
+    public int getTotalDiscreteConversion(DiscreteConversion discreteConversion);
+
+    public List<DiscreteConversion> getListDiscreteConversion(DiscreteConversion filter, int start, int pageSize, boolean paged);
+    
+    public boolean existsTableDiscreteConversion();
+    
+    public void createTableDiscreteConversion();
+    
+    //-----------------------------------Transformations---------------------------
+    public void addTransformations(Transformations transformations);
+    
+    public void updateTransformations(Transformations transformations);
+    
+    public void deleteTransformations(Transformations transformations);
+    
+    public Transformations getTransformations(Transformations transformations);
+    
+    public Transformations getTransformations(Integer transid);
+    
+    public List<Transformations> getTransformationsList();
+    
+    public int getTotalTransformations(Transformations transformations);
+    
+    public List<Transformations> getListTransformations(Transformations filter, int start, int pageSize, boolean paged);    
+    
+    public boolean existsTableTransformations();    
+    
+    public void createTableTransformations();
 }
