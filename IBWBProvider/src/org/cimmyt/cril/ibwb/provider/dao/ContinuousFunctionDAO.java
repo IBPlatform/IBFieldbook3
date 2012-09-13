@@ -57,8 +57,56 @@ public class ContinuousFunctionDAO extends AbstractDAO<ContinuousFunction, Integ
     public String getConsulta(ContinuousFunction filtro) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    /**
+     * Checks if ContinuousFunction table already exists in database
+     * @return <code>true</code> if exists, <code>false</code> if does not exist.
+     */
+    public boolean existsTable() {
+        Boolean result = false;
+        log.info("Checking if ContinuousFunction table exists");
+        result = (Boolean) getHibernateTemplate().execute(new HibernateCallback() {
+
+            @Override
+            public Object doInHibernate(Session session) throws HibernateException, SQLException {
+                Boolean result = false;
+                SQLQuery query = session.createSQLQuery("select * from ContinuousFunction where 1 = 2");
+                try {
+                    query.list();
+                    result = true;
+                    log.info("ContinuousFunction table found!");
+                } catch (Exception e) {
+                    result = false;
+                    //log.error("ContinuousFunction table not found", e);
+                    log.error("ContinuousFunction table not found");
+                }
+                return result;
+            }
+        });
+        log.info("Checking if ContinuousFunction table exists DONE....");
+        return result;
+    }
     
-    private String createTable(){
+    public void createTable(){
+        log.info("Creating ContinuousFunction table...");
+        final String sql = getQueryCreateTable();
+        getHibernateTemplate().execute(new HibernateCallback() {
+            @Override
+            public Object doInHibernate(Session session) throws HibernateException, SQLException {
+                SQLQuery query = null;
+                try {
+                    query = session.createSQLQuery(sql);
+                    query.executeUpdate();
+                } catch (Exception e) {
+                    log.error("Can´t create ContinuousFunction table", e);
+                }
+                return null;
+            }
+        });
+        log.info("Creating Transformations table DONE....");
+    }
+    
+    private String getQueryCreateTable(){
         StringBuilder s = new StringBuilder();
         s.append("CREATE TABLE `continuous-function` (");
         s.append("`transid` INT(10) NOT NULL DEFAULT '0',");

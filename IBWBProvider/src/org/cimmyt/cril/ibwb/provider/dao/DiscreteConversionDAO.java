@@ -87,7 +87,26 @@ public class DiscreteConversionDAO extends AbstractDAO<DiscreteConversion, Integ
         return result;
     }
     
-    private String createTable(){
+    public void createTable(){
+        log.info("Creating DiscreteConversion table...");
+        final String sql = getQueryCreateTable();
+        getHibernateTemplate().execute(new HibernateCallback() {
+            @Override
+            public Object doInHibernate(Session session) throws HibernateException, SQLException {
+                SQLQuery query = null;
+                try {
+                    query = session.createSQLQuery(sql);
+                    query.executeUpdate();
+                } catch (Exception e) {
+                    log.error("Can´t create DiscreteConversion table", e);
+                }
+                return null;
+            }
+        });
+        log.info("Creating DiscreteConversion table DONE....");
+    }
+    
+    private String getQueryCreateTable(){
         StringBuilder s = new StringBuilder();
         s.append("CREATE TABLE `discrete-conversion` (");
         s.append("`transid` INT(10) NOT NULL DEFAULT '0',");
