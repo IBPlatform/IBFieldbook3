@@ -129,7 +129,12 @@
         <property name="imsLabelOtherinfoDAO" ref="ImsLabelOtherInfoDAOLocal"/>
         <property name="imsLabelinfoDAO" ref="ImsLabelInfoDAOLocal"/>
         <property name="imsLotDAO" ref="ImsLotDAOLocal"/>
-        <property name="imsTransactionDAO" ref="ImsTransactionDAOLocal"/>                    
+        <property name="imsTransactionDAO" ref="ImsTransactionDAOLocal"/>
+        
+        <property name="transformationsDAO" ref="TransformationsDAOLocal"/>
+        <property name="discreteConversionDAO" ref="DiscreteConversionDAOLocal"/>
+        <property name="continuousFunctionDAO" ref="ContinuousFunctionDAOLocal"/>
+        <property name="continuousConversionDAO" ref="ContinuousConversionDAOLocal"/>               
     </bean>
 	
     <bean name="serviciosCentral" class="org.cimmyt.cril.ibwb.provider.CommonServicesImpl">
@@ -186,7 +191,12 @@
         <property name="imsLabelOtherinfoDAO" ref="ImsLabelOtherInfoDAOCentral"/>
         <property name="imsLabelinfoDAO" ref="ImsLabelInfoDAOCentral"/>
         <property name="imsLotDAO" ref="ImsLotDAOCentral"/>
-        <property name="imsTransactionDAO" ref="ImsTransactionDAOCentral"/>        
+        <property name="imsTransactionDAO" ref="ImsTransactionDAOCentral"/>
+        
+        <property name="transformationsDAO" ref="TransformationsDAOCentral"/>
+        <property name="discreteConversionDAO" ref="DiscreteConversionDAOCentral"/>
+        <property name="continuousFunctionDAO" ref="ContinuousFunctionDAOCentral"/>
+        <property name="continuousConversionDAO" ref="ContinuousConversionDAOCentral"/>     
     </bean>
 	
     <bean name="ibwbAppServices" class="org.cimmyt.cril.ibwb.provider.IBWBAppServicesImpl">
