@@ -441,4 +441,33 @@
         <property name="accessType" value="central"/>
     </bean>   
     
+    <!-- to manage Transformations -->
+    <bean id="DiscreteConversionDAOCentral" class="org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO">
+        <property name="sessionFactory">
+            <ref bean="sessionFactoryCentralDMS" />
+        </property>
+        <property name="accessType" value="central"/>
+    </bean>
+    
+    <bean id="TransformationsDAOCentral" class="org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO">
+        <property name="sessionFactory">
+            <ref bean="sessionFactoryCentralDMS" />
+        </property>
+        <property name="accessType" value="central"/>
+    </bean>
+    
+    <bean id="ContinuousFunctionDAOCentral" class="org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO">
+        <property name="sessionFactory">
+            <ref bean="sessionFactoryCentralDMS" />
+        </property>
+        <property name="accessType" value="central"/>
+    </bean>
+    
+    <bean id="ContinuousConversionDAOCentral" class="org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO">
+        <property name="sessionFactory">
+            <ref bean="sessionFactoryCentralDMS" />
+        </property>
+        <property name="accessType" value="central"/>
+    </bean>
+    
 </beans>
