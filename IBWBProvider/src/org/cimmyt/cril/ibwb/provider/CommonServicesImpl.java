@@ -64,6 +64,10 @@ import org.cimmyt.cril.ibwb.provider.dao.ImsLabelInfoDAO;
 import org.cimmyt.cril.ibwb.provider.dao.ImsLabelOtherInfoDAO;
 import org.cimmyt.cril.ibwb.provider.dao.ImsLotDAO;
 import org.cimmyt.cril.ibwb.provider.dao.ImsTransactionDAO;
+import org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO;
+import org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO;
+import org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO;
+import org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -129,6 +133,10 @@ public class CommonServicesImpl implements CommonServices {
     private ImsLabelInfoDAO imsLabelinfoDAO;
     private ImsLotDAO imsLotDAO;
     private ImsTransactionDAO imsTransactionDAO;
+    private ContinuousConversionDAO continuousConversionDAO;
+    private ContinuousFunctionDAO continuousFunctionDAO;
+    private DiscreteConversionDAO discreteConversionDAO;
+    private TransformationsDAO transformationsDAO;
 
     public static CommonServices getCommonServices() {
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
@@ -3038,5 +3046,265 @@ public class CommonServicesImpl implements CommonServices {
     @Override
     public List<InventoryData> getInventoryDataFromList(final Integer listId) {
         return imsTransactionDAO.getInventoryDataFromList(listId);
-    }    
+    }
+    
+    //-----------------------------------ContinuousConversion---------------------------
+    @Override
+    public void addContinuousConversion(ContinuousConversion continuousConversion) {
+        this.getContinuousConversionDAO().create(continuousConversion);
+    }
+
+    @Override
+    public void updateContinuousConversion(ContinuousConversion continuousConversion) {
+        this.getContinuousConversionDAO().update(continuousConversion);
+    }
+
+    @Override
+    public void deleteContinuousConversion(ContinuousConversion continuousConversion) {
+        this.getContinuousConversionDAO().delete(continuousConversion);
+    }
+
+    @Override
+    public ContinuousConversion getContinuousConversion(ContinuousConversion continuousConversion) {
+        return this.getContinuousConversionDAO().findById(continuousConversion.getTransid());
+    }
+
+    @Override
+    public ContinuousConversion getContinuousConversion(Integer transid) {
+        return this.getContinuousConversionDAO().findById(transid);
+    }
+
+    @Override
+    public List<ContinuousConversion> getContinuousConversionList() {
+        return this.getContinuousConversionDAO().findAll();
+    }
+
+    @Override
+    public int getTotalContinuousConversion(ContinuousConversion continuousConversion) {
+        return this.getContinuousConversionDAO().getTotal(continuousConversion);
+    }
+
+    @Override
+    public List<ContinuousConversion> getListContinuousConversion(ContinuousConversion filter, int start, int pageSize, boolean paged) {
+        return this.getContinuousConversionDAO().getList(filter, start, pageSize, paged);
+    }
+    
+    @Override
+    public boolean existsTableContinuousConversion(){
+        return this.getContinuousConversionDAO().existsTable();
+    }
+    
+    @Override
+    public void createTableContinuousConversion(){
+        this.getContinuousConversionDAO().createTable();
+    }
+    
+    //-----------------------------------ContinuousFunction---------------------------
+    @Override
+    public void addContinuousFunction(ContinuousFunction continuousFunction) {
+        this.getContinuousFunctionDAO().create(continuousFunction);
+    }
+
+    @Override
+    public void updateContinuousFunction(ContinuousFunction continuousFunction) {
+        this.getContinuousFunctionDAO().update(continuousFunction);
+    }
+
+    @Override
+    public void deleteContinuousFunction(ContinuousFunction continuousFunction) {
+        this.getContinuousFunctionDAO().delete(continuousFunction);
+    }
+
+    @Override
+    public ContinuousFunction getContinuousFunction(ContinuousFunction continuousFunction) {
+        return this.getContinuousFunctionDAO().findById(continuousFunction.getTransid());
+    }
+
+    @Override
+    public ContinuousFunction getContinuousFunction(Integer transid) {
+        return this.getContinuousFunctionDAO().findById(transid);
+    }
+
+    @Override
+    public List<ContinuousFunction> getContinuousFunctionList() {
+        return this.getContinuousFunctionDAO().findAll();
+    }
+
+    @Override
+    public int getTotalContinuousFunction(ContinuousFunction continuousFunction) {
+        return this.getContinuousFunctionDAO().getTotal(continuousFunction);
+    }
+
+    @Override
+    public List<ContinuousFunction> getListContinuousFunction(ContinuousFunction filter, int start, int pageSize, boolean paged) {
+        return this.getContinuousFunctionDAO().getList(filter, start, pageSize, paged);
+    }
+    
+    @Override
+    public boolean existsTableContinuousFunction(){
+        return this.getContinuousFunctionDAO().existsTable();
+    }
+    
+    @Override
+    public void createTableContinuousFunction(){
+        this.getContinuousFunctionDAO().createTable();
+    }
+    
+    //-----------------------------------DiscreteConversion---------------------------
+    @Override
+    public void addDiscreteConversion(DiscreteConversion discreteConversion) {
+        this.getDiscreteConversionDAO().create(discreteConversion);
+    }
+
+    @Override
+    public void updateDiscreteConversion(DiscreteConversion discreteConversion) {
+        this.getDiscreteConversionDAO().update(discreteConversion);
+    }
+
+    @Override
+    public void deleteDiscreteConversion(DiscreteConversion discreteConversion) {
+        this.getDiscreteConversionDAO().delete(discreteConversion);
+    }
+
+    @Override
+    public DiscreteConversion getDiscreteConversion(DiscreteConversion discreteConversion) {
+        return this.getDiscreteConversionDAO().findById(discreteConversion.getTransid());
+    }
+
+    @Override
+    public DiscreteConversion getDiscreteConversion(Integer transid) {
+        return this.getDiscreteConversionDAO().findById(transid);
+    }
+
+    @Override
+    public List<DiscreteConversion> getDiscreteConversionList() {
+        return this.getDiscreteConversionDAO().findAll();
+    }
+
+    @Override
+    public int getTotalDiscreteConversion(DiscreteConversion discreteConversion) {
+        return this.getDiscreteConversionDAO().getTotal(discreteConversion);
+    }
+
+    @Override
+    public List<DiscreteConversion> getListDiscreteConversion(DiscreteConversion filter, int start, int pageSize, boolean paged) {
+        return this.getDiscreteConversionDAO().getList(filter, start, pageSize, paged);
+    }
+    
+    @Override
+    public boolean existsTableDiscreteConversion(){
+        return this.getDiscreteConversionDAO().existsTable();
+    }
+    
+    @Override
+    public void createTableDiscreteConversion(){
+        this.getDiscreteConversionDAO().createTable();
+    }
+    
+    //-----------------------------------Transformations---------------------------
+    @Override
+    public void addTransformations(Transformations transformations) {
+        this.getTransformationsDAO().create(transformations);
+    }
+
+    @Override
+    public void updateTransformations(Transformations transformations) {
+        this.getTransformationsDAO().update(transformations);
+    }
+
+    @Override
+    public void deleteTransformations(Transformations transformations) {
+        this.getTransformationsDAO().delete(transformations);
+    }
+
+    @Override
+    public Transformations getTransformations(Transformations transformations) {
+        return this.getTransformationsDAO().findById(transformations.getTransid());
+    }
+
+    @Override
+    public Transformations getTransformations(Integer transid) {
+        return this.getTransformationsDAO().findById(transid);
+    }
+
+    @Override
+    public List<Transformations> getTransformationsList() {
+        return this.getTransformationsDAO().findAll();
+    }
+
+    @Override
+    public int getTotalTransformations(Transformations transformations) {
+        return this.getTransformationsDAO().getTotal(transformations);
+    }
+
+    @Override
+    public List<Transformations> getListTransformations(Transformations filter, int start, int pageSize, boolean paged) {
+        return this.getTransformationsDAO().getList(filter, start, pageSize, paged);
+    }
+    
+    @Override
+    public boolean existsTableTransformations(){
+        return this.getTransformationsDAO().existsTable();
+    }
+    
+    @Override
+    public void createTableTransformations(){
+        this.getTransformationsDAO().createTable();
+    }
+
+    /**
+     * @return the continuousConversionDAO
+     */
+    public ContinuousConversionDAO getContinuousConversionDAO() {
+        return continuousConversionDAO;
+    }
+
+    /**
+     * @param continuousConversionDAO the continuousConversionDAO to set
+     */
+    public void setContinuousConversionDAO(ContinuousConversionDAO continuousConversionDAO) {
+        this.continuousConversionDAO = continuousConversionDAO;
+    }
+
+    /**
+     * @return the continuousFunctionDAO
+     */
+    public ContinuousFunctionDAO getContinuousFunctionDAO() {
+        return continuousFunctionDAO;
+    }
+
+    /**
+     * @param continuousFunctionDAO the continuousFunctionDAO to set
+     */
+    public void setContinuousFunctionDAO(ContinuousFunctionDAO continuousFunctionDAO) {
+        this.continuousFunctionDAO = continuousFunctionDAO;
+    }
+
+    /**
+     * @return the discreteConversionDAO
+     */
+    public DiscreteConversionDAO getDiscreteConversionDAO() {
+        return discreteConversionDAO;
+    }
+
+    /**
+     * @param discreteConversionDAO the discreteConversionDAO to set
+     */
+    public void setDiscreteConversionDAO(DiscreteConversionDAO discreteConversionDAO) {
+        this.discreteConversionDAO = discreteConversionDAO;
+    }
+
+    /**
+     * @return the transformationsDAO
+     */
+    public TransformationsDAO getTransformationsDAO() {
+        return transformationsDAO;
+    }
+
+    /**
+     * @param transformationsDAO the transformationsDAO to set
+     */
+    public void setTransformationsDAO(TransformationsDAO transformationsDAO) {
+        this.transformationsDAO = transformationsDAO;
+    }
 }
