@@ -2254,7 +2254,25 @@ public class IBWBAppServicesImpl implements AppServices {
      */
     @Override
     public boolean existsTratisTable() {
-        return this.serviciosCentral.existsTratisTable() && this.serviciosLocal.existsTratisTable();
+        boolean moreTables = true;
+        moreTables = this.serviciosCentral.existsTratisTable() && this.serviciosLocal.existsTratisTable();
+        if(!moreTables){
+            return moreTables;
+        }
+        moreTables = serviciosCentral.existsTableTransformations() && serviciosLocal.existsTableTransformations();
+        if(!moreTables){
+            return moreTables;
+        }
+        moreTables = serviciosCentral.existsTableContinuousConversion() && serviciosLocal.existsTableContinuousConversion();
+        if(!moreTables){
+            return moreTables;
+        }
+        moreTables = serviciosCentral.existsTableContinuousFunction() && serviciosLocal.existsTableContinuousFunction();
+        if(!moreTables){
+            return moreTables;
+        }
+        moreTables = serviciosCentral.existsTableDiscreteConversion() && serviciosLocal.existsTableDiscreteConversion();
+        return moreTables;
     }
 
     /**
@@ -2272,6 +2290,38 @@ public class IBWBAppServicesImpl implements AppServices {
             serviciosLocal.createTraitsTables();
             MigrateData.insertScaleGroupToScales(serviciosLocal);
             MigrateData.completeDependencyRatioMeasuredinLocal(serviciosLocal, serviciosCentral);
+        }
+        
+        if(!serviciosCentral.existsTableTransformations()){
+            serviciosCentral.createTableTransformations();
+        }
+        
+        if(!serviciosLocal.existsTableTransformations()){
+            serviciosLocal.createTableTransformations();
+        }
+        
+        if(!serviciosCentral.existsTableContinuousConversion()){
+            serviciosCentral.createTableContinuousConversion();
+        }
+        
+        if(!serviciosLocal.existsTableContinuousConversion()){
+            serviciosLocal.createTableContinuousConversion();
+        }
+        
+        if(!serviciosCentral.existsTableContinuousFunction()){
+            serviciosCentral.createTableContinuousFunction();
+        }
+        
+        if(!serviciosLocal.existsTableContinuousFunction()){
+            serviciosLocal.createTableContinuousFunction();
+        }
+        
+        if(!serviciosCentral.existsTableDiscreteConversion()){
+            serviciosCentral.createTableDiscreteConversion();
+        }
+        
+        if(!serviciosLocal.existsTableDiscreteConversion()){
+            serviciosLocal.createTableDiscreteConversion();
         }
     }
 
