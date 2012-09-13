@@ -423,4 +423,33 @@
         <property name="accessType" value="local"/>
     </bean>
     
+    <!-- to manage Transformations -->
+    <bean id="TransformationsDAOLocal" class="org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO">
+        <property name="sessionFactory">
+            <ref bean="sessionFactoryLocalDMS" />
+        </property>
+        <property name="accessType" value="local"/>
+    </bean>
+    
+    <bean id="DiscreteConversionDAOLocal" class="org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO">
+        <property name="sessionFactory">
+            <ref bean="sessionFactoryLocalDMS" />
+        </property>
+        <property name="accessType" value="local"/>
+    </bean>
+    
+    <bean id="ContinuousFunctionDAOLocal" class="org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO">
+        <property name="sessionFactory">
+            <ref bean="sessionFactoryLocalDMS" />
+        </property>
+        <property name="accessType" value="local"/>
+    </bean>
+    
+    <bean id="ContinuousConversionDAOLocal" class="org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO">
+        <property name="sessionFactory">
+            <ref bean="sessionFactoryLocalDMS" />
+        </property>
+        <property name="accessType" value="local"/>
+    </bean>
+    
 </beans>
