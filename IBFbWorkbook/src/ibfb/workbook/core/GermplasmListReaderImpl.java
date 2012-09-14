@@ -183,6 +183,8 @@ public class GermplasmListReaderImpl implements GermplasmListReader {
             rowData = sheet.getRow(rowIndex);
             if (rowData != null) {
 
+                // checks if all values are filled for a row
+                
                 // create a new FACTOR
                 ListOfEntries listEntry = new ListOfEntries();
 

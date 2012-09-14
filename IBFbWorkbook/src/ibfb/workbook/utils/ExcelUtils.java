@@ -151,6 +151,8 @@ public class ExcelUtils {
                     result = true;
                 }
                 break;
+            case Cell.CELL_TYPE_BLANK:
+                result = false;
         }
 
         return result;
