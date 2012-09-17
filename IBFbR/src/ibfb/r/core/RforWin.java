@@ -30,7 +30,6 @@ public class RforWin extends Thread implements RInterface {
             case 2:
                 this.scriptR = "multilocation.R";
                 break;
-
             case 3:
                 this.scriptR = "gregAmmiMulti.R";
                 break;
