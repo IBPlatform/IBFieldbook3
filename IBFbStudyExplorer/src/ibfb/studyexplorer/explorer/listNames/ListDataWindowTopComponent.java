@@ -304,7 +304,6 @@ public final class ListDataWindowTopComponent extends TopComponent {
         lblEntriesFound.setText(listdataEntries.size() + " " + bundle.getString("ListDataWindowTopComponent.entriesFound"));
         TableBindingUtil.createColumnsFromDB(Listdata.class, listdataEntries, tblListData, "gid,desig,entrycd,source,entryid", header.toString());
 
-
         if(isForWheat()){
             loadData();
             System.out.println("ok es trigo");

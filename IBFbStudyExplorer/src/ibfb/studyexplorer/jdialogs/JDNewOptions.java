@@ -558,7 +558,8 @@ public class JDNewOptions extends javax.swing.JDialog {
             } else {
                 studyEditor.jTabbedPaneEditor.setEnabledAt(4, true);
             }
-
+            
+            studyEditor.defineTabs();
             studyEditor.open();
             studyEditor.requestActive();
         }

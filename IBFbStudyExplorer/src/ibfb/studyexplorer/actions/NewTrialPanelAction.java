@@ -235,7 +235,8 @@ public final class NewTrialPanelAction implements ActionListener {
             } else {
                 studyEditor.jTabbedPaneEditor.setEnabledAt(4, true);
             }
-
+            
+            studyEditor.defineTabs();
             studyEditor.open();
             studyEditor.requestActive();
 
