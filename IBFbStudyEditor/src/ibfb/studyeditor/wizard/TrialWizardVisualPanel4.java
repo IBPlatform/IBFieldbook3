@@ -4,14 +4,15 @@ import ibfb.domain.core.Factor;
 import ibfb.domain.core.GermplasmList;
 import ibfb.domain.core.ListOfEntries;
 import ibfb.domain.core.Workbook;
+import ibfb.lists.core.SelectListDialog;
 import ibfb.query.classes.GermplsmRecord;
 import ibfb.query.classes.GpidInfClass;
 import ibfb.query.classes.NamesRecord;
 import ibfb.query.core.QueryCenter;
 import ibfb.settings.core.FieldbookSettings;
+import ibfb.studyeditor.core.CROP;
 import ibfb.studyeditor.core.StudyEditorTopComponent;
 import ibfb.studyeditor.core.model.GermplasmEntriesTableModel;
-import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 import ibfb.studyexplorer.filters.ExcelFiltro;
 import ibfb.workbook.api.GermplasmAssigmentTool;
 import ibfb.workbook.api.GermplasmListReader;
@@ -26,9 +27,14 @@ import java.util.List;
 import java.util.ResourceBundle;
 import javax.swing.*;
 import javax.swing.filechooser.FileFilter;
-import javax.swing.table.*;
+import javax.swing.table.DefaultTableColumnModel;
+import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableModel;
 import org.cimmyt.cril.ibwb.api.AppServicesProxy;
+import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 import org.cimmyt.cril.ibwb.commongui.OSUtils;
+import org.cimmyt.cril.ibwb.domain.Listdata;
 import org.cimmyt.cril.ibwb.domain.Listnms;
 import org.netbeans.api.progress.ProgressHandle;
 import org.netbeans.api.progress.ProgressHandleFactory;
@@ -36,8 +42,6 @@ import org.netbeans.api.progress.ProgressUtils;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.util.NbBundle;
-import ibfb.lists.core.SelectListDialog;
-import org.cimmyt.cril.ibwb.domain.Listdata;
 
 public final class TrialWizardVisualPanel4 extends JPanel {
 
@@ -47,7 +51,6 @@ public final class TrialWizardVisualPanel4 extends JPanel {
     private Desktop desktop = null;
     private Desktop.Action action = null;
     private File archivo = null;
-    private boolean isForWheat = true;
     private String[] nameColumn = {"Cross Name", "Selection History", "Pedigree", "CID", "SID", "GID", "INTRID", "TID", "ENT", "Folio", "Specific Name", "Name Abbreviation", "Cross Year", "Cross Location", "Cross Country", "Cross Organization", "Cross Program", "FAO In-trust", "Selection Year", "Selection Location", "Selection Country", "Name Country", "Name Year", "FAO designation Date", "24 disp", "25 disp"};
     private ArrayList<String> wheatColumns;
     private ArrayList<String> wheatColumnsforSearch;
@@ -56,16 +59,19 @@ public final class TrialWizardVisualPanel4 extends JPanel {
     private boolean ready = false;
     private ProgressHandle handle;
     private String porcentaje;
+    private StudyEditorTopComponent studyWindow = TrialWizardWizardIterator.studyTopComponent;
 
     public TrialWizardVisualPanel4() {
         initComponents();
         fillComboListNames();
         checkButtonsStatus();
+        
+        
 
-        if (isForWheat) {
+        if(studyWindow.getCROP()==CROP.WHEAT){
             loadNamesForWheat();
-            //  loadQueryCenter();
         }
+        
     }
 
     public void showProgressStatus() {
@@ -501,8 +507,7 @@ public final class TrialWizardVisualPanel4 extends JPanel {
 
             readGermplsmEntriesFromDb();
 
-            if (isForWheat) {
-
+            if(studyWindow.getCROP()==CROP.WHEAT){
                 showProgressStatus();
             }
         }
@@ -657,7 +662,6 @@ public final class TrialWizardVisualPanel4 extends JPanel {
     }
 
     public void copyValues() {
-        StudyEditorTopComponent studyWindow = TrialWizardWizardIterator.studyTopComponent;
         GermplasmEntriesTableModel tableModel = (GermplasmEntriesTableModel) this.jTableEntries.getModel();
         studyWindow.assignGermplasmEntries(tableModel.getFactorHeaders(), tableModel.getGermplasmData());
 

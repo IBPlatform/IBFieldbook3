@@ -14,8 +14,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.JTableHeader;
-import org.cimmyt.cril.ibwb.commongui.OSUtils;
 import org.openide.util.NbBundle;
 
 public final class TrialWizardVisualPanel1 extends JPanel {
@@ -32,8 +30,7 @@ public final class TrialWizardVisualPanel1 extends JPanel {
     private DefaultTableModel modeloTablaFactors = new DefaultTableModel();
     private DefaultTableModel modeloTablaTraits = new DefaultTableModel();
     private DefaultTableModel modeloTablaMain = new DefaultTableModel();
-    private JTableHeader titulos = new JTableHeader();
-    private Object[] columnas;
+    private int theCrop=0;
 
     public TrialWizardVisualPanel1() {
         initComponents();
@@ -268,12 +265,7 @@ public final class TrialWizardVisualPanel1 extends JPanel {
             selectorArchivo.removeChoosableFileFilter(filtro);
         }
 
-
-        //File myDesktop = new File(path);
-        //File myDesktop = new File(OSUtils.getTemplatesPath());
         File myDesktop = new File(FieldbookSettings.getSetting(FieldbookSettings.TEMPLATES_DEFAULT_FOLDER));
-
-        System.out.println("IBFbpath ---->" + OSUtils.getTemplatesPath());
 
         if (myDesktop.exists()) {
             selectorArchivo.setCurrentDirectory(myDesktop);
@@ -298,12 +290,22 @@ public final class TrialWizardVisualPanel1 extends JPanel {
 
         try {
             isValidFile = validateExcelReader.isValidTemplate(this.jTextAreaPath.getText());
+            
+        
         } catch (Exception ex) {
             System.out.println("ERROR AL VALIDAD TEMPLATE DE EXCEL");
         }
 
         if (isValidFile) {
 
+         
+            try {
+                theCrop = validateExcelReader.giveMeCrop(this.jTextAreaPath.getText());
+            } catch (Exception ex) {
+                System.out.println("ERROR AL OBTENER CROP");
+            }
+            
+            
             this.jTextAreaPath.setText(selectorArchivo.getSelectedFile().toString());
             this.jButtonPreview.setEnabled(true);
 
@@ -346,4 +348,8 @@ public final class TrialWizardVisualPanel1 extends JPanel {
     private javax.swing.JPanel pnlSelecteTemplateDb;
     private javax.swing.JPanel pnlSelecteTemplateFile;
     // End of variables declaration//GEN-END:variables
+
+    public int giveMeCrop() {
+        return this.theCrop;
+    }
 }

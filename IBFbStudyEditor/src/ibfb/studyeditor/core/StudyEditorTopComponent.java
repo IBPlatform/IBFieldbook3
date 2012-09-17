@@ -1,51 +1,28 @@
 package ibfb.studyeditor.core;
 
-import ibfb.domain.core.Condition;
-import ibfb.domain.core.Constant;
-import ibfb.domain.core.DesignBean;
-import ibfb.domain.core.Factor;
-import ibfb.domain.core.FactorLabel;
-import ibfb.domain.core.Measurement;
-import ibfb.domain.core.MeasurementData;
-import ibfb.domain.core.Study;
-import ibfb.domain.core.Variate;
-import ibfb.studyeditor.reports.TraitsReportHelper;
-import ibfb.studyeditor.roweditors.AlphaDesignsRowEditor;
-import ibfb.studyeditor.roweditors.CSVOziel;
-import ibfb.studyeditor.roweditors.ColumnFitAdapter;
-import ibfb.studyeditor.roweditors.TrialConditionsRowEditor;
-import ibfb.studyexplorer.filters.CSVFiltro;
-import ibfb.domain.core.Workbook;
+import ibfb.domain.core.*;
 import ibfb.studyeditor.core.db.FieldbookCSVUtil;
 import ibfb.studyeditor.core.db.WorkbookSavingHelper;
-import ibfb.studyeditor.core.model.DesignTableModel;
-import ibfb.studyeditor.core.model.ExperimentalConditionsTableModel;
-import ibfb.studyeditor.core.model.GermplasmEntriesTableModel;
-import ibfb.studyeditor.core.model.JTableUtils;
-import ibfb.studyeditor.core.model.ObservationTableTooltips;
-import ibfb.studyeditor.core.model.ObservationsTableModel;
-import ibfb.studyeditor.core.model.OtherTreatmentFactorsTableModel;
-import ibfb.studyeditor.core.model.StudyConditionsTableModel;
-import ibfb.studyeditor.core.model.TreatmentLabelsTableModel;
-import ibfb.studyeditor.core.model.TrialConditionsTableModel;
+import ibfb.studyeditor.core.model.*;
 import ibfb.studyeditor.designs.DesignsClass;
 import ibfb.studyeditor.designs.DesignsUtils;
 import ibfb.studyeditor.export.FieldBookExcelExporter;
 import ibfb.studyeditor.export.FieldbookCSVExporter;
 import ibfb.studyeditor.export.FieldbookRExport;
+import ibfb.studyeditor.exportformaize.maizeExportWizardIterator;
 import ibfb.studyeditor.exportwizard.exportWizardIterator;
 import ibfb.studyeditor.exportwizard.exportWizardPanelGYTrait;
 import ibfb.studyeditor.gywizard.GYwizardWizardIterator;
 import ibfb.studyeditor.importwizard.ImportData;
 import ibfb.studyeditor.importwizard.importingVisualPanel2;
 import ibfb.studyeditor.importwizard.importingWizardIterator;
-import ibfb.studyeditor.roweditors.ConditionsRowEditor;
-import ibfb.studyeditor.roweditors.ListItemTransferHandler;
+import ibfb.studyeditor.reports.TraitsReportHelper;
+import ibfb.studyeditor.roweditors.*;
 import ibfb.studyeditor.util.Clipboard;
 import ibfb.studyeditor.util.DateUtil;
-import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 import ibfb.studyeditor.util.LookupUtil;
 import ibfb.studyeditor.util.RefreshBrowserHelper;
+import ibfb.studyexplorer.filters.CSVFiltro;
 import ibfb.studyexplorer.filters.ExcelFiltro;
 import ibfb.traits.traits.TraitsExplorerTopComponent;
 import java.awt.*;
@@ -58,33 +35,13 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ExecutionException;
 import java.util.regex.PatternSyntaxException;
-import javax.swing.DefaultCellEditor;
-import javax.swing.DefaultListModel;
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.JList;
-import javax.swing.JOptionPane;
-import javax.swing.JSpinner;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.RowFilter;
-import javax.swing.SpinnerModel;
-import javax.swing.SpinnerNumberModel;
-import javax.swing.SwingConstants;
-import javax.swing.SwingWorker;
-import javax.swing.TransferHandler;
+import javax.swing.*;
 import javax.swing.filechooser.FileFilter;
-import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.DefaultTableColumnModel;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableCellRenderer;
-import javax.swing.table.TableColumn;
-import javax.swing.table.TableColumnModel;
-import javax.swing.table.TableModel;
-import javax.swing.table.TableRowSorter;
+import javax.swing.table.*;
 import net.java.balloontip.BalloonTip;
 import net.java.balloontip.utils.ToolTipUtils;
 import org.cimmyt.cril.ibwb.api.AppServicesProxy;
+import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 import org.cimmyt.cril.ibwb.commongui.OSUtils;
 import org.cimmyt.cril.ibwb.commongui.select.list.DoubleListPanel;
 import org.cimmyt.cril.ibwb.commongui.select.list.DropTargetCommand;
@@ -92,8 +49,6 @@ import org.cimmyt.cril.ibwb.commongui.select.list.SelectCommand;
 import org.cimmyt.cril.ibwb.domain.Traits;
 import org.netbeans.api.progress.ProgressHandle;
 import org.netbeans.api.progress.ProgressHandleFactory;
-import org.openide.util.NbBundle;
-import org.openide.windows.TopComponent;
 import org.netbeans.api.settings.ConvertAsProperties;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
@@ -102,7 +57,9 @@ import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.util.Exceptions;
 import org.openide.util.Mutex;
+import org.openide.util.NbBundle;
 import org.openide.util.NbPreferences;
+import org.openide.windows.TopComponent;
 import org.openide.windows.WindowManager;
 
 @ConvertAsProperties(dtd = "-//ibfb.studyeditor.core//StudyEditor//EN",
@@ -119,6 +76,10 @@ persistenceType = TopComponent.PERSISTENCE_NEVER)
 preferredID = "StudyEditorTopComponent")
 public final class StudyEditorTopComponent extends TopComponent {
 
+   
+
+    private int crop = 0;
+   
     final static String badchars = "`~!@#$%^&*()_+=\\|\"':;?/>.<, ";
     private JFileChooser selectorArchivo = new JFileChooser();
     private TableDataExporterHelper helper = new TableDataExporterHelper();
@@ -371,6 +332,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         jPopupMenuSelect = new javax.swing.JPopupMenu();
         jMenuItemSelect = new javax.swing.JMenuItem();
         jMenuItemSelectAll = new javax.swing.JMenuItem();
+        jToolBar1 = new javax.swing.JToolBar();
         jTabbedPaneEditor = new javax.swing.JTabbedPane();
         pnlGeneralInformation = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -460,9 +422,23 @@ public final class StudyEditorTopComponent extends TopComponent {
         jTextTrialName = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         btnPrintLabels = new javax.swing.JButton();
-        jButtonSaveToExcel = new javax.swing.JButton();
-        jButtonCSVTraitsExport1 = new javax.swing.JButton();
-        jButtonCSVTraitsImport1 = new javax.swing.JButton();
+        jButtonSaveData = new javax.swing.JButton();
+        jButtonExportData = new javax.swing.JButton();
+        jButtonImportData = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        jTableMaster = new javax.swing.JTable();
+        jPanel6 = new javax.swing.JPanel();
+        jButtonSaveMaster = new javax.swing.JButton();
+        jButtonExportMaster = new javax.swing.JButton();
+        pnlMeasurementFilter1 = new javax.swing.JPanel();
+        jRadioButtonFilterTrialMaster = new javax.swing.JRadioButton();
+        jRadioButtonAllTrialsMaster = new javax.swing.JRadioButton();
+        jSpinnerTrialMaster = new javax.swing.JSpinner();
+        jRadioButtonFilterEntry1 = new javax.swing.JRadioButton();
+        jSpinnerEntry1 = new javax.swing.JSpinner();
+        lblTrialNameMaster = new javax.swing.JLabel();
+        jTextTrialNameMaster = new javax.swing.JTextField();
 
         org.openide.awt.Mnemonics.setLocalizedText(jMenuItem1, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jMenuItem1.text")); // NOI18N
         jMenuItem1.setToolTipText(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jMenuItem1.toolTipText")); // NOI18N
@@ -531,6 +507,8 @@ public final class StudyEditorTopComponent extends TopComponent {
             }
         });
         jPopupMenuSelect.add(jMenuItemSelectAll);
+
+        jToolBar1.setRollover(true);
 
         jTabbedPaneEditor.setMinimumSize(new java.awt.Dimension(0, 0));
 
@@ -708,7 +686,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                 .addGap(33, 33, 33)
                 .addComponent(lblStudyConditions)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 571, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 655, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -817,7 +795,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                 .addContainerGap()
                 .addComponent(pnlTrialInformationFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 695, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 792, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -916,7 +894,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                 .addContainerGap()
                 .addComponent(pnlExperimentalConditionFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 695, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 792, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1013,7 +991,7 @@ public final class StudyEditorTopComponent extends TopComponent {
             .addGroup(pnlGermplasmEntriesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlGermplasmEntriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 1049, Short.MAX_VALUE)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 1041, Short.MAX_VALUE)
                     .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -1023,7 +1001,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                 .addContainerGap()
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 667, Short.MAX_VALUE)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 779, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1051,7 +1029,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         pnlOtherTreatmentLayout.setVerticalGroup(
             pnlOtherTreatmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlOtherTreatmentLayout.createSequentialGroup()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 273, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 599, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -1210,7 +1188,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                 .addContainerGap()
                 .addComponent(pnlExperimConditionsFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 651, Short.MAX_VALUE)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 749, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1310,7 +1288,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                     .addGroup(jPanelTraitsLayout.createSequentialGroup()
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(pnlSelectList, javax.swing.GroupLayout.DEFAULT_SIZE, 633, Short.MAX_VALUE))
+                        .addComponent(pnlSelectList, javax.swing.GroupLayout.DEFAULT_SIZE, 729, Short.MAX_VALUE))
                     .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelTraitsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1326,11 +1304,11 @@ public final class StudyEditorTopComponent extends TopComponent {
         pnlTraits.setLayout(pnlTraitsLayout);
         pnlTraitsLayout.setHorizontalGroup(
             pnlTraitsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelTraits, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1069, Short.MAX_VALUE)
+            .addComponent(jPanelTraits, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1053, Short.MAX_VALUE)
         );
         pnlTraitsLayout.setVerticalGroup(
             pnlTraitsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelTraits, javax.swing.GroupLayout.DEFAULT_SIZE, 792, Short.MAX_VALUE)
+            .addComponent(jPanelTraits, javax.swing.GroupLayout.DEFAULT_SIZE, 884, Short.MAX_VALUE)
         );
 
         jTabbedPaneEditor.addTab(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.pnlTraits.TabConstraints.tabTitle"), pnlTraits); // NOI18N
@@ -1364,7 +1342,6 @@ public final class StudyEditorTopComponent extends TopComponent {
         });
 
         buttonGroupMeasurements.add(jRadioButtonAllTrials2);
-        jRadioButtonAllTrials2.setSelected(true);
         org.openide.awt.Mnemonics.setLocalizedText(jRadioButtonAllTrials2, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jRadioButtonAllTrials2.text")); // NOI18N
         jRadioButtonAllTrials2.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -1417,7 +1394,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                 .addComponent(lblTrialName)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextTrialName, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 375, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 276, Short.MAX_VALUE)
                 .addComponent(jRadioButtonAllTrials2)
                 .addContainerGap())
         );
@@ -1455,38 +1432,38 @@ public final class StudyEditorTopComponent extends TopComponent {
             }
         });
 
-        jButtonSaveToExcel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyeditor/images/save.png"))); // NOI18N
-        org.openide.awt.Mnemonics.setLocalizedText(jButtonSaveToExcel, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jButtonSaveToExcel.text")); // NOI18N
-        jButtonSaveToExcel.setToolTipText(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jButtonSaveToExcel.toolTipText")); // NOI18N
-        jButtonSaveToExcel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButtonSaveToExcel.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButtonSaveToExcel.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSaveData.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyeditor/images/save.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(jButtonSaveData, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jButtonSaveData.text")); // NOI18N
+        jButtonSaveData.setToolTipText(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jButtonSaveData.toolTipText")); // NOI18N
+        jButtonSaveData.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonSaveData.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonSaveData.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSaveToExcelActionPerformed(evt);
+                jButtonSaveDataActionPerformed(evt);
             }
         });
 
-        jButtonCSVTraitsExport1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyeditor/images/export.png"))); // NOI18N
-        org.openide.awt.Mnemonics.setLocalizedText(jButtonCSVTraitsExport1, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jButtonCSVTraitsExport1.text")); // NOI18N
-        jButtonCSVTraitsExport1.setToolTipText(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jButtonCSVTraitsExport1.toolTipText")); // NOI18N
-        jButtonCSVTraitsExport1.setEnabled(false);
-        jButtonCSVTraitsExport1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButtonCSVTraitsExport1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButtonCSVTraitsExport1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonExportData.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyeditor/images/export.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(jButtonExportData, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jButtonExportData.text")); // NOI18N
+        jButtonExportData.setToolTipText(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jButtonExportData.toolTipText")); // NOI18N
+        jButtonExportData.setEnabled(false);
+        jButtonExportData.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonExportData.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonExportData.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCSVTraitsExport1ActionPerformed(evt);
+                jButtonExportDataActionPerformed(evt);
             }
         });
 
-        jButtonCSVTraitsImport1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyeditor/images/csvFile.png"))); // NOI18N
-        org.openide.awt.Mnemonics.setLocalizedText(jButtonCSVTraitsImport1, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jButtonCSVTraitsImport1.text")); // NOI18N
-        jButtonCSVTraitsImport1.setToolTipText(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jButtonCSVTraitsImport1.toolTipText")); // NOI18N
-        jButtonCSVTraitsImport1.setEnabled(false);
-        jButtonCSVTraitsImport1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButtonCSVTraitsImport1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButtonCSVTraitsImport1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonImportData.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyeditor/images/csvFile.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(jButtonImportData, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jButtonImportData.text")); // NOI18N
+        jButtonImportData.setToolTipText(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jButtonImportData.toolTipText")); // NOI18N
+        jButtonImportData.setEnabled(false);
+        jButtonImportData.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonImportData.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonImportData.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCSVTraitsImport1ActionPerformed(evt);
+                jButtonImportDataActionPerformed(evt);
             }
         });
 
@@ -1497,27 +1474,27 @@ public final class StudyEditorTopComponent extends TopComponent {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonCSVTraitsImport1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonCSVTraitsExport1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonSaveToExcel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonImportData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonExportData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonSaveData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnPrintLabels, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButtonSaveToExcel)
+                .addComponent(jButtonSaveData)
                 .addGap(18, 18, 18)
                 .addComponent(btnPrintLabels, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButtonCSVTraitsExport1)
+                .addComponent(jButtonExportData)
                 .addGap(18, 18, 18)
-                .addComponent(jButtonCSVTraitsImport1)
+                .addComponent(jButtonImportData)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel5Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnPrintLabels, jButtonCSVTraitsExport1, jButtonCSVTraitsImport1, jButtonSaveToExcel});
+        jPanel5Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnPrintLabels, jButtonExportData, jButtonImportData, jButtonSaveData});
 
         javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
         jPanel21.setLayout(jPanel21Layout);
@@ -1540,8 +1517,8 @@ public final class StudyEditorTopComponent extends TopComponent {
                 .addComponent(pnlMeasurementFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 695, Short.MAX_VALUE)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 695, Short.MAX_VALUE))
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 792, Short.MAX_VALUE)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 792, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -1549,14 +1526,192 @@ public final class StudyEditorTopComponent extends TopComponent {
         pnlMeasurement.setLayout(pnlMeasurementLayout);
         pnlMeasurementLayout.setHorizontalGroup(
             pnlMeasurementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, 1069, Short.MAX_VALUE)
+            .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, 1053, Short.MAX_VALUE)
         );
         pnlMeasurementLayout.setVerticalGroup(
             pnlMeasurementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, 792, Short.MAX_VALUE)
+            .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, 884, Short.MAX_VALUE)
         );
 
         jTabbedPaneEditor.addTab(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.pnlMeasurement.TabConstraints.tabTitle"), pnlMeasurement); // NOI18N
+
+        jScrollPane9.setAutoscrolls(true);
+        jScrollPane9.setMinimumSize(new java.awt.Dimension(0, 0));
+        jScrollPane9.setPreferredSize(new java.awt.Dimension(450, 400));
+
+        jTableMaster.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jTableMaster.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jTableMaster.getTableHeader().setReorderingAllowed(false);
+        jScrollPane9.setViewportView(jTableMaster);
+
+        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jPanel6.border.title"))); // NOI18N
+        jPanel6.setPreferredSize(new java.awt.Dimension(187, 85));
+
+        jButtonSaveMaster.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyeditor/images/save.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(jButtonSaveMaster, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jButtonSaveMaster.text")); // NOI18N
+        jButtonSaveMaster.setToolTipText(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jButtonSaveMaster.toolTipText")); // NOI18N
+        jButtonSaveMaster.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonSaveMaster.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonSaveMaster.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSaveMasterActionPerformed(evt);
+            }
+        });
+
+        jButtonExportMaster.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/studyeditor/images/export.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(jButtonExportMaster, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jButtonExportMaster.text")); // NOI18N
+        jButtonExportMaster.setToolTipText(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jButtonExportMaster.toolTipText")); // NOI18N
+        jButtonExportMaster.setEnabled(false);
+        jButtonExportMaster.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonExportMaster.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonExportMaster.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonExportMasterActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonSaveMaster, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonExportMaster))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel6Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButtonExportMaster, jButtonSaveMaster});
+
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButtonSaveMaster)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonExportMaster)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel6Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButtonExportMaster, jButtonSaveMaster});
+
+        pnlMeasurementFilter1.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.pnlMeasurementFilter1.border.title"))); // NOI18N
+
+        buttonGroupMeasurements.add(jRadioButtonFilterTrialMaster);
+        org.openide.awt.Mnemonics.setLocalizedText(jRadioButtonFilterTrialMaster, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jRadioButtonFilterTrialMaster.text")); // NOI18N
+        jRadioButtonFilterTrialMaster.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jRadioButtonFilterTrialMasterItemStateChanged(evt);
+            }
+        });
+
+        buttonGroupMeasurements.add(jRadioButtonAllTrialsMaster);
+        org.openide.awt.Mnemonics.setLocalizedText(jRadioButtonAllTrialsMaster, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jRadioButtonAllTrialsMaster.text")); // NOI18N
+        jRadioButtonAllTrialsMaster.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jRadioButtonAllTrialsMasterItemStateChanged(evt);
+            }
+        });
+
+        jSpinnerTrialMaster.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSpinnerTrialMasterStateChanged(evt);
+            }
+        });
+
+        buttonGroupMeasurements.add(jRadioButtonFilterEntry1);
+        org.openide.awt.Mnemonics.setLocalizedText(jRadioButtonFilterEntry1, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jRadioButtonFilterEntry1.text")); // NOI18N
+        jRadioButtonFilterEntry1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jRadioButtonFilterEntry1ItemStateChanged(evt);
+            }
+        });
+
+        jSpinnerEntry1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSpinnerEntry1StateChanged(evt);
+            }
+        });
+
+        org.openide.awt.Mnemonics.setLocalizedText(lblTrialNameMaster, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.lblTrialNameMaster.text")); // NOI18N
+
+        jTextTrialNameMaster.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextTrialNameMasterKeyReleased(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlMeasurementFilter1Layout = new javax.swing.GroupLayout(pnlMeasurementFilter1);
+        pnlMeasurementFilter1.setLayout(pnlMeasurementFilter1Layout);
+        pnlMeasurementFilter1Layout.setHorizontalGroup(
+            pnlMeasurementFilter1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlMeasurementFilter1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jRadioButtonFilterTrialMaster)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSpinnerTrialMaster, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(jRadioButtonFilterEntry1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSpinnerEntry1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblTrialNameMaster)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextTrialNameMaster, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 276, Short.MAX_VALUE)
+                .addComponent(jRadioButtonAllTrialsMaster)
+                .addContainerGap())
+        );
+        pnlMeasurementFilter1Layout.setVerticalGroup(
+            pnlMeasurementFilter1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlMeasurementFilter1Layout.createSequentialGroup()
+                .addGroup(pnlMeasurementFilter1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRadioButtonFilterTrialMaster)
+                    .addComponent(jSpinnerTrialMaster, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jRadioButtonFilterEntry1)
+                    .addGroup(pnlMeasurementFilter1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jSpinnerEntry1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblTrialNameMaster)
+                        .addComponent(jTextTrialNameMaster, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jRadioButtonAllTrialsMaster))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnlMeasurementFilter1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pnlMeasurementFilter1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 792, Short.MAX_VALUE)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 792, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        jTabbedPaneEditor.addTab(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jPanel1.TabConstraints.tabTitle"), jPanel1); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -1762,6 +1917,16 @@ public final class StudyEditorTopComponent extends TopComponent {
         }
     }
 
+    public int getCROP() {
+        return crop;
+    }
+
+    public void setCROP(int CROP) {
+        this.crop = CROP;
+    }
+    
+    
+
     private void filterObservationsByTrial() {
         if (this.jRadioButtonFilterTrial.isSelected()) {
             int num = (Integer) this.jSpinnerTrial.getValue();
@@ -1806,9 +1971,8 @@ public final class StudyEditorTopComponent extends TopComponent {
         }
         return hasGY;
     }
-    
-    
-        public boolean hasGYbyDefault() {
+
+    public boolean hasGYbyDefault() {
         boolean hasGY = false;
         ObservationsTableModel modeloOriginal = (ObservationsTableModel) jTableObservations.getModel();
         if (modeloOriginal.findColumn("GY") >= 0) {
@@ -1816,40 +1980,48 @@ public final class StudyEditorTopComponent extends TopComponent {
         }
         return hasGY;
     }
-    
 
-    private void jButtonCSVTraitsExport1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCSVTraitsExport1ActionPerformed
-//
-//        if (!hasGY()) {
-//           // DialogUtil.displayWarning(NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.noGY"));
-//         if(this.getSelectedTraits().size()>0){
-//           
-////            if(!loadGY()){
-////            this.setStringTraitToEvaluate("GY");
-////            }
-//             
-//             
-//         }           
-//        }
+    private void jButtonExportDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExportDataActionPerformed
 
-        NbPreferences.forModule(exportWizardPanelGYTrait.class).put("traitIndex", "-1");
+        switch (this.getCROP()) {
+            case CROP.WHEAT:
+                NbPreferences.forModule(exportWizardPanelGYTrait.class).put("traitIndex", "-1");
+                if (!iniciaExportWizardStandar()) {
+                    this.setStringTraitToEvaluate("GY");
+                    NbPreferences.forModule(exportWizardPanelGYTrait.class).put("traitIndex", "-1");
+                }
+                break;
 
-        if (!iniciaExportWizard2()) {
-            this.setStringTraitToEvaluate("GY");
-            NbPreferences.forModule(exportWizardPanelGYTrait.class).put("traitIndex", "-1");
+            case CROP.MAIZE:
+                  iniciaExportForMaize();
+                  
+                  
+                
+                break;
+
+            case CROP.OTHERCROPS:
+                NbPreferences.forModule(exportWizardPanelGYTrait.class).put("traitIndex", "-1");
+                if (!iniciaExportWizardStandar()) {
+                    this.setStringTraitToEvaluate("GY");
+                    NbPreferences.forModule(exportWizardPanelGYTrait.class).put("traitIndex", "-1");
+                }
+
+                break;
+
         }
-}//GEN-LAST:event_jButtonCSVTraitsExport1ActionPerformed
+       
+}//GEN-LAST:event_jButtonExportDataActionPerformed
 
     private void exportToFieldlog() {
         FieldbookCSVExporter.exportToFieldlog(jTableObservations, trialFile, csv, triallOption, trialStart, trialEnd, trialSelected);
     }
 
-    private void jButtonCSVTraitsImport1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCSVTraitsImport1ActionPerformed
+    private void jButtonImportDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonImportDataActionPerformed
         //launchImportWizard();
         if (!launchImportWizard()) {
             return;
         }
-}//GEN-LAST:event_jButtonCSVTraitsImport1ActionPerformed
+}//GEN-LAST:event_jButtonImportDataActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         excludeColumns();
@@ -1919,7 +2091,7 @@ public final class StudyEditorTopComponent extends TopComponent {
 
     }//GEN-LAST:event_jButtonSyncActionPerformed
 
-    private void jButtonSaveToExcelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveToExcelActionPerformed
+    private void jButtonSaveDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveDataActionPerformed
         if (jTextTrialName.getText().trim().isEmpty()) {
             DialogUtil.displayError(NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.fillName"));
             jTextTrialName.requestFocus();
@@ -1964,7 +2136,7 @@ public final class StudyEditorTopComponent extends TopComponent {
             }
         }).execute();
         return;
-    }//GEN-LAST:event_jButtonSaveToExcelActionPerformed
+    }//GEN-LAST:event_jButtonSaveDataActionPerformed
 
     private void doSaveWorkbook() {
         WorkbookSavingHelper.saveFieldbook(this);
@@ -2233,15 +2405,10 @@ public final class StudyEditorTopComponent extends TopComponent {
         int colGID = entriesTableModel.findColumn("GID");
         if (colGID > 0) {
 
-
             String str = "GID\n";
-
-
             for (int i = 0; i < entriesTableModel.getRowCount(); i++) {
                 str = str + entriesTableModel.getValueAt(i, colGID).toString() + "\n";
             }
-
-
             StringSelection ss = new StringSelection(str);
             Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
 
@@ -2287,8 +2454,54 @@ public final class StudyEditorTopComponent extends TopComponent {
 
     }//GEN-LAST:event_jButtonImportCrossInfoActionPerformed
 
+    private void jButtonSaveMasterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveMasterActionPerformed
+    }//GEN-LAST:event_jButtonSaveMasterActionPerformed
+
+    private void jButtonExportMasterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExportMasterActionPerformed
+    }//GEN-LAST:event_jButtonExportMasterActionPerformed
+
+    private void jRadioButtonFilterTrialMasterItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioButtonFilterTrialMasterItemStateChanged
+    }//GEN-LAST:event_jRadioButtonFilterTrialMasterItemStateChanged
+
+    private void jRadioButtonAllTrialsMasterItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioButtonAllTrialsMasterItemStateChanged
+    }//GEN-LAST:event_jRadioButtonAllTrialsMasterItemStateChanged
+
+    private void jSpinnerTrialMasterStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerTrialMasterStateChanged
+    }//GEN-LAST:event_jSpinnerTrialMasterStateChanged
+
+    private void jRadioButtonFilterEntry1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioButtonFilterEntry1ItemStateChanged
+    }//GEN-LAST:event_jRadioButtonFilterEntry1ItemStateChanged
+
+    private void jSpinnerEntry1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerEntry1StateChanged
+    }//GEN-LAST:event_jSpinnerEntry1StateChanged
+
+    private void jTextTrialNameMasterKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextTrialNameMasterKeyReleased
+    }//GEN-LAST:event_jTextTrialNameMasterKeyReleased
+
     @Override
     public void componentOpened() {
+
+   
+    }
+    
+    public void defineTabs(){
+           switch (this.getCROP()) {
+            case CROP.WHEAT:
+                this.jTabbedPaneEditor.removeTabAt(8); //remove MASTER tab
+                
+
+                break;
+            case CROP.MAIZE:
+                
+
+                break;
+                
+            case CROP.OTHERCROPS:
+                this.jTabbedPaneEditor.removeTabAt(8); //remove MASTER tab
+
+                break;
+
+        }  
     }
 
     @Override
@@ -2462,18 +2675,18 @@ public final class StudyEditorTopComponent extends TopComponent {
             } else if (disenio.equals(DesignsClass.ALFA_DESIGN)) {
                 if (OSUtils.isMacOS()) {
                     disenios.runR_alpha(i + 1, entries, Integer.parseInt(rep), Integer.parseInt(blockSize));
-                    
-                     if (!disenios.existeArchivo("alpha")) {
-                       
-                         try {
+
+                    if (!disenios.existeArchivo("alpha")) {
+
+                        try {
                             Thread.sleep(1500);
                         } catch (InterruptedException ex) {
-                            System.out.println("ERROR EN HILO ESPERA "+ex);
+                            System.out.println("ERROR EN HILO ESPERA " + ex);
                         }
-                     }
-                     
-                    disenios.readAlphaDesign(i + 1, "alpha", tableModel, jTableEntries);   
-                   disenios.deleteWDforMac();
+                    }
+
+                    disenios.readAlphaDesign(i + 1, "alpha", tableModel, jTableEntries);
+                    disenios.deleteWDforMac();
                 } else {
                     disenios.runR_alphaWindows(entries, Integer.parseInt(rep), Integer.parseInt(blockSize));
 
@@ -2635,16 +2848,16 @@ public final class StudyEditorTopComponent extends TopComponent {
     }
 
     private int[] randomizeDif(int tam) {
-        
+
         Random r;
-        r=new Random();
+        r = new Random();
         r.setSeed(new Date().getTime());
-        
-        
+
+
         int vector[] = new int[tam];
         int i = 0, j;
         vector[i] = (int) (r.nextDouble() * tam);
-        
+
         for (i = 1; i < tam; i++) {
             vector[i] = (int) (r.nextDouble() * tam);
             for (j = 0; j < i; j++) {
@@ -2655,18 +2868,18 @@ public final class StudyEditorTopComponent extends TopComponent {
         }
         return vector;
     }
-    
-        private int[] randomize(int tam) {
-        
+
+    private int[] randomize(int tam) {
+
         Random r;
-        r=new Random();
+        r = new Random();
         r.setSeed(new Date().getTime());
-        
-        
+
+
         int vector[] = new int[tam];
         int i = 0, j;
-         vector[i] = (int) (Math.random() * tam);
-        
+        vector[i] = (int) (Math.random() * tam);
+
         for (i = 1; i < tam; i++) {
             vector[i] = (int) (Math.random() * tam);
             for (j = 0; j < i; j++) {
@@ -2677,7 +2890,6 @@ public final class StudyEditorTopComponent extends TopComponent {
         }
         return vector;
     }
-    
 
     public void printLabels() {
         TraitsReportHelper.printTraitsReport(jTableObservations);
@@ -2817,7 +3029,30 @@ public final class StudyEditorTopComponent extends TopComponent {
         }
     }
 
-    private boolean iniciaExportWizard2() {
+    private void iniciaExportForMaize(){
+        
+        WizardDescriptor wiz = new WizardDescriptor(new maizeExportWizardIterator());
+        wiz.setTitleFormat(new MessageFormat("{0} ({1})"));
+        wiz.setTitle(NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.save"));
+        DialogUtil.createDialog(wiz);
+
+        boolean cancelled = wiz.getValue() != WizardDescriptor.FINISH_OPTION;
+        if (!cancelled) {
+
+            switch (opcionExport) {
+                case 0:
+                    exportToFieldlog();
+                    break;
+                
+                case 2:
+                    exportToExcel();
+                    break;
+            }
+            
+        } 
+    }
+    
+    private boolean iniciaExportWizardStandar() {
 
         WizardDescriptor.Iterator iterator = new exportWizardIterator();
         WizardDescriptor wizardDescriptor = new WizardDescriptor(iterator);
@@ -2829,15 +3064,16 @@ public final class StudyEditorTopComponent extends TopComponent {
         if (!cancelled) {
 
             switch (opcionExport) {
+                
                 case 0:
                     exportToFieldlog();
 
                     break;
-                case 1://to R
-
+                case 1: 
                     exportToR();
                     break;
-                case 2:// to excel file
+                    
+                case 2:
                     exportToExcel();
                     break;
             }
@@ -2957,7 +3193,7 @@ public final class StudyEditorTopComponent extends TopComponent {
 
     public void loadDataFromDB() {
         jTextTrialName.setEnabled(false);
-        jButtonSaveToExcel.setEnabled(true);
+        jButtonSaveData.setEnabled(true);
         ObservationsTableModel tableModel = new ObservationsTableModel(myWorkbook, myWorkbook.getVariates());
         jTableObservations.setModel(tableModel);
         sorterMeasurements = new TableRowSorter<TableModel>(tableModel);
@@ -3105,7 +3341,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                 DialogUtil.displayError(provideTrialName);
                 result = false;
             } else {
-                jButtonSaveToExcelActionPerformed(null);
+                jButtonSaveDataActionPerformed(null);
             }
 
         }
@@ -3134,9 +3370,9 @@ public final class StudyEditorTopComponent extends TopComponent {
 
     public void enableMeasurementButtons() {
         btnPrintLabels.setEnabled(true);
-        jButtonSaveToExcel.setEnabled(true);
-        jButtonCSVTraitsExport1.setEnabled(true);
-        jButtonCSVTraitsImport1.setEnabled(true);
+        jButtonSaveData.setEnabled(true);
+        jButtonExportData.setEnabled(true);
+        jButtonImportData.setEnabled(true);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JPanel JPanelData;
@@ -3145,12 +3381,14 @@ public final class StudyEditorTopComponent extends TopComponent {
     private javax.swing.ButtonGroup buttonGroupExpConditions;
     private javax.swing.ButtonGroup buttonGroupMeasurements;
     private javax.swing.ButtonGroup buttonGroupTrInformation;
-    private javax.swing.JButton jButtonCSVTraitsExport1;
-    private javax.swing.JButton jButtonCSVTraitsImport1;
     private javax.swing.JButton jButtonCopyGID;
+    private javax.swing.JButton jButtonExportData;
+    private javax.swing.JButton jButtonExportMaster;
     private javax.swing.JButton jButtonImportCrossInfo;
+    private javax.swing.JButton jButtonImportData;
     public static javax.swing.JButton jButtonRefreshDesign;
-    private javax.swing.JButton jButtonSaveToExcel;
+    private javax.swing.JButton jButtonSaveData;
+    private javax.swing.JButton jButtonSaveMaster;
     public static javax.swing.JButton jButtonSelectTraits;
     public static javax.swing.JButton jButtonSync;
     public javax.swing.JComboBox jComboBoxStudyType;
@@ -3169,10 +3407,12 @@ public final class StudyEditorTopComponent extends TopComponent {
     private javax.swing.JMenuItem jMenuItemSelectAll;
     private javax.swing.JMenuItem jMenuItemUnSelect;
     private javax.swing.JMenuItem jMenuItemUnselectAll;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JPanel jPanelTraits;
     private javax.swing.JPopupMenu jPopupMenuConstants;
@@ -3182,10 +3422,13 @@ public final class StudyEditorTopComponent extends TopComponent {
     private javax.swing.JRadioButton jRadioButtonAllExpCondition;
     private javax.swing.JRadioButton jRadioButtonAllTrials;
     private javax.swing.JRadioButton jRadioButtonAllTrials2;
+    private javax.swing.JRadioButton jRadioButtonAllTrialsMaster;
     private javax.swing.JRadioButton jRadioButtonFilterEntry;
+    private javax.swing.JRadioButton jRadioButtonFilterEntry1;
     private javax.swing.JRadioButton jRadioButtonFilterExpConditions;
     private javax.swing.JRadioButton jRadioButtonFilterTrial;
     private javax.swing.JRadioButton jRadioButtonFilterTrialInfo;
+    private javax.swing.JRadioButton jRadioButtonFilterTrialMaster;
     private javax.swing.JRadioButton jRadioButtonFilterTrialStudy;
     private javax.swing.JRadioButton jRadioButtonViewAllTrialStudy;
     private javax.swing.JScrollPane jScrollPane1;
@@ -3196,15 +3439,19 @@ public final class StudyEditorTopComponent extends TopComponent {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSpinner jSpinnerEntry;
+    private javax.swing.JSpinner jSpinnerEntry1;
     private javax.swing.JSpinner jSpinnerExpConditions;
     public javax.swing.JSpinner jSpinnerTrial;
     public javax.swing.JSpinner jSpinnerTrialInformation;
+    public javax.swing.JSpinner jSpinnerTrialMaster;
     public javax.swing.JSpinner jSpinnerTrialStudy;
     public javax.swing.JTabbedPane jTabbedPaneEditor;
     public javax.swing.JTable jTableConstants;
     public javax.swing.JTable jTableDesign;
     public javax.swing.JTable jTableEntries;
+    public javax.swing.JTable jTableMaster;
     public javax.swing.JTable jTableObservations;
     public javax.swing.JTable jTableOtherFactorLabels;
     private javax.swing.JTable jTableOtherFactors;
@@ -3218,6 +3465,8 @@ public final class StudyEditorTopComponent extends TopComponent {
     public javax.swing.JTextField jTextFieldStudy;
     public javax.swing.JTextField jTextFieldTitle;
     private javax.swing.JTextField jTextTrialName;
+    private javax.swing.JTextField jTextTrialNameMaster;
+    private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel lblEndDate;
     private javax.swing.JLabel lblExpConditionsTrial;
     private javax.swing.JLabel lblInstances;
@@ -3229,6 +3478,7 @@ public final class StudyEditorTopComponent extends TopComponent {
     private javax.swing.JLabel lblStudyType;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblTrialName;
+    private javax.swing.JLabel lblTrialNameMaster;
     private javax.swing.JLabel pnlExpConditionTrial;
     private javax.swing.JPanel pnlExpDesignDesign;
     private javax.swing.JPanel pnlExperimConditionsFilter;
@@ -3239,6 +3489,7 @@ public final class StudyEditorTopComponent extends TopComponent {
     private javax.swing.JPanel pnlGermplasmEntries;
     private javax.swing.JPanel pnlMeasurement;
     private javax.swing.JPanel pnlMeasurementFilter;
+    private javax.swing.JPanel pnlMeasurementFilter1;
     private javax.swing.JPanel pnlOtherTreatment;
     private javax.swing.JPanel pnlSelectList;
     private javax.swing.JPanel pnlTraits;

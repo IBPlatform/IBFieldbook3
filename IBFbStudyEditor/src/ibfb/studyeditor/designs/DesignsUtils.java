@@ -623,7 +623,7 @@ public class DesignsUtils {
             csvReader.readHeaders();
             String[] headers = csvReader.getHeaders();
 
-            System.out.println("TOTAL CSV HEADERS: " + csvReader.getHeaderCount());
+            //System.out.println("TOTAL CSV HEADERS: " + csvReader.getHeaderCount());
 
             ArrayList<String> columnas = new ArrayList<String>();
 

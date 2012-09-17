@@ -117,8 +117,7 @@ public class TrialWizardWizardPanel1 implements WizardDescriptor.Panel, Document
         StudyEditorTopComponent studyWindow = TrialWizardWizardIterator.studyTopComponent;
         studyWindow.setMyWorkbook(TrialWizardWizardIterator.myExcelReader.getMyWorkbook());
         studyWindow.setFileTemplate(component.getjTextAreaPath().getText());
-
-
+        studyWindow.setCROP(component.giveMeCrop());
         String templateName = component.getjTextAreaPath().getText();
 
         // check if is same template, if not same assign it 
