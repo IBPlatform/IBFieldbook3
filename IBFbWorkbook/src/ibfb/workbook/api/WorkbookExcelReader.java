@@ -30,6 +30,10 @@ public interface WorkbookExcelReader {
     public static final String LABEL_STUDY = "STUDY";
 
 
+     public static final int WHEAT = 0;
+      public static final int MAIZE = 1;
+       public static final int OTHERCROPS = 2;
+    
     /**
      * Get Workbook info from a excel file according to Workbook template
      * @param fileName The file name including full path FullName
@@ -41,6 +45,8 @@ public interface WorkbookExcelReader {
     
     public boolean isValidNurseryTemplate(String fileName) throws Exception;
    
+    public int giveMeCrop(String fileName) throws Exception;
+    
     /**
      * Returns a text with the result of validation
      * @return String text or empty String if validation success

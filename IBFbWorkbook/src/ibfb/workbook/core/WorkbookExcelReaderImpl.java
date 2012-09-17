@@ -1,27 +1,16 @@
 package ibfb.workbook.core;
 
-import ibfb.workbook.utils.ExcelUtils;
-import ibfb.domain.core.Condition;
-import ibfb.domain.core.Constant;
-import ibfb.domain.core.Factor;
-import ibfb.domain.core.Study;
-import ibfb.domain.core.Variate;
+import ibfb.domain.core.*;
 import ibfb.domain.core.Workbook;
 import ibfb.workbook.api.WorkbookExcelReader;
+import ibfb.workbook.utils.ExcelUtils;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.log4j.Logger;
-import org.apache.poi.POIDocument;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.hssf.util.AreaReference;
-import org.apache.poi.ss.usermodel.Name;
-import org.apache.poi.ss.usermodel.WorkbookFactory;
-import org.cimmyt.cril.ibwb.commongui.DialogUtil;
+import org.apache.poi.ss.usermodel.*;
 
 /**
  *
@@ -60,10 +49,10 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
         boolean valid = false;
 
         log.info("Validating Excel file read BEGIN");
-        log.info("Opening file...");
+   //     log.info("Opening file...");
         InputStream inputStream = new FileInputStream(fileName);
         org.apache.poi.ss.usermodel.Workbook excelBook = WorkbookFactory.create(inputStream);
-        log.info("Number of sheets in book" + excelBook.getNumberOfSheets());
+  //      log.info("Number of sheets in book" + excelBook.getNumberOfSheets());
 
         // assume values are in B colum (index 1)
         int labelColNumber = 0;
@@ -94,7 +83,45 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
         return valid;
     }
 
-    
+    @Override
+    public int giveMeCrop(String fileName) throws Exception{
+       
+        int theCrop = 0;  //0=Wheat   1=maize   2=other crops
+
+        log.info("Getting crop from template");
+        InputStream inputStream = new FileInputStream(fileName);
+        org.apache.poi.ss.usermodel.Workbook excelBook = WorkbookFactory.create(inputStream);
+
+        int labelColNumber = 0;
+        int listRowIndex = 0;
+
+        Sheet sheet = excelBook.getSheetAt(0);
+
+        Cell cellData = null;
+        Row rowData = null;
+
+        rowData = sheet.getRow(listRowIndex);
+        cellData = rowData.getCell(labelColNumber);
+       
+       
+           
+          
+            rowData = sheet.getRow(6);  //FALTA DEFINIR LA MANERA DE OBTENER EL VALOR
+            cellData = rowData.getCell(1);
+             
+            if (ExcelUtils.getStringValueFromCell(cellData).equals("WHEAT")){
+                theCrop = WHEAT;
+             }else if (ExcelUtils.getStringValueFromCell(cellData).equals("MAIZE")){
+                theCrop = MAIZE;
+             }else{
+                theCrop = OTHERCROPS; 
+             }
+            
+
+        theCrop=WHEAT; 
+        
+        return theCrop;
+    }
     
     
         @Override
@@ -102,10 +129,10 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
         boolean valid = false;
 
         log.info("Validating Excel Nursery file read BEGIN");
-        log.info("Opening file...");
+  //      log.info("Opening file...");
         InputStream inputStream = new FileInputStream(fileName);
         org.apache.poi.ss.usermodel.Workbook excelBook = WorkbookFactory.create(inputStream);
-        log.info("Number of sheets in book" + excelBook.getNumberOfSheets());
+   //     log.info("Number of sheets in book" + excelBook.getNumberOfSheets());
 
         // assume values are in B colum (index 1)
         int labelColNumber = 0;
@@ -216,7 +243,7 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
         cellData = rowData.getCell(studyDataColNumber);
         study.setStudyType(getStringValueFromCell(cellData));
 
-        log.info("Data for Study: " + study.toString());
+    //    log.info("Data for Study: " + study.toString());
 
         workbook.setStudy(study);
     }
@@ -276,7 +303,7 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
             cellData = rowData.getCell(COL_LABEL);
             condition.setLabel(getStringValueFromCell(cellData));
 
-            log.info("Data for condition: " + condition.toString());
+           // log.info("Data for condition: " + condition.toString());
          
             // add readed condition to list
             if (condition.getLabel().toUpperCase().startsWith(STUDY_PREFIX)) {
@@ -350,7 +377,7 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
             cellData = rowData.getCell(COL_LABEL);
             factor.setLabel(getStringValueFromCell(cellData));
           
-            log.info("Data for factor: " + factor.toString());
+      //      log.info("Data for factor: " + factor.toString());
 
             // add readed condition to list
             factors.add(factor);
@@ -472,7 +499,7 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
             cellData = rowData.getCell(COL_DATATYPE);
             variate.setDataType(getStringValueFromCell(cellData));
 
-            log.info("Data for Variate: " + variate.toString());
+     //       log.info("Data for Variate: " + variate.toString());
             // add readed condition to list
             variates.add(variate);
 
@@ -533,14 +560,14 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
     private AreaReference getAreaReferenceForRangeName(String rangeName, org.apache.poi.ss.usermodel.Workbook excelBook) {
         // first retrieve index in all ranges names
         int namedCellIndex = excelBook.getNameIndex(rangeName);
-        log.info("Range " + rangeName + " has indext " + namedCellIndex);
+    //    log.info("Range " + rangeName + " has indext " + namedCellIndex);
         // after create the name reference
         Name namedCellRange = excelBook.getNameAt(namedCellIndex);
 
         // then lookup for it range content
         AreaReference areaReference = new AreaReference(namedCellRange.getRefersToFormula());
         // and finally get the first row in range
-        log.info("Range " + rangeName + " starts at row " + areaReference.getFirstCell().getRow());
+    //    log.info("Range " + rangeName + " starts at row " + areaReference.getFirstCell().getRow());
 
         return areaReference;
     }
