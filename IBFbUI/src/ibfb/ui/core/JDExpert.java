@@ -55,13 +55,17 @@ public class JDExpert extends javax.swing.JDialog {
     private int rowsTotales = 0;
     private ArrayList<String> otherFactors = new ArrayList<String>();
     private ArrayList<String> children = new ArrayList<String>();
-    private boolean isForWheat = true;
     private String[] nameColumn = {"Cross Name", "Selection History", "Pedigree", "CID", "SID", "GID", "INTRID", "TID", "ENT", "Folio", "Specific Name", "Name Abbreviation", "Cross Year", "Cross Location", "Cross Country", "Cross Organization", "Cross Program", "FAO In-trust", "Selection Year", "Selection Location", "Selection Country", "Name Country", "Name Year", "FAO designation Date", "24 disp", "25 disp"};
     private ArrayList<String> wheatColumns;
     private ArrayList<String> wheatColumnsforSearch;
     private ProgressHandle handle;
     private String porcentaje;
     private boolean ready = false;
+    private int theCrop=0;
+    public static final int WHEAT=0;
+    public static final int MAIZE=1;
+    public static final int OTHERCROPS=2;
+    
 
     public JDExpert(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -75,7 +79,7 @@ public class JDExpert extends javax.swing.JDialog {
         fillComboListNames();
         checkButtonsStatus();
         cboGermplasmList.setModel(new javax.swing.DefaultComboBoxModel(new String[]{bundle.getString("JDExpert.selectOne")}));
-        if (isForWheat) {
+        if (theCrop==WHEAT) {
             loadNamesForWheat();
         }
 
@@ -532,7 +536,7 @@ public class JDExpert extends javax.swing.JDialog {
 
             readGermplsmEntriesFromDb();
 
-            if (isForWheat) {
+            if (theCrop==WHEAT) {
                 showProgressStatus(selectedList.getListid());
             }
         }
@@ -575,6 +579,7 @@ public class JDExpert extends javax.swing.JDialog {
             myExcelReader.setNumInstances((Integer) jSpinnerInstances.getValue());
             fillStudyData(studyWindow);
             studyWindow.jLabelInstances.setText(jSpinnerInstances.getValue().toString());
+            studyWindow.setCROP(theCrop);
             fillStudyConditions(studyWindow);
             fillTrialConditions(studyWindow);
             fillGermplsmEntries(studyWindow);
@@ -600,6 +605,7 @@ public class JDExpert extends javax.swing.JDialog {
             studyWindow.jTabbedPaneEditor.setEnabledAt(7, false);
             studyWindow.jTabbedPaneEditor.setSelectedIndex(5);
             studyWindow.fillDesign();
+            studyWindow.defineTabs();
             studyWindow.open();
             studyWindow.requestActive();
         }
@@ -731,6 +737,12 @@ public class JDExpert extends javax.swing.JDialog {
         }
 
         if (isValidFile) {
+            
+             try {
+                theCrop = validateExcelReader.giveMeCrop(this.jTextAreaPathTemplate.getText());
+            } catch (Exception ex) {
+                System.out.println("ERROR AL OBTENER CROP");
+            }
 
             this.jTextAreaPathTemplate.setText(selectorArchivo.getSelectedFile().toString());
             this.jButtonPreviewTemplate.setEnabled(true);
@@ -1250,7 +1262,7 @@ public class JDExpert extends javax.swing.JDialog {
                 setGermplasmListIntoTable(germplasmList);
                 this.jButtonFinishExpert.setEnabled(true);
 
-                if (isForWheat) {
+                if (theCrop==0) {
                     showProgressStatus(selectListDialog.getSeledtedListnms().getListid());
                 }
             } catch (Exception ex) {
