@@ -2499,17 +2499,22 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
 
             Object[] rowToAdd = new Object[model.getColumnCount()];
             rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = i + 1;
-
-
+            
             if (posiciones.size() > 0) {
-                if (posiciones.contains(i + 1)) {
-                    rowToAdd[model.getHeaderIndex(ObservationsTableModel.CHECK)] = "is check";
+                System.out.println("ENTRAMOS A PONER ISCHECK");
+                if (posiciones.contains(i + 1)) {     
+                      System.out.println("CAMBIAMOS VALOR A 1");
+                      
+                    rowToAdd[model.getHeaderIndex(ObservationsTableModel.CHECK)] = 1;
                 }
             }
 
             int entriesColIndex = 0;
+            
             for (Factor factor : entriesTableModel.getFactorHeaders()) {
                 String columnHeader = Workbook.getStringWithOutBlanks(factor.getProperty() + factor.getScale());
+                
+                System.out.println("COLUMNA:" +columnHeader);
                 rowToAdd[model.getHeaderIndex(columnHeader)] = entriesTableModel.getValueAt(i, entriesColIndex);
                 entriesColIndex++;
             }

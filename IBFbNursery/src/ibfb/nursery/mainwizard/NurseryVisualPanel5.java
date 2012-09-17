@@ -309,6 +309,7 @@ public final class NurseryVisualPanel5 extends JPanel {
 
             }
         ));
+        jTableEntriesDB.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         jTableEntriesDB.setComponentPopupMenu(jPopupMenuSelection);
         jTableEntriesDB.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
@@ -423,6 +424,7 @@ public final class NurseryVisualPanel5 extends JPanel {
 
             }
         ));
+        jTableFinalList.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         jTableFinalList.setComponentPopupMenu(jPopupMenuFinalList);
         jTableFinalList.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
@@ -1397,7 +1399,17 @@ public final class NurseryVisualPanel5 extends JPanel {
         boolean fueraDeRango = false;
         int tam = posiciones.size();
         for (int i = 0; i < tam; i++) {
-            int val = Integer.parseInt(posiciones.get(i).toString());
+            int val=0;
+            
+            try{
+             val = Integer.parseInt(posiciones.get(i).toString());
+            }catch(Exception e){
+                System.out.println("ERROR posiciones "+e);
+              return true;  
+            }
+            
+            
+            
             if (val == 0 || val > (maximo + posiciones.size())) {
                 System.out.println("HAY FUERA DE RANGO: " + val);
                 return true;
