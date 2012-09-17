@@ -112,7 +112,6 @@ public final class nurseryManagerTopComponent extends TopComponent {
     private String[] nameColumn = {"Cross Name", "Selection History", "Pedigree", "CID", "SID", "GID", "INTRID", "TID", "ENT", "Folio", "Specific Name", "Name Abbreviation", "Cross Year", "Cross Location", "Cross Country", "Cross Organization", "Cross Program", "FAO In-trust", "Selection Year", "Selection Location", "Selection Country", "Name Country", "Name Year", "FAO designation Date", "24 disp", "25 disp"};
     private ArrayList<String> wheatColumns;
     private ArrayList<String> wheatColumnsforSearch;
-    private boolean isForWheat = true;
     private String outSelectionHistory = "";
     /**
      * Methods in Combo box, used to retrieve selected method
@@ -1575,7 +1574,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
 
 
                 GermplasmSearch gsF = new GermplasmSearch();
-                gsF.setCrosstype("SS");
+                gsF.setCrosstype("SS");                               
                 gsF.setStudyId(ftid);
                 gsF.setTrial(focc);
                 gsF.setPlot(fent);
@@ -1668,26 +1667,19 @@ public final class nurseryManagerTopComponent extends TopComponent {
         if (jTextFieldListName.getText().trim().isEmpty()) {
             DialogUtil.displayError(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.typeName"));
             jTextFieldListName.requestFocusInWindow();
-
             return;
         }
-
-
 
         if (this.jTextFieldDescription.getText().isEmpty()) {
             NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.description"), NotifyDescriptor.ERROR_MESSAGE);
             DialogDisplayer.getDefault().notify(d);
             jTextFieldDescription.requestFocusInWindow();
-
             return;
         }
-
-
 
         if (this.jTableFinalList.getRowCount() == 0) {
             NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.empty"), NotifyDescriptor.ERROR_MESSAGE);
             DialogDisplayer.getDefault().notify(d);
-
             return;
         }
         NotifyDescriptor d = new NotifyDescriptor.Confirmation(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.save"), NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.final"),
@@ -1703,7 +1695,6 @@ public final class nurseryManagerTopComponent extends TopComponent {
             DefaultTableModel modelo = (DefaultTableModel) this.jTableFinalList.getModel();
             modelo.setRowCount(0);
         }
-
         this.jButtonSaveCross.setEnabled(
                 false);
     }//GEN-LAST:event_jButtonSaveCrossActionPerformed
