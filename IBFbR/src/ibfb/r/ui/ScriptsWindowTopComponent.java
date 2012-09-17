@@ -5,6 +5,11 @@ import ibfb.r.core.RforMac;
 import ibfb.r.core.RforWin;
 import ibfb.r.filters.CSVFiltro;
 import java.io.File;
+import java.io.InputStream;
+import java.lang.reflect.Field;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JFileChooser;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -19,6 +24,7 @@ import org.netbeans.validation.api.builtin.Validators;
 import org.netbeans.validation.api.ui.ValidationGroup;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
+import org.openide.util.Exceptions;
 
 @ConvertAsProperties(dtd = "-//ibfb.r.ui//ScriptsWindow//EN",
 autostore = false)
@@ -40,6 +46,7 @@ public final class ScriptsWindowTopComponent extends TopComponent {
     String osName = System.getProperty("os.name").toLowerCase();
     boolean isMacOs = osName.startsWith("mac os x");
     ValidationGroup group = null;
+     private String pathRHOME = "/Applications/IBFIELDBOOK";
     
  //   Thread rformac;
  //   private String currentDirectory;
@@ -65,9 +72,12 @@ public final class ScriptsWindowTopComponent extends TopComponent {
 
     public ScriptsWindowTopComponent() {
         initComponents();
+
         setName(NbBundle.getMessage(ScriptsWindowTopComponent.class, "CTL_ScriptsWindowTopComponent"));
         setToolTipText(NbBundle.getMessage(ScriptsWindowTopComponent.class, "HINT_ScriptsWindowTopComponent"));
         resourcesDirectoryExists = resourcesDirExists();
+        
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -90,10 +100,10 @@ public final class ScriptsWindowTopComponent extends TopComponent {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/r/images/R.png"))); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(ScriptsWindowTopComponent.class, "ScriptsWindowTopComponent.jLabel1.text_1")); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 24));
+        jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(jLabel2, org.openide.util.NbBundle.getMessage(ScriptsWindowTopComponent.class, "ScriptsWindowTopComponent.jLabel2.text")); // NOI18N
 
-        jLabel4.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 24));
+        jLabel4.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 24)); // NOI18N
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/r/images/IBtools.png"))); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(jLabel4, org.openide.util.NbBundle.getMessage(ScriptsWindowTopComponent.class, "ScriptsWindowTopComponent.jLabel4.text")); // NOI18N
 
@@ -119,7 +129,7 @@ public final class ScriptsWindowTopComponent extends TopComponent {
 
         jComboBoxAnalysisR.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         jComboBoxAnalysisR.setMaximumRowCount(10);
-        jComboBoxAnalysisR.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "One Site", "Multi Location", "Greg Ammi Multi Location" }));
+        jComboBoxAnalysisR.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "One Site", "Multi Location", "Greg Ammi Multi Location", "Line by tester" }));
         jComboBoxAnalysisR.setToolTipText(org.openide.util.NbBundle.getMessage(ScriptsWindowTopComponent.class, "ScriptsWindowTopComponent.jComboBoxAnalysisR.toolTipText")); // NOI18N
 
         org.openide.awt.Mnemonics.setLocalizedText(jLabel3, org.openide.util.NbBundle.getMessage(ScriptsWindowTopComponent.class, "ScriptsWindowTopComponent.jLabel3.text")); // NOI18N
@@ -151,7 +161,7 @@ public final class ScriptsWindowTopComponent extends TopComponent {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(61, 61, 61)
                 .addComponent(jButtonCancelR)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 155, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 189, Short.MAX_VALUE)
                 .addComponent(jButtonOkR)
                 .addGap(54, 54, 54))
         );
@@ -176,7 +186,7 @@ public final class ScriptsWindowTopComponent extends TopComponent {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
                         .addComponent(jLabel4))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(94, 94, 94)
@@ -185,9 +195,9 @@ public final class ScriptsWindowTopComponent extends TopComponent {
                             .addComponent(jLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBoxAnalysisR, 0, 402, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE)
-                            .addComponent(validationPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE)
+                            .addComponent(jComboBoxAnalysisR, 0, 436, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 436, Short.MAX_VALUE)
+                            .addComponent(validationPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 436, Short.MAX_VALUE)
                             .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addComponent(jButtonBrowseScriptR, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -242,6 +252,7 @@ public final class ScriptsWindowTopComponent extends TopComponent {
             return;
         } else {
             if (isMacOs) {
+                
                 hiloEjecutaRforMac = new RforMac();
                 hiloEjecutaRforMac.setScript(this.jComboBoxAnalysisR.getSelectedIndex() + 1);
                 hiloEjecutaRforMac.setFile(nombreArchivo.toString());
@@ -400,4 +411,60 @@ public final class ScriptsWindowTopComponent extends TopComponent {
         }
         return ozielDirectoryExists;
     }
+    private void setRHome2() {
+        
+        String RHome2 = "/Applications/IBFIELDBOOK/RforMac/setRHome.sh";
+        String RHome = "/Applications/IBFIELDBOOK/RforMac/Resources";
+       Map<String,String> mp=new HashMap<String, String>();
+        mp.put("R_HOME", RHome);
+       
+        try {
+            set(mp);
+        } catch (Exception ex) {
+            Exceptions.printStackTrace(ex);
+        }
+    }
+    
+    
+    
+    private void setRHome(){
+    try {
+            System.out.println("Se esta definiendo RHOME...");
+
+
+            String[] data = new String[3];
+            data[0] = "/bin/sh";
+            data[1] = "-c";            
+             data[2] = "#!/bin/sh \n cd " + pathRHOME +" \n sh setRHome";
+            Process p = Runtime.getRuntime().exec(data);
+            p.waitFor();
+
+            InputStream output = p.getInputStream();
+            System.out.println(output);
+
+            p.waitFor();
+            System.out.println("Finalizo set rhome...");
+
+
+        } catch (Exception er) {
+            System.out.println("Error en RHOME mac" + er);
+        }
+    
+}
+    
+    
+    public static void set(Map<String, String> newenv) throws Exception {      
+    Class[] classes = Collections.class.getDeclaredClasses();
+    Map<String, String> env = System.getenv();
+    for(Class cl : classes) {
+        if("java.util.Collections$UnmodifiableMap".equals(cl.getName())) {
+            Field field = cl.getDeclaredField("m");
+            field.setAccessible(true);
+            Object obj = field.get(env);
+            Map<String, String> map = (Map<String, String>) obj;
+            map.clear();
+            map.putAll(newenv);
+        }
+    }
+}
 }

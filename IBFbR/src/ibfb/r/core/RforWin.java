@@ -21,7 +21,6 @@ public class RforWin extends Thread implements RInterface {
     private String archivo = "";
     private String scriptR = "";
 
-
     @Override
     public void setScript(int elScript) {
         switch (elScript) {
@@ -35,10 +34,10 @@ public class RforWin extends Thread implements RInterface {
             case 3:
                 this.scriptR = "gregAmmiMulti.R";
                 break;
-
-
-            default:
-                throw new AssertionError();
+            case 4:
+                this.scriptR = "LineByTester.R";
+                break;
+            
         }
     }
 

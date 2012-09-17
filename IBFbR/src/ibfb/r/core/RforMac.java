@@ -2,47 +2,39 @@ package ibfb.r.core;
 
 import ibfb.r.api.RInterface;
 import ibfb.r.ui.JDEspera;
-import ibfb.r.ui.ScriptsWindowTopComponent;
 import java.awt.Desktop;
 import java.awt.EventQueue;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintWriter;
+import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.ResourceBundle;
 import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 import org.cimmyt.cril.ibwb.commongui.FileUtils;
 import org.cimmyt.cril.ibwb.commongui.OSUtils;
+import org.netbeans.api.progress.ProgressHandle;
+import org.netbeans.api.progress.ProgressHandleFactory;
+import org.netbeans.api.progress.ProgressUtils;
 import org.openide.util.Exceptions;
+import org.openide.util.NbBundle;
 import org.rosuda.JRI.Rengine;
-
-
 
 public class RforMac extends Thread implements Runnable, RInterface {
 
     public static MuestraEspera_Thread waitThread;
     public JDEspera espera = new JDEspera(null, true);
-    
+    public static String RHOME = "/Applications/IBFIELDBOOK/RforMac/Resources";
     public static Rengine re;
     String[] Rargs = {"--vanilla"};
-    
-  
-    private String pathR = "/Users/ozieluz/Desktop/RforMac/Resources";
+    private String pathR = "/Applications/IBFIELDBOOK/RforMac/Resources";
     private String scriptR = "";
+    private String inputFile = "";
+    private String pathRScript = "/Applications/IBFIELDBOOK/RforMac/Resources/oziel";
+    private String pathDataR = System.getProperty("user.dir") + File.separator + "DataR";
+    private ProgressHandle handle;
+    private ResourceBundle bundle = NbBundle.getBundle(RforMac.class);
 
-    private String inputFile = ""; 
-    private String pathRScript = OSUtils.getRScriptPath(); //OSUtils.getIBFBPath()+"/IBFb/IBFbR/src/ibfb/r/scripts";
-
-    private String pathDataR = "";
-    
-  
     @Override
     public void setScript(int elScript) {
         switch (elScript) {
@@ -55,8 +47,9 @@ public class RforMac extends Thread implements Runnable, RInterface {
             case 3:
                 this.scriptR = "gregAmmiMulti.R";
                 break;
-            default:
-                throw new AssertionError();
+            case 4:
+                this.scriptR = "LineByTester.R";
+                break;
         }
     }
 
@@ -67,7 +60,25 @@ public class RforMac extends Thread implements Runnable, RInterface {
 
     @Override
     public void run() {
-         executeR(scriptR, inputFile);
+
+        ejecute();
+
+
+    }
+
+    private void ejecute() {
+        handle = ProgressHandleFactory.createHandle(bundle.getString("RforMac.loading"));
+        ProgressUtils.showProgressDialogAndRun(new Runnable() {
+
+            @Override
+            public void run() {
+
+                handle.start(100);
+                leeExcelyEjecutaR(inputFile);
+            }
+        }, handle, true);
+
+
     }
 
     @Override
@@ -85,7 +96,8 @@ public class RforMac extends Thread implements Runnable, RInterface {
         miArchivo = miArchivo.substring(0, miArchivo.length() - 4);
         Calendar calendario = GregorianCalendar.getInstance();
         Date fecha = calendario.getTime();
-        SimpleDateFormat formatoDeFecha = new SimpleDateFormat("MMMddyyyy_HHmm");
+        SimpleDateFormat formatoDeFecha = new SimpleDateFormat("yyyyMMdd_HHmm");
+
         String folder = miArchivo + "_" + formatoDeFecha.format(fecha);
 
         creaDirectorio(folder);
@@ -94,8 +106,8 @@ public class RforMac extends Thread implements Runnable, RInterface {
         copiaArchivoOziel();
         ejecutaR(folder);
 
-        ScriptsWindowTopComponent.hiloEspera.espera.setEnabled(true);
-        ScriptsWindowTopComponent.hiloEspera.espera.setVisible(false);
+        //  ScriptsWindowTopComponent.hiloEspera.espera.setEnabled(true);
+        //  ScriptsWindowTopComponent.hiloEspera.espera.setVisible(false);
         abreExplorador(folder);
 
     }
@@ -106,10 +118,10 @@ public class RforMac extends Thread implements Runnable, RInterface {
         try {
             File dir = new File(pathDataR + File.separator + archivo);
             boolean resultado = dir.mkdir();
-            System.out.println("" + resultado);
+            System.out.println("SE CREO DIRECTORIO" + resultado);
 
         } catch (Exception e) {
-            System.out.println("ya existe el directorio");
+            System.out.println("NO SE CREO DIRECTORIO " + e);
         }
 
     }
@@ -135,7 +147,7 @@ public class RforMac extends Thread implements Runnable, RInterface {
             in.close();
             out.close();
         } catch (IOException e) {
-            System.err.println("Hubo un error de entrada/salida!!!");
+            System.err.println("Hubo un error de entrada/salida " + e);
         }
 
         try {
@@ -178,7 +190,7 @@ public class RforMac extends Thread implements Runnable, RInterface {
             in.close();
             out.close();
         } catch (IOException e) {
-            System.err.println("R for MAC. Hubo un error de entrada/salida al copiar CSV");
+            System.err.println("R for MAC. Hubo un error de entrada/salida al copiar CSV " + e);
         }
     }
 
@@ -230,23 +242,15 @@ public class RforMac extends Thread implements Runnable, RInterface {
 
         try {
             System.out.println("Se esta ejecutando R...");
-            //Process p = Runtime.getRuntime().exec("chmod u+x "+ pathR+File.separator +"bat"+File.separator +"ozielR");
-            //p = Runtime.getRuntime().exec("chmod 777 "+ pathR+File.separator +"bat"+File.separator +"ozielR");
 
             String[] data = new String[3];
             data[0] = "/bin/sh";
             data[1] = "-c";
-            data[2] = "#!/bin/sh \n cd " + pathR + File.separator + "bin \n sh R CMD BATCH " + pathDataR + File.separator + myFile + File.separator + myFile + ".R";
-
-            //  p.waitFor();
-            //p = Runtime.getRuntime().exec("./ "+ pathR+File.separator +"bat"+File.separator +"ozielR.");
+            data[2] = "#!/bin/sh \n sh " + pathR + File.separator + "bat" + File.separator + "ozielR";
 
 
             Process p = Runtime.getRuntime().exec(data);
             p.waitFor();
-
-
-            //  p = Runtime.getRuntime().exec("./ "+ pathR+File.separator +"bat"+File.separator +"ozielR.");
 
             InputStream output = p.getInputStream();
             System.out.println(output);
@@ -255,7 +259,7 @@ public class RforMac extends Thread implements Runnable, RInterface {
 
             System.out.println("Finalizo R...");
 
-            ScriptsWindowTopComponent.hiloEspera.espera.setVisible(false);
+            //   ScriptsWindowTopComponent.hiloEspera.espera.setVisible(false);
 
         } catch (Exception er) {
             System.out.println("Error al ejecutar el .bat de R" + er);
@@ -303,27 +307,36 @@ public class RforMac extends Thread implements Runnable, RInterface {
             in.close();
             out.close();
         } catch (IOException e) {
-            DialogUtil.displayError("Cannot copy file to working directory : "+e);
+            DialogUtil.displayError("Cannot copy file to working directory : " + e);
         }
-        
-    }
-    
-    public void executeR(String scriptFile, String inputFile) {
-        if (re == null) {
-            re = new Rengine(Rargs, false, null);
-            System.out.println("Rengine created, waiting for R");
 
-            if (!re.waitForR()) {
-                System.out.println("Cannot load R");
-                return;
+    }
+
+    public void executeR(String scriptFile, String inputFile) {
+
+        try {
+            if (re == null) {
+                re.jriLoadHistory(scriptR);
+                re = new Rengine(Rargs, false, null);
+                System.out.println("Rengine created, waiting for R");
+
+                if (!re.waitForR()) {
+                    System.out.println("Cannot load R");
+                    return;
+                }
             }
+
+        } catch (Exception ex) {
+            System.out.println("ERR " + ex);
         }
+
 
         try {
             EventQueue.invokeLater(new Runnable() {
+
                 @Override
                 public void run() {
-                    espera.setVisible(true);
+                    // espera.setVisible(true);
                 }
             });
 
@@ -359,22 +372,15 @@ public class RforMac extends Thread implements Runnable, RInterface {
         }
 
     }
-    
-   
-    
+
     private String createFolderName(String inputFile) {
-        
-        
+
+
         Calendar calendar = GregorianCalendar.getInstance();
         Date date = calendar.getTime();
         SimpleDateFormat dateFormat = new SimpleDateFormat("ddMMMyyyy_HHmm");
-  //      System.out.println("createFolderName inputFile : "+inputFile);
-  
-                
-        String newFolder= inputFile + "_" + dateFormat.format(date);
-    //    System.out.println("createFolderName newFolder : "+newFolder);
+
+        String newFolder = inputFile + "_" + dateFormat.format(date);
         return newFolder;
     }
-
-    
 }
