@@ -8,11 +8,8 @@ package org.cimmyt.cril.ibwb.domain;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import org.cimmyt.cril.ibwb.domain.filter.BaseFilter;
 
@@ -24,6 +21,14 @@ import org.cimmyt.cril.ibwb.domain.filter.BaseFilter;
 @Table(name = "names")
 public class Names extends BaseFilter implements Serializable {
     private static final long serialVersionUID = 1L;
+    
+    // constants used to manage WHEAT data
+    public static final int CIMMYT_WHEAT_BCID = 1027;
+    public static final int CIMMYT_WHEAT_SELECTION_HISTORY = 1028;
+    /**
+     * pedigree or cross name as well
+     */
+    public static final int CIMMYT_WHEAT_PEDIGREE = 1029;
 
     @Id
     @Basic(optional = false)

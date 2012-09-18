@@ -28,6 +28,7 @@
                 <package>org.cimmyt.cril.ibwb.domain</package>
                 <package>org.cimmyt.cril.ibwb.domain.filter</package>
                 <package>org.cimmyt.cril.ibwb.domain.inventory</package>
+                <package>org.cimmyt.cril.ibwb.domain.util</package>
             </public-packages>
         </data>
     </configuration>
