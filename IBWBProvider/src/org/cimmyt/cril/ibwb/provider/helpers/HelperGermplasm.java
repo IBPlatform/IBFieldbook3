@@ -358,7 +358,11 @@ public class HelperGermplasm {
 
         listdata.setGid(germplsm.getGid());
 //        servicioLocal.addListdata(listdata);
-
+        
+//        Dmsattr dmsattr = new Dmsattr();
+//        dmsattr.setDmsatype(804);
+//        dmsattr.setDmsatab(listdata.get);
+//        
         return listdata;
     }
 
@@ -838,7 +842,7 @@ public class HelperGermplasm {
                     }
                 }
             }
-                
+            
             if(gs.getSnameMale().substring(0, 2).equals("F1") && 
                     gs.getSnameFmale().substring(0, 2).equals("F1")){//Comparar con f1 el inicio de los nombres de ambos
                 gs.setCharBCID("D");
