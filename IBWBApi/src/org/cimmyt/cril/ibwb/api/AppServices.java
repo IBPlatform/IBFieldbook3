@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.cimmyt.cril.ibwb.domain.*;
 import org.cimmyt.cril.ibwb.domain.inventory.InventoryData;
+import org.cimmyt.cril.ibwb.domain.util.WheatData;
 
 public interface AppServices {
 
@@ -2156,4 +2157,11 @@ public interface AppServices {
      */
     public void deleteListData(Listdata listdata);
     
+    /**
+     * Gets a list for Wheat Data (cimmyt) related to BCID, Selection history
+     * 1. It looks for all elements in names where gid are used by a list
+     * @param listId
+     * @return Gets a list for Wheat Data (cimmyt)
+     */
+    public List<WheatData> getDataForCimmytWheat(final Integer listId)    ;
 }
