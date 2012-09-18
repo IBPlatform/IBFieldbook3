@@ -1752,7 +1752,7 @@ public final class NurseryEditorTopComponent extends TopComponent {
     }
 
     private void saveNursery() {
-
+        storeCellsInEditMode();
         if (jTextFieldNurseryName.getText().trim().isEmpty()) {
             DialogUtil.displayError(NbBundle.getMessage(NurseryEditorTopComponent.class, "NurseryEditorTopComponent.fillName"));
             jTextFieldNurseryName.requestFocusInWindow();
@@ -1802,7 +1802,7 @@ public final class NurseryEditorTopComponent extends TopComponent {
     }
 
     private void jButtonCSVTraitsExport1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCSVTraitsExport1ActionPerformed
-
+        storeCellsInEditMode();
         NbPreferences.forModule(exportWizardPanelGYTrait.class).put("traitIndex", "-1");
 
         if (!iniciaExportWizard2()) {
@@ -2499,22 +2499,22 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
 
             Object[] rowToAdd = new Object[model.getColumnCount()];
             rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = i + 1;
-            
+
             if (posiciones.size() > 0) {
                 System.out.println("ENTRAMOS A PONER ISCHECK");
-                if (posiciones.contains(i + 1)) {     
-                      System.out.println("CAMBIAMOS VALOR A 1");
-                      
+                if (posiciones.contains(i + 1)) {
+                    System.out.println("CAMBIAMOS VALOR A 1");
+
                     rowToAdd[model.getHeaderIndex(ObservationsTableModel.CHECK)] = 1;
                 }
             }
 
             int entriesColIndex = 0;
-            
+
             for (Factor factor : entriesTableModel.getFactorHeaders()) {
                 String columnHeader = Workbook.getStringWithOutBlanks(factor.getProperty() + factor.getScale());
-                
-                System.out.println("COLUMNA:" +columnHeader);
+
+                System.out.println("COLUMNA:" + columnHeader);
                 rowToAdd[model.getHeaderIndex(columnHeader)] = entriesTableModel.getValueAt(i, entriesColIndex);
                 entriesColIndex++;
             }
@@ -3094,6 +3094,27 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
 
         return result;
 
+    }
+
+    /**
+     * Stores all cell that are in editing mode
+     */
+    private void storeCellsInEditMode() {
+        storeCellsInEditMode(jTableStudyConditions);
+        storeCellsInEditMode(jTableNurseryConditions);
+        storeCellsInEditMode(jTableObservations);
+        storeCellsInEditMode(jTableConstants);
+    }
+
+    /**
+     * Stores a cell that is in editing mode
+     *
+     * @param jtable JTable to verify
+     */
+    private void storeCellsInEditMode(JTable jtable) {
+        if (jtable.getCellEditor() != null) {
+            jtable.getCellEditor().stopCellEditing();
+        }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JPanel JPanelData;

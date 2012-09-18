@@ -692,7 +692,7 @@ public final class AdvanceVisualPanel1 extends JPanel {
         for (String methodName : sortedMethods) {
             counter++;
             jComboBoxMethods.addItem(methodName);
-            if (methodName.equals(selectedMethodName)) {
+            if (methodName.toUpperCase().equals(selectedMethodName.toUpperCase())) {
                 defaultSelectedIndex = counter;
             }
             
@@ -716,7 +716,7 @@ public final class AdvanceVisualPanel1 extends JPanel {
         String methodName = (String)jComboBoxMethods.getSelectedItem();
         for (Methods methods: methodsInCombo) {
             
-            if (methods.getMname().equals(methodName) ) {
+            if (methods.getMname().toUpperCase().equals(methodName.toUpperCase()) ) {
                 selectedMethod = methods;   
             }
         }

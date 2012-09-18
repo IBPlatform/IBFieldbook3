@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.swing.table.AbstractTableModel;
+import org.cimmyt.cril.ibwb.commongui.DecimalUtils;
 import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 
 public class ObservationsTableModel2 extends AbstractTableModel {
@@ -135,7 +136,18 @@ public class ObservationsTableModel2 extends AbstractTableModel {
     public Object getValueAt(int rowIndex, int columnIndex) {
         //return values[rowIndex][columnIndex];
         List<Object> columnList = values.get(rowIndex);
-        return columnList.get(columnIndex);
+ Object value = columnList.get(columnIndex);
+
+        if (value != null) {
+            if (value instanceof Double) {
+               Double doubleValue = (Double)value; 
+               if (DecimalUtils.isIntegerValue(doubleValue)) {
+                   value = DecimalUtils.getValueAsInteger(value);
+               } 
+            }
+        }
+
+        return value;
     }
 
     @Override
@@ -148,6 +160,7 @@ public class ObservationsTableModel2 extends AbstractTableModel {
         } else {
           //  DialogUtil.display(ObservationsTableModel2.class, "observationstable.numericvaluerequired");
         }
+        fireTableCellUpdated(rowIndex, columnIndex);        
     }
 
     private boolean isValidValue(Object aValue, String columnDataType) {

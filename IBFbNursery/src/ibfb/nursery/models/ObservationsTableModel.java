@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.swing.table.AbstractTableModel;
+import org.cimmyt.cril.ibwb.commongui.DecimalUtils;
 import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 
 public class ObservationsTableModel extends AbstractTableModel {
@@ -33,7 +34,7 @@ public class ObservationsTableModel extends AbstractTableModel {
     public static final String COL = "";
     private static final String FACTOR_PREFIX = "FACTOR_";
     private static final String VARIATE_PREFIX = "VARIATE_";
-    public static final String PLANTS_SELECTED = "PLANTSSELECTEDNUMBER";    
+    public static final String PLANTS_SELECTED = "PLANTSSELECTEDNUMBER";
     private HashMap<String, Integer> headerIndex = new HashMap<String, Integer>();
     private List<Object> headers;
     private List<List<Object>> values;
@@ -111,9 +112,10 @@ public class ObservationsTableModel extends AbstractTableModel {
     }
 
     /**
-     * It return the column text label.  It check
-     * column index in header List and take the name
-     * according to each different object (Condition, Factor or Variate)
+     * It return the column text label. It check column index in header List and
+     * take the name according to each different object (Condition, Factor or
+     * Variate)
+     *
      * @param column column index
      * @return String text for label or empty String if cannot retrieve text
      */
@@ -137,7 +139,18 @@ public class ObservationsTableModel extends AbstractTableModel {
     public Object getValueAt(int rowIndex, int columnIndex) {
         //return values[rowIndex][columnIndex];
         List<Object> columnList = values.get(rowIndex);
-        return columnList.get(columnIndex);
+        Object value = columnList.get(columnIndex);
+
+        if (value != null) {
+            if (value instanceof Double) {
+                Double doubleValue = (Double) value;
+                if (DecimalUtils.isIntegerValue(doubleValue)) {
+                    value = DecimalUtils.getValueAsInteger(value);
+                }
+            }
+        }
+
+        return value;
     }
 
     @Override
@@ -154,8 +167,9 @@ public class ObservationsTableModel extends AbstractTableModel {
                 columnList.set(columnIndex, aValue);
             }
         } else {
-           // DialogUtil.display(ObservationsTableModel.class, "observationstable.numericvaluerequired");
+            // DialogUtil.display(ObservationsTableModel.class, "observationstable.numericvaluerequired");
         }
+        fireTableCellUpdated(rowIndex, columnIndex);        
     }
 
     private boolean isValidValue(Object aValue, String columnDataType, Variate variate) {
@@ -184,7 +198,7 @@ public class ObservationsTableModel extends AbstractTableModel {
     }
 
     private boolean isNumeric(Object aValue) {
-        if (aValue instanceof String && aValue.toString().isEmpty() ) {
+        if (aValue instanceof String && aValue.toString().isEmpty()) {
             return true;
         }
         try {
@@ -289,6 +303,7 @@ public class ObservationsTableModel extends AbstractTableModel {
 
     /**
      * Return the variate for column index
+     *
      * @param columnIndex column index in header
      * @return The variate for that column or null
      */
@@ -323,7 +338,8 @@ public class ObservationsTableModel extends AbstractTableModel {
 
     /**
      * Gets a map with number of plot for each row
-     * @return 
+     *
+     * @return
      */
     public Map<Integer, Integer> getRowsPerNursery() {
         int plotColumn = getHeaderIndex(PLOT);
@@ -360,8 +376,9 @@ public class ObservationsTableModel extends AbstractTableModel {
     }
 
     /**
-     * Get datatype for specified Variate.  It check in current list of variates
+     * Get datatype for specified Variate. It check in current list of variates
      * using variate name, if found then returns datatype
+     *
      * @param variateName Variate name to search
      * @return Data type (C, N, T) if found or (-) if not found
      */
@@ -378,20 +395,20 @@ public class ObservationsTableModel extends AbstractTableModel {
 
         return dataType;
     }
-    
- public String getEntryLabel() {
+
+    public String getEntryLabel() {
         String entryLabel = "ENTRY";
         if (workbook != null) {
             return workbook.getEntryLabel();
         }
         return entryLabel;
     }
-    
+
     public String getPlotLabel() {
         String plotLabel = "PLOT";
         if (workbook != null) {
             return workbook.getPlotLabel();
         }
         return plotLabel;
-    }      
+    }
 }
