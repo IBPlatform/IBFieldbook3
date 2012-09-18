@@ -1,6 +1,7 @@
 package org.cimmyt.cril.ibwb.provider.utils;
 
 import java.util.Map;
+
 import org.cimmyt.cril.ibwb.domain.Study;
 import org.cimmyt.cril.ibwb.domain.Factor;
 import org.cimmyt.cril.ibwb.domain.Scales;
@@ -20,8 +21,10 @@ public class ConverterDTOtoDomain {
         study.setPmkey(studyDto.getPmkey().toString());
         study.setObjective(studyDto.getObjectiv());
         study.setInvestid(studyDto.getInvestid());
-        study.setStarDate(ConverterDate.getDate(studyDto.getSdate()));
-        study.setEndDate(ConverterDate.getDate(studyDto.getEdate()));
+        //study.setStarDate(ConverterDate.getDate(studyDto.getSdate()));
+        //study.setEndDate(ConverterDate.getDate(studyDto.getEdate()));
+        study.setStarDate(ConverterDate.getIntegerAsDate(studyDto.getSdate()));
+        study.setEndDate(ConverterDate.getIntegerAsDate(studyDto.getEdate()));        
         study.setStudyType(studyDto.getStype());
         study.setUserid(studyDto.getUserid());
         study.setSstatus(studyDto.getSstatus());

@@ -8,6 +8,7 @@ import org.cimmyt.cril.ibwb.domain.*;
 import java.util.List;
 import org.cimmyt.cril.dmsreader.DMSReader;
 import org.cimmyt.cril.ibwb.domain.inventory.InventoryData;
+import org.cimmyt.cril.ibwb.domain.util.WheatData;
 
 import org.cimmyt.cril.ibwb.provider.dao.AtributsDAO;
 import org.cimmyt.cril.ibwb.provider.dao.BibrefsDAO;
@@ -1358,6 +1359,16 @@ public class CommonServicesImpl implements CommonServices {
     public Listnms getNamesLocal(final Listnms listnms){
         return namesDAO.getNamesLocal(listnms);
     }
+    
+    /**
+     * Gets a list for Wheat Data (cimmyt) related to BCID, Selection history
+     * 1. It looks for all elements in names where gid are used by a list
+     * @param listId
+     * @return Gets a list for Wheat Data (cimmyt)
+     */
+    public List<WheatData> getDataForCimmytWheat(final Integer listId) {
+        return namesDAO.getDataForCimmytWheat(listId);
+    }    
 
 //-----------------------------------Obsunit---------------------------
     @Override

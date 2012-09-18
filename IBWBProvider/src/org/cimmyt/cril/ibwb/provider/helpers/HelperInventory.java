@@ -102,10 +102,12 @@ public class HelperInventory {
         List<Traits> traitList = appServices.getListTraits(seedStockTrait, 0, 0, false);
         
         // if seed stock trait does not exist, then add it to traits
-        if (traitList.isEmpty()) {
-            appServices.addOrUpdateTmsTrait(seedStockTrait);
-        } else {
+//        if (traitList.isEmpty()) {
+//            seedStockTrait.setTid(0);
+//            appServices.addOrUpdateTmsTrait(seedStockTrait);
+//        } else {
             // get it from database
+        if (! traitList.isEmpty() ) {
             Traits seedStock = traitList.get(0);
             // then retrieve their measured in
             List<Measuredin> measuredinList = appServices.getMeasuredInListByTrait(seedStock.getTid());

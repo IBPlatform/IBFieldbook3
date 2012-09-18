@@ -14,6 +14,7 @@ import java.util.List;
 import org.cimmyt.cril.ibwb.api.AppServices;
 import org.cimmyt.cril.ibwb.domain.*;
 import org.cimmyt.cril.ibwb.domain.inventory.InventoryData;
+import org.cimmyt.cril.ibwb.domain.util.WheatData;
 
 /**
  *
@@ -1338,6 +1339,11 @@ public class IBWBAppServicesMemoryImpl implements AppServices {
 
     @Override
     public Listnms getFullListnms(Integer idListnms) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<WheatData> getDataForCimmytWheat(Integer listId) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 

@@ -11,6 +11,7 @@ import org.cimmyt.cril.ibwb.api.AppServices;
 import org.cimmyt.cril.ibwb.api.CommonServices;
 import org.cimmyt.cril.ibwb.domain.*;
 import org.cimmyt.cril.ibwb.domain.inventory.InventoryData;
+import org.cimmyt.cril.ibwb.domain.util.WheatData;
 import org.cimmyt.cril.ibwb.provider.helpers.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -2923,6 +2924,20 @@ public class IBWBAppServicesImpl implements AppServices {
         // only delete from local databaase 
         if (listdata != null && listdata.getListdataPK().getListid().intValue() < 0 ) {
             serviciosLocal.deleteListdata(listdata);
+        }
+    }
+
+        /**
+     * Gets a list for Wheat Data (cimmyt) related to BCID, Selection history
+     * 1. It looks for all elements in names where gid are used by a list
+     * @param listId
+     * @return Gets a list for Wheat Data (cimmyt)
+     */
+    public List<WheatData> getDataForCimmytWheat(final Integer listId) {
+        if (listId.intValue() > 0) {
+            return serviciosCentral.getDataForCimmytWheat(listId);
+        } else {
+            return serviciosLocal.getDataForCimmytWheat(listId);
         }
     }
 }

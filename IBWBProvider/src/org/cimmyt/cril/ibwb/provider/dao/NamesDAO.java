@@ -1,6 +1,5 @@
 package org.cimmyt.cril.ibwb.provider.dao;
 
-
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +10,7 @@ import org.cimmyt.cril.ibwb.domain.Germplsm;
 import org.cimmyt.cril.ibwb.domain.Listdata;
 import org.cimmyt.cril.ibwb.domain.Listnms;
 import org.cimmyt.cril.ibwb.domain.Names;
+import org.cimmyt.cril.ibwb.domain.util.WheatData;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -21,7 +21,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.HibernateCallback;
 
 public class NamesDAO extends AbstractDAO<Names, Integer> {
-    
+
     private static Logger log = Logger.getLogger(NamesDAO.class);
 
     public NamesDAO() {
@@ -51,9 +51,9 @@ public class NamesDAO extends AbstractDAO<Names, Integer> {
 
     @Override
     public String getConsulta(Names filtro) {
-    	String query = "from Names as n";
-        
-        if(filtro.getGlobalsearch() == null){
+        String query = "from Names as n";
+
+        if (filtro.getGlobalsearch() == null) {
             setQuery("n.nid", filtro.getNid());
             setQuery("n.gid", filtro.getGid());
             setQuery("n.ntype", filtro.getNtype());
@@ -63,9 +63,9 @@ public class NamesDAO extends AbstractDAO<Names, Integer> {
             setQuery("n.nlocn", filtro.getNlocn());
             setQuery("n.ndate", filtro.getNdate());
             setQuery("n.nref", filtro.getNref());
-        }else{
+        } else {
             global = true;
-            if(ValidatingDataType.isNumeric(filtro.getGlobalsearch())){
+            if (ValidatingDataType.isNumeric(filtro.getGlobalsearch())) {
                 setQuery("n.nid", Integer.valueOf(filtro.getGlobalsearch()));
                 setQuery("n.gid", Integer.valueOf(filtro.getGlobalsearch()));
                 setQuery("n.ntype", Integer.valueOf(filtro.getGlobalsearch()));
@@ -75,58 +75,58 @@ public class NamesDAO extends AbstractDAO<Names, Integer> {
                 setQuery("n.nlocn", Integer.valueOf(filtro.getGlobalsearch()));
                 setQuery("n.ndate", Integer.valueOf(filtro.getGlobalsearch()));
                 setQuery("n.nref", Integer.valueOf(filtro.getGlobalsearch()));
-            }else{
+            } else {
                 setQueryInTo("n.nval", filtro.getGlobalsearch());
             }
         }
         return query;
     }
-    
-    public Names getNamesByGid(Integer gid, Boolean preferido){
-        if(gid == null){
+
+    public Names getNamesByGid(Integer gid, Boolean preferido) {
+        if (gid == null) {
             return null;
-        }else{
+        } else {
             StringBuilder hqlSB = new StringBuilder();
             hqlSB.append("from Names as n where n.gid = ");
             hqlSB.append(gid);
             hqlSB.append(" ");
-            if(preferido){
+            if (preferido) {
                 hqlSB.append(" and n.nstat > 0 ");
             }
             hqlSB.append("order by n.nstat ");
             hqlSB.append("asc");
-            
+
             List<Names> listNames = this.executeQueryCustomListOfT(hqlSB.toString());
-            if(listNames == null){
+            if (listNames == null) {
                 return getNamesByGid(gid);
-            }else if(listNames.size()>0){
-                if(listNames.get(0) != null){
+            } else if (listNames.size() > 0) {
+                if (listNames.get(0) != null) {
                     return listNames.get(0);
-                }else{
+                } else {
                     return getNamesByGid(gid);
                 }
-            }else{
+            } else {
                 return getNamesByGid(gid);
             }
         }
     }
-    
-    public Names getNamesByGid(Germplsm germplasm, Boolean preferido){
-        if(germplasm == null){
+
+    public Names getNamesByGid(Germplsm germplasm, Boolean preferido) {
+        if (germplasm == null) {
             return null;
-        }else{
+        } else {
             StringBuilder hqlSB = new StringBuilder();
             hqlSB.append("from Names as n where n.gid = ");
             hqlSB.append(germplasm.getGid());
             hqlSB.append(" ");
-            if(preferido){
+            if (preferido) {
                 hqlSB.append(" and n.nstat > 0 ");
-            }else{
-                if(germplasm.getGnpgs() == -1){
+            } else {
+                if (germplasm.getGnpgs() == -1) {
                     hqlSB.append(" and n.ntype = ");
                     hqlSB.append(1028);
                     hqlSB.append(" ");
-                }else if(germplasm.getGnpgs() == 2){
+                } else if (germplasm.getGnpgs() == 2) {
                     hqlSB.append(" and n.ntype = ");
                     hqlSB.append(1027);
                     hqlSB.append(" ");
@@ -134,144 +134,145 @@ public class NamesDAO extends AbstractDAO<Names, Integer> {
             }
             hqlSB.append("order by n.nstat ");
             hqlSB.append("asc");
-            
+
             List<Names> listNames = this.executeQueryCustomListOfT(hqlSB.toString());
-            if(listNames == null){
+            if (listNames == null) {
                 return getNamesByGid(germplasm.getGid());
-            }else if(listNames.size()>0){
-                if(listNames.get(0) != null){
+            } else if (listNames.size() > 0) {
+                if (listNames.get(0) != null) {
                     return listNames.get(0);
-                }else{
+                } else {
                     return getNamesByGid(germplasm.getGid());
                 }
-            }else{
+            } else {
                 return getNamesByGid(germplasm.getGid());
             }
         }
     }
-    
-    public Names getNamesByGid(Integer gid){
-        if(gid == null){
+
+    public Names getNamesByGid(Integer gid) {
+        if (gid == null) {
             return null;
-        }else{
+        } else {
             StringBuilder hqlSB = new StringBuilder();
             hqlSB.append("from Names as n where n.gid = ");
             hqlSB.append(gid);
             hqlSB.append(" ");
             List<Names> listNames = this.executeQueryCustomListOfT(hqlSB.toString());
-            if(listNames == null){
+            if (listNames == null) {
                 return null;
-            }else if(listNames.size() > 0){
+            } else if (listNames.size() > 0) {
                 return listNames.get(0);
-            }else{
+            } else {
                 return null;
             }
         }
     }
-    
-    public Integer getMaxForSelection(String cadena, Integer ntype){
+
+    public Integer getMaxForSelection(String cadena, Integer ntype) {
         String query = "select max(NVAL) As xName from names where NTYPE=" + ntype + " and NVAL Like '" + cadena + "%';";
         List result = executeQueryCustomListOfGSqlNat(query);
         Integer inicial = 0;
-        if(result == null){
+        if (result == null) {
             return inicial;
-        }else if (result.isEmpty()){
+        } else if (result.isEmpty()) {
             return inicial;
-        }else if(result.size() == 0){
+        } else if (result.size() == 0) {
             return inicial;
-        }else if(result.get(0) == null){
+        } else if (result.get(0) == null) {
             return inicial;
-        }else{
+        } else {
             String resultado = result.get(0).toString();
-            String consecutivo = resultado.substring(cadena.length(), resultado.length()-1);
+            String consecutivo = resultado.substring(cadena.length(), resultado.length() - 1);
             StringBuilder sb = new StringBuilder();
-            for(char c : consecutivo.toCharArray()){
-                if(c > 47 && c < 58){
+            for (char c : consecutivo.toCharArray()) {
+                if (c > 47 && c < 58) {
                     sb.append(c);
-                }else{
+                } else {
                     break;
                 }
-            }            
-            if(! sb.toString().isEmpty()){
+            }
+            if (!sb.toString().isEmpty()) {
                 Integer numeroConsecutivo = Integer.valueOf(sb.toString());
                 return numeroConsecutivo;
-            }else{
+            } else {
                 return 0;
             }
         }
     }
-    
-    public String getNextMaxForBCID(String cadena, Integer ntype){
+
+    public String getNextMaxForBCID(String cadena, Integer ntype) {
         //ntype para (dos padres) bcid = 1027
         //ntype para (un padre) = 1028 para seleccion con gnpgs del germplasm -1
-        
+
         // nstat 1 es preferido
         String query = "select max(NVAL) As xName from names where NTYPE=" + ntype + " and NVAL Like '" + cadena + "%';";
         List result = executeQueryCustomListOfGSqlNat(query);
         String inicial = "00001";
-        if(result == null){
+        if (result == null) {
             return inicial;
-        }else if (result.isEmpty()){
+        } else if (result.isEmpty()) {
             return inicial;
-        }else if(result.size() == 0){
+        } else if (result.size() == 0) {
             return inicial;
-        }else if(result.get(0) == null){
+        } else if (result.get(0) == null) {
             return inicial;
-        }else{
+        } else {
             String consecutivo = result.get(0).toString().substring(cadena.length(), cadena.length() + 5);
             Integer numeroConsecutivo = Integer.valueOf(consecutivo);
             numeroConsecutivo += 1;
             String siguienteConsecutivo = String.valueOf(numeroConsecutivo);
             StringBuilder consecutivoNuevo = new StringBuilder();
-            for(int i = 0 ; i<5 - siguienteConsecutivo.length() ; i++){
+            for (int i = 0; i < 5 - siguienteConsecutivo.length(); i++) {
                 consecutivoNuevo.append(0);
             }
             consecutivoNuevo.append(siguienteConsecutivo);
             return consecutivoNuevo.toString();
         }
     }
-    
-    public Listnms getNamesCentral(final Listnms listnms){
+
+    public Listnms getNamesCentral(final Listnms listnms) {
         Listnms listnmsR = (Listnms) getHibernateTemplate().execute(
                 new HibernateCallback() {
+
                     public Object doInHibernate(
                             final org.hibernate.Session session)
                             throws HibernateException, SQLException {
-                        for(Listdata listdata : listnms.getLisdatas()){
+                        for (Listdata listdata : listnms.getLisdatas()) {
                             Integer gid = listdata.getGid();
-                            if(gid > 0){
+                            if (gid > 0) {
                                 listdata.setName1028(getNames(session, gid, 1028));
                                 listdata.setName1027(getNames(session, gid, 1027));
                                 listdata.setName1029(getNames(session, gid, 1029));
-                            }else{
+                            } else {
                                 gid = listdata.getGpid1();
-                                if(listdata.getName1028() == null){
+                                if (listdata.getName1028() == null) {
                                     listdata.setName1028(getNames(session, gid, 1028));
                                 }
-                                if(listdata.getName1027() == null){
+                                if (listdata.getName1027() == null) {
                                     listdata.setName1027(getNames(session, gid, 1027));
                                 }
-                                if(listdata.getName1029() == null){
+                                if (listdata.getName1029() == null) {
                                     listdata.setName1029(getNames(session, gid, 1029));
                                 }
                             }
-                            if(listdata.getName1027() == null ||
-                                    listdata.getName1029() == null){
+                            if (listdata.getName1027() == null
+                                    || listdata.getName1029() == null) {
                                 Integer gpid1;
-                                if(gid > 0){
+                                if (gid > 0) {
                                     Germplsm germplsmT = getGermplsm(session, listdata.getGid());
                                     gpid1 = germplsmT.getGpid1();
-                                }else{
-                                    if(listdata.getGpid1() != null){
+                                } else {
+                                    if (listdata.getGpid1() != null) {
                                         gpid1 = listdata.getGpid1();
-                                    }else{
+                                    } else {
                                         gpid1 = 0;
                                     }
                                 }
-                                if(listdata.getName1027() == null){
+                                if (listdata.getName1027() == null) {
                                     listdata.setName1027(getNames(session, gpid1, 1027));
                                 }
-                                if(listdata.getName1029() == null){
+                                if (listdata.getName1029() == null) {
                                     listdata.setName1029(getNames(session, gpid1, 1029));
                                 }
                             }
@@ -282,31 +283,32 @@ public class NamesDAO extends AbstractDAO<Names, Integer> {
         System.out.println("Listnms : " + listnmsR.getListname());
         return listnmsR;
     }
-    
-    public Listnms getNamesLocal(final Listnms listnms){
+
+    public Listnms getNamesLocal(final Listnms listnms) {
         Listnms listnmsR = (Listnms) getHibernateTemplate().execute(
                 new HibernateCallback() {
+
                     public Object doInHibernate(
                             final org.hibernate.Session session)
                             throws HibernateException, SQLException {
-                        for(Listdata listdata : listnms.getLisdatas()){
+                        for (Listdata listdata : listnms.getLisdatas()) {
                             Integer gid = listdata.getGid();
-                            if(gid < 0){
+                            if (gid < 0) {
                                 listdata.setName1028(getNames(session, gid, 1028));
                                 listdata.setName1027(getNames(session, gid, 1027));
                                 listdata.setName1029(getNames(session, gid, 1029));
-                                if(listdata.getName1027() == null ||
-                                       listdata.getName1029() == null){
+                                if (listdata.getName1027() == null
+                                        || listdata.getName1029() == null) {
                                     Germplsm germplsmT = getGermplsm(session, gid);
                                     Integer gpid1 = germplsmT.getGpid1();
-                                    if(gpid1 < 0){
-                                        if(listdata.getName1027() == null){
+                                    if (gpid1 < 0) {
+                                        if (listdata.getName1027() == null) {
                                             listdata.setName1027(getNames(session, gpid1, 1027));
                                         }
-                                        if(listdata.getName1029() == null){
+                                        if (listdata.getName1029() == null) {
                                             listdata.setName1029(getNames(session, gpid1, 1029));
                                         }
-                                    }else{
+                                    } else {
                                         listdata.setGpid1(gpid1);
                                     }
                                 }
@@ -318,30 +320,86 @@ public class NamesDAO extends AbstractDAO<Names, Integer> {
         System.out.println("Listnms : " + listnmsR.getListname());
         return listnmsR;
     }
-    
-    private Names getNames(Session session, Integer gid, Integer ntype){
+
+    private Names getNames(Session session, Integer gid, Integer ntype) {
         String queryString = "from Names as n "
                 + " where n.gid = :GID and n.ntype = :NTYPE";
         Query query = session.createQuery(queryString);
         query.setParameter("GID", gid);
         query.setParameter("NTYPE", ntype);
         Names nameR;
-        try{
+        try {
             nameR = (Names) query.uniqueResult();
-        }catch(Exception e){
+        } catch (Exception e) {
             log.error("Mas de un resultado para: " + gid + " type: " + ntype, e);
             List<Names> namesList = query.list();
             nameR = (Names) namesList.get(0);
         }
         return nameR;
     }
-    
-    private Germplsm getGermplsm(Session session, Integer gid){
+
+    private Germplsm getGermplsm(Session session, Integer gid) {
         String queryString = "from Germplsm as g "
                 + " where g.gid = :GID";
         Query query = session.createQuery(queryString);
         query.setParameter("GID", gid);
         Germplsm germplsmR = (Germplsm) query.uniqueResult();
         return germplsmR;
+    }
+    
+    /**
+     * Gets a list for Wheat Data (cimmyt) related to BCID, Selection history
+     * 1. It looks for all elements in names where gid are used by a list
+     * @param listId
+     * @return Gets a list for Wheat Data (cimmyt)
+     */
+    public List<WheatData> getDataForCimmytWheat(final Integer listId) {
+        List<WheatData> wheatDataList = new ArrayList<WheatData>();
+        Integer currentGid = -99999999;
+        
+        final String queryString = " from Names as n where n.gid in "
+                + " (select distinct ld.gid from Listdata as ld where ld.listdataPK.listid = " + listId + " )" +
+                " order by n.gid, n.ntype ";
+        
+        List<Names> namesList = getHibernateTemplate().find(queryString);
+        WheatData wheatDataToAdd = new WheatData();
+        for (Names name : namesList) {
+            
+            if (currentGid.intValue() != name.getGid().intValue()) {
+                wheatDataList.add( wheatDataToAdd);
+                currentGid = name.getGid();
+                wheatDataToAdd = new WheatData();
+                wheatDataToAdd.setGid(name.getGid());
+                fillWheatData(wheatDataToAdd, name);
+            } else {
+                fillWheatData(wheatDataToAdd, name);
+            }
+        }
+        
+        // remove first element because is null;
+        wheatDataList.remove(0);
+        return wheatDataList;
+    }
+    
+    /**
+     * Fills a wheat data comparing ntype values
+     * @param wheatData Wheat Data to fill
+     * @param names Names used to check values
+     */
+    private void fillWheatData(WheatData wheatData, Names names) {
+        if (names.getNtype() != null) {
+            switch (names.getNtype()) {
+                case Names.CIMMYT_WHEAT_BCID:
+                    wheatData.setBcid(names.getNval());
+                    break;
+                case Names.CIMMYT_WHEAT_PEDIGREE:
+                    wheatData.setCrossName(names.getNval());
+                    break;
+                case Names.CIMMYT_WHEAT_SELECTION_HISTORY:
+                    wheatData.setSelectionHistory(names.getNval());
+                    break;
+                   
+            }
+        }
     }
 }
