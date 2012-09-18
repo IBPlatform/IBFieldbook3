@@ -1388,7 +1388,11 @@ public final class addChecksTopComponent extends TopComponent {
         listnms.setListdesc(this.jTextFieldDescription.getText());
         listnms.setLhierarchy(0);
         listnms.setListstatus(1);
+        
+        // add list to database
         AppServicesProxy.getDefault().appServices().addListnms(listnms);
+        
+        
         List<Listdata> dataList = new ArrayList<Listdata>();
 
         int gid = findColumn("GID");
@@ -1435,13 +1439,23 @@ public final class addChecksTopComponent extends TopComponent {
 
         AppServicesProxy.getDefault().appServices().addNewsGermplasm(listnms, dataList, loggedUserid);
 
-        fillComboListNames();
+        //fillComboListNames();
+        
+        addRecentListToCombos(listnms);
 
         openRecentList(listnms);
 
         //clear list
         toAdd.clear();
         toAddChecks.clear();
+    }
+    
+    /**
+     * Add recently list name created to combobox to avoid full reaload of items
+     */
+    private void addRecentListToCombos(Listnms listnms) {
+        cboGermplasmList.addItem(listnms);
+        cboGermplasmListChecks.addItem(listnms);
     }
 
     private int findColumn(String col) {
