@@ -30,6 +30,7 @@ import java.awt.datatransfer.StringSelection;
 import java.io.File;
 import java.text.MessageFormat;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
@@ -76,10 +77,7 @@ persistenceType = TopComponent.PERSISTENCE_NEVER)
 preferredID = "StudyEditorTopComponent")
 public final class StudyEditorTopComponent extends TopComponent {
 
-   
-
     private int crop = 0;
-   
     final static String badchars = "`~!@#$%^&*()_+=\\|\"':;?/>.<, ";
     private JFileChooser selectorArchivo = new JFileChooser();
     private TableDataExporterHelper helper = new TableDataExporterHelper();
@@ -1924,16 +1922,19 @@ public final class StudyEditorTopComponent extends TopComponent {
     public void setCROP(int CROP) {
         this.crop = CROP;
     }
-    
-    
 
     private void filterObservationsByTrial() {
         if (this.jRadioButtonFilterTrial.isSelected()) {
-            int num = (Integer) this.jSpinnerTrial.getValue();
+            Integer num = (Integer) this.jSpinnerTrial.getValue();
             try {
-                ObservationsTableModel tableModel = (ObservationsTableModel) jTableObservations.getModel();
-                int colEntry = tableModel.getHeaderIndex(ObservationsTableModel.TRIAL);
-                sorterMeasurements.setRowFilter(RowFilter.numberFilter(RowFilter.ComparisonType.EQUAL, num, colEntry));
+                ObservationsTableModel model = (ObservationsTableModel) jTableObservations.getModel();
+                sorterMeasurements = new TableRowSorter(model);
+                Integer colTrial = model.getHeaderIndex(ObservationsTableModel.TRIAL);
+                //sorterMeasurements.setRowFilter(RowFilter.numberFilter(RowFilter.ComparisonType.EQUAL, num, colTrial));
+                sorterMeasurements.setRowFilter(RowFilter.regexFilter(num.toString(), colTrial));
+                this.jTableObservations.setRowSorter(sorterMeasurements);
+
+
             } catch (PatternSyntaxException pse) {
                 System.err.println("Bad regex pattern");
             }
@@ -1942,11 +1943,12 @@ public final class StudyEditorTopComponent extends TopComponent {
 
     private void filterObservationsByEntry() {
         if (this.jRadioButtonFilterEntry.isSelected()) {
-            int num = (Integer) this.jSpinnerEntry.getValue();
+            Integer num = (Integer) this.jSpinnerEntry.getValue();
             try {
                 ObservationsTableModel tableModel = (ObservationsTableModel) jTableObservations.getModel();
                 int colEntry = tableModel.getHeaderIndex(ObservationsTableModel.ENTRY);
-                sorterMeasurements.setRowFilter(RowFilter.numberFilter(RowFilter.ComparisonType.EQUAL, num, colEntry));
+                //sorterMeasurements.setRowFilter(RowFilter.numberFilter(RowFilter.ComparisonType.EQUAL, num, colEntry));
+                sorterMeasurements.setRowFilter(RowFilter.regexFilter(num.toString(), colEntry));
             } catch (PatternSyntaxException pse) {
                 System.err.println("Bad regex pattern");
             }
@@ -1982,7 +1984,7 @@ public final class StudyEditorTopComponent extends TopComponent {
     }
 
     private void jButtonExportDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExportDataActionPerformed
-
+        storeCellsInEditMode();
         switch (this.getCROP()) {
             case CROP.WHEAT:
                 NbPreferences.forModule(exportWizardPanelGYTrait.class).put("traitIndex", "-1");
@@ -1993,10 +1995,10 @@ public final class StudyEditorTopComponent extends TopComponent {
                 break;
 
             case CROP.MAIZE:
-                  iniciaExportForMaize();
-                  
-                  
-                
+                iniciaExportForMaize();
+
+
+
                 break;
 
             case CROP.OTHERCROPS:
@@ -2009,7 +2011,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                 break;
 
         }
-       
+
 }//GEN-LAST:event_jButtonExportDataActionPerformed
 
     private void exportToFieldlog() {
@@ -2092,6 +2094,7 @@ public final class StudyEditorTopComponent extends TopComponent {
     }//GEN-LAST:event_jButtonSyncActionPerformed
 
     private void jButtonSaveDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveDataActionPerformed
+        storeCellsInEditMode();
         if (jTextTrialName.getText().trim().isEmpty()) {
             DialogUtil.displayError(NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.fillName"));
             jTextTrialName.requestFocus();
@@ -2480,28 +2483,26 @@ public final class StudyEditorTopComponent extends TopComponent {
 
     @Override
     public void componentOpened() {
-
-   
     }
-    
-    public void defineTabs(){
-           switch (this.getCROP()) {
+
+    public void defineTabs() {
+        switch (this.getCROP()) {
             case CROP.WHEAT:
                 this.jTabbedPaneEditor.removeTabAt(8); //remove MASTER tab
-                
+
 
                 break;
             case CROP.MAIZE:
-                
+
 
                 break;
-                
+
             case CROP.OTHERCROPS:
                 this.jTabbedPaneEditor.removeTabAt(8); //remove MASTER tab
 
                 break;
 
-        }  
+        }
     }
 
     @Override
@@ -3029,8 +3030,8 @@ public final class StudyEditorTopComponent extends TopComponent {
         }
     }
 
-    private void iniciaExportForMaize(){
-        
+    private void iniciaExportForMaize() {
+
         WizardDescriptor wiz = new WizardDescriptor(new maizeExportWizardIterator());
         wiz.setTitleFormat(new MessageFormat("{0} ({1})"));
         wiz.setTitle(NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.save"));
@@ -3043,15 +3044,15 @@ public final class StudyEditorTopComponent extends TopComponent {
                 case 0:
                     exportToFieldlog();
                     break;
-                
+
                 case 2:
                     exportToExcel();
                     break;
             }
-            
-        } 
+
+        }
     }
-    
+
     private boolean iniciaExportWizardStandar() {
 
         WizardDescriptor.Iterator iterator = new exportWizardIterator();
@@ -3064,15 +3065,15 @@ public final class StudyEditorTopComponent extends TopComponent {
         if (!cancelled) {
 
             switch (opcionExport) {
-                
+
                 case 0:
                     exportToFieldlog();
 
                     break;
-                case 1: 
+                case 1:
                     exportToR();
                     break;
-                    
+
                 case 2:
                     exportToExcel();
                     break;
@@ -3373,6 +3374,26 @@ public final class StudyEditorTopComponent extends TopComponent {
         jButtonSaveData.setEnabled(true);
         jButtonExportData.setEnabled(true);
         jButtonImportData.setEnabled(true);
+    }
+
+    /**
+     * Stores all cell that are in editing mode
+     */
+    private void storeCellsInEditMode() {
+        storeCellsInEditMode(jTableStudyConditions);
+        storeCellsInEditMode(jTableTrialConditions);        
+        storeCellsInEditMode(jTableObservations);
+        storeCellsInEditMode(jTableConstants);
+    }
+
+    /**
+     * Stores a cell that is in editing mode
+     * @param jtable JTable to verify
+     */
+    private void storeCellsInEditMode(JTable jtable) {
+        if (jtable.getCellEditor() != null) {
+            jtable.getCellEditor().stopCellEditing();
+        }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JPanel JPanelData;

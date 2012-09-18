@@ -230,7 +230,7 @@ public class ObservationsTableModel extends AbstractTableModel {
             }
         }
 
-
+        fireTableCellUpdated(rowIndex, columnIndex);
 
     }
 
