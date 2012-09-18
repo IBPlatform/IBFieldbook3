@@ -58,4 +58,12 @@ public interface GermplasmAssigmentTool {
      */
     public List<List<Object>> getMappedColumns(List<String> columnList, GermplasmList germplasmList);
     
+    
+    /**
+     * Define GermplasmListReader as wheat
+     * @return 
+     */
+    public void mappCimmytWheatColumns(Integer listId, List<List<Object>> data,List<Factor> factorList);
+
+    
 }

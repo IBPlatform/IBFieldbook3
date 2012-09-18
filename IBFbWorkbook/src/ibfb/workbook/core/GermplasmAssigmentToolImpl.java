@@ -140,7 +140,7 @@ GID	GERMPLASM ID	GERMPLASM ENTRY	DBID
      * @param stringValue
      * @return
      */
-    private String getStringWithOutBlanks(String stringValue) {
+    public static String getStringWithOutBlanks(String stringValue) {
         String resultString = stringValue;
 
         // fisrt remove all blank spaces
@@ -153,5 +153,13 @@ GID	GERMPLASM ID	GERMPLASM ENTRY	DBID
         return resultString;
     }
 
-   
+  /**
+     * Define GermplasmListReader as wheat
+     * @return 
+     */
+    @Override
+    public void mappCimmytWheatColumns(Integer listId, List<List<Object>> data,List<Factor> factorList) {
+        CimmytWheatDataReader cwdr = new CimmytWheatDataReader(listId,data,factorList);
+        cwdr.fillCimmytWheatData();
+    }   
 }
