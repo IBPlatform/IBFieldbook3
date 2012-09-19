@@ -2282,6 +2282,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
     }
 
     private void checkConvection() {
+        assignModels();
         switch (jComboBoxConvection.getSelectedIndex()) {
             case 0:
                 enabledComponentsForWheat(false);
@@ -2293,6 +2294,12 @@ public final class nurseryManagerTopComponent extends TopComponent {
                 enabledComponentsForWheat(true);
                 break;
         }
+        jTabbedPaneFemale.setSelectedIndex(0);
+        jTabbedPaneMale.setSelectedIndex(0);
+        cboGermplasmListFemale.setSelectedIndex(0);
+        cboGermplasmListMale.setSelectedIndex(0);
+        jTextAreaPathFemale.setText("");
+        jTextAreaPathMale.setText("");
     }
 
     private static void changeCursorWaitStatus(final boolean isWaiting) {
