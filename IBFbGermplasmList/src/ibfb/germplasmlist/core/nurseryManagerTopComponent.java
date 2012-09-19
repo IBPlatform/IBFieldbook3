@@ -25,6 +25,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -39,9 +40,12 @@ import org.cimmyt.cril.ibwb.commongui.ConvertUtils;
 import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 import org.cimmyt.cril.ibwb.commongui.FileUtils;
 import org.cimmyt.cril.ibwb.domain.*;
+import org.netbeans.api.progress.ProgressHandle;
+import org.netbeans.api.progress.ProgressHandleFactory;
 import org.netbeans.api.settings.ConvertAsProperties;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
+import org.openide.util.Exceptions;
 import org.openide.util.Mutex;
 import org.openide.util.NbBundle;
 import org.openide.util.NbBundle.Messages;
@@ -118,6 +122,8 @@ public final class nurseryManagerTopComponent extends TopComponent {
      * Methods in Combo box, used to retrieve selected method
      */
     private List<Methods> methodsInCombo;
+    
+    private Listnms recentList;
 
     public nurseryManagerTopComponent() {
         initComponents();
@@ -968,6 +974,8 @@ public final class nurseryManagerTopComponent extends TopComponent {
         listnms.setListstatus(1);
 
         AppServicesProxy.getDefault().appServices().addListnms(listnms);
+        recentList = listnms;
+        
         List<Listdata> dataList = new ArrayList<Listdata>();
 
         int desig = -1;
@@ -987,8 +995,8 @@ public final class nurseryManagerTopComponent extends TopComponent {
         int entryCD = findColumn("ENTRY");
         int fgidcol = findColumn("FGID");
         int mgidcol = findColumn("MGID");
-        
-        
+
+
 
 
         int gid = 0;
@@ -1023,7 +1031,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
 
             if (entryCD >= 0) {
                 int entryNumber = ConvertUtils.getValueAsInteger(this.jTableFinalList.getValueAt(i, entryCD));
-                listdata.setEntrycd("E"+ConvertUtils.getZeroLeading(entryNumber, 4));
+                listdata.setEntrycd("E" + ConvertUtils.getZeroLeading(entryNumber, 4));
             } else {
                 listdata.setEntrycd("");
             }
@@ -1071,10 +1079,9 @@ public final class nurseryManagerTopComponent extends TopComponent {
         }
 
         fillComboListNames();
-        openRecentList(listnms);
 
-        changeCursorWaitStatus(
-                false);
+
+        changeCursorWaitStatus(false);
     }
 
     private void openRecentList(Listnms listnms) {
@@ -1397,18 +1404,18 @@ public final class nurseryManagerTopComponent extends TopComponent {
         // get female list name
         String femaleListName = "";
         String maleListName = "";
-        
+
         if (jTabbedPaneFemale.getSelectedIndex() == 0) {
             Listnms femaleList = (Listnms) cboGermplasmListFemale.getSelectedItem();
             femaleListName = femaleList.getListname();
         } else {
             femaleListName = FileUtils.extractFileName(jTextAreaPathFemale.getText());
         }
-       if (jTabbedPaneMale.getSelectedIndex() == 0) {
+        if (jTabbedPaneMale.getSelectedIndex() == 0) {
             Listnms maleList = (Listnms) cboGermplasmListMale.getSelectedItem();
             maleListName = maleList.getListname();
         } else {
-            maleListName = FileUtils.extractFileName(jTextAreaPathMale.getText()); 
+            maleListName = FileUtils.extractFileName(jTextAreaPathMale.getText());
         }
 
         for (int i = 0; i < female; i++) {
@@ -1514,7 +1521,31 @@ public final class nurseryManagerTopComponent extends TopComponent {
             return;
         }
         if (isValidExcelWheatFile(selectorArchivo.getSelectedFile())) {
-            processExcelCrossFile(selectorArchivo.getSelectedFile());
+            final ProgressHandle handle = ProgressHandleFactory.createHandle(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.readingwheatfile"));
+            handle.start();
+            (new SwingWorker<String, Object>() {
+
+                @Override
+                protected String doInBackground() throws Exception {
+                    processExcelCrossFile(selectorArchivo.getSelectedFile());
+                    return "";
+                }
+
+                @Override
+                protected void done() {
+                    super.done();
+                    try {
+                        String valor = get();
+                        DialogUtil.displayInfo(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.readingwheatfiledone"));
+                    } catch (Exception ex) {
+                        Exceptions.printStackTrace(ex);
+                    } finally {
+                        // close the progress handler
+                        handle.finish();
+                    }
+                }
+            }).execute();
+
         }
 
     }//GEN-LAST:event_jButtonLoadExcelScriptActionPerformed
@@ -1697,18 +1728,41 @@ public final class nurseryManagerTopComponent extends TopComponent {
         NotifyDescriptor d = new NotifyDescriptor.Confirmation(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.save"), NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.final"),
                 NotifyDescriptor.OK_CANCEL_OPTION);
         if (DialogDisplayer.getDefault().notify(d) == NotifyDescriptor.OK_OPTION) {
-            saveList();
 
-            NotifyDescriptor d2 = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.saved"), NotifyDescriptor.INFORMATION_MESSAGE);
-            DialogDisplayer.getDefault().notify(d2);
-            this.jTextFieldDescription.setText("");
-            this.jTextFieldListName.setText("");
+            if (isValidExcelWheatFile(selectorArchivo.getSelectedFile())) {
+                final ProgressHandle handle = ProgressHandleFactory.createHandle(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.savingList"));
+                handle.start();
+                (new SwingWorker<String, Object>() {
 
-            DefaultTableModel modelo = (DefaultTableModel) this.jTableFinalList.getModel();
-            modelo.setRowCount(0);
+                    @Override
+                    protected String doInBackground() throws Exception {
+                        saveList();
+                        return "";
+                    }
+
+                    @Override
+                    protected void done() {
+                        super.done();
+                        try {
+                            String valor = get();
+                            showListSavedDone();
+
+                        } catch (Exception ex) {
+                            Exceptions.printStackTrace(ex);
+                        } finally {
+                            // close the progress handler
+                            handle.finish();
+                        }
+                    }
+                }).execute();
+
+            }
+
+
+
+
         }
-        this.jButtonSaveCross.setEnabled(
-                false);
+        this.jButtonSaveCross.setEnabled(false);
     }//GEN-LAST:event_jButtonSaveCrossActionPerformed
 
     private void jTableFinalListPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jTableFinalListPropertyChange
@@ -1822,6 +1876,17 @@ public final class nurseryManagerTopComponent extends TopComponent {
     private void btnSearchFemaleListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchFemaleListActionPerformed
         searchFemaleList();
     }//GEN-LAST:event_btnSearchFemaleListActionPerformed
+
+    private void showListSavedDone() {
+        NotifyDescriptor d2 = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.saved"), NotifyDescriptor.INFORMATION_MESSAGE);
+        DialogDisplayer.getDefault().notify(d2);
+        this.jTextFieldDescription.setText("");
+        this.jTextFieldListName.setText("");
+
+        DefaultTableModel modelo = (DefaultTableModel) this.jTableFinalList.getModel();
+        modelo.setRowCount(0);
+        openRecentList(recentList);
+    }
 
     private void openFile(int opcion) {
         FileFilter[] filtros = new FileFilter[10];
