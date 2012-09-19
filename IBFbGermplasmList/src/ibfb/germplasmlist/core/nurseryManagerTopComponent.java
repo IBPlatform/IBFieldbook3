@@ -37,6 +37,7 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.cimmyt.cril.ibwb.api.AppServicesProxy;
 import org.cimmyt.cril.ibwb.commongui.ConvertUtils;
 import org.cimmyt.cril.ibwb.commongui.DialogUtil;
+import org.cimmyt.cril.ibwb.commongui.FileUtils;
 import org.cimmyt.cril.ibwb.domain.*;
 import org.netbeans.api.settings.ConvertAsProperties;
 import org.openide.DialogDisplayer;
@@ -106,7 +107,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
     public int TYPE = 11;
     private String[] headers = {"ENTRY", "BCID", "CROSS", "GID", "METHOD", "FDESIG", "FGID", "MDESIG", "MGID"};
     private String[] headersScript = {"ENTRY", "BCID", "FEMALE/MALE", "GID", "METHOD", "FTID", "FOCC", "FENTRY", "FDESIG", "FGID", "MTID", "MOCC", "MENTRY", "MDESIG", "MGID"};
-    private String[] otherCropsheaders = {"ENTRY", "CROSS", "GID", "METHOD", "FDESIG", "FGID", "MDESIG", "MGID"};
+    private String[] otherCropsheaders = {"ENTRY", "CROSS", "GID", "METHOD", "FDESIG", "FGID", "MDESIG", "MGID", "SOURCE"};
     private String[] otherCropsheadersScript = {"ENTRY", "CROSS", "GID", "METHOD", "FTID", "FOCC", "FENTRY", "FDESIG", "FGID", "MTID", "MOCC", "MENTRY", "MDESIG", "MGID"};
     private ArrayList<String> tempListCross;
     private String[] nameColumn = {"Cross Name", "Selection History", "Pedigree", "CID", "SID", "GID", "INTRID", "TID", "ENT", "Folio", "Specific Name", "Name Abbreviation", "Cross Year", "Cross Location", "Cross Country", "Cross Organization", "Cross Program", "FAO In-trust", "Selection Year", "Selection Location", "Selection Country", "Name Country", "Name Year", "FAO designation Date", "24 disp", "25 disp"};
@@ -978,7 +979,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
             bcidColumn = findColumn("BCID");
         } else {
             desig = findColumn("CROSS");
-            source = findColumn("FDESIG");
+            source = findColumn("SOURCE");
         }
 
         listnms.setListtype(Listnms.LIST_TYPE_HARVEST);
@@ -986,6 +987,8 @@ public final class nurseryManagerTopComponent extends TopComponent {
         int entryCD = findColumn("ENTRY");
         int fgidcol = findColumn("FGID");
         int mgidcol = findColumn("MGID");
+        
+        
 
 
         int gid = 0;
@@ -996,7 +999,6 @@ public final class nurseryManagerTopComponent extends TopComponent {
 
         for (int i = 0; i < jTableFinalList.getRowCount(); i++) {
             Listdata listdata = new Listdata(true);
-            Listdata listdataBCID = new Listdata(true);
 
             ListdataPK pk1 = new ListdataPK(listnms.getListid(), 0);
             listdata.setListdataPK(pk1);
@@ -1019,8 +1021,9 @@ public final class nurseryManagerTopComponent extends TopComponent {
             }
 
 
-            if (entryCD > 0) {
-                listdata.setEntrycd(this.jTableFinalList.getValueAt(i, entryCD).toString());
+            if (entryCD >= 0) {
+                int entryNumber = ConvertUtils.getValueAsInteger(this.jTableFinalList.getValueAt(i, entryCD));
+                listdata.setEntrycd("E"+ConvertUtils.getZeroLeading(entryNumber, 4));
             } else {
                 listdata.setEntrycd("");
             }
@@ -1355,18 +1358,12 @@ public final class nurseryManagerTopComponent extends TopComponent {
 
         }
 
-
-
         if (female != male) {
             NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.sameNumber"), NotifyDescriptor.ERROR_MESSAGE);
             DialogDisplayer.getDefault().notify(d);
 
             return;
         }
-
-
-
-
 
         if (female == 0) {
             NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.femaleEmpty"), NotifyDescriptor.ERROR_MESSAGE);
@@ -1375,19 +1372,12 @@ public final class nurseryManagerTopComponent extends TopComponent {
             return;
         }
 
-
-
-
         if (male == 0) {
             NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.maleEmpty"), NotifyDescriptor.ERROR_MESSAGE);
             DialogDisplayer.getDefault().notify(d);
 
             return;
         }
-
-
-
-
         DefaultTableModel modelo = new DefaultTableModel() {
 
             @Override
@@ -1404,8 +1394,27 @@ public final class nurseryManagerTopComponent extends TopComponent {
         int numericFieldWidth = (Integer) spnNumFieldWidth.getValue();
         boolean leadingZeros = jChkLeading.isSelected();
 
+        // get female list name
+        String femaleListName = "";
+        String maleListName = "";
+        
+        if (jTabbedPaneFemale.getSelectedIndex() == 0) {
+            Listnms femaleList = (Listnms) cboGermplasmListFemale.getSelectedItem();
+            femaleListName = femaleList.getListname();
+        } else {
+            femaleListName = FileUtils.extractFileName(jTextAreaPathFemale.getText());
+        }
+       if (jTabbedPaneMale.getSelectedIndex() == 0) {
+            Listnms maleList = (Listnms) cboGermplasmListMale.getSelectedItem();
+            maleListName = maleList.getListname();
+        } else {
+            maleListName = FileUtils.extractFileName(jTextAreaPathMale.getText()); 
+        }
+
         for (int i = 0; i < female; i++) {
 
+            Object fentry = femaleModel.getValueAt(i, 0);
+            Object mentry = maleModel.getValueAt(i, 0);
             Object fdesig = femaleModel.getValueAt(i, 1);
             Object mdesig = maleModel.getValueAt(i, 1);
             Object fgid = femaleModel.getValueAt(i, 2);
@@ -1413,7 +1422,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
 
             modelo.setValueAt(i + 1, i, 0);//ENTRY
 
-            if (jComboBoxConvection.getSelectedIndex() == 2) {
+            if (jComboBoxConvection.getSelectedIndex() == CONVENTION_OTHER_CROPS) {
                 StringBuilder designation = new StringBuilder();
                 if (jTextPrefix.getText().isEmpty() && jTextSuffix.getText().isEmpty()) {
                     designation.append(fdesig).append("/").append(mdesig);
@@ -1426,8 +1435,6 @@ public final class nurseryManagerTopComponent extends TopComponent {
                     }
                     designation.append(jTextSuffix.getText());
                 }
-
-
                 modelo.setValueAt(designation, i, 1);
             } else {
                 modelo.setValueAt(fdesig + "/" + mdesig, i, 1);//CROSS
@@ -1440,7 +1447,14 @@ public final class nurseryManagerTopComponent extends TopComponent {
             modelo.setValueAt(fdesig, i, 4);//FDESIG
             modelo.setValueAt(fgid, i, 5);//FGIG
             modelo.setValueAt(mdesig, i, 6);//MDESIG
-            modelo.setValueAt(mgid, i, 7);//MGID        
+            modelo.setValueAt(mgid, i, 7);//MGID  
+            if (jComboBoxConvection.getSelectedIndex() == CONVENTION_OTHER_CROPS) {
+                StringBuilder source = new StringBuilder();
+                source.append(femaleListName).append(":").append(fentry);
+                source.append("/");
+                source.append(maleListName).append(":").append(mentry);
+                modelo.setValueAt(source.toString(), i, 8); // SOURCE
+            }
         }
 
 
@@ -1448,11 +1462,9 @@ public final class nurseryManagerTopComponent extends TopComponent {
 
         jTableFinalList.setModel(modelo);
 
-        ajustaColumnsTable(
-                this.jTableFinalList);
+        ajustaColumnsTable(this.jTableFinalList);
 
-        if (this.jTableFinalList.getRowCount()
-                > 0) {
+        if (this.jTableFinalList.getRowCount() > 0) {
             this.jButtonSaveCross.setEnabled(true);
         }
     }//GEN-LAST:event_jButtonCrossActionPerformed
@@ -1574,7 +1586,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
 
 
                 GermplasmSearch gsF = new GermplasmSearch();
-                gsF.setCrosstype("SS");                               
+                gsF.setCrosstype("SS");
                 gsF.setStudyId(ftid);
                 gsF.setTrial(focc);
                 gsF.setPlot(fent);
@@ -2300,6 +2312,14 @@ public final class nurseryManagerTopComponent extends TopComponent {
         cboGermplasmListMale.setSelectedIndex(0);
         jTextAreaPathFemale.setText("");
         jTextAreaPathMale.setText("");
+        DefaultTableModel modelo = new DefaultTableModel() {
+
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        jTableFinalList.setModel(modelo);
     }
 
     private static void changeCursorWaitStatus(final boolean isWaiting) {
