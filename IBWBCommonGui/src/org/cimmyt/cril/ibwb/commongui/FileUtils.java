@@ -67,4 +67,15 @@ public class FileUtils {
 
 
     }
+     
+     /**
+      * Extract the file name without the path from a String that
+      * contains all path separator
+      * @param fullPath File name with full path
+      * @return file name without path
+      */
+     public static String extractFileName(String fullPath) {
+         int lastIndexSeparator = fullPath.lastIndexOf(File.separator);
+        return fullPath.substring(lastIndexSeparator+1,fullPath.length());
+     }
 }
