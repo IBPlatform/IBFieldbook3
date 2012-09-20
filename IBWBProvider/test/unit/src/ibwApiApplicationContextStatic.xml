@@ -77,6 +77,8 @@
 	
     <bean name="serviciosLocal" class="org.cimmyt.cril.ibwb.provider.CommonServicesImpl">
         <property name="accessType" value="local"/>
+        <property name="accessUrlDms" value="${dmslocal.url}"/>
+        <property name="accessUrlGms" value="${gmslocal.url}"/>
         <property name="atributsDAO" ref="AtributsDAOLocal" />
         <property name="bibrefsDAO" ref="BibrefsDAOLocal" />
         <property name="changesDAO" ref="ChangesDAOLocal" />
@@ -139,6 +141,8 @@
 	
     <bean name="serviciosCentral" class="org.cimmyt.cril.ibwb.provider.CommonServicesImpl">
         <property name="accessType" value="central"/>
+        <property name="accessUrlDms" value="${dmscentral.url}"/>
+        <property name="accessUrlGms" value="${gmscentral.url}"/>
         <property name="atributsDAO" ref="AtributsDAOCentral" />
         <property name="bibrefsDAO" ref="BibrefsDAOCentral" />
         <property name="changesDAO" ref="ChangesDAOCentral" />
