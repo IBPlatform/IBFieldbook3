@@ -114,7 +114,6 @@ public final class nurseryManagerTopComponent extends TopComponent {
     private ArrayList<String> tempListCross;
     List<GermplasmSearch> listFemale;
     List<GermplasmSearch> listMale;
-    
     /**
      * Methods in Combo box, used to retrieve selected method
      */
@@ -987,7 +986,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
         int entryCD = findColumn("ENTRY");
         int fgidcol = findColumn("FGID");
         int mgidcol = findColumn("MGID");
-        
+
         int gid = 0;
 
         // get selected method from combo
@@ -1719,7 +1718,12 @@ public final class nurseryManagerTopComponent extends TopComponent {
                 NotifyDescriptor.OK_CANCEL_OPTION);
         if (DialogDisplayer.getDefault().notify(d) == NotifyDescriptor.OK_OPTION) {
 
-            if (isValidExcelWheatFile(selectorArchivo.getSelectedFile())) {
+            boolean validFile = true;
+            if (jComboBoxConvection.getSelectedIndex() == CONVENTION_CIMMYT_WHEAT) {
+                validFile = isValidExcelWheatFile(selectorArchivo.getSelectedFile());
+            }
+
+            if (validFile) {
                 final ProgressHandle handle = ProgressHandleFactory.createHandle(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.savingList"));
                 handle.start();
                 (new SwingWorker<String, Object>() {
