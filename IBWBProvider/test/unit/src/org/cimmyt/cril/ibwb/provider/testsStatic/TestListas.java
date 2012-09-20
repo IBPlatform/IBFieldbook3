@@ -122,7 +122,7 @@ public class TestListas extends TestService {
     }
     
     public void testGetListnmsFull() {
-        Listnms listnms = servicios.getFullListnms(2838);
+        Listnms listnms = servicios.getFullListnms(-14);
         printListnms(listnms);
     }
     
