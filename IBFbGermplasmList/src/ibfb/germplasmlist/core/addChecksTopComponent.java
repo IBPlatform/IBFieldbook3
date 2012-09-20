@@ -31,6 +31,7 @@ import javax.swing.filechooser.FileFilter;
 import javax.swing.table.DefaultTableCellRenderer;
 import org.cimmyt.cril.ibwb.api.AppServicesProxy;
 import org.cimmyt.cril.ibwb.commongui.ConvertUtils;
+import org.cimmyt.cril.ibwb.commongui.FileUtils;
 import org.cimmyt.cril.ibwb.commongui.OSUtils;
 import org.cimmyt.cril.ibwb.domain.Listdata;
 import org.cimmyt.cril.ibwb.domain.ListdataPK;
@@ -157,7 +158,7 @@ public final class addChecksTopComponent extends TopComponent {
         jSeparator5 = new javax.swing.JToolBar.Separator();
         jLabel9 = new javax.swing.JLabel();
         jTextFieldSelectedEntries = new javax.swing.JTextField();
-        jTabbedPane2 = new javax.swing.JTabbedPane();
+        jTabbedPaneSource = new javax.swing.JTabbedPane();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         cboGermplasmList = new javax.swing.JComboBox();
@@ -195,7 +196,7 @@ public final class addChecksTopComponent extends TopComponent {
         jSeparator12 = new javax.swing.JToolBar.Separator();
         jLabel14 = new javax.swing.JLabel();
         jTextFieldSelectedChecks = new javax.swing.JTextField();
-        jTabbedPane3 = new javax.swing.JTabbedPane();
+        jTabbedPaneSelectChecks = new javax.swing.JTabbedPane();
         jPanel7 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         cboGermplasmListChecks = new javax.swing.JComboBox();
@@ -303,10 +304,10 @@ public final class addChecksTopComponent extends TopComponent {
         jTextFieldSelectedEntries.setText(org.openide.util.NbBundle.getMessage(addChecksTopComponent.class, "addChecksTopComponent.jTextFieldSelectedEntries.text")); // NOI18N
         jToolBar2.add(jTextFieldSelectedEntries);
 
-        jTabbedPane2.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(addChecksTopComponent.class, "addChecksTopComponent.jTabbedPane2.border.title"))); // NOI18N
-        jTabbedPane2.addChangeListener(new javax.swing.event.ChangeListener() {
+        jTabbedPaneSource.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(addChecksTopComponent.class, "addChecksTopComponent.jTabbedPaneSource.border.title"))); // NOI18N
+        jTabbedPaneSource.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jTabbedPane2StateChanged(evt);
+                jTabbedPaneSourceStateChanged(evt);
             }
         });
 
@@ -382,7 +383,7 @@ public final class addChecksTopComponent extends TopComponent {
                 .addContainerGap())
         );
 
-        jTabbedPane2.addTab(org.openide.util.NbBundle.getMessage(addChecksTopComponent.class, "addChecksTopComponent.jPanel4.TabConstraints.tabTitle"), jPanel4); // NOI18N
+        jTabbedPaneSource.addTab(org.openide.util.NbBundle.getMessage(addChecksTopComponent.class, "addChecksTopComponent.jPanel4.TabConstraints.tabTitle"), jPanel4); // NOI18N
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/germplasmlist/images/excelFile.png"))); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(jLabel2, org.openide.util.NbBundle.getMessage(addChecksTopComponent.class, "addChecksTopComponent.jLabel2.text")); // NOI18N
@@ -450,7 +451,7 @@ public final class addChecksTopComponent extends TopComponent {
                 .addContainerGap())
         );
 
-        jTabbedPane2.addTab(org.openide.util.NbBundle.getMessage(addChecksTopComponent.class, "addChecksTopComponent.jPanel5.TabConstraints.tabTitle"), jPanel5); // NOI18N
+        jTabbedPaneSource.addTab(org.openide.util.NbBundle.getMessage(addChecksTopComponent.class, "addChecksTopComponent.jPanel5.TabConstraints.tabTitle"), jPanel5); // NOI18N
 
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(addChecksTopComponent.class, "addChecksTopComponent.jPanel6.border.title"))); // NOI18N
 
@@ -546,7 +547,7 @@ public final class addChecksTopComponent extends TopComponent {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane2)
+                    .addComponent(jTabbedPaneSource)
                     .addComponent(jToolBar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -567,7 +568,7 @@ public final class addChecksTopComponent extends TopComponent {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(1, 1, 1)
                         .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jTabbedPane2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jTabbedPaneSource, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -638,10 +639,10 @@ public final class addChecksTopComponent extends TopComponent {
         jTextFieldSelectedChecks.setText(org.openide.util.NbBundle.getMessage(addChecksTopComponent.class, "addChecksTopComponent.jTextFieldSelectedChecks.text")); // NOI18N
         jToolBar4.add(jTextFieldSelectedChecks);
 
-        jTabbedPane3.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(addChecksTopComponent.class, "addChecksTopComponent.jTabbedPane3.border.title"))); // NOI18N
-        jTabbedPane3.addChangeListener(new javax.swing.event.ChangeListener() {
+        jTabbedPaneSelectChecks.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(addChecksTopComponent.class, "addChecksTopComponent.jTabbedPaneSelectChecks.border.title"))); // NOI18N
+        jTabbedPaneSelectChecks.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jTabbedPane3StateChanged(evt);
+                jTabbedPaneSelectChecksStateChanged(evt);
             }
         });
 
@@ -712,7 +713,7 @@ public final class addChecksTopComponent extends TopComponent {
                 .addContainerGap())
         );
 
-        jTabbedPane3.addTab(org.openide.util.NbBundle.getMessage(addChecksTopComponent.class, "addChecksTopComponent.jPanel7.TabConstraints.tabTitle"), jPanel7); // NOI18N
+        jTabbedPaneSelectChecks.addTab(org.openide.util.NbBundle.getMessage(addChecksTopComponent.class, "addChecksTopComponent.jPanel7.TabConstraints.tabTitle"), jPanel7); // NOI18N
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ibfb/germplasmlist/images/excelFile.png"))); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(jLabel6, org.openide.util.NbBundle.getMessage(addChecksTopComponent.class, "addChecksTopComponent.jLabel6.text")); // NOI18N
@@ -780,7 +781,7 @@ public final class addChecksTopComponent extends TopComponent {
                 .addContainerGap())
         );
 
-        jTabbedPane3.addTab(org.openide.util.NbBundle.getMessage(addChecksTopComponent.class, "addChecksTopComponent.jPanel8.TabConstraints.tabTitle"), jPanel8); // NOI18N
+        jTabbedPaneSelectChecks.addTab(org.openide.util.NbBundle.getMessage(addChecksTopComponent.class, "addChecksTopComponent.jPanel8.TabConstraints.tabTitle"), jPanel8); // NOI18N
 
         jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(addChecksTopComponent.class, "addChecksTopComponent.jPanel9.border.title"))); // NOI18N
 
@@ -965,7 +966,7 @@ public final class addChecksTopComponent extends TopComponent {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane3)
+                    .addComponent(jTabbedPaneSelectChecks)
                     .addComponent(jToolBar4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -982,7 +983,7 @@ public final class addChecksTopComponent extends TopComponent {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTabbedPane3))
+                    .addComponent(jTabbedPaneSelectChecks))
                 .addGap(9, 9, 9)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jToolBar4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1135,7 +1136,7 @@ public final class addChecksTopComponent extends TopComponent {
                 .addGap(11, 11, 11)
                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollFinal, javax.swing.GroupLayout.DEFAULT_SIZE, 444, Short.MAX_VALUE)
+                .addComponent(jScrollFinal, javax.swing.GroupLayout.DEFAULT_SIZE, 448, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1160,11 +1161,12 @@ public final class addChecksTopComponent extends TopComponent {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpActionPerformed
+        cleanGermplasmFinalList();
    }//GEN-LAST:event_jButtonUpActionPerformed
 
     private void jButtonClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClearActionPerformed
 
-        switch (this.jTabbedPane2.getSelectedIndex()) {
+        switch (this.jTabbedPaneSource.getSelectedIndex()) {
             case 0:
                 jTableEntriesDB.getSelectionModel().clearSelection();
                 break;
@@ -1260,10 +1262,10 @@ public final class addChecksTopComponent extends TopComponent {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTabbedPane2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane2StateChanged
+    private void jTabbedPaneSourceStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPaneSourceStateChanged
 
 
-        switch (jTabbedPane2.getSelectedIndex()) {
+        switch (jTabbedPaneSource.getSelectedIndex()) {
             case 0:
                 this.jTextFieldEntries.setText(String.valueOf(this.jTableEntriesDB.getRowCount()));
                 this.jTextFieldSelectedEntries.setText(String.valueOf(this.jTableEntriesDB.getSelectedRowCount()));
@@ -1279,14 +1281,14 @@ public final class addChecksTopComponent extends TopComponent {
 
 
         }
-   }//GEN-LAST:event_jTabbedPane2StateChanged
+   }//GEN-LAST:event_jTabbedPaneSourceStateChanged
 
     private void jButtonUpChecksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpChecksActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonUpChecksActionPerformed
 
     private void jButtonClearChecksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClearChecksActionPerformed
-        switch (this.jTabbedPane3.getSelectedIndex()) {
+        switch (this.jTabbedPaneSelectChecks.getSelectedIndex()) {
             case 0:
                 jTableEntriesDBChecks.getSelectionModel().clearSelection();
                 break;
@@ -1323,9 +1325,9 @@ public final class addChecksTopComponent extends TopComponent {
         }
     }//GEN-LAST:event_jButtonBrowseExcelChecksActionPerformed
 
-    private void jTabbedPane3StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane3StateChanged
+    private void jTabbedPaneSelectChecksStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPaneSelectChecksStateChanged
 
-        switch (jTabbedPane3.getSelectedIndex()) {
+        switch (jTabbedPaneSelectChecks.getSelectedIndex()) {
 
             case 0:
                 this.jTextFieldEntriesChecks.setText(String.valueOf(this.jTableEntriesDBChecks.getRowCount()));
@@ -1339,7 +1341,7 @@ public final class addChecksTopComponent extends TopComponent {
             default:
                 throw new AssertionError();
         }
-    }//GEN-LAST:event_jTabbedPane3StateChanged
+    }//GEN-LAST:event_jTabbedPaneSelectChecksStateChanged
 
     private void jButtonSaveListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveListActionPerformed
         if (this.jTextFieldListName.getText().isEmpty()) {
@@ -1388,50 +1390,60 @@ public final class addChecksTopComponent extends TopComponent {
         listnms.setListdesc(this.jTextFieldDescription.getText());
         listnms.setLhierarchy(0);
         listnms.setListstatus(1);
-        
+
         // add list to database
         AppServicesProxy.getDefault().appServices().addListnms(listnms);
-        
-        
+
+
         List<Listdata> dataList = new ArrayList<Listdata>();
 
         int gid = findColumn("GID");
         int desig = findColumn("DESIG");
         int entryCD = findColumn("ENTRY");
+        int source = findColumn("SOURCE");
 
         for (int i = 0; i < jTableFinal.getRowCount(); i++) {
-            Listdata d1 = new Listdata(true);
+            Listdata listdata = new Listdata(true);
             ListdataPK pk1 = new ListdataPK(listnms.getListid(), 0);
 
-            d1.setListdataPK(pk1);
-            d1.setEntryid(i + 1);
+            listdata.setListdataPK(pk1);
+            listdata.setEntryid(i + 1);
             if (desig > 0) {
-                d1.setDesig(this.jTableFinal.getValueAt(i, desig).toString());  //*
+                listdata.setDesig(this.jTableFinal.getValueAt(i, desig).toString());  //*
             } else {
-                d1.setDesig("");
+                listdata.setDesig("");
             }
-            if (entryCD > 0) {
-                d1.setEntrycd(this.jTableFinal.getValueAt(i, entryCD).toString());
+            if (entryCD >= 0) {
+                int entryNumber = ConvertUtils.getValueAsInteger(this.jTableFinal.getValueAt(i, entryCD));
+                listdata.setEntrycd("E" + ConvertUtils.getZeroLeading(entryNumber, 4));
             } else {
-                d1.setEntrycd("");
+                listdata.setEntrycd("");
             }
 
-            //d1.setSource("SOURC1");
-            d1.setSource("");
-            d1.setGrpname("grp");
+            if (source >= 0) {
+                String sourceStr = this.jTableFinal.getValueAt(i, source).toString();
+                if (sourceStr == null) {
 
-            // d1.setSource("SOURC1");
-            // d1.setGrpname("grp");
+                    listdata.setSource("");
+                } else {
+                    if (sourceStr.isEmpty()) {
+                    } else {
+                        listdata.setSource(sourceStr);
+                    }
+                }
+            }
+            listdata.setGrpname("grp");
 
-            d1.setLrstatus(0);      //*
+
+            listdata.setLrstatus(0);      //*
             //d1.setLlrecid(0);
 
             if (gid > 0) {
-                d1.setGid(Integer.parseInt(jTableFinal.getValueAt(i, gid).toString()));
+                listdata.setGid(Integer.parseInt(jTableFinal.getValueAt(i, gid).toString()));
             } else {
-                d1.setGid(0);
+                listdata.setGid(0);
             }
-            dataList.add(d1);
+            dataList.add(listdata);
 
         }
 
@@ -1440,7 +1452,7 @@ public final class addChecksTopComponent extends TopComponent {
         AppServicesProxy.getDefault().appServices().addNewsGermplasm(listnms, dataList, loggedUserid);
 
         //fillComboListNames();
-        
+
         addRecentListToCombos(listnms);
 
         openRecentList(listnms);
@@ -1449,7 +1461,7 @@ public final class addChecksTopComponent extends TopComponent {
         toAdd.clear();
         toAddChecks.clear();
     }
-    
+
     /**
      * Add recently list name created to combobox to avoid full reaload of items
      */
@@ -1503,7 +1515,7 @@ public final class addChecksTopComponent extends TopComponent {
     }//GEN-LAST:event_jSpinnerFrequencyStateChanged
 
     private void jTableEntriesDBChecksPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jTableEntriesDBChecksPropertyChange
-        switch (jTabbedPane3.getSelectedIndex()) {
+        switch (jTabbedPaneSelectChecks.getSelectedIndex()) {
             case 0:
                 this.jTextFieldEntriesChecks.setText(String.valueOf(this.jTableEntriesDBChecks.getRowCount()));
                 this.jTextFieldSelectedChecks.setText(String.valueOf(this.jTableEntriesDBChecks.getSelectedRowCount()));
@@ -1518,7 +1530,7 @@ public final class addChecksTopComponent extends TopComponent {
     }//GEN-LAST:event_jTableEntriesDBChecksPropertyChange
 
     private void jTableEntriesDBPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jTableEntriesDBPropertyChange
-        switch (jTabbedPane2.getSelectedIndex()) {
+        switch (jTabbedPaneSource.getSelectedIndex()) {
             case 0:
                 this.jTextFieldEntries.setText(String.valueOf(this.jTableEntriesDB.getRowCount()));
                 this.jTextFieldSelectedEntries.setText(String.valueOf(this.jTableEntriesDB.getSelectedRowCount()));
@@ -1533,7 +1545,7 @@ public final class addChecksTopComponent extends TopComponent {
     }//GEN-LAST:event_jTableEntriesDBPropertyChange
 
     private void jTableEntriesExcelPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jTableEntriesExcelPropertyChange
-        switch (jTabbedPane2.getSelectedIndex()) {
+        switch (jTabbedPaneSource.getSelectedIndex()) {
             case 0:
                 this.jTextFieldEntries.setText(String.valueOf(this.jTableEntriesDB.getRowCount()));
                 this.jTextFieldSelectedEntries.setText(String.valueOf(this.jTableEntriesDB.getSelectedRowCount()));
@@ -1548,7 +1560,7 @@ public final class addChecksTopComponent extends TopComponent {
     }//GEN-LAST:event_jTableEntriesExcelPropertyChange
 
     private void jTableEntriesExcelChecksPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jTableEntriesExcelChecksPropertyChange
-        switch (jTabbedPane3.getSelectedIndex()) {
+        switch (jTabbedPaneSelectChecks.getSelectedIndex()) {
             case 0:
                 this.jTextFieldEntriesChecks.setText(String.valueOf(this.jTableEntriesDBChecks.getRowCount()));
                 this.jTextFieldSelectedChecks.setText(String.valueOf(this.jTableEntriesDBChecks.getSelectedRowCount()));
@@ -1915,7 +1927,7 @@ public final class addChecksTopComponent extends TopComponent {
         List<List<Object>> sourceEntries = new ArrayList<List<Object>>();
         JTable sourceTable = null;
 
-        switch (jTabbedPane2.getSelectedIndex()) {
+        switch (jTabbedPaneSource.getSelectedIndex()) {
 
             case 0:
                 sourceEntries = rowListDB;
@@ -1984,8 +1996,9 @@ public final class addChecksTopComponent extends TopComponent {
     private void jButtonAddChecksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddChecksActionPerformed
         List<List<Object>> sourceEntries = new ArrayList<List<Object>>();
         JTable sourceTable = null;
+        boolean hasChecks = false;
 
-        switch (jTabbedPane3.getSelectedIndex()) {
+        switch (jTabbedPaneSelectChecks.getSelectedIndex()) {
 
             case 0:
                 sourceEntries = rowListDBChecks;
@@ -1994,6 +2007,7 @@ public final class addChecksTopComponent extends TopComponent {
             case 1:
                 sourceEntries = rowListExcelChecks;
                 sourceTable = jTableEntriesExcelChecks;
+                hasChecks = true;
                 break;
         }
 
@@ -2008,6 +2022,7 @@ public final class addChecksTopComponent extends TopComponent {
         sourceEntries.removeAll(toRemoveLocal);
 
         GermplasmEntriesTableModelChecks tableModel = new GermplasmEntriesTableModelChecks(factores, toAddChecks);
+        tableModel.setHasChecks(hasChecks);
         jTableFinalChecks.setModel(tableModel);
         sourceTable.getSelectionModel().clearSelection();
         jTableFinalChecks.updateUI();
@@ -2124,6 +2139,7 @@ public final class addChecksTopComponent extends TopComponent {
                         GermplasmList germplasmList = germplasmListReader.getGermPlasmList(myFile);
                         setGermplasmListIntoTable(germplasmList, tabla, 1, 0);
                     } catch (Exception ex) {
+                        ex.printStackTrace();
                         System.out.println("ERROR AL LEER EXCEL GERMPLASM ENTRIES: " + ex);
                     }
                 } else {
@@ -2182,18 +2198,20 @@ public final class addChecksTopComponent extends TopComponent {
                 switch (opcion) {
                     case 0:
                         rowListDB = gat.getMappedColumns(columnList, germplasmList);
+                        validateValuesForSource(rowListDB);
                         tableModel = new GermplasmEntriesTableModelChecks(factores, rowListDB);
                         break;
                     case 1:
                         rowListExcel = gat.getMappedColumns(columnList, germplasmList);
+                        validateValuesForSource(rowListExcel);
                         tableModel = new GermplasmEntriesTableModelChecks(factores, rowListExcel);
                         break;
                 }
 
+
+
                 this.jTextFieldEntries.setText(String.valueOf(germplasmList.getListEntries().size()));
                 tabla.setModel(tableModel);
-
-
                 tcr = new DefaultTableCellRenderer();
                 tcr.setHorizontalAlignment(SwingConstants.CENTER);
                 for (int col = 0; col < tabla.getColumnCount(); col++) {
@@ -2204,18 +2222,17 @@ public final class addChecksTopComponent extends TopComponent {
             case 1://checks
 
                 GermplasmEntriesTableModelChecks tableModelChecks = null;
-
-
                 switch (opcion) {
                     case 0:
                         rowListDBChecks = gat.getMappedColumns(columnList, germplasmList);
+                        validateValuesForSource(rowListDBChecks);
                         tableModelChecks = new GermplasmEntriesTableModelChecks(factores, rowListDBChecks);
                         break;
                     case 1:
                         rowListExcelChecks = gat.getMappedColumns(columnList, germplasmList);
+                        validateValuesForSource(rowListExcelChecks);
                         tableModelChecks = new GermplasmEntriesTableModelChecks(factores, rowListExcelChecks);
                         break;
-
                 }
 
                 this.jTextFieldEntriesChecks.setText(String.valueOf(germplasmList.getListEntries().size()));
@@ -2230,9 +2247,53 @@ public final class addChecksTopComponent extends TopComponent {
 
         }
 
+        
 
+    }
 
+    /**
+     * Validates if source column is empty if source column is empty then uses
+     * either list name from combo box or file name
+     *
+     * @param jtable
+     */
+    private void validateValuesForSource(List<List<Object>> dataList) {
+        int SOURCE_COLUMN = 3;
+        if (dataList.get(0).size() !=4) {
+            return;
+        }
 
+        // get female list name
+        String listName = "";
+
+        switch (jTabbedPaneChecks.getSelectedIndex()) {
+            case 0:
+                if (jTabbedPaneSource.getSelectedIndex() == 0) {
+                    Listnms femaleList = (Listnms) cboGermplasmList.getSelectedItem();
+                    listName = femaleList.getListname();
+                } else {
+                    listName = FileUtils.extractFileName(jTextAreaPath.getText());
+                }
+                break;
+            case 1:
+                if (jTabbedPaneSelectChecks.getSelectedIndex() == 0) {
+                    Listnms femaleList = (Listnms) cboGermplasmListChecks.getSelectedItem();
+                    listName = femaleList.getListname();
+                } else {
+                    listName = FileUtils.extractFileName(jTextAreaPathChecks.getText());
+                }
+
+        }
+
+        for (int rowIndex = 0; rowIndex < dataList.size(); rowIndex++) {
+            List<Object> columnList = dataList.get(rowIndex);
+            String sourceText = (String) columnList.get(SOURCE_COLUMN);
+            if (sourceText == null) {
+                columnList.set(SOURCE_COLUMN, listName + ":" + rowIndex);
+            } else if (sourceText.isEmpty()) {
+                columnList.set(SOURCE_COLUMN, listName + ":" + rowIndex);
+            }
+        }
 
     }
 
@@ -2354,6 +2415,13 @@ public final class addChecksTopComponent extends TopComponent {
         factor.setProperty("GERMPLASM ID");
         factor.setScale("DBID");
         factor.setDataType("N");
+        factores.add(factor);
+
+        factor = new Factor();
+        factor.setFactorName("SOURCE");
+        factor.setProperty("SEED SOURCE");
+        factor.setScale("NAME");
+        factor.setDataType("C");
         factores.add(factor);
     }
 
@@ -2633,9 +2701,9 @@ public final class addChecksTopComponent extends TopComponent {
     private javax.swing.JToolBar.Separator jSeparator9;
     private javax.swing.JSpinner jSpinnerFrequency;
     private javax.swing.JSpinner jSpinnerPosition;
-    private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTabbedPane jTabbedPaneChecks;
+    private javax.swing.JTabbedPane jTabbedPaneSelectChecks;
+    private javax.swing.JTabbedPane jTabbedPaneSource;
     private javax.swing.JTable jTableEntriesDB;
     private javax.swing.JTable jTableEntriesDBChecks;
     private javax.swing.JTable jTableEntriesExcel;
@@ -2868,7 +2936,7 @@ public final class addChecksTopComponent extends TopComponent {
     }
 
     private void searchList() {
-rowListDB = new ArrayList<List<Object>>();        
+        rowListDB = new ArrayList<List<Object>>();
         SelectListDialog selectListDialog = new SelectListDialog();
         selectListDialog.showSearchDialog();
         if (selectListDialog.isListSelected()) {
@@ -2892,8 +2960,8 @@ rowListDB = new ArrayList<List<Object>>();
     }
 
     private void searchChecksList() {
-   
-        rowListDBChecks = new ArrayList<List<Object>>();        
+
+        rowListDBChecks = new ArrayList<List<Object>>();
         SelectListDialog selectListDialog = new SelectListDialog();
         selectListDialog.showSearchDialog();
         if (selectListDialog.isListSelected()) {
@@ -2914,5 +2982,15 @@ rowListDB = new ArrayList<List<Object>>();
         germplasmTransferHandler.setSourceList(rowListDBChecks);
         germplasmTransferHandler.setSourceTable(jTableEntriesDBChecks);
         germplasmTransferHandler.setFactores(factores);
+    }
+
+    private void cleanGermplasmFinalList() {
+        toAdd = new ArrayList<List<Object>>();
+        GermplasmEntriesTableModelChecks tableModel = new GermplasmEntriesTableModelChecks(factores, toAdd);
+        jTableFinalSource.setModel(tableModel);
+        jTableFinalSource.getSelectionModel().clearSelection();
+        jTableFinalSource.updateUI();
+        jTableFinalSource.updateUI();
+
     }
 }
