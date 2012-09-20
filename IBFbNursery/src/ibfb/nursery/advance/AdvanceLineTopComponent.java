@@ -63,10 +63,12 @@ public final class AdvanceLineTopComponent extends TopComponent {
     private Listnms recentSavedList;
     private List<GermplasmSearch> listToSearchBCID;
     private int convection;
-    private String desigArray[]={"DESIG","CROSS","CROSS NAME"};
-    private String entryArray[]={"ENTRY","ENTRY NUMBER"};
-    private String bcidArray[]={"BCID","CROSS","CROSS NAME"};
+    private String desigArray[] = {"DESIG", "CROSS", "CROSS NAME"};
+    private String entryArray[] = {"ENTRY", "ENTRY NUMBER"};
+    private String bcidArray[] = {"BCID", "CROSS", "CROSS NAME"};
     ObservationsTableModel modelo;
+    List<GermplasmSearch> listFemale;
+    List<GermplasmSearch> listMale;
 
     public ObservationsTableModel getModelo() {
         return modelo;
@@ -76,7 +78,6 @@ public final class AdvanceLineTopComponent extends TopComponent {
         this.modelo = modelo;
     }
 
-    
     public List<GermplasmSearch> getListToSearchBCID() {
         return listToSearchBCID;
     }
@@ -426,7 +427,7 @@ public final class AdvanceLineTopComponent extends TopComponent {
         // tableModel.setIsForInventory(true);
         this.jTableEntries.setModel(tableModel);
         ajustaColumnsTable(this.jTableEntries);
-       
+
 
     }
 
@@ -630,12 +631,14 @@ public final class AdvanceLineTopComponent extends TopComponent {
     }
 
     private void saveListForWheat() {
-        
-     //   List<GermplasmSearch> listFemale = new ArrayList<GermplasmSearch>();
-       // List<GermplasmSearch> listMale = new ArrayList<GermplasmSearch>();
-        
-        changeCursorWaitStatus(true);
 
+        if (!loadFemaleMale()) {
+            listFemale = new ArrayList<GermplasmSearch>();
+            listMale = new ArrayList<GermplasmSearch>();
+        }
+
+
+        changeCursorWaitStatus(true);
         Listnms listnms = new Listnms();
         listnms.setListname(this.jTextFieldNurseryAdvanceName.getText());
 
@@ -649,32 +652,23 @@ public final class AdvanceLineTopComponent extends TopComponent {
 
         AppServicesProxy.getDefault().appServices().addListnms(listnms);
         List<Listdata> dataList = new ArrayList<Listdata>();
-        
+
         int desigColumn = findColumn(desigArray);
         int entryCDColumn = findColumn(entryArray);
         int bcidColumn = findColumn(bcidArray);
-    
-        
 
- 
         int gid = 0;
-         currentSourceGid = 0;
+        currentSourceGid = 0;
 
-        // get selected method from combo
-        //int selectedMethodId = getMethodId();
-        
 
-         
-         
-                
-       int numOfParents = getNumberOfParents();
+        int numOfParents = getNumberOfParents();
 
         for (int i = 0; i < jTableEntries.getRowCount(); i++) {
-            
-            
-         int selectedMethodId=giveMethodSelection(i);
-            
-            
+
+
+            int selectedMethodId = giveMethodSelection(i);
+
+
             Listdata listdata = new Listdata(true);
             Listdata listdataBCID = new Listdata(true);
 
@@ -682,7 +676,7 @@ public final class AdvanceLineTopComponent extends TopComponent {
             listdata.setListdataPK(pk1);
             listdata.setEntryid(i + 1);
 
-           
+
             listdata.setDesig(this.jTableEntries.getValueAt(i, desigColumn).toString());
 
 
@@ -701,7 +695,7 @@ public final class AdvanceLineTopComponent extends TopComponent {
                 listdata.setEntrycd("");
             }
 
-           
+
             listdata.setSource(this.nurseryName + ":" + i);
             listdata.setEntrycd("E" + ConvertUtils.getZeroLeading(i, 4));
             listdata.setGrpname("grp");
@@ -724,77 +718,136 @@ public final class AdvanceLineTopComponent extends TopComponent {
         }
 
         Integer loggedUserid = AppServicesProxy.getDefault().appServices().getLoggedUserId(FieldbookSettings.getLocalGmsUserId());
-        AppServicesProxy.getDefault().appServices().saveGerplasmCimmytWheat(dataList, listnms, loggedUserid);
+        AppServicesProxy.getDefault().appServices().saveGerplasmCimmytWheat(dataList, listnms, loggedUserid, listFemale, listMale);
 
         loadListIntoWindow(listnms);
         changeCursorWaitStatus(false);
         setRecentSavedList(listnms);
     }
 
-  
-    
-        private int findColumn(String[] opciones) {
-        int myCol=-1;
-        
-            for (int i = 0; i < opciones.length; i++) {
-                String opcion = opciones[i];
-                try {
-                    int founded = jTableEntries.getTableHeader().getColumnModel().getColumnIndex(opcion);
-                    if(founded>=0){
-                      myCol= founded; 
-                      break;
-                    }
-                } catch (Exception ex) {
-                   continue;
+    private int findColumn(String[] opciones) {
+        int myCol = -1;
+
+        for (int i = 0; i < opciones.length; i++) {
+            String opcion = opciones[i];
+            try {
+                int founded = jTableEntries.getTableHeader().getColumnModel().getColumnIndex(opcion);
+                if (founded >= 0) {
+                    myCol = founded;
+                    break;
                 }
-                
+            } catch (Exception ex) {
+                continue;
             }
-            
+
+        }
+
         return myCol;
     }
-    
-        
-        
-        private void loadFemaleMale(){
-                 //   int source = findColumn("FDESIG");
-     //   int fgidcol = findColumn("FGID");
-     //   int mgidcol = findColumn("MGID");
-        
-//        
-//        int ftidCol=findColumn("FTID");
-//        int foccCol=findColumn("FOCC");
-//        int fentCol=findColumn("FENT");
-//        int mtidCol=findColumn("MTID");
-//        int moccCol=findColumn("MOCC");
-//        int mentCol=findColumn("MENT");
-//       
-//        
-//        for (int i = 0; i < jTableEntries.getRowCount(); i++) {
-//  
-//                int ftid = (int)(Double.parseDouble(this.jTableEntries.getValueAt(i, ftidCol).toString()));
-//                int focc = (int)(Double.parseDouble(this.jTableEntries.getValueAt(i, foccCol).toString()));
-//                int fent =(int)(Double.parseDouble(this.jTableEntries.getValueAt(i, fentCol).toString()));
-//                int mtid = (int)(Double.parseDouble(this.jTableEntries.getValueAt(i, mtidCol).toString()));
-//                int mocc = (int)(Double.parseDouble(this.jTableEntries.getValueAt(i, moccCol).toString()));
-//                int ment = (int)(Double.parseDouble(this.jTableEntries.getValueAt(i, mentCol).toString()));
-//
-//
-//                GermplasmSearch gsF = new GermplasmSearch();
-//                gsF.setStudyId(ftid);
-//                gsF.setTrial(focc);
-//                gsF.setPlot(fent);
-//                listFemale.add(gsF);
-//
-//                GermplasmSearch gsM = new GermplasmSearch();
-//                gsM.setStudyId(mtid);
-//                gsM.setTrial(mocc);
-//                gsM.setPlot(ment);
-//                listMale.add(gsM); 
-//    }
-//    
-//  List<GermplasmSearch> germplasmSearchs = AppServicesProxy.getDefault().appServices().getGermplasmByListStudyTrialPlotCross(listFemale, listMale);
-// 
+
+    private boolean loadFemaleMale() {
+
+        listFemale = new ArrayList<GermplasmSearch>();
+        listMale = new ArrayList<GermplasmSearch>();
+
+        int source = findColumn("FDESIG");
+
+        int fgidcol = findColumn("FGID");
+        if (fgidcol < 0) {
+            return false;
         }
+
+        int mgidcol = findColumn("MGID");
+        if (mgidcol < 0) {
+            return false;
+        }
+
+        int ftidCol = findColumn("FTID");
+        if (ftidCol < 0) {
+            return false;
+        }
+
+        int foccCol = findColumn("FOCC");
+        if (foccCol < 0) {
+            return false;
+        }
+        int fentCol = findColumn("FENT");
+        if (fentCol < 0) {
+            return false;
+        }
+        int mtidCol = findColumn("MTID");
+        if (mtidCol < 0) {
+            return false;
+        }
+        int moccCol = findColumn("MOCC");
+        if (moccCol < 0) {
+            return false;
+        }
+        int mentCol = findColumn("MENT");
+        if (mentCol < 0) {
+            return false;
+        }
+
+
+        for (int i = 0; i < jTableEntries.getRowCount(); i++) {
+
+            int ftid;
+            int focc;
+            int fent;
+            int mtid;
+            int mocc;
+            int ment;
+
+            try {
+                ftid = (int) (Double.parseDouble(this.jTableEntries.getValueAt(i, ftidCol).toString()));
+            } catch (Exception ex) {
+                ftid = 0;
+            }
+            try {
+                focc = (int) (Double.parseDouble(this.jTableEntries.getValueAt(i, foccCol).toString()));
+            } catch (Exception ex) {
+                focc = 0;
+            }
+            try {
+                fent = (int) (Double.parseDouble(this.jTableEntries.getValueAt(i, fentCol).toString()));
+            } catch (Exception ex) {
+                fent = 0;
+            }
+            try {
+                mtid = (int) (Double.parseDouble(this.jTableEntries.getValueAt(i, mtidCol).toString()));
+            } catch (Exception ex) {
+                mtid = 0;
+            }
+            try {
+                mocc = (int) (Double.parseDouble(this.jTableEntries.getValueAt(i, moccCol).toString()));
+            } catch (Exception ex) {
+                mocc = 0;
+            }
+            try {
+                ment = (int) (Double.parseDouble(this.jTableEntries.getValueAt(i, mentCol).toString()));
+            } catch (Exception ex) {
+                ment = 0;
+            }
+
+
+            GermplasmSearch gsF = new GermplasmSearch();
+            gsF.setStudyId(ftid);
+            gsF.setTrial(focc);
+            gsF.setPlot(fent);
+            listFemale.add(gsF);
+
+            GermplasmSearch gsM = new GermplasmSearch();
+            gsM.setStudyId(mtid);
+            gsM.setTrial(mocc);
+            gsM.setPlot(ment);
+            listMale.add(gsM);
+        }
+
+        List<GermplasmSearch> germplasmSearchs = AppServicesProxy.getDefault().appServices().getGermplasmByListStudyTrialPlotCross(listFemale, listMale);
+        return true;
+
+    }
+
     private int findColumn(String col) {
         int myCol;
         try {
@@ -836,7 +889,7 @@ public final class AdvanceLineTopComponent extends TopComponent {
 
     private void loadListIntoWindow(Listnms lista) {
 
-        System.out.println("LOAD LISTA: "+lista.getListname() + "    LISTAID: "+lista.getListid());
+        System.out.println("LOAD LISTA: " + lista.getListname() + "    LISTAID: " + lista.getListid());
         int gidColumn = findColumn("GID");
         GermplasmListReader germplasmListReader = new GermplasmListReaderImpl();
         GermplasmList germplasmList = germplasmListReader.getGermPlasmListFromDB(lista.getListid());
@@ -857,7 +910,7 @@ public final class AdvanceLineTopComponent extends TopComponent {
 
     private int findRow(String desig, GermplasmEntriesTableModel modeloConGID) {
 
-       int desigColumn = findColumn(desigArray);
+        int desigColumn = findColumn(desigArray);
         for (int i = 0; i < modeloConGID.getRowCount(); i++) {
             if (modeloConGID.getValueAt(i, desigColumn).toString().equals(desig)) {
                 System.out.println("ENCONTRADO");
@@ -981,7 +1034,7 @@ public final class AdvanceLineTopComponent extends TopComponent {
         int colSelection = modelo.getHeaderIndex(GermplasmEntriesTableModel.PLANTS_SELECTED);
 
 
-        if (colSelection > 0 && modelo.getValueAt(renglon, colSelection)!= null) {
+        if (colSelection > 0 && modelo.getValueAt(renglon, colSelection) != null) {
             //int elMetodo = Integer.parseInt(modelo.getValueAt(renglon, colSelection).toString());
             int elMetodo = ConvertUtils.getValueAsInteger(modelo.getValueAt(renglon, colSelection));
 
@@ -992,7 +1045,7 @@ public final class AdvanceLineTopComponent extends TopComponent {
             if (elMetodo == 0) {
                 return 206;
             }
-            
+
             if (elMetodo < 0) {
                 return 207;
             }
