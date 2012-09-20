@@ -22,6 +22,8 @@ import org.cimmyt.cril.ibwb.domain.filter.BaseFilter;
 @Entity
 @Table(name = "dmsattr")
 public class Dmsattr extends BaseFilter implements Serializable {
+    public static final String DMSATYPE_LIST = "LIST";
+    
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
