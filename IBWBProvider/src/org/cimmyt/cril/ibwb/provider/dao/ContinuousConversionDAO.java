@@ -70,7 +70,7 @@ public class ContinuousConversionDAO extends AbstractDAO<ContinuousConversion, I
             @Override
             public Object doInHibernate(Session session) throws HibernateException, SQLException {
                 Boolean result = false;
-                SQLQuery query = session.createSQLQuery("select * from ContinuousConversion where 1 = 2");
+                SQLQuery query = session.createSQLQuery("select * from `continuous-conversion` where 1 = 2");
                 try {
                     query.list();
                     result = true;

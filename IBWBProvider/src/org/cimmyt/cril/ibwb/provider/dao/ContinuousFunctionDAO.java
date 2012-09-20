@@ -70,7 +70,7 @@ public class ContinuousFunctionDAO extends AbstractDAO<ContinuousFunction, Integ
             @Override
             public Object doInHibernate(Session session) throws HibernateException, SQLException {
                 Boolean result = false;
-                SQLQuery query = session.createSQLQuery("select * from ContinuousFunction where 1 = 2");
+                SQLQuery query = session.createSQLQuery("select * from `continuous-function` where 1 = 2");
                 try {
                     query.list();
                     result = true;

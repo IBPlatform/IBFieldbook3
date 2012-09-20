@@ -70,7 +70,7 @@ public class DiscreteConversionDAO extends AbstractDAO<DiscreteConversion, Integ
             @Override
             public Object doInHibernate(Session session) throws HibernateException, SQLException {
                 Boolean result = false;
-                SQLQuery query = session.createSQLQuery("select * from DiscreteConversion where 1 = 2");
+                SQLQuery query = session.createSQLQuery("select * from `discrete-conversion` where 1 = 2");
                 try {
                     query.list();
                     result = true;
