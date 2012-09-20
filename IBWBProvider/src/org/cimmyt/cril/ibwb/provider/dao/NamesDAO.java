@@ -240,7 +240,12 @@ public class NamesDAO extends AbstractDAO<Names, Integer> {
                             throws HibernateException, SQLException {
                         for (Listdata listdata : listnms.getLisdatas()) {
                             Integer gid = listdata.getGid();
+                            
                             if (gid > 0) {
+                                Germplsm germplasm = getGermplsm(session, gid);
+                                listdata.setGpid1(germplasm.getGpid1());
+                                listdata.setGpid2(germplasm.getGpid2());
+                                
                                 listdata.setName1028(getNames(session, gid, 1028));
                                 listdata.setName1027(getNames(session, gid, 1027));
                                 listdata.setName1029(getNames(session, gid, 1029));
@@ -294,6 +299,10 @@ public class NamesDAO extends AbstractDAO<Names, Integer> {
                         for (Listdata listdata : listnms.getLisdatas()) {
                             Integer gid = listdata.getGid();
                             if (gid < 0) {
+                                Germplsm germplasm = getGermplsm(session, gid);
+                                listdata.setGpid1(germplasm.getGpid1());
+                                listdata.setGpid2(germplasm.getGpid2());
+                                
                                 listdata.setName1028(getNames(session, gid, 1028));
                                 listdata.setName1027(getNames(session, gid, 1027));
                                 listdata.setName1029(getNames(session, gid, 1029));
