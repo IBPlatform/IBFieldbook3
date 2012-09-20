@@ -712,7 +712,7 @@ public class IBWBAppServicesImpl implements AppServices {
         if(idListnms.intValue() < 0){
             listnms = this.serviciosLocal.getListnms(idListnms);
             listnms.setLisdatas(this.serviciosLocal.getListdataByIdlistnms(idListnms));
-            listnms = this.serviciosLocal.getNamesCentral(listnms);
+            listnms = this.serviciosLocal.getNamesLocal(listnms);
             listnms = this.serviciosCentral.getNamesCentral(listnms);
             //Recuperar la informacion local pripero y despues la central
         }else{
