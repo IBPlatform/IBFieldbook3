@@ -2180,27 +2180,70 @@ public class IBWBAppServicesImpl implements AppServices {
     }
 
     public StudySearch getListGermplasmAndPlotByStudyidAndTrial(
-            StudySearch studySearch) {
+            StudySearch studySearch
+            ) {
         if (studySearch.getStudyId() > 0) {
-            return this.serviciosCentral.getListGermplasmAndPlotByStudyidAndTrial(studySearch);
+            if(compareToUrls(this.serviciosCentral.getAccessUrlDms(), this.serviciosLocal.getAccessUrlDms())){//equals
+                return this.serviciosCentral.getListGermplasmAndPlotByStudyidAndTrial(studySearch);
+            }else{
+                studySearch = HelperFactor.loadFactors(studySearch, this);
+                log.info("Asignando nombres de fatorres principales");
+                List<String> factorsKey = new ArrayList<String>();
+                factorsKey.add(studySearch.getNameStudy());
+                factorsKey.add(studySearch.getNameTrial());
+                factorsKey.add(studySearch.getNameEntry());
+                factorsKey.add(studySearch.getNamePlot());
+
+                log.info("Asignando nombres de factores de salida");
+                List<String> factorsReturn = new ArrayList<String>();
+                factorsReturn.add(studySearch.getNameTrial());
+                factorsReturn.add(studySearch.getNameEntry());
+                factorsReturn.add(studySearch.getNamePlot());
+                factorsReturn.add(studySearch.getNameGid());
+                
+                return this.serviciosCentral.getListGermplasmAndPlotByStudyidAndTrial(studySearch, factorsKey, factorsReturn);
+            }
         } else {
-            return this.serviciosLocal.getListGermplasmAndPlotByStudyidAndTrial(studySearch);
+            if(compareToUrls(this.serviciosCentral.getAccessUrlDms(), this.serviciosLocal.getAccessUrlDms())){//equals
+                return this.serviciosLocal.getListGermplasmAndPlotByStudyidAndTrial(studySearch);
+            }else{
+                studySearch = HelperFactor.loadFactors(studySearch, this);
+                log.info("Asignando nombres de fatorres principales");
+                List<String> factorsKey = new ArrayList<String>();
+                factorsKey.add(studySearch.getNameStudy());
+                factorsKey.add(studySearch.getNameTrial());
+                factorsKey.add(studySearch.getNameEntry());
+                factorsKey.add(studySearch.getNamePlot());
+
+                log.info("Asignando nombres de factores de salida");
+                List<String> factorsReturn = new ArrayList<String>();
+                factorsReturn.add(studySearch.getNameTrial());
+                factorsReturn.add(studySearch.getNameEntry());
+                factorsReturn.add(studySearch.getNamePlot());
+                factorsReturn.add(studySearch.getNameGid());
+                return this.serviciosLocal.getListGermplasmAndPlotByStudyidAndTrial(studySearch, factorsKey, factorsReturn);
+            }
         }
     }
-
+    
     public List<Listdata> saveGerplasmCimmytWheat(
             List<Listdata> listGermplsm,
             Listnms listnms,
-            Integer userId) {
+            Integer userId,
+            List<GermplasmSearch> lgsf,
+            List<GermplasmSearch> lgsm
+            ) {
         HelperGermplasm helperGermplasm = new HelperGermplasm(listnms, this, serviciosLocal, userId);
-        return helperGermplasm.saveGerplasmCimmytWheat(listGermplsm, listnms);
+        return helperGermplasm.saveGerplasmCimmytWheat(listGermplsm, listnms, lgsf, lgsm);
     }
-
+    
     public Listdata agregarGermPlasmCimmytWheat(
             String nameGermplasmHistory,
             String nameGermplasmBCID,
             Listdata listdata,
             Listnms listnms,
+            GermplasmSearch gsf,
+            GermplasmSearch gsm,
             Integer userId,
             QueryCenter queryCenter
             ) {
@@ -2210,16 +2253,38 @@ public class IBWBAppServicesImpl implements AppServices {
                 nameGermplasmBCID,
                 listdata,
                 listnms,
+                gsf,
+                gsm,
                 queryCenter);
     }
-
+    
     public List<GermplasmSearch> getGermplasmByListStudyTrialPlotCross(
             AppServices appServices,
             List<GermplasmSearch> listFmale,
             List<GermplasmSearch> listMale) {
         return HelperGermplasm.getGermplasmByListStudyTrialPlotCross(appServices, listFmale, listMale);
     }
-
+    
+    public boolean compareToUrls(String url1, String url2){
+        //jdbc:mysql://localhost:3308/
+        boolean mismoServer = false;
+        String [] urlArray1 = url1.split(":");
+        String [] urlArray2 = url2.split(":");
+        if(urlArray1.length > 2 && urlArray2.length > 2 ){
+            for(int i = 0 ; i<= 3 ; i++){
+                if(! urlArray1[i].equals(urlArray2[i])){
+                    return false;
+                }
+                if(i == 1){
+                    if(! urlArray1[i].equalsIgnoreCase("mysql")){
+                        return false;
+                    }
+                }
+            }
+        }
+        return mismoServer;
+    }
+    
     public ResultSet getTrialRandomization(
             Integer studyId,
             Integer trialFactorId,

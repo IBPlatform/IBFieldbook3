@@ -346,6 +346,35 @@ public class DMSReaderDAO extends AbstractDAO<Study, Integer> {
         return ss;
     }
     
+    
+    
+    /**
+     * This method found List of trial or occ indicated by study indicated
+     * @param studyId id del estudio
+     * @param trialFactorId id del trial puede ser null
+     * @return resulset whit trial, entry, plot and gids
+     */
+    public StudySearch getListGermplasmAndPlotByStudyidAndTrial(
+            final StudySearch studySearch, 
+            final List<String> factorsKey,
+            final List<String> factorsReturn
+            ) {
+        StudySearch ss = (StudySearch) getHibernateTemplate().execute(new HibernateCallback() {
+            public Object doInHibernate(Session session)
+                    throws HibernateException, SQLException {                
+                return HelperGmsReader.getListGermplasmAndPlotByStudyidAndTrial(
+                        studySearch,
+                        factorsKey,
+                        factorsReturn,
+                        session,
+                        isLocal(),
+                        isCentral()
+                        );
+            }
+        });
+        return ss;
+    }
+    
     /**
      *
      * @param studyId id del estudio

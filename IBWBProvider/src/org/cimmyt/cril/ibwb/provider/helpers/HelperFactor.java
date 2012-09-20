@@ -648,4 +648,37 @@ public class HelperFactor {
         }
         return instancias;
     }
+    
+    public static StudySearch loadFactors(StudySearch studySearch, AppServices appServices){
+        List<Factor> factors = appServices.getMainFactorsByStudyid(studySearch.getStudyId());
+        Factor factorEntry = null;
+        for (Factor factor : factors) {
+            factor = HelperFactor.getFactorFillingFullWhitoutLevels(factor, appServices, 801);
+            String traitScale = factor.getMeasuredin().getTraits().getTrname() + factor.getMeasuredin().getScales().getScname();
+            if (Workbook.STUDY_NAME.equals(Workbook.getStringWithOutBlanks(traitScale))) {
+                studySearch.setNameStudy(factor.getFname());
+            } else if (Workbook.TRIAL_INSTANCE_NUMBER.equals(Workbook.getStringWithOutBlanks(traitScale))) {
+                studySearch.setNameTrial(factor.getFname());
+            } else if (Workbook.GERMPLASM_ENTRY_NUMBER.equals(Workbook.getStringWithOutBlanks(traitScale))) {
+                factorEntry = factor;
+                studySearch.setNameEntry(factor.getFname());
+            } else if (Workbook.FIELD_PLOT_NUMBER.equals(Workbook.getStringWithOutBlanks(traitScale))
+                    || Workbook.FIELD_PLOT_NESTEDNUMBER.equals(Workbook.getStringWithOutBlanks(traitScale))) {
+                studySearch.setNamePlot(factor.getFname());
+            }
+        }
+        List<Factor> factorsEntry = new ArrayList<Factor>();
+        if (factorEntry != null) {
+            factorsEntry = appServices.getGroupFactorsByStudyidAndFactorid(studySearch.getStudyId(), factorEntry.getFactorid());
+        }
+        for (Factor factor : factorsEntry) {
+            factor = HelperFactor.getFactorFillingFullWhitoutLevels(factor, appServices, 801);
+
+            String traitScale = factor.getMeasuredin().getTraits().getTrname() + factor.getMeasuredin().getScales().getScname();
+            if (Workbook.GERMPLASM_GID_DBID.equals(Workbook.getStringWithOutBlanks(traitScale))) {
+                studySearch.setNameGid(factor.getFname());
+            }
+        }
+        return studySearch;
+    }
 }

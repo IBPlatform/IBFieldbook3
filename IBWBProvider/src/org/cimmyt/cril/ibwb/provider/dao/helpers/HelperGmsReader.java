@@ -326,4 +326,177 @@ public class HelperGmsReader {
         studySearch.setRst(pr);
         return studySearch;
     }
+    
+    
+    
+    /**
+     * This method found List of trial or occ indicated by study indicated
+     * @param studyId id del estudio
+     * @param trialFactorId id del trial puede ser null
+     * @return resulset whit trial, entry, plot and gids
+     */
+    public static StudySearch getListGermplasmAndPlotByStudyidAndTrial(
+            StudySearch studySearch,
+            List<String> factoresPrincipales,
+            List<String> factoresSalida,
+            Session session,
+            boolean isLocal,
+            boolean isCentral
+            ) throws SQLException{
+        SQLQuery query = null;
+        List resultado;
+        
+        String nameTrial = studySearch.getNameTrial();
+
+        log.info("Definiendo orden de busquedas");
+        String orden = HelperWorkbookReader.getOrder(isLocal, isCentral);
+        
+        
+        log.info("--> Recuperando el nombre del estudio");
+        studySearch.setsName(
+                HelperWorkbookReader.getScname(
+                        session,
+                        query,
+                        studySearch.getStudyId()
+                    )
+                );
+        log.info("--> Termina Recuperacion del nombre del estudio.");
+        
+        if(factoresPrincipales == null){
+            log.error("No se encontraron factores principales");
+        }else if(factoresPrincipales.size() >= 0 && factoresPrincipales.size()<4){
+            log.error("No se encontraron todos los factores principales");
+        }
+        
+        if(factoresSalida == null){
+            log.error("No se encontraron factores de salida");
+        }else if(factoresSalida.size() == 0){
+            log.error("No se encontraron todos los factores de salida");
+        }
+        
+        /*****Implementando recuperacion de informacion******/
+        
+        log.info("Getting trial randomization");
+        Integer numeroDeFactoresPrincipales = factoresPrincipales.size();
+        String factoresResultadoStr = DMSReaderDAO.getFactoresParaUsoInQuery(factoresSalida);
+        ResultSet pr;
+        
+        String factoresPrincipalesStr = DMSReaderDAO.getFactoresParaUsoInQuery(factoresPrincipales);
+        
+        Integer trepresNo = HelperWorkbookReader.getRepresno(
+                session,
+                query,
+                studySearch.getStudyId(),
+                factoresPrincipalesStr,
+                numeroDeFactoresPrincipales
+                );
+        
+        if (trepresNo == null) {
+            log.error("Repres no encontrado.");
+            return null;
+        }
+        
+        RowSetMetaDataImpl rsmd = new RowSetMetaDataImpl();
+        
+        Integer cuantosFR = HelperWorkbookReader.getNumeroFactoresResultado(
+                session,
+                query,
+                studySearch.getStudyId(),
+                factoresResultadoStr
+                );
+        
+        resultado = HelperWorkbookReader.getFactoresResultado(
+                session,
+                query,
+                studySearch.getStudyId(),
+                factoresResultadoStr,
+                orden
+                );
+
+        rsmd.setColumnCount(cuantosFR);
+        int tconsecutivo = 0;
+        for (Object fila : resultado) {
+            tconsecutivo += 1;
+            Object[] casilla = (Object[]) fila;
+            rsmd.setColumnName(tconsecutivo, (String) casilla[fname]);
+            String ltypeTemp = casilla[ltype].toString();
+            if (ltypeTemp.equals("N")) {
+                rsmd.setColumnType(tconsecutivo, Types.INTEGER);
+            } else {
+                rsmd.setColumnType(tconsecutivo, Types.VARCHAR);
+            }
+        }
+        
+        CachedRowSetImpl crs = new CachedRowSetImpl();
+        int i889 = 0;
+        crs.setMetaData(rsmd);
+        String condicionWhere = HelperWorkbookReader.getCondicionesWhere(
+                session,
+                query,
+                studySearch.getStudyId(),
+                studySearch.getTrial(),
+                nameTrial,
+                trepresNo,
+                factoresResultadoStr
+                );
+        
+        resultado = HelperWorkbookReader.getListFactorsAndLevels(
+                session,
+                query,
+                condicionWhere,
+                orden
+                );
+        
+        int tounitidAnt = 0;
+        int tounitidActual = 0;
+        String fname = "";
+        int tlvalue = 0;
+        for (Object fila : resultado) {
+            Object[] celdas = (Object[]) fila;
+
+            tounitidActual = (Integer) celdas[ounitid];
+            if (tounitidAnt != tounitidActual) {
+                if (tounitidAnt != 0) {
+                    crs.insertRow();
+                }
+                crs.moveToInsertRow();
+                for (i889 = 1; i889 <= cuantosFR; i889++) {
+                    crs.updateNull(i889);
+                }
+            }
+            fname = (String) celdas[FNAME];
+            String ltypeTemp = (String) celdas[LTYPE];
+            ltypeTemp = ltypeTemp.trim().toUpperCase();
+            if (ltypeTemp.equals("N")) {
+                if (celdas[2] instanceof String) {
+                    String valueTemp = (String) celdas[LVALUE];
+                    tlvalue = Integer.valueOf(valueTemp).intValue();
+                } else {
+                    byte[] bytes = (byte[]) celdas[LVALUE];
+                    String valueTemp = new String(bytes);
+                    tlvalue = Integer.valueOf(valueTemp).intValue();
+                }
+                crs.updateInt(fname, tlvalue);
+            } else {
+                if (celdas[2] instanceof String) {
+                    crs.updateString(fname, (String) celdas[LVALUE]);
+                } else {
+                    byte[] bytes = (byte[]) celdas[LVALUE];
+                    String valueTemp = new String(bytes);
+                    crs.updateString(fname, valueTemp);
+                }
+
+            }
+            tounitidAnt = tounitidActual;
+        }
+        if (tounitidAnt != 0) {
+            crs.insertRow();
+        }
+        crs.moveToCurrentRow();
+        crs.beforeFirst();
+        pr = crs;
+        log.info("Getting trial randomization.... DONE");
+        studySearch.setRst(pr);
+        return studySearch;
+    }
 }

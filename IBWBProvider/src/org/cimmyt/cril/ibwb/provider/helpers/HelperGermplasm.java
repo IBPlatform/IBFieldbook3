@@ -74,7 +74,9 @@ public class HelperGermplasm {
     
     public List<Listdata> saveGerplasmCimmytWheat(
             List<Listdata> listGermplsm,
-            Listnms listnms
+            Listnms listnms,
+            List<GermplasmSearch> lgsf,
+            List<GermplasmSearch> lgsm
             ){
         if (listnms.getListid() == null) {
             appServices.addListnms(listnms);
@@ -90,7 +92,7 @@ public class HelperGermplasm {
             String nameGermplasm = listdataT.getDesig();//----------------------->Definir cual es el nombre History
             String nameGermplasmBCID = listdataT.getNameBCID();//----------------------->Definir cual es el nombre BCID
             
-            agregarGermPlasmCimmytWheat(nameGermplasm, nameGermplasmBCID, listdataT, listnms, queryCenter);
+            agregarGermPlasmCimmytWheat(nameGermplasm, nameGermplasmBCID, listdataT, listnms, null, null, queryCenter);
             //agregarGermPlasmCimmytWheat(nameGermplasm, nameGermplasmBCID, listdataT);
             
             
@@ -240,6 +242,8 @@ public class HelperGermplasm {
             String nameGermplasmBCID,
             Listdata listdata,
             Listnms listnms,
+            GermplasmSearch gsf,
+            GermplasmSearch gsm,
             QueryCenter queryCenter
             ) {
 
@@ -355,14 +359,51 @@ public class HelperGermplasm {
         names.setNdate(UtilDate.getDateAsInteger(new Date()));//ndate añomesdia
         names.setNref(0);//nref 0
         servicioLocal.addNames(names);
-
+        
         listdata.setGid(germplsm.getGid());
 //        servicioLocal.addListdata(listdata);
         
-//        Dmsattr dmsattr = new Dmsattr();
-//        dmsattr.setDmsatype(804);
-//        dmsattr.setDmsatab(listdata.get);
-//        
+        Dmsattr dmsattr = new Dmsattr();
+        
+        if(gsf != null){
+            dmsattr.setDmsatype(804);
+            dmsattr.setDmsatab("listdata");
+            dmsattr.setDmsatrec(listdata.getListdataPK().getLrecid());
+            dmsattr.setDmsatval(gsf.getStudyId().toString());//Studyid
+            servicioLocal.addDmsattr(dmsattr);
+            
+            dmsattr.setDmsatype(805);
+            dmsattr.setDmsatab("listdata");
+            dmsattr.setDmsatrec(listdata.getListdataPK().getLrecid());
+            dmsattr.setDmsatval(gsf.getTrial().toString());//Ocurrence
+            servicioLocal.addDmsattr(dmsattr);
+            
+            dmsattr.setDmsatype(806);
+            dmsattr.setDmsatab("listdata");
+            dmsattr.setDmsatrec(listdata.getListdataPK().getLrecid());
+            dmsattr.setDmsatval(gsf.getPlot().toString());//Plot
+            servicioLocal.addDmsattr(dmsattr);
+        }
+        
+        if(gsm != null){
+            dmsattr.setDmsatype(807);
+            dmsattr.setDmsatab("listdata");
+            dmsattr.setDmsatrec(listdata.getListdataPK().getLrecid());
+            dmsattr.setDmsatval(gsm.getStudyId().toString());//Studyid
+            servicioLocal.addDmsattr(dmsattr);
+            
+            dmsattr.setDmsatype(808);
+            dmsattr.setDmsatab("listdata");
+            dmsattr.setDmsatrec(listdata.getListdataPK().getLrecid());
+            dmsattr.setDmsatval(gsm.getTrial().toString());//Ocurrence
+            servicioLocal.addDmsattr(dmsattr);
+            
+            dmsattr.setDmsatype(809);
+            dmsattr.setDmsatab("listdata");
+            dmsattr.setDmsatrec(listdata.getListdataPK().getLrecid());
+            dmsattr.setDmsatval(gsm.getPlot().toString());//Plot
+            servicioLocal.addDmsattr(dmsattr);
+        }
         return listdata;
     }
 
@@ -843,23 +884,77 @@ public class HelperGermplasm {
                 }
             }
             
-            if(gs.getSnameMale().substring(0, 2).equals("F1") && 
-                    gs.getSnameFmale().substring(0, 2).equals("F1")){//Comparar con f1 el inicio de los nombres de ambos
-                gs.setCharBCID("D");
-                gs.setMethodGermplasm(103);
-            }else if(gs.getSnameMale().substring(0, 2).equals("F1") || 
-                    gs.getSnameFmale().substring(0, 2).equals("F1")){//Comparar con f1 el inicio de los nombres de alguno
-                gs.setCharBCID("T");
-                gs.setMethodGermplasm(102);
-            }else if(maleFound){//male found
-                gs.setCharBCID("M");
-                gs.setMethodGermplasm(107);
-            }else if(fmaleFound){//fmalefound
-                gs.setCharBCID("F");
-                gs.setMethodGermplasm(107);
-            }else{//simple
-                gs.setCharBCID("S");
-                gs.setMethodGermplasm(2);
+//            if(gs.getSnameMale().substring(0, 2).equals("F1") && 
+//                    gs.getSnameFmale().substring(0, 2).equals("F1")){//Comparar con f1 el inicio de los nombres de ambos
+//                gs.setCharBCID("D");
+//                gs.setMethodGermplasm(103);
+//            }else if(gs.getSnameMale().substring(0, 2).equals("F1") || 
+//                    gs.getSnameFmale().substring(0, 2).equals("F1")){//Comparar con f1 el inicio de los nombres de alguno
+//                gs.setCharBCID("T");
+//                gs.setMethodGermplasm(102);
+//            }else if(maleFound){//male found
+//                gs.setCharBCID("M");
+//                gs.setMethodGermplasm(107);
+//            }else if(fmaleFound){//fmalefound
+//                gs.setCharBCID("F");
+//                gs.setMethodGermplasm(107);
+//            }else{//simple
+//                gs.setCharBCID("S");
+//                gs.setMethodGermplasm(2);
+//            }
+            if(gs.getGermplsm().getGnpgs() < 0){//Inbred female parent
+                if(gs.getGermplsmMale().getGnpgs() < 0){//Inbred male parent
+                    gs.setMethodGermplasm(101);//Single cross
+                    gs.setCharBCID("S");
+                }else{
+                    if(gs.getGermplsmMale().getGnpgs() == 1){
+                        gs.setMethodGermplasm(101);//Male is a mutant - single cross
+                        gs.setCharBCID("S");
+                    }else if(gs.getGermplsmMale().getGnpgs() == 2){
+                        //Get GMF and GMM ! Male is a cross - get paternal grandparents
+                        Germplsm gmf = appServices.getGermplsm(gs.getGermplsmMale().getGpid1());
+                        Germplsm gmm = appServices.getGermplsm(gs.getGermplsmMale().getGpid2());
+                        if(gmf.getGid() == gmm.getGid()){
+                            gs.setMethodGermplasm(107);//If one paternal grandparent is the same as the mother - backcross
+                            gs.setCharBCID("F");
+                        }else{
+                            gs.setMethodGermplasm(102);//Paternal grandparents are different to mother - top cross
+                            gs.setCharBCID("T");
+                        }
+                    }else{
+                        gs.setMethodGermplasm(106);//Male has more than two parents - complex cross
+                        gs.setCharBCID("S");
+                    }
+                }
+            }else{//Heterozygous female parent
+                if(gs.getGermplsmMale().getGnpgs() < 0){//Inbred male parent 
+                    if(gs.getGermplsm().getGnpgs() == 1){
+                        gs.setMethodGermplasm(101);//Female parent is a mutant - single cross
+                        gs.setCharBCID("S");
+                    }else if(gs.getGermplsm().getGnpgs() == 2){
+                        //TODO : Female is a cross - get maternal grand parents
+                        Germplsm gff = appServices.getGermplsm(gs.getGermplsm().getGpid1());
+                        Germplsm gfm = appServices.getGermplsm(gs.getGermplsm().getGpid2());
+                        if(gff.getGid() == gfm.getGid()){
+                            gs.setMethodGermplasm(107);//If one maternal grandparent is the same as the father - backcross
+                            gs.setCharBCID("M");
+                        }else{
+                            gs.setMethodGermplasm(102);//Maternal grandparents are different to father - top cross
+                            gs.setCharBCID("T");
+                        }
+                    }else{
+                        gs.setMethodGermplasm(106);//Female has more than two parents - complex cross
+                        gs.setCharBCID("S");
+                    }
+                }else{
+                    if(gs.getGermplsm().getMethn() == 101 && gs.getGermplsmMale().getMethn() == 101){
+                        gs.setMethodGermplasm(103);//Both parents are single crosses - double cross
+                        gs.setCharBCID("D");
+                    }else{
+                        gs.setMethodGermplasm(106);//At least one parent is more complex than a single cross - complex cross
+                        gs.setCharBCID("S");
+                    }
+                }
             }
         }
         return listFmale;

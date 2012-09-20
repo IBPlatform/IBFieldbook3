@@ -1293,11 +1293,6 @@ public class IBWBAppServicesMemoryImpl implements AppServices {
     }
 
     @Override
-    public List<Listdata> saveGerplasmCimmytWheat(List<Listdata> listGermplsm, Listnms listnms, Integer userId) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
     public List<GermplasmSearch> getGermplasmByListStudyTrialPlotCross(AppServices appServices, List<GermplasmSearch> listFmale, List<GermplasmSearch> listMale) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
@@ -1333,17 +1328,22 @@ public class IBWBAppServicesMemoryImpl implements AppServices {
     }
 
     @Override
-    public Listdata agregarGermPlasmCimmytWheat(String nameGermplasmHistory, String nameGermplasmBCID, Listdata listdata, Listnms listnms, Integer userId, QueryCenter queryCenter) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
     public Listnms getFullListnms(Integer idListnms) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
     public List<WheatData> getDataForCimmytWheat(Integer listId) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Listdata agregarGermPlasmCimmytWheat(String nameGermplasmHistory, String nameGermplasmBCID, Listdata listdata, Listnms listnms, GermplasmSearch gsf, GermplasmSearch gsm, Integer userId, QueryCenter queryCenter) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<Listdata> saveGerplasmCimmytWheat(List<Listdata> listGermplsm, Listnms listnms, Integer userId, List<GermplasmSearch> lgsf, List<GermplasmSearch> lgsm) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 

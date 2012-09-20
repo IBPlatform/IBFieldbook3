@@ -79,6 +79,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class CommonServicesImpl implements CommonServices {
 
     private String accessType;
+    private String accessUrlDms;
+    private String accessUrlGms;
     private AtributsDAO atributsDAO;
     private BibrefsDAO bibrefsDAO;
     private ChangesDAO changesDAO;
@@ -1967,6 +1969,20 @@ public class CommonServicesImpl implements CommonServices {
             StudySearch studySearch) {
         return dMSReaderDAO.getListGermplasmAndPlotByStudyidAndTrial(studySearch);
     }
+    
+    public StudySearch getListGermplasmAndPlotByStudyidAndTrial(
+            StudySearch studySearch,
+            List<String> factorsKey,
+            List<String> factorsReturn
+            ) {
+        return dMSReaderDAO.getListGermplasmAndPlotByStudyidAndTrial(
+            studySearch,
+            factorsKey,
+            factorsReturn
+            );
+    }
+    
+    
 
     public List<Study> getStudysOnlyTrial() {
         return studyDAO.getStudysOnlyTrial();
@@ -3317,5 +3333,33 @@ public class CommonServicesImpl implements CommonServices {
      */
     public void setTransformationsDAO(TransformationsDAO transformationsDAO) {
         this.transformationsDAO = transformationsDAO;
+    }
+
+    /**
+     * @return the accessUrlDms
+     */
+    public String getAccessUrlDms() {
+        return accessUrlDms;
+    }
+
+    /**
+     * @param accessUrlDms the accessUrlDms to set
+     */
+    public void setAccessUrlDms(String accessUrlDms) {
+        this.accessUrlDms = accessUrlDms;
+    }
+
+    /**
+     * @return the accessUrlGms
+     */
+    public String getAccessUrlGms() {
+        return accessUrlGms;
+    }
+
+    /**
+     * @param accessUrlGms the accessUrlGms to set
+     */
+    public void setAccessUrlGms(String accessUrlGms) {
+        this.accessUrlGms = accessUrlGms;
     }
 }

@@ -15,9 +15,7 @@ import java.util.*;
 import javax.management.Query;
 import javax.sql.rowset.RowSetMetaDataImpl;
 import org.apache.log4j.Logger;
-import org.cimmyt.cril.ibwb.domain.DataC;
-import org.cimmyt.cril.ibwb.domain.DataN;
-import org.cimmyt.cril.ibwb.domain.Variate;
+import org.cimmyt.cril.ibwb.domain.*;
 import org.cimmyt.cril.ibwb.provider.dao.DMSReaderDAO;
 import org.cimmyt.cril.ibwb.provider.utils.DecimalUtils;
 import org.hibernate.Hibernate;
@@ -237,6 +235,12 @@ public class HelperWorkbookReader {
         pr = crs;
         log.info("Getting trial randomization.... DONE");
         return pr;
+    }
+    
+    public static Study getFullFactorsByStudyIdAndEffectId(Study study, Integer effectId){
+       SQLQuery query = null;
+       
+       return study;
     }
     
     public static List<Measurement> getTrialRandomizationVeryFast(
@@ -774,6 +778,29 @@ public class HelperWorkbookReader {
             return resultado;
         }else{
             log.error("No se encontraron variates a partir de la lista de variates  de veffect proporcionada.");
+            return null;
+        }
+    }
+    
+    public static List<Factor> getFactors(
+            Session session,
+            Study study,
+            List<Integer> labelIds,
+            String orden
+            ){
+        List<Factor> resultado;
+        String consultaHQL = "from Factor as f "
+                + "where f.labelid in (:FactorsStr) "
+                + "order by labelid " + orden
+                + ", order by labelid " + orden
+                ;
+        org.hibernate.Query query = session.createQuery(consultaHQL);
+        query.setParameterList("FactorsStr", labelIds.toArray());
+        resultado = query.list();
+        if(resultado != null){
+            return resultado;
+        }else{
+            log.error("No se encontraron factores a partir de la lista de labels proporcionada.");
             return null;
         }
     }
