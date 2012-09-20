@@ -371,19 +371,19 @@ public class HelperGermplasm {
         
         if(gsf != null){
             dmsattr.setDmsatype(804);
-            dmsattr.setDmsatab("listdata");
+            dmsattr.setDmsatab(Dmsattr.DMSATYPE_LIST);
             dmsattr.setDmsatrec(listdata.getListdataPK().getLrecid());
             dmsattr.setDmsatval(gsf.getStudyId().toString());//Studyid
             servicioLocal.addDmsattr(dmsattr);
             
             dmsattr.setDmsatype(805);
-            dmsattr.setDmsatab("listdata");
+            dmsattr.setDmsatab(Dmsattr.DMSATYPE_LIST);
             dmsattr.setDmsatrec(listdata.getListdataPK().getLrecid());
             dmsattr.setDmsatval(gsf.getTrial().toString());//Ocurrence
             servicioLocal.addDmsattr(dmsattr);
             
             dmsattr.setDmsatype(806);
-            dmsattr.setDmsatab("listdata");
+            dmsattr.setDmsatab(Dmsattr.DMSATYPE_LIST);
             dmsattr.setDmsatrec(listdata.getListdataPK().getLrecid());
             dmsattr.setDmsatval(gsf.getPlot().toString());//Plot
             servicioLocal.addDmsattr(dmsattr);
@@ -391,19 +391,19 @@ public class HelperGermplasm {
         
         if(gsm != null){
             dmsattr.setDmsatype(807);
-            dmsattr.setDmsatab("listdata");
+            dmsattr.setDmsatab(Dmsattr.DMSATYPE_LIST);
             dmsattr.setDmsatrec(listdata.getListdataPK().getLrecid());
             dmsattr.setDmsatval(gsm.getStudyId().toString());//Studyid
             servicioLocal.addDmsattr(dmsattr);
             
             dmsattr.setDmsatype(808);
-            dmsattr.setDmsatab("listdata");
+            dmsattr.setDmsatab(Dmsattr.DMSATYPE_LIST);
             dmsattr.setDmsatrec(listdata.getListdataPK().getLrecid());
             dmsattr.setDmsatval(gsm.getTrial().toString());//Ocurrence
             servicioLocal.addDmsattr(dmsattr);
             
             dmsattr.setDmsatype(809);
-            dmsattr.setDmsatab("listdata");
+            dmsattr.setDmsatab(Dmsattr.DMSATYPE_LIST);
             dmsattr.setDmsatrec(listdata.getListdataPK().getLrecid());
             dmsattr.setDmsatval(gsm.getPlot().toString());//Plot
             servicioLocal.addDmsattr(dmsattr);
