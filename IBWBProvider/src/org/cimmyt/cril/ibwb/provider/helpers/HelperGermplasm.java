@@ -86,13 +86,17 @@ public class HelperGermplasm {
         QueryCenter queryCenter = loadQueryCenter();
         List<Listdata> listDatas = new ArrayList<Listdata>(0);
         for (Listdata listdataT : listGermplsm) {
-
+            
             listdataT.setListdataPK(new ListdataPK(listnms.getListid(), 0));
 
             String nameGermplasm = listdataT.getDesig();//----------------------->Definir cual es el nombre History
             String nameGermplasmBCID = listdataT.getNameBCID();//----------------------->Definir cual es el nombre BCID
             
-            agregarGermPlasmCimmytWheat(nameGermplasm, nameGermplasmBCID, listdataT, listnms, null, null, queryCenter);
+            int i = listGermplsm.lastIndexOf(listdataT);
+            GermplasmSearch gsf = lgsf.get(i);
+            GermplasmSearch gsm = lgsm.get(i);
+            
+            agregarGermPlasmCimmytWheat(nameGermplasm, nameGermplasmBCID, listdataT, listnms, gsf, gsm, queryCenter);
             //agregarGermPlasmCimmytWheat(nameGermplasm, nameGermplasmBCID, listdataT);
             
             
