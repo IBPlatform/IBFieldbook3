@@ -2058,7 +2058,10 @@ public interface AppServices {
     public List<Listdata> saveGerplasmCimmytWheat(
             List<Listdata> listGermplsm,
             Listnms listnms,
-            Integer userId);
+            Integer userId,
+            List<GermplasmSearch> lgsf,
+            List<GermplasmSearch> lgsm
+            );
 
     /**
      * Save ListNms, Listdata, Germplasm and Names special method for wheat
@@ -2073,6 +2076,8 @@ public interface AppServices {
             String nameGermplasmBCID,
             Listdata listdata,
             Listnms listnms,
+            GermplasmSearch gsf,
+            GermplasmSearch gsm,
             Integer userId,
             QueryCenter queryCenter);
 

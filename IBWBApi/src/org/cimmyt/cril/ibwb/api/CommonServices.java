@@ -2740,6 +2740,12 @@ public interface CommonServices {
     
     public StudySearch getListGermplasmAndPlotByStudyidAndTrial(
             StudySearch studySearch);
+    
+    public StudySearch getListGermplasmAndPlotByStudyidAndTrial(
+            StudySearch studySearch,
+            List<String> factorsKey,
+            List<String> factorsReturn
+            );
 
     /**
      * Return a studys
@@ -3625,4 +3631,18 @@ public interface CommonServices {
     public boolean existsTableTransformations();    
     
     public void createTableTransformations();
+    
+    
+    
+    
+
+    /**
+     * @return the accessUrlGms
+     */
+    public String getAccessUrlGms();
+
+    /**
+     * @return the accessUrlDms
+     */
+    public String getAccessUrlDms();
 }
