@@ -109,7 +109,7 @@ public class ListnmsDAO extends AbstractDAO<Listnms, Integer> {
                 setQuery("l.lhierarchy", Integer.valueOf(filtro.getGlobalsearch()));
                 //setQuery("l.liststatus", Integer.valueOf(filtro.getGlobalsearch()));
                 // only active lists
-
+                
             } else {
                 setQueryInTo("l.listname", filtro.getGlobalsearch());
                 setQueryInTo("l.listtype", filtro.getGlobalsearch());
@@ -166,6 +166,7 @@ public class ListnmsDAO extends AbstractDAO<Listnms, Integer> {
             finalCriteria.append(" and ");
         }
         finalCriteria.append(" l.liststatus <> " ).append(Listnms.LSSTATUS_DELETED );
+        finalCriteria.append(" and l.liststatus <> " ).append(Listnms.LSSTATUS_FOLDER );
         return finalCriteria.toString();
     }
 }
