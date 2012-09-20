@@ -25,7 +25,6 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -112,17 +111,14 @@ public final class nurseryManagerTopComponent extends TopComponent {
     private String[] headers = {"ENTRY", "BCID", "CROSS", "GID", "METHOD", "FDESIG", "FGID", "MDESIG", "MGID"};
     private String[] headersScript = {"ENTRY", "BCID", "FEMALE/MALE", "GID", "METHOD", "FTID", "FOCC", "FENTRY", "FDESIG", "FGID", "MTID", "MOCC", "MENTRY", "MDESIG", "MGID"};
     private String[] otherCropsheaders = {"ENTRY", "CROSS", "GID", "METHOD", "FDESIG", "FGID", "MDESIG", "MGID", "SOURCE"};
-    private String[] otherCropsheadersScript = {"ENTRY", "CROSS", "GID", "METHOD", "FTID", "FOCC", "FENTRY", "FDESIG", "FGID", "MTID", "MOCC", "MENTRY", "MDESIG", "MGID"};
     private ArrayList<String> tempListCross;
-    private String[] nameColumn = {"Cross Name", "Selection History", "Pedigree", "CID", "SID", "GID", "INTRID", "TID", "ENT", "Folio", "Specific Name", "Name Abbreviation", "Cross Year", "Cross Location", "Cross Country", "Cross Organization", "Cross Program", "FAO In-trust", "Selection Year", "Selection Location", "Selection Country", "Name Country", "Name Year", "FAO designation Date", "24 disp", "25 disp"};
-    private ArrayList<String> wheatColumns;
-    private ArrayList<String> wheatColumnsforSearch;
-    private String outSelectionHistory = "";
+    List<GermplasmSearch> listFemale;
+    List<GermplasmSearch> listMale;
+    
     /**
      * Methods in Combo box, used to retrieve selected method
      */
     private List<Methods> methodsInCombo;
-    
     private Listnms recentList;
 
     public nurseryManagerTopComponent() {
@@ -134,7 +130,6 @@ public final class nurseryManagerTopComponent extends TopComponent {
         loadFactors();
         addListener();
         fillMethods();
-        // this.jButtonCross.setEnabled(false);
         this.jButtonSaveCross.setEnabled(false);
         assignModels();
 
@@ -964,9 +959,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
             fecha = ConvertUtils.getDateAsInteger(new java.util.Date());
         }
 
-
         listnms.setListdate(fecha);
-
         listnms.setListtype(Listnms.LIST_TYPE_HARVEST);
         listnms.setListuid(0);
         listnms.setListdesc(this.jTextFieldDescription.getText());
@@ -975,7 +968,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
 
         AppServicesProxy.getDefault().appServices().addListnms(listnms);
         recentList = listnms;
-        
+
         List<Listdata> dataList = new ArrayList<Listdata>();
 
         int desig = -1;
@@ -991,14 +984,10 @@ public final class nurseryManagerTopComponent extends TopComponent {
         }
 
         listnms.setListtype(Listnms.LIST_TYPE_HARVEST);
-
         int entryCD = findColumn("ENTRY");
         int fgidcol = findColumn("FGID");
         int mgidcol = findColumn("MGID");
-
-
-
-
+        
         int gid = 0;
 
         // get selected method from combo
@@ -1073,14 +1062,14 @@ public final class nurseryManagerTopComponent extends TopComponent {
         Integer loggedUserid = AppServicesProxy.getDefault().appServices().getLoggedUserId(FieldbookSettings.getLocalGmsUserId());
 
         if (jComboBoxConvection.getSelectedIndex() == CONVENTION_CIMMYT_WHEAT) {
-            AppServicesProxy.getDefault().appServices().saveGerplasmCimmytWheat(dataList, listnms, loggedUserid);
+
+            AppServicesProxy.getDefault().appServices().saveGerplasmCimmytWheat(dataList, listnms, loggedUserid, listFemale, listMale);
+
         } else {
             AppServicesProxy.getDefault().appServices().addNewsGermplasm(listnms, dataList, loggedUserid);
         }
 
         fillComboListNames();
-
-
         changeCursorWaitStatus(false);
     }
 
@@ -1552,8 +1541,9 @@ public final class nurseryManagerTopComponent extends TopComponent {
 
     private void processExcelCrossFile(File archivo) {
 
-        List<GermplasmSearch> listFemale = new ArrayList<GermplasmSearch>();
-        List<GermplasmSearch> listMale = new ArrayList<GermplasmSearch>();
+        listFemale = new ArrayList<GermplasmSearch>();
+        listMale = new ArrayList<GermplasmSearch>();
+
         tempListCross = new ArrayList<String>();
 
         changeCursorWaitStatus(true);

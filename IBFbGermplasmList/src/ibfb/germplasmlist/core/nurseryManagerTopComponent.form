@@ -164,7 +164,7 @@
                               </Group>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jScrollEntriesDbMale" pref="276" max="32767" attributes="0"/>
+                          <Component id="jScrollEntriesDbMale" pref="282" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="btnRemoveMaleDb" min="-2" max="-2" attributes="0"/>
@@ -340,7 +340,7 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jScrollPane1" pref="296" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane1" pref="316" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jButtonBrowseExcelMale" min="-2" pref="69" max="-2" attributes="0"/>
                               </Group>
@@ -512,7 +512,7 @@
                               </Group>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jScrollEntriesDbFemale" pref="256" max="32767" attributes="0"/>
+                          <Component id="jScrollEntriesDbFemale" pref="272" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
@@ -699,7 +699,7 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jScrollPane2" pref="295" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane2" pref="315" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jButtonBrowseExcelFemale" min="-2" pref="69" max="-2" attributes="0"/>
                               </Group>
