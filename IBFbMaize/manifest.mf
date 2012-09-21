@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+OpenIDE-Module: ibfb.maize.core
+OpenIDE-Module-Localizing-Bundle: ibfb/maize/core/Bundle.properties
+OpenIDE-Module-Specification-Version: 1.0
+
