@@ -11,27 +11,10 @@ import org.openide.WizardDescriptor;
 
 public final class maizeExportWizardIterator implements WizardDescriptor.Iterator<WizardDescriptor> {
 
-    // Example of invoking this wizard:
-    // @ActionID(category="...", id="...")
-    // @ActionRegistration(displayName="...")
-    // @ActionReference(path="Menu/...")
-    // public static ActionListener run() {
-    //     return new ActionListener() {
-    //         @Override public void actionPerformed(ActionEvent e) {
-    //             WizardDescriptor wiz = new WizardDescriptor(new maizeExportWizardIterator());
-    //             // {0} will be replaced by WizardDescriptor.Panel.getComponent().getName()
-    //             // {1} will be replaced by WizardDescriptor.Iterator.name()
-    //             wiz.setTitleFormat(new MessageFormat("{0} ({1})"));
-    //             wiz.setTitle("...dialog title...");
-    //             if (DialogDisplayer.getDefault().notify(wiz) == WizardDescriptor.FINISH_OPTION) {
-    //                 ...do something...
-    //             }
-    //         }
-    //     };
-    // }
+
     private int index;
     private List<WizardDescriptor.Panel<WizardDescriptor>> panels;
-
+    
     private List<WizardDescriptor.Panel<WizardDescriptor>> getPanels() {
         if (panels == null) {
             panels = new ArrayList<WizardDescriptor.Panel<WizardDescriptor>>();

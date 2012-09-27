@@ -14,6 +14,7 @@ public final class maizeExportVisualPanel1 extends JPanel {
     public maizeExportVisualPanel1() {
         initComponents();
     }
+    
 
     @Override
     public String getName() {

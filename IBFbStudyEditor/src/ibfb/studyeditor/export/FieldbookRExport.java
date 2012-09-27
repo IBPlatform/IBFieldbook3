@@ -88,6 +88,34 @@ public class FieldbookRExport {
             csvOutput.close();
         } catch (IOException e) {
             System.out.println("ERROR AL CREAR CSV FILE FOR R");
-        }
+        }    
     }
+    
+        private static void Export_to_R_Master(File file, ObservationsTableModel modeloFiltro, CSVOziel csv,String stringTraitToEvaluate) {
+        String outputFile = file.toString() + ".csv";
+        boolean alreadyExists = new File(outputFile).exists();
+        try {
+            CsvWriter csvOutput = new CsvWriter(new FileWriter(outputFile, false), ',');
+            csvOutput.write("Loc");
+            csvOutput.write("REP");
+            csvOutput.write("BLK");
+            csvOutput.write("PLOT");
+            csvOutput.write("ENTRY");
+            csvOutput.write("LINE");
+            csvOutput.write("TESTER");
+            csvOutput.write("GY");
+            csv.DefineTraitToEvaluate(stringTraitToEvaluate);
+            csv.writeTraitsR(csvOutput, modeloFiltro);
+            csvOutput.endRecord();
+            csv.writeDATAR(csvOutput, modeloFiltro);
+            csvOutput.close();
+        } catch (IOException e) {
+            System.out.println("ERROR AL CREAR CSV FILE FOR R");
+        }
+        
+        
+        
+        
+    }
+    
 }

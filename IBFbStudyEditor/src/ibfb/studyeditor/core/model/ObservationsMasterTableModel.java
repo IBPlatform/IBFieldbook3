@@ -1,29 +1,17 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package ibfb.studyeditor.core.model;
 
 import ibfb.domain.core.Condition;
 import ibfb.domain.core.Factor;
 import ibfb.domain.core.Variate;
 import ibfb.domain.core.Workbook;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import javax.swing.table.AbstractTableModel;
-import org.cimmyt.cril.ibwb.commongui.ConvertUtils;
 import org.cimmyt.cril.ibwb.commongui.DecimalUtils;
 import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 
-/**
- * Table Model for observations
- *
- * @author TMSANCHEZ
- */
-public class ObservationsTableModel extends AbstractTableModel {
+
+public class ObservationsMasterTableModel extends AbstractTableModel {
 
     private static final String TRIAL_INSTANCE = "TRIAL INSTANCE";
     private static final String NUMBER = "NUMBER";
@@ -40,20 +28,9 @@ public class ObservationsTableModel extends AbstractTableModel {
     public static final String ROW = "ROWINLAYOUTNUMBER";
     public static final String COL = "COLUMNINLAYOUTNUMBER";
     public static boolean isFromCrossInfo = false;
-   
-    
-    
-    
-    
-    
-    
     /**
      * Prefix to store header index in map for factors
      */
-   
-    
-
-    
     private static final String FACTOR_PREFIX = "FACTOR_";
     /**
      * Prefix to store header index in map for variates
@@ -88,7 +65,7 @@ public class ObservationsTableModel extends AbstractTableModel {
      *
      * @param headers
      */
-    public ObservationsTableModel(Workbook workbook, List<Variate> variateList) {
+    public ObservationsMasterTableModel(Workbook workbook, List<Variate> variateList) {
         this.workbook = workbook;
         this.variateList = variateList;
         values = new ArrayList<List<Object>>();;
@@ -101,7 +78,7 @@ public class ObservationsTableModel extends AbstractTableModel {
     }
 
     public static void setIsFromCrossInfo(boolean isFromCrossInfo) {
-        ObservationsTableModel.isFromCrossInfo = isFromCrossInfo;
+        ObservationsMasterTableModel.isFromCrossInfo = isFromCrossInfo;
     }
 
     /**
@@ -237,7 +214,7 @@ public class ObservationsTableModel extends AbstractTableModel {
             if (isValidValue(aValue, columnDataType)) {
                 columnList.set(columnIndex, aValue);
             } else {
-                DialogUtil.display(ObservationsTableModel.class, "observationstable.numericvaluerequired");
+                DialogUtil.display(ObservationsMasterTableModel.class, "observationstable.numericvaluerequired");
             }
         }
 
@@ -281,7 +258,7 @@ public class ObservationsTableModel extends AbstractTableModel {
 
     @Override
     public boolean isCellEditable(int rowIndex, int columnIndex) {
-        // only cells with a variate column are editable
+        // only cells with a variate column are editable/
         Object columnObject = headers.get(columnIndex);
         boolean cellEditable = columnObject instanceof Variate;
         return cellEditable;

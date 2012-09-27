@@ -55,6 +55,14 @@ public class exportWizardPanel1 implements WizardDescriptor.Panel {
             component.enabledR(false);
 
         }
+        
+          if (studyEditor.isForMaster()){      
+            component.enabledCSV(false);
+        } else {
+            component.enabledCSV(true);
+
+        }
+        
     }
 
     @Override

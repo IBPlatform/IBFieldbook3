@@ -219,4 +219,14 @@ public final class exportVisualPanel1 extends JPanel {
         this.jRadioButtonToR.setEnabled(b);
         this.lblImgR.setEnabled(b);
     }
+
+    void enabledCSV(boolean b) {
+       this.jRadioButtonToFieldlog.setVisible(b);
+       this.lblImgFieldlog.setVisible(b);
+       if(b){
+          this.jRadioButtonToFieldlog.setSelected(true);  
+       }else{
+           this.jRadioButtonToExcel.setSelected(true);
+       }
+    }
 }
