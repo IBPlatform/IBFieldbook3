@@ -626,7 +626,7 @@ public abstract class AbstractDAO<T, PK extends Serializable> extends HibernateD
         if (result > 0) {
             result = -1;
         }
-        System.out.println("getMinResult : " + result);
+     //   System.out.println("getMinResult : " + result);
 
         return result;
     }
