@@ -263,6 +263,71 @@ public class CSVOziel {
 
     }
 
+  
+            
+    public void writeDATAR_MASTER(CsvWriter csvOutput, ObservationsTableModel tableModel) {
+        int total = tableModel.getRowCount();
+        int tot = tableModel.getVariateList().size();
+
+        int trialColumn = tableModel.getHeaderIndex(ObservationsTableModel.TRIAL);
+        int repColumn = tableModel.getHeaderIndex(ObservationsTableModel.REPLICATION);
+        int blockColumn = tableModel.getHeaderIndex(ObservationsTableModel.BLOCK);
+        int plotColumn = tableModel.getHeaderIndex(ObservationsTableModel.PLOT);
+        int entryColumn = tableModel.getHeaderIndex(ObservationsTableModel.ENTRY);
+        int designColumn = tableModel.getHeaderIndex(ObservationsTableModel.DESIG);
+        int gidColumn = tableModel.getHeaderIndex(ObservationsTableModel.GID);
+ 
+
+        try {
+
+
+            for (int i = 0; i < total; i++) {
+
+                if(trialColumn>=0){
+                csvOutput.write(tableModel.getValueAt(i, trialColumn).toString());
+                }
+                if(repColumn>=0){
+                csvOutput.write(tableModel.getValueAt(i, repColumn).toString());
+                }
+                if(blockColumn>=0){
+                csvOutput.write(tableModel.getValueAt(i, blockColumn).toString());
+                }
+                if(entryColumn>=0){
+                csvOutput.write(tableModel.getValueAt(i, entryColumn).toString());
+                }
+                try {
+                   csvOutput.write(tableModel.getValueAt(i, tableModel.findColumn(stringTraitToEvaluate)).toString());
+                } catch (NullPointerException ex) {
+                    String cad = ".";
+                    
+                    csvOutput.write(cad);
+                }
+
+
+                for (int j = 0; j < tot; j++) {
+                    String valor = tableModel.getVariateList().get(j).getVariateName();
+
+                    if (!valor.equals(stringTraitToEvaluate)) {
+                        try {
+                            csvOutput.write(tableModel.getValueAt(i, tableModel.findColumn(valor)).toString());
+                        } catch (NullPointerException ex) {
+                            String cad = ".";
+                            csvOutput.write(cad);
+                        }
+                    }
+
+                }
+
+                csvOutput.endRecord();
+            }
+        } catch (IOException ex) {
+            System.out.println("ERROR AL GENERAR DATA CSV FOR R" + ex);
+        }
+
+    }
+ 
+            
+            
     public void writeDATAR(CsvWriter csvOutput, ObservationsTableModel tableModel) {
         int total = tableModel.getRowCount();
         int tot = tableModel.getVariateList().size();
@@ -324,6 +389,7 @@ public class CSVOziel {
 
     }
 
+    
     public void readDATA(File file) {
 
         ArrayList titulos = new ArrayList();
