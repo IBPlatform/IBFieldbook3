@@ -115,10 +115,8 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
                 theCrop = MAIZE;
              }else{
                 theCrop = OTHERCROPS; 
-             }
-            
-
-        theCrop=WHEAT; 
+             }          
+        theCrop=MAIZE; 
         
         return theCrop;
     }
@@ -129,10 +127,8 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
         boolean valid = false;
 
         log.info("Validating Excel Nursery file read BEGIN");
-  //      log.info("Opening file...");
         InputStream inputStream = new FileInputStream(fileName);
         org.apache.poi.ss.usermodel.Workbook excelBook = WorkbookFactory.create(inputStream);
-   //     log.info("Number of sheets in book" + excelBook.getNumberOfSheets());
 
         // assume values are in B colum (index 1)
         int labelColNumber = 0;
