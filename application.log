@@ -1,101 +1,129 @@
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905617
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905617
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905617
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905617
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905617
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5106250
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5106250
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5106250
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5106250
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5106646
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5106646
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5106646
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5106646
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5106646
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5106646
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Iniciando el proceso de recuperacion de maximos para los fmale
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - seteando los datos del male a los objetos GermplasmSearchFmale
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Extrayendo las diferentes convinaciones de studio y trial para fmale
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Recuperando la organization, program, harvdate y lid
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: Organization   FactorId: 1702955
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1803 scaleid: 1002 tmethid: 3012
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: Organization labelid: 1702960
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: HARVDATE   FactorId: 1702964
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1818 scaleid: 1001 tmethid: 3027
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: HARVDATE labelid: 1702977
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: LID   FactorId: 1702964
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1811 scaleid: 1002 tmethid: 3020
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: LID labelid: 1702968
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Extrayendo las diferentes convinaciones de studio y trial para Male
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Recuperando lista de factores por estudio y trial detectado para ejecutarquery center 
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperGmsReader - Definiendo orden de busquedas
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperGmsReader - --> Recuperando el nombre del estudio
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperGmsReader - --> Termina Recuperacion del nombre del estudio.
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperGmsReader - --> Recuperando factores principales.
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperGmsReader - --> Termina Recuperando factores principales.
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperGmsReader - --> Recuperando factores salida.
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperGmsReader - --> Termina Recuperando factores salida.
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperGmsReader - Getting trial randomization
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperGmsReader - Getting trial randomization.... DONE
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperGmsReader - Definiendo orden de busquedas
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperGmsReader - --> Recuperando el nombre del estudio
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperGmsReader - --> Termina Recuperacion del nombre del estudio.
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperGmsReader - --> Recuperando factores principales.
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperGmsReader - --> Termina Recuperando factores principales.
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperGmsReader - --> Recuperando factores salida.
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperGmsReader - --> Termina Recuperando factores salida.
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperGmsReader - Getting trial randomization
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperGmsReader - Getting trial randomization.... DONE
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Iterando en los resulset para optener el gid del germoplasma
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Y recuperar los germplasm y los names
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988512
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988512
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988511
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988511
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988510
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988510
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988509
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988509
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988508
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988508
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988507
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988507
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988506
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988506
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988505
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988505
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988504
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988504
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4988503
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4988503
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905617
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905617
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905617
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905617
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905617
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905617
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905617
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905617
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 4905617
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 4905617
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5106250
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5106250
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5106250
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5106250
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5106646
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5106646
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5106646
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5106646
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Gid : 5106646
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Germplsm gid : 5106646
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - Iniciando el proceso de recuperacion de maximos para los fmale
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperGermplasm - seteando los datos del male a los objetos GermplasmSearchFmale
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: LEROWS_m (m)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SPAROW_cm (cm)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: NOROWH_integer (integer)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: LEROWH_m (m)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: WEACOM_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FERKG1_kg/ha (kg/ha)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FERTI1_date (date)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FER%N1_% (%)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: %P2O51_% (%)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: F%K2O1_% (%)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: OTHEL1_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FERTI2_date (date)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FERKG2_kg/ha (kg/ha)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FER%N2_% (%)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: F%K2O2_% (%)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: %P2O52_% (%)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: OTHEL2_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FERTI3_date (date)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FERKG3_kg/ha (kg/ha)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FER%N3_% (%)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: HERBIC_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: HERPRO_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FUNGIC_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FUNPRO_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: PESTIC_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: PESPRO_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: OTCHEM_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: OCHPRO_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: DMGFRS_N/T/S/M/V (N/T/S/M/V)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: RESH2O_mm (mm)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: PREIRR_mm (mm)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: PPNCYC_mm (mm)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: OMNTXD_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FERTAP_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SPKDIS_N/T/S/M/V (N/T/S/M/V)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: ELODGE_N/T/S/M/V (N/T/S/M/V)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: BEDSAR_m2 (m2)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: BEDHAR_m2 (m2)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: MAJWED_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SOISUR_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SOILAV_real (real)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: OMNTYN_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SPEOFR_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: USESCR_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: COOPNT_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: TP_12M_mm (mm)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: EP_12M_mm (mm)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: CTWIRR_mm (mm)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: GPSLTD_integer (integer)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: GPSLTM_integer (integer)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: GPSLAT_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: GPSLND_integer (integer)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: GPSLNM_integer (integer)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: GPSLON_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: GPSALT_integer (integer)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: COOPEM_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read END
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - Requested for rowIndex 0
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - designList.size() 1
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - bean ibfb.domain.core.DesignBean@194d7605
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - Requested for rowIndex 0
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - designList.size() 1
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - bean ibfb.domain.core.DesignBean@194d7605
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - Requested for rowIndex 0
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - designList.size() 1
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - bean ibfb.domain.core.DesignBean@194d7605
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - Requested for rowIndex 0
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - designList.size() 1
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - bean ibfb.domain.core.DesignBean@194d7605
 INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists
 INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Traits table found!
 INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists DONE....
 INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists
 INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Traits table found!
 INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if Transformations table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Transformations table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if Transformations table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if Transformations table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Transformations table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if Transformations table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if ContinuousConversion table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - ContinuousConversion table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if ContinuousConversion table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if ContinuousConversion table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - ContinuousConversion table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if ContinuousConversion table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if ContinuousFunction table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - ContinuousFunction table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if ContinuousFunction table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if ContinuousFunction table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - ContinuousFunction table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if ContinuousFunction table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if DiscreteConversion table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - DiscreteConversion table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if DiscreteConversion table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if DiscreteConversion table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - DiscreteConversion table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if DiscreteConversion table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Traits table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Traits table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if Transformations table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Transformations table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if Transformations table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if Transformations table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Transformations table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if Transformations table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if ContinuousConversion table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - ContinuousConversion table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if ContinuousConversion table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if ContinuousConversion table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - ContinuousConversion table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if ContinuousConversion table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if ContinuousFunction table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - ContinuousFunction table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if ContinuousFunction table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if ContinuousFunction table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - ContinuousFunction table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if ContinuousFunction table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if DiscreteConversion table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - DiscreteConversion table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if DiscreteConversion table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if DiscreteConversion table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - DiscreteConversion table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if DiscreteConversion table exists DONE....
