@@ -343,9 +343,9 @@ public class GermplasmListReaderImpl implements GermplasmListReader {
         // Define search filter
         Listdata filter = new Listdata(true);
         filter.setListdataPK(new ListdataPK(listid, null));
-        int total = AppServicesProxy.getDefault().appServices().getTotalListdata(filter);
+        //int total = AppServicesProxy.getDefault().appServices().getTotalListdata(filter);
         // Retrieve list data for listId
-        List<Listdata> listdataList = AppServicesProxy.getDefault().appServices().getListListdata(filter, 0, total, false);
+        List<Listdata> listdataList = AppServicesProxy.getDefault().appServices().getListListdata(filter, 0, 0, false);
 
         int rowCounter = 1;
 
