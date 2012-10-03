@@ -1443,7 +1443,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
             modelo.setValueAt(fgid, i, 5);//FGIG
             modelo.setValueAt(mdesig, i, 6);//MDESIG
             modelo.setValueAt(mgid, i, 7);//MGID  
-            if (jComboBoxConvection.getSelectedIndex() == CONVENTION_OTHER_CROPS) {
+            if (jComboBoxConvection.getSelectedIndex() != CONVENTION_CIMMYT_WHEAT ) {
                 StringBuilder source = new StringBuilder();
                 source.append(femaleListName).append(":").append(fentry);
                 source.append("/");

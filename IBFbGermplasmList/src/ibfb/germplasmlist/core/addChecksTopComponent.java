@@ -36,6 +36,9 @@ import org.cimmyt.cril.ibwb.commongui.OSUtils;
 import org.cimmyt.cril.ibwb.domain.Listdata;
 import org.cimmyt.cril.ibwb.domain.ListdataPK;
 import org.cimmyt.cril.ibwb.domain.Listnms;
+import org.generationcp.middleware.exceptions.QueryException;
+import org.generationcp.middleware.pojos.GermplasmPedigreeTree;
+import org.generationcp.middleware.pojos.GermplasmPedigreeTreeNode;
 import org.netbeans.api.settings.ConvertAsProperties;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
@@ -1082,7 +1085,7 @@ public final class addChecksTopComponent extends TopComponent {
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jRadioButtonWithout)
                     .addComponent(jRadioButtonWith))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 294, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 367, Short.MAX_VALUE)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
                         .addComponent(jLabel3)
@@ -2992,5 +2995,19 @@ public final class addChecksTopComponent extends TopComponent {
         jTableFinalSource.updateUI();
         jTableFinalSource.updateUI();
 
+    }
+    private static void printNode(GermplasmPedigreeTreeNode node, int level) {
+        StringBuffer tabs = new StringBuffer();
+
+        for (int ctr = 1; ctr < level; ctr++) {
+            tabs.append("\t");
+        }
+
+        String name = node.getGermplasm().getPreferredName() != null ? node.getGermplasm().getPreferredName().getNval() : null;
+        System.out.println(tabs.toString() + node.getGermplasm().getGid() + " : " + name);
+
+        for (GermplasmPedigreeTreeNode parent : node.getLinkedNodes()) {
+            printNode(parent, level + 1);
+        }
     }
 }
