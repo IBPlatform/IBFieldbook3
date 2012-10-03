@@ -23,35 +23,29 @@ import org.openide.util.NbBundle;
 import org.openide.util.NbPreferences;
 
 public final class AdvanceVisualPanel1 extends JPanel {
-    
-    int maizeMethod=0;  
-    int whitParentheses=0; //0= no  1=si
-    String maizeMethodName="Autofecundadas individuamente (-)";
-    String maizeTooltip="Autofecundadas y mazorcas desgranadas individuamente (-)";
 
-    
+    int maizeMethod = 0;
+    int whitParentheses = 0; //0= no  1=si
+    String maizeMethodName = "Autofecundadas individuamente (-)";
+    String maizeTooltip = "Autofecundadas y mazorcas desgranadas individuamente (-)";
     public static final int DEFAULT_METHOD = 205; // SINGLE PLANT
-    
     /**
      * List of sorted methods in combo
      */
-    private  List<Methods> methodsInCombo;
-    
+    private List<Methods> methodsInCombo;
     /**
      * Selected location from Dialog
      */
     private Location selectedLocation;
-    
     /**
      * Location abbrevaiature
      */
     private String locationAbbr;
-    
     /**
      * Selected breeding method
      */
     private Integer breedingMethod;
-    
+
     public AdvanceVisualPanel1() {
         initComponents();
         loadMethodsIntoCombo();
@@ -63,24 +57,24 @@ public final class AdvanceVisualPanel1 extends JPanel {
         jComboBoxConvention.setSelectedIndex(2);
         this.breedingMethod = AdvanceWizardIterator.breedingMethod;
     }
-    
+
     @Override
     public String getName() {
-        return NbBundle.getMessage(AdvanceVisualPanel1.class,"AdvanceVisualPanel1.name");
+        return NbBundle.getMessage(AdvanceVisualPanel1.class, "AdvanceVisualPanel1.name");
     }
-    
+
     public void fillComboNumberOfSamplesPerPlot() {
         this.jComboBoxSamplesPerPlot.removeAllItems();
-        
+
         for (int i = 0; i < 1000; i++) {
             this.jComboBoxSamplesPerPlot.addItem(i + 1);
         }
         DefaultListCellRenderer dlcr = new DefaultListCellRenderer();
         dlcr.setHorizontalAlignment(DefaultListCellRenderer.CENTER);
         jComboBoxSamplesPerPlot.setRenderer(dlcr);
-        
+
     }
-    
+
     private void fillNamingConvention() {
         DefaultComboBoxModel dcbm = (DefaultComboBoxModel) jComboBoxConvention.getModel();
         dcbm.removeAllElements();
@@ -88,29 +82,28 @@ public final class AdvanceVisualPanel1 extends JPanel {
         dcbm.addElement(NamingConvention.CIMMYT_MAIZE);
         dcbm.addElement(NamingConvention.OTHER_CROPS);
     }
-    
+
     public int getMethodIndex() {
         return this.jComboBoxConvention.getSelectedIndex();
     }
-    
+
     public int getSamples() {
         return this.jComboBoxSamplesPerPlot.getSelectedIndex() + 1;
     }
-    
+
     public int getsSamplesMethod() {
-        
+
         if (jRadioButtonSameNumberYES.isSelected()) {
             return 0;
         } else {
             return 1;
         }
-        
+
     }
-    
+
     public void loadLocationPreference() {
-        
     }
-    
+
     public void setDate() {
         String DATE_FORMAT = "yyyyMMdd";
         jDateChooser1.setDateFormatString(DATE_FORMAT);
@@ -496,87 +489,84 @@ public final class AdvanceVisualPanel1 extends JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     public void setDefaultLocation() {
-        
+
         String loc = NbPreferences.forModule(AdvanceVisualPanel1.class).get("location", "");
-        this.jTextFieldLocation.setText(loc);        
-        
+        this.jTextFieldLocation.setText(loc);
+
         locationAbbr = NbPreferences.forModule(AdvanceWizardPanel1.class).get("LAbbr", "");
-        
+
         selectedLocation = new Location(true);
         selectedLocation.setLocid(NbPreferences.forModule(AdvanceVisualPanel1.class).getInt("LocationId", 0));
         selectedLocation.setLabbr(locationAbbr);
-        
-        
+
+
     }
-    
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+
         SelectLocationPanel selectLocationPanel = new SelectLocationPanel();
         selectLocationPanel.assignNamingConvention((String) jComboBoxConvention.getSelectedItem());
-        
-        NotifyDescriptor notifyDescriptor = new NotifyDescriptor(selectLocationPanel, NbBundle.getMessage(AdvanceVisualPanel1.class,"AdvanceVisualPanel1.location"), NotifyDescriptor.OK_CANCEL_OPTION, NotifyDescriptor.PLAIN_MESSAGE, null, NotifyDescriptor.OK_OPTION);
-        
+
+        NotifyDescriptor notifyDescriptor = new NotifyDescriptor(selectLocationPanel, NbBundle.getMessage(AdvanceVisualPanel1.class, "AdvanceVisualPanel1.location"), NotifyDescriptor.OK_CANCEL_OPTION, NotifyDescriptor.PLAIN_MESSAGE, null, NotifyDescriptor.OK_OPTION);
+
         if (DialogDisplayer.getDefault().notify(notifyDescriptor) == NotifyDescriptor.OK_OPTION) {
             String value = selectLocationPanel.getLocationName();
             this.selectedLocation = selectLocationPanel.getSelectedLocation();
-            NbPreferences.forModule(AdvanceVisualPanel1.class).put("location", value);            
-            
+            NbPreferences.forModule(AdvanceVisualPanel1.class).put("location", value);
+
             this.jTextFieldLocation.setText(value);
         }
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
-    
+
     private void jRadioButtonSameMethodNOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSameMethodNOActionPerformed
         if (jRadioButtonSameMethodNO.isSelected()) {
             this.jComboBoxMethods.setEnabled(false);
         }
     }//GEN-LAST:event_jRadioButtonSameMethodNOActionPerformed
-    
+
     private void jRadioButtonSameMethodYESActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSameMethodYESActionPerformed
         if (jRadioButtonSameMethodYES.isSelected()) {
             this.jComboBoxMethods.setEnabled(true);
         }
     }//GEN-LAST:event_jRadioButtonSameMethodYESActionPerformed
-    
+
     private void jRadioButtonSameNumberYESActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSameNumberYESActionPerformed
         if (jRadioButtonSameNumberYES.isSelected()) {
             this.jComboBoxSamplesPerPlot.setEnabled(true);
         }
     }//GEN-LAST:event_jRadioButtonSameNumberYESActionPerformed
-    
+
     private void jRadioButtonSameNumberNOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSameNumberNOActionPerformed
         if (jRadioButtonSameNumberNO.isSelected()) {
             this.jComboBoxSamplesPerPlot.setEnabled(false);
         }
     }//GEN-LAST:event_jRadioButtonSameNumberNOActionPerformed
 
-    
-    
     private void showMaizeWizard() {
-        
-         WizardDescriptor wiz = new WizardDescriptor(new PolinizationWizardIterator());
-                 // {0} will be replaced by WizardDescriptor.Panel.getComponent().getName()
-                 // {1} will be replaced by WizardDescriptor.Iterator.name()
-                 wiz.setTitleFormat(new MessageFormat("{0} ({1})"));
-                 wiz.setTitle("...dialog title...");
-                 if (DialogDisplayer.getDefault().notify(wiz) == WizardDescriptor.FINISH_OPTION) {
-                   
-                 maizeMethod = NbPreferences.forModule(PolinizationWizardPanel1.class).getInt("maizeMethod", 0);
-                 whitParentheses = NbPreferences.forModule(PolinizationWizardPanel1.class).getInt("whitParentheses", 0);
-                 maizeMethodName = NbPreferences.forModule(PolinizationWizardPanel1.class).get("maizeMethodName", "NO METHOD");
-                 maizeTooltip= NbPreferences.forModule(PolinizationWizardPanel1.class).get("maizeTooltip", "NO TOOLTIP");
-                 
-                 jLabelMaizeMethod.setText(maizeMethodName);
-                 jLabelMaizeMethod.setToolTipText(maizeTooltip);
-                 
-                     System.out.println("METODO A REALIZAR: "+maizeMethod);
-                     System.out.println("CON PARENTESIS: "+whitParentheses);
-                 }
+
+        WizardDescriptor wiz = new WizardDescriptor(new PolinizationWizardIterator());
+        // {0} will be replaced by WizardDescriptor.Panel.getComponent().getName()
+        // {1} will be replaced by WizardDescriptor.Iterator.name()
+        wiz.setTitleFormat(new MessageFormat("{0} ({1})"));
+        wiz.setTitle("...dialog title...");
+        if (DialogDisplayer.getDefault().notify(wiz) == WizardDescriptor.FINISH_OPTION) {
+
+            maizeMethod = NbPreferences.forModule(PolinizationWizardPanel1.class).getInt("maizeMethod", 0);
+            whitParentheses = NbPreferences.forModule(PolinizationWizardPanel1.class).getInt("whitParentheses", 0);
+            maizeMethodName = NbPreferences.forModule(PolinizationWizardPanel1.class).get("maizeMethodName", "NO METHOD");
+            maizeTooltip = NbPreferences.forModule(PolinizationWizardPanel1.class).get("maizeTooltip", "NO TOOLTIP");
+
+            jLabelMaizeMethod.setText(maizeMethodName);
+            jLabelMaizeMethod.setToolTipText(maizeTooltip);
+
+            System.out.println("METODO A REALIZAR: " + maizeMethod);
+            System.out.println("CON PARENTESIS: " + whitParentheses);
+        }
     }
 
-
     private void jComboBoxConventionItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxConventionItemStateChanged
-                        
+
 
         if (evt.getStateChange() == 1) {
             switch (jComboBoxConvention.getSelectedIndex()) {
@@ -590,7 +580,7 @@ public final class AdvanceVisualPanel1 extends JPanel {
                     jLabelMaizeMethod.setVisible(false);
                     jButtonChange.setVisible(false);
                     break;
-                
+
                 case 1://maize
 
                     lblSuffix.setVisible(false);
@@ -616,13 +606,12 @@ public final class AdvanceVisualPanel1 extends JPanel {
 
         }
 
-       
+
     }//GEN-LAST:event_jComboBoxConventionItemStateChanged
 
     private void jButtonChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChangeActionPerformed
-       showMaizeWizard();
+        showMaizeWizard();
     }//GEN-LAST:event_jButtonChangeActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
@@ -659,20 +648,20 @@ public final class AdvanceVisualPanel1 extends JPanel {
 
     private void loadMethodsIntoCombo() {
         List<Methods> methodsList = AppServicesProxy.getDefault().appServices().getMethodsList();
-        
+
         List<String> sortedMethods = new ArrayList<String>();
         methodsInCombo = new ArrayList<Methods>();
-        
+
         int defaultSelectedIndex = 0;
         int counter = -1;
         String selectedMethodName = "";
-        
+
         if (breedingMethod == null) {
             breedingMethod = DEFAULT_METHOD;
         }
-        
-        
-        
+
+
+
         for (Methods methods : methodsList) {
             if (methods.getMtype().equals("DER") || methods.getMtype().equals("MAN")) {
                 sortedMethods.add(methods.getMname().toUpperCase());
@@ -683,44 +672,44 @@ public final class AdvanceVisualPanel1 extends JPanel {
                 }
             }
         }
-        
-        
+
+
         Collections.sort(sortedMethods);
-        
+
         jComboBoxMethods.removeAllItems();
-        
+
         for (String methodName : sortedMethods) {
             counter++;
             jComboBoxMethods.addItem(methodName);
             if (methodName.toUpperCase().equals(selectedMethodName.toUpperCase())) {
                 defaultSelectedIndex = counter;
             }
-            
+
         }
         jComboBoxMethods.setEditable(false);
         jComboBoxMethods.setSelectedIndex(defaultSelectedIndex);
-        
-        
-        
+
+
+
     }
-    
+
     private void loadDefaultMethod() {
         if (!AdvanceWizardIterator.metodo.isEmpty()) {
             this.jComboBoxMethods.setSelectedItem(AdvanceWizardIterator.metodo);
         }
     }
-    
+
     public Methods getSelectedMethod() {
-        
-        Methods selectedMethod  = null;
-        String methodName = (String)jComboBoxMethods.getSelectedItem();
-        for (Methods methods: methodsInCombo) {
-            
-            if (methods.getMname().toUpperCase().equals(methodName.toUpperCase()) ) {
-                selectedMethod = methods;   
+
+        Methods selectedMethod = null;
+        String methodName = (String) jComboBoxMethods.getSelectedItem();
+        for (Methods methods : methodsInCombo) {
+
+            if (methods.getMname().toUpperCase().equals(methodName.toUpperCase())) {
+                selectedMethod = methods;
             }
         }
-        return  selectedMethod;
+        return selectedMethod;
     }
 
     public Location getSelectedLocation() {
@@ -735,9 +724,9 @@ public final class AdvanceVisualPanel1 extends JPanel {
         Integer harvestDate = ConvertUtils.getDateAsInteger(jDateChooser1.getDate());
         return harvestDate;
     }
-    
+
     public String getLAbbr() {
-        if (jComboBoxConvention.getSelectedIndex()==2) {
+        if (jComboBoxConvention.getSelectedIndex() == 2) {
             return jTextFieldSuffix.getText();
         } else {
             return getSelectedLocation().getLabbr();
@@ -751,7 +740,4 @@ public final class AdvanceVisualPanel1 extends JPanel {
     public void setBreedingMethod(Integer breedingMethod) {
         this.breedingMethod = breedingMethod;
     }
-    
-    
-    
 }

@@ -55,12 +55,14 @@ public final class InventoryTopComponent extends TopComponent {
     private List<Factor> factores;
     private Listnms listToSave;
     private Integer locationId;
-    
-    private Integer amountColumn=-1;
-    private Integer locationColumn=-1;
-    private Integer commentColumn=-1;
-    private Integer scaleColumn=-1;
-    
+    private Integer amountColumn = -1;
+    private Integer locationColumn = -1;
+    private Integer commentColumn = -1;
+    private Integer scaleColumn = -1;
+    private int entryNumberColumn;
+    private int entryCodeColumn;
+    private int desigColumn;
+    private int gidColumn;
 
     public InventoryTopComponent() {
         initComponents();
@@ -394,18 +396,19 @@ public final class InventoryTopComponent extends TopComponent {
 
     }
 
-    
-    private void findInventoryColumns(){
-            
-        GermplasmEntriesTableModel tableModel = (GermplasmEntriesTableModel) this.jTableEntries.getModel();    
+    private void findInventoryColumns() {
+
+        GermplasmEntriesTableModel tableModel = (GermplasmEntriesTableModel) this.jTableEntries.getModel();
         amountColumn = tableModel.findColumn("AMOUNT");
         locationColumn = tableModel.findColumn("LOCATION");
         commentColumn = tableModel.findColumn("COMMENT");
         scaleColumn = tableModel.findColumn("SCALE");
+        entryNumberColumn = tableModel.findColumn("ENTRY NUMBER");
+        entryCodeColumn = tableModel.findColumn("ENTRY CD");
+        desigColumn = tableModel.findColumn("DESIG");
+        gidColumn = tableModel.findColumn("GID");
     }
-    
-    
-    
+
     public void setDescription(String description) {
         this.jLabelDescription.setText(description);
 
@@ -466,7 +469,7 @@ public final class InventoryTopComponent extends TopComponent {
     }
 
     private void populateAmount() {
-        if (! isNumericAmount()) {
+        if (!isNumericAmount()) {
             DialogUtil.displayError(InventoryTopComponent.class, "InventoryTopComponent.numericAmountRequired");
             return;
         }
@@ -474,7 +477,7 @@ public final class InventoryTopComponent extends TopComponent {
         if (amountColumn < 0) {
             return;
         }
-        
+
         if (this.jCheckBoxSameAmount.isSelected()) {
             String amount = this.jTextFieldAmount.getText();
             for (int i = 0; i < this.jTableEntries.getRowCount(); i++) {
@@ -489,11 +492,11 @@ public final class InventoryTopComponent extends TopComponent {
             String location = this.jTextFieldLocation.getText();
 
             if (locationColumn < 0) {
-            return;
-        }
-        
-            
-            
+                return;
+            }
+
+
+
             for (int i = 0; i < this.jTableEntries.getRowCount(); i++) {
                 this.jTableEntries.setValueAt(location, i, locationColumn);
             }
@@ -528,13 +531,13 @@ public final class InventoryTopComponent extends TopComponent {
         if (this.jCheckBoxSameComments.isSelected()) {
             String location = this.jTextFieldComment.getText();
 
-            if(commentColumn<0){
+            if (commentColumn < 0) {
                 return;
             }
-            
-            
+
+
             for (int i = 0; i < this.jTableEntries.getRowCount(); i++) {
-                this.jTableEntries.setValueAt(location, i,commentColumn);
+                this.jTableEntries.setValueAt(location, i, commentColumn);
             }
             ajustaColumn(jTableEntries, commentColumn, 2);
         }
@@ -593,13 +596,13 @@ public final class InventoryTopComponent extends TopComponent {
     private void jComboBoxScaleItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxScaleItemStateChanged
         if (this.jCheckBoxSameScale.isSelected()) {
             //String scale = this.jComboBoxScale.getSelectedItem().toString();
-            Scales scale = (Scales)jComboBoxScale.getSelectedItem();
+            Scales scale = (Scales) jComboBoxScale.getSelectedItem();
 
-            
-            if(scaleColumn<0){
+
+            if (scaleColumn < 0) {
                 return;
             }
-            
+
             for (int i = 0; i < this.jTableEntries.getRowCount(); i++) {
                 this.jTableEntries.setValueAt(scale, i, scaleColumn);
             }
@@ -629,7 +632,7 @@ public final class InventoryTopComponent extends TopComponent {
 
         List<Factor> losFactores = factorHeaders;
 
-        if (factorHeaders.size() < 4) {
+        if (factorHeaders.size() <= 4) {
             losFactores = addColumnsForInventory(factorHeaders);
 
         }
@@ -729,6 +732,7 @@ public final class InventoryTopComponent extends TopComponent {
     }
 
     private void saveInventory() {
+        findInventoryColumns();
         List<InventoryData> inventoryDataList = new ArrayList<InventoryData>();
 
         TableModel model = (TableModel) jTableEntries.getModel();
@@ -736,33 +740,33 @@ public final class InventoryTopComponent extends TopComponent {
         for (int row = 0; row < model.getRowCount(); row++) {
             InventoryData data = new InventoryData();
 
-            data.setEntry((Integer) model.getValueAt(row, 0));
-            data.setDesig((String) model.getValueAt(row, 1));
+            data.setEntry((Integer) model.getValueAt(row, entryNumberColumn));
+            data.setDesig((String) model.getValueAt(row, desigColumn));
 
-            if (model.getValueAt(row, 2) instanceof String) {
-                String gid = (String) model.getValueAt(row, 2);
+            if (model.getValueAt(row, gidColumn) instanceof String) {
+                String gid = (String) model.getValueAt(row, gidColumn);
                 try {
                     int intGid = Integer.parseInt(gid);
                     data.setGid(intGid);
                 } catch (Exception e) {
                     data.setGid(0);
                 }
-            } else if (model.getValueAt(row, 2) instanceof Integer) {
-                data.setGid((Integer) model.getValueAt(row, 2));
+            } else if (model.getValueAt(row, gidColumn) instanceof Integer) {
+                data.setGid((Integer) model.getValueAt(row, gidColumn));
             }
 
 
             data.setLocationid(locationId);
 
 
-            data.setComment((String) model.getValueAt(row, 4));
+            data.setComment((String) model.getValueAt(row, commentColumn));
 
 
-            if (model.getValueAt(row, 5) instanceof String) {
-                String ammount = (String) model.getValueAt(row, 5);
+            if (model.getValueAt(row, amountColumn) instanceof String) {
+                String ammount = (String) model.getValueAt(row, amountColumn);
                 data.setAmmount(new Double(ammount));
             } else {
-                data.setAmmount((Double) model.getValueAt(row, 5));
+                data.setAmmount((Double) model.getValueAt(row, amountColumn));
             }
             data.setScale(0);
 
@@ -805,30 +809,30 @@ public final class InventoryTopComponent extends TopComponent {
     public void setLocationId(Integer locationId) {
         this.locationId = locationId;
     }
-    
+
     private boolean isNumericAmount() {
         boolean result = true;
         try {
             Double.parseDouble(jTextFieldAmount.getText());
-        } catch (Exception e){
+        } catch (Exception e) {
             result = false;
         }
         return result;
     }
-    
+
     private void fillComboBoxScales() {
         DefaultComboBoxModel dcbm = (DefaultComboBoxModel) jComboBoxScale.getModel();
         dcbm.removeAllElements();
         List<Scales> seedStockScales = AppServicesProxy.getDefault().appServices().getScalesForInventory();
-        for (Scales inventoryScale: seedStockScales) {
+        for (Scales inventoryScale : seedStockScales) {
             dcbm.addElement(inventoryScale);
         }
     }
-    
+
     public boolean validateSeedStockTrait() {
         boolean seedStockExists = false;
-         Traits seedStockTrait = new Traits(true);
-        
+        Traits seedStockTrait = new Traits(true);
+
         seedStockTrait.setTrname(InventoryData.TRAIT_SEED_STOCK_TRNAME);
         seedStockTrait.setTrabbr(InventoryData.TRAIT_SEED_STOCK_TRABBR);
         seedStockTrait.setTrdesc(InventoryData.TRAIT_SEED_STOCK_TRDESC);
@@ -836,15 +840,15 @@ public final class InventoryTopComponent extends TopComponent {
         seedStockTrait.setTraitGroup(InventoryData.TRAIT_SEED_STOCK_TRAITGROUP);
         seedStockTrait.setOntology(InventoryData.TRAIT_SEED_STOCK_ONTOLOGY);
         seedStockTrait.setTraittype(InventoryData.TRAIT_SEED_STOCK_TRAITTYPE);
-        
+
         List<Traits> traitList = AppServicesProxy.getDefault().appServices().getListTraits(seedStockTrait, 0, 0, false);
-        
-        seedStockExists = ! traitList.isEmpty();
-        
-        if (! seedStockExists) {
+
+        seedStockExists = !traitList.isEmpty();
+
+        if (!seedStockExists) {
             DialogUtil.displayError(NbBundle.getMessage(InventoryTopComponent.class, "traitSeedStockDontExist"));
         }
-        
+
         return seedStockExists;
     }
 }

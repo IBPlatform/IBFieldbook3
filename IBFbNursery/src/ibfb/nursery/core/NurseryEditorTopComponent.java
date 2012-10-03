@@ -2159,7 +2159,7 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
                                     newData.add(z, temp[z]);
                                 }
                                 //  newData.add(germplasmSearchs.get(i).getNames().getNval());//FOR INVENTORY   -  DESIG
-                                newData.add("OZIEL");//FOR INVENTORY   -  DESIG
+                                newData.add("");//FOR INVENTORY   -  DESIG
                                 newData.add("");//FOR INVENTORY   -  LOCATION
                                 newData.add("");  //FOR INVENTORY       -  COMMENTS  
                                 newData.add("");  //FOR INVENTORY       -  AMOUNT  
