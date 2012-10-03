@@ -12,7 +12,9 @@ import org.cimmyt.cril.ibwb.api.CommonServices;
 import org.cimmyt.cril.ibwb.domain.*;
 import org.cimmyt.cril.ibwb.domain.inventory.InventoryData;
 import org.cimmyt.cril.ibwb.domain.util.WheatData;
+import org.cimmyt.cril.ibwb.provider.datasources.IBPMiddlewareClient;
 import org.cimmyt.cril.ibwb.provider.helpers.*;
+import org.generationcp.middleware.manager.api.GermplasmDataManager;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Service;
@@ -705,17 +707,17 @@ public class IBWBAppServicesImpl implements AppServices {
             return this.serviciosCentral.getListnms(idListnms);
         }
     }
-    
+
     @Override
-    public Listnms getFullListnms(Integer idListnms){
+    public Listnms getFullListnms(Integer idListnms) {
         Listnms listnms;
-        if(idListnms.intValue() < 0){
+        if (idListnms.intValue() < 0) {
             listnms = this.serviciosLocal.getListnms(idListnms);
             listnms.setLisdatas(this.serviciosLocal.getListdataByIdlistnms(idListnms));
             listnms = this.serviciosLocal.getNamesLocal(listnms);
             listnms = this.serviciosCentral.getNamesCentral(listnms);
             //Recuperar la informacion local pripero y despues la central
-        }else{
+        } else {
             listnms = this.serviciosCentral.getListnms(idListnms);
             listnms.setLisdatas(this.serviciosCentral.getListdataByIdlistnms(idListnms));
             //Recuperar la informacion central
@@ -1062,7 +1064,7 @@ public class IBWBAppServicesImpl implements AppServices {
         Integer tempL = this.serviciosLocal.getMaxForSelection(cadena, ntype);
         if (tempC > tempL) {
             return tempC;
-        }else{
+        } else {
             return tempL;
         }
     }
@@ -2180,12 +2182,11 @@ public class IBWBAppServicesImpl implements AppServices {
     }
 
     public StudySearch getListGermplasmAndPlotByStudyidAndTrial(
-            StudySearch studySearch
-            ) {
+            StudySearch studySearch) {
         if (studySearch.getStudyId() > 0) {
-            if(compareToUrls(this.serviciosCentral.getAccessUrlDms(), this.serviciosLocal.getAccessUrlDms())){//equals
+            if (compareToUrls(this.serviciosCentral.getAccessUrlDms(), this.serviciosLocal.getAccessUrlDms())) {//equals
                 return this.serviciosCentral.getListGermplasmAndPlotByStudyidAndTrial(studySearch);
-            }else{
+            } else {
                 studySearch = HelperFactor.loadFactors(studySearch, this);
                 log.info("Asignando nombres de fatorres principales");
                 List<String> factorsKey = new ArrayList<String>();
@@ -2200,13 +2201,13 @@ public class IBWBAppServicesImpl implements AppServices {
                 factorsReturn.add(studySearch.getNameEntry());
                 factorsReturn.add(studySearch.getNamePlot());
                 factorsReturn.add(studySearch.getNameGid());
-                
+
                 return this.serviciosCentral.getListGermplasmAndPlotByStudyidAndTrial(studySearch, factorsKey, factorsReturn);
             }
         } else {
-            if(compareToUrls(this.serviciosCentral.getAccessUrlDms(), this.serviciosLocal.getAccessUrlDms())){//equals
+            if (compareToUrls(this.serviciosCentral.getAccessUrlDms(), this.serviciosLocal.getAccessUrlDms())) {//equals
                 return this.serviciosLocal.getListGermplasmAndPlotByStudyidAndTrial(studySearch);
-            }else{
+            } else {
                 studySearch = HelperFactor.loadFactors(studySearch, this);
                 log.info("Asignando nombres de fatorres principales");
                 List<String> factorsKey = new ArrayList<String>();
@@ -2225,18 +2226,17 @@ public class IBWBAppServicesImpl implements AppServices {
             }
         }
     }
-    
+
     public List<Listdata> saveGerplasmCimmytWheat(
             List<Listdata> listGermplsm,
             Listnms listnms,
             Integer userId,
             List<GermplasmSearch> lgsf,
-            List<GermplasmSearch> lgsm
-            ) {
+            List<GermplasmSearch> lgsm) {
         HelperGermplasm helperGermplasm = new HelperGermplasm(listnms, this, serviciosLocal, userId);
         return helperGermplasm.saveGerplasmCimmytWheat(listGermplsm, listnms, lgsf, lgsm);
     }
-    
+
     public Listdata agregarGermPlasmCimmytWheat(
             String nameGermplasmHistory,
             String nameGermplasmBCID,
@@ -2245,8 +2245,7 @@ public class IBWBAppServicesImpl implements AppServices {
             GermplasmSearch gsf,
             GermplasmSearch gsm,
             Integer userId,
-            QueryCenter queryCenter
-            ) {
+            QueryCenter queryCenter) {
         HelperGermplasm helperGermplasm = new HelperGermplasm(new Listnms(), this, serviciosLocal, userId);
         return helperGermplasm.agregarGermPlasmCimmytWheat(
                 nameGermplasmHistory,
@@ -2257,26 +2256,26 @@ public class IBWBAppServicesImpl implements AppServices {
                 gsm,
                 queryCenter);
     }
-    
+
     public List<GermplasmSearch> getGermplasmByListStudyTrialPlotCross(
             AppServices appServices,
             List<GermplasmSearch> listFmale,
             List<GermplasmSearch> listMale) {
         return HelperGermplasm.getGermplasmByListStudyTrialPlotCross(appServices, listFmale, listMale);
     }
-    
-    public boolean compareToUrls(String url1, String url2){
+
+    public boolean compareToUrls(String url1, String url2) {
         //jdbc:mysql://localhost:3308/
         boolean mismoServer = false;
-        String [] urlArray1 = url1.split(":");
-        String [] urlArray2 = url2.split(":");
-        if(urlArray1.length > 2 && urlArray2.length > 2 ){
-            for(int i = 0 ; i<= 3 ; i++){
-                if(! urlArray1[i].equals(urlArray2[i])){
+        String[] urlArray1 = url1.split(":");
+        String[] urlArray2 = url2.split(":");
+        if (urlArray1.length > 2 && urlArray2.length > 2) {
+            for (int i = 0; i <= 3; i++) {
+                if (!urlArray1[i].equals(urlArray2[i])) {
                     return false;
                 }
-                if(i == 1){
-                    if(! urlArray1[i].equalsIgnoreCase("mysql")){
+                if (i == 1) {
+                    if (!urlArray1[i].equalsIgnoreCase("mysql")) {
                         return false;
                     }
                 }
@@ -2284,7 +2283,7 @@ public class IBWBAppServicesImpl implements AppServices {
         }
         return mismoServer;
     }
-    
+
     public ResultSet getTrialRandomization(
             Integer studyId,
             Integer trialFactorId,
@@ -2322,19 +2321,19 @@ public class IBWBAppServicesImpl implements AppServices {
     public boolean existsTratisTable() {
         boolean moreTables = true;
         moreTables = this.serviciosCentral.existsTratisTable() && this.serviciosLocal.existsTratisTable();
-        if(!moreTables){
+        if (!moreTables) {
             return moreTables;
         }
         moreTables = serviciosCentral.existsTableTransformations() && serviciosLocal.existsTableTransformations();
-        if(!moreTables){
+        if (!moreTables) {
             return moreTables;
         }
         moreTables = serviciosCentral.existsTableContinuousConversion() && serviciosLocal.existsTableContinuousConversion();
-        if(!moreTables){
+        if (!moreTables) {
             return moreTables;
         }
         moreTables = serviciosCentral.existsTableContinuousFunction() && serviciosLocal.existsTableContinuousFunction();
-        if(!moreTables){
+        if (!moreTables) {
             return moreTables;
         }
         moreTables = serviciosCentral.existsTableDiscreteConversion() && serviciosLocal.existsTableDiscreteConversion();
@@ -2357,36 +2356,36 @@ public class IBWBAppServicesImpl implements AppServices {
             MigrateData.insertScaleGroupToScales(serviciosLocal);
             MigrateData.completeDependencyRatioMeasuredinLocal(serviciosLocal, serviciosCentral);
         }
-        
-        if(!serviciosCentral.existsTableTransformations()){
+
+        if (!serviciosCentral.existsTableTransformations()) {
             serviciosCentral.createTableTransformations();
         }
-        
-        if(!serviciosLocal.existsTableTransformations()){
+
+        if (!serviciosLocal.existsTableTransformations()) {
             serviciosLocal.createTableTransformations();
         }
-        
-        if(!serviciosCentral.existsTableContinuousConversion()){
+
+        if (!serviciosCentral.existsTableContinuousConversion()) {
             serviciosCentral.createTableContinuousConversion();
         }
-        
-        if(!serviciosLocal.existsTableContinuousConversion()){
+
+        if (!serviciosLocal.existsTableContinuousConversion()) {
             serviciosLocal.createTableContinuousConversion();
         }
-        
-        if(!serviciosCentral.existsTableContinuousFunction()){
+
+        if (!serviciosCentral.existsTableContinuousFunction()) {
             serviciosCentral.createTableContinuousFunction();
         }
-        
-        if(!serviciosLocal.existsTableContinuousFunction()){
+
+        if (!serviciosLocal.existsTableContinuousFunction()) {
             serviciosLocal.createTableContinuousFunction();
         }
-        
-        if(!serviciosCentral.existsTableDiscreteConversion()){
+
+        if (!serviciosCentral.existsTableDiscreteConversion()) {
             serviciosCentral.createTableDiscreteConversion();
         }
-        
-        if(!serviciosLocal.existsTableDiscreteConversion()){
+
+        if (!serviciosLocal.existsTableDiscreteConversion()) {
             serviciosLocal.createTableDiscreteConversion();
         }
     }
@@ -2754,83 +2753,83 @@ public class IBWBAppServicesImpl implements AppServices {
             boolean seGuardo = validarStudy(workbook);
         }
     }
-    
+
     public void migrateWorkbook(Integer studyId) {
         Study studyTemp = this.serviciosCentral.getStudy(studyId);
         this.serviciosLocal.addStudy(studyTemp);
-        
+
         Study studyTempPadre = this.serviciosLocal.getStudy(studyTemp.getShierarchy());
-        if(studyTempPadre == null){
+        if (studyTempPadre == null) {
             studyTempPadre = this.serviciosCentral.getStudy(studyTemp.getShierarchy());
             this.serviciosLocal.addStudy(studyTempPadre);
         }
-        
+
         Factor factorTemp = new Factor(true);
         factorTemp.setStudyid(studyId);
         List<Factor> factors = this.serviciosCentral.getListFactor(factorTemp, 0, 0, false);
-        for(Factor factor : factors){
+        for (Factor factor : factors) {
             this.serviciosLocal.addFactor(factor);
             Object level;
-            if(factor.getLtype().equals("N")){
+            if (factor.getLtype().equals("N")) {
                 LevelN levelN = new LevelN(true);
                 levelN.setLevelNPK(new LevelNPK());
                 levelN.getLevelNPK().setLabelid(factor.getLabelid());
                 level = levelN;
-            }else{
+            } else {
                 LevelC levelC = new LevelC(true);
                 levelC.setLevelCPK(new LevelCPK());
                 levelC.getLevelCPK().setLabelid(factor.getLabelid());
                 level = levelC;
             }
-            
+
             List levelsG;
-            if(level instanceof LevelN){
-                levelsG = this.serviciosCentral.getListLevelN((LevelN)level, 0, 0, false);
-            }else{
-                levelsG = this.serviciosCentral.getListLevelC((LevelC)level, 0, 0, false);
+            if (level instanceof LevelN) {
+                levelsG = this.serviciosCentral.getListLevelN((LevelN) level, 0, 0, false);
+            } else {
+                levelsG = this.serviciosCentral.getListLevelC((LevelC) level, 0, 0, false);
             }
-            for(Object levelTemp : levelsG){
-                if(levelTemp instanceof LevelN){
-                    this.serviciosLocal.addLevelN((LevelN)levelTemp);
-                }else{
-                    this.serviciosLocal.addLevelC((LevelC)levelTemp);
+            for (Object levelTemp : levelsG) {
+                if (levelTemp instanceof LevelN) {
+                    this.serviciosLocal.addLevelN((LevelN) levelTemp);
+                } else {
+                    this.serviciosLocal.addLevelC((LevelC) levelTemp);
                 }
             }
-            
+
             Levels levels = new Levels(true);
             levels.setFactorid(factor.getLabelid());
-            for(Levels levelsTemp : this.serviciosCentral.getListLevels(levels, 0, 0, false)){
+            for (Levels levelsTemp : this.serviciosCentral.getListLevels(levels, 0, 0, false)) {
                 this.serviciosLocal.addLevels(levelsTemp);
             }
         }
-        
+
         Steffect steffect = new Steffect(true);
         steffect.setStudyid(studyId);
-        for(Steffect steffectTemp : this.serviciosCentral.getListSteffect(steffect, 0, 0, false)){
+        for (Steffect steffectTemp : this.serviciosCentral.getListSteffect(steffect, 0, 0, false)) {
             this.serviciosLocal.addSteffect(steffectTemp);
             Represtn represtn = new Represtn(true);
             represtn.setEffectid(steffectTemp.getEffectid());
-            for(Represtn represtn1 : this.serviciosCentral.getListReprestn(represtn, 0, 0, false)){
+            for (Represtn represtn1 : this.serviciosCentral.getListReprestn(represtn, 0, 0, false)) {
                 this.serviciosLocal.addReprestn(represtn1);
                 Oindex oindex = new Oindex();
                 oindex.setOindexPK(new OindexPK());
                 oindex.getOindexPK().setRepresno(represtn1.getRepresno());
-                for(Oindex oindex1 : this.serviciosCentral.getListOindex(oindex, 0, 0, false)){
+                for (Oindex oindex1 : this.serviciosCentral.getListOindex(oindex, 0, 0, false)) {
                     this.serviciosLocal.addOindex(oindex1);
                 }
             }
             Effect effect = new Effect(true);
             effect.setEffectPK(new EffectPK());
             effect.getEffectPK().setEffectid(steffectTemp.getEffectid());
-            for(Effect effect1 : this.serviciosCentral.getListEffect(effect, 0, 0, false)){
+            for (Effect effect1 : this.serviciosCentral.getListEffect(effect, 0, 0, false)) {
                 this.serviciosLocal.addEffect(effect1);
             }
             Obsunit obsunit = new Obsunit(true);
             obsunit.setEffectid(represtn.getEffectid());
-            for(Obsunit obsunit1 : this.serviciosCentral.getListObsunit(obsunit, 0, 0, false)){
+            for (Obsunit obsunit1 : this.serviciosCentral.getListObsunit(obsunit, 0, 0, false)) {
                 this.serviciosLocal.addObsunit(obsunit1);
             }
-            
+
         }
     }
 
@@ -2953,7 +2952,7 @@ public class IBWBAppServicesImpl implements AppServices {
         }
         return cimmytWheatName;
     }
-    
+
     /**
      * Deletes logically a study from database
      *
@@ -2963,12 +2962,13 @@ public class IBWBAppServicesImpl implements AppServices {
     public void deleteStudy(Study study) {
         // only delete from local studys
         if (study != null && study.getStudyid().intValue() < 0) {
-           serviciosLocal.deleteStudy(study);
+            serviciosLocal.deleteStudy(study);
         }
     }
-    
-     /**
+
+    /**
      * Deletes logically a list
+     *
      * @param listnms List to delete
      */
     @Override
@@ -2978,7 +2978,7 @@ public class IBWBAppServicesImpl implements AppServices {
             serviciosLocal.deleteListnms(listnms);
         }
     }
-    
+
     /**
      * Delete logically a germplasm entry
      *
@@ -2987,14 +2987,15 @@ public class IBWBAppServicesImpl implements AppServices {
     @Override
     public void deleteListData(Listdata listdata) {
         // only delete from local databaase 
-        if (listdata != null && listdata.getListdataPK().getListid().intValue() < 0 ) {
+        if (listdata != null && listdata.getListdataPK().getListid().intValue() < 0) {
             serviciosLocal.deleteListdata(listdata);
         }
     }
 
-        /**
-     * Gets a list for Wheat Data (cimmyt) related to BCID, Selection history
-     * 1. It looks for all elements in names where gid are used by a list
+    /**
+     * Gets a list for Wheat Data (cimmyt) related to BCID, Selection history 1.
+     * It looks for all elements in names where gid are used by a list
+     *
      * @param listId
      * @return Gets a list for Wheat Data (cimmyt)
      */
@@ -3004,5 +3005,21 @@ public class IBWBAppServicesImpl implements AppServices {
         } else {
             return serviciosLocal.getDataForCimmytWheat(listId);
         }
+    }
+
+    private IBPMiddlewareClient ibpMiddlewareClient;
+    
+    public void setIbpMiddlewareClient(IBPMiddlewareClient ibpMiddlewareClient) {
+        this.ibpMiddlewareClient = ibpMiddlewareClient;
+    }
+    
+    /**
+     * Gets access to Middleware GermplasmManager
+     *
+     * @return
+     */
+    @Override
+    public GermplasmDataManager getGermplasmDataManager() {
+        return ibpMiddlewareClient.getGermplasmDataManager();
     }
 }

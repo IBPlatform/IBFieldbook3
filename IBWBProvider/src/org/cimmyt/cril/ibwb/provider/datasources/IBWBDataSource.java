@@ -28,7 +28,6 @@ public class IBWBDataSource extends BasicDataSource {
             this.url = propertiesFile.getProperty(databasePrefix +".url");
             this.username = propertiesFile.getProperty(databasePrefix +".username");
             this.password = propertiesFile.getProperty(databasePrefix +".password");
-
         } catch (Exception e) {
             e.printStackTrace();
         }

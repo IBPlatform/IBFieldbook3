@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xmlns:util="http://www.springframework.org/schema/util"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:aop="http://www.springframework.org/schema/aop"
-        xmlns:tx="http://www.springframework.org/schema/tx"
-	xsi:schemaLocation="
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
 		http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
 		http://www.springframework.org/schema/util
@@ -17,7 +17,7 @@
 		http://www.springframework.org/schema/tx
         http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
         "
-    >
+>
     
     <bean name="configResource" class="org.cimmyt.cril.ibwb.provider.IBWBConfigResource">
         <description>Custom Config Resource to Read properties from this module</description>
@@ -37,7 +37,7 @@
     
     
     <bean id="propertyConfigurer"
-		class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
+          class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
         <property name="ignoreUnresolvablePlaceholders">
             <value>true</value>
         </property>
@@ -195,9 +195,18 @@
         <property name="continuousConversionDAO" ref="ContinuousConversionDAOCentral"/>
     </bean>
 
+
+    
+    <bean name="IBPMiddlewareClient" class="org.cimmyt.cril.ibwb.provider.datasources.IBPMiddlewareClient">
+        
+    </bean> 
+   
     <bean name="ibwbAppServices" class="org.cimmyt.cril.ibwb.provider.IBWBAppServicesImpl">
         <property name="serviciosLocal" ref="serviciosLocal"/>
         <property name="serviciosCentral" ref="serviciosCentral"/>
+        
+        <property name="ibpMiddlewareClient" ref="IBPMiddlewareClient"/>
+        
     </bean>
 
     <context:annotation-config>
@@ -209,4 +218,6 @@
     <context:component-scan
         base-package="org.cimmyt.cril.ibworkbench.api.services.provider"
         />
+        
+  
 </beans>

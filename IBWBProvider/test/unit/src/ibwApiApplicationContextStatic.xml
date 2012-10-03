@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xmlns:util="http://www.springframework.org/schema/util"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:aop="http://www.springframework.org/schema/aop"
-        xmlns:tx="http://www.springframework.org/schema/tx"
-	xsi:schemaLocation="
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
 		http://www.springframework.org/schema/beans
 		http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
 		http://www.springframework.org/schema/util
@@ -17,7 +17,7 @@
 		http://www.springframework.org/schema/tx
 		http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
 	"
-	>
+>
 	
     <bean name="configResource" class="org.cimmyt.cril.ibwb.provider.IBWBConfigResource">
         <description>Custom Config Resource to Read properties from this module</description>
@@ -31,9 +31,9 @@
     </bean>
 	
     <bean
-		id="dataSourceCentralGMS"
-		class="org.apache.commons.dbcp.BasicDataSource"
-		>
+        id="dataSourceCentralGMS"
+        class="org.apache.commons.dbcp.BasicDataSource"
+    >
         <property name="driverClassName" value="${gmscentral.driverclassname}"></property>
         <property name="url" value="${gmscentral.url}"></property>
         <property name="username" value="${gmscentral.username}"></property>
@@ -48,9 +48,9 @@
     </bean>
 	
     <bean
-		id="dataSourceLocalGMS"
-		class="org.apache.commons.dbcp.BasicDataSource"
-		>
+        id="dataSourceLocalGMS"
+        class="org.apache.commons.dbcp.BasicDataSource"
+    >
         <property name="driverClassName" value="${gmslocal.driverclassname}"></property>
         <property name="url" value="${gmslocal.url}"></property>
         <property name="username" value="${gmslocal.username}"></property>
@@ -59,9 +59,9 @@
 	
 	
     <bean
-		id="propertyConfigurer"
-		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
-		>
+        id="propertyConfigurer"
+        class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+    >
         <property name="ignoreUnresolvablePlaceholders">
             <value>true</value>
         </property>
@@ -203,19 +203,43 @@
         <property name="continuousConversionDAO" ref="ContinuousConversionDAOCentral"/>     
     </bean>
 	
+<!-- -->
+    
+    <bean name="IBPMiddlewareClient" class="org.cimmyt.cril.ibwb.provider.datasources.IBPMiddlewareClient">
+        <property name="dmsCentralDriver" value="${dmscentral.driverclassname}"></property>
+        <property name="dmsCentralUrl" value="${dmscentral.url}"></property>
+        <property name="dmsCentralUsername" value="${dmscentral.username}"></property>
+        <property name="dmsCentralPassword" value="${dmscentral.password}"></property>
+        <property name="gmsCentralDriver" value="${gmscentral.driverclassname}"></property>
+        <property name="gmsCentralUrl" value="${gmscentral.url}"></property>
+        <property name="gmsCentralUsername" value="${gmscentral.username}"></property>
+        <property name="gmsCentralPassword" value="${gmscentral.password}"></property>
+        <property name="dmsLocalDriver" value="${dmslocal.driverclassname}"></property>
+        <property name="dmsLocalUrl" value="${dmslocal.url}"></property>
+        <property name="dmsLocalUsername" value="${dmslocal.username}"></property>
+        <property name="dmsLocalPassword" value="${dmslocal.password}"></property>
+        <property name="gmsLocalDriver" value="${gmslocal.driverclassname}"></property>
+        <property name="gmsLocalUrl" value="${gmslocal.url}"></property>
+        <property name="gmsLocalUsername" value="${gmslocal.username}"></property>
+        <property name="gmsLocalPassword" value="${gmslocal.password}"></property>            
+    </bean> 
+<!-- -->           
     <bean name="ibwbAppServices" class="org.cimmyt.cril.ibwb.provider.IBWBAppServicesImpl">
         <property name="serviciosLocal" ref="serviciosLocal"/>
         <property name="serviciosCentral" ref="serviciosCentral"/>
+        <!-- -->
+        <property name="ibpMiddlewareClient" ref="IBPMiddlewareClient"/>
+        <!-- -->        
     </bean>
 	
     <context:annotation-config>
         <context:include-filter
-			type="annotation"
-			expression="org.springframework.stereotype.Service"
+            type="annotation"
+            expression="org.springframework.stereotype.Service"
 			/>
     </context:annotation-config>
         
     <context:component-scan
-		base-package="org.cimmyt.cril.ibworkbench.api.services.provider"
+        base-package="org.cimmyt.cril.ibworkbench.api.services.provider"
 		/>
 </beans>

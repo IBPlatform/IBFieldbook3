@@ -15,6 +15,7 @@ import org.cimmyt.cril.ibwb.api.AppServices;
 import org.cimmyt.cril.ibwb.domain.*;
 import org.cimmyt.cril.ibwb.domain.inventory.InventoryData;
 import org.cimmyt.cril.ibwb.domain.util.WheatData;
+import org.generationcp.middleware.manager.api.GermplasmDataManager;
 
 /**
  *
@@ -1346,5 +1347,12 @@ public class IBWBAppServicesMemoryImpl implements AppServices {
     public List<Listdata> saveGerplasmCimmytWheat(List<Listdata> listGermplsm, Listnms listnms, Integer userId, List<GermplasmSearch> lgsf, List<GermplasmSearch> lgsm) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+    /**
+     * Gets access to Middleware GermplasmManager
+     * @return 
+     */
+    public GermplasmDataManager getGermplasmDataManager() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }    
 
 }
