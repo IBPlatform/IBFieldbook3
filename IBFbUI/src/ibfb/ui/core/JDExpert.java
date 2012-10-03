@@ -61,7 +61,7 @@ public class JDExpert extends javax.swing.JDialog {
     private ProgressHandle handle;
     private String porcentaje;
     private boolean ready = false;
-    private int theCrop=0;
+    private int theCrop=MAIZE;
     public static final int WHEAT=0;
     public static final int MAIZE=1;
     public static final int OTHERCROPS=2;
@@ -814,7 +814,7 @@ public class JDExpert extends javax.swing.JDialog {
     }
 
     @SuppressWarnings("unchecked")
-    private void setGermplasmListIntoTable(GermplasmList germplasmList) {
+    private void setGermplasmListIntoTable(Integer listid, GermplasmList germplasmList) {
 
         myExcelReader.readExcelWorkbookTemplate();
         Workbook workbook = myExcelReader.getMyWorkbook();
@@ -827,6 +827,9 @@ public class JDExpert extends javax.swing.JDialog {
             System.out.println(string);
         }
         List<List<Object>> rowList = gat.getMappedColumns(columnList, germplasmList);
+        
+        //gat.mappCimmytWheatColumns(listid, rowList, workbook.getFactors());
+        
         GermplasmEntriesTableModel tableModel = new GermplasmEntriesTableModel(myExcelReader.getMyWorkbook().getEntryFactors(), rowList);
         this.jTableEntries.setModel(tableModel);
         this.jTextFieldTotalEntries.setText(String.valueOf(germplasmList.getListEntries().size()));
@@ -1053,7 +1056,7 @@ public class JDExpert extends javax.swing.JDialog {
             try {
                 Listnms selectedList = (Listnms) cboGermplasmList.getSelectedItem();
                 GermplasmList germplasmList = germplasmListReader.getGermPlasmListFromDB(selectedList.getListid());
-                setGermplasmListIntoTable(germplasmList);
+                setGermplasmListIntoTable(selectedList.getListid(),germplasmList);
                 this.jButtonFinishExpert.setEnabled(true);
             } catch (Exception ex) {
                 System.out.println("ERROR AL LEER EXCEL GERMPLASM ENTRIES DB: " + ex);
@@ -1096,7 +1099,7 @@ public class JDExpert extends javax.swing.JDialog {
         if (validFile) {
             try {
                 GermplasmList germplasmList = germplasmListReader.getGermPlasmList(myFile);
-                setGermplasmListIntoTable(germplasmList);
+                setGermplasmListIntoTable(0,germplasmList);
             } catch (Exception ex) {
                 System.out.println("ERROR AL LEER EXCEL GERMPLASM ENTRIES: " + ex);
             }
@@ -1259,7 +1262,7 @@ public class JDExpert extends javax.swing.JDialog {
             try {
                 GermplasmListReader germplasmListReader = new GermplasmListReaderImpl();
                 GermplasmList germplasmList = germplasmListReader.getGermPlasmListFromDB(selectListDialog.getSeledtedListnms().getListid());
-                setGermplasmListIntoTable(germplasmList);
+                setGermplasmListIntoTable(selectListDialog.getSeledtedListnms().getListid(),germplasmList);
                 this.jButtonFinishExpert.setEnabled(true);
 
                 if (theCrop==0) {
