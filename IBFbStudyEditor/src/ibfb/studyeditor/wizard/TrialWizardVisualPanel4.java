@@ -602,6 +602,7 @@ public final class TrialWizardVisualPanel4 extends JPanel {
                 GermplasmList germplasmList = germplasmListReader.getGermPlasmListFromDB(selectedList.getListid());
                 setGermplasmListIntoTable(germplasmList);
             } catch (Exception ex) {
+                ex.printStackTrace();
                 System.out.println("ERROR AL LEER EXCEL GERMPLASM ENTRIES: " + ex);
             }
         } else {

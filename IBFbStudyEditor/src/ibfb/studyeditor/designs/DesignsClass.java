@@ -121,13 +121,13 @@ public class DesignsClass {
 
     }
 
-    public void runR_alphaWindows(int treatments, int rep, int blocksize) {
+    public void runR_alphaWindows(int trial, int treatments, int rep, int blocksize) {
 
         Random aleatorio = new Random(System.currentTimeMillis());
         int newSeed = (int) (aleatorio.nextDouble() * 200 + 1);
 
 
-        String myCSVFile = "alpha.csv";
+        String myCSVFile = "alpha"+trial+".csv";
         FileWriter fichero = null;
         PrintWriter pw = null;
         String path = "";

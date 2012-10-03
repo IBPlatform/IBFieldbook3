@@ -2756,7 +2756,8 @@ public final class StudyEditorTopComponent extends TopComponent {
                     disenios.readAlphaDesign(i + 1, "alpha", tableModel, jTableEntries);
                     disenios.deleteWDforMac();
                 } else {
-                    disenios.runR_alphaWindows(entries, Integer.parseInt(rep), Integer.parseInt(blockSize));
+                    //disenios.runR_alphaWindows(entries, Integer.parseInt(rep), Integer.parseInt(blockSize));
+                    disenios.runR_alphaWindows(i + 1,entries, Integer.parseInt(rep), Integer.parseInt(blockSize));
 
                     if (disenios.existeArchivo("alpha")) {
                         disenios.readAlphaDesign(i + 1, "alpha", tableModel, this.jTableEntries);
@@ -3419,6 +3420,7 @@ public final class StudyEditorTopComponent extends TopComponent {
 
         ObservationTableTooltips.assignTooltips(jTableObservations);
         enableMeasurementButtons();
+        fillMasterData(myWorkbook.getVariates());
     }
 
     private int getTotalTrialsFromObservations() {
