@@ -10,6 +10,7 @@ import java.util.List;
 import org.cimmyt.cril.ibwb.domain.*;
 import org.cimmyt.cril.ibwb.domain.inventory.InventoryData;
 import org.cimmyt.cril.ibwb.domain.util.WheatData;
+import org.generationcp.middleware.manager.api.GermplasmDataManager;
 
 public interface AppServices {
 
@@ -2168,5 +2169,11 @@ public interface AppServices {
      * @param listId
      * @return Gets a list for Wheat Data (cimmyt)
      */
-    public List<WheatData> getDataForCimmytWheat(final Integer listId)    ;
+    public List<WheatData> getDataForCimmytWheat(final Integer listId);
+    
+    /**
+     * Gets access to Middleware GermplasmManager
+     * @return 
+     */
+    public GermplasmDataManager getGermplasmDataManager();
 }
