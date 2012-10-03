@@ -153,6 +153,8 @@
                 <package>javax.faces.webapp</package>
                 <package>javax.inject</package>
                 <package>javax.persistence</package>
+                <package>javax.persistence.criteria</package>
+                <package>javax.persistence.metamodel</package>
                 <package>javax.persistence.spi</package>
                 <package>javax.servlet.jsp.jstl.core</package>
                 <package>javax.servlet.jsp.jstl.fmt</package>
@@ -541,7 +543,9 @@
                 <package>org.dom4j.util</package>
                 <package>org.dom4j.xpath</package>
                 <package>org.dom4j.xpp</package>
+                <package>org.eclipse.persistence.javax.persistence.osgi</package>
                 <package>org.generationcp.commons.exceptions</package>
+                <package>org.generationcp.commons.hibernate</package>
                 <package>org.generationcp.commons.util</package>
                 <package>org.generationcp.commons.vaadin.actions</package>
                 <package>org.generationcp.commons.vaadin.spring</package>
@@ -549,6 +553,7 @@
                 <package>org.generationcp.middleware.dao</package>
                 <package>org.generationcp.middleware.dao.gdms</package>
                 <package>org.generationcp.middleware.exceptions</package>
+                <package>org.generationcp.middleware.hibernate</package>
                 <package>org.generationcp.middleware.manager</package>
                 <package>org.generationcp.middleware.manager.api</package>
                 <package>org.generationcp.middleware.pojos</package>
@@ -559,16 +564,28 @@
                 <package>org.gjt.mm.mysql</package>
                 <package>org.hibernate</package>
                 <package>org.hibernate.action</package>
-                <package>org.hibernate.annotationfactory</package>
                 <package>org.hibernate.annotations</package>
+                <package>org.hibernate.annotations.common</package>
+                <package>org.hibernate.annotations.common.annotationfactory</package>
+                <package>org.hibernate.annotations.common.reflection</package>
+                <package>org.hibernate.annotations.common.reflection.java</package>
+                <package>org.hibernate.annotations.common.reflection.java.generics</package>
+                <package>org.hibernate.annotations.common.util</package>
                 <package>org.hibernate.bytecode</package>
+                <package>org.hibernate.bytecode.buildtime</package>
                 <package>org.hibernate.bytecode.cglib</package>
                 <package>org.hibernate.bytecode.javassist</package>
                 <package>org.hibernate.bytecode.util</package>
                 <package>org.hibernate.cache</package>
+                <package>org.hibernate.cache.access</package>
                 <package>org.hibernate.cache.entry</package>
+                <package>org.hibernate.cache.impl</package>
+                <package>org.hibernate.cache.impl.bridge</package>
                 <package>org.hibernate.cfg</package>
                 <package>org.hibernate.cfg.annotations</package>
+                <package>org.hibernate.cfg.annotations.reflection</package>
+                <package>org.hibernate.cfg.beanvalidation</package>
+                <package>org.hibernate.cfg.search</package>
                 <package>org.hibernate.classic</package>
                 <package>org.hibernate.collection</package>
                 <package>org.hibernate.connection</package>
@@ -577,6 +594,7 @@
                 <package>org.hibernate.dialect</package>
                 <package>org.hibernate.dialect.function</package>
                 <package>org.hibernate.dialect.lock</package>
+                <package>org.hibernate.dialect.resolver</package>
                 <package>org.hibernate.ejb</package>
                 <package>org.hibernate.ejb.connection</package>
                 <package>org.hibernate.ejb.event</package>
@@ -585,6 +603,9 @@
                 <package>org.hibernate.ejb.transaction</package>
                 <package>org.hibernate.ejb.util</package>
                 <package>org.hibernate.engine</package>
+                <package>org.hibernate.engine.jdbc</package>
+                <package>org.hibernate.engine.loading</package>
+                <package>org.hibernate.engine.profile</package>
                 <package>org.hibernate.engine.query</package>
                 <package>org.hibernate.engine.query.sql</package>
                 <package>org.hibernate.engine.transaction</package>
@@ -599,13 +620,15 @@
                 <package>org.hibernate.hql.ast.util</package>
                 <package>org.hibernate.hql.classic</package>
                 <package>org.hibernate.id</package>
+                <package>org.hibernate.id.enhanced</package>
+                <package>org.hibernate.id.factory</package>
                 <package>org.hibernate.id.insert</package>
                 <package>org.hibernate.impl</package>
                 <package>org.hibernate.intercept</package>
                 <package>org.hibernate.intercept.cglib</package>
                 <package>org.hibernate.intercept.javassist</package>
                 <package>org.hibernate.jdbc</package>
-                <package>org.hibernate.jmx</package>
+                <package>org.hibernate.jdbc.util</package>
                 <package>org.hibernate.loader</package>
                 <package>org.hibernate.loader.collection</package>
                 <package>org.hibernate.loader.criteria</package>
@@ -628,24 +651,9 @@
                 <package>org.hibernate.proxy.pojo</package>
                 <package>org.hibernate.proxy.pojo.cglib</package>
                 <package>org.hibernate.proxy.pojo.javassist</package>
-                <package>org.hibernate.reflection</package>
-                <package>org.hibernate.reflection.java</package>
-                <package>org.hibernate.reflection.java.generics</package>
-                <package>org.hibernate.reflection.java.xml</package>
-                <package>org.hibernate.search</package>
-                <package>org.hibernate.search.annotations</package>
-                <package>org.hibernate.search.backend</package>
-                <package>org.hibernate.search.backend.impl</package>
-                <package>org.hibernate.search.bridge</package>
-                <package>org.hibernate.search.bridge.builtin</package>
-                <package>org.hibernate.search.engine</package>
-                <package>org.hibernate.search.event</package>
-                <package>org.hibernate.search.impl</package>
-                <package>org.hibernate.search.query</package>
-                <package>org.hibernate.search.store</package>
-                <package>org.hibernate.search.util</package>
                 <package>org.hibernate.secure</package>
                 <package>org.hibernate.sql</package>
+                <package>org.hibernate.sql.ordering.antlr</package>
                 <package>org.hibernate.stat</package>
                 <package>org.hibernate.tool.hbm2ddl</package>
                 <package>org.hibernate.tool.instrument</package>
@@ -659,9 +667,7 @@
                 <package>org.hibernate.type</package>
                 <package>org.hibernate.usertype</package>
                 <package>org.hibernate.util</package>
-                <package>org.hibernate.validator</package>
-                <package>org.hibernate.validator.event</package>
-                <package>org.hibernate.validator.interpolator</package>
+                <package>org.hibernate.util.xml</package>
                 <package>org.hsqldb</package>
                 <package>org.hsqldb.index</package>
                 <package>org.hsqldb.jdbc</package>
@@ -724,7 +730,10 @@
                 <package>org.openxmlformats.schemas.spreadsheetml.x2006.main.impl</package>
                 <package>org.openxmlformats.schemas.wordprocessingml.x2006.main</package>
                 <package>org.openxmlformats.schemas.wordprocessingml.x2006.main.impl</package>
+                <package>org.slf4j</package>
+                <package>org.slf4j.helpers</package>
                 <package>org.slf4j.impl</package>
+                <package>org.slf4j.spi</package>
                 <package>org.springframework.aop</package>
                 <package>org.springframework.aop.aspectj</package>
                 <package>org.springframework.aop.aspectj.annotation</package>
@@ -1029,16 +1038,16 @@
                 <binary-origin>release/modules/ext/stax-api-1.0.1.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
+                <runtime-relative-path>ext/aspectjrt-1.6.9.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/aspectjrt-1.6.9.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
                 <runtime-relative-path>ext/stax-utils-20040917.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/stax-utils-20040917.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/xercesImpl-2.6.2.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/xercesImpl-2.6.2.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
-                <runtime-relative-path>ext/aspectjrt-1.6.9.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/aspectjrt-1.6.9.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/cglib-2.1_3.jar</runtime-relative-path>
@@ -1049,12 +1058,12 @@
                 <binary-origin>release/modules/ext/spring-security-core-tiger-2.0.5.RELEASE.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
-                <runtime-relative-path>ext/hibernate-annotations-3.2.1.ga.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/hibernate-annotations-3.2.1.ga.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
                 <runtime-relative-path>ext/spring-security-core-2.0.5.RELEASE.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/spring-security-core-2.0.5.RELEASE.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/hibernate-commons-annotations-3.2.0.Final.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/hibernate-commons-annotations-3.2.0.Final.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/wsdl4j-1.6.1.jar</runtime-relative-path>
@@ -1081,6 +1090,10 @@
                 <binary-origin>release/modules/ext/jaxen-1.1-beta-9.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
+                <runtime-relative-path>ext/javax.persistence-2.0.0.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/javax.persistence-2.0.0.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
                 <runtime-relative-path>ext/poi-scratchpad-3.8-20120326.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/poi-scratchpad-3.8-20120326.jar</binary-origin>
             </class-path-extension>
@@ -1103,10 +1116,6 @@
             <class-path-extension>
                 <runtime-relative-path>ext/mysql-connector-java-5.1.12.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/mysql-connector-java-5.1.12.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
-                <runtime-relative-path>ext/hibernate-3.2.2.ga.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/hibernate-3.2.2.ga.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/javassist-3.3.GA.jar</runtime-relative-path>
@@ -1137,6 +1146,14 @@
                 <binary-origin>release/modules/ext/slf4j-simple-1.6.1.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
+                <runtime-relative-path>ext/hibernate-annotations-3.5.6-Final.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/hibernate-annotations-3.5.6-Final.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/hibernate-core-3.5.6-Final.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/hibernate-core-3.5.6-Final.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
                 <runtime-relative-path>ext/asm-1.5.3.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/asm-1.5.3.jar</binary-origin>
             </class-path-extension>
@@ -1159,10 +1176,6 @@
             <class-path-extension>
                 <runtime-relative-path>ext/javax.inject-1.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/javax.inject-1.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
-                <runtime-relative-path>ext/persistence-api-1.0.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/persistence-api-1.0.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/log4j-1.2.13.jar</runtime-relative-path>
@@ -1211,6 +1224,10 @@
             <class-path-extension>
                 <runtime-relative-path>ext/asm-attrs-1.5.3.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/asm-attrs-1.5.3.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/slf4j-api-1.6.4.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/slf4j-api-1.6.4.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/commons-pool-1.5.4.jar</runtime-relative-path>
