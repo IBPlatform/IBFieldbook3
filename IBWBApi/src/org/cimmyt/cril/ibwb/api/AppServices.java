@@ -2176,4 +2176,11 @@ public interface AppServices {
      * @return 
      */
     public GermplasmDataManager getGermplasmDataManager();
+    
+    /**
+     * Checks if a List already exists in local or central
+     * @param listName list name to search
+     * @return <code>true</code> if exists, <code>false</code> if not
+     */
+    public boolean existGermplasmListName(String listName);
 }

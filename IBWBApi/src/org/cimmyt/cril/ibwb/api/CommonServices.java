@@ -1477,6 +1477,13 @@ public interface CommonServices {
      * @return List
      */
     public List<Listnms> getListListnms(Listnms listnmsFilter, int start, int pageSize, boolean paged);
+    
+    /**
+     * Checks if a List already exists in local
+     * @param listName
+     * @return 
+     */
+    public boolean existGermplasmListInLocal(String listName);    
 
     //-----------------------------------Location---------------------------
     /**
