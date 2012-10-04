@@ -109,7 +109,7 @@ public class ListnmsDAO extends AbstractDAO<Listnms, Integer> {
                 setQuery("l.lhierarchy", Integer.valueOf(filtro.getGlobalsearch()));
                 //setQuery("l.liststatus", Integer.valueOf(filtro.getGlobalsearch()));
                 // only active lists
-                
+
             } else {
                 setQueryInTo("l.listname", filtro.getGlobalsearch());
                 setQueryInTo("l.listtype", filtro.getGlobalsearch());
@@ -162,11 +162,26 @@ public class ListnmsDAO extends AbstractDAO<Listnms, Integer> {
         StringBuilder finalCriteria = new StringBuilder();
         if (criterions.isEmpty()) {
             finalCriteria.append(" where ");
-        } else if ( criterions.size() > 0 ) {
+        } else if (criterions.size() > 0) {
             finalCriteria.append(" and ");
         }
-        finalCriteria.append(" l.liststatus <> " ).append(Listnms.LSSTATUS_DELETED );
-        finalCriteria.append(" and l.liststatus <> " ).append(Listnms.LSSTATUS_FOLDER );
+        finalCriteria.append(" l.liststatus <> ").append(Listnms.LSSTATUS_DELETED);
+        finalCriteria.append(" and l.liststatus <> ").append(Listnms.LSSTATUS_FOLDER);
         return finalCriteria.toString();
+    }
+
+    /**
+     * Checks if a List already exists in local or central
+     *
+     * @param listName list name to search
+     * @return
+     * <code>true</code> if exists,
+     * <code>false</code> if not
+     */
+    public boolean existGermplasmListName(String listName) {
+        boolean existGermplasm = false;
+        String queryString = " from Listnms as l where  l.listname = ? ";
+        existGermplasm = getHibernateTemplate().find(queryString, listName).size() > 0;
+        return existGermplasm;
     }
 }

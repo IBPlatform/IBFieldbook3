@@ -1353,6 +1353,11 @@ public class IBWBAppServicesMemoryImpl implements AppServices {
      */
     public GermplasmDataManager getGermplasmDataManager() {
         throw new UnsupportedOperationException("Not supported yet.");
-    }    
+    }
+
+    @Override
+    public boolean existGermplasmListName(String listName) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 
 }

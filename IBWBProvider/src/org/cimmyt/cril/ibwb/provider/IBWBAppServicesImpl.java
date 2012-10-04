@@ -414,6 +414,7 @@ public class IBWBAppServicesImpl implements AppServices {
     }
 
 //-----------------------------------Germplsm---------------------------
+    @Override
     public List<Listdata> addNewsGermplasm(Listnms listnms, List<Listdata> listdatas, Integer userId) {
         HelperGermplasm helperGermplasm = new HelperGermplasm(listnms, this, serviciosLocal, userId);
         helperGermplasm.saveGermplasmNews(listdatas, listnms);
@@ -724,6 +725,16 @@ public class IBWBAppServicesImpl implements AppServices {
             listnms = this.serviciosCentral.getNamesCentral(listnms);
         }
         return listnms;
+    }
+    
+    /**
+     * Checks if a List already exists in local
+     * @param listName
+     * @return 
+     */
+    @Override
+    public boolean existGermplasmListName(String listName) {
+        return serviciosLocal.existGermplasmListInLocal(listName) || serviciosCentral.existGermplasmListInLocal(listName);
     }
 
 //-----------------------------------Location---------------------------

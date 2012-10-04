@@ -1124,6 +1124,15 @@ public class CommonServicesImpl implements CommonServices {
         return listnmsDAO.getList(filter, start, pageSize, paged);
     }
 
+    /**
+     * Checks if a List already exists in local
+     * @param listName
+     * @return 
+     */
+    @Override
+    public boolean existGermplasmListInLocal(String listName) {
+        return listnmsDAO.existGermplasmListName(listName);
+    }
 //-----------------------------------Location---------------------------
     @Override
     public void addLocation(Location location) {
