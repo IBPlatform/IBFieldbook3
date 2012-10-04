@@ -1368,9 +1368,14 @@ public final class addChecksTopComponent extends TopComponent {
             return;
         }
 
+        if (AppServicesProxy.getDefault().appServices().existGermplasmListName(jTextFieldListName.getText())) {
+            NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(addChecksTopComponent.class, "addChecksTopComponent.listNameAlreadyExists"), NotifyDescriptor.ERROR_MESSAGE);
+            DialogDisplayer.getDefault().notify(d);
+            return; 
+        }
 
         System.out.println("ANTES DE GUARDAR LA LISTA");
-
+        
         saveList();
 
         System.out.println("YA GUARDO LA LISTA");
