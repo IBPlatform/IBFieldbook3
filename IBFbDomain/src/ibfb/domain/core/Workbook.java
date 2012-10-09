@@ -33,6 +33,7 @@ public class Workbook {
     public static final String TRIAL_INSTANCE_NUMBER_ENUMERATED_N = "TRIALINSTANCENUMBERENUMERATEDN";
     public static final String GERMPLASM_ENTRY_NUMBER_ENUMERATED_N = "GERMPLASMENTRYNUMBERENUMERATEDN";
     public static final String FIELD_PLOT_NUMBER_ENUMERATED_N = "FIELDPLOTNUMBERENUMERATEDN";
+    public static final String CHECK_CODE_ASSIGNED = "CHECKCODEASSIGNED";
     private static final List<String> constraintWords = new ArrayList<String>();
     private Study study;
     private List<Condition> studyConditions;
@@ -829,5 +830,22 @@ public class Workbook {
 
     public void setValidationMessage(String validationMessage) {
         this.validationMessage = validationMessage;
+    }
+
+    /**
+     * Return the check factor identify by PROPERTY + SCALE + METHOD acording to
+     * <code>CHECK_CODE_ASSIGNED</code> constant
+     * @return Check factor or <code>null</code> if not found
+     */
+    public Factor getCheckFactor() {
+        Factor checkFactor = null;
+         for (Factor factor : factors) {
+            String text = getStringWithOutBlanks(factor.getProperty() + factor.getScale() + factor.getMethod());
+            if (text.equals(CHECK_CODE_ASSIGNED)) {
+                checkFactor = factor;
+                break;
+            }
+        }
+        return checkFactor;
     }
 }
