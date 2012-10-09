@@ -2493,21 +2493,21 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
 
 
         int total = Integer.parseInt(this.jTextFieldEntries.getText());
-
+         int colEntry = entriesTableModel.getHeaderIndex(ObservationsTableModel.ENTRY);
 
         for (int i = 0; i < total; i++) {
 
             Object[] rowToAdd = new Object[model.getColumnCount()];
             rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = i + 1;
 
-            if (posiciones.size() > 0) {
-                System.out.println("ENTRAMOS A PONER ISCHECK");
-                if (posiciones.contains(i + 1)) {
-                    System.out.println("CAMBIAMOS VALOR A 1");
-
-                    rowToAdd[model.getHeaderIndex(ObservationsTableModel.CHECK)] = 1;
-                }
-            }
+//            if (posiciones.size() > 0) {
+//                System.out.println("ENTRAMOS A PONER ISCHECK");
+//                if (posiciones.contains(i + 1)) {
+//                    System.out.println("CAMBIAMOS VALOR A 1");
+//
+//                    rowToAdd[model.getHeaderIndex(ObservationsTableModel.CHECK)] = 1;
+//                }
+//            }
 
             int entriesColIndex = 0;
 
@@ -2519,6 +2519,14 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
                 entriesColIndex++;
             }
 
+            
+               if (posiciones.size() > 0) {
+                if (posiciones.contains(Integer.parseInt(rowToAdd[colEntry].toString()))) {
+                    rowToAdd[model.getHeaderIndex(ObservationsTableModel.CHECK)] = "is check";
+                }
+            }
+
+            
             model.addRow(rowToAdd);
         }
 
