@@ -16,7 +16,7 @@ public class GermplasmEntriesTableModel extends AbstractTableModel {
     public static final String GID = "GERMPLASMIDDBID";
     public static final String PLOT = "FIELDPLOTNUMBER";
     public static final String CROSS = "CROSSNAMENAMENUMBER";
-  //  public static final String BCID = "GERMPLASMBCIDDBID";
+    //  public static final String BCID = "GERMPLASMBCIDDBID";
     private boolean hasChecks = false;
     private List<Factor> factorHeaders;
     private List<List<Object>> germplasmData;
@@ -215,20 +215,20 @@ public class GermplasmEntriesTableModel extends AbstractTableModel {
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
 
 
-       
-        if(isFromCrossInfo){
-                List<Object> columnValues = germplasmData.get(rowIndex);
-                columnValues.set(columnIndex, aValue);
-                fireTableCellUpdated(rowIndex, columnIndex);
+
+        if (isFromCrossInfo) {
+            List<Object> columnValues = germplasmData.get(rowIndex);
+            columnValues.set(columnIndex, aValue);
+            fireTableCellUpdated(rowIndex, columnIndex);
         }
-        
-        
+
+
         if (SeActualizaGID()) {
-           
-                List<Object> columnValues = germplasmData.get(rowIndex);
-                columnValues.set(columnIndex, aValue);
-                fireTableCellUpdated(rowIndex, columnIndex);
-            
+
+            List<Object> columnValues = germplasmData.get(rowIndex);
+            columnValues.set(columnIndex, aValue);
+            fireTableCellUpdated(rowIndex, columnIndex);
+
 
         }
 
@@ -298,26 +298,39 @@ public class GermplasmEntriesTableModel extends AbstractTableModel {
         }
         return columnIndex;
     }
-    
+
     public String getEntryLabel() {
         String entryLabel = "ENTRY";
-        for (Factor factor: factorHeaders) {
-            if (Workbook.getStringWithOutBlanks(factor.getProperty()+factor.getScale()).equals(ENTRY))  {
+        for (Factor factor : factorHeaders) {
+            if (Workbook.getStringWithOutBlanks(factor.getProperty() + factor.getScale()).equals(ENTRY)) {
                 entryLabel = factor.getFactorName();
                 break;
             }
         }
         return entryLabel;
     }
-    
+
     public String getPlotLabel() {
         String plotLabel = "PLOT";
-        for (Factor factor: factorHeaders) {
-            if (Workbook.getStringWithOutBlanks(factor.getProperty()+factor.getScale()).equals(PLOT))  {
+        for (Factor factor : factorHeaders) {
+            if (Workbook.getStringWithOutBlanks(factor.getProperty() + factor.getScale()).equals(PLOT)) {
                 plotLabel = factor.getFactorName();
                 break;
             }
         }
         return plotLabel;
-    }    
+    }
+
+    /**
+     * Adds a new facto to identify a factor of type check
+     */
+    public void addCheckFactor(Factor factor) {
+        if (!factorHeaders.contains(factor)) {
+            int columnIndex = headers.size();
+            factorHeaders.add(factor);
+            headers.add(factor);
+            headerIndex.put(Workbook.getStringWithOutBlanks(factor.getProperty() + factor.getScale()), columnIndex);
+            fireTableStructureChanged();
+        }
+    }
 }

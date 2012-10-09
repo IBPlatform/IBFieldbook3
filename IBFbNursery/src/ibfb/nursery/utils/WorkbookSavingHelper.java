@@ -125,6 +125,8 @@ public class WorkbookSavingHelper {
         study.setPmkey(nurseryEditor.jTextFieldPMKey.getText());
         study.setShierarchy(nurseryEditor.getStudy().getStudyid());
         study.setSstatus(1);
+        study.setStarDate(nurseryEditor.getStudy().getStarDate());
+        study.setEndDate(nurseryEditor.getStudy().getEndDate());
 
         study.setStudyType(Study.S_TYPE_NURSERY);
 
@@ -419,6 +421,13 @@ public class WorkbookSavingHelper {
                     }
                 }
                 colNumber = model.getHeaderIndex(ObservationsTableModel.COL);
+                if (colNumber != -1) {
+                    if (model.getValueAt(row, colNumber) != null) {
+                        m.setColumn(Integer.parseInt(model.getValueAt(row, colNumber).toString()));
+                    }
+                }
+                
+                colNumber = model.getHeaderIndex(ObservationsTableModel.CHECK);
                 if (colNumber != -1) {
                     if (model.getValueAt(row, colNumber) != null) {
                         m.setColumn(Integer.parseInt(model.getValueAt(row, colNumber).toString()));

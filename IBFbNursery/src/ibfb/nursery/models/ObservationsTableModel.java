@@ -27,7 +27,8 @@ public class ObservationsTableModel extends AbstractTableModel {
     public static final String PLOT = "FIELDPLOTNUMBER";
     public static final String REPLICATION = "REPLICATIONNUMBER";
     public static final String BLOCK = "BLOCKNUMBER";
-    public static final String CHECK = "ISCHECKNUMBER";
+    //public static final String CHECK = "ISCHECKNUMBER";
+    public static final String CHECK = "CHECKCODE";
     public static final String CHECKPOSITION = "POSITIONNUMBER";
     public static final String CHECKSTART = "STARTNUMBER";
     public static final String ROW = "";

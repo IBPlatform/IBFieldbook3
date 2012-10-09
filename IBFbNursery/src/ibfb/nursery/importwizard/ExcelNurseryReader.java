@@ -4,14 +4,17 @@ import ibfb.nursery.models.GermplasmEntriesTableModel;
 import ibfb.nursery.models.ObservationsTableModel;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.text.MessageFormat;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 import org.apache.log4j.Logger;
 import org.apache.poi.ss.usermodel.*;
 import org.cimmyt.cril.ibwb.commongui.DecimalUtils;
 import org.cimmyt.cril.ibwb.commongui.DialogUtil;
+import org.openide.util.NbBundle;
 
 public class ExcelNurseryReader {
-
+    private ResourceBundle bundle = NbBundle.getBundle(ExcelNurseryReader.class);
     private static Logger log = Logger.getLogger(ExcelNurseryReader.class);
     String fileName = "";
     Sheet sheetDescription;
@@ -91,6 +94,13 @@ public class ExcelNurseryReader {
                 return;
             }
 
+           if (!validDesigAndGid()) {
+                String desigLabel = observationsModel.getColumnName(observationsModel.getHeaderIndex(ObservationsTableModel.DESIG));
+                String gidLabel = observationsModel.getColumnName(observationsModel.getHeaderIndex(ObservationsTableModel.GID));
+                DialogUtil.displayError(MessageFormat.format(bundle.getString("ExcelNurseryReader.desigOrGidNotValid"), desigLabel, gidLabel));
+                return;
+            }
+            
             readTraitsValues(traits, colEntry, colPlot, rowVariate);
             DialogUtil.displayInfo("Data from excel file was loaded");
 
@@ -654,4 +664,36 @@ public class ExcelNurseryReader {
 
         return result;
     }
+    
+/**
+     * Validate if DESIG and GID are same that values readed from excel file
+     *
+     * @return
+     * <code>true</code> if DESIG and GID are the same,
+     * <code>false</code> if not
+     */
+    private boolean validDesigAndGid() {
+        boolean correctDesigAndGid = true;
+        int desigColumn = observationsModel.getHeaderIndex(ObservationsTableModel.DESIG);
+        int gidColumn = observationsModel.getHeaderIndex(ObservationsTableModel.GID);
+        int totalObservations = observationsModel.getRowCount();
+
+        for (int row = 0; row <= totalObservations; row++) {
+            Row fila = sheetObservation.getRow(row + 1);
+            if (fila != null) {
+                String desigFromExcel = fila.getCell(desigColumn ).getStringCellValue();
+                String gidFromExcel = fila.getCell(gidColumn ).getStringCellValue();
+
+                String desigFromGrid = observationsModel.getValueAt(row, desigColumn).toString();
+                String gidFromGrid = observationsModel.getValueAt(row, gidColumn).toString();
+
+                if (!desigFromGrid.equals(desigFromExcel) || !gidFromGrid.equals(gidFromExcel)) {
+                    correctDesigAndGid = false;
+                    break;
+                }
+            }
+        }
+
+        return correctDesigAndGid;
+    }    
 }

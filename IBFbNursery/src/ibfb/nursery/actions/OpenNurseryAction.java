@@ -19,6 +19,7 @@ import javax.swing.JFrame;
 import javax.swing.SwingWorker;
 import javax.swing.table.TableColumn;
 import org.cimmyt.cril.ibwb.api.AppServicesProxy;
+import org.cimmyt.cril.ibwb.commongui.ConvertUtils;
 import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 import org.netbeans.api.progress.ProgressHandle;
 import org.netbeans.api.progress.ProgressHandleFactory;
@@ -152,17 +153,17 @@ public class OpenNurseryAction extends SystemAction {
         nurseryWindow.jTextFieldTitle.setText(SelectedStudy.selected.getStudy());
         Date start = SelectedStudy.selected.getStarDate();
         Date end = SelectedStudy.selected.getEndDate();
-        String formato = "dd-MMM-yyyy";
+        String formato = ConvertUtils.DATE_PATTERN;
         SimpleDateFormat sdf = new SimpleDateFormat(formato);
 
         try {
-           // nurseryWindow.jDateChooserStart.setText(sdf.format(start));
-        } catch (NullPointerException ex) {
+            nurseryWindow.jDateChooserStart.setDate(start);
+        } catch (Exception ex) {
         }
 
         try {
-           // nurseryWindow.jDateChooserEnd.setText(sdf.format(end));
-        } catch (NullPointerException ex) {
+            nurseryWindow.jDateChooserEnd.setDate(end);
+        } catch (Exception ex) {
         }
         try {
             nurseryWindow.jTextFieldPMKey.setText(SelectedStudy.selected.getPmkey());
