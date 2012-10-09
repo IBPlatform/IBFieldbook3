@@ -4,8 +4,10 @@ import ibfb.studyeditor.core.model.GermplasmEntriesTableModel;
 import ibfb.studyeditor.core.model.ObservationsTableModel;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 import org.apache.log4j.Logger;
 
 import org.cimmyt.cril.ibwb.commongui.DialogUtil;
@@ -16,9 +18,11 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.cimmyt.cril.ibwb.commongui.DecimalUtils;
+import org.openide.util.NbBundle;
 
 public class ExcelTrialReader {
 
+    private ResourceBundle bundle = NbBundle.getBundle(ExcelTrialReader.class);
     private static Logger log = Logger.getLogger(ExcelTrialReader.class);
     String fileName = "";
     Sheet sheetDescription;
@@ -202,6 +206,14 @@ public class ExcelTrialReader {
                 DialogUtil.displayError("Template error, Observations sheet. Bad format");
                 return;
             }
+
+            if (!validDesigAndGid()) {
+                String desigLabel = observationsModel.getColumnName(observationsModel.getHeaderIndex(ObservationsTableModel.DESIG));
+                String gidLabel = observationsModel.getColumnName(observationsModel.getHeaderIndex(ObservationsTableModel.GID));
+                DialogUtil.displayError(MessageFormat.format(bundle.getString("ExcelTrialReader.desigOrGidNotValid"), desigLabel, gidLabel));
+                return;
+            }
+
 
             readTraitsValues(traits, colEntry, colPlot);
             DialogUtil.displayInfo("Data from excel file was loaded");
@@ -481,15 +493,11 @@ public class ExcelTrialReader {
             return;
         }
 
-
-
-
         for (int i = 0; i < traits.size(); i++) {//columnas
 
             String trait = traits.get(i).toString();
             int col = findCol(trait, sheetObservation);
             int colObs = observationsModel.findColumn(trait);
-
 
             String variateDataType = observationsModel.getVariate(colObs).getDataType();
 
@@ -687,5 +695,37 @@ public class ExcelTrialReader {
             log.error("Error al leer excel ", e);
         }
 
+    }
+
+    /**
+     * Validate if DESIG and GID are same that values readed from excel file
+     *
+     * @return
+     * <code>true</code> if DESIG and GID are the same,
+     * <code>false</code> if not
+     */
+    private boolean validDesigAndGid() {
+        boolean correctDesigAndGid = true;
+        int desigColumn = observationsModel.getHeaderIndex(ObservationsTableModel.DESIG);
+        int gidColumn = observationsModel.getHeaderIndex(ObservationsTableModel.GID);
+        int totalObservations = observationsModel.getRowsPerTrial().get(trial);
+
+        for (int row = 0; row <= totalObservations; row++) {
+            Row fila = sheetObservation.getRow(row + 1);
+            if (fila != null) {
+                String desigFromExcel = fila.getCell(desigColumn - 1).getStringCellValue();
+                String gidFromExcel = fila.getCell(gidColumn - 1).getStringCellValue();
+
+                String desigFromGrid = observationsModel.getValueAt(row, desigColumn).toString();
+                String gidFromGrid = observationsModel.getValueAt(row, gidColumn).toString();
+
+                if (!desigFromGrid.equals(desigFromExcel) || !gidFromGrid.equals(gidFromExcel)) {
+                    correctDesigAndGid = false;
+                    break;
+                }
+            }
+        }
+
+        return correctDesigAndGid;
     }
 }
