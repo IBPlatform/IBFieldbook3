@@ -456,6 +456,11 @@ public final class NurseryVisualPanel5 extends JPanel {
                 jRadioButtonSequenceStateChanged(evt);
             }
         });
+        jRadioButtonSequence.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonSequenceActionPerformed(evt);
+            }
+        });
 
         label1.setText(org.openide.util.NbBundle.getMessage(NurseryVisualPanel5.class, "NurseryVisualPanel5.label1.text")); // NOI18N
 
@@ -709,10 +714,7 @@ public final class NurseryVisualPanel5 extends JPanel {
         if (jTextFieldListEntries.getText().equals("0")) {
             return;
         }
-
         toRemove = new ArrayList<List<Object>>();
-
-
 
         switch (this.jTabbedPane1.getSelectedIndex()) {
             case 0:
@@ -1007,6 +1009,10 @@ public final class NurseryVisualPanel5 extends JPanel {
         }
     }//GEN-LAST:event_jTableEntriesExcelPropertyChange
 
+    private void jRadioButtonSequenceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSequenceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButtonSequenceActionPerformed
+
     private void readGermplsmEntriesFromDb(JTable tabla) {
 
 
@@ -1036,6 +1042,15 @@ public final class NurseryVisualPanel5 extends JPanel {
         germplasmTransferHandler.setFactores(this.myWorkbook.getEntryFactors());
     }
 
+    
+    public boolean checksInSequence(){
+        if(this.jRadioButtonPosition.isSelected()){
+            return false;
+        }else{
+            return true;
+        }
+    }
+    
     private void readExcelGermplsmEntries(String myFile, JTable tabla) {
 
         rowListExcel = new ArrayList<List<Object>>();

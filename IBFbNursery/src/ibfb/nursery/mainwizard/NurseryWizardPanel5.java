@@ -87,6 +87,7 @@ public class NurseryWizardPanel5 implements WizardDescriptor.Panel, DocumentList
         if(!component.freqIsInvalid()){
           ArrayList<Integer> posiciones = component.calculaPosiciones();   
            nurseryWindow.setPosiciones(posiciones);  
+           nurseryWindow.setChecksInSequence(component.checksInSequence());
            tot=posiciones.size();
         }
  
@@ -96,9 +97,9 @@ public class NurseryWizardPanel5 implements WizardDescriptor.Panel, DocumentList
          NbPreferences.forModule(NurseryVisualPanel5.class).put("checks", String.valueOf(tot));
         
         }else{
-            nurseryWindow.setPosiciones(new ArrayList<Integer>()); 
-           ((WizardDescriptor) settings).putProperty("checks", "0");
-         NbPreferences.forModule(NurseryVisualPanel5.class).put("checks", "0");  
+          nurseryWindow.setPosiciones(new ArrayList<Integer>()); 
+         ((WizardDescriptor) settings).putProperty("checks", "0");
+          NbPreferences.forModule(NurseryVisualPanel5.class).put("checks", "0");          
         }
  
         seEjecuto = true;

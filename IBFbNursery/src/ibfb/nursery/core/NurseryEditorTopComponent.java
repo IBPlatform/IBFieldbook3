@@ -147,6 +147,7 @@ public final class NurseryEditorTopComponent extends TopComponent {
     public static Configuration config = null;
     private Variate traitToEvaluate;
     private String stringTraitToEvaluate = "GY";
+    private boolean checksInSequence=false;
 
     public NurseryEditorTopComponent() {
         initComponents();
@@ -182,6 +183,11 @@ public final class NurseryEditorTopComponent extends TopComponent {
         createBallonTips();
         posiciones = new ArrayList<Integer>();
     }
+    
+    
+    
+    
+    
     private SelectCommand unselectedCommand = new SelectCommand() {
 
         @Override
@@ -199,6 +205,17 @@ public final class NurseryEditorTopComponent extends TopComponent {
         }
     };
 
+    public boolean isChecksInSequence() {
+        return checksInSequence;
+    }
+
+    public void setChecksInSequence(boolean checksInSequence) {
+        this.checksInSequence = checksInSequence;
+    }
+
+    
+    
+    
     public ArrayList<Integer> getPosiciones() {
         return posiciones;
     }
@@ -3005,23 +3022,57 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
         }
 
         int contador = 0;
-
+        int avance=0;
+        
         for (int i = 0; i < posiciones.size(); i++) {
 
             List<Object> newData = new ArrayList<Object>();
             Object[] nuevo = germplasmDataChecks.get(contador).toArray();
             Object[] temp = nuevo.clone();
+            
 
             for (int j = 0; j < temp.length; j++) {
                 newData.add(j, temp[j]);
-
             }
 
-            int pos = posiciones.get(i);
+                        
+            
+            int pos=0;
+            
+                 
+            switch (avance) {
+                case 2:
+                    avance++;
+                    break;
+                case 3:
+                    avance=avance+4;
+            }
+                
+            
+            
+            if(isChecksInSequence()){            
+             pos = (posiciones.get(i))-(avance);
+             avance++;     
+            }else{
+               pos = (posiciones.get(i));  
+            }
+            
+            
+            
+            
+            
             germplasmData.add(pos - 1, newData);
             contador++;
-            if (contador > tableModelChecks.getRowCount() - 1) {
+           
+//            System.out.println("vamos por: "+i+":    "+avance);
+//       
+//     
+            
+                  
+            if (contador > tableModelChecks.getRowCount() -1) {
                 contador = 0;
+                 avance=0;
+                
             }
         }
         recorreIndices(germplasmData, colEntry);
@@ -3029,8 +3080,7 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
 
     }
 
-    private void addChecksByFrequency() {
-    }
+   
 
     public void addChecks() {
 
