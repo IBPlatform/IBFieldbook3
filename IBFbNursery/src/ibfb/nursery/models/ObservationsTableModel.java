@@ -30,6 +30,7 @@ public class ObservationsTableModel extends AbstractTableModel {
     //public static final String CHECK = "ISCHECKNUMBER";
     public static final String CHECK = "CHECKCODE";
     public static final String CHECKPOSITION = "POSITIONNUMBER";
+    public static final String ISCHECKNUMBER = "ISCHECKNUMBER";
     public static final String CHECKSTART = "STARTNUMBER";
     public static final String ROW = "";
     public static final String COL = "";

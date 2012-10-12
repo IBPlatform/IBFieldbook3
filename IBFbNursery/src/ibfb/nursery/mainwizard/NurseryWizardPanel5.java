@@ -84,11 +84,27 @@ public class NurseryWizardPanel5 implements WizardDescriptor.Panel, DocumentList
             
             int tot=0;
             
-        if(!component.freqIsInvalid()){
-          ArrayList<Integer> posiciones = component.calculaPosiciones();   
-           nurseryWindow.setPosiciones(posiciones);  
+        
+            if(!component.freqIsInvalid()){
+           
+                if (component.checksInSequence()) {
+                    
+                    nurseryWindow.setSequenceList(component.calculaPosicionesSecuencia());
+                    tot=component.getSequenceListSize();
+                    nurseryWindow.setPosiciones(component.calculaPosicionesSecuenciaInteger());
+                    
+                } else {
+                    ArrayList<Integer> posiciones = component.calculaPosiciones();
+                    nurseryWindow.setPosiciones(posiciones);
+                    tot = posiciones.size();
+                }
+            
+            
            nurseryWindow.setChecksInSequence(component.checksInSequence());
-           tot=posiciones.size();
+           
+           
+           
+           
         }
  
             

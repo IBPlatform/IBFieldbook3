@@ -30,6 +30,7 @@ import org.cimmyt.cril.ibwb.domain.Listnms;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.util.NbBundle;
+import ibfb.nursery.utils.SequenceEntry;
 
 
 public final class NurseryVisualPanel5 extends JPanel {
@@ -56,6 +57,10 @@ public final class NurseryVisualPanel5 extends JPanel {
     private SpinnerNumberModel modeloSpinnerFreq;
     java.util.ArrayList<Factor> myFactors;
     private ResourceBundle bundle = NbBundle.getBundle(NurseryVisualPanel5.class);
+    private int totalEntries=0;
+    private int[] posicionesSec;
+    private ArrayList<int[]> posicionesSecuencia;
+    private ArrayList<SequenceEntry> sequenceList;
 
    
     public NurseryVisualPanel5() {
@@ -70,6 +75,17 @@ public final class NurseryVisualPanel5 extends JPanel {
 
     }
 
+    public ArrayList<SequenceEntry> getSequenceList() {
+        return sequenceList;
+    }
+
+    public void setSequenceList(ArrayList<SequenceEntry> sequenceList) {
+        this.sequenceList = sequenceList;
+    }
+
+    
+    
+    
     public JComboBox getCboGermplasmList() {
         return cboGermplasmList;
     }
@@ -767,6 +783,7 @@ public final class NurseryVisualPanel5 extends JPanel {
             case 0:
                 this.jTextFieldListEntries.setText(String.valueOf(this.jTableEntriesDB.getRowCount()));
                 this.jTextFieldSelectedEntries.setText(String.valueOf(this.jTableEntriesDB.getSelectedRowCount()));
+                
                 break;
             case 1:
                 this.jTextFieldListEntries.setText(String.valueOf(this.jTableEntriesExcel.getRowCount()));
@@ -1249,7 +1266,131 @@ public final class NurseryVisualPanel5 extends JPanel {
         return hayRepetidos;
     }
 
+    
+    
+    public ArrayList<SequenceEntry> calculaPosicionesSecuencia(){
+     
+        posicionesSecuencia=new ArrayList<int[]>();
+        int restantes = 0;
+
+        this.totalEntries = this.getMaximo();
+
+
+        GermplasmEntriesTableModel tableModelChecks = (GermplasmEntriesTableModel) this.jTableFinalList.getModel();
+        int colPosition = tableModelChecks.findColumn("Initial position");
+
+        int colFreq = tableModelChecks.findColumn("Frequency");
+
+        int entradasDepositar=(Integer.parseInt(tableModelChecks.getValueAt(0, colFreq).toString()))-1;
+        int agregados=0;
+        
+        
+        for (int i = 0; i < tableModelChecks.getRowCount(); i++) {
+           
+            int posInitial = Integer.parseInt(tableModelChecks.getValueAt(i, colPosition).toString());
+            int freqInitial = Integer.parseInt(tableModelChecks.getValueAt(i, colFreq).toString());
+    
+            restantes = totalEntries - (posInitial - 1);
+            int testigosAgregar = (restantes / freqInitial)+1;
+           
+            posicionesSec = new int[testigosAgregar];
+            
+                    for (int j = 0; j < testigosAgregar; j++) {
+
+                        if (j == 0) {
+                            posicionesSec[0] = posInitial;
+                        } else {
+                            posicionesSec[j] = posInitial + entradasDepositar + 1;
+                            posInitial = posicionesSec[j];
+                        }
+                        
+                        agregados++;
+                    }
+                      
+            posicionesSecuencia.add(posicionesSec);            
+        }
+                
+        posicionesSecuencia=new ArrayList<int[]>();                
+        totalEntries=totalEntries+agregados;
+        
+            for (int i = 0; i < tableModelChecks.getRowCount(); i++) {
+           
+            int posInitial = Integer.parseInt(tableModelChecks.getValueAt(i, colPosition).toString());
+            int freqInitial = Integer.parseInt(tableModelChecks.getValueAt(i, colFreq).toString());
+
+            
+            
+            restantes = totalEntries - (posInitial - 1);            
+            
+            int testigosAgregar = (restantes / freqInitial)+1;
+           
+            posicionesSec = new int[testigosAgregar];
+            
+                    for (int j = 0; j < testigosAgregar; j++) {
+
+                        if (j == 0) {
+                            posicionesSec[0] = posInitial;
+                        } else {
+                            posicionesSec[j] = posInitial + entradasDepositar + 1;
+                            posInitial = posicionesSec[j];
+                        }
+                    }
+                      
+            posicionesSecuencia.add(posicionesSec);
+            
+        }
+        
+
+        sequenceList=new ArrayList<SequenceEntry>();
+          
+  
+        for (int j = 0; j < posicionesSecuencia.size(); j++) {
+           
+            int[] pos = posicionesSecuencia.get(j);
+                                      
+            for (int k = 0; k < pos.length; k++) {
+                
+                SequenceEntry sequenceEntry =new SequenceEntry();
+                sequenceEntry.setPosicion( pos[k]);
+                sequenceEntry.setEntrada(j);                
+                sequenceList.add(sequenceEntry);                
+            }
+        }
+
+        
+//        for (int i = 0; i < sequenceList.size(); i++) {
+//             System.out.println("Entrada: "+sequenceList.get(i).getEntrada());  
+//             System.out.println("Posicion: "+sequenceList.get(i).getPosicion());
+//             System.out.println("");
+//            
+//        }
+        
+        return sequenceList;        
+    }
+    
+    
+    
+    
+     public ArrayList<Integer> calculaPosicionesSecuenciaInteger() {
+          ArrayList<Integer> posiciones = new ArrayList();
+          for (int i = 0; i < sequenceList.size(); i++) {
+             posiciones.add(sequenceList.get(i).getPosicion());
+             
+         }
+          
+          return posiciones;
+     }
+    
+    
+    public int getSequenceListSize(){
+        return sequenceList.size();
+    }
+    
+
+    
     public ArrayList<Integer> calculaPosiciones() {
+        
+      //  calculaPosicionesSecuencia();
 
         ArrayList<Integer> positionsTable = new ArrayList();
 

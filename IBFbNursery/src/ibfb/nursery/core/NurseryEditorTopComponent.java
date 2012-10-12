@@ -33,10 +33,7 @@ import java.io.File;
 import java.text.DecimalFormat;
 import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.ExecutionException;
 import javax.swing.*;
 import javax.swing.filechooser.FileFilter;
@@ -148,6 +145,7 @@ public final class NurseryEditorTopComponent extends TopComponent {
     private Variate traitToEvaluate;
     private String stringTraitToEvaluate = "GY";
     private boolean checksInSequence=false;
+    private ArrayList<SequenceEntry> sequenceList;
 
     public NurseryEditorTopComponent() {
         initComponents();
@@ -211,6 +209,14 @@ public final class NurseryEditorTopComponent extends TopComponent {
 
     public void setChecksInSequence(boolean checksInSequence) {
         this.checksInSequence = checksInSequence;
+    }
+
+    public ArrayList<SequenceEntry> getSequenceList() {
+        return sequenceList;
+    }
+
+    public void setSequenceList(ArrayList<SequenceEntry> sequenceList) {
+        this.sequenceList = sequenceList;
     }
 
     
@@ -2539,7 +2545,7 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
             
                if (posiciones.size() > 0) {
                 if (posiciones.contains(Integer.parseInt(rowToAdd[colEntry].toString()))) {
-                    rowToAdd[model.getHeaderIndex(ObservationsTableModel.CHECK)] = "is check";
+                    rowToAdd[model.getHeaderIndex(ObservationsTableModel.ISCHECKNUMBER)] = "is check"; 
                 }
             }
 
@@ -2584,19 +2590,10 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
         GermplasmEntriesTableModel entriesTableModel = (GermplasmEntriesTableModel) this.jTableEntries.getModel();
         int total = Integer.parseInt(this.jTextFieldEntries.getText());
         int vector[] = randomize(total);
-        //int colEntry = entriesTableModel.findColumn("ENTRY");
         int colEntry = entriesTableModel.getHeaderIndex(ObservationsTableModel.ENTRY);
-        // ArrayList<Integer> posicionesRandom=giveMeNewPosition(vector);
-
         for (int i = 0; i < total; i++) {
             Object[] rowToAdd = new Object[model.getColumnCount()];
             rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = i + 1;
-
-//            int valorEntry = Integer.parseInt(entriesTableModel.getValueAt(i, colEntry).toString());
-//
-//            if (posiciones.contains(valorEntry)) {
-//                rowToAdd[model.getHeaderIndex(ObservationsTableModel.CHECK)] = "is check";
-//            }
 
             int entriesColIndex = 0;
 
@@ -2608,11 +2605,9 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
 
             if (posiciones.size() > 0) {
                 if (posiciones.contains(Integer.parseInt(rowToAdd[colEntry].toString()))) {
-                    rowToAdd[model.getHeaderIndex(ObservationsTableModel.CHECK)] = "is check";
+                    rowToAdd[model.getHeaderIndex(ObservationsTableModel.ISCHECKNUMBER)] = "is check";
                 }
             }
-
-
             model.addRow(rowToAdd);
 
         }
@@ -3008,6 +3003,15 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
         assignGermplasmEntries(tableModel.getFactorHeaders(), tableModel.getGermplasmData());
     }
 
+    
+      public class MyIntComparable implements Comparator<SequenceEntry> {
+
+        @Override
+        public int compare(SequenceEntry o1, SequenceEntry o2) {
+            return (o1.getPosicion() < o2.getPosicion() ? -1 : (o1.getPosicion() == o2.getPosicion() ? 0 : 1));
+        }
+    }
+    
     private void fillChecks() {
         GermplasmEntriesTableModel tableModelChecks = (GermplasmEntriesTableModel) this.tableChecks.getModel();
         List<List<Object>> germplasmDataChecks = tableModelChecks.getGermplasmData();
@@ -3024,63 +3028,76 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
         int contador = 0;
         int avance=0;
         
-        for (int i = 0; i < posiciones.size(); i++) {
-
-            List<Object> newData = new ArrayList<Object>();
-            Object[] nuevo = germplasmDataChecks.get(contador).toArray();
-            Object[] temp = nuevo.clone();
+        
+        
+        if (isChecksInSequence()) {
             
-
-            for (int j = 0; j < temp.length; j++) {
-                newData.add(j, temp[j]);
-            }
-
-                        
             
-            int pos=0;
-            
-                 
-            switch (avance) {
-                case 2:
-                    avance++;
-                    break;
-                case 3:
-                    avance=avance+4;
-            }
+            Collections.sort(sequenceList, new MyIntComparable());
+
+            for (int j =0 ; j <sequenceList.size(); j++) {
+
+                List<Object> newData = new ArrayList<Object>();
                 
-            
-            
-            if(isChecksInSequence()){            
-             pos = (posiciones.get(i))-(avance);
-             avance++;     
-            }else{
-               pos = (posiciones.get(i));  
-            }
-            
-            
-            
-            
-            
-            germplasmData.add(pos - 1, newData);
-            contador++;
-           
-//            System.out.println("vamos por: "+i+":    "+avance);
-//       
-//     
-            
-                  
-            if (contador > tableModelChecks.getRowCount() -1) {
-                contador = 0;
-                 avance=0;
+                Object[] check = germplasmDataChecks.get(sequenceList.get(j).getEntrada()).toArray();                
+                Object[] temp = check.clone();
                 
+                for (int k = 0; k < temp.length; k++) {
+                    newData.add(k, temp[k]);
+                }
+
+                
+              // System.out.println("Insertando entrada "+sequenceList.get(j).getEntrada() +"   en pos "+(sequenceList.get(j).getPosicion() - 1));
+                
+                int posToAdd=sequenceList.get(j).getPosicion()-1;
+              //  System.out.println("POS TO ADD "+posToAdd);
+                
+                germplasmData.add(posToAdd, newData);
+
+
             }
+
+
+        } else {
+
+
+
+            for (int i = 0; i < posiciones.size(); i++) {
+
+                List<Object> newData = new ArrayList<Object>();
+                Object[] nuevo = germplasmDataChecks.get(contador).toArray();
+                Object[] temp = nuevo.clone();
+
+
+                for (int j = 0; j < temp.length; j++) {
+                    newData.add(j, temp[j]);
+                }
+
+
+
+                int pos = 0;
+
+                pos = (posiciones.get(i));
+                germplasmData.add(pos - 1, newData);
+                contador++;
+
+                if (contador > tableModelChecks.getRowCount() - 1) {
+                    contador = 0;
+                }
+
+
+
+            }
+        } 
+            
+            recorreIndices(germplasmData, colEntry);
+            assignGermplasmEntries(tableModel.getFactorHeaders(), tableModel.getGermplasmData());
+
         }
-        recorreIndices(germplasmData, colEntry);
-        assignGermplasmEntries(tableModel.getFactorHeaders(), tableModel.getGermplasmData());
-
-    }
 
    
+
+    
 
     public void addChecks() {
 
