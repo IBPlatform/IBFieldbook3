@@ -46,7 +46,9 @@ import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.util.NbBundle;
 import org.openide.windows.TopComponent;
-
+import ibfb.germplasmlist.utils.SequenceEntry;
+import java.util.*;
+import javax.swing.table.AbstractTableModel;
 /**
  * Top component which displays something.
  */
@@ -94,6 +96,10 @@ public final class addChecksTopComponent extends TopComponent {
     ArrayList<Integer> posiciones;
     private List<List<Object>> sourceList;
     private List<List<Object>> destList;
+        private int totalEntries=0;
+    private int[] posicionesSec;
+    private ArrayList<int[]> posicionesSecuencia;
+    private ArrayList<SequenceEntry> sequenceList;
 
     public addChecksTopComponent() {
         initComponents();
@@ -1630,7 +1636,6 @@ public final class addChecksTopComponent extends TopComponent {
             case 2://final list
 
 
-
                 if (this.jRadioButtonWith.isSelected()) {
                     fillChecks();
                 } else {
@@ -1644,14 +1649,124 @@ public final class addChecksTopComponent extends TopComponent {
 
     }//GEN-LAST:event_jTabbedPaneChecksStateChanged
 
-    private void fillChecks() {
+    
+    
+     public ArrayList<SequenceEntry> calculaPosicionesSecuencia(){
+     
+        posicionesSecuencia=new ArrayList<int[]>();
+        int restantes = 0;
 
+        this.totalEntries = maximo;
+
+        GermplasmEntriesTableModelChecks tableModelChecks = (GermplasmEntriesTableModelChecks) this.jTableFinalChecks.getModel();
+
+        int colPosition = tableModelChecks.findColumn("Initial position");
+
+        int colFreq = tableModelChecks.findColumn("Frequency");
+
+        int entradasDepositar=(Integer.parseInt(tableModelChecks.getValueAt(0, colFreq).toString()))-1;
+        int agregados=0;
+        
+        
+        for (int i = 0; i < tableModelChecks.getRowCount(); i++) {
+           
+            int posInitial = Integer.parseInt(tableModelChecks.getValueAt(i, colPosition).toString());
+            int freqInitial = Integer.parseInt(tableModelChecks.getValueAt(i, colFreq).toString());
+    
+            restantes = totalEntries - (posInitial - 1);
+       
+            int testigosAgregar = (restantes / freqInitial)+1;
+           
+            posicionesSec = new int[testigosAgregar];
+            
+                    for (int j = 0; j < testigosAgregar; j++) {
+
+                        if (j == 0) {
+                            posicionesSec[0] = posInitial;
+                        } else {
+                            posicionesSec[j] = posInitial + entradasDepositar + 1;
+                            posInitial = posicionesSec[j];
+                        }
+                        
+                        agregados++;
+                    }
+                      
+            posicionesSecuencia.add(posicionesSec);
+            
+        }
+        
+        
+        posicionesSecuencia=new ArrayList<int[]>();                
+        totalEntries=totalEntries+agregados;
+        
+            for (int i = 0; i < tableModelChecks.getRowCount(); i++) {
+           
+            int posInitial = Integer.parseInt(tableModelChecks.getValueAt(i, colPosition).toString());
+            int freqInitial = Integer.parseInt(tableModelChecks.getValueAt(i, colFreq).toString());
+
+            
+            
+            restantes = totalEntries - (posInitial - 1);            
+            
+            int testigosAgregar = (restantes / freqInitial)+1;
+           
+            posicionesSec = new int[testigosAgregar];
+            
+                    for (int j = 0; j < testigosAgregar; j++) {
+
+                        if (j == 0) {
+                            posicionesSec[0] = posInitial;
+                        } else {
+                            posicionesSec[j] = posInitial + entradasDepositar + 1;
+                            posInitial = posicionesSec[j];
+                        }
+                    }
+                      
+            posicionesSecuencia.add(posicionesSec);
+            
+        }
+        
+        sequenceList=new ArrayList<SequenceEntry>();
+          
+  
+        for (int j = 0; j < posicionesSecuencia.size(); j++) {
+           
+            int[] pos = posicionesSecuencia.get(j);
+                                      
+            for (int k = 0; k < pos.length; k++) {
+                
+                SequenceEntry sequenceEntry =new SequenceEntry();
+                sequenceEntry.setPosicion( pos[k]);
+                sequenceEntry.setEntrada(j);                
+                sequenceList.add(sequenceEntry);                
+            }
+        }
+//
+//        
+//        for (int i = 0; i < sequenceList.size(); i++) {
+//             System.out.println("Entrada: "+sequenceList.get(i).getEntrada());  
+//             System.out.println("Posicion: "+sequenceList.get(i).getPosicion());
+//             System.out.println("");
+//            
+//        }
+        
+        return sequenceList;        
+    }
+    
+    
+    
+    
+    private void fillChecks() {
 
 
         GermplasmEntriesTableModelChecks tableModel = (GermplasmEntriesTableModelChecks) this.jTableFinalSource.getModel();
         List<List<Object>> germplasmData = tableModel.getGermplasmData();
         List<List<Object>> germplasmDataTemp = new ArrayList<List<Object>>();
 
+        
+          tableModel = new GermplasmEntriesTableModelChecks(factores, germplasmDataTemp);
+          this.jTableFinal.setModel(tableModel);
+        
         if (this.jTableFinalSource.getRowCount() == 0) {
             tableModel = new GermplasmEntriesTableModelChecks(factores, germplasmDataTemp);
             this.jTableFinal.setModel(tableModel);
@@ -1694,38 +1809,99 @@ public final class addChecksTopComponent extends TopComponent {
                 return;
             }
 
-            int contador = 0;
+            
+             if (checksInSequence()) {
+                 
+                sequenceList= calculaPosicionesSecuencia();
+                posiciones=calculaPosicionesSecuenciaInteger();
+                        
+              Collections.sort(sequenceList, new MyIntComparable());
 
-
-            posiciones = calculaPosiciones();
-
-            for (int i = 0; i < posiciones.size(); i++) {
+              for (int j =0 ; j <sequenceList.size(); j++) {
 
                 List<Object> newData = new ArrayList<Object>();
-                Object[] nuevo = germplasmDataChecks.get(contador).toArray();
-                Object[] temp = nuevo.clone();
-
-                for (int j = 0; j < temp.length; j++) {
-                    newData.add(j, temp[j]);
-
+                
+                Object[] check = germplasmDataChecks.get(sequenceList.get(j).getEntrada()).toArray();                
+                Object[] temp = check.clone();
+                
+                for (int k = 0; k < temp.length; k++) {
+                    newData.add(k, temp[k]);
                 }
 
-                int pos = posiciones.get(i);
-                germplasmDataTemp.add(pos - 1, newData);
-                contador++;
-                if (contador > tableModelChecks.getRowCount() - 1) {
-                    contador = 0;
-                }
+                
+               //System.out.println("Insertando entrada "+sequenceList.get(j).getEntrada() +"   en pos "+(sequenceList.get(j).getPosicion() - 1));
+                
+                int posToAdd=sequenceList.get(j).getPosicion()-1;
+               // System.out.println("POS TO ADD "+posToAdd);
+                
+                germplasmDataTemp.add(posToAdd, newData);
+
+
             }
 
 
+        } 
+            
+            
+            
+            else{
+                int contador = 0;
+                posiciones = calculaPosiciones();
+
+                for (int i = 0; i < posiciones.size(); i++) {
+
+                    List<Object> newData = new ArrayList<Object>();
+                    Object[] nuevo = germplasmDataChecks.get(contador).toArray();
+                    Object[] temp = nuevo.clone();
+
+                    for (int j = 0; j < temp.length; j++) {
+                        newData.add(j, temp[j]);
+
+                    }
+
+                    int pos = posiciones.get(i);
+                    germplasmDataTemp.add(pos - 1, newData);
+                    contador++;
+                    if (contador > tableModelChecks.getRowCount() - 1) {
+                        contador = 0;
+                    }
+                }
+            
+            }
+
         }
+        
+        
+        
+        
+        
+        
         recorreIndices(germplasmDataTemp, colEntry);
 
         assignGermplasmEntries(factores, germplasmDataTemp, colEntry);
 
     }
+    
+    
+    public boolean checksInSequence(){
+        if(this.jRadioButtonPosition.isSelected()){
+            return false;
+        }else{
+            return true;
+        }
+    }
 
+    
+    
+     public class MyIntComparable implements Comparator<SequenceEntry> {
+
+        @Override
+        public int compare(SequenceEntry o1, SequenceEntry o2) {
+            return (o1.getPosicion() < o2.getPosicion() ? -1 : (o1.getPosicion() == o2.getPosicion() ? 0 : 1));
+        }
+    }
+    
+    
     private void fillChecks2() {
         GermplasmEntriesTableModelChecks tableModel = (GermplasmEntriesTableModelChecks) this.jTableFinalSource.getModel();
         List<List<Object>> germplasmData = tableModel.getGermplasmData();
@@ -2022,19 +2198,47 @@ public final class addChecksTopComponent extends TopComponent {
 
         List<List<Object>> toRemoveLocal = new ArrayList<List<Object>>();
         int[] selectedRows = sourceTable.getSelectedRows();
-        for (int i = 0; i < selectedRows.length; i++) {
+        
+        
+       
+        switch (jTabbedPaneSelectChecks.getSelectedIndex()) {
 
-            toAddChecks.add(sourceEntries.get(selectedRows[i]));
-            toRemoveLocal.add(sourceEntries.get(selectedRows[i]));
+            case 0:
+                for (int i = 0; i < selectedRows.length; i++) {
+
+                    toAddChecks.add(sourceEntries.get(selectedRows[i]));
+                    toRemoveLocal.add(sourceEntries.get(selectedRows[i]));
+                }
+                break;
+            case 1:
+                for (int i = 0; i < selectedRows.length; i++) {
+
+                sourceEntries.get(selectedRows[i]).add(1); 
+                sourceEntries.get(selectedRows[i]).add(1); 
+                    
+                    toAddChecks.add(sourceEntries.get(selectedRows[i]));
+                
+                    
+                    toRemoveLocal.add(sourceEntries.get(selectedRows[i]));
+                }
+                break;
         }
+        
+        
+        
+        
+
+        
+        
+        
         sourceEntries.removeAll(toRemoveLocal);
 
         GermplasmEntriesTableModelChecks tableModel = new GermplasmEntriesTableModelChecks(factores, toAddChecks);
         tableModel.setHasChecks(hasChecks);
         jTableFinalChecks.setModel(tableModel);
         sourceTable.getSelectionModel().clearSelection();
-        jTableFinalChecks.updateUI();
-        sourceTable.updateUI();
+      //  jTableFinalChecks.updateUI();
+      //  sourceTable.updateUI();
     }//GEN-LAST:event_jButtonAddChecksActionPerformed
 
     private void btnSearchListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchListActionPerformed
@@ -2584,6 +2788,21 @@ public final class addChecksTopComponent extends TopComponent {
 
     }
 
+     public ArrayList<Integer> calculaPosicionesSecuenciaInteger() {
+          ArrayList<Integer> posiciones = new ArrayList();
+          for (int i = 0; i < sequenceList.size(); i++) {
+             posiciones.add(sequenceList.get(i).getPosicion());
+             
+         }
+          
+          return posiciones;
+     }
+    
+    
+    public int getSequenceListSize(){
+        return sequenceList.size();
+    }
+    
     public ArrayList<Integer> calculaPosiciones() {
 
         ArrayList<Integer> positionsTable = new ArrayList();
