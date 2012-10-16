@@ -89,6 +89,6 @@ public class TestMiddleware extends TestService {
         TestMiddleware testMiddleware = new TestMiddleware();
         testMiddleware.testGermplasmTree();
         //testMiddleware.testgetAttributesByGID();
-       // testMiddleware.testgetAllMethods();
+        //testMiddleware.testgetAllMethods();
     }
 }

@@ -1212,7 +1212,9 @@ public class HelperWorkbook {
                     dataC.setDvalue(" ");
                 }
                 if (data.getValue() != null) {
-                    localServices.addDataC(dataC);
+                    if (dataC.getDvalue() != null && !dataC.getDvalue().trim().isEmpty()) {
+                        localServices.addDataC(dataC);
+                    }
                 }
             }
         }
@@ -1247,8 +1249,11 @@ public class HelperWorkbook {
                 dataCPK.setOunitid(listObsunit.get(instance).getOunitid());
                 dataCPK.setVariatid(variateTemp.getVariatid());
                 dataC.setDataCPK(dataCPK);
-                dataC.setDvalue(HelperFactor.castingToString(constant.getValue()));
-                localServices.addDataC(dataC);
+                String valueToAdd = HelperFactor.castingToString(constant.getValue());
+                if (valueToAdd != null && !valueToAdd.trim().isEmpty()) {
+                    dataC.setDvalue(valueToAdd);
+                    localServices.addDataC(dataC);
+                }
             }
         }
     }

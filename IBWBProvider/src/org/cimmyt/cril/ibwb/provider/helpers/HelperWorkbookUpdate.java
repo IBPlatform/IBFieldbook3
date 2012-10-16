@@ -4,7 +4,6 @@
  */
 package org.cimmyt.cril.ibwb.provider.helpers;
 
-
 import ibfb.domain.core.Study;
 import ibfb.domain.core.*;
 import java.util.ArrayList;
@@ -17,15 +16,16 @@ import org.cimmyt.cril.ibwb.api.CommonServices;
 import org.cimmyt.cril.ibwb.domain.Factor;
 import org.cimmyt.cril.ibwb.domain.*;
 import org.cimmyt.cril.ibwb.domain.Variate;
+import org.cimmyt.cril.ibwb.provider.utils.ConverterDomainToDTO;
 
 /**
  * Utility class to update information for a Fieldbook
+ *
  * @author TMSANCHEZ
  */
 public class HelperWorkbookUpdate {
 
     private static Logger log = Logger.getLogger(HelperWorkbookUpdate.class);
-
     /**
      * Workbook to update
      */
@@ -42,31 +42,27 @@ public class HelperWorkbookUpdate {
      * Proxy to application services to perform operation in local and central
      */
     private AppServices appServices;
-
     public static final String NUMERIC_TYPE = "N";
-    
     public List<Factor> factors = new ArrayList<Factor>();
     private List<Factor> factorsDto = new ArrayList<Factor>();
     private List<Variate> variatesDtoConstants = new ArrayList<Variate>();
     private List<Obsunit> obsUnitList = new ArrayList<Obsunit>();
     private List<Obsunit> obsUnitListTrials = new ArrayList<Obsunit>();
-    
     private Integer effectid;
-    
     public Factor factorStudy = new Factor();
     public Factor factorTrial = new Factor();
     public Factor factorEntry = new Factor();
     public Factor factorPlot = new Factor();
-    
     Map<Integer, Factor> mapaLabes = new HashMap<Integer, Factor>();
     Map<String, Factor> mapaFactorsByName = new HashMap<String, Factor>();
     Map<String, Variate> mapaConstantsByName = new HashMap<String, Variate>();
-    
+
     /**
      * Default Constructor
+     *
      * @param workbook
      * @param localServices
-     * @param appServices 
+     * @param appServices
      */
     public HelperWorkbookUpdate(Workbook workbook, CommonServices localServices, AppServices appServices) {
         this.workbook = workbook;
@@ -80,7 +76,7 @@ public class HelperWorkbookUpdate {
      */
     public void update() {
         // first check if study already exists
-        
+        updateStudy();
         readFactors();
         saveOrUpdateLavelsFactorStudy(workbook.getStudyConditions());
         saveOrUpdateLavelsFactorTrials(workbook.getConditionsData());
@@ -89,28 +85,32 @@ public class HelperWorkbookUpdate {
         saveOrUpdateDataConstatnts(workbook.getConstantsData());
         readObsunitsMeasurement();
         saveOrUpdateVariates();
-        
-        
+
+
     }
-    
-    private void readFactors(){
-        
+
+    private void updateStudy() {
+        org.cimmyt.cril.ibwb.domain.Study dbStudy = ConverterDomainToDTO.getStudy(this.study);
+        localServices.updateStudy(dbStudy);
+    }
+
+    private void readFactors() {
+
         HelperContentEffectidAndFactors hceaf = HelperEffect.getEffectidForMeasurementEffectAndFactors(
                 this.appServices,
                 this.study.getStudyid(),
                 this.factorStudy,
                 this.factorTrial,
                 this.factorEntry,
-                this.factorPlot
-                );
+                this.factorPlot);
         this.effectid = hceaf.getEffectid();
         this.factorsDto = HelperFactor.getFactorsByEffectid(this.effectid, this.appServices);
-        
+
         factorStudy = hceaf.getFactorStudy();
         factorTrial = hceaf.getFactorTrial();
         factorEntry = hceaf.getFactorEntry();
         factorPlot = hceaf.getFactorPlot();
-        
+
         for (Factor factorDto : this.factorsDto) {
             if (factorDto.getLabelid().equals(factorDto.getFactorid())) {
                 this.mapaLabes.put(factorDto.getLabelid(), factorDto);
@@ -120,58 +120,57 @@ public class HelperWorkbookUpdate {
                     this.appServices,
                     801);
             mapaFactorsByName.put(temp.getFname(), temp);
-            if(temp.getLabelid().equals(factorTrial.getLabelid())){
+            if (temp.getLabelid().equals(factorTrial.getLabelid())) {
                 factorTrial = temp;
             }
         }
     }
-    
-    private void readConstants(){
+
+    private void readConstants() {
         // get all variate from database marked as Traits
         this.variatesDtoConstants = this.appServices.getListVariateConstants(this.study.getStudyid());
 
         // fill all variate as traits
         for (Variate variateDTO : this.variatesDtoConstants) {
             variateDTO = HelperVariate.getVariateConstantsFillingFull(
-                variateDTO,
-//                this.localServices,
-//                this.centralServices,
-                this.appServices,
-                802);
+                    variateDTO,
+                    //                this.localServices,
+                    //                this.centralServices,
+                    this.appServices,
+                    802);
             this.mapaConstantsByName.put(variateDTO.getVname(), variateDTO);
         }
     }
-    
-    private void readObsunitsTrials(){
+
+    private void readObsunitsTrials() {
         this.obsUnitListTrials = this.appServices.getObsunitListByStudyTrials(study.getStudyid());
     }
-    
-    private void readObsunitsMeasurement(){
+
+    private void readObsunitsMeasurement() {
         this.obsUnitList = this.appServices.getObsunitListByStudy(study.getStudyid());
     }
-    
+
     private void saveOrUpdateLavelsFactorStudy(
-            List<Condition> conditionsData
-            ) {
+            List<Condition> conditionsData) {
         int levelNoTemporal = 0;
-        
+
         LevelN levelNT = (LevelN) factorTrial.getLevelByIndex(0);
         levelNoTemporal = levelNT.getLevelNPK().getLevelno();
         for (Condition conditionData : conditionsData) {
             Factor factorTemp = (Factor) this.mapaFactorsByName.get(conditionData.getConditionName());
-            
+
             log.info("Savin level for factor: " + conditionData.getConditionName() + "  with value: " + conditionData.getValue());
             if (conditionData.getDataType().equals(NUMERIC_TYPE)) {
-                if(factorTemp.getLevelByIndex(0) != null){
+                if (factorTemp.getLevelByIndex(0) != null) {
                     LevelN levelN = (LevelN) factorTemp.getLevelByIndex(0);
                     levelN.setLvalue(HelperFactor.castingToDouble(conditionData.getValue()));
                     this.localServices.updateLevelN(levelN);
-                }else{
+                } else {
                     LevelN levelN = new LevelN();
                     levelN.setFactorid(factorTemp.getFactorid());
                     if (conditionData.getValue() != null) {
                         levelN.setLvalue(HelperFactor.castingToDouble(conditionData.getValue()));
-                    }else{
+                    } else {
                         levelN.setLvalue(new Double(0));
                     }
                     LevelNPK levelNPK = new LevelNPK();
@@ -181,16 +180,16 @@ public class HelperWorkbookUpdate {
                     this.localServices.addLevelN(levelN);
                 }
             } else {
-                if(factorTemp.getLevelByIndex(0) != null){
+                if (factorTemp.getLevelByIndex(0) != null) {
                     LevelC levelC = (LevelC) factorTemp.getLevelByIndex(0);
                     levelC.setLvalue(HelperFactor.castingToString(conditionData.getValue()));
-                    if(! levelC.getLvalue().isEmpty()){
+                    if (!levelC.getLvalue().isEmpty()) {
                         this.localServices.updateLevelC(levelC);
                     }
-                }else{
+                } else {
                     LevelC levelC = new LevelC();
                     levelC.setFactorid(factorTemp.getFactorid());
-                    
+
                     if (conditionData.getValue() != null) {
                         if (conditionData.getValue().toString().isEmpty()) {
                             levelC.setLvalue(" ");
@@ -209,10 +208,9 @@ public class HelperWorkbookUpdate {
             }
         }
     }
-    
+
     private void saveOrUpdateLavelsFactorTrials(
-            List<Condition> conditionsData
-            ) {
+            List<Condition> conditionsData) {
 
         int instance = 0;
         int levelNoTemporal = 0;
@@ -223,7 +221,7 @@ public class HelperWorkbookUpdate {
         if (conditionsData.size() > 0) {
             nameFactorInitial = conditionsData.get(0).getConditionName();
         }
-        
+
         LevelN levelNT = (LevelN) factorTrial.getLevelByIndex(0);
         levelNoTemporal = levelNT.getLevelNPK().getLevelno();
         boolean inicio = true;
@@ -232,9 +230,9 @@ public class HelperWorkbookUpdate {
             Factor factorTemp = (Factor) this.mapaFactorsByName.get(conditionData.getConditionName());
 
             if (nameFactorInitial.equals(conditionData.getConditionName())) {
-                if(inicio){
+                if (inicio) {
                     inicio = false;
-                }else{
+                } else {
                     instance++;
                     levelNoTemporal--;
                 }
@@ -242,11 +240,11 @@ public class HelperWorkbookUpdate {
             System.out.println("Instance: " + instance + " levelNo: " + levelNoTemporal);
             log.info("Savin level for factor: " + conditionData.getConditionName() + "  with value: " + conditionData.getValue());
             if (conditionData.getDataType().equals(NUMERIC_TYPE)) {
-                if(factorTemp.getLevelByIndex(instance) != null){
+                if (factorTemp.getLevelByIndex(instance) != null) {
                     LevelN levelN = (LevelN) factorTemp.getLevelByIndex(instance);
                     levelN.setLvalue(HelperFactor.castingToDouble(conditionData.getValue()));
                     this.localServices.updateLevelN(levelN);
-                }else{
+                } else {
                     LevelN levelN = new LevelN();
                     levelN.setFactorid(factorTemp.getFactorid());
                     if (conditionData.getConditionName().equals(nameFactorInitial)) {
@@ -264,11 +262,11 @@ public class HelperWorkbookUpdate {
                     this.localServices.addLevelN(levelN);
                 }
             } else {
-                if(factorTemp.getLevelByIndex(instance) != null){
+                if (factorTemp.getLevelByIndex(instance) != null) {
                     LevelC levelC = (LevelC) factorTemp.getLevelByIndex(instance);
                     levelC.setLvalue(HelperFactor.castingToString(conditionData.getValue()));
                     this.localServices.updateLevelC(levelC);
-                }else{
+                } else {
                     LevelC levelC = new LevelC();
                     levelC.setFactorid(factorTemp.getFactorid());
 
@@ -291,10 +289,9 @@ public class HelperWorkbookUpdate {
 
         }
     }
-    
+
     private void saveOrUpdateDataConstatnts(
-            List<Constant> constantsData
-            ) {
+            List<Constant> constantsData) {
 
         int instance = 0;
         String nameVariateInitial = "";
@@ -304,21 +301,21 @@ public class HelperWorkbookUpdate {
             nameVariateInitial = constantsData.get(0).getConstantName();
         }
 
-        for (Constant constant : constantsData){
+        for (Constant constant : constantsData) {
             Variate variateTemp = (Variate) mapaConstantsByName.get(constant.getConstantName());
             if (nameVariateInitial.equals(variateTemp.getVname())) {
-                if(inicio){
+                if (inicio) {
                     inicio = false;
-                }else{
+                } else {
                     instance++;
                 }
             }
             if (variateTemp.getDtype().equals(NUMERIC_TYPE)) {
-                if(variateTemp.getDataByIndex(instance) != null){
+                if (variateTemp.getDataByIndex(instance) != null) {
                     DataN dataN = (DataN) variateTemp.getDataByIndex(instance);
                     dataN.setDvalue(HelperFactor.castingToDouble(constant.getValue()));
                     this.localServices.updateDataN(dataN);
-                }else{
+                } else {
                     DataN dataN = new DataN();
                     DataNPK dataNPK = new DataNPK();
                     dataNPK.setOunitid(this.obsUnitListTrials.get(instance).getOunitid());
@@ -328,24 +325,30 @@ public class HelperWorkbookUpdate {
                     this.localServices.addDataN(dataN);
                 }
             } else {
-                if(variateTemp.getDataByIndex(instance) != null){
+                if (variateTemp.getDataByIndex(instance) != null) {
                     DataC dataC = (DataC) variateTemp.getDataByIndex(instance);
-                    dataC.setDvalue(HelperFactor.castingToString(constant.getValue()));
-                    this.localServices.updateDataC(dataC);
-                }else{
+                    String valueToAdd = HelperFactor.castingToString(constant.getValue());
+                    if (valueToAdd != null && !valueToAdd.trim().isEmpty()) {
+                        dataC.setDvalue(valueToAdd);
+                        this.localServices.updateDataC(dataC);
+                    }
+                } else {
                     DataC dataC = new DataC();
                     DataCPK dataCPK = new DataCPK();
                     dataCPK.setOunitid(this.obsUnitListTrials.get(instance).getOunitid());
                     dataCPK.setVariatid(variateTemp.getVariatid());
                     dataC.setDataCPK(dataCPK);
-                    dataC.setDvalue(HelperFactor.castingToString(constant.getValue()));
-                    this.localServices.addDataC(dataC);
+                    String valueToAdd = HelperFactor.castingToString(constant.getValue());
+                    if (valueToAdd != null && !valueToAdd.trim().isEmpty()) {
+                        dataC.setDvalue(valueToAdd);
+                        this.localServices.addDataC(dataC);
+                    }
                 }
             }
         }
     }
 
-    private void saveOrUpdateVariates(){
+    private void saveOrUpdateVariates() {
         // get all variate from database marked as Traits        
         List<Variate> savedVarietList = savedVarietList = this.appServices.getListVariateTraits(study.getStudyid());
 
@@ -356,7 +359,7 @@ public class HelperWorkbookUpdate {
         }
 
         //TODO: Agregar llamado para obtener el effectid
-        
+
         // then retrieve all obsutit for thata study
 //        this.obsUnitList = this.appServices.getObsunitListByStudy(study.getStudyid());
 
@@ -380,12 +383,13 @@ public class HelperWorkbookUpdate {
             currentObsUnit++;
         }
     }
-    
+
     /**
      * Adds a value to DATA_C or DATA_N table
+     *
      * @param obsunit
      * @param data
-     * @param savedVariate 
+     * @param savedVariate
      */
     private void addDataNorDataC(Obsunit obsunit, MeasurementData data, Variate savedVariate) {
         if (savedVariate != null && data.getValue() != null) {
@@ -409,7 +413,9 @@ public class HelperWorkbookUpdate {
 
                 DataC dataToSave = (DataC) data.getValue();
                 dataC.setDvalue(dataToSave.getDvalue());
-                localServices.addOrUpdateDataC(dataC);
+                if (dataC.getDvalue() != null && !dataC.getDvalue().trim().isEmpty()) {
+                    localServices.addOrUpdateDataC(dataC);
+                }
             }
         }
     }
