@@ -1266,9 +1266,62 @@ public final class NurseryVisualPanel5 extends JPanel {
         return hayRepetidos;
     }
 
+    public ArrayList<SequenceEntry> calculaPosicionesSecuencia() {
+
+        posicionesSecuencia = new ArrayList<int[]>();
+        int restantes = 0;
+
+        this.totalEntries = maximo;
+
+        GermplasmEntriesTableModel tableModelChecks = (GermplasmEntriesTableModel) this.jTableFinalList.getModel();
+
+        int colPosition = tableModelChecks.findColumn("Initial position");
+        int colFreq = tableModelChecks.findColumn("Frequency");
+
+        ArrayList<Integer> posInt = new ArrayList<Integer>();
+
+        int entradasDepositar = (Integer.parseInt(tableModelChecks.getValueAt(0, colFreq).toString())) - 1;
+        int posInitial = Integer.parseInt(tableModelChecks.getValueAt(0, colPosition).toString());
+        int freqInitial = Integer.parseInt(tableModelChecks.getValueAt(0, colFreq).toString());
+        int agregados = 0;
+        int checksToAdd = 0;
+        int posicionActual = posInitial;
+
+        restantes = totalEntries - (posInitial - 1);
+        sequenceList = new ArrayList<SequenceEntry>();
+
+        while (restantes > 0) {
+            if (checksToAdd < tableModelChecks.getRowCount()) {
+                checksToAdd++;
+            }
+            for (int i = 0; i < checksToAdd; i++) {
+
+                if (i > 0) {
+                    posicionActual++;
+                }
+                // System.out.println("Actual: " + posicionActual);
+                posInt.add(posicionActual);
+                SequenceEntry sequenceEntry = new SequenceEntry();
+                sequenceEntry.setPosicion(posicionActual);
+                sequenceEntry.setEntrada(i);
+                sequenceList.add(sequenceEntry);
+            }
+            int temp = (entradasDepositar + 1) - checksToAdd;
+            restantes = restantes - temp;
+            // System.out.println("Quedan: " + restantes);
+            posicionActual = posicionActual + ((entradasDepositar + 1) - (checksToAdd - 1));
+            //  System.out.println("POS ACTUAL: " + posicionActual);
+        }
+
+//         for (int i = 0; i < posInt.size(); i++) {
+//             System.out.println("POSSSS: "+posInt.get(i));
+//             
+//         }
+        return sequenceList;
+    }
+
     
-    
-    public ArrayList<SequenceEntry> calculaPosicionesSecuencia(){
+    public ArrayList<SequenceEntry> calculaPosicionesSecuencia2(){
      
         posicionesSecuencia=new ArrayList<int[]>();
         int restantes = 0;
@@ -1522,27 +1575,25 @@ public final class NurseryVisualPanel5 extends JPanel {
       
             return false;
           }
-        
-        
-        
+
 
         if (this.jRadioButtonSequence.isSelected()) {
-            GermplasmEntriesTableModel tableModelChecks = (GermplasmEntriesTableModel) this.jTableFinalList.getModel();
-            int colPosition = tableModelChecks.findColumn("Initial position");
-
-            ArrayList<Object> posiciones = new ArrayList();
-
-            for (int i = 0; i < jTableFinalList.getRowCount(); i++) {
-                posiciones.add(jTableFinalList.getValueAt(i, colPosition));
-
-            }
-
-            if (hayposicionesRepetidas(posiciones)) {
-                return false;
-            }
-            if (hayPosicionesFueraRango(posiciones)) {
-                return false;
-            }
+//            GermplasmEntriesTableModel tableModelChecks = (GermplasmEntriesTableModel) this.jTableFinalList.getModel();
+//            int colPosition = tableModelChecks.findColumn("Initial position");
+//
+//            ArrayList<Object> posiciones = new ArrayList();
+//
+//            for (int i = 0; i < jTableFinalList.getRowCount(); i++) {
+//                posiciones.add(jTableFinalList.getValueAt(i, colPosition));
+//
+//            }
+//
+//            if (hayposicionesRepetidas(posiciones)) {
+//                return false;
+//            }
+//            if (hayPosicionesFueraRango(posiciones)) {
+//                return false;
+//            }
             return true;
 
 
