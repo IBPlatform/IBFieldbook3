@@ -87,7 +87,7 @@ public class OpenStudyAction extends SystemAction {
                         studyWindow.setStudy(workbook.getStudy());
                         studyWindow.getjTextTrialName().setText(workbook.getStudy().getStudy());
                         studyWindow.setStudyAlreadyExists(true);
-                        fillStudyData(studyWindow);
+                        fillStudyData(studyWindow, workbook.getStudy());
                         studyWindow.assignStudyConditions(workbook.getStudyConditions());
                         //fillStudyConditions(studyWindow, workbook);
                         fillFactores(studyWindow, workbook);
@@ -132,13 +132,20 @@ public class OpenStudyAction extends SystemAction {
         return null;
     }
 
-    private void fillStudyData(StudyEditorTopComponent studyWindow) {
-        studyWindow.setName(JDExpert.studyOBJ.getStudy());
-        studyWindow.jTextFieldStudy.setText(JDExpert.studyOBJ.getStudy());
-        studyWindow.jTextFieldObjective.setText(JDExpert.studyOBJ.getObjective());
-        studyWindow.jTextFieldTitle.setText(JDExpert.studyOBJ.getTitle());
-        Date start = JDExpert.studyOBJ.getStarDate();
-        Date end = JDExpert.studyOBJ.getEndDate();
+    private void fillStudyData(StudyEditorTopComponent studyWindow, ibfb.domain.core.Study study) {
+//        studyWindow.setName(JDExpert.studyOBJ.getStudy());
+//        studyWindow.jTextFieldStudy.setText(JDExpert.studyOBJ.getStudy());
+//        studyWindow.jTextFieldObjective.setText(JDExpert.studyOBJ.getObjective());
+//        studyWindow.jTextFieldTitle.setText(JDExpert.studyOBJ.getTitle());
+//        Date start = JDExpert.studyOBJ.getStarDate();
+//        Date end = JDExpert.studyOBJ.getEndDate();
+        studyWindow.setName(study.getStudy());
+        studyWindow.jTextFieldStudy.setText(study.getStudy());
+        studyWindow.jTextFieldObjective.setText(study.getObjective());
+        studyWindow.jTextFieldTitle.setText(study.getTitle());
+        Date start = study.getStarDate();
+        Date end = study.getEndDate();
+        
         String formato = ConvertUtils.DATE_PATTERN; //"dd-MMM-yyyy";
         SimpleDateFormat sdf = new SimpleDateFormat(formato);
         
