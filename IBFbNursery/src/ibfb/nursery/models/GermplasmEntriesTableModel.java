@@ -16,6 +16,7 @@ public class GermplasmEntriesTableModel extends AbstractTableModel {
     public static final String GID = "GERMPLASMIDDBID";
     public static final String PLOT = "FIELDPLOTNUMBER";
     public static final String CROSS = "CROSSNAMENAMENUMBER";
+    public static final String ISCHECKNUMBER = "CHECKCODE";    
     //  public static final String BCID = "GERMPLASMBCIDDBID";
     private boolean hasChecks = false;
     private List<Factor> factorHeaders;
@@ -27,6 +28,11 @@ public class GermplasmEntriesTableModel extends AbstractTableModel {
     private boolean enabledAmount = false;
     private boolean enabledScale = false;
     private boolean seActualizaGID = false;
+    
+    /**
+     * Mark germplasm entries as Checks?
+     */
+    private boolean markGermplasmAsCheck = false;
     /**
      * To easy retrieving of column indexes
      */
@@ -251,6 +257,16 @@ public class GermplasmEntriesTableModel extends AbstractTableModel {
 
 
             fireTableCellUpdated(rowIndex, columnIndex);
+        } 
+        
+        if (markGermplasmAsCheck) {
+            List<Object> columnValues = germplasmData.get(rowIndex);
+
+            columnValues.set(columnIndex, aValue);
+
+
+            fireTableCellUpdated(rowIndex, columnIndex);
+            
         }
 
     }
@@ -333,4 +349,14 @@ public class GermplasmEntriesTableModel extends AbstractTableModel {
             fireTableStructureChanged();
         }
     }
+
+    public boolean isMarkGermplasmAsCheck() {
+        return markGermplasmAsCheck;
+    }
+
+    public void setMarkGermplasmAsCheck(boolean markGermplasmAsCheck) {
+        this.markGermplasmAsCheck = markGermplasmAsCheck;
+    }
+    
+    
 }

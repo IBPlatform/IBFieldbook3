@@ -307,7 +307,7 @@ public final class NurseryEditorTopComponent extends TopComponent {
         int checkColum = tableModel.findColumn("CHECK");
         if (checkColum > 0) {
             for (int i = 0; i < posiciones.size(); i++) {
-                // jTableObservations.setValueAt("OK", posiciones.get(i), checkColum);         
+                 jTableObservations.setValueAt("OK", posiciones.get(i), checkColum);         
             }
 
         }
@@ -2554,8 +2554,7 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
         }
 
         // fillChecksValue();
-
-
+        markChecksInGermplasmList();
     }
 
     @Override
@@ -2611,6 +2610,7 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
             model.addRow(rowToAdd);
 
         }
+        markChecksInGermplasmList();
     }
 
     private String giveMaxString(int maximo) {
@@ -3191,6 +3191,25 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
             jtable.getCellEditor().stopCellEditing();
         }
     }
+    
+    private void markChecksInGermplasmList() {
+
+        GermplasmEntriesTableModel tableModel = (GermplasmEntriesTableModel) this.jTableEntries.getModel();
+        tableModel.setMarkGermplasmAsCheck(true);
+
+        int checkColum = tableModel.getHeaderIndex(GermplasmEntriesTableModel.ISCHECKNUMBER);
+        // first clear all "is check values
+        for (int row = 0; row < tableModel.getRowCount(); row++) {
+            tableModel.setValueAt("", row, checkColum);
+        }
+        // then assign check positions
+        if (checkColum > 0) {
+            for (int i = 0; i < posiciones.size(); i++) {
+                tableModel.setValueAt("is check", posiciones.get(i)-1, checkColum);
+            }
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JPanel JPanelData;
     private javax.swing.ButtonGroup buttonGroup1;

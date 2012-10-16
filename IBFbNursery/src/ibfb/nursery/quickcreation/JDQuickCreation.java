@@ -56,7 +56,7 @@ public class JDQuickCreation extends javax.swing.JDialog {
     private ArrayList<String> children = new ArrayList<String>();
     private boolean existenConstantes = false;
     private boolean existenConditions = false;
-    private boolean isForWheat = true;
+    private boolean isForWheat = false;
     private String[] nameColumn = {"Cross Name", "Selection History", "Pedigree", "CID", "SID", "GID", "INTRID", "TID", "ENT", "Folio", "Specific Name", "Name Abbreviation", "Cross Year", "Cross Location", "Cross Country", "Cross Organization", "Cross Program", "FAO In-trust", "Selection Year", "Selection Location", "Selection Country", "Name Country", "Name Year", "FAO designation Date", "24 disp", "25 disp"};
     private ArrayList<String> wheatColumns;
     private ArrayList<String> wheatColumnsforSearch;

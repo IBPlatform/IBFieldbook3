@@ -93,7 +93,7 @@ public class OpenNurseryAction extends SystemAction {
                         nurseryWindow.getjTextFieldNurseryName().setText(workbook.getStudy().getStudy());
                         nurseryWindow.setName(workbook.getStudy().getStudy());
                         nurseryWindow.setStudyAlreadyExists(true);
-                        fillStudyData(nurseryWindow);
+                        fillStudyData(nurseryWindow,workbook.getStudy());
                         nurseryWindow.assignStudyConditions(workbook.getStudyConditions());
                         //fillStudyConditions(studyWindow, workbook);
                       
@@ -146,13 +146,21 @@ public class OpenNurseryAction extends SystemAction {
         return null;
     }
 
-    private void fillStudyData(NurseryEditorTopComponent nurseryWindow) {
-        nurseryWindow.setName(SelectedStudy.selected.getStudy());
-        nurseryWindow.jTextFieldStudy.setText(SelectedStudy.selected.getStudy());
-        nurseryWindow.jTextFieldObjective.setText(SelectedStudy.selected.getStudy());
-        nurseryWindow.jTextFieldTitle.setText(SelectedStudy.selected.getStudy());
-        Date start = SelectedStudy.selected.getStarDate();
-        Date end = SelectedStudy.selected.getEndDate();
+    private void fillStudyData(NurseryEditorTopComponent nurseryWindow,ibfb.domain.core.Study study) {
+//        nurseryWindow.setName(SelectedStudy.selected.getStudy());
+//        nurseryWindow.jTextFieldStudy.setText(SelectedStudy.selected.getStudy());
+//        nurseryWindow.jTextFieldObjective.setText(SelectedStudy.selected.getStudy());
+//        nurseryWindow.jTextFieldTitle.setText(SelectedStudy.selected.getStudy());
+//        Date start = SelectedStudy.selected.getStarDate();
+//        Date end = SelectedStudy.selected.getEndDate();
+//        String formato = ConvertUtils.DATE_PATTERN;
+//        SimpleDateFormat sdf = new SimpleDateFormat(formato);
+        nurseryWindow.setName(study.getStudy());
+        nurseryWindow.jTextFieldStudy.setText(study.getStudy());
+        nurseryWindow.jTextFieldObjective.setText(study.getObjective());
+        nurseryWindow.jTextFieldTitle.setText(study.getTitle());
+        Date start = study.getStarDate();
+        Date end = study.getEndDate();
         String formato = ConvertUtils.DATE_PATTERN;
         SimpleDateFormat sdf = new SimpleDateFormat(formato);
 
