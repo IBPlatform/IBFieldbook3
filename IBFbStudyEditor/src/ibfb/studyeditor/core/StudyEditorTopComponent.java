@@ -239,6 +239,8 @@ public final class StudyEditorTopComponent extends TopComponent {
         jRadioButtonViewAllTrialStudy.setVisible(false);
         jSpinnerTrialStudy.setVisible(false);
         pnlExpConditionTrial.setVisible(false);
+        
+        jTabbedPaneEditor.setEnabledAt(8, false);
     }
 
     public ArrayList<String> getChildren() {

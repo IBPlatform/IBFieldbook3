@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.beanutils.BeanUtils;
 import org.cimmyt.cril.ibwb.api.AppServicesProxy;
+import org.cimmyt.cril.ibwb.commongui.ConvertUtils;
 import org.openide.util.Exceptions;
 
 /**
@@ -101,13 +102,6 @@ public class WorkbookSavingHelper {
         study.setObjective(studyEditor.jTextFieldObjective.getText());
         study.setPmkey(studyEditor.jTextFieldPMKey.getText());
 
-        //TODO: Check date converter
-        //study.setStarDate(studyEditor.jDateChooserStart.getText());
-        //study.setEndDate(studyEditor.jDateChooserEnd.getText());
-
-
-
-
 
         study = studyEditor.getStudy();
         study.setStudy(studyEditor.getStudyInfo().getStudy());
@@ -119,6 +113,14 @@ public class WorkbookSavingHelper {
             //org.cimmyt.cril.ibwb.domain.Study existingStudy = AppServicesProxy.getDefault().appServices().getStudyByName(studyEditor.jTextFieldStudy.getText().trim());
             org.cimmyt.cril.ibwb.domain.Study existingStudy = AppServicesProxy.getDefault().appServices().getStudyByName(studyEditor.getjTextTrialName().getText().trim());
             study.setStudyid(existingStudy.getStudyid());
+            study.setStudy(existingStudy.getSname());
+            study.setStudy(studyEditor.getjTextTrialName().getText());
+            study.setTitle(studyEditor.jTextFieldTitle.getText());
+            study.setObjective(studyEditor.jTextFieldObjective.getText());
+            study.setPmkey(studyEditor.jTextFieldPMKey.getText());
+            study.setStarDate(ConvertUtils.getIntegerAsDate(existingStudy.getSdate()));
+            study.setEndDate(ConvertUtils.getIntegerAsDate(existingStudy.getEdate()));
+            study.setShierarchy(existingStudy.getShierarchy());            
         } else {
             study.setStudyid(null);
         }

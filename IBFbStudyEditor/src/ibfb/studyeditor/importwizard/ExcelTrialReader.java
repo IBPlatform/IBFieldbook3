@@ -708,20 +708,38 @@ public class ExcelTrialReader {
         boolean correctDesigAndGid = true;
         int desigColumn = observationsModel.getHeaderIndex(ObservationsTableModel.DESIG);
         int gidColumn = observationsModel.getHeaderIndex(ObservationsTableModel.GID);
+        int trialColumn = observationsModel.getHeaderIndex(ObservationsTableModel.TRIAL);
         int totalObservations = observationsModel.getRowsPerTrial().get(trial);
+        int rowToIncrement = 0;        
+        if (trial>1 ) {
+            rowToIncrement = totalObservations * (trial - 1);
+        }
 
         for (int row = 0; row <= totalObservations; row++) {
             Row fila = sheetObservation.getRow(row + 1);
             if (fila != null) {
-                String desigFromExcel = fila.getCell(desigColumn - 1).getStringCellValue();
-                String gidFromExcel = fila.getCell(gidColumn - 1).getStringCellValue();
+                // validate same trial
+                String trialFromGrid = observationsModel.getValueAt(row+rowToIncrement, trialColumn).toString();
+                if (Integer.parseInt(trialFromGrid) == trial) {
+                    String desigFromExcel = fila.getCell(desigColumn - 1).getStringCellValue();
+                    String gidFromExcel = "";
+                    if (fila.getCell(gidColumn - 1).getCellType() == Cell.CELL_TYPE_STRING){
+                     gidFromExcel = fila.getCell(gidColumn - 1).getStringCellValue();
+                    } else if (fila.getCell(gidColumn - 1).getCellType() == Cell.CELL_TYPE_NUMERIC){
+                        Double gidValue = fila.getCell(gidColumn - 1).getNumericCellValue();
+                        gidFromExcel = DecimalUtils.getValueAsInteger(gidValue).toString();
+                    }
 
-                String desigFromGrid = observationsModel.getValueAt(row, desigColumn).toString();
-                String gidFromGrid = observationsModel.getValueAt(row, gidColumn).toString();
 
-                if (!desigFromGrid.equals(desigFromExcel) || !gidFromGrid.equals(gidFromExcel)) {
-                    correctDesigAndGid = false;
-                    break;
+                    String desigFromGrid = observationsModel.getValueAt(row+rowToIncrement, desigColumn).toString();
+                    String gidFromGrid = observationsModel.getValueAt(row+rowToIncrement, gidColumn).toString();
+
+                    
+
+                    if (!desigFromGrid.equals(desigFromExcel) || !gidFromGrid.equals(gidFromExcel) ) {
+                        correctDesigAndGid = false;
+                        break;
+                    }
                 }
             }
         }
