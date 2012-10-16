@@ -36,8 +36,6 @@ import org.cimmyt.cril.ibwb.commongui.OSUtils;
 import org.cimmyt.cril.ibwb.domain.Listdata;
 import org.cimmyt.cril.ibwb.domain.ListdataPK;
 import org.cimmyt.cril.ibwb.domain.Listnms;
-import org.generationcp.middleware.exceptions.QueryException;
-import org.generationcp.middleware.pojos.GermplasmPedigreeTree;
 import org.generationcp.middleware.pojos.GermplasmPedigreeTreeNode;
 import org.netbeans.api.settings.ConvertAsProperties;
 import org.openide.DialogDisplayer;
@@ -48,7 +46,6 @@ import org.openide.util.NbBundle;
 import org.openide.windows.TopComponent;
 import ibfb.germplasmlist.utils.SequenceEntry;
 import java.util.*;
-import javax.swing.table.AbstractTableModel;
 /**
  * Top component which displays something.
  */
@@ -1651,9 +1648,9 @@ public final class addChecksTopComponent extends TopComponent {
 
     
     
-     public ArrayList<SequenceEntry> calculaPosicionesSecuencia(){
-     
-        posicionesSecuencia=new ArrayList<int[]>();
+    public ArrayList<SequenceEntry> calculaPosicionesSecuencia() {
+
+        posicionesSecuencia = new ArrayList<int[]>();
         int restantes = 0;
 
         this.totalEntries = maximo;
@@ -1661,98 +1658,50 @@ public final class addChecksTopComponent extends TopComponent {
         GermplasmEntriesTableModelChecks tableModelChecks = (GermplasmEntriesTableModelChecks) this.jTableFinalChecks.getModel();
 
         int colPosition = tableModelChecks.findColumn("Initial position");
-
         int colFreq = tableModelChecks.findColumn("Frequency");
 
-        int entradasDepositar=(Integer.parseInt(tableModelChecks.getValueAt(0, colFreq).toString()))-1;
-        int agregados=0;
-        
-        
-        for (int i = 0; i < tableModelChecks.getRowCount(); i++) {
-           
-            int posInitial = Integer.parseInt(tableModelChecks.getValueAt(i, colPosition).toString());
-            int freqInitial = Integer.parseInt(tableModelChecks.getValueAt(i, colFreq).toString());
-    
-            restantes = totalEntries - (posInitial - 1);
-       
-            int testigosAgregar = (restantes / freqInitial)+1;
-           
-            posicionesSec = new int[testigosAgregar];
-            
-                    for (int j = 0; j < testigosAgregar; j++) {
+        ArrayList<Integer> posInt = new ArrayList<Integer>();
 
-                        if (j == 0) {
-                            posicionesSec[0] = posInitial;
-                        } else {
-                            posicionesSec[j] = posInitial + entradasDepositar + 1;
-                            posInitial = posicionesSec[j];
-                        }
-                        
-                        agregados++;
-                    }
-                      
-            posicionesSecuencia.add(posicionesSec);
-            
-        }
-        
-        
-        posicionesSecuencia=new ArrayList<int[]>();                
-        totalEntries=totalEntries+agregados;
-        
-            for (int i = 0; i < tableModelChecks.getRowCount(); i++) {
-           
-            int posInitial = Integer.parseInt(tableModelChecks.getValueAt(i, colPosition).toString());
-            int freqInitial = Integer.parseInt(tableModelChecks.getValueAt(i, colFreq).toString());
+        int entradasDepositar = (Integer.parseInt(tableModelChecks.getValueAt(0, colFreq).toString())) - 1;
+        int posInitial = Integer.parseInt(tableModelChecks.getValueAt(0, colPosition).toString());
+        int freqInitial = Integer.parseInt(tableModelChecks.getValueAt(0, colFreq).toString());
+        int agregados = 0;
+        int checksToAdd = 0;
+        int posicionActual = posInitial;
 
-            
-            
-            restantes = totalEntries - (posInitial - 1);            
-            
-            int testigosAgregar = (restantes / freqInitial)+1;
-           
-            posicionesSec = new int[testigosAgregar];
-            
-                    for (int j = 0; j < testigosAgregar; j++) {
+        restantes = totalEntries - (posInitial - 1);
+        sequenceList = new ArrayList<SequenceEntry>();
 
-                        if (j == 0) {
-                            posicionesSec[0] = posInitial;
-                        } else {
-                            posicionesSec[j] = posInitial + entradasDepositar + 1;
-                            posInitial = posicionesSec[j];
-                        }
-                    }
-                      
-            posicionesSecuencia.add(posicionesSec);
-            
-        }
-        
-        sequenceList=new ArrayList<SequenceEntry>();
-          
-  
-        for (int j = 0; j < posicionesSecuencia.size(); j++) {
-           
-            int[] pos = posicionesSecuencia.get(j);
-                                      
-            for (int k = 0; k < pos.length; k++) {
-                
-                SequenceEntry sequenceEntry =new SequenceEntry();
-                sequenceEntry.setPosicion( pos[k]);
-                sequenceEntry.setEntrada(j);                
-                sequenceList.add(sequenceEntry);                
+        while (restantes > 0) {
+            if (checksToAdd < tableModelChecks.getRowCount()) {
+                checksToAdd++;
             }
+            for (int i = 0; i < checksToAdd; i++) {
+
+                if (i > 0) {
+                    posicionActual++;
+                }
+                // System.out.println("Actual: " + posicionActual);
+                posInt.add(posicionActual);
+                SequenceEntry sequenceEntry = new SequenceEntry();
+                sequenceEntry.setPosicion(posicionActual);
+                sequenceEntry.setEntrada(i);
+                sequenceList.add(sequenceEntry);
+            }
+            int temp = (entradasDepositar + 1) - checksToAdd;
+            restantes = restantes - temp;
+            // System.out.println("Quedan: " + restantes);
+            posicionActual = posicionActual + ((entradasDepositar + 1) - (checksToAdd - 1));
+            //  System.out.println("POS ACTUAL: " + posicionActual);
         }
-//
-//        
-//        for (int i = 0; i < sequenceList.size(); i++) {
-//             System.out.println("Entrada: "+sequenceList.get(i).getEntrada());  
-//             System.out.println("Posicion: "+sequenceList.get(i).getPosicion());
-//             System.out.println("");
-//            
-//        }
-        
-        return sequenceList;        
+
+//         for (int i = 0; i < posInt.size(); i++) {
+//             System.out.println("POSSSS: "+posInt.get(i));
+//             
+//         }
+        return sequenceList;
     }
-    
+
     
     
     
@@ -2647,6 +2596,7 @@ public final class addChecksTopComponent extends TopComponent {
 
     public boolean validateTable() {
 
+      
         if (this.jTableFinalChecks.getRowCount() == 0) {
 
             return true;
@@ -2657,26 +2607,23 @@ public final class addChecksTopComponent extends TopComponent {
             return false;
         }
 
-
-
-
         if (this.jRadioButtonSequence.isSelected()) {
-            GermplasmEntriesTableModelChecks tableModelChecks = (GermplasmEntriesTableModelChecks) this.jTableFinalChecks.getModel();
-            int colPosition = tableModelChecks.findColumn("Initial position");
-
-            ArrayList<Object> posiciones = new ArrayList();
-
-            for (int i = 0; i < jTableFinalChecks.getRowCount(); i++) {
-                posiciones.add(jTableFinalChecks.getValueAt(i, colPosition));
-
-            }
-
-            if (hayposicionesRepetidas(posiciones)) {
-                return false;
-            }
-            if (hayPosicionesFueraRango(posiciones)) {
-                return false;
-            }
+//            GermplasmEntriesTableModelChecks tableModelChecks = (GermplasmEntriesTableModelChecks) this.jTableFinalChecks.getModel();
+//            int colPosition = tableModelChecks.findColumn("Initial position");
+//
+//            ArrayList<Object> posiciones = new ArrayList();
+//
+//            for (int i = 0; i < jTableFinalChecks.getRowCount(); i++) {
+//                posiciones.add(jTableFinalChecks.getValueAt(i, colPosition));
+//
+//            }
+//
+//            if (hayposicionesRepetidas(posiciones)) {
+//                return false;
+//            }
+//            if (hayPosicionesFueraRango(posiciones)) {
+//                return false;
+//            }
             return true;
 
 
