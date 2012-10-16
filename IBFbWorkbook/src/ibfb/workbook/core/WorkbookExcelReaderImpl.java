@@ -116,7 +116,7 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
              }else{
                 theCrop = OTHERCROPS; 
              }          
-        theCrop=MAIZE; 
+        theCrop=WHEAT; 
         
         return theCrop;
     }
