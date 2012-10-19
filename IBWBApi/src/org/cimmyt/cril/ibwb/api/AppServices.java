@@ -8,11 +8,14 @@ import java.sql.ResultSet;
 import java.util.List;
 
 import org.cimmyt.cril.ibwb.domain.*;
+import org.cimmyt.cril.ibwb.domain.constants.TypeDB;
 import org.cimmyt.cril.ibwb.domain.inventory.InventoryData;
 import org.cimmyt.cril.ibwb.domain.util.WheatData;
 import org.generationcp.middleware.manager.api.GermplasmDataManager;
 
 public interface AppServices {
+    
+    public TypeDB getTypeDB();
 
     //-----------------------------------Atributs---------------------------
     /**
