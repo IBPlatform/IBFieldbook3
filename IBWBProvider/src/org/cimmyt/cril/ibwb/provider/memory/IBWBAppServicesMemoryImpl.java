@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.cimmyt.cril.ibwb.api.AppServices;
 import org.cimmyt.cril.ibwb.domain.*;
+import org.cimmyt.cril.ibwb.domain.constants.TypeDB;
 import org.cimmyt.cril.ibwb.domain.inventory.InventoryData;
 import org.cimmyt.cril.ibwb.domain.util.WheatData;
 import org.generationcp.middleware.manager.api.GermplasmDataManager;
@@ -1357,6 +1358,11 @@ public class IBWBAppServicesMemoryImpl implements AppServices {
 
     @Override
     public boolean existGermplasmListName(String listName) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public TypeDB getTypeDB() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 

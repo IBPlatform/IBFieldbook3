@@ -12,6 +12,7 @@ import org.cimmyt.cril.ibwb.api.CommonServices;
 import org.cimmyt.cril.ibwb.domain.*;
 import org.cimmyt.cril.ibwb.domain.inventory.InventoryData;
 import org.cimmyt.cril.ibwb.domain.util.WheatData;
+import org.cimmyt.cril.ibwb.domain.constants.TypeDB;
 import org.cimmyt.cril.ibwb.provider.datasources.IBPMiddlewareClient;
 import org.cimmyt.cril.ibwb.provider.helpers.*;
 import org.generationcp.middleware.manager.api.GermplasmDataManager;
@@ -25,6 +26,7 @@ public class IBWBAppServicesImpl implements AppServices {
     private static Logger log = Logger.getLogger(IBWBAppServicesImpl.class);
     private CommonServices serviciosLocal;
     private CommonServices serviciosCentral;
+    private TypeDB typeDB;
 
     public static AppServices getIBWBAppServices() {
         ApplicationContext context = new ClassPathXmlApplicationContext("ibwApiApplicationContext.xml");
@@ -2356,7 +2358,25 @@ public class IBWBAppServicesImpl implements AppServices {
      */
     @Override
     public void createTraitsTables() {
-
+        
+        List<Instln> listaInstlns = serviciosCentral.getInstlnList();
+        if(listaInstlns != null){
+            if(listaInstlns.isEmpty()){
+                typeDB = TypeDB.OTHER;
+            }else{
+                Instln instln = listaInstlns.get(0);
+                if(instln.getIdesc().contains(TypeDB.IWIS.getNombre())){
+                    typeDB = TypeDB.IWIS;
+                }else if(instln.getIdesc().contains(TypeDB.IMIS.getNombre())){
+                    typeDB = TypeDB.IMIS;
+                }else{
+                    typeDB = TypeDB.OTHER;
+                }
+            }
+        }else{
+            typeDB = TypeDB.OTHER;
+        }
+        
         if (!serviciosCentral.existsTratisTable()) {
             serviciosCentral.createTraitsTables();
             MigrateData.insertScaleGroupToScales(serviciosCentral);
@@ -3032,5 +3052,19 @@ public class IBWBAppServicesImpl implements AppServices {
     @Override
     public GermplasmDataManager getGermplasmDataManager() {
         return ibpMiddlewareClient.getGermplasmDataManager();
+    }
+
+    /**
+     * @return the typeDB
+     */
+    public TypeDB getTypeDB() {
+        return typeDB;
+    }
+
+    /**
+     * @param typeDB the typeDB to set
+     */
+    public void setTypeDB(TypeDB typeDB) {
+        this.typeDB = typeDB;
     }
 }
