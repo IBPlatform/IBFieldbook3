@@ -10,9 +10,9 @@ package org.cimmyt.cril.ibwb.domain.constants;
  */
 public enum TypeDB {
     
-    IWIS(1, "IWIS"),
-    IMIS(2, "IMIS"),
-    OTHER(0, "OTHER");
+    IWIS(0, "IWIS"),
+    IMIS(1, "IMIS"),
+    OTHER(2, "OTHER");
     
     private Integer type;
     private String nombre;
