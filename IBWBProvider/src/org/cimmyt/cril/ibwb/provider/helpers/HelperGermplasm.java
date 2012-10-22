@@ -939,7 +939,7 @@ public class HelperGermplasm {
                         //TODO : Female is a cross - get maternal grand parents
                         Germplsm gff = appServices.getGermplsm(gs.getGermplsm().getGpid1());
                         Germplsm gfm = appServices.getGermplsm(gs.getGermplsm().getGpid2());
-                        if(gff.getGid() == gs.getGermplsmMale().getGid() || gfm.getGchange() == gs.getGermplsmMale().getGid()){
+                        if(gff.getGid() == gs.getGermplsmMale().getGid() || gfm.getGid() == gs.getGermplsmMale().getGid()){
                             gs.setMethodGermplasm(107);//If one maternal grandparent is the same as the father - backcross
                             gs.setCharBCID("M");
                         }else{
