@@ -26,6 +26,7 @@
             </test-dependencies>
             <public-packages>
                 <package>org.cimmyt.cril.ibwb.domain</package>
+                <package>org.cimmyt.cril.ibwb.domain.constants</package>
                 <package>org.cimmyt.cril.ibwb.domain.filter</package>
                 <package>org.cimmyt.cril.ibwb.domain.inventory</package>
                 <package>org.cimmyt.cril.ibwb.domain.util</package>
