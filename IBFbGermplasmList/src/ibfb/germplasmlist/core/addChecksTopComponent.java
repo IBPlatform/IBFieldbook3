@@ -1443,7 +1443,7 @@ public final class addChecksTopComponent extends TopComponent {
                     }
                 }
             }
-            listdata.setGrpname("grp");
+            listdata.setGrpname("");
 
 
             listdata.setLrstatus(0);      //*
@@ -2446,14 +2446,17 @@ public final class addChecksTopComponent extends TopComponent {
 
         }
 
+        int rowNumber = 1;
         for (int rowIndex = 0; rowIndex < dataList.size(); rowIndex++) {
             List<Object> columnList = dataList.get(rowIndex);
             String sourceText = (String) columnList.get(SOURCE_COLUMN);
+            
             if (sourceText == null) {
-                columnList.set(SOURCE_COLUMN, listName + ":" + rowIndex);
+                columnList.set(SOURCE_COLUMN, listName + ":" + rowNumber);
             } else if (sourceText.isEmpty()) {
-                columnList.set(SOURCE_COLUMN, listName + ":" + rowIndex);
+                columnList.set(SOURCE_COLUMN, listName + ":" + rowNumber);
             }
+            rowNumber++;
         }
 
     }
