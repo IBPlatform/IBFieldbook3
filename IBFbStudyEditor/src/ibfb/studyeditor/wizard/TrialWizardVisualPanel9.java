@@ -1,6 +1,7 @@
 package ibfb.studyeditor.wizard;
 
 import ibfb.domain.core.DesignBean;
+import ibfb.domain.core.Workbook;
 import ibfb.studyeditor.core.StudyEditorTopComponent;
 import ibfb.studyeditor.core.model.DesignTableModel;
 import ibfb.studyeditor.core.model.JTableUtils;
@@ -393,6 +394,9 @@ public final class TrialWizardVisualPanel9 extends JPanel {
         int square = (int) Math.sqrt(Integer.parseInt(this.jTextFieldEntries.getText()));
         boolean conLattice = false;
         boolean conAlpha = false;
+        boolean conRCBD = false;
+        boolean conUnreplicated = false;
+
         designsUtils.setGermplasmEntries(Integer.parseInt(this.jTextFieldEntries.getText()));
 
 
@@ -405,14 +409,74 @@ public final class TrialWizardVisualPanel9 extends JPanel {
             conAlpha = false;
         }
 
+
+
+        boolean hasBLOCKfactor = false;
+        boolean hasREPLICATIONfactor = false;
+        boolean hasFIELDfactorfactor = false;
+        boolean hasCOLfactorfactor = false;
+        boolean hasROWfactorfactor = false;
+
+
+        Workbook myWorkbook = TrialWizardWizardIterator.myExcelReader.getMyWorkbook();
+
+        for (int i = 0; i < myWorkbook.getFactors().size(); i++) {
+            System.out.println(myWorkbook.getFactors().get(i).toString());
+
+            if (myWorkbook.getFactors().get(i).getProperty().equals("FIELD PLOT")) {
+                hasFIELDfactorfactor = true;
+            }
+
+            if (myWorkbook.getFactors().get(i).getProperty().equals("BLOCK")) {
+                hasBLOCKfactor = true;
+            }
+
+            if (myWorkbook.getFactors().get(i).getProperty().equals("REPLICATION")) {
+                hasREPLICATIONfactor = true;
+            }
+
+            if (myWorkbook.getFactors().get(i).getProperty().equals("COLUMN")) {
+                hasCOLfactorfactor = true;
+            }
+
+            if (myWorkbook.getFactors().get(i).getProperty().equals("ROW")) {
+                hasROWfactorfactor = true;
+            }
+        }
+
         if (Math.pow(square, 2) == Integer.parseInt(this.jTextFieldEntries.getText())) {
-            conLattice = true;
+            if (hasCOLfactorfactor && hasROWfactorfactor) {
+                conLattice = true;
+            } else {
+                conLattice = false;
+            }
         }
 
 
         conAlpha = designsUtils.alphaIsValid(numEntries);
 
-        String inicio = designsUtils.assignMainCellEditor(conAlpha, conLattice);
+        if (conAlpha && hasBLOCKfactor) {
+            conAlpha = true;
+        } else {
+            conAlpha = false;
+        }
+
+
+        if (hasREPLICATIONfactor) {
+            conRCBD = true;
+        }
+
+
+        if (hasFIELDfactorfactor) {
+            conUnreplicated = true;
+        }
+
+
+        System.out.println("DISEÑO");
+        System.out.println("conAlpha: " + conAlpha + " conlatice: " + conLattice + " conRCBD: " + conRCBD + " conUnRep: " + conUnreplicated);
+        System.out.println("INSTANCES: " + instances);
+
+        String inicio = designsUtils.assignMainCellEditor(conAlpha, conLattice, conRCBD, conUnreplicated);
 
         for (int j = 0; j < instances; j++) {
             this.jTableDesign.setValueAt(inicio, j, 1);
@@ -421,7 +485,6 @@ public final class TrialWizardVisualPanel9 extends JPanel {
             this.jTableDesign.setValueAt(null, j, 4);
             this.jTableDesign.setValueAt(null, j, 5);
         }
-
 
         SpinnerModel modeloDesign = jSpinnerTrial.getModel();
         studyWindow.jSpinnerTrialStudy.setModel(modeloDesign);
@@ -435,7 +498,6 @@ public final class TrialWizardVisualPanel9 extends JPanel {
             checkTable();
             trialWizardWizardPanel9.change();
         }
-
         sorter = new TableRowSorter<TableModel>(modeloTabla);
         this.jTableDesign.setRowSorter(sorter);
         deshabilitaSorters();

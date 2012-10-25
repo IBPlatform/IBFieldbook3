@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package ibfb.studyeditor.core.model;
 
 import ibfb.domain.core.Condition;
@@ -40,20 +37,11 @@ public class ObservationsTableModel extends AbstractTableModel {
     public static final String ROW = "ROWINLAYOUTNUMBER";
     public static final String COL = "COLUMNINLAYOUTNUMBER";
     public static boolean isFromCrossInfo = false;
-   
-    
-    
-    
-    
-    
     
     /**
      * Prefix to store header index in map for factors
      */
-   
-    
-
-    
+  
     private static final String FACTOR_PREFIX = "FACTOR_";
     /**
      * Prefix to store header index in map for variates
@@ -88,6 +76,18 @@ public class ObservationsTableModel extends AbstractTableModel {
      *
      * @param headers
      */
+    
+    private boolean isMasterSheet=false;
+
+    public boolean isMasterSheet() {
+        return isMasterSheet;
+    }
+
+    public void setIsMasterSheet(boolean isMasterSheet) {
+        this.isMasterSheet = isMasterSheet;
+    }
+    
+    
     public ObservationsTableModel(Workbook workbook, List<Variate> variateList) {
         this.workbook = workbook;
         this.variateList = variateList;
@@ -282,6 +282,11 @@ public class ObservationsTableModel extends AbstractTableModel {
     @Override
     public boolean isCellEditable(int rowIndex, int columnIndex) {
         // only cells with a variate column are editable
+        
+        if(isMasterSheet()){
+            return false;
+        }
+        
         Object columnObject = headers.get(columnIndex);
         boolean cellEditable = columnObject instanceof Variate;
         return cellEditable;

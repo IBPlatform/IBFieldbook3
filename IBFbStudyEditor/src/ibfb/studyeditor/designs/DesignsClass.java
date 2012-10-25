@@ -7,6 +7,7 @@ import ibfb.studyeditor.core.model.GermplasmEntriesTableModel;
 import ibfb.studyeditor.core.model.ObservationsTableModel;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -48,9 +49,9 @@ public class DesignsClass {
 
     public void runR_latticeWindows(int treatments, int rep, int blocksize) {
 
-         Random aleatorio = new Random(System.currentTimeMillis());
+        Random aleatorio = new Random(System.currentTimeMillis());
         int newSeed = (int) (aleatorio.nextDouble() * 200 + 1);
-        
+
         String myCSVFile = "lattice.csv";
         FileWriter fichero = null;
         PrintWriter pw = null;
@@ -93,7 +94,7 @@ public class DesignsClass {
             pw.println();
             pw.println("library(agricolae)");
             pw.println("k <-" + blocksize);
-            pw.println("planLattice <- design.lattice(k, seed="+newSeed+",type=\"" + type + "\", number=1)");
+            pw.println("planLattice <- design.lattice(k, seed=" + newSeed + ",type=\"" + type + "\", number=1)");
             pw.println("setwd" + "(\"C:/R\")");
             pw.println("write.csv(planLattice,\"" + myCSVFile + "\",row.names=FALSE)");
 
@@ -127,7 +128,7 @@ public class DesignsClass {
         int newSeed = (int) (aleatorio.nextDouble() * 200 + 1);
 
 
-        String myCSVFile = "alpha"+trial+".csv";
+        String myCSVFile = "alpha" + trial + ".csv";
         FileWriter fichero = null;
         PrintWriter pw = null;
         String path = "";
@@ -502,7 +503,7 @@ public class DesignsClass {
         GermplasmEntriesTableModel entriesTableModel = (GermplasmEntriesTableModel) germplasmEntries.getModel();
         System.out.println("Iniciando lectura de csv");
         //String file = this.pathRWD + File.separator + myDesign+trial + ".csv";
-        String file = this.pathRWD + File.separator + myDesign +trial+ ".csv";
+        String file = this.pathRWD + File.separator + myDesign + trial + ".csv";
 
 
 
@@ -520,8 +521,16 @@ public class DesignsClass {
 
                 Object[] rowToAdd = new Object[model.getColumnCount()];
                 rowToAdd[model.getHeaderIndex(ObservationsTableModel.TRIAL)] = trial;
-                rowToAdd[model.getHeaderIndex(ObservationsTableModel.REPLICATION)] = rep;
-                rowToAdd[model.getHeaderIndex(ObservationsTableModel.BLOCK)] = block;
+
+                if (model.getHeaderIndex(ObservationsTableModel.REPLICATION) > 0) {
+                    rowToAdd[model.getHeaderIndex(ObservationsTableModel.REPLICATION)] = rep;
+                }
+                if (model.getHeaderIndex(ObservationsTableModel.BLOCK) > 0) {
+
+                    rowToAdd[model.getHeaderIndex(ObservationsTableModel.BLOCK)] = block;
+                }
+
+
                 rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = plot;
 
 
@@ -613,15 +622,6 @@ public class DesignsClass {
     public void readUserDefinedDesign(int currentTrial, File fileName, ObservationsTableModel model, JTable germplasmEntries) {
 
         GermplasmEntriesTableModel entriesTableModel = (GermplasmEntriesTableModel) germplasmEntries.getModel();
-
-        //TODO 
-        // validate uploaded  fileName
-        // check if trial1=max(trial) entries
-
-
-        //      String file = this.pathRWD + File.separator + fileName;
-
-
         System.out.println("reading user defined design file : " + fileName);
 
         try {
@@ -630,49 +630,112 @@ public class DesignsClass {
             String[] headers = csvReader.getHeaders();
 
             while (csvReader.readRecord()) {
-                String trial = csvReader.get(NbPreferences.forModule(MacthColumsWizardPanel1.class).get("TRIAL", "TRIAL"));
+                //  String trial = csvReader.get(NbPreferences.forModule(MacthColumsWizardPanel1.class).get("TRIAL", "TRIAL"));
+                String trial = csvReader.get("TRIAL");
                 //if (Integer.valueOf(trial).intValue() != currentTrial) {
                 if (ConvertUtils.getValueAsInteger(trial) != currentTrial) {
                     //    if (trial.equals(Integer.toString(currentTrial))) {
                     continue; //skip this row
                 }
+//
+//                String rep = csvReader.get(NbPreferences.forModule(MacthColumsWizardPanel1.class).get("REP", "REP"));
+//                String block = csvReader.get(NbPreferences.forModule(MacthColumsWizardPanel1.class).get("BLOCK", "BLOCK"));
+//                String plot = csvReader.get(NbPreferences.forModule(MacthColumsWizardPanel1.class).get("PLOT", "PLOT"));
+//                String entry = csvReader.get(NbPreferences.forModule(MacthColumsWizardPanel1.class).get("ENTRY", "ENTRY"));
+//                    try {
+//                    row = csvReader.get(NbPreferences.forModule(MacthColumsWizardPanel1.class).get("ROW", "ROW")).toUpperCase();
+//                    tenemosRow = true;
+//                } catch (IOException e) {
+//                    tenemosRow = false;
+//
+//                }
+//
+//                try {
+//                    col = csvReader.get(NbPreferences.forModule(MacthColumsWizardPanel1.class).get("COL", "COLUMN")).toUpperCase();
+//                    tenemosCol = true;
+//
+//
+//                } catch (IOException e) {
+//                    tenemosCol = false;
+//
+//                }
+//               
 
-                String rep = csvReader.get(NbPreferences.forModule(MacthColumsWizardPanel1.class).get("REP", "REP"));
-                String block = csvReader.get(NbPreferences.forModule(MacthColumsWizardPanel1.class).get("BLOCK", "BLOCK"));
-                String plot = csvReader.get(NbPreferences.forModule(MacthColumsWizardPanel1.class).get("PLOT", "PLOT"));
-                String entry = csvReader.get(NbPreferences.forModule(MacthColumsWizardPanel1.class).get("ENTRY", "ENTRY"));
+                String rep = "";
+                String block = "";
+                String plot = "";
+                String entry = "";
                 String row = "";
                 String col = "";
-                boolean tenemosRow = false;
-                boolean tenemosCol = false;
 
-                try {
-                    row = csvReader.get(NbPreferences.forModule(MacthColumsWizardPanel1.class).get("ROW", "ROW")).toUpperCase();
-                    tenemosRow = true;
-                } catch (IOException e) {
-                    tenemosRow = false;
+                boolean tenemosRow = Arrays.asList(headers).contains("ROW");
+                boolean tenemosCol = Arrays.asList(headers).contains("COLUMN");
+                boolean tenemosRep = Arrays.asList(headers).contains("REP");
+                boolean tenemosBlock = Arrays.asList(headers).contains("BLOCK");
+                boolean tenemosPlot = Arrays.asList(headers).contains("PLOT");
+                boolean tenemosEntry = Arrays.asList(headers).contains("ENTRY");
+                boolean tenemosTrial = Arrays.asList(headers).contains("TRIAL");
+
+
+                if (tenemosRep) {
+                    rep = csvReader.get("REP");
+                } else {
+                    rep = "1";
+                }
+
+                if (tenemosBlock) {
+                    block = csvReader.get("BLOCK");
+                } else {
+                    block = "1";
 
                 }
 
-                try {
-                    col = csvReader.get(NbPreferences.forModule(MacthColumsWizardPanel1.class).get("COL", "COLUMN")).toUpperCase();
-                    tenemosCol = true;
-
-
-                } catch (IOException e) {
-                    tenemosCol = false;
-
+                if (tenemosPlot) {
+                    plot = csvReader.get("PLOT");
+                } else {
+                    plot = "1";
                 }
 
+
+                if (tenemosEntry) {
+                    entry = csvReader.get("ENTRY");
+                } else {
+                    entry = "1";
+                }
+
+
+                if (tenemosRow) {
+                    row = csvReader.get("ROW");
+                } else {
+                    row = "1";
+                }
+
+
+                if (tenemosCol) {
+                    col = csvReader.get("COLUMN");
+                } else {
+                    col = "1";
+                }
 
 
                 int entryIntValue = Integer.parseInt(entry) - 1;
 
                 Object[] rowToAdd = new Object[model.getColumnCount()];
+
                 rowToAdd[model.getHeaderIndex(ObservationsTableModel.TRIAL)] = trial;
-                rowToAdd[model.getHeaderIndex(ObservationsTableModel.REPLICATION)] = rep;
-                rowToAdd[model.getHeaderIndex(ObservationsTableModel.BLOCK)] = block;
-                rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = plot;
+
+
+                if (tenemosRep) {
+                    rowToAdd[model.getHeaderIndex(ObservationsTableModel.REPLICATION)] = rep;
+                }
+
+                if (tenemosBlock) {
+                    rowToAdd[model.getHeaderIndex(ObservationsTableModel.BLOCK)] = block;
+                }
+
+                if (tenemosPlot) {
+                    rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = plot;
+                }
 
                 if (tenemosRow) {
                     rowToAdd[model.getHeaderIndex(ObservationsTableModel.COL)] = col;

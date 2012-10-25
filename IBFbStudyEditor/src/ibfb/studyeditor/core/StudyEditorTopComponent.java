@@ -2,7 +2,6 @@ package ibfb.studyeditor.core;
 
 import ibfb.domain.core.*;
 import ibfb.maize.core.MaizeFormulas;
-import ibfb.maize.core.MaizeMaster;
 import ibfb.studyeditor.core.db.FieldbookCSVUtil;
 import ibfb.studyeditor.core.db.WorkbookSavingHelper;
 import ibfb.studyeditor.core.model.*;
@@ -31,13 +30,15 @@ import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.io.File;
 import java.text.MessageFormat;
-import java.util.List;
 import java.util.*;
+import java.util.List;
+import java.util.Random;
 import java.util.concurrent.ExecutionException;
 import java.util.regex.PatternSyntaxException;
 import javax.swing.*;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.table.*;
+import javax.swing.text.TableView;
 import net.java.balloontip.BalloonTip;
 import net.java.balloontip.utils.ToolTipUtils;
 import org.cimmyt.cril.ibwb.api.AppServicesProxy;
@@ -93,6 +94,7 @@ public final class StudyEditorTopComponent extends TopComponent {
     private CSVOziel csv;
     AlphaDesignsRowEditor alphaRowEditorStudy;
     private Workbook myWorkbook;
+    private Workbook masterWorkbook;
     private String fileTemplate;
     private DefaultListModel listModelSelected = new DefaultListModel();
     private DefaultListModel listModelUnSelected = new DefaultListModel();
@@ -239,7 +241,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         jRadioButtonViewAllTrialStudy.setVisible(false);
         jSpinnerTrialStudy.setVisible(false);
         pnlExpConditionTrial.setVisible(false);
-        
+
         jTabbedPaneEditor.setEnabledAt(8, false);
     }
 
@@ -2313,6 +2315,13 @@ public final class StudyEditorTopComponent extends TopComponent {
     }
 
     public void fillDesign() {
+
+        boolean hasBLOCKfactor = false;
+        boolean hasREPLICATIONfactor = false;
+        boolean hasFIELDfactorfactor = false;
+        boolean hasCOLfactorfactor = false;
+        boolean hasROWfactorfactor = false;
+
         DesignTableModel modeloTabla = new DesignTableModel();
         jTableDesign.setModel(modeloTabla);
         modeloTabla = (DesignTableModel) this.jTableDesign.getModel();
@@ -2338,6 +2347,8 @@ public final class StudyEditorTopComponent extends TopComponent {
         int square = (int) Math.sqrt(Integer.parseInt(this.jTextFieldEntries.getText()));
         boolean conLattice = false;
         boolean conAlpha = false;
+        boolean conRCBD = false;
+        boolean conUnreplicated = false;
 
         boolean hayFactores = !myWorkbook.getOtherFactors().isEmpty();
 
@@ -2350,13 +2361,76 @@ public final class StudyEditorTopComponent extends TopComponent {
             conAlpha = false;
         }
 
+
         if (Math.pow(square, 2) == Integer.parseInt(this.jTextFieldEntries.getText())) {
-            conLattice = true;
+            if (hasCOLfactorfactor && hasROWfactorfactor) {
+                conLattice = true;
+            } else {
+                conLattice = false;
+            }
         }
+
+
 
         conAlpha = designsUtils.alphaIsValid(numEntries);
 
-        String inicio = designsUtils.assignMainCellEditor(conAlpha, conLattice);
+
+        if (conAlpha && hasBLOCKfactor) {
+            conAlpha = true;
+        } else {
+            conAlpha = false;
+        }
+
+
+        if (hasREPLICATIONfactor) {
+            conRCBD = true;
+        }
+
+
+        if (hasFIELDfactorfactor) {
+            conUnreplicated = true;
+        }
+
+
+
+
+
+
+        for (int i = 0; i < this.getMyWorkbook().getFactors().size(); i++) {
+            if (this.getMyWorkbook().getFactors().get(i).getLabel().equals("PLOT")) {
+
+                if (this.getMyWorkbook().getFactors().get(i).getProperty().equals("FIELD PLOT")) {
+                    hasFIELDfactorfactor = true;
+                }
+
+                if (this.getMyWorkbook().getFactors().get(i).getProperty().equals("BLOCK")) {
+                    hasBLOCKfactor = true;
+                }
+
+                if (this.getMyWorkbook().getFactors().get(i).getProperty().equals("REPLICATION")) {
+                    hasREPLICATIONfactor = true;
+                }
+
+                if (this.getMyWorkbook().getFactors().get(i).getProperty().equals("COLUMN")) {
+                    hasCOLfactorfactor = true;
+                }
+
+                if (this.getMyWorkbook().getFactors().get(i).getProperty().equals("ROW")) {
+                    hasROWfactorfactor = true;
+                }
+
+
+            }
+
+
+        }
+
+
+
+
+
+        String inicio = designsUtils.assignMainCellEditor(conAlpha, conLattice, conRCBD, conUnreplicated);
+
         for (int j = 0; j < instances; j++) {
             this.jTableDesign.setValueAt(inicio, j, 1);
             this.jTableDesign.setValueAt(null, j, 2);
@@ -2604,6 +2678,16 @@ public final class StudyEditorTopComponent extends TopComponent {
         int square = (int) Math.sqrt(Integer.parseInt(this.jTextFieldEntries.getText()));
         boolean conLattice = false;
         boolean conAlpha = false;
+        boolean conRCBD = false;
+        boolean conUnreplicated = false;
+
+
+        boolean hasBLOCKfactor = false;
+        boolean hasREPLICATIONfactor = false;
+        boolean hasFIELDfactorfactor = false;
+        boolean hasCOLfactorfactor = false;
+        boolean hasROWfactorfactor = false;
+
 
         boolean hayFactores = !myWorkbook.getOtherFactors().isEmpty();
 
@@ -2612,12 +2696,51 @@ public final class StudyEditorTopComponent extends TopComponent {
         }
 
         int numEntries = jTableEntries.getRowCount();
+
+
+        for (int i = 0; i < this.getMyWorkbook().getFactors().size(); i++) {
+            if (this.getMyWorkbook().getFactors().get(i).getLabel().equals("PLOT")) {
+
+                if (this.getMyWorkbook().getFactors().get(i).getProperty().equals("FIELD PLOT")) {
+                    hasFIELDfactorfactor = true;
+                }
+
+                if (this.getMyWorkbook().getFactors().get(i).getProperty().equals("BLOCK")) {
+                    hasBLOCKfactor = true;
+                }
+
+                if (this.getMyWorkbook().getFactors().get(i).getProperty().equals("REPLICATION")) {
+                    hasREPLICATIONfactor = true;
+                }
+
+                if (this.getMyWorkbook().getFactors().get(i).getProperty().equals("COLUMN")) {
+                    hasCOLfactorfactor = true;
+                }
+
+                if (this.getMyWorkbook().getFactors().get(i).getProperty().equals("ROW")) {
+                    hasROWfactorfactor = true;
+                }
+
+
+            }
+
+
+        }
+
+
+
+
         if (org.cimmyt.cril.ibwb.commongui.MathUtils.isPrime(numEntries)) {
             conAlpha = false;
         }
 
+
         if (Math.pow(square, 2) == Integer.parseInt(this.jTextFieldEntries.getText())) {
-            conLattice = true;
+            if (hasCOLfactorfactor && hasROWfactorfactor) {
+                conLattice = true;
+            } else {
+                conLattice = false;
+            }
         }
 
 
@@ -2629,8 +2752,23 @@ public final class StudyEditorTopComponent extends TopComponent {
         }
 
 
+        if (conAlpha && hasBLOCKfactor) {
+            conAlpha = true;
+        } else {
+            conAlpha = false;
+        }
 
-        designsUtils.assignMainCellEditor(conAlpha, conLattice);
+        if (hasREPLICATIONfactor) {
+            conRCBD = true;
+        }
+
+
+        if (hasFIELDfactorfactor) {
+            conUnreplicated = true;
+        }
+
+
+        designsUtils.assignMainCellEditor(conAlpha, conLattice, conRCBD, conUnreplicated);
 
         SpinnerModel modeloDesign = jSpinnerTrial.getModel();
         jSpinnerTrialStudy.setModel(modeloDesign);
@@ -2684,20 +2822,6 @@ public final class StudyEditorTopComponent extends TopComponent {
         List fieldbookVariates = null;
         ObservationsTableModel tableModel = null;
 
-//        if (getCROP() == CROP.MAIZE) {
-//            fieldbookVariates = new ArrayList();
-//            for (int i = 0; i < selectedVariates.size(); i++) {
-//                Variate fieldbookTrait = selectedVariates.get(i);
-//                if (!fieldbookTrait.getVariateName().startsWith("m") || !fieldbookTrait.getVariateName().startsWith("f")) {
-//                    fieldbookVariates.add(fieldbookTrait);
-//                }               
-//            }            
-//          tableModel = new ObservationsTableModel(myWorkbook, fieldbookVariates);
-//
-//        } else {
-//            tableModel = new ObservationsTableModel(myWorkbook, selectedVariates);
-//        }
-
 
         tableModel = new ObservationsTableModel(myWorkbook, selectedVariates);
 
@@ -2715,6 +2839,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         try {
             //trials = this.jTableDesign.getRowCount();
             trials = designTableModel.getRowCount();
+            System.out.println("TRIAL FILLOB DATA: " + trials);
         } catch (NullPointerException ex) {
             trials = 0;
         }
@@ -2737,6 +2862,8 @@ public final class StudyEditorTopComponent extends TopComponent {
 //            blocksPerRep = this.jTableDesign.getValueAt(i, 4).toString();
             entries = Integer.parseInt(blockSize) * (Integer.parseInt(blocksPerRep));
             if (disenio.startsWith(DesignsClass.USER_DEFINED_DESIGN)) {
+               
+
                 if (bean.getUserDefinedDesign() == null) {
                     DialogUtil.displayError(NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.specify"));
                 } else {
@@ -2759,7 +2886,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                     disenios.deleteWDforMac();
                 } else {
                     //disenios.runR_alphaWindows(entries, Integer.parseInt(rep), Integer.parseInt(blockSize));
-                    disenios.runR_alphaWindows(i + 1,entries, Integer.parseInt(rep), Integer.parseInt(blockSize));
+                    disenios.runR_alphaWindows(i + 1, entries, Integer.parseInt(rep), Integer.parseInt(blockSize));
 
                     if (disenios.existeArchivo("alpha")) {
                         disenios.readAlphaDesign(i + 1, "alpha", tableModel, this.jTableEntries);
@@ -2819,97 +2946,141 @@ public final class StudyEditorTopComponent extends TopComponent {
     private void fillMasterData(List fieldbookVariates) {
         List<Variate> selectedVariates = doubleListPanel.getTargetList();
         ObservationsTableModel tableModel = (ObservationsTableModel) jTableObservations.getModel();
-        List masterVariates = new ArrayList();
+//        List masterVariates = new ArrayList();
+//        for (int i = 0; i < selectedVariates.size(); i++) {
+//            Variate masterTrait = selectedVariates.get(i);
+//            if (masterTrait.getVariateName().startsWith("m")) {
+//                masterVariates.add(masterTrait);
+//            }
+//        }
 
-        for (int i = 0; i < selectedVariates.size(); i++) {
-            Variate masterTrait = selectedVariates.get(i);
-            if (masterTrait.getVariateName().startsWith("m")) {
-                masterVariates.add(masterTrait);
-            }
+        List<Variate> fieldbookVariatesOK = new ArrayList<Variate>();
+
+
+
+
+
+        for (int i = 0; i < fieldbookVariates.size(); i++) {
+            fieldbookVariatesOK.add(selectedVariates.get(i));
         }
 
+
+        System.out.println("TAM 1: " + fieldbookVariatesOK.size());
+
+        Variate var = new Variate();
+        var.setVariateName("GrainYieldTons_FieldWt");
+        var.setMethod("WHITOUT METHOD");
+        var.setScale("NUMBER");
+        var.setDataType("N");
+        var.setDescription("GrainYieldKg_GrainWt");
+        var.setProperty("GrainYieldKg_GrainWt");
+        fieldbookVariatesOK.add(var);
+
+
+        System.out.println("TAM 2: " + fieldbookVariatesOK.size());
+
+
+        masterWorkbook = myWorkbook;
+        masterWorkbook.setVariates(fieldbookVariatesOK);
+
+
         // ObservationsTableModel tableModelMaster=new ObservationsTableModel(myWorkbook, masterVariates);
-        ObservationsTableModel tableModelMaster = new ObservationsTableModel(myWorkbook, fieldbookVariates);
+        // ObservationsTableModel tableModelMaster = new ObservationsTableModel(myWorkbook, fieldbookVariates);
+
+
+        ObservationsTableModel tableModelMaster = new ObservationsTableModel(masterWorkbook, fieldbookVariatesOK);
+
+        tableModelMaster.setIsMasterSheet(true);
+
+
+
 
         for (int i = 0; i < tableModel.getRowCount(); i++) {
-            List<Object> fila = tableModel.getRow(i);
-            tableModelMaster.addRow(fila.toArray());
+
+            List<Object> filaOb = tableModel.getRow(i);
+
+
+            ArrayList<Object> nueva = new ArrayList(filaOb);
+
+            nueva.add("ok");
+
+
+            tableModelMaster.addRow(nueva);
         }
 
 
         this.jTableMaster.setModel(tableModelMaster);
         ObservationTableTooltips.assignTooltips(jTableMaster);
-
-
     }
 
-    private void fillDataMaster(ObservationsTableModel tableModel, ObservationsTableModel tableModelMaster, List<Variate> fieldbookVariates, List<Variate> masterVariates) {
-
-        MaizeFormulas formulas = new MaizeFormulas();
-
-        for (int i = 0; i < masterVariates.size(); i++) {
-
-            Variate mVariate = masterVariates.get(i);
-            String variateToFind = mVariate.getVariateName().substring(1, mVariate.getVariateName().length());
-
-            try {
-                int colOriginal = tableModel.findColumn(variateToFind);
-                int colMaster = tableModelMaster.findColumn(mVariate.getVariateName());
-
-                for (int j = 0; j < tableModel.getRowCount(); j++) {
-                    tableModelMaster.setValueAt(tableModel.getValueAt(j, colOriginal), j, colMaster);
-                }
-
-
-            } catch (Exception e) {
-            }
-        }
-
-    }
-
+//    private void fillDataMaster(ObservationsTableModel tableModel, ObservationsTableModel tableModelMaster, List<Variate> fieldbookVariates, List<Variate> masterVariates) {
+//
+//        MaizeFormulas formulas = new MaizeFormulas();
+//
+//        for (int i = 0; i < masterVariates.size(); i++) {
+//
+//            Variate mVariate = masterVariates.get(i);
+//            String variateToFind = mVariate.getVariateName().substring(1, mVariate.getVariateName().length());
+//
+//            try {
+//                int colOriginal = tableModel.findColumn(variateToFind);
+//                int colMaster = tableModelMaster.findColumn(mVariate.getVariateName());
+//
+//                for (int j = 0; j < tableModel.getRowCount(); j++) {
+//                    tableModelMaster.setValueAt(tableModel.getValueAt(j, colOriginal), j, colMaster);
+//                }
+//
+//
+//            } catch (Exception e) {
+//            }
+//        }
+//
+//    }
     private void fillDataWithFormulas(ObservationsTableModel tableModel, ObservationsTableModel tableModelMaster, List<Variate> fieldbookVariates, List<Variate> masterVariates) {
 
         MaizeFormulas formulas = new MaizeFormulas();
 
-        for (int i = 0; i < masterVariates.size(); i++) {
+        for (int i = 0; i < fieldbookVariates.size(); i++) {
 
-            Variate mVariate = masterVariates.get(i);
-            if (mVariate.getVariateName().equals("mGrainYieldTons_FieldWt")) {
-                boolean estaCompleta = false;
-                int p1 = -1, p2 = -1, p3 = -1, p4 = -1;
+            boolean estaCompleta = false;
+            int p1 = -1, p2 = -1, p3 = -1, p4 = -1;
 
-                try {
-                    p1 = tableModel.getHeaderIndex("GrainYieldKg_FieldWt");
-                    p2 = tableModel.getHeaderIndex("GrainMoisturePer");
-                    p3 = tableModel.getHeaderIndex("PlotSize");
-                    p4 = tableModel.getHeaderIndex("ShellPer");
-                    estaCompleta = true;
-                } catch (Exception e) {
-                }
-
-                if (estaCompleta) {
-
-                    for (int j = 0; j < tableModel.getRowCount(); j++) {
-                        double v1 = Double.parseDouble(tableModel.getValueAt(j, p1).toString());
-                        double v2 = Double.parseDouble(tableModel.getValueAt(j, p2).toString());
-                        double v3 = Double.parseDouble(tableModel.getValueAt(j, p3).toString());
-                        double v4 = Double.parseDouble(tableModel.getValueAt(j, p4).toString());
-
-                        double valor = formulas.GrainYieldTons_FieldWt(v1, v2, v3, v4);
-
-
-                    }
-
-
-
-
-
-
-                }
-
-
+            try {
+                p1 = tableModel.getHeaderIndex("GrainYieldKg_FieldWt");
+                p2 = tableModel.getHeaderIndex("GrainMoisturePer");
+                p3 = tableModel.getHeaderIndex("PlotSize");
+                p4 = tableModel.getHeaderIndex("ShellPer");
+                estaCompleta = true;
+            } catch (Exception e) {
+                estaCompleta = false;
             }
 
+            if (estaCompleta) {
+
+                for (int j = 0; j < tableModel.getRowCount(); j++) {
+                    double v1 = Double.parseDouble(tableModel.getValueAt(j, p1).toString());
+                    double v2 = Double.parseDouble(tableModel.getValueAt(j, p2).toString());
+                    double v3 = Double.parseDouble(tableModel.getValueAt(j, p3).toString());
+                    double v4 = Double.parseDouble(tableModel.getValueAt(j, p4).toString());
+
+                    double valor = formulas.GrainYieldTons_FieldWt(v1, v2, v3, v4);
+
+                }
+
+
+                System.out.println("EXISTE GrainYieldTons_FieldWt");
+
+
+            } else {
+                System.out.println("NO EXISTE GrainYieldTons_FieldWt");
+            }
+
+
+
+
+
+            DefaultTableColumnModel columnModel = (DefaultTableColumnModel) this.jTableMaster.getColumnModel();
+            columnModel.addColumn(null);
 
         }
 
@@ -2933,8 +3104,15 @@ public final class StudyEditorTopComponent extends TopComponent {
             for (int j = 0; j < totalRep; j++) {
                 Object[] rowToAdd = new Object[model.getColumnCount()];
                 rowToAdd[model.getHeaderIndex(ObservationsTableModel.TRIAL)] = trial;
-                rowToAdd[model.getHeaderIndex(ObservationsTableModel.REPLICATION)] = 1;
-                rowToAdd[model.getHeaderIndex(ObservationsTableModel.BLOCK)] = 1;
+
+                if (model.getHeaderIndex(ObservationsTableModel.REPLICATION) > 0) {
+                    rowToAdd[model.getHeaderIndex(ObservationsTableModel.REPLICATION)] = 1;
+                }
+
+                if (model.getHeaderIndex(ObservationsTableModel.BLOCK) > 0) {
+                    rowToAdd[model.getHeaderIndex(ObservationsTableModel.BLOCK)] = 1;
+                }
+
                 rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = i + 1;
                 //rowToAdd[model.getHeaderIndex(ObservationsTableModel.ENTRY)] = i + 1;
                 int entriesColIndex = 0;
@@ -2971,8 +3149,12 @@ public final class StudyEditorTopComponent extends TopComponent {
             for (int j = 0; j < totalRep; j++) {
                 Object[] rowToAdd = new Object[model.getColumnCount()];
                 rowToAdd[model.getHeaderIndex(ObservationsTableModel.TRIAL)] = trial;
-                rowToAdd[model.getHeaderIndex(ObservationsTableModel.REPLICATION)] = 1;
-                rowToAdd[model.getHeaderIndex(ObservationsTableModel.BLOCK)] = 1;
+                if (model.getHeaderIndex(ObservationsTableModel.REPLICATION) > 0) {
+                    rowToAdd[model.getHeaderIndex(ObservationsTableModel.REPLICATION)] = 1;
+                }
+                if (model.getHeaderIndex(ObservationsTableModel.BLOCK) > 0) {
+                    rowToAdd[model.getHeaderIndex(ObservationsTableModel.BLOCK)] = 1;
+                }
                 rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = i + 1;
                 //rowToAdd[model.getHeaderIndex(ObservationsTableModel.ENTRY)] = i + 1;
 
@@ -3010,8 +3192,12 @@ public final class StudyEditorTopComponent extends TopComponent {
                 for (int m = 0; m < totalRep; m++) {
                     Object[] rowToAdd = new Object[model.getColumnCount()];
                     rowToAdd[model.getHeaderIndex(ObservationsTableModel.TRIAL)] = trial;
+                    if(model.getHeaderIndex(ObservationsTableModel.REPLICATION)>0){
                     rowToAdd[model.getHeaderIndex(ObservationsTableModel.REPLICATION)] = repet;
+                    }
+                    if(model.getHeaderIndex(ObservationsTableModel.BLOCK)>0){
                     rowToAdd[model.getHeaderIndex(ObservationsTableModel.BLOCK)] = 1;
+                    }
                     rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = plot;
 
 

@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.MessageFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
@@ -61,7 +62,7 @@ public class DesignsUtils {
      * @param conLattice
      * @return
      */
-    public String assignMainCellEditor(boolean conAlpha, boolean conLattice) {
+    public String assignMainCellEditor(boolean conAlpha, boolean conLattice, boolean conRCBD, boolean conUnreplicated) {
         String inicio = "";
         JComboBox comboBox = new JComboBox();
         if (conAlpha) {
@@ -70,10 +71,20 @@ public class DesignsUtils {
         if (conLattice) {
             comboBox.addItem(DesignsClass.LATICE_DESIGN);
         }
-        comboBox.addItem(DesignsClass.UNREPLICATED_DESIGH_WITHOUT_RANDOMIZATION);
-        comboBox.addItem(DesignsClass.UNREPLICATED_DESIGH_WITH_RANDOMIZATION);
-        comboBox.addItem(DesignsClass.RANDOMIZE_COMPLETE_BLOCK);
+
+        if (conUnreplicated) {
+            comboBox.addItem(DesignsClass.UNREPLICATED_DESIGH_WITHOUT_RANDOMIZATION);
+            comboBox.addItem(DesignsClass.UNREPLICATED_DESIGH_WITH_RANDOMIZATION);
+
+        }
+
+        if (conRCBD) {
+            comboBox.addItem(DesignsClass.RANDOMIZE_COMPLETE_BLOCK);
+        }
+
+
         comboBox.addItem(DesignsClass.USER_DEFINED_DESIGN);
+
         inicio = comboBox.getItemAt(0).toString();
         comboBox.setSelectedItem(comboBox.getItemAt(0));
         comboBox.setSelectedIndex(0);
@@ -345,6 +356,7 @@ public class DesignsUtils {
     public void checkDesignTable(int colEditing, int fila, boolean useSameDesignForAll) {
         DesignTableModel designTableModel = (DesignTableModel) jTableDesign.getModel();
         DesignBean designBean = designTableModel.getDesignBean(fila);
+
         if (designBean.getDesign().equals(DesignsClass.ALFA_DESIGN)) {
             assignCellEditorAlpha(Integer.parseInt(jTextFieldEntries.getText()));
             generateBlocksSize(designBean.getReplications());
@@ -439,6 +451,8 @@ public class DesignsUtils {
             useSameDesignForTrials(useSameDesignForAll);
 
         }
+
+
         if (designBean.getDesign().equals(DesignsClass.USER_DEFINED_DESIGN)) {
             designBean.setUserDefinedDesign(FileUtils.openFile());
 
@@ -447,6 +461,7 @@ public class DesignsUtils {
                 File userDefinedDesign = designBean.getUserDefinedDesign();
 
                 if (hasCompleteHeaders(designBean.getUserDefinedDesign())) {
+
                     int[] designValues = getDesignValues(Integer.parseInt(jTableDesign.getValueAt(fila, 0).toString()), userDefinedDesign, "TRIAL", "REP", "BLOCK");
                     int rep = designValues[0];
                     int block = designValues[1];
@@ -457,63 +472,68 @@ public class DesignsUtils {
                     jTableDesign.setValueAt(blockPerReplicate, fila, 4);
                     jTableDesign.setValueAt(userDefinedDesign, fila, 5);
 
-                    NbPreferences.forModule(MacthColumsWizardPanel1.class).put("TRIAL", "TRIAL");
-                    NbPreferences.forModule(MacthColumsWizardPanel1.class).put("ENTRY", "ENTRY");
-                    NbPreferences.forModule(MacthColumsWizardPanel1.class).put("PLOT", "PLOT");
-                    NbPreferences.forModule(MacthColumsWizardPanel1.class).put("REP", "REP");
-                    NbPreferences.forModule(MacthColumsWizardPanel1.class).put("BLOCK", "BLOCK");
-                    NbPreferences.forModule(MacthColumsWizardPanel1.class).put("ROW", "ROW");
-                    NbPreferences.forModule(MacthColumsWizardPanel1.class).put("COL", "COLUMN");
+//                    NbPreferences.forModule(MacthColumsWizardPanel1.class).put("TRIAL", "TRIAL");
+//                    NbPreferences.forModule(MacthColumsWizardPanel1.class).put("ENTRY", "ENTRY");
+//                    NbPreferences.forModule(MacthColumsWizardPanel1.class).put("PLOT", "PLOT");
+//                    NbPreferences.forModule(MacthColumsWizardPanel1.class).put("REP", "REP");
+//                    NbPreferences.forModule(MacthColumsWizardPanel1.class).put("BLOCK", "BLOCK");
+//                    NbPreferences.forModule(MacthColumsWizardPanel1.class).put("ROW", "ROW");
+//                    NbPreferences.forModule(MacthColumsWizardPanel1.class).put("COL", "COLUMN");
 
                 } else {
 
                     String[] hs = getHeadersFromFile(designBean.getUserDefinedDesign());
 
-
-
-
-                    if (hs.length < 7) {
+                    if (hs.length < 3) {
 
                         DialogUtil.displayError(DesignsUtils.class, "DesignsUtils.errorColumns");
 
                     } else {
 
 
-                        WizardDescriptor wiz = new WizardDescriptor(new MacthColumsWizardIterator());
-                        wiz.setTitleFormat(new MessageFormat("{0} ({1})"));
-                        MacthColumsWizardIterator.headers = hs;
-                        wiz.setTitle(NbBundle.getMessage(DesignsUtils.class, "DesignsUtils.title"));
-                        if (DialogDisplayer.getDefault().notify(wiz) == WizardDescriptor.FINISH_OPTION) {
-
-                            String tr = NbPreferences.forModule(MacthColumsWizardPanel1.class).get("TRIAL", "TRIAL");
-                            String rp = NbPreferences.forModule(MacthColumsWizardPanel1.class).get("REP", "REP");
-                            String bl = NbPreferences.forModule(MacthColumsWizardPanel1.class).get("BLOCK", "BLOCK");
+                        //  WizardDescriptor wiz = new WizardDescriptor(new MacthColumsWizardIterator());
+                        // wiz.setTitleFormat(new MessageFormat("{0} ({1})"));
+                        // MacthColumsWizardIterator.headers = hs;
+                        // wiz.setTitle(NbBundle.getMessage(DesignsUtils.class, "DesignsUtils.title"));
 
 
-                            int[] designValues = getDesignValues(Integer.parseInt(jTableDesign.getValueAt(fila, 0).toString()), userDefinedDesign, tr, rp, bl);
-                            int rep = designValues[0];
-                            int block = designValues[1];
-                            int blockPerReplicate = designValues[3];
+                        //    if (DialogDisplayer.getDefault().notify(wiz) == WizardDescriptor.FINISH_OPTION) {
 
-                            jTableDesign.setValueAt(rep, fila, 2);
-                            jTableDesign.setValueAt(block, fila, 3);
-                            jTableDesign.setValueAt(blockPerReplicate, fila, 4);
-                            jTableDesign.setValueAt(userDefinedDesign, fila, 5);
+//                            String tr = NbPreferences.forModule(MacthColumsWizardPanel1.class).get("TRIAL", "TRIAL");
+//                            String rp = NbPreferences.forModule(MacthColumsWizardPanel1.class).get("REP", "REP");
+//                            String bl = NbPreferences.forModule(MacthColumsWizardPanel1.class).get("BLOCK", "BLOCK");
+//                            
+                        String tr = "TRIAL";
+                        String rp = "REP";
+                        String bl = "BLOCK";
 
-                            if (this.getGermplasmEntries() != block) {
-                                DialogUtil.displayWarning(DesignsUtils.class, "DesignsUtils.noMathEntryNumber");
-                            }
+                        int[] designValues = getDesignValues(Integer.parseInt(jTableDesign.getValueAt(fila, 0).toString()), userDefinedDesign, tr, rp, bl);
 
+                        int rep = designValues[0];
+                        int block = designValues[1];
+                        int blockPerReplicate = designValues[3];
 
+                        jTableDesign.setValueAt(rep, fila, 2);
+                        jTableDesign.setValueAt(block, fila, 3);
+                        jTableDesign.setValueAt(blockPerReplicate, fila, 4);
+                        jTableDesign.setValueAt(userDefinedDesign, fila, 5);
+                        
+                        System.out.println("HASTA AQUI OK");
 
-
-                        } else {
-
-                            jTableDesign.setValueAt("", fila, 2);
-                            jTableDesign.setValueAt("", fila, 3);
-                            jTableDesign.setValueAt("", fila, 4);
-                            jTableDesign.setValueAt("", fila, 5);
+                        if (this.getGermplasmEntries() != block) {
+                            DialogUtil.displayWarning(DesignsUtils.class, "DesignsUtils.noMathEntryNumber");
                         }
+
+
+
+
+//                        } else {
+//
+//                            jTableDesign.setValueAt("", fila, 2);
+//                            jTableDesign.setValueAt("", fila, 3);
+//                            jTableDesign.setValueAt("", fila, 4);
+//                            jTableDesign.setValueAt("", fila, 5);
+//                        }
                     }
 
 
@@ -545,16 +565,95 @@ public class DesignsUtils {
                 CsvReader csvReader = new CsvReader(fileName.toString());
                 csvReader.readHeaders();
 
+                String[] cabeceras = csvReader.getHeaders();
+
+
+
+
 
                 while (csvReader.readRecord()) {
 
-//                    int trial = Integer.valueOf(csvReader.get("TRIAL")).intValue();
-//                    int rep = Integer.valueOf(csvReader.get("REP")).intValue();
-//                    int block = Integer.valueOf(csvReader.get("BLOCK")).intValue();
+                    int trial = ConvertUtils.getValueAsInteger(csvReader.get(TOZ));
+                    int rep = 1;
+                    int block = 1;
+
+                    if (Arrays.asList(cabeceras).contains(ROZ)) {
+                        rep = ConvertUtils.getValueAsInteger(csvReader.get(ROZ));
+                    } else {
+                        rep = 1;
+                    }
+
+                    if (Arrays.asList(cabeceras).contains(BOZ)) {
+                        block = ConvertUtils.getValueAsInteger(csvReader.get(BOZ));
+                    } else {
+                        block = 1;
+                    }
+
+
+
+
+
+                    if (trial == currentTrial) {
+                        rowTrialCount++;
+
+                        if (maxValues[2] < trial) {
+                            maxValues[2] = trial;
+                        }
+                        if (maxValues[0] < rep) {
+                            maxValues[0] = rep;
+                            maxValues[3] = blkCounter;
+                            blkCounter = 1;
+                        } else if (maxValues[0] == rep) {
+                            if (maxValues[1] < block) {
+                                maxValues[1] = block;
+                                maxValues[3] = blkRepCounter;
+                                blkRepCounter = 1;
+                            } else {
+                                blkRepCounter++;
+                            }
+                        }
+
+                    }
+                }
+
+                csvReader.close();
+
+            } catch (FileNotFoundException ex) {
+                System.out.println("FILE NOT FOUND. readDATAcsv.\n\t " + ex);
+
+            } catch (IOException e) {
+                System.out.println("IO EXCEPTION. readDATAcsv.\n\t " + e);
+            }
+
+            System.out.println("rowTrialCount: " + rowTrialCount);
+            System.out.println("maxValues[0]: " + maxValues[0]);
+            System.out.println("maxValues[3]: " + maxValues[3]);
+            maxValues[1] = rowTrialCount / maxValues[0] / maxValues[3];
+        }
+        return maxValues;
+    }
+
+    public int[] getDesignValues(int currentTrial, File fileName, String TOZ, String BOZ) {
+        int[] maxValues = {0, 0, 0, 0, 0, 0};
+        int rowTrialCount = 0, blkCounter = 1, blkRepCounter = 1;
+
+        //  String file = OSUtils.getPathRWD() + File.separator + fileName;
+        if (!verifyCsv(currentTrial, fileName, TOZ)) {
+            DialogUtil.displayError("No trial " + currentTrial + " in this CSV file.");
+
+        } else {
+
+            try {
+                CsvReader csvReader = new CsvReader(fileName.toString());
+                csvReader.readHeaders();
+
+
+                while (csvReader.readRecord()) {
 
                     int trial = ConvertUtils.getValueAsInteger(csvReader.get(TOZ));
-                    int rep = ConvertUtils.getValueAsInteger(csvReader.get(ROZ));
+                    int rep = 1;
                     int block = ConvertUtils.getValueAsInteger(csvReader.get(BOZ));
+
 
                     if (trial == currentTrial) {
                         rowTrialCount++;
@@ -611,6 +710,84 @@ public class DesignsUtils {
     }
 
     public boolean hasCompleteHeaders(File fileName) {
+
+        cabeceras = new String[7];
+        posiciones = new int[7];
+
+        boolean hasComplete = false;
+        int total = 0;
+
+        try {
+            CsvReader csvReader = new CsvReader(fileName.toString());
+            csvReader.readHeaders();
+            String[] headers = csvReader.getHeaders();
+
+            ArrayList<String> columnas = new ArrayList<String>();
+
+            if (csvReader.getHeaderCount() > 0) {
+
+                for (int i = 0; i < headers.length; i++) {
+                    columnas.add(headers[i].toUpperCase().trim());
+                }
+
+                if (columnas.contains("TRIAL")) {
+                    cabeceras[0] = "TRIAL";
+                    posiciones[0] = columnas.indexOf("TRIAL");
+                    total++;
+                }
+                if (columnas.contains("ENTRY")) {
+                    cabeceras[1] = "ENTRY";
+                    posiciones[1] = columnas.indexOf("ENTRY");
+                    total++;
+                }
+                if (columnas.contains("PLOT")) {
+                    cabeceras[2] = "PLOT";
+                    posiciones[2] = columnas.indexOf("PLOT");
+                    total++;
+                }
+                if (columnas.contains("REP")) {
+                    cabeceras[3] = "REP";
+                    posiciones[3] = columnas.indexOf("REP");
+
+                }
+                if (columnas.contains("BLOCK")) {
+                    cabeceras[4] = "BLOCK";
+                    posiciones[4] = columnas.indexOf("BLOCK");
+
+                }
+                if (columnas.contains("ROW")) {
+                    cabeceras[5] = "ROW";
+                    posiciones[5] = columnas.indexOf("ROW");
+
+                }
+                if (columnas.contains("COLUMN")) {
+                    cabeceras[6] = "COLUMN";
+                    posiciones[6] = columnas.indexOf("COLUMN");
+
+                }
+
+                if (total == 3) {
+                    hasComplete = true;
+                }
+            }
+
+            csvReader.close();
+
+        } catch (FileNotFoundException ex) {
+            System.out.println("FILE NOT FOUND. readDATAcsv.\n" + ex);
+            hasComplete = false;
+
+        } catch (IOException e) {
+            System.out.println("IO EXCEPTION. readDATAcsv.\n " + e);
+            hasComplete = false;
+        }
+
+        System.out.println("HEADERS MATCH: " + total);
+
+        return hasComplete;
+    }
+
+    public boolean hasCompleteHeaders2(File fileName) {
 
         cabeceras = new String[7];
         posiciones = new int[7];
