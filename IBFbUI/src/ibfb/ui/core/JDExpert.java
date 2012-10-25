@@ -741,7 +741,7 @@ public class JDExpert extends javax.swing.JDialog {
              try {
                 theCrop = validateExcelReader.giveMeCrop();
             } catch (Exception ex) {
-                System.out.println("ERROR AL OBTENER CROP");
+                System.out.println("ERROR AL OBTENER CROP" +ex);
             }
 
             this.jTextAreaPathTemplate.setText(selectorArchivo.getSelectedFile().toString());
