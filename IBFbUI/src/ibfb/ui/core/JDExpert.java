@@ -739,7 +739,7 @@ public class JDExpert extends javax.swing.JDialog {
         if (isValidFile) {
             
              try {
-                theCrop = validateExcelReader.giveMeCrop(this.jTextAreaPathTemplate.getText());
+                theCrop = validateExcelReader.giveMeCrop();
             } catch (Exception ex) {
                 System.out.println("ERROR AL OBTENER CROP");
             }
