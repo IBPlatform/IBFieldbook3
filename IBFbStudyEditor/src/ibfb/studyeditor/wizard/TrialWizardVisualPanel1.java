@@ -302,7 +302,7 @@ public final class TrialWizardVisualPanel1 extends JPanel {
             try {
                 theCrop = validateExcelReader.giveMeCrop();
             } catch (Exception ex) {
-                System.out.println("ERROR AL OBTENER CROP");
+                System.out.println("ERROR AL OBTENER CROP" +ex);
             }
             
             
