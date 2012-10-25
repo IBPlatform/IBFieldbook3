@@ -2334,23 +2334,23 @@ public class IBWBAppServicesImpl implements AppServices {
     public boolean existsTratisTable() {
         boolean moreTables = true;
         
-//        List<Instln> listaInstlns = serviciosCentral.getInstlnList();
-//        if(listaInstlns != null){
-//            if(listaInstlns.isEmpty()){
-//                typeDB = TypeDB.OTHER;
-//            }else{
-//                Instln instln = listaInstlns.get(0);
-//                if(instln.getIdesc().contains(TypeDB.IWIS.getNombre())){
-//                    typeDB = TypeDB.IWIS;
-//                }else if(instln.getIdesc().contains(TypeDB.IMIS.getNombre())){
-//                    typeDB = TypeDB.IMIS;
-//                }else{
-//                    typeDB = TypeDB.OTHER;
-//                }
-//            }
-//        }else{
-//            typeDB = TypeDB.OTHER;
-//        }
+        List<Instln> listaInstlns = serviciosCentral.getInstlnList();
+        if(listaInstlns != null){
+            if(listaInstlns.isEmpty()){
+                typeDB = TypeDB.OTHER;
+            }else{
+                Instln instln = listaInstlns.get(0);
+                if(instln.getIdesc().contains(TypeDB.IWIS.getNombre())){
+                    typeDB = TypeDB.IWIS;
+                }else if(instln.getIdesc().contains(TypeDB.IMIS.getNombre())){
+                    typeDB = TypeDB.IMIS;
+                }else{
+                    typeDB = TypeDB.OTHER;
+                }
+            }
+        }else{
+            typeDB = TypeDB.OTHER;
+        }
         
         moreTables = this.serviciosCentral.existsTratisTable() && this.serviciosLocal.existsTratisTable();
         if (!moreTables) {
