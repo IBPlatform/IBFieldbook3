@@ -11,6 +11,8 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.apache.poi.hssf.util.AreaReference;
 import org.apache.poi.ss.usermodel.*;
+import org.cimmyt.cril.ibwb.api.AppServicesProxy;
+import org.cimmyt.cril.ibwb.domain.constants.TypeDB;
 
 /**
  *
@@ -84,39 +86,33 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
     }
 
     @Override
-    public int giveMeCrop(String fileName) throws Exception{
+    public int giveMeCrop() throws Exception{
        
         int theCrop = 0;  //0=Wheat   1=maize   2=other crops
+//
+//    TypeDB tipo=AppServicesProxy.getDefault().appServices().getTypeDB();
+//
+//
+//        switch (tipo.getType()) {
+//            case 0:
+//                theCrop = WHEAT;
+//                break;
+//            case 1:
+//                theCrop = MAIZE;
+//                break;
+//            case 2:
+//                theCrop = OTHERCROPS;
+//                break;
+//            default:
+//                theCrop = OTHERCROPS;
+//                break;
+//
+//        }
+//        
+//        System.out.println("TENEMOS DB: "+tipo.getNombre());
 
-        log.info("Getting crop from template");
-        InputStream inputStream = new FileInputStream(fileName);
-        org.apache.poi.ss.usermodel.Workbook excelBook = WorkbookFactory.create(inputStream);
-
-        int labelColNumber = 0;
-        int listRowIndex = 0;
-
-        Sheet sheet = excelBook.getSheetAt(0);
-
-        Cell cellData = null;
-        Row rowData = null;
-
-        rowData = sheet.getRow(listRowIndex);
-        cellData = rowData.getCell(labelColNumber);
-       
-       
-           
-          
-            rowData = sheet.getRow(6);  //FALTA DEFINIR LA MANERA DE OBTENER EL VALOR
-            cellData = rowData.getCell(1);
-             
-            if (ExcelUtils.getStringValueFromCell(cellData).equals("WHEAT")){
-                theCrop = WHEAT;
-             }else if (ExcelUtils.getStringValueFromCell(cellData).equals("MAIZE")){
-                theCrop = MAIZE;
-             }else{
-                theCrop = OTHERCROPS; 
-             }          
-        theCrop=OTHERCROPS; 
+  
+        theCrop=WHEAT; 
         
         return theCrop;
     }

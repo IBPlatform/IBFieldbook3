@@ -45,7 +45,7 @@ public interface WorkbookExcelReader {
     
     public boolean isValidNurseryTemplate(String fileName) throws Exception;
    
-    public int giveMeCrop(String fileName) throws Exception;
+    public int giveMeCrop() throws Exception;
     
     /**
      * Returns a text with the result of validation
