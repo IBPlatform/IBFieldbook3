@@ -694,3 +694,81 @@ INFO AWT-EventQueue-1 ibfb.workbook.core.GermplasmListReaderImpl - Number of she
 INFO AWT-EventQueue-1 ibfb.workbook.core.GermplasmListReaderImpl - Data for Germplasm List: GermplasmList{id=-28name=457-3date=Wed Dec 31 18:00:39 CST 1969type=TCtitle=Formacion de Cruzas de Prueba Avanzadas Lineas Avanzadas Amarillo Normal F5 GH"listEntries size=0}
 INFO AWT-EventQueue-1 ibfb.workbook.core.GermplasmListReaderImpl - Total liet entries found: 4
 INFO AWT-EventQueue-1 ibfb.workbook.core.GermplasmListReaderImpl - Excel file read END
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Traits table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Traits table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if Transformations table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Transformations table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if Transformations table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if Transformations table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Transformations table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if Transformations table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if ContinuousConversion table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - ContinuousConversion table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if ContinuousConversion table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if ContinuousConversion table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - ContinuousConversion table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if ContinuousConversion table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if ContinuousFunction table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - ContinuousFunction table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if ContinuousFunction table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if ContinuousFunction table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - ContinuousFunction table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if ContinuousFunction table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if DiscreteConversion table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - DiscreteConversion table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if DiscreteConversion table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if DiscreteConversion table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - DiscreteConversion table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if DiscreteConversion table exists DONE....
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Validating Excel Nursery file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Validating Excel Nursery file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Opening file...
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Number of sheets in book2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total study conditions found: 10
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total conditions found: 17
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total factors found: 22
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read END
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Opening file...
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Number of sheets in book2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total study conditions found: 10
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total conditions found: 17
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total factors found: 22
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read END
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Opening file...
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Number of sheets in book2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total study conditions found: 10
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total conditions found: 17
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total factors found: 22
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read END
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Opening file...
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Number of sheets in book2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total study conditions found: 10
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total conditions found: 17
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total factors found: 22
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read END
+INFO AWT-EventQueue-1 ibfb.workbook.core.GermplasmListReaderImpl - Validating Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.GermplasmListReaderImpl - Opening file...
+INFO AWT-EventQueue-1 ibfb.workbook.core.GermplasmListReaderImpl - Number of sheets in book1
+INFO AWT-EventQueue-1 ibfb.workbook.core.GermplasmListReaderImpl - Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.GermplasmListReaderImpl - Opening file...
+INFO AWT-EventQueue-1 ibfb.workbook.core.GermplasmListReaderImpl - Number of sheets in book1
+INFO AWT-EventQueue-1 ibfb.workbook.core.GermplasmListReaderImpl - Data for Germplasm List: GermplasmList{id=-28name=457-3date=Wed Dec 31 18:00:39 CST 1969type=TCtitle=Formacion de Cruzas de Prueba Avanzadas Lineas Avanzadas Amarillo Normal F5 GH"listEntries size=0}
+INFO AWT-EventQueue-1 ibfb.workbook.core.GermplasmListReaderImpl - Total liet entries found: 25
+INFO AWT-EventQueue-1 ibfb.workbook.core.GermplasmListReaderImpl - Excel file read END
+INFO AWT-EventQueue-1 ibfb.workbook.core.GermplasmListReaderImpl - Validating Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.GermplasmListReaderImpl - Opening file...
+INFO AWT-EventQueue-1 ibfb.workbook.core.GermplasmListReaderImpl - Number of sheets in book1
+INFO AWT-EventQueue-1 ibfb.workbook.core.GermplasmListReaderImpl - Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.GermplasmListReaderImpl - Opening file...
+INFO AWT-EventQueue-1 ibfb.workbook.core.GermplasmListReaderImpl - Number of sheets in book1
+INFO AWT-EventQueue-1 ibfb.workbook.core.GermplasmListReaderImpl - Data for Germplasm List: GermplasmList{id=-28name=457-3date=Wed Dec 31 18:00:39 CST 1969type=TCtitle=Formacion de Cruzas de Prueba Avanzadas Lineas Avanzadas Amarillo Normal F5 GH"listEntries size=0}
+INFO AWT-EventQueue-1 ibfb.workbook.core.GermplasmListReaderImpl - Total liet entries found: 4
+INFO AWT-EventQueue-1 ibfb.workbook.core.GermplasmListReaderImpl - Excel file read END
