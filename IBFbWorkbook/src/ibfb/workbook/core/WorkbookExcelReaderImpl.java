@@ -89,27 +89,27 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
     public int giveMeCrop() throws Exception{
        
         int theCrop = 0;  //0=Wheat   1=maize   2=other crops
-//
-//    TypeDB tipo=AppServicesProxy.getDefault().appServices().getTypeDB();
-//
-//
-//        switch (tipo.getType()) {
-//            case 0:
-//                theCrop = WHEAT;
-//                break;
-//            case 1:
-//                theCrop = MAIZE;
-//                break;
-//            case 2:
-//                theCrop = OTHERCROPS;
-//                break;
-//            default:
-//                theCrop = OTHERCROPS;
-//                break;
-//
-//        }
-//        
-//        System.out.println("TENEMOS DB: "+tipo.getNombre());
+
+    TypeDB tipo=AppServicesProxy.getDefault().appServices().getTypeDB();
+
+
+        switch (tipo.getType()) {
+            case 0:
+                theCrop = WHEAT;
+                break;
+            case 1:
+                theCrop = MAIZE;
+                break;
+            case 2:
+                theCrop = OTHERCROPS;
+                break;
+            default:
+                theCrop = OTHERCROPS;
+                break;
+
+        }
+        
+        System.out.println("TENEMOS DB: "+tipo.getNombre());
 
   
         theCrop=WHEAT; 
