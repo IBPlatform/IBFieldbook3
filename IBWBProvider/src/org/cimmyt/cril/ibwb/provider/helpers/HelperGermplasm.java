@@ -98,7 +98,7 @@ public class HelperGermplasm {
 
 
             listdataT.setListdataPK(new ListdataPK(listnms.getListid(), 0));
-            servicioLocal.addListdata(listdataT);
+            //servicioLocal.addListdata(listdataT);
             listDatas.add(listdataT);
 
         }
@@ -376,24 +376,24 @@ public class HelperGermplasm {
         servicioLocal.addNames(names);
 
         listdata.setGid(germplsm.getGid());
-//        servicioLocal.addListdata(listdata);
+        servicioLocal.addListdata(listdata);
 
         Dmsattr dmsattr = new Dmsattr();
 
         if (gsf != null) {
-            dmsattr.setDmsatype(804);
+            dmsattr.setDmsatype(Dmsattr.DMSATYPE_FTID);
             dmsattr.setDmsatab(Dmsattr.DMSATYPE_LIST);
             dmsattr.setDmsatrec(listdata.getListdataPK().getLrecid());
             dmsattr.setDmsatval(gsf.getStudyId().toString());//Studyid
             servicioLocal.addDmsattr(dmsattr);
 
-            dmsattr.setDmsatype(805);
+            dmsattr.setDmsatype(Dmsattr.DMSATYPE_FOCC);
             dmsattr.setDmsatab(Dmsattr.DMSATYPE_LIST);
             dmsattr.setDmsatrec(listdata.getListdataPK().getLrecid());
             dmsattr.setDmsatval(gsf.getTrial().toString());//Ocurrence
             servicioLocal.addDmsattr(dmsattr);
 
-            dmsattr.setDmsatype(806);
+            dmsattr.setDmsatype(Dmsattr.DMSATYPE_FENT);
             dmsattr.setDmsatab(Dmsattr.DMSATYPE_LIST);
             dmsattr.setDmsatrec(listdata.getListdataPK().getLrecid());
             dmsattr.setDmsatval(gsf.getPlot().toString());//Plot
@@ -401,19 +401,19 @@ public class HelperGermplasm {
         }
 
         if (gsm != null) {
-            dmsattr.setDmsatype(807);
+            dmsattr.setDmsatype(Dmsattr.DMSATYPE_MTID);
             dmsattr.setDmsatab(Dmsattr.DMSATYPE_LIST);
             dmsattr.setDmsatrec(listdata.getListdataPK().getLrecid());
             dmsattr.setDmsatval(gsm.getStudyId().toString());//Studyid
             servicioLocal.addDmsattr(dmsattr);
 
-            dmsattr.setDmsatype(808);
+            dmsattr.setDmsatype(Dmsattr.DMSATYPE_MOCC);
             dmsattr.setDmsatab(Dmsattr.DMSATYPE_LIST);
             dmsattr.setDmsatrec(listdata.getListdataPK().getLrecid());
             dmsattr.setDmsatval(gsm.getTrial().toString());//Ocurrence
             servicioLocal.addDmsattr(dmsattr);
 
-            dmsattr.setDmsatype(809);
+            dmsattr.setDmsatype(Dmsattr.DMSATYPE_MENT);
             dmsattr.setDmsatab(Dmsattr.DMSATYPE_LIST);
             dmsattr.setDmsatrec(listdata.getListdataPK().getLrecid());
             dmsattr.setDmsatval(gsm.getPlot().toString());//Plot
