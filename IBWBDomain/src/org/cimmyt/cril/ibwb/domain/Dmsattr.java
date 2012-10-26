@@ -24,6 +24,13 @@ import org.cimmyt.cril.ibwb.domain.filter.BaseFilter;
 public class Dmsattr extends BaseFilter implements Serializable {
     public static final String DMSATYPE_LIST = "LIST";
     
+    public static final int DMSATYPE_FTID = 804;
+    public static final int DMSATYPE_FOCC = 805;
+    public static final int DMSATYPE_FENT = 806;
+    public static final int DMSATYPE_MTID = 807;
+    public static final int DMSATYPE_MOCC = 808;
+    public static final int DMSATYPE_MENT = 809;
+    
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
