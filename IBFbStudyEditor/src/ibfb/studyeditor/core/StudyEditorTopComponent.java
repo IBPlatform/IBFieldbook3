@@ -2375,21 +2375,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         conAlpha = designsUtils.alphaIsValid(numEntries);
 
 
-        if (conAlpha && hasBLOCKfactor) {
-            conAlpha = true;
-        } else {
-            conAlpha = false;
-        }
 
-
-        if (hasREPLICATIONfactor) {
-            conRCBD = true;
-        }
-
-
-        if (hasFIELDfactorfactor) {
-            conUnreplicated = true;
-        }
 
 
 
@@ -2425,7 +2411,22 @@ public final class StudyEditorTopComponent extends TopComponent {
 
         }
 
+        
+        if (conAlpha && hasBLOCKfactor) {
+            conAlpha = true;
+        } else {
+            conAlpha = false;
+        }
 
+
+        if (hasREPLICATIONfactor) {
+            conRCBD = true;
+        }
+
+
+        if (hasFIELDfactorfactor) {
+            conUnreplicated = true;
+        }
 
 
 
