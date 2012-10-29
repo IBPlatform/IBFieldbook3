@@ -34,6 +34,7 @@ import org.cimmyt.cril.ibwb.domain.Listnms;
 import org.netbeans.api.progress.ProgressHandle;
 import org.netbeans.api.progress.ProgressHandleFactory;
 import org.netbeans.api.progress.ProgressUtils;
+import org.openide.util.Exceptions;
 import org.openide.util.NbBundle;
 
 public class JDExpert extends javax.swing.JDialog {
@@ -61,11 +62,12 @@ public class JDExpert extends javax.swing.JDialog {
     private ProgressHandle handle;
     private String porcentaje;
     private boolean ready = false;
-    private int theCrop=MAIZE;
+    private int theCrop=WHEAT;
     public static final int WHEAT=0;
     public static final int MAIZE=1;
     public static final int OTHERCROPS=2;
-    
+    WorkbookExcelReader validateExcelReader = new WorkbookExcelReaderImpl();
+
 
     public JDExpert(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -79,6 +81,12 @@ public class JDExpert extends javax.swing.JDialog {
         fillComboListNames();
         checkButtonsStatus();
         cboGermplasmList.setModel(new javax.swing.DefaultComboBoxModel(new String[]{bundle.getString("JDExpert.selectOne")}));
+        try {
+            theCrop = validateExcelReader.giveMeCrop();
+        } catch (Exception ex) {
+           theCrop=WHEAT;
+        }
+                
         if (theCrop==WHEAT) {
             loadNamesForWheat();
         }
