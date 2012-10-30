@@ -3,11 +3,12 @@ package org.cimmyt.cril.ibwb.provider.testsStatic;
 import java.util.List;
 import org.apache.log4j.Logger;
 import org.generationcp.middleware.exceptions.QueryException;
+import org.generationcp.middleware.manager.Database;
+import org.generationcp.middleware.manager.FindGermplasmByNameModes;
+import org.generationcp.middleware.manager.GermplasmNameType;
+import org.generationcp.middleware.manager.Operation;
 import org.generationcp.middleware.manager.api.GermplasmDataManager;
-import org.generationcp.middleware.pojos.Attribute;
-import org.generationcp.middleware.pojos.GermplasmPedigreeTree;
-import org.generationcp.middleware.pojos.GermplasmPedigreeTreeNode;
-import org.generationcp.middleware.pojos.Method;
+import org.generationcp.middleware.pojos.*;
 import org.openide.util.Exceptions;
 
 /**
@@ -84,11 +85,24 @@ public class TestMiddleware extends TestService {
             printNode(parent, level + 1);
         }
     }
+    
+    private void testFindGermplasm() {
+        String germplasm = "UKA";//"IR99602-1B-1-1";
+        try {
+             List<Germplasm> list =manager.findGermplasmByName(germplasm, 0, 0, FindGermplasmByNameModes.NORMAL, Operation.EQUAL, null, null, Database.CENTRAL);
+             for (Germplasm g : list) {
+                 log.info(" " + g.getGid());
+             }
+        } catch (QueryException ex) {
+            ex.printStackTrace();
+        }
+    }
 
     public static void main(String[] args) {
         TestMiddleware testMiddleware = new TestMiddleware();
-        testMiddleware.testGermplasmTree();
-        //testMiddleware.testgetAttributesByGID();
+        //testMiddleware.testGermplasmTree();
+        ///testMiddleware.testgetAttributesByGID();
         //testMiddleware.testgetAllMethods();
+        testMiddleware.testFindGermplasm();
     }
 }

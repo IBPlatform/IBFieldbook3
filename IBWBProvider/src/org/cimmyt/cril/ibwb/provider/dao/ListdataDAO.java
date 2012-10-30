@@ -2,11 +2,16 @@ package org.cimmyt.cril.ibwb.provider.dao;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import org.cimmyt.cril.ibwb.api.dao.AbstractDAO;
 import org.cimmyt.cril.ibwb.api.dao.utils.ValidatingDataType;
+import org.cimmyt.cril.ibwb.domain.Dmsattr;
 import org.cimmyt.cril.ibwb.domain.Listdata;
 import org.cimmyt.cril.ibwb.domain.ListdataPK;
+import org.cimmyt.cril.ibwb.domain.Names;
+import org.cimmyt.cril.ibwb.domain.util.WheatData;
 
 
 import org.hibernate.HibernateException;
@@ -17,6 +22,7 @@ import org.hibernate.criterion.Disjunction;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
+
 import org.springframework.orm.hibernate3.HibernateCallback;
 
 public class ListdataDAO extends AbstractDAO<Listdata, ListdataPK> {
@@ -246,7 +252,7 @@ public class ListdataDAO extends AbstractDAO<Listdata, ListdataPK> {
      * @param listId listid to delete
      */
     public void logicalDeleteAllEntries(final Integer listId) {
-        final String updateListdataStatus = " update Listdata listdata set listdata.lrstatus = " 
+        final String updateListdataStatus = " update Listdata listdata set listdata.lrstatus = "
                 + Listdata.LSSTATUS_DELETED + " where listdata.listdataPK.listid = " + listId;
         try {
             getHibernateTemplate().bulkUpdate(updateListdataStatus);
@@ -254,9 +260,10 @@ public class ListdataDAO extends AbstractDAO<Listdata, ListdataPK> {
             e.printStackTrace();
         }
     }
-    
+
     /**
      * Return a list of grouping Listdata by idListnms
+     *
      * @param idListnms ID for Listnms
      * @return list of Listdata or empty list if Listnms id not found
      */
@@ -267,14 +274,173 @@ public class ListdataDAO extends AbstractDAO<Listdata, ListdataPK> {
 //        if (isLocal()) {
 //            order = " order by l.entryid desc";
 //        } else {
-            order = " order by l.entryid";
+        order = " order by l.entryid";
 //        }
-        
+
         final String queryString = " from Listdata as l where "
                 + " l.listdataPK.listid = ? " + order;
-        
+
         listdataList = getHibernateTemplate().find(queryString, idListnms);
-        
+
+        fillListDataAtributtes(listdataList, idListnms);
+
         return listdataList;
     }
+
+    /**
+     * Fill all attributes for a Listdata
+     * @param listDataList
+     * @param idListnms 
+     */
+    private void fillListDataAtributtes(List<Listdata> listDataList, final Integer idListnms) {
+        // first retrieve all atributes for desired listid
+        List<Dmsattr> dmsAttrList = getDmsAttributesByListId(idListnms);
+        Map<Integer, WheatData> wheatDataList = new HashMap<Integer, WheatData>();
+
+        // then populate wheatData List for fast retrieving
+        for (Dmsattr dmsattr : dmsAttrList) {
+            if (wheatDataList.containsKey(dmsattr.getDmsatrec())) {
+                updateWheatData(dmsattr, wheatDataList);
+            } else {
+                addNewWheatData(dmsattr, wheatDataList);
+            }
+        }
+
+        // then iterate over lista data records to assign it corresponing atributes
+        for (Listdata listdata: listDataList) {
+            if (wheatDataList.containsKey(listdata.getListdataPK().getLrecid()))  {
+                listdata.setWheatData(wheatDataList.get(listdata.getListdataPK().getLrecid()));
+            }
+        }
+    }
+
+    /**
+     * Update attributes for a Wheatdata bean
+     * @param dmsattr
+     * @param wheatDataList 
+     */
+    private void updateWheatData(Dmsattr dmsattr, Map<Integer, WheatData> wheatDataList) {
+        WheatData wheatData = wheatDataList.get(dmsattr.getDmsatrec());
+        populateWheatData(wheatData, dmsattr);
+    }
+
+    /**
+     * Adds a new Wheatdata bean to collection
+     * @param dmsattr
+     * @param wheatDataList 
+     */
+    private void addNewWheatData(Dmsattr dmsattr, Map<Integer, WheatData> wheatDataList) {
+        WheatData wheatData = new WheatData();
+        wheatDataList.put(dmsattr.getDmsatrec(), wheatData);
+        populateWheatData(wheatData, dmsattr);
+    }
+
+    /**
+     * Populates a Wheatdata bean with data coming from DmsAttr
+     * @param wheatData bean to populate
+     * @param dmsattr dmsattr used to populate bean
+     */
+    private void populateWheatData(WheatData wheatData, Dmsattr dmsattr) {
+        Integer integerValue = null;
+
+        if (dmsattr != null && dmsattr.getDmsatval() != null && !dmsattr.getDmsatval().isEmpty()) {
+            try {
+                integerValue = Integer.parseInt(dmsattr.getDmsatval());
+            } catch (Exception e) {
+            }
+
+        }
+
+        switch (dmsattr.getDmsatype()) {
+            case Dmsattr.DMSATYPE_FTID:
+                wheatData.setFtid(integerValue);
+                break;
+            case Dmsattr.DMSATYPE_FOCC:
+                wheatData.setFocc(integerValue);
+                break;
+            case Dmsattr.DMSATYPE_FENT:
+                wheatData.setFent(integerValue);
+                break;
+            case Dmsattr.DMSATYPE_MTID:
+                wheatData.setMtid(integerValue);
+                break;
+            case Dmsattr.DMSATYPE_MOCC:
+                wheatData.setMocc(integerValue);
+                break;
+            case Dmsattr.DMSATYPE_MENT:
+                wheatData.setMent(integerValue);
+                break;
+        }
+    }
+
+    /**
+     * Gets a list of DMSAttrs for each atribute
+     *
+     * @param listid
+     * @return
+     */
+    private List<Dmsattr> getDmsAttributesByListId(final Integer listid) {
+        String queryString = "FROM Dmsattr as d WHERE d.dmsatrec in "
+                + " (select l.listdataPK.lrecid from Listdata as l where  l.listdataPK.listid = ?  ) and  "
+                + " d.dmsatype in (804,805,806,807,808,809) ";
+        List<Dmsattr> dmsattrList = getHibernateTemplate().find(queryString, listid);
+        return dmsattrList;
+    }
+    
+   
+    /**
+     * Gets a list for Wheat Data (cimmyt) related to BCID, Selection history
+     * 1. It looks for all elements in names where gid are used by a list
+     * @param listId
+     * @return Gets a list for Wheat Data (cimmyt)
+     */
+    public List<WheatData> getDataForCimmytWheat(final Integer listId) {
+        List<WheatData> wheatDataList = new ArrayList<WheatData>();
+        Integer currentGid = -99999999;
+        
+        final String queryString = " from Names as n where n.gid in "
+                + " (select distinct ld.gid from Listdata as ld where ld.listdataPK.listid = " + listId + " )" +
+                " order by n.gid, n.ntype ";
+        
+        List<Names> namesList = getHibernateTemplate().find(queryString);
+        WheatData wheatDataToAdd = new WheatData();
+        for (Names name : namesList) {
+            
+            if (currentGid.intValue() != name.getGid().intValue()) {
+                wheatDataList.add( wheatDataToAdd);
+                currentGid = name.getGid();
+                wheatDataToAdd = new WheatData();
+                wheatDataToAdd.setGid(name.getGid());
+                fillWheatData(wheatDataToAdd, name);
+            } else {
+                fillWheatData(wheatDataToAdd, name);
+            }
+        }
+        
+        // remove first element because is null;
+        wheatDataList.remove(0);
+        return wheatDataList;
+    }
+    
+    /**
+     * Fills a wheat data comparing ntype values
+     * @param wheatData Wheat Data to fill
+     * @param names Names used to check values
+     */
+    private void fillWheatData(WheatData wheatData, Names names) {
+        if (names.getNtype() != null) {
+            switch (names.getNtype()) {
+                case Names.CIMMYT_WHEAT_BCID:
+                    wheatData.setBcid(names.getNval());
+                    break;
+                case Names.CIMMYT_WHEAT_PEDIGREE:
+                    wheatData.setCrossName(names.getNval());
+                    break;
+                case Names.CIMMYT_WHEAT_SELECTION_HISTORY:
+                    wheatData.setSelectionHistory(names.getNval());
+                    break;
+                   
+            }
+        }
+    }    
 }

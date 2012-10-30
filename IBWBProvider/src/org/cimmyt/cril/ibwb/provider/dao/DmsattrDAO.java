@@ -93,4 +93,6 @@ public class DmsattrDAO extends AbstractDAO<Dmsattr, Integer> {
         }
         return dmsattr;
     }
+    
+    
 }
