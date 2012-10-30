@@ -561,7 +561,7 @@ public class JDExpert extends javax.swing.JDialog {
                 porcentaje = "0";
                 handle.start(100);
                 handle.progress(bundle.getString("JDExpert.completado") + porcentaje + " %");
-                completeFullDataFromDatabase(listID);
+                //completeFullDataFromDatabase(listID);
             }
         }, handle, true);
 
