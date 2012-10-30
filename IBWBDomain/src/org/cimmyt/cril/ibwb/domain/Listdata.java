@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import org.cimmyt.cril.ibwb.domain.filter.BaseFilter;
+import org.cimmyt.cril.ibwb.domain.util.WheatData;
 
 /**
  *
@@ -99,6 +100,12 @@ public class Listdata extends BaseFilter implements Serializable {
     
     @Transient
     private Names name1029;
+    
+    /**
+     * wheatData will contain all field as FTID for this list
+     */
+    @Transient 
+    private WheatData wheatData;
 
     public Listdata() {
         setDefault();
@@ -354,4 +361,14 @@ public class Listdata extends BaseFilter implements Serializable {
     public void setName1029(Names name1029) {
         this.name1029 = name1029;
     }
+
+    public WheatData getWheatData() {
+        return wheatData;
+    }
+
+    public void setWheatData(WheatData wheatData) {
+        this.wheatData = wheatData;
+    }
+    
+    
 }

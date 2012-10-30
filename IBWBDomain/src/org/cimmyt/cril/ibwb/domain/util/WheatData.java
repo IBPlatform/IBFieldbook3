@@ -11,6 +11,20 @@ public class WheatData implements Serializable {
     private String bcid;
     private String selectionHistory;
     private String crossName;
+    
+    private Integer ftid;
+    
+    private Integer focc;
+    
+    private Integer fent;
+    
+    private Integer mtid;
+    
+    private Integer mocc;
+    
+    private Integer ment;
+    
+    
 
     public WheatData() {
     }
@@ -54,5 +68,54 @@ public class WheatData implements Serializable {
         this.selectionHistory = selectionHistory;
     }
 
+    public Integer getFent() {
+        return fent;
+    }
+
+    public void setFent(Integer fent) {
+        this.fent = fent;
+    }
+
+    public Integer getFocc() {
+        return focc;
+    }
+
+    public void setFocc(Integer focc) {
+        this.focc = focc;
+    }
+
+    public Integer getFtid() {
+        return ftid;
+    }
+
+    public void setFtid(Integer ftid) {
+        this.ftid = ftid;
+    }
+
+    public Integer getMent() {
+        return ment;
+    }
+
+    public void setMent(Integer ment) {
+        this.ment = ment;
+    }
+
+    public Integer getMocc() {
+        return mocc;
+    }
+
+    public void setMocc(Integer mocc) {
+        this.mocc = mocc;
+    }
+
+    public Integer getMtid() {
+        return mtid;
+    }
+
+    public void setMtid(Integer mtid) {
+        this.mtid = mtid;
+    }
+
+    
         
 }
