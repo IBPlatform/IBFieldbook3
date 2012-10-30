@@ -17,6 +17,7 @@ import org.cimmyt.cril.ibwb.api.AppServicesProxy;
 import org.cimmyt.cril.ibwb.domain.Listdata;
 import org.cimmyt.cril.ibwb.domain.ListdataPK;
 import org.cimmyt.cril.ibwb.domain.Listnms;
+import org.cimmyt.cril.ibwb.domain.util.WheatData;
 
 /**
  *
@@ -339,7 +340,9 @@ public class GermplasmListReaderImpl implements GermplasmListReader {
         filter.setListdataPK(new ListdataPK(listid, null));
         //int total = AppServicesProxy.getDefault().appServices().getTotalListdata(filter);
         // Retrieve list data for listId
-        List<Listdata> listdataList = AppServicesProxy.getDefault().appServices().getListListdata(filter, 0, 0, false);
+        Listnms listnms = AppServicesProxy.getDefault().appServices().getFullListnms(listid);
+        List<Listdata> listdataList = listnms.getLisdatas();
+        
 
         int rowCounter = 1;
 
@@ -353,7 +356,16 @@ public class GermplasmListReaderImpl implements GermplasmListReader {
             entries.setSource(listdata.getSource());
             entries.setEntryCode(listdata.getEntrycd());
             entries.setGid(listdata.getGid());
+            
+            WheatData wheatData = listdata.getWheatData();
+            wheatData.setBcid( listdata.getName1027() != null && listdata.getName1027().getNval() != null ? listdata.getName1027().getNval():"");
+            wheatData.setCrossName( listdata.getName1029()!= null &&  listdata.getName1029().getNval() != null ? listdata.getName1029().getNval(): "");
+            wheatData.setSelectionHistory( listdata.getName1028() != null && listdata.getName1028().getNval() != null ? listdata.getName1028().getNval() : "");
+            
+            entries.setWheatData(wheatData);
+            
             entries.setNumber(rowCounter);
+            
 
             // add to entries list
             listEntries.add(entries);
