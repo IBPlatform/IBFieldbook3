@@ -51,7 +51,7 @@ public final class NurseryVisualPanel41 extends JPanel {
     private Desktop.Action action = null;
     private File archivo = null;
     private ResourceBundle bundle = NbBundle.getBundle(NurseryVisualPanel41.class);
-    private boolean isForWheat = false;
+    private boolean isForWheat = true;
     private String[] nameColumn = {"Cross Name", "Selection History", "Pedigree", "CID", "SID", "GID", "INTRID", "TID", "ENT", "Folio", "Specific Name", "Name Abbreviation", "Cross Year", "Cross Location", "Cross Country", "Cross Organization", "Cross Program", "FAO In-trust", "Selection Year", "Selection Location", "Selection Country", "Name Country", "Name Year", "FAO designation Date", "24 disp", "25 disp"};
     private ArrayList<String> wheatColumns;
     private ArrayList<String> wheatColumnsforSearch;
@@ -357,7 +357,7 @@ public final class NurseryVisualPanel41 extends JPanel {
                 porcentaje = "0";
                 handle.start(100);
                 handle.progress(bundle.getString("NurseryVisualPanel41.completado") + porcentaje + " %");
-                completeFullDataFromDatabase();
+                //completeFullDataFromDatabase();
             }
         }, handle, true);
 
@@ -831,6 +831,7 @@ public final class NurseryVisualPanel41 extends JPanel {
             listnms = AppServicesProxy.getDefault().appServices().getFullListnms(selectedList.getListid());
             listas = (List<Listdata>) listnms.getLisdatas();
         } catch (Exception ex) {
+            ex.printStackTrace();
             return;
 
         }
