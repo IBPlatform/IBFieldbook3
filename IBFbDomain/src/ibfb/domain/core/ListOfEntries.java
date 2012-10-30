@@ -2,6 +2,7 @@ package ibfb.domain.core;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.cimmyt.cril.ibwb.domain.util.WheatData;
 
 /**
  *
@@ -37,6 +38,18 @@ public class ListOfEntries {
     private String uniqueId;
     private Integer entryId;
     private Integer number;
+    // constants for cimmyt wheat data
+    public static final String FTID = "FEMALETRIALIDNUMBER";
+    public static final String FOCC = "FEMALEOCCURRENCEIDNUMBER";
+    public static final String FENT = "FEMALEENTRYNUMBER";
+    public static final String MTID = "MALETRIALIDNUMBER";
+    public static final String MOCC = "MALEOCCURENCEIDNUMBER";
+    public static final String MENT = "MALEENTRYNUMBER";
+    
+    public static final String CROSS_NAME = "CROSSNAMENAME";
+    public static final String SELECTION_HISTORY = "SELECTIONHISTORYNAME";
+    
+    private WheatData wheatData;
 
     public ListOfEntries() {
     }
@@ -93,7 +106,7 @@ public class ListOfEntries {
     public List<Object> getColumnValuesFromFactors(List<Factor> localFactors) {
         List<Object> columnValues = new ArrayList<Object>();
         for (Factor factor : localFactors) {
-            String columnName = Workbook.getStringWithOutBlanks(factor.getProperty()+factor.getScale());
+            String columnName = Workbook.getStringWithOutBlanks(factor.getProperty() + factor.getScale());
             if (columnName.equals(GERMPLASM_ENTRY_NUMBER)) {
                 columnValues.add(number);
             } else if (columnName.equals(GERMPLASM_ENTRY_CODE)) {
@@ -106,6 +119,22 @@ public class ListOfEntries {
                 columnValues.add(source);
             } else if (columnName.equals(CROSS_HISTORY_PEDIGREE_STRING)) {
                 columnValues.add(cross);
+            } else if (columnName.equals(FTID) && wheatData != null) {
+                columnValues.add(wheatData.getFtid());
+            } else if (columnName.equals(FOCC) && wheatData != null) {
+                columnValues.add(wheatData.getFocc());
+            } else if (columnName.equals(FENT) && wheatData != null) {
+                columnValues.add(wheatData.getFent());
+            } else if (columnName.equals(MTID) && wheatData != null) {
+                columnValues.add(wheatData.getMtid());
+            } else if (columnName.equals(MOCC) && wheatData != null) {
+                columnValues.add(wheatData.getMocc());
+            } else if (columnName.equals(MENT) && wheatData != null) {
+                columnValues.add(wheatData.getMent());
+            } else if (columnName.equals(CROSS_NAME) && wheatData != null) {
+                columnValues.add(wheatData.getCrossName());
+            } else if (columnName.equals(SELECTION_HISTORY) && wheatData != null) {
+                columnValues.add(wheatData.getSelectionHistory());
             } else {
                 columnValues.add("");;
             }
@@ -182,4 +211,14 @@ public class ListOfEntries {
     public String toString() {
         return "ListEntry{" + "gid=" + gid + "entryCode=" + entryCode + "designation=" + designation + "cross=" + cross + "source=" + source + "uniqueId=" + uniqueId + "entryId=" + entryId + '}';
     }
+
+    public WheatData getWheatData() {
+        return wheatData;
+    }
+
+    public void setWheatData(WheatData wheatData) {
+        this.wheatData = wheatData;
+    }
+    
+    
 }
