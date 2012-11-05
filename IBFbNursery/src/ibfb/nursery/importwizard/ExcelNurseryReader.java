@@ -9,11 +9,13 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import org.apache.log4j.Logger;
 import org.apache.poi.ss.usermodel.*;
+import org.cimmyt.cril.ibwb.commongui.ConvertUtils;
 import org.cimmyt.cril.ibwb.commongui.DecimalUtils;
 import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 import org.openide.util.NbBundle;
 
 public class ExcelNurseryReader {
+
     private ResourceBundle bundle = NbBundle.getBundle(ExcelNurseryReader.class);
     private static Logger log = Logger.getLogger(ExcelNurseryReader.class);
     String fileName = "";
@@ -94,13 +96,13 @@ public class ExcelNurseryReader {
                 return;
             }
 
-           if (!validDesigAndGid()) {
+            if (!validDesigAndGid()) {
                 String desigLabel = observationsModel.getColumnName(observationsModel.getHeaderIndex(ObservationsTableModel.DESIG));
                 String gidLabel = observationsModel.getColumnName(observationsModel.getHeaderIndex(ObservationsTableModel.GID));
                 DialogUtil.displayError(MessageFormat.format(bundle.getString("ExcelNurseryReader.desigOrGidNotValid"), desigLabel, gidLabel));
                 return;
             }
-            
+
             readTraitsValues(traits, colEntry, colPlot, rowVariate);
             DialogUtil.displayInfo("Data from excel file was loaded");
 
@@ -286,10 +288,10 @@ public class ExcelNurseryReader {
                         Row fila = sheetObservation.getRow(j + 1);
 
                         Cell celda = fila.getCell(colEntry);
-                        int entry = Integer.parseInt(celda.getStringCellValue());
+                        int entry = ConvertUtils.getValueAsInteger(celda.getNumericCellValue());
 
                         celda = fila.getCell(colPlot);
-                        int plot = Integer.parseInt(celda.getStringCellValue());
+                        int plot = ConvertUtils.getValueAsInteger(celda.getNumericCellValue());
 
                         celda = fila.getCell(col);
                         filaObs = findFila(entry, plot);
@@ -314,12 +316,12 @@ public class ExcelNurseryReader {
 
                         } else {
                             if (celda.getStringCellValue() != null && !celda.getStringCellValue().trim().isEmpty()) {
-                                
+
                                 resultCad = celda.getStringCellValue().toString();
                                 if (filaObs >= 0) {
-                                    
+
                                     observationsModel.setValueAt(resultCad, filaObs, colObs);
-                                    
+
                                 }
                             }
                         }
@@ -664,8 +666,8 @@ public class ExcelNurseryReader {
 
         return result;
     }
-    
-/**
+
+    /**
      * Validate if DESIG and GID are same that values readed from excel file
      *
      * @return
@@ -681,8 +683,9 @@ public class ExcelNurseryReader {
         for (int row = 0; row <= totalObservations; row++) {
             Row fila = sheetObservation.getRow(row + 1);
             if (fila != null) {
-                String desigFromExcel = fila.getCell(desigColumn ).getStringCellValue();
-                String gidFromExcel = fila.getCell(gidColumn ).getStringCellValue();
+                String desigFromExcel = fila.getCell(desigColumn).getStringCellValue();
+                Integer gidInt = ConvertUtils.getValueAsInteger(fila.getCell(gidColumn).getNumericCellValue());
+                String gidFromExcel = gidInt.toString();
 
                 String desigFromGrid = observationsModel.getValueAt(row, desigColumn).toString();
                 String gidFromGrid = observationsModel.getValueAt(row, gidColumn).toString();
@@ -695,5 +698,5 @@ public class ExcelNurseryReader {
         }
 
         return correctDesigAndGid;
-    }    
+    }
 }

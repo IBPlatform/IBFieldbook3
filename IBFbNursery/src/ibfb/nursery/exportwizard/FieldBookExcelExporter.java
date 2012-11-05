@@ -34,9 +34,7 @@ public class FieldBookExcelExporter {
     private JTable jtableStudyCondition;
     private JTable jtableTrialCondition;
     private JTable jtableConstants;
-
     private Study study;
-  
     private int currentRow = 0;
 
     public FieldBookExcelExporter(JTable jTableObservations, String fileTemplate, String trialFile, Study study, Workbook workbook, List<Constant> constants) {
@@ -68,9 +66,9 @@ public class FieldBookExcelExporter {
 
             for (int i = 0; i < modeloOriginal.getRowCount(); i++) {
 
-                    trial = Integer.parseInt(modeloOriginal.getValueAt(i, 0).toString());
-                    List<Object> row = modeloOriginal.getRow(i);
-                    modeloFilter.addRow(row);
+                trial = Integer.parseInt(modeloOriginal.getValueAt(i, 0).toString());
+                List<Object> row = modeloOriginal.getRow(i);
+                modeloFilter.addRow(row);
             }
 
             createFile(jTableToExport, modeloFilter, current);
@@ -78,7 +76,7 @@ public class FieldBookExcelExporter {
             return;
         }
 
-        
+
 
         if (trialOption == 1) {
             for (int i = 0; i < modeloOriginal.getRowCount(); i++) {
@@ -136,8 +134,9 @@ public class FieldBookExcelExporter {
 
     /**
      * Copies original template file used by workbook
+     *
      * @param myFile
-     * @param outputFile 
+     * @param outputFile
      */
     private void copyFile(String myFile, String outputFile) {
         try {
@@ -158,8 +157,9 @@ public class FieldBookExcelExporter {
 
     /**
      * Save information to all file
+     *
      * @param template
-     * @param obsFilterTable 
+     * @param obsFilterTable
      */
     private void saveDataToWorkbook(File template, JTable obsFilterTable, int trial) {
 
@@ -202,15 +202,15 @@ public class FieldBookExcelExporter {
             blueStyle.setFont(whiteFont);
 
             TableColumnModel tableColumns = obsFilterTable.getColumnModel();
-            
-            System.out.println("Columnas totales: "+obsFilterTable.getColumnModel().getColumnCount());
-            
+
+            System.out.println("Columnas totales: " + obsFilterTable.getColumnModel().getColumnCount());
+
             for (int i = 0; i < obsFilterTable.getColumnModel().getColumnCount(); i++) {
-                System.out.println("COLUMNAS: "+tableColumns.getColumn(i).getHeaderValue().toString());
-                
+                System.out.println("COLUMNAS: " + tableColumns.getColumn(i).getHeaderValue().toString());
+
             }
-            
-            
+
+
             ObservationsTableModel tableModel = (ObservationsTableModel) obsFilterTable.getModel();
 
 
@@ -219,7 +219,7 @@ public class FieldBookExcelExporter {
             for (int col = 0; col < tableColumns.getColumnCount(); col++) {
                 TableColumn tableColumn = tableColumns.getColumn(col);
 
-                celdaExcel = filaExcel.createCell(col , HSSFCell.CELL_TYPE_STRING);
+                celdaExcel = filaExcel.createCell(col, HSSFCell.CELL_TYPE_STRING);
                 celdaExcel.setCellValue((String) tableColumn.getHeaderValue());
                 if (tableModel.getHeaders().get(col) instanceof Variate) {
                     celdaExcel.setCellStyle(blueStyle);
@@ -228,32 +228,38 @@ public class FieldBookExcelExporter {
                 }
             }
 
+            boolean isNumeric = false;
+
             for (int i = 0; i < obsFilterTable.getRowCount(); i++) {
                 filaExcel = sheetMeasurements.createRow(i + 1);
-//AUQI AMCIOOASNSA
+
 
                 for (int col = 0; col < tableColumns.getColumnCount(); col++) {
 
-                    celdaExcel = filaExcel.createCell(col , HSSFCell.CELL_TYPE_STRING);
+                    isNumeric = isNumericDataType(tableModel.getHeaders().get(col));
 
-                    String valor;
-                    try {
-                       
-                        valor = obsFilterTable.getValueAt(i, col).toString();
-                    } catch (NullPointerException ex) {
-                        valor = " ";
+                    if (isNumeric) {
+                        Double doubleValue = ConvertUtils.getValueAsDouble(obsFilterTable.getValueAt(i, col));
+                        if (doubleValue != null) {
+                            celdaExcel = filaExcel.createCell(col , HSSFCell.CELL_TYPE_NUMERIC);
+                            celdaExcel.setCellValue(doubleValue);
+                        }
+                    } else {
+                        String valor = ConvertUtils.getValueAsString(obsFilterTable.getValueAt(i, col));
+                        if (valor != null && !valor.isEmpty()) {
+                            celdaExcel = filaExcel.createCell(col , HSSFCell.CELL_TYPE_STRING);
+                            celdaExcel.setCellValue(valor);
+                        }
                     }
-
-                    celdaExcel.setCellValue(valor);
                 }
 
             }
 
             grabaLibro(excelBook, nombreArchivo);
 
-            String fileSaved = NbBundle.getMessage(FieldBookExcelExporter.class,"FieldBookExcelExporter.saved") + nombreArchivo + NbBundle.getMessage(FieldBookExcelExporter.class,"FieldBookExcelExporter.wantOpen");
+            String fileSaved = NbBundle.getMessage(FieldBookExcelExporter.class, "FieldBookExcelExporter.saved") + nombreArchivo + NbBundle.getMessage(FieldBookExcelExporter.class, "FieldBookExcelExporter.wantOpen");
 
-            if (DialogUtil.displayConfirmation(fileSaved, NbBundle.getMessage(FieldBookExcelExporter.class,"FieldBookExcelExporter.exported"), NotifyDescriptor.OK_CANCEL_OPTION)) {
+            if (DialogUtil.displayConfirmation(fileSaved, NbBundle.getMessage(FieldBookExcelExporter.class, "FieldBookExcelExporter.exported"), NotifyDescriptor.OK_CANCEL_OPTION)) {
                 try {
 
                     if (Desktop.isDesktopSupported() == true) {
@@ -267,7 +273,7 @@ public class FieldBookExcelExporter {
             }
 
         } catch (Exception e) {
-            System.out.println("ERROR EN -saveDataToWorkbook- :" +e);
+            System.out.println("ERROR EN -saveDataToWorkbook- :" + e);
         }
 
 
@@ -288,7 +294,6 @@ public class FieldBookExcelExporter {
         }
     }
 
-    
     private void saveDescriptionSheet(HSSFWorkbook excelBook, int nursery) {
         HSSFSheet descriptionSheet = excelBook.createSheet("Description");
         HSSFCell excelCell;
@@ -406,7 +411,7 @@ public class FieldBookExcelExporter {
         excelCell.setCellValue("START DATE");
         excelCell.setCellStyle(marronStyle);
         excelCell = excelRow.createCell(1, HSSFCell.CELL_TYPE_STRING);
-        excelCell.setCellValue(ConvertUtils.getDateAsString(study.getStarDate()));        
+        excelCell.setCellValue(ConvertUtils.getDateAsString(study.getStarDate()));
         currentRow++;
 
         excelRow = descriptionSheet.createRow(currentRow);
@@ -418,11 +423,11 @@ public class FieldBookExcelExporter {
     }
 
     /**
-     * 
+     *
      * @param descriptionSheet
      * @param currentRow
      * @param nameText
-     * @param cellStyle 
+     * @param cellStyle
      */
     private void writeSectionHeaders(HSSFSheet descriptionSheet, String nameText, HSSFCellStyle cellStyle, HSSFRow excelRow) {
 
@@ -514,10 +519,10 @@ public class FieldBookExcelExporter {
     }
 
     /**
-     * 
+     *
      * @param descriptionSheet
      * @param currentRow
-     * @param conditionList 
+     * @param conditionList
      */
     private void writeConditions(HSSFSheet descriptionSheet, List<Condition> conditionList, int trial) {
         HSSFRow excelRow;
@@ -574,10 +579,10 @@ public class FieldBookExcelExporter {
     }
 
     /**
-     * 
+     *
      * @param descriptionSheet
      * @param currentRow
-     * @param factorList 
+     * @param factorList
      */
     private void writeFactors(HSSFSheet descriptionSheet, List<Factor> factorList) {
         HSSFRow excelRow;
@@ -614,10 +619,10 @@ public class FieldBookExcelExporter {
     }
 
     /**
-     * 
+     *
      * @param descriptionSheet
      * @param currentRow
-     * @param constantList 
+     * @param constantList
      */
     private void writeConstants(HSSFSheet descriptionSheet, List<Constant> constantList, int trial) {
         HSSFRow excelRow;
@@ -665,10 +670,10 @@ public class FieldBookExcelExporter {
     }
 
     /**
-     * 
+     *
      * @param descriptionSheet
      * @param currentRow
-     * @param variateList 
+     * @param variateList
      */
     private void writeVariates(HSSFSheet descriptionSheet, List<Variate> variateList) {
         HSSFRow excelRow;
@@ -781,5 +786,26 @@ public class FieldBookExcelExporter {
         }
 
         return value;
+    }
+
+    /**
+     * Checks if the column header data type is numeric type
+     *
+     * @param columnHeader column header to validate
+     * @return
+     * <code>true</code> if is numeric ,
+     * <code>false</code> if not
+     */
+    private boolean isNumericDataType(Object columnHeader) {
+        boolean isNumericType = false;
+        if (columnHeader instanceof Variate) {
+            Variate variate = (Variate) columnHeader;
+            isNumericType = variate.getDataType().equals("N");
+        } else if (columnHeader instanceof Factor) {
+            Factor factor = (Factor) columnHeader;
+            isNumericType = factor.getDataType().equals("N");
+        }
+        return isNumericType;
+
     }
 }

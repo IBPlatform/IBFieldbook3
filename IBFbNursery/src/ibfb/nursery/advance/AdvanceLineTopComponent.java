@@ -522,6 +522,12 @@ public final class AdvanceLineTopComponent extends TopComponent {
             DialogDisplayer.getDefault().notify(d);
             return;
         }
+        
+      if (AppServicesProxy.getDefault().appServices().existGermplasmListName(jTextFieldNurseryAdvanceName.getText())) {
+            NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(AdvanceLineTopComponent.class, "AdvanceLineTopComponent.listNameAlreadyExists"), NotifyDescriptor.ERROR_MESSAGE);
+            DialogDisplayer.getDefault().notify(d);
+            return; 
+        }        
 
         if (getConvection() == 0)//IF IS FOR WHEAT
         {
