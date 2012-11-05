@@ -768,6 +768,7 @@ public final class TrialWizardVisualPanel4 extends JPanel {
     private void searchList() {
         SelectListDialog selectListDialog = new SelectListDialog();
         selectListDialog.showSearchDialog();
+        selectListDialog.populateComboListNames(cboGermplasmList);
         if (selectListDialog.isListSelected()) {
             try {
                 GermplasmListReader germplasmListReader = new GermplasmListReaderImpl();

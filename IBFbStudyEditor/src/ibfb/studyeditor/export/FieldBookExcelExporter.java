@@ -299,23 +299,31 @@ public class FieldBookExcelExporter {
                 }
             }
 
+            boolean isNumeric = false;
+
             for (int i = 0; i < obsFilterTable.getRowCount(); i++) {
                 filaExcel = sheetMeasurements.createRow(i + 1);
 
 
                 for (int col = 1; col < tableColumns.getColumnCount(); col++) {
 
-                    celdaExcel = filaExcel.createCell(col - 1, HSSFCell.CELL_TYPE_STRING);
-
-                    String valor;
-                    try {
-                        //valor = obsFilterTable.getValueAt(i, col - 1).toString();
-                        valor = obsFilterTable.getValueAt(i, col).toString();
-                    } catch (NullPointerException ex) {
-                        valor = " ";
+                    isNumeric = isNumericDataType(tableModel.getHeaders().get(col));
+                    
+                    if (isNumeric) {
+                        Double doubleValue = ConvertUtils.getValueAsDouble(obsFilterTable.getValueAt(i, col));
+                        if (doubleValue != null) {
+                            celdaExcel = filaExcel.createCell(col - 1, HSSFCell.CELL_TYPE_NUMERIC);                            
+                            celdaExcel.setCellValue(doubleValue);
+                        }
+                    } else {
+                        String valor = ConvertUtils.getValueAsString(obsFilterTable.getValueAt(i, col));
+                        if (valor != null && !valor.isEmpty()) {
+                            celdaExcel = filaExcel.createCell(col - 1, HSSFCell.CELL_TYPE_STRING);                            
+                            celdaExcel.setCellValue(valor);
+                        }
                     }
 
-                    celdaExcel.setCellValue(valor);
+
                 }
 
             }
@@ -882,5 +890,26 @@ public class FieldBookExcelExporter {
         }
 
         return value;
+    }
+
+    /**
+     * Checks if the column header data type is numeric type
+     *
+     * @param columnHeader column header to validate
+     * @return
+     * <code>true</code> if is numeric ,
+     * <code>false</code> if not
+     */
+    private boolean isNumericDataType(Object columnHeader) {
+        boolean isNumericType = false;
+        if (columnHeader instanceof Variate) {
+            Variate variate = (Variate) columnHeader;
+            isNumericType = variate.getDataType().equals("N");
+        } else if (columnHeader instanceof Factor) {
+            Factor factor = (Factor) columnHeader;
+            isNumericType = factor.getDataType().equals("N");
+        }
+        return isNumericType;
+
     }
 }

@@ -17,6 +17,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.cimmyt.cril.ibwb.commongui.ConvertUtils;
 import org.cimmyt.cril.ibwb.commongui.DecimalUtils;
 import org.openide.util.NbBundle;
 
@@ -526,9 +527,10 @@ public class ExcelTrialReader {
                     try {
                         Row fila = sheetObservation.getRow(j + 1);
                         Cell celda = fila.getCell(colEntry);
-                        int entry = Integer.parseInt(celda.getStringCellValue());
+                        
+                        int entry = ConvertUtils.getValueAsInteger(celda.getNumericCellValue());
                         celda = fila.getCell(colPlot);
-                        int plot = Integer.parseInt(celda.getStringCellValue());
+                        int plot = ConvertUtils.getValueAsInteger(celda.getNumericCellValue());
                         celda = fila.getCell(col);
                         filaObs = findFila(entry, plot);
                         // System.out.println("FILA ENCONTRADA: "+filaObs);
