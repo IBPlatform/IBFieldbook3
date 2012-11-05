@@ -178,7 +178,7 @@ public class GermplasmListReaderImpl implements GermplasmListReader {
             if (rowData != null) {
 
                 // checks if all values are filled for a row
-                
+
                 // create a new FACTOR
                 ListOfEntries listEntry = new ListOfEntries();
 
@@ -294,12 +294,12 @@ public class GermplasmListReaderImpl implements GermplasmListReader {
     @Override
     public GermplasmList getGermPlasmListFromDB(Integer listid) {
         GermplasmList germplasmList = new GermplasmList();
-        
+
 //        Listnms listnms = AppServicesProxy.getDefault().appServices().getFullListnms(listid);
-        
+
         fillHeader(germplasmList, listid);
         fillEntryList(germplasmList, listid);
-        
+
         return germplasmList;
     }
 
@@ -342,7 +342,7 @@ public class GermplasmListReaderImpl implements GermplasmListReader {
         // Retrieve list data for listId
         Listnms listnms = AppServicesProxy.getDefault().appServices().getFullListnms(listid);
         List<Listdata> listdataList = listnms.getLisdatas();
-        
+
 
         int rowCounter = 1;
 
@@ -356,16 +356,18 @@ public class GermplasmListReaderImpl implements GermplasmListReader {
             entries.setSource(listdata.getSource());
             entries.setEntryCode(listdata.getEntrycd());
             entries.setGid(listdata.getGid());
-            
+
             WheatData wheatData = listdata.getWheatData();
-            wheatData.setBcid( listdata.getName1027() != null && listdata.getName1027().getNval() != null ? listdata.getName1027().getNval():"");
-            wheatData.setCrossName( listdata.getName1029()!= null &&  listdata.getName1029().getNval() != null ? listdata.getName1029().getNval(): "");
-            wheatData.setSelectionHistory( listdata.getName1028() != null && listdata.getName1028().getNval() != null ? listdata.getName1028().getNval() : "");
-            
-            entries.setWheatData(wheatData);
-            
+            if (wheatData != null) {
+                wheatData.setBcid(listdata.getName1027() != null && listdata.getName1027().getNval() != null ? listdata.getName1027().getNval() : "");
+                wheatData.setCrossName(listdata.getName1029() != null && listdata.getName1029().getNval() != null ? listdata.getName1029().getNval() : "");
+                wheatData.setSelectionHistory(listdata.getName1028() != null && listdata.getName1028().getNval() != null ? listdata.getName1028().getNval() : "");
+
+                entries.setWheatData(wheatData);
+            }
+
             entries.setNumber(rowCounter);
-            
+
 
             // add to entries list
             listEntries.add(entries);
