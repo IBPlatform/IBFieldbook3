@@ -169,6 +169,27 @@ public class ConvertUtils {
         return valueAsDouble;
     }
 
+    /**
+     * Converts an Object to String
+     * @param value
+     * @return 
+     */
+    public static String getValueAsString(Object value) {
+        String stringValue = null;
+
+        if (value == null) {
+            // nothing!, is null
+        } else if (value instanceof String) {
+            stringValue = (String) value;
+        } else if (value instanceof Integer) {
+            stringValue = value.toString();
+        } else if (value instanceof Double) {
+            stringValue = value.toString();
+        }
+
+        return stringValue;
+    }    
+    
     public static void main(String[] args) {
         System.out.println(getZeroLeading(5, 2));
     }
