@@ -1067,6 +1067,7 @@ public class JDExpert extends javax.swing.JDialog {
                 setGermplasmListIntoTable(selectedList.getListid(),germplasmList);
                 this.jButtonFinishExpert.setEnabled(true);
             } catch (Exception ex) {
+                ex.printStackTrace();
                 System.out.println("ERROR AL LEER EXCEL GERMPLASM ENTRIES DB: " + ex);
             }
         } else {
@@ -1266,6 +1267,7 @@ public class JDExpert extends javax.swing.JDialog {
     private void searchList() {
         SelectListDialog selectListDialog = new SelectListDialog();
         selectListDialog.showSearchDialog();
+        selectListDialog.populateComboListNames(cboGermplasmList);
         if (selectListDialog.isListSelected()) {
             try {
                 GermplasmListReader germplasmListReader = new GermplasmListReaderImpl();
