@@ -921,7 +921,7 @@ public class HelperGermplasm {
                         //Get GMF and GMM ! Male is a cross - get paternal grandparents
                         Germplsm gmf = appServices.getGermplsm(gs.getGermplsmMale().getGpid1());
                         Germplsm gmm = appServices.getGermplsm(gs.getGermplsmMale().getGpid2());
-                        if (gmf.getGid() == gs.getGermplsm().getGid() || gmm.getGid() == gs.getGermplsm().getGid()) {
+                        if (gmf.getGid().equals( gs.getGermplsm().getGid()) || gmm.getGid().equals( gs.getGermplsm().getGid())) {
                             gs.setMethodGermplasm(107);//If one paternal grandparent is the same as the mother - backcross
                             gs.setCharBCID("F");
                         } else {
