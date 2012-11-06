@@ -3116,6 +3116,7 @@ public final class addChecksTopComponent extends TopComponent {
         rowListDB = new ArrayList<List<Object>>();
         SelectListDialog selectListDialog = new SelectListDialog();
         selectListDialog.showSearchDialog();
+        selectListDialog.populateComboListNames(cboGermplasmList);
         if (selectListDialog.isListSelected()) {
             try {
                 GermplasmListReader germplasmListReader = new GermplasmListReaderImpl();
@@ -3141,6 +3142,7 @@ public final class addChecksTopComponent extends TopComponent {
         rowListDBChecks = new ArrayList<List<Object>>();
         SelectListDialog selectListDialog = new SelectListDialog();
         selectListDialog.showSearchDialog();
+        selectListDialog.populateComboListNames(cboGermplasmListChecks);
         if (selectListDialog.isListSelected()) {
             try {
                 GermplasmListReader germplasmListReader = new GermplasmListReaderImpl();

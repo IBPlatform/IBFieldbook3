@@ -64,7 +64,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTabbedPaneSource" max="32767" attributes="2"/>
+                          <Component id="jTabbedPaneSource" pref="530" max="32767" attributes="2"/>
                           <Component id="jToolBar2" max="32767" attributes="2"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -92,7 +92,7 @@
                               <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                               <Component id="jPanel6" max="32767" attributes="2"/>
                           </Group>
-                          <Component id="jTabbedPaneSource" alignment="1" max="32767" attributes="0"/>
+                          <Component id="jTabbedPaneSource" alignment="1" pref="531" max="32767" attributes="0"/>
                           <Component id="jPanel12" alignment="1" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -257,7 +257,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jScrollEntriesDb" alignment="1" pref="489" max="32767" attributes="0"/>
+                                  <Component id="jScrollEntriesDb" alignment="1" pref="493" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
@@ -283,7 +283,7 @@
                                   </Group>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jScrollEntriesDb" pref="365" max="32767" attributes="0"/>
+                              <Component id="jScrollEntriesDb" pref="384" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -367,7 +367,7 @@
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jScrollEntiresExcel" alignment="0" pref="489" max="32767" attributes="2"/>
+                                  <Component id="jScrollEntiresExcel" alignment="0" pref="493" max="32767" attributes="2"/>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
@@ -390,7 +390,7 @@
                                   <Component id="jButton1" alignment="0" max="32767" attributes="1"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jScrollEntiresExcel" pref="365" max="32767" attributes="0"/>
+                              <Component id="jScrollEntiresExcel" pref="384" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -476,7 +476,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="-2" max="-2" attributes="0"/>
-                          <Component id="jScrollFinalSource" pref="494" max="32767" attributes="0"/>
+                          <Component id="jScrollFinalSource" pref="498" max="32767" attributes="0"/>
                           <EmptySpace min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -646,7 +646,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jPanel13" max="32767" attributes="0"/>
                           <Component id="jPanel9" max="32767" attributes="2"/>
-                          <Component id="jTabbedPaneSelectChecks" max="32767" attributes="0"/>
+                          <Component id="jTabbedPaneSelectChecks" pref="533" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -836,7 +836,7 @@
                                   </Group>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jScrollEntriesDbChecks" pref="373" max="32767" attributes="0"/>
+                              <Component id="jScrollEntriesDbChecks" pref="386" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -942,7 +942,7 @@
                                   <Component id="jButtonBrowseExcelChecks" alignment="0" max="32767" attributes="1"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jScrollEntiresExcelChecks" pref="373" max="32767" attributes="0"/>
+                              <Component id="jScrollEntiresExcelChecks" pref="386" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -1368,7 +1368,7 @@
                               <Component id="jRadioButtonWithout" min="-2" max="-2" attributes="0"/>
                               <Component id="jRadioButtonWith" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="367" max="32767" attributes="0"/>
+                          <EmptySpace pref="464" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>

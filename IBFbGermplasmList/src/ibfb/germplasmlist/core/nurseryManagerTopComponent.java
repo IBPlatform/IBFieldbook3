@@ -1714,6 +1714,13 @@ public final class nurseryManagerTopComponent extends TopComponent {
             DialogDisplayer.getDefault().notify(d);
             return;
         }
+        
+        if (AppServicesProxy.getDefault().appServices().existGermplasmListName(jTextFieldListName.getText())) {
+            NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.listNameAlreadyExists"), NotifyDescriptor.ERROR_MESSAGE);
+            DialogDisplayer.getDefault().notify(d);
+            return; 
+        }
+        
         NotifyDescriptor d = new NotifyDescriptor.Confirmation(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.save"), NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.final"),
                 NotifyDescriptor.OK_CANCEL_OPTION);
         if (DialogDisplayer.getDefault().notify(d) == NotifyDescriptor.OK_OPTION) {
@@ -2657,6 +2664,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
     private void searchFemaleList() {
         SelectListDialog selectListDialog = new SelectListDialog();
         selectListDialog.showSearchDialog();
+        selectListDialog.populateComboListNames(cboGermplasmListFemale);
         if (selectListDialog.isListSelected()) {
             try {
                 GermplasmListReader germplasmListReader = new GermplasmListReaderImpl();
@@ -2678,6 +2686,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
     private void searchMaleList() {
         SelectListDialog selectListDialog = new SelectListDialog();
         selectListDialog.showSearchDialog();
+        selectListDialog.populateComboListNames(cboGermplasmListMale);
         if (selectListDialog.isListSelected()) {
             try {
                 GermplasmListReader germplasmListReader = new GermplasmListReaderImpl();
