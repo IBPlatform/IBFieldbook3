@@ -8,6 +8,7 @@ import java.io.Serializable;
  * @author TMSANCHEZ
  */
 public class Variate implements Serializable {
+    
     public static final String ENUMERATED = "ENUMERATED";
     private String variateName;
     private String description;
