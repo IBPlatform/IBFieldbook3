@@ -159,6 +159,16 @@ public class GermplasmSearch extends javax.swing.JPanel {
             return null;
         }
     }
+
+    public List<Listnms> getGermplamList() {
+        return germplamList;
+    }
+
+    public void setGermplamList(List<Listnms> germplamList) {
+        this.germplamList = germplamList;
+    }
+
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSearch;
     private javax.swing.JScrollPane jScrollPane1;

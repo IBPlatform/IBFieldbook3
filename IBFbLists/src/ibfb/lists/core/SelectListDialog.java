@@ -1,6 +1,9 @@
 package ibfb.lists.core;
 
+import java.util.List;
 import java.util.ResourceBundle;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 import org.cimmyt.cril.ibwb.domain.Listnms;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
@@ -18,6 +21,10 @@ public class SelectListDialog {
      * Selected Germplasm list in grid
      */
     private Listnms selectedListnms;
+    /**
+     * List of Germplasm found
+     */
+    private List<Listnms> germplasmList;
 
     /**
      * Shows a dialog to select Germplasm lists
@@ -28,10 +35,12 @@ public class SelectListDialog {
         selectedListnms = null;
 
         NotifyDescriptor notifyDescriptor = new NotifyDescriptor(germplasmSearchPanel, bundle.getString("SelectListDialog.title"), NotifyDescriptor.OK_CANCEL_OPTION, NotifyDescriptor.PLAIN_MESSAGE, null, NotifyDescriptor.OK_OPTION);
-        
+
         if (DialogDisplayer.getDefault().notify(notifyDescriptor) == NotifyDescriptor.OK_OPTION) {
             this.selectedListnms = germplasmSearchPanel.getSelectedListnms();
+
         }
+        this.germplasmList = germplasmSearchPanel.getGermplamList();
     }
 
     /**
@@ -53,5 +62,21 @@ public class SelectListDialog {
      */
     public boolean isListSelected() {
         return this.selectedListnms != null;
+    }
+
+    /**
+     * Gets the germplasm list found
+     */
+    public List<Listnms> getGermplasmList() {
+        return germplasmList;
+    }
+
+    public void populateComboListNames(JComboBox cboGermplasmList) {
+        cboGermplasmList.setModel(new DefaultComboBoxModel(new String[]{NbBundle.getMessage(SelectListDialog.class, "SelectListDialog.selectOne")}));
+        if (germplasmList != null) {
+            for (Listnms list : germplasmList) {
+                cboGermplasmList.addItem(list);
+            }
+        }
     }
 }
