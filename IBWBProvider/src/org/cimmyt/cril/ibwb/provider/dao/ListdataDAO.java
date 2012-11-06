@@ -267,7 +267,7 @@ public class ListdataDAO extends AbstractDAO<Listdata, ListdataPK> {
      * @param idListnms ID for Listnms
      * @return list of Listdata or empty list if Listnms id not found
      */
-    public List<Listdata> getListdataByIdlistnms(final Integer idListnms) {
+    public List<Listdata> getListdataByIdlistnms(final Integer idListnms,List<Dmsattr> dmsattrList) {
         List<Listdata> listdataList = new ArrayList<Listdata>();
 
         String order = "";
@@ -282,7 +282,7 @@ public class ListdataDAO extends AbstractDAO<Listdata, ListdataPK> {
 
         listdataList = getHibernateTemplate().find(queryString, idListnms);
 
-        fillListDataAtributtes(listdataList, idListnms);
+        fillListDataAtributtes(listdataList, dmsattrList);
 
         return listdataList;
     }
@@ -292,13 +292,12 @@ public class ListdataDAO extends AbstractDAO<Listdata, ListdataPK> {
      * @param listDataList
      * @param idListnms 
      */
-    private void fillListDataAtributtes(List<Listdata> listDataList, final Integer idListnms) {
+    private void fillListDataAtributtes(List<Listdata> listDataList,List<Dmsattr> dmsattrList) {
         // first retrieve all atributes for desired listid
-        List<Dmsattr> dmsAttrList = getDmsAttributesByListId(idListnms);
         Map<Integer, WheatData> wheatDataList = new HashMap<Integer, WheatData>();
 
         // then populate wheatData List for fast retrieving
-        for (Dmsattr dmsattr : dmsAttrList) {
+        for (Dmsattr dmsattr : dmsattrList) {
             if (wheatDataList.containsKey(dmsattr.getDmsatrec())) {
                 updateWheatData(dmsattr, wheatDataList);
             } else {
@@ -373,21 +372,7 @@ public class ListdataDAO extends AbstractDAO<Listdata, ListdataPK> {
         }
     }
 
-    /**
-     * Gets a list of DMSAttrs for each atribute
-     *
-     * @param listid
-     * @return
-     */
-    private List<Dmsattr> getDmsAttributesByListId(final Integer listid) {
-        String queryString = "FROM Dmsattr as d WHERE d.dmsatrec in "
-                + " (select l.listdataPK.lrecid from Listdata as l where  l.listdataPK.listid = ?  ) and  "
-                + " d.dmsatype in (804,805,806,807,808,809) ";
-        List<Dmsattr> dmsattrList = getHibernateTemplate().find(queryString, listid);
-        return dmsattrList;
-    }
-    
-   
+  
     /**
      * Gets a list for Wheat Data (cimmyt) related to BCID, Selection history
      * 1. It looks for all elements in names where gid are used by a list

@@ -95,4 +95,17 @@ public class DmsattrDAO extends AbstractDAO<Dmsattr, Integer> {
     }
     
     
+ /**
+     * Gets a list of DMSAttrs for each atribute
+     *
+     * @param listid
+     * @return
+     */
+    public List<Dmsattr> getDmsAttributesByListId(final Integer listid) {
+        String queryString = "FROM Dmsattr as d WHERE d.dmsatrec in "
+                + " (select l.listdataPK.lrecid from Listdata as l where  l.listdataPK.listid = ?  ) and  "
+                + " d.dmsatype in (804,805,806,807,808,809) ";
+        List<Dmsattr> dmsattrList = getHibernateTemplate().find(queryString, listid);
+        return dmsattrList;
+    }    
 }

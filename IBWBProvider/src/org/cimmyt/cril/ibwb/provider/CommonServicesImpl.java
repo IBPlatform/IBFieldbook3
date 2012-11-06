@@ -1080,7 +1080,8 @@ public class CommonServicesImpl implements CommonServices {
     }
     
     public List<Listdata> getListdataByIdlistnms(Integer idListnms){
-        return listdataDAO.getListdataByIdlistnms(idListnms);
+        List<Dmsattr> dmsattrList = dmsattrDAO.getDmsAttributesByListId(idListnms);
+        return listdataDAO.getListdataByIdlistnms(idListnms,dmsattrList);
     }
 
 //-----------------------------------Listnms---------------------------
