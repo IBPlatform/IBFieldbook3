@@ -1360,4 +1360,9 @@ public class IBWBAppServicesMemoryImpl implements AppServices {
     public boolean existGermplasmListName(String listName) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    @Override
+    public TypeDB getTypeDB() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
