@@ -616,7 +616,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                         .addComponent(lblInstances)
                         .addGap(18, 18, 18)
                         .addComponent(jLabelInstances, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(JPanelDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblStartDate, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblEndDate, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -701,7 +701,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                 .addGap(33, 33, 33)
                 .addComponent(lblStudyConditions)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 767, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 921, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -810,7 +810,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                 .addContainerGap()
                 .addComponent(pnlTrialInformationFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 904, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1058, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -909,7 +909,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                 .addContainerGap()
                 .addComponent(pnlExperimentalConditionFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 904, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 1058, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -996,7 +996,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                         .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jButtonCopyGID, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
                             .addComponent(jButtonImportCrossInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap())))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout pnlGermplasmEntriesLayout = new javax.swing.GroupLayout(pnlGermplasmEntries);
@@ -1016,7 +1016,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                 .addContainerGap()
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 891, Short.MAX_VALUE)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 1045, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1044,7 +1044,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         pnlOtherTreatmentLayout.setVerticalGroup(
             pnlOtherTreatmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlOtherTreatmentLayout.createSequentialGroup()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 385, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 539, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 599, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -1170,7 +1170,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                             .addComponent(pnlExpConditionTrial))
                         .addComponent(jRadioButtonViewAllTrialStudy, javax.swing.GroupLayout.Alignment.TRAILING))
                     .addComponent(pnlExpDesignDesign, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pnlExperimConditionsFilterLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabelEntries, jTextFieldEntries});
@@ -1203,7 +1203,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                 .addContainerGap()
                 .addComponent(pnlExperimConditionsFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 861, Short.MAX_VALUE)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 1015, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1303,7 +1303,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                     .addGroup(jPanelTraitsLayout.createSequentialGroup()
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(pnlSelectList, javax.swing.GroupLayout.DEFAULT_SIZE, 841, Short.MAX_VALUE))
+                        .addComponent(pnlSelectList, javax.swing.GroupLayout.DEFAULT_SIZE, 995, Short.MAX_VALUE))
                     .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelTraitsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1323,7 +1323,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         );
         pnlTraitsLayout.setVerticalGroup(
             pnlTraitsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelTraits, javax.swing.GroupLayout.DEFAULT_SIZE, 996, Short.MAX_VALUE)
+            .addComponent(jPanelTraits, javax.swing.GroupLayout.DEFAULT_SIZE, 1150, Short.MAX_VALUE)
         );
 
         jTabbedPaneEditor.addTab(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.pnlTraits.TabConstraints.tabTitle"), pnlTraits); // NOI18N
@@ -1532,8 +1532,8 @@ public final class StudyEditorTopComponent extends TopComponent {
                 .addComponent(pnlMeasurementFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 904, Short.MAX_VALUE)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 904, Short.MAX_VALUE))
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 1058, Short.MAX_VALUE)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 1058, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -1545,7 +1545,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         );
         pnlMeasurementLayout.setVerticalGroup(
             pnlMeasurementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, 996, Short.MAX_VALUE)
+            .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, 1150, Short.MAX_VALUE)
         );
 
         jTabbedPaneEditor.addTab(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.pnlMeasurement.TabConstraints.tabTitle"), pnlMeasurement); // NOI18N
@@ -1629,6 +1629,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         });
 
         buttonGroupMeasurements.add(jRadioButtonAllTrialsMaster);
+        jRadioButtonAllTrialsMaster.setSelected(true);
         org.openide.awt.Mnemonics.setLocalizedText(jRadioButtonAllTrialsMaster, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jRadioButtonAllTrialsMaster.text")); // NOI18N
         jRadioButtonAllTrialsMaster.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -1721,8 +1722,8 @@ public final class StudyEditorTopComponent extends TopComponent {
                 .addComponent(pnlMeasurementFilter1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 904, Short.MAX_VALUE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 904, Short.MAX_VALUE))
+                    .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 1058, Short.MAX_VALUE)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 1058, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -2929,6 +2930,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         for (int i = 0; i < jTableObservations.getColumnCount(); i++) {
             sorterMeasurements.setSortable(i, false);
         }
+        
 
         this.jTabbedPaneEditor.setEnabledAt(7, true);
         this.jTabbedPaneEditor.setSelectedIndex(7);
@@ -3135,9 +3137,7 @@ public final class StudyEditorTopComponent extends TopComponent {
 
     public int findColumn(String name, DefaultTableModel model) {
         int colEntry = 0;
-
         colEntry = model.findColumn(name);
-
         return colEntry;
 
     }

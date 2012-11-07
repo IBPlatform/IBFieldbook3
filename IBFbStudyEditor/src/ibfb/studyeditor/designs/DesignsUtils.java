@@ -2,6 +2,7 @@ package ibfb.studyeditor.designs;
 
 import com.csvreader.CsvReader;
 import ibfb.domain.core.DesignBean;
+import ibfb.domain.core.Workbook;
 import ibfb.studyeditor.core.model.DesignTableModel;
 import ibfb.studyeditor.roweditors.AlphaDesignsRowEditor;
 import java.awt.Color;
@@ -11,6 +12,7 @@ import java.io.IOException;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
@@ -40,10 +42,13 @@ public class DesignsUtils {
     String[] cabeceras;
     int[] posiciones;
     int germplasmEntries = 0;
+    private Workbook myWorkbook;
+    private List<FactorsForDesign> facDesign;  
 
     public DesignsUtils(JTable jTableDesign, JTextField jTextFieldEntries) {
         this.jTableDesign = jTableDesign;
         this.jTextFieldEntries = jTextFieldEntries;
+        
     }
 
     public int getGermplasmEntries() {
@@ -342,7 +347,7 @@ public class DesignsUtils {
 
         }
     }
-
+    
     public void quitaCellEditors() {
         JTextField jtf = new JTextField();
         TableColumn valueColumn = this.jTableDesign.getColumnModel().getColumn(2);
@@ -459,10 +464,21 @@ public class DesignsUtils {
             if (designBean.getUserDefinedDesign() != null) {
 
                 File userDefinedDesign = designBean.getUserDefinedDesign();
+                
+                
+                readFactorsForDesign();
+                 for (int i = 0; i < facDesign.size(); i++) {                     
+                     System.out.println("FACTOR STANDAR: "+facDesign.get(i).getFactorNameDefault());                     
+                            if(facDesign.get(i).isFounded()){                            
+                                System.out.println("FOUNDED:  " + facDesign.get(i).getFactorName());
+                            }                            
+                        }
 
-                if (hasCompleteHeaders(designBean.getUserDefinedDesign())) {
-
+                 
+           /*     if (hasCompleteHeaders(designBean.getUserDefinedDesign())) {
+                                                                                                                       //TRIAL, ENTRY, PLOT, BLOCK, REP, COL, ROW 
                     int[] designValues = getDesignValues(Integer.parseInt(jTableDesign.getValueAt(fila, 0).toString()), userDefinedDesign, "TRIAL", "REP", "BLOCK");
+                                                                                                                                            facDesign.get(i)
                     int rep = designValues[0];
                     int block = designValues[1];
                     int blockPerReplicate = designValues[3];
@@ -480,8 +496,9 @@ public class DesignsUtils {
 //                    NbPreferences.forModule(MacthColumsWizardPanel1.class).put("ROW", "ROW");
 //                    NbPreferences.forModule(MacthColumsWizardPanel1.class).put("COL", "COLUMN");
 
-                } else {
-
+                } else {*/
+  
+                    
                     String[] hs = getHeadersFromFile(designBean.getUserDefinedDesign());
 
                     if (hs.length < 3) {
@@ -490,60 +507,47 @@ public class DesignsUtils {
 
                     } else {
 
-
-                        //  WizardDescriptor wiz = new WizardDescriptor(new MacthColumsWizardIterator());
-                        // wiz.setTitleFormat(new MessageFormat("{0} ({1})"));
-                        // MacthColumsWizardIterator.headers = hs;
-                        // wiz.setTitle(NbBundle.getMessage(DesignsUtils.class, "DesignsUtils.title"));
-
-
-                        //    if (DialogDisplayer.getDefault().notify(wiz) == WizardDescriptor.FINISH_OPTION) {
-
-//                            String tr = NbPreferences.forModule(MacthColumsWizardPanel1.class).get("TRIAL", "TRIAL");
-//                            String rp = NbPreferences.forModule(MacthColumsWizardPanel1.class).get("REP", "REP");
-//                            String bl = NbPreferences.forModule(MacthColumsWizardPanel1.class).get("BLOCK", "BLOCK");
-//                            
-                        String tr = "TRIAL";
-                        String rp = "REP";
-                        String bl = "BLOCK";
-
-                        int[] designValues = getDesignValues(Integer.parseInt(jTableDesign.getValueAt(fila, 0).toString()), userDefinedDesign, tr, rp, bl);
-
-                        int rep = designValues[0];
-                        int block = designValues[1];
-                        int blockPerReplicate = designValues[3];
-
-                        jTableDesign.setValueAt(rep, fila, 2);
-                        jTableDesign.setValueAt(block, fila, 3);
-                        jTableDesign.setValueAt(blockPerReplicate, fila, 4);
-                        jTableDesign.setValueAt(userDefinedDesign, fila, 5);
+     
+                        WizardDescriptor wiz = new WizardDescriptor(new MacthColumsWizardIterator());
+                        wiz.setTitleFormat(new MessageFormat("{0} ({1})"));
+                        MacthColumsWizardIterator.headers = hs;
+                        MacthColumsWizardIterator.facDesign=facDesign;
                         
-                        System.out.println("HASTA AQUI OK");
+                        
+                       
+                        wiz.setTitle(NbBundle.getMessage(DesignsUtils.class, "DesignsUtils.title"));
 
-                        if (this.getGermplasmEntries() != block) {
-                            DialogUtil.displayWarning(DesignsUtils.class, "DesignsUtils.noMathEntryNumber");
+                        if (DialogDisplayer.getDefault().notify(wiz) == WizardDescriptor.FINISH_OPTION) {
+
+                            String tr = NbPreferences.forModule(MacthColumsWizardPanel1.class).get("TRIAL", "");
+                            String rp = NbPreferences.forModule(MacthColumsWizardPanel1.class).get("REP", "");
+                            String bl = NbPreferences.forModule(MacthColumsWizardPanel1.class).get("BLOCK", "");
+
+                            
+                            int[] designValues = getDesignValues(Integer.parseInt(jTableDesign.getValueAt(fila, 0).toString()), userDefinedDesign, tr, rp, bl);
+
+                            int rep = designValues[0];
+                            int block = designValues[1];
+                            int blockPerReplicate = designValues[3];
+
+                            jTableDesign.setValueAt(rep, fila, 2);
+                            jTableDesign.setValueAt(block, fila, 3);
+                            jTableDesign.setValueAt(blockPerReplicate, fila, 4);
+                            jTableDesign.setValueAt(userDefinedDesign, fila, 5);
+
+                            if (this.getGermplasmEntries() != block) {
+                                DialogUtil.displayWarning(DesignsUtils.class, "DesignsUtils.noMathEntryNumber");
+                            }
+
+                        } else {
+
+                            jTableDesign.setValueAt("", fila, 2);
+                            jTableDesign.setValueAt("", fila, 3);
+                            jTableDesign.setValueAt("", fila, 4);
+                            jTableDesign.setValueAt("", fila, 5);
                         }
-
-
-
-
-//                        } else {
-//
-//                            jTableDesign.setValueAt("", fila, 2);
-//                            jTableDesign.setValueAt("", fila, 3);
-//                            jTableDesign.setValueAt("", fila, 4);
-//                            jTableDesign.setValueAt("", fila, 5);
-//                        }
                     }
-
-
-
-
-
-
-
-
-                }
+              //  }
 
                 useSameDesignForTrials(useSameDesignForAll);
             }
@@ -566,10 +570,6 @@ public class DesignsUtils {
                 csvReader.readHeaders();
 
                 String[] cabeceras = csvReader.getHeaders();
-
-
-
-
 
                 while (csvReader.readRecord()) {
 
@@ -730,21 +730,23 @@ public class DesignsUtils {
                     columnas.add(headers[i].toUpperCase().trim());
                 }
 
-                if (columnas.contains("TRIAL")) {
+                if (columnas.contains(facDesign.get(0).getFactorName())) {
                     cabeceras[0] = "TRIAL";
-                    posiciones[0] = columnas.indexOf("TRIAL");
+                    posiciones[0] = columnas.indexOf(facDesign.get(0).getFactorName());
                     total++;
                 }
-                if (columnas.contains("ENTRY")) {
+                if (columnas.contains(facDesign.get(1).getFactorName())) {
                     cabeceras[1] = "ENTRY";
-                    posiciones[1] = columnas.indexOf("ENTRY");
+                    posiciones[1] = columnas.indexOf(facDesign.get(1).getFactorName());
                     total++;
                 }
-                if (columnas.contains("PLOT")) {
+                if (columnas.contains(facDesign.get(2).getFactorName())) {
                     cabeceras[2] = "PLOT";
-                    posiciones[2] = columnas.indexOf("PLOT");
+                    posiciones[2] = columnas.indexOf(facDesign.get(2).getFactorName());
                     total++;
                 }
+                
+                
                 if (columnas.contains("REP")) {
                     cabeceras[3] = "REP";
                     posiciones[3] = columnas.indexOf("REP");
@@ -1088,4 +1090,96 @@ public class DesignsUtils {
 
         return cumple;
     }
+
+    public void setWorkbook(Workbook theWorkbook) {
+       this.myWorkbook=theWorkbook;
+    }
+    
+    public void readFactorsForDesign(){
+        System.out.println("LEEMOS FACTORES PARA DISEÑO");
+        facDesign=new ArrayList<FactorsForDesign>();
+        //TRIAL, ENTRY, PLOT, BLOCK, REP, COL, ROW 
+      
+        for (int i = 0; i < 7; i++) {
+            FactorsForDesign f = new FactorsForDesign();
+            f.setFounded(false);
+            switch (i) {
+                case 0:
+                    f.setFactorNameDefault("TRIAL");
+                    break;
+                case 1:
+                    f.setFactorNameDefault("ENTRY");
+                    break;
+                case 2:
+                    f.setFactorNameDefault("PLOT");
+                    break;
+                case 3:
+                    f.setFactorNameDefault("BLOCK");
+                    break;
+                case 4:
+                    f.setFactorNameDefault("REP");
+                    break;
+                case 5:
+                    f.setFactorNameDefault("COL");
+                    break;
+                case 6:
+                    f.setFactorNameDefault("ROW");
+                    break;
+            }
+            facDesign.add(f);
+
+        }
+          
+        for (int i = 0; i < myWorkbook.getStudyConditions().size(); i++) {          
+            if (myWorkbook.getStudyConditions().get(i).getProperty().toUpperCase().equals("TRIAL INSTANCE") && (myWorkbook.getStudyConditions().get(i).getScale().toUpperCase().equals("NUMBER"))) {
+                facDesign.get(0).setFactorName(myWorkbook.getStudyConditions().get(i).getConditionName());
+                facDesign.get(0).setFactorLabel(myWorkbook.getStudyConditions().get(i).getLabel());
+                facDesign.get(0).setFounded(true);
+                break;
+            } 
+            
+        }
+
+        for (int i = 0; i < myWorkbook.getFactors().size(); i++) {        
+
+            if (myWorkbook.getFactors().get(i).getProperty().toUpperCase().equals("GERMPLASM ENTRY") && (myWorkbook.getFactors().get(i).getScale().toUpperCase().equals("NUMBER"))) {
+                facDesign.get(1).setFactorName(myWorkbook.getFactors().get(i).getFactorName());
+                facDesign.get(1).setFactorLabel(myWorkbook.getFactors().get(i).getLabel());
+                facDesign.get(1).setFounded(true);
+            }
+
+            if (myWorkbook.getFactors().get(i).getProperty().toUpperCase().equals("FIELD PLOT") && (myWorkbook.getFactors().get(i).getScale().toUpperCase().equals("NUMBER"))) {
+                facDesign.get(2).setFactorName(myWorkbook.getFactors().get(i).getFactorName());
+                facDesign.get(2).setFactorLabel(myWorkbook.getFactors().get(i).getLabel());
+                facDesign.get(2).setFounded(true);
+            }
+
+            if (myWorkbook.getFactors().get(i).getProperty().toUpperCase().equals("BLOCK") && (myWorkbook.getFactors().get(i).getScale().toUpperCase().equals("NUMBER"))) {
+                facDesign.get(3).setFactorName(myWorkbook.getFactors().get(i).getFactorName());
+                facDesign.get(3).setFactorLabel(myWorkbook.getFactors().get(i).getLabel());
+                facDesign.get(3).setFounded(true);
+            }
+            if (myWorkbook.getFactors().get(i).getProperty().toUpperCase().equals("REPLICATION") && (myWorkbook.getFactors().get(i).getScale().toUpperCase().equals("NUMBER"))) {
+                facDesign.get(4).setFactorName(myWorkbook.getFactors().get(i).getFactorName());
+                facDesign.get(4).setFactorLabel(myWorkbook.getFactors().get(i).getLabel());
+                facDesign.get(4).setFounded(true);
+            }
+
+            if (myWorkbook.getFactors().get(i).getProperty().toUpperCase().equals("COLUMN IN LAYOUT") && (myWorkbook.getFactors().get(i).getScale().toUpperCase().equals("NUMBER"))) {
+                facDesign.get(5).setFactorName(myWorkbook.getFactors().get(i).getFactorName());
+                facDesign.get(5).setFactorLabel(myWorkbook.getFactors().get(i).getLabel());
+                facDesign.get(5).setFounded(true);
+            }
+
+            if (myWorkbook.getFactors().get(i).getProperty().toUpperCase().equals("ROW IN LAYOUT") && (myWorkbook.getFactors().get(i).getScale().toUpperCase().equals("NUMBER"))) {
+                facDesign.get(6).setFactorName(myWorkbook.getFactors().get(i).getFactorName());
+                facDesign.get(6).setFactorLabel(myWorkbook.getFactors().get(i).getLabel());
+                facDesign.get(6).setFounded(true);
+            }
+
+        }    
+      DesignsClass.facDesign=facDesign;        
+    }
+    
+    
 }

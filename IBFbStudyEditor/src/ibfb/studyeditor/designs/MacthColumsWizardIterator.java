@@ -32,6 +32,7 @@ public final class MacthColumsWizardIterator implements WizardDescriptor.Iterato
     private int index;
     private List<WizardDescriptor.Panel<WizardDescriptor>> panels;
     static String[] headers;
+    static List<FactorsForDesign> facDesign; 
 
     private List<WizardDescriptor.Panel<WizardDescriptor>> getPanels() {
         if (panels == null) {

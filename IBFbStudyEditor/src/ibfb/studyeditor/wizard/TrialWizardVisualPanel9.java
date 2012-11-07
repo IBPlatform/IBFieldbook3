@@ -41,6 +41,7 @@ public final class TrialWizardVisualPanel9 extends JPanel {
         this.jTableDesign.getTableHeader().addMouseListener(new ColumnFitAdapter());
         designsUtils = new DesignsUtils(jTableDesign, jTextFieldEntries);
         designsUtils.setGermplasmEntries(0);
+        
         this.trialWizardWizardPanel9 = trialWizardWizardPanel9;
         jSpinnerTrial.setVisible(false);
         jRadioButtonFilter4.setVisible(false);
@@ -370,6 +371,8 @@ public final class TrialWizardVisualPanel9 extends JPanel {
 
     public void fillData(Integer instances, boolean hayFactores) {
 
+        designsUtils.setWorkbook(TrialWizardWizardIterator.myExcelReader.getMyWorkbook());
+        
         DesignTableModel modeloTabla = new DesignTableModel();
         jTableDesign.setModel(modeloTabla);
         modeloTabla = (DesignTableModel) this.jTableDesign.getModel();
@@ -396,7 +399,8 @@ public final class TrialWizardVisualPanel9 extends JPanel {
         boolean conAlpha = false;
         boolean conRCBD = false;
         boolean conUnreplicated = false;
-
+        
+        
         designsUtils.setGermplasmEntries(Integer.parseInt(this.jTextFieldEntries.getText()));
 
 

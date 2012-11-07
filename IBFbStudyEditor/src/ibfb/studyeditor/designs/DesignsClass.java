@@ -8,6 +8,7 @@ import ibfb.studyeditor.core.model.ObservationsTableModel;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -33,6 +34,8 @@ public class DesignsClass {
     public static final String MAC_RWD = "Fieldbook_R";
     private String pathR = "";
     private String pathRWD = "";
+    public static List<FactorsForDesign> facDesign;         //TRIAL, ENTRY, PLOT, BLOCK, REP, COL, ROW 
+ 
 
     public DesignsClass() {
         if (OSUtils.isMacOS()) {
@@ -620,18 +623,25 @@ public class DesignsClass {
     }
 
     public void readUserDefinedDesign(int currentTrial, File fileName, ObservationsTableModel model, JTable germplasmEntries) {
+        //TRIAL, ENTRY, PLOT, BLOCK, REP, COL, ROW 
 
         GermplasmEntriesTableModel entriesTableModel = (GermplasmEntriesTableModel) germplasmEntries.getModel();
         System.out.println("reading user defined design file : " + fileName);
 
+        String tr = NbPreferences.forModule(MacthColumsWizardPanel1.class).get("TRIAL", "");
+        
+        
+        
         try {
             CsvReader csvReader = new CsvReader(fileName.toString());
             csvReader.readHeaders();
             String[] headers = csvReader.getHeaders();
 
+           
+            
             while (csvReader.readRecord()) {
                 //  String trial = csvReader.get(NbPreferences.forModule(MacthColumsWizardPanel1.class).get("TRIAL", "TRIAL"));
-                String trial = csvReader.get("TRIAL");
+                String trial = csvReader.get(tr);
                 //if (Integer.valueOf(trial).intValue() != currentTrial) {
                 if (ConvertUtils.getValueAsInteger(trial) != currentTrial) {
                     //    if (trial.equals(Integer.toString(currentTrial))) {
@@ -660,7 +670,14 @@ public class DesignsClass {
 //
 //                }
 //               
-
+                String tl = NbPreferences.forModule(MacthColumsWizardPanel1.class).get("TRIAL", "");
+                String rp = NbPreferences.forModule(MacthColumsWizardPanel1.class).get("REP", "");
+                String bl = NbPreferences.forModule(MacthColumsWizardPanel1.class).get("BLOCK", "");
+                String pl = NbPreferences.forModule(MacthColumsWizardPanel1.class).get("PLOT", "");
+                String en = NbPreferences.forModule(MacthColumsWizardPanel1.class).get("ENTRY", "");
+                String rw = NbPreferences.forModule(MacthColumsWizardPanel1.class).get("ROW", "");
+                String cl = NbPreferences.forModule(MacthColumsWizardPanel1.class).get("COL", "");
+   
                 String rep = "";
                 String block = "";
                 String plot = "";
@@ -668,51 +685,51 @@ public class DesignsClass {
                 String row = "";
                 String col = "";
 
-                boolean tenemosRow = Arrays.asList(headers).contains("ROW");
-                boolean tenemosCol = Arrays.asList(headers).contains("COLUMN");
-                boolean tenemosRep = Arrays.asList(headers).contains("REP");
-                boolean tenemosBlock = Arrays.asList(headers).contains("BLOCK");
-                boolean tenemosPlot = Arrays.asList(headers).contains("PLOT");
-                boolean tenemosEntry = Arrays.asList(headers).contains("ENTRY");
-                boolean tenemosTrial = Arrays.asList(headers).contains("TRIAL");
+                boolean tenemosRow = Arrays.asList(headers).contains(rw);
+                boolean tenemosCol = Arrays.asList(headers).contains(cl);
+                boolean tenemosRep = Arrays.asList(headers).contains(rp);
+                boolean tenemosBlock = Arrays.asList(headers).contains(bl);
+                boolean tenemosPlot = Arrays.asList(headers).contains(pl);
+                boolean tenemosEntry = Arrays.asList(headers).contains(en);
+                boolean tenemosTrial = Arrays.asList(headers).contains(tl);
 
 
                 if (tenemosRep) {
-                    rep = csvReader.get("REP");
+                    rep = csvReader.get(rp);
                 } else {
                     rep = "1";
                 }
 
                 if (tenemosBlock) {
-                    block = csvReader.get("BLOCK");
+                    block = csvReader.get(bl);
                 } else {
                     block = "1";
 
                 }
 
                 if (tenemosPlot) {
-                    plot = csvReader.get("PLOT");
+                    plot = csvReader.get(pl);
                 } else {
                     plot = "1";
                 }
 
 
                 if (tenemosEntry) {
-                    entry = csvReader.get("ENTRY");
+                    entry = csvReader.get(en);
                 } else {
                     entry = "1";
                 }
 
 
                 if (tenemosRow) {
-                    row = csvReader.get("ROW");
+                    row = csvReader.get(rw);
                 } else {
                     row = "1";
                 }
 
 
                 if (tenemosCol) {
-                    col = csvReader.get("COLUMN");
+                    col = csvReader.get(cl);
                 } else {
                     col = "1";
                 }

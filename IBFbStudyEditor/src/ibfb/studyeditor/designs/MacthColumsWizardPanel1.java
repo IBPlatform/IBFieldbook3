@@ -80,14 +80,11 @@ public class MacthColumsWizardPanel1 implements WizardDescriptor.Panel<WizardDes
 
     private void change() {
         String v1 = component.getjTextFieldTrial().getText();
-        String v2 = component.getjTextFieldBlock().getText();
-        String v3 = component.getjTextFieldCol().getText();
-        String v4 = component.getjTextFieldEntry().getText();
-        String v5 = component.getjTextFieldPlot().getText();
-        String v6 = component.getjTextFieldRep().getText();
-        String v7 = component.getjTextFieldRow().getText();
+        String v2 = component.getjTextFieldEntry().getText();
+        String v3 = component.getjTextFieldPlot().getText();
+        
 
-        if (!v1.isEmpty() && !v2.isEmpty() && !v3.isEmpty() && !v4.isEmpty() && !v5.isEmpty() && !v6.isEmpty() && !v7.isEmpty()) {
+        if (!v1.isEmpty() && !v2.isEmpty() && !v3.isEmpty()) {
             setValid(true);
         } else {
             setValid(false);
@@ -96,25 +93,37 @@ public class MacthColumsWizardPanel1 implements WizardDescriptor.Panel<WizardDes
 
     @Override
     public void readSettings(WizardDescriptor wiz) {
-        NbPreferences.forModule(MacthColumsWizardPanel1.class).put("TRIAL", "TRIAL");
-        NbPreferences.forModule(MacthColumsWizardPanel1.class).put("ENTRY", "ENTRY");
-        NbPreferences.forModule(MacthColumsWizardPanel1.class).put("PLOT", "PLOT");
-        NbPreferences.forModule(MacthColumsWizardPanel1.class).put("REP", "REP");
-        NbPreferences.forModule(MacthColumsWizardPanel1.class).put("BLOCK", "BLOCK");
-        NbPreferences.forModule(MacthColumsWizardPanel1.class).put("ROW", "ROW");
-        NbPreferences.forModule(MacthColumsWizardPanel1.class).put("COL", "COLUMN");
+        NbPreferences.forModule(MacthColumsWizardPanel1.class).put("TRIAL", "");
+        NbPreferences.forModule(MacthColumsWizardPanel1.class).put("ENTRY", "");
+        NbPreferences.forModule(MacthColumsWizardPanel1.class).put("PLOT", "");
+        NbPreferences.forModule(MacthColumsWizardPanel1.class).put("REP", "");
+        NbPreferences.forModule(MacthColumsWizardPanel1.class).put("BLOCK", "");
+        NbPreferences.forModule(MacthColumsWizardPanel1.class).put("ROW", "");
+        NbPreferences.forModule(MacthColumsWizardPanel1.class).put("COL", "");
         component.loadColumnsIntoList();
+        component.loadFieldLabels();
     }
 
     @Override
     public void storeSettings(WizardDescriptor wiz) {
-        NbPreferences.forModule(MacthColumsWizardPanel1.class).put("TRIAL", component.getjTextFieldTrial().getText());
-        NbPreferences.forModule(MacthColumsWizardPanel1.class).put("ENTRY", component.getjTextFieldEntry().getText());
-        NbPreferences.forModule(MacthColumsWizardPanel1.class).put("PLOT", component.getjTextFieldPlot().getText());
-        NbPreferences.forModule(MacthColumsWizardPanel1.class).put("REP", component.getjTextFieldRep().getText());
-        NbPreferences.forModule(MacthColumsWizardPanel1.class).put("BLOCK", component.getjTextFieldBlock().getText());
-        NbPreferences.forModule(MacthColumsWizardPanel1.class).put("ROW", component.getjTextFieldRow().getText());
-        NbPreferences.forModule(MacthColumsWizardPanel1.class).put("COL", component.getjTextFieldCol().getText());
+        NbPreferences.forModule(MacthColumsWizardPanel1.class).put("TRIAL", component.getTrialString());
+        NbPreferences.forModule(MacthColumsWizardPanel1.class).put("ENTRY", component.getEntryString());
+        NbPreferences.forModule(MacthColumsWizardPanel1.class).put("PLOT", component.getPlotString());
+        NbPreferences.forModule(MacthColumsWizardPanel1.class).put("REP", component.getRepString());   
+        NbPreferences.forModule(MacthColumsWizardPanel1.class).put("BLOCK", component.getBlockString());   
+        NbPreferences.forModule(MacthColumsWizardPanel1.class).put("ROW", component.getRowString());   
+        NbPreferences.forModule(MacthColumsWizardPanel1.class).put("COL", component.getColString());   
+
+//        System.out.println("--------------------------------------------------------");
+//        System.out.println("TRIAL: " + component.getTrialString());
+//        System.out.println("ENTRY: " + component.getEntryString());             
+//        System.out.println("PLOT: " + component.getPlotString());
+//        System.out.println("REP: " + component.getRepString());
+//        System.out.println("BLOCK: " + component.getBlockString());
+//        System.out.println("ROW: " + component.getRowString());
+//        System.out.println("COL: " + component.getColString());
+//        System.out.println("--------------------------------------------------------");
+
     }
 
     @Override
