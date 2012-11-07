@@ -19,12 +19,11 @@ import org.cimmyt.cril.ibwb.domain.constants.TypeDB;
  * @author TMSANCHEZ
  */
 public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
-    
+
     /**
      * Result of validation
      */
     private String validationResult;
-
     private static Logger log = Logger.getLogger(WorkbookExcelReaderImpl.class);
 
     @Override
@@ -36,13 +35,13 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
         org.apache.poi.ss.usermodel.Workbook excelBook = WorkbookFactory.create(inputStream);
         log.info("Number of sheets in book" + excelBook.getNumberOfSheets());
         fillWoorkbook(workbook, excelBook);
-        
+
         log.info("Excel file read END");
-        
+
         //this.validationResult = workbook.getValidationMessage();
-        
+
         return workbook;
-        
+
 
     }
 
@@ -51,10 +50,10 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
         boolean valid = false;
 
         log.info("Validating Excel file read BEGIN");
-   //     log.info("Opening file...");
+        //     log.info("Opening file...");
         InputStream inputStream = new FileInputStream(fileName);
         org.apache.poi.ss.usermodel.Workbook excelBook = WorkbookFactory.create(inputStream);
-  //      log.info("Number of sheets in book" + excelBook.getNumberOfSheets());
+        //      log.info("Number of sheets in book" + excelBook.getNumberOfSheets());
 
         // assume values are in B colum (index 1)
         int labelColNumber = 0;
@@ -72,25 +71,25 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
             valid = true;
             Workbook workbookTemp = getWorkbookData(fileName);
             if (!workbookTemp.isValidTemplate()) {
-                 log.info("------------------- INVALID TEMPLATE: "+fileName);
-                 this.validationResult = workbookTemp.getValidationMessage();
-                 valid=false; 
+                log.info("------------------- INVALID TEMPLATE: " + fileName);
+                this.validationResult = workbookTemp.getValidationMessage();
+                valid = false;
             }
         } else {
             this.validationResult = "Template must start with STUDY in cell A1";
         }
 
-        
-        
+
+
         return valid;
     }
 
     @Override
-    public int giveMeCrop() throws Exception{
-       
+    public int giveMeCrop() throws Exception {
+
         int theCrop = 0;  //0=Wheat   1=maize   2=other crops
 
-    TypeDB tipo=AppServicesProxy.getDefault().appServices().getTypeDB();
+        TypeDB tipo = AppServicesProxy.getDefault().appServices().getTypeDB();
 
 
         switch (tipo.getType()) {
@@ -108,17 +107,16 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
                 break;
 
         }
-        
-        System.out.println("TENEMOS DB: "+tipo.getNombre());
 
-  
-        theCrop=WHEAT; 
-        
+        System.out.println("TENEMOS DB: " + tipo.getNombre());
+
+
+        theCrop = WHEAT;
+
         return theCrop;
     }
-    
-    
-        @Override
+
+    @Override
     public boolean isValidNurseryTemplate(String fileName) throws Exception {
         boolean valid = false;
 
@@ -139,35 +137,32 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
         rowData = sheet.getRow(listRowIndex);
         cellData = rowData.getCell(labelColNumber);
         if (ExcelUtils.getStringValueFromCell(cellData).startsWith(LABEL_STUDY)) {
-           
-          
+
+
             rowData = sheet.getRow(6);
             cellData = rowData.getCell(1);
-             if (ExcelUtils.getStringValueFromCell(cellData).equals("N")){
-                valid = true;  
-             }
-            
-          
-            
-           
-            
+            if (ExcelUtils.getStringValueFromCell(cellData).equals("N")) {
+                valid = true;
+            }
+
+
+
+
+
             if (!getWorkbookData(fileName).isValidNurseryTemplate()) {
-                 log.info("------------------- INVALID TEMPLATE: "+fileName);
-                 valid=false; 
+                log.info("------------------- INVALID TEMPLATE: " + fileName);
+                valid = false;
             }
         }
 
-        
-        
+
+
         return valid;
     }
-    
-    
-    
-    
-    
+
     /**
      * Fill Workbook object with current excel file
+     *
      * @param workbook
      * @param excelBook
      */
@@ -235,13 +230,14 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
         cellData = rowData.getCell(studyDataColNumber);
         study.setStudyType(getStringValueFromCell(cellData));
 
-    //    log.info("Data for Study: " + study.toString());
+        //    log.info("Data for Study: " + study.toString());
 
         workbook.setStudy(study);
     }
 
     /**
      * fills conditions items for study
+     *
      * @param workbook
      * @param excelBook
      */
@@ -290,13 +286,15 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
             condition.setDataType(getStringValueFromCell(cellData));
 
             cellData = rowData.getCell(COL_VALUE);
-            condition.setValue(getStringValueFromCell(cellData));
+            if (cellData != null) {
+                condition.setValue(getStringValueFromCell(cellData));
+            }
 
             cellData = rowData.getCell(COL_LABEL);
             condition.setLabel(getStringValueFromCell(cellData));
 
-           // log.info("Data for condition: " + condition.toString());
-         
+            // log.info("Data for condition: " + condition.toString());
+
             // add readed condition to list
             if (condition.getLabel().toUpperCase().startsWith(STUDY_PREFIX)) {
                 studyConditions.add(condition);
@@ -320,6 +318,7 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
 
     /**
      * fills Factors items for study
+     *
      * @param workbook
      * @param excelBook
      */
@@ -368,8 +367,8 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
 
             cellData = rowData.getCell(COL_LABEL);
             factor.setLabel(getStringValueFromCell(cellData));
-          
-      //      log.info("Data for factor: " + factor.toString());
+
+            //      log.info("Data for factor: " + factor.toString());
 
             // add readed condition to list
             factors.add(factor);
@@ -430,8 +429,9 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
             constant.setDataType(getStringValueFromCell(cellData));
 
             cellData = rowData.getCell(COL_VALUE);
-            constant.setValue(getStringValueFromCell(cellData));
-
+            if (cellData != null) {
+                constant.setValue(getStringValueFromCell(cellData));
+            }
             log.info("Data for Constant: " + constant.toString());
             // add readed condition to list
             constants.add(constant);
@@ -444,7 +444,7 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
     }
 
     /**
-     * 
+     *
      * @param workbook
      * @param excelBook
      */
@@ -491,7 +491,7 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
             cellData = rowData.getCell(COL_DATATYPE);
             variate.setDataType(getStringValueFromCell(cellData));
 
-     //       log.info("Data for Variate: " + variate.toString());
+            //       log.info("Data for Variate: " + variate.toString());
             // add readed condition to list
             variates.add(variate);
 
@@ -503,8 +503,9 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
     }
 
     /**
-     * More rows to read? , checks if are there more rows to read,
-     * this mean that first cell in row has any value
+     * More rows to read? , checks if are there more rows to read, this mean
+     * that first cell in row has any value
+     *
      * @param rowData
      * @return
      */
@@ -534,6 +535,7 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
 
     /**
      * Return the Sheet where is locate the range indicated in area reference
+     *
      * @param excelBook
      * @param areaReference
      * @return
@@ -546,26 +548,28 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
 
     /**
      * Returns the row number for specified range name in excel file
+     *
      * @param rangeName
      * @return
      */
     private AreaReference getAreaReferenceForRangeName(String rangeName, org.apache.poi.ss.usermodel.Workbook excelBook) {
         // first retrieve index in all ranges names
         int namedCellIndex = excelBook.getNameIndex(rangeName);
-    //    log.info("Range " + rangeName + " has indext " + namedCellIndex);
+        //    log.info("Range " + rangeName + " has indext " + namedCellIndex);
         // after create the name reference
         Name namedCellRange = excelBook.getNameAt(namedCellIndex);
 
         // then lookup for it range content
         AreaReference areaReference = new AreaReference(namedCellRange.getRefersToFormula());
         // and finally get the first row in range
-    //    log.info("Range " + rangeName + " starts at row " + areaReference.getFirstCell().getRow());
+        //    log.info("Range " + rangeName + " starts at row " + areaReference.getFirstCell().getRow());
 
         return areaReference;
     }
 
     /**
      * Gets an integer value from a Cell
+     *
      * @param cellData
      * @return
      */
