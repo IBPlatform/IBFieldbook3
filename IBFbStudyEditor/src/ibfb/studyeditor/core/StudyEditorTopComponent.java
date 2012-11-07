@@ -2378,13 +2378,7 @@ public final class StudyEditorTopComponent extends TopComponent {
 
 
 
-
-
-
-
-
         for (int i = 0; i < this.getMyWorkbook().getFactors().size(); i++) {
-            if (this.getMyWorkbook().getFactors().get(i).getLabel().equals("PLOT")) {
 
                 if (this.getMyWorkbook().getFactors().get(i).getProperty().equals("FIELD PLOT")) {
                     hasFIELDfactorfactor = true;
@@ -2407,10 +2401,28 @@ public final class StudyEditorTopComponent extends TopComponent {
                 }
 
 
-            }
+            
 
 
         }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
         
         if (conAlpha && hasBLOCKfactor) {
@@ -2701,7 +2713,7 @@ public final class StudyEditorTopComponent extends TopComponent {
 
 
         for (int i = 0; i < this.getMyWorkbook().getFactors().size(); i++) {
-            if (this.getMyWorkbook().getFactors().get(i).getLabel().equals("PLOT")) {
+           
 
                 if (this.getMyWorkbook().getFactors().get(i).getProperty().equals("FIELD PLOT")) {
                     hasFIELDfactorfactor = true;
@@ -2724,7 +2736,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                 }
 
 
-            }
+            
 
 
         }
