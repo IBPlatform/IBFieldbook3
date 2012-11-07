@@ -21,13 +21,7 @@ import java.util.ResourceBundle;
 import javax.swing.JTable;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.hssf.usermodel.HSSFCellStyle;
-import org.apache.poi.hssf.usermodel.HSSFFont;
-import org.apache.poi.hssf.usermodel.HSSFPalette;
+import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.hssf.util.HSSFColor;
 import org.cimmyt.cril.ibwb.commongui.ConvertUtils;
 import org.openide.NotifyDescriptor;
@@ -308,17 +302,17 @@ public class FieldBookExcelExporter {
                 for (int col = 1; col < tableColumns.getColumnCount(); col++) {
 
                     isNumeric = isNumericDataType(tableModel.getHeaders().get(col));
-                    
+
                     if (isNumeric) {
                         Double doubleValue = ConvertUtils.getValueAsDouble(obsFilterTable.getValueAt(i, col));
                         if (doubleValue != null) {
-                            celdaExcel = filaExcel.createCell(col - 1, HSSFCell.CELL_TYPE_NUMERIC);                            
+                            celdaExcel = filaExcel.createCell(col - 1, HSSFCell.CELL_TYPE_NUMERIC);
                             celdaExcel.setCellValue(doubleValue);
                         }
                     } else {
                         String valor = ConvertUtils.getValueAsString(obsFilterTable.getValueAt(i, col));
                         if (valor != null && !valor.isEmpty()) {
-                            celdaExcel = filaExcel.createCell(col - 1, HSSFCell.CELL_TYPE_STRING);                            
+                            celdaExcel = filaExcel.createCell(col - 1, HSSFCell.CELL_TYPE_STRING);
                             celdaExcel.setCellValue(valor);
                         }
                     }
@@ -437,7 +431,7 @@ public class FieldBookExcelExporter {
         currentRow++;
 
         excelRow = descriptionSheet.createRow(currentRow);
-        writeSectionHeaders(descriptionSheet, "CONDITION", greenStyle, excelRow);
+        writeSectionHeaders(descriptionSheet, "CONDITION", greenStyle, excelRow, currentRow);
         // now all conditions
         // writeConditions(descriptionSheet, workbook.getStudyConditions());
 
@@ -449,17 +443,17 @@ public class FieldBookExcelExporter {
 
         currentRow++;
         excelRow = descriptionSheet.createRow(currentRow);
-        writeSectionHeaders(descriptionSheet, "FACTOR", greenStyle, excelRow);
+        writeSectionHeaders(descriptionSheet, "FACTOR", greenStyle, excelRow, currentRow);
         writeFactors(descriptionSheet, workbook.getFactors());
 
         currentRow++;
         excelRow = descriptionSheet.createRow(currentRow);
-        writeSectionHeaders(descriptionSheet, "CONSTANT", blueStyle, excelRow);
+        writeSectionHeaders(descriptionSheet, "CONSTANT", blueStyle, excelRow, currentRow);
         writeConstants(descriptionSheet, constants, trial);
 
         currentRow++;
         excelRow = descriptionSheet.createRow(currentRow);
-        writeSectionHeaders(descriptionSheet, "VARIATE", blueStyle, excelRow);
+        writeSectionHeaders(descriptionSheet, "VARIATE", blueStyle, excelRow, currentRow);
         writeVariates(descriptionSheet, variates);
 
 
@@ -513,6 +507,20 @@ public class FieldBookExcelExporter {
         excelCell.setCellStyle(marronStyle);
         excelCell = excelRow.createCell(1, HSSFCell.CELL_TYPE_STRING);
         excelCell.setCellValue(ConvertUtils.getDateAsString(study.getEndDate()));
+        currentRow++;
+        
+        excelRow = descriptionSheet.createRow(currentRow);
+        excelCell = excelRow.createCell(0, HSSFCell.CELL_TYPE_STRING);
+        excelCell.setCellValue("STUDY TYPE");
+        excelCell.setCellStyle(marronStyle);
+        excelCell = excelRow.createCell(1, HSSFCell.CELL_TYPE_STRING);
+        excelCell.setCellValue("T");     
+        
+        
+        HSSFName namedCell = descriptionSheet.getWorkbook().createName();
+        namedCell.setNameName("STUDY");
+        String reference = descriptionSheet.getSheetName() + "!A" + 1 +":H" + 1; // area reference
+        namedCell.setRefersToFormula(reference);        
     }
 
     /**
@@ -522,7 +530,7 @@ public class FieldBookExcelExporter {
      * @param nameText
      * @param cellStyle
      */
-    private void writeSectionHeaders(HSSFSheet descriptionSheet, String nameText, HSSFCellStyle cellStyle, HSSFRow excelRow) {
+    private void writeSectionHeaders(HSSFSheet descriptionSheet, String nameText, HSSFCellStyle cellStyle, HSSFRow excelRow, int rowNumber) {
 
         HSSFCell excelCell;
         // CONDITIONS
@@ -558,6 +566,11 @@ public class FieldBookExcelExporter {
         excelCell.setCellValue("LABEL");
         excelCell.setCellStyle(cellStyle);
 
+        HSSFName namedCell = descriptionSheet.getWorkbook().createName();
+        namedCell.setNameName(nameText);
+        int fixedRow = rowNumber +1;
+        String reference = descriptionSheet.getSheetName() + "!$A$" + fixedRow +":$H$" + fixedRow; // area reference
+        namedCell.setRefersToFormula(reference);
         currentRow++;
     }
 
