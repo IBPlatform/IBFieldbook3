@@ -89,9 +89,15 @@ public class HelperGermplasm {
             String nameGermplasm = listdataT.getDesig();//----------------------->Definir cual es el nombre History
             String nameGermplasmBCID = listdataT.getNameBCID();//----------------------->Definir cual es el nombre BCID
 
+            GermplasmSearch gsf = null;
+            GermplasmSearch gsm = null;
             int i = listGermplsm.lastIndexOf(listdataT);
-            GermplasmSearch gsf = lgsf.get(i);
-            GermplasmSearch gsm = lgsm.get(i);
+            if (i != -1 && i < lgsf.size()) {
+                gsf = lgsf.get(i);
+            }
+            if (i != -1 && i < lgsm.size()) {
+                gsm = lgsm.get(i);
+            }
 
             agregarGermPlasmCimmytWheat(nameGermplasm, nameGermplasmBCID, listdataT, listnms, gsf, gsm, queryCenter);
             //agregarGermPlasmCimmytWheat(nameGermplasm, nameGermplasmBCID, listdataT);
@@ -173,10 +179,10 @@ public class HelperGermplasm {
     public Listdata agregarGermPlasm(String nameGermplasm, Listdata listdata) {
 
         Germplsm germplsm = new Germplsm();
-        
+
         // standardize germplasm name
-        
-        
+
+
         //germplsm.setGid(userId); -> Utogenerado
         if (listdata.getMethodId() != null) {
             germplsm.setMethn(listdata.getMethodId());//Asigmar metodo de la lista 107 para cruzas no 101
@@ -921,7 +927,7 @@ public class HelperGermplasm {
                         //Get GMF and GMM ! Male is a cross - get paternal grandparents
                         Germplsm gmf = appServices.getGermplsm(gs.getGermplsmMale().getGpid1());
                         Germplsm gmm = appServices.getGermplsm(gs.getGermplsmMale().getGpid2());
-                        if (gmf.getGid().equals( gs.getGermplsm().getGid()) || gmm.getGid().equals( gs.getGermplsm().getGid())) {
+                        if (gmf.getGid().equals(gs.getGermplsm().getGid()) || gmm.getGid().equals(gs.getGermplsm().getGid())) {
                             gs.setMethodGermplasm(107);//If one paternal grandparent is the same as the mother - backcross
                             gs.setCharBCID("F");
                         } else {
@@ -943,8 +949,8 @@ public class HelperGermplasm {
                         Germplsm gff = appServices.getGermplsm(gs.getGermplsm().getGpid1());
                         Germplsm gfm = appServices.getGermplsm(gs.getGermplsm().getGpid2());
 
-                        if (gff.getGid().equals( gs.getGermplsmMale().getGid()) || gfm.getGid().equals(gs.getGermplsmMale().getGid()) ){
-                            
+                        if (gff.getGid().equals(gs.getGermplsmMale().getGid()) || gfm.getGid().equals(gs.getGermplsmMale().getGid())) {
+
                             gs.setMethodGermplasm(107);//If one maternal grandparent is the same as the father - backcross
                             gs.setCharBCID("M");
                         } else {
