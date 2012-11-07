@@ -11,10 +11,7 @@ import javax.swing.DefaultCellEditor;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
-import javax.swing.table.DefaultTableColumnModel;
-import javax.swing.table.TableCellRenderer;
-import javax.swing.table.TableColumn;
-import javax.swing.table.TableModel;
+import javax.swing.table.*;
 import org.cimmyt.cril.ibwb.api.AppServicesProxy;
 import org.cimmyt.cril.ibwb.commongui.ConvertUtils;
 import org.cimmyt.cril.ibwb.commongui.DialogUtil;
@@ -632,7 +629,7 @@ public final class InventoryTopComponent extends TopComponent {
 
         List<Factor> losFactores = factorHeaders;
 
-        if (factorHeaders.size() <= 4) {
+        if (factorHeaders.size() <= 4 || inventoryFactorsAreMissing()) {
             losFactores = addColumnsForInventory(factorHeaders);
 
         }
@@ -850,5 +847,18 @@ public final class InventoryTopComponent extends TopComponent {
         }
 
         return seedStockExists;
+    }
+
+    private boolean inventoryFactorsAreMissing() {
+        boolean inventoryFactorsAreMissing = false;
+        DefaultTableModel tableModel  = (DefaultTableModel) this.jTableEntries.getModel();
+        amountColumn = tableModel.findColumn("AMOUNT");
+        locationColumn = tableModel.findColumn("LOCATION");
+        commentColumn = tableModel.findColumn("COMMENT");
+        scaleColumn = tableModel.findColumn("SCALE");
+        
+        inventoryFactorsAreMissing = amountColumn == -1 || locationColumn == -1 || commentColumn == -1 || scaleColumn == -1;
+        
+        return inventoryFactorsAreMissing;
     }
 }
