@@ -350,23 +350,23 @@ public class FieldBookExcelExporter {
         currentRow++;
 
         excelRow = descriptionSheet.createRow(currentRow);
-        writeSectionHeaders(descriptionSheet, "CONDITION", greenStyle, excelRow);
+        writeSectionHeaders(descriptionSheet, "CONDITION", greenStyle, excelRow,currentRow);
         writeConditions(descriptionSheet, workbook.getStudyConditions());
         writeConditions(descriptionSheet, workbook.getConditions(), nursery);
 
         currentRow++;
         excelRow = descriptionSheet.createRow(currentRow);
-        writeSectionHeaders(descriptionSheet, "FACTOR", greenStyle, excelRow);
+        writeSectionHeaders(descriptionSheet, "FACTOR", greenStyle, excelRow,currentRow);
         writeFactors(descriptionSheet, workbook.getFactors());
 
         currentRow++;
         excelRow = descriptionSheet.createRow(currentRow);
-        writeSectionHeaders(descriptionSheet, "CONSTANT", blueStyle, excelRow);
+        writeSectionHeaders(descriptionSheet, "CONSTANT", blueStyle, excelRow,currentRow);
         writeConstants(descriptionSheet, constants, nursery);
 
         currentRow++;
         excelRow = descriptionSheet.createRow(currentRow);
-        writeSectionHeaders(descriptionSheet, "VARIATE", blueStyle, excelRow);
+        writeSectionHeaders(descriptionSheet, "VARIATE", blueStyle, excelRow,currentRow);
         writeVariates(descriptionSheet, variates);
 
 
@@ -420,6 +420,21 @@ public class FieldBookExcelExporter {
         excelCell.setCellStyle(marronStyle);
         excelCell = excelRow.createCell(1, HSSFCell.CELL_TYPE_STRING);
         excelCell.setCellValue(ConvertUtils.getDateAsString(study.getEndDate()));
+        currentRow++;        
+        
+        excelRow = descriptionSheet.createRow(currentRow);
+        excelCell = excelRow.createCell(0, HSSFCell.CELL_TYPE_STRING);
+        excelCell.setCellValue("STUDY TYPE");
+        excelCell.setCellStyle(marronStyle);
+        excelCell = excelRow.createCell(1, HSSFCell.CELL_TYPE_STRING);
+        excelCell.setCellValue("N");     
+        
+      
+        HSSFName namedCell = descriptionSheet.getWorkbook().createName();
+        namedCell.setNameName("STUDY");
+        String reference = descriptionSheet.getSheetName() + "!A" + 1 +":H" + 1; // area reference
+        namedCell.setRefersToFormula(reference);        
+           
     }
 
     /**
@@ -429,7 +444,7 @@ public class FieldBookExcelExporter {
      * @param nameText
      * @param cellStyle
      */
-    private void writeSectionHeaders(HSSFSheet descriptionSheet, String nameText, HSSFCellStyle cellStyle, HSSFRow excelRow) {
+    private void writeSectionHeaders(HSSFSheet descriptionSheet, String nameText, HSSFCellStyle cellStyle, HSSFRow excelRow, int rowNumber) {
 
         HSSFCell excelCell;
         // CONDITIONS
@@ -464,6 +479,13 @@ public class FieldBookExcelExporter {
         excelCell = excelRow.createCell(LABEL, HSSFCell.CELL_TYPE_STRING);
         excelCell.setCellValue("LABEL");
         excelCell.setCellStyle(cellStyle);
+        
+        HSSFName namedCell = descriptionSheet.getWorkbook().createName();
+        namedCell.setNameName(nameText);
+        int fixedRow = rowNumber +1;
+        String reference = descriptionSheet.getSheetName() + "!$A$" + fixedRow +":$H$" + fixedRow; // area reference
+        namedCell.setRefersToFormula(reference);
+        
 
         currentRow++;
     }

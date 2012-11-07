@@ -144,7 +144,7 @@ public final class NurseryEditorTopComponent extends TopComponent {
     public static Configuration config = null;
     private Variate traitToEvaluate;
     private String stringTraitToEvaluate = "GY";
-    private boolean checksInSequence=false;
+    private boolean checksInSequence = false;
     private ArrayList<SequenceEntry> sequenceList;
 
     public NurseryEditorTopComponent() {
@@ -181,11 +181,6 @@ public final class NurseryEditorTopComponent extends TopComponent {
         createBallonTips();
         posiciones = new ArrayList<Integer>();
     }
-    
-    
-    
-    
-    
     private SelectCommand unselectedCommand = new SelectCommand() {
 
         @Override
@@ -219,9 +214,6 @@ public final class NurseryEditorTopComponent extends TopComponent {
         this.sequenceList = sequenceList;
     }
 
-    
-    
-    
     public ArrayList<Integer> getPosiciones() {
         return posiciones;
     }
@@ -307,7 +299,7 @@ public final class NurseryEditorTopComponent extends TopComponent {
         int checkColum = tableModel.findColumn("CHECK");
         if (checkColum > 0) {
             for (int i = 0; i < posiciones.size(); i++) {
-                 jTableObservations.setValueAt("OK", posiciones.get(i), checkColum);         
+                jTableObservations.setValueAt("OK", posiciones.get(i), checkColum);
             }
 
         }
@@ -2516,7 +2508,7 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
 
 
         int total = Integer.parseInt(this.jTextFieldEntries.getText());
-         int colEntry = entriesTableModel.getHeaderIndex(ObservationsTableModel.ENTRY);
+        int colEntry = entriesTableModel.getHeaderIndex(ObservationsTableModel.ENTRY);
 
         for (int i = 0; i < total; i++) {
 
@@ -2542,14 +2534,14 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
                 entriesColIndex++;
             }
 
-            
-               if (posiciones.size() > 0) {
+
+            if (posiciones.size() > 0) {
                 if (posiciones.contains(Integer.parseInt(rowToAdd[colEntry].toString()))) {
-                    rowToAdd[model.getHeaderIndex(ObservationsTableModel.ISCHECKNUMBER)] = "is check"; 
+                    rowToAdd[model.getHeaderIndex(ObservationsTableModel.ISCHECKNUMBER)] = "is check";
                 }
             }
 
-            
+
             model.addRow(rowToAdd);
         }
 
@@ -3003,15 +2995,14 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
         assignGermplasmEntries(tableModel.getFactorHeaders(), tableModel.getGermplasmData());
     }
 
-    
-      public class MyIntComparable implements Comparator<SequenceEntry> {
+    public class MyIntComparable implements Comparator<SequenceEntry> {
 
         @Override
         public int compare(SequenceEntry o1, SequenceEntry o2) {
             return (o1.getPosicion() < o2.getPosicion() ? -1 : (o1.getPosicion() == o2.getPosicion() ? 0 : 1));
         }
     }
-    
+
     private void fillChecks() {
         GermplasmEntriesTableModel tableModelChecks = (GermplasmEntriesTableModel) this.tableChecks.getModel();
         List<List<Object>> germplasmDataChecks = tableModelChecks.getGermplasmData();
@@ -3026,32 +3017,32 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
         }
 
         int contador = 0;
-        int avance=0;
-        
-        
-        
+        int avance = 0;
+
+
+
         if (isChecksInSequence()) {
-            
-            
+
+
             Collections.sort(sequenceList, new MyIntComparable());
 
-            for (int j =0 ; j <sequenceList.size(); j++) {
+            for (int j = 0; j < sequenceList.size(); j++) {
 
                 List<Object> newData = new ArrayList<Object>();
-                
-                Object[] check = germplasmDataChecks.get(sequenceList.get(j).getEntrada()).toArray();                
+
+                Object[] check = germplasmDataChecks.get(sequenceList.get(j).getEntrada()).toArray();
                 Object[] temp = check.clone();
-                
+
                 for (int k = 0; k < temp.length; k++) {
                     newData.add(k, temp[k]);
                 }
 
-                
-              // System.out.println("Insertando entrada "+sequenceList.get(j).getEntrada() +"   en pos "+(sequenceList.get(j).getPosicion() - 1));
-                
-                int posToAdd=sequenceList.get(j).getPosicion()-1;
-              //  System.out.println("POS TO ADD "+posToAdd);
-                
+
+                // System.out.println("Insertando entrada "+sequenceList.get(j).getEntrada() +"   en pos "+(sequenceList.get(j).getPosicion() - 1));
+
+                int posToAdd = sequenceList.get(j).getPosicion() - 1;
+                //  System.out.println("POS TO ADD "+posToAdd);
+
                 germplasmData.add(posToAdd, newData);
 
 
@@ -3088,16 +3079,12 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
 
 
             }
-        } 
-            
-            recorreIndices(germplasmData, colEntry);
-            assignGermplasmEntries(tableModel.getFactorHeaders(), tableModel.getGermplasmData());
-
         }
 
-   
+        recorreIndices(germplasmData, colEntry);
+        assignGermplasmEntries(tableModel.getFactorHeaders(), tableModel.getGermplasmData());
 
-    
+    }
 
     public void addChecks() {
 
@@ -3191,25 +3178,26 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
             jtable.getCellEditor().stopCellEditing();
         }
     }
-    
+
     private void markChecksInGermplasmList() {
 
         GermplasmEntriesTableModel tableModel = (GermplasmEntriesTableModel) this.jTableEntries.getModel();
         tableModel.setMarkGermplasmAsCheck(true);
 
         int checkColum = tableModel.getHeaderIndex(GermplasmEntriesTableModel.ISCHECKNUMBER);
-        // first clear all "is check values
-        for (int row = 0; row < tableModel.getRowCount(); row++) {
-            tableModel.setValueAt("", row, checkColum);
+        if (checkColum > 0) {
+            // first clear all "is check values
+            for (int row = 0; row < tableModel.getRowCount(); row++) {
+                tableModel.setValueAt("", row, checkColum);
+            }
         }
         // then assign check positions
         if (checkColum > 0) {
             for (int i = 0; i < posiciones.size(); i++) {
-                tableModel.setValueAt("is check", posiciones.get(i)-1, checkColum);
+                tableModel.setValueAt("is check", posiciones.get(i) - 1, checkColum);
             }
         }
     }
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JPanel JPanelData;
     private javax.swing.ButtonGroup buttonGroup1;
