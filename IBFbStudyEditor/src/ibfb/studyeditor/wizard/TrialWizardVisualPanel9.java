@@ -399,6 +399,7 @@ public final class TrialWizardVisualPanel9 extends JPanel {
         boolean conAlpha = false;
         boolean conRCBD = false;
         boolean conUnreplicated = false;
+        boolean conIndividual=false;
         
         
         designsUtils.setGermplasmEntries(Integer.parseInt(this.jTextFieldEntries.getText()));
@@ -420,30 +421,45 @@ public final class TrialWizardVisualPanel9 extends JPanel {
         boolean hasFIELDfactorfactor = false;
         boolean hasCOLfactorfactor = false;
         boolean hasROWfactorfactor = false;
+        
 
 
         Workbook myWorkbook = TrialWizardWizardIterator.myExcelReader.getMyWorkbook();
 
+        
+        for (int i = 0; i < myWorkbook.getStudyConditions().size(); i++) {          
+            if (myWorkbook.getStudyConditions().get(i).getProperty().toUpperCase().equals("TRIAL INSTANCE")) {
+               if (myWorkbook.getStudyConditions().get(i).getScale().toUpperCase().equals("NUMBER")) {
+                    conIndividual = false;
+                } else if (myWorkbook.getStudyConditions().get(i).getScale().toUpperCase().equals("NESTED NUMBER")) {
+                    conIndividual = true;
+                }
+                break;
+            } 
+            
+        }
+        
+        
         for (int i = 0; i < myWorkbook.getFactors().size(); i++) {
             System.out.println(myWorkbook.getFactors().get(i).toString());
 
-            if (myWorkbook.getFactors().get(i).getProperty().equals("FIELD PLOT")) {
-                hasFIELDfactorfactor = true;
+            if (myWorkbook.getFactors().get(i).getProperty().toUpperCase().equals("FIELD PLOT")) {
+                hasFIELDfactorfactor = true;         
             }
 
-            if (myWorkbook.getFactors().get(i).getProperty().equals("BLOCK")) {
+            if (myWorkbook.getFactors().get(i).getProperty().toUpperCase().equals("BLOCK")) {
                 hasBLOCKfactor = true;
             }
 
-            if (myWorkbook.getFactors().get(i).getProperty().equals("REPLICATION")) {
+            if (myWorkbook.getFactors().get(i).getProperty().toUpperCase().equals("REPLICATION")) {
                 hasREPLICATIONfactor = true;
             }
 
-            if (myWorkbook.getFactors().get(i).getProperty().equals("COLUMN")) {
+            if (myWorkbook.getFactors().get(i).getProperty().toUpperCase().equals("COLUMN")) {
                 hasCOLfactorfactor = true;
             }
 
-            if (myWorkbook.getFactors().get(i).getProperty().equals("ROW")) {
+            if (myWorkbook.getFactors().get(i).getProperty().toUpperCase().equals("ROW")) {
                 hasROWfactorfactor = true;
             }
         }
@@ -480,7 +496,7 @@ public final class TrialWizardVisualPanel9 extends JPanel {
         System.out.println("conAlpha: " + conAlpha + " conlatice: " + conLattice + " conRCBD: " + conRCBD + " conUnRep: " + conUnreplicated);
         System.out.println("INSTANCES: " + instances);
 
-        String inicio = designsUtils.assignMainCellEditor(conAlpha, conLattice, conRCBD, conUnreplicated);
+        String inicio = designsUtils.assignMainCellEditor(conAlpha, conLattice, conRCBD, conUnreplicated, conIndividual);
 
         for (int j = 0; j < instances; j++) {
             this.jTableDesign.setValueAt(inicio, j, 1);

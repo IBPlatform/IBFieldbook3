@@ -2350,6 +2350,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         boolean conAlpha = false;
         boolean conRCBD = false;
         boolean conUnreplicated = false;
+        boolean conIndividual=false;
 
         boolean hayFactores = !myWorkbook.getOtherFactors().isEmpty();
 
@@ -2376,13 +2377,23 @@ public final class StudyEditorTopComponent extends TopComponent {
         conAlpha = designsUtils.alphaIsValid(numEntries);
 
 
+        for (int i = 0; i < this.getMyWorkbook().getStudyConditions().size(); i++) {
+            if (this.getMyWorkbook().getStudyConditions().get(i).getProperty().toUpperCase().equals("TRIAL INSTANCE")) {
+                if (this.getMyWorkbook().getStudyConditions().get(i).getScale().toUpperCase().equals("NUMBER")) {
+                    conIndividual = false;
+                } else if (this.getMyWorkbook().getStudyConditions().get(i).getScale().toUpperCase().equals("NESTED NUMBER")) {
+                    conIndividual = true;
+                }
+                break;
+            }
 
+        }
 
         for (int i = 0; i < this.getMyWorkbook().getFactors().size(); i++) {
 
-                if (this.getMyWorkbook().getFactors().get(i).getProperty().equals("FIELD PLOT")) {
-                    hasFIELDfactorfactor = true;
-                }
+            if (this.getMyWorkbook().getFactors().get(i).getProperty().equals("FIELD PLOT")) {
+                hasFIELDfactorfactor = true;               
+            }
 
                 if (this.getMyWorkbook().getFactors().get(i).getProperty().equals("BLOCK")) {
                     hasBLOCKfactor = true;
@@ -2443,7 +2454,7 @@ public final class StudyEditorTopComponent extends TopComponent {
 
 
 
-        String inicio = designsUtils.assignMainCellEditor(conAlpha, conLattice, conRCBD, conUnreplicated);
+        String inicio = designsUtils.assignMainCellEditor(conAlpha, conLattice, conRCBD, conUnreplicated,conIndividual);
 
         for (int j = 0; j < instances; j++) {
             this.jTableDesign.setValueAt(inicio, j, 1);
@@ -2694,6 +2705,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         boolean conAlpha = false;
         boolean conRCBD = false;
         boolean conUnreplicated = false;
+        boolean conIndividual=false;
 
 
         boolean hasBLOCKfactor = false;
@@ -2712,26 +2724,38 @@ public final class StudyEditorTopComponent extends TopComponent {
         int numEntries = jTableEntries.getRowCount();
 
 
+
+        for (int i = 0; i < this.getMyWorkbook().getStudyConditions().size(); i++) {
+            if (this.getMyWorkbook().getStudyConditions().get(i).getProperty().toUpperCase().equals("TRIAL INSTANCE")) {
+                if (this.getMyWorkbook().getStudyConditions().get(i).getScale().toUpperCase().equals("NUMBER")) {
+                    conIndividual = false;
+                } else if (this.getMyWorkbook().getStudyConditions().get(i).getScale().toUpperCase().equals("NESTED NUMBER")) {
+                    conIndividual = true;
+                }
+                break;
+            }
+
+        }
+
         for (int i = 0; i < this.getMyWorkbook().getFactors().size(); i++) {
-           
 
-                if (this.getMyWorkbook().getFactors().get(i).getProperty().equals("FIELD PLOT")) {
-                    hasFIELDfactorfactor = true;
-                }
+            if (this.getMyWorkbook().getFactors().get(i).getProperty().toUpperCase().equals("FIELD PLOT")) {
+                hasFIELDfactorfactor = true;
+            }
 
-                if (this.getMyWorkbook().getFactors().get(i).getProperty().equals("BLOCK")) {
-                    hasBLOCKfactor = true;
-                }
+            if (this.getMyWorkbook().getFactors().get(i).getProperty().toUpperCase().equals("BLOCK")) {
+                hasBLOCKfactor = true;
+            }
 
-                if (this.getMyWorkbook().getFactors().get(i).getProperty().equals("REPLICATION")) {
+            if (this.getMyWorkbook().getFactors().get(i).getProperty().toUpperCase().equals("REPLICATION")) {
                     hasREPLICATIONfactor = true;
                 }
 
-                if (this.getMyWorkbook().getFactors().get(i).getProperty().equals("COLUMN")) {
+                if (this.getMyWorkbook().getFactors().get(i).getProperty().toUpperCase().equals("COLUMN")) {
                     hasCOLfactorfactor = true;
                 }
 
-                if (this.getMyWorkbook().getFactors().get(i).getProperty().equals("ROW")) {
+                if (this.getMyWorkbook().getFactors().get(i).getProperty().toUpperCase().equals("ROW")) {
                     hasROWfactorfactor = true;
                 }
 
@@ -2782,7 +2806,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         }
 
 
-        designsUtils.assignMainCellEditor(conAlpha, conLattice, conRCBD, conUnreplicated);
+        designsUtils.assignMainCellEditor(conAlpha, conLattice, conRCBD, conUnreplicated,conIndividual);
 
         SpinnerModel modeloDesign = jSpinnerTrial.getModel();
         jSpinnerTrialStudy.setModel(modeloDesign);

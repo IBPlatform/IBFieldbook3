@@ -67,7 +67,7 @@ public class DesignsUtils {
      * @param conLattice
      * @return
      */
-    public String assignMainCellEditor(boolean conAlpha, boolean conLattice, boolean conRCBD, boolean conUnreplicated) {
+    public String assignMainCellEditor(boolean conAlpha, boolean conLattice, boolean conRCBD, boolean conUnreplicated, boolean conIndividual) {
         String inicio = "";
         JComboBox comboBox = new JComboBox();
         if (conAlpha) {
@@ -87,9 +87,12 @@ public class DesignsUtils {
             comboBox.addItem(DesignsClass.RANDOMIZE_COMPLETE_BLOCK);
         }
 
+        if (conIndividual) {
+            comboBox.addItem(DesignsClass.USER_DEFINED_DESIGN);
 
-        comboBox.addItem(DesignsClass.USER_DEFINED_DESIGN);
-
+        }
+        
+        
         inicio = comboBox.getItemAt(0).toString();
         comboBox.setSelectedItem(comboBox.getItemAt(0));
         comboBox.setSelectedIndex(0);
