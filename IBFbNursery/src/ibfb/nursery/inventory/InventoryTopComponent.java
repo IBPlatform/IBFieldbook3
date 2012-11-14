@@ -7,6 +7,7 @@ import ibfb.settings.core.FieldbookSettings;
 import java.awt.Component;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 import javax.swing.DefaultCellEditor;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
@@ -17,6 +18,7 @@ import org.cimmyt.cril.ibwb.commongui.ConvertUtils;
 import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 import org.cimmyt.cril.ibwb.commongui.NumericKeyAdapter;
 import org.cimmyt.cril.ibwb.domain.Listnms;
+import org.cimmyt.cril.ibwb.domain.Scale;
 import org.cimmyt.cril.ibwb.domain.Scales;
 import org.cimmyt.cril.ibwb.domain.Traits;
 import org.cimmyt.cril.ibwb.domain.inventory.InventoryData;
@@ -49,6 +51,7 @@ preferredID = "InventoryTopComponent")
 })
 public final class InventoryTopComponent extends TopComponent {
 
+    private ResourceBundle bundle = NbBundle.getBundle(InventoryTopComponent.class);
     private List<Factor> factores;
     private Listnms listToSave;
     private Integer locationId;
@@ -610,8 +613,8 @@ public final class InventoryTopComponent extends TopComponent {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         SelectLocationPanel selectLocationPanel = new SelectLocationPanel(true);
-
-        NotifyDescriptor notifyDescriptor = new NotifyDescriptor(selectLocationPanel, "Choose location", NotifyDescriptor.OK_CANCEL_OPTION, NotifyDescriptor.PLAIN_MESSAGE, null, NotifyDescriptor.OK_OPTION);
+        String chooseLocation = bundle.getString("InventoryTopComponent.chooseLocation");
+        NotifyDescriptor notifyDescriptor = new NotifyDescriptor(selectLocationPanel, chooseLocation, NotifyDescriptor.OK_CANCEL_OPTION, NotifyDescriptor.PLAIN_MESSAGE, null, NotifyDescriptor.OK_OPTION);
 
         if (DialogDisplayer.getDefault().notify(notifyDescriptor) == NotifyDescriptor.OK_OPTION) {
             String value = selectLocationPanel.getLocationName();
@@ -640,7 +643,8 @@ public final class InventoryTopComponent extends TopComponent {
         this.jTableEntries.setModel(tableModel);
 
         ajustaColumnsTable(this.jTableEntries);
-        addComboScales();
+        //addComboScales();
+        fillComboBoxScales();
         this.findInventoryColumns();
 
     }
@@ -765,7 +769,13 @@ public final class InventoryTopComponent extends TopComponent {
             } else {
                 data.setAmmount((Double) model.getValueAt(row, amountColumn));
             }
-            data.setScale(0);
+
+            if (model.getValueAt(row, scaleColumn) instanceof Scales) {
+                Scales scale = (Scales)model.getValueAt(row, scaleColumn);
+                data.setScale(scale.getScaleid());
+            } else {
+                data.setScale(0);
+            }
 
 
             inventoryDataList.add(data);
@@ -777,7 +787,8 @@ public final class InventoryTopComponent extends TopComponent {
         Integer loggedUserId = AppServicesProxy.getDefault().appServices().getLoggedUserId(FieldbookSettings.getLocalGmsUserId());
         AppServicesProxy.getDefault().appServices().saveInventoryFromList(listToSave, transactionDate, inventoryDataList, loggedUserId);
 
-        NotifyDescriptor inventorySaved = new NotifyDescriptor.Message("Your inventory was saved!", NotifyDescriptor.INFORMATION_MESSAGE);
+        String saveMsg = bundle.getString("InventoryTopComponent.inventorySaved");
+        NotifyDescriptor inventorySaved = new NotifyDescriptor.Message(saveMsg  , NotifyDescriptor.INFORMATION_MESSAGE);
         DialogDisplayer.getDefault().notify(inventorySaved);
 
     }
@@ -851,14 +862,14 @@ public final class InventoryTopComponent extends TopComponent {
 
     private boolean inventoryFactorsAreMissing() {
         boolean inventoryFactorsAreMissing = false;
-        DefaultTableModel tableModel  = (DefaultTableModel) this.jTableEntries.getModel();
+        DefaultTableModel tableModel = (DefaultTableModel) this.jTableEntries.getModel();
         amountColumn = tableModel.findColumn("AMOUNT");
         locationColumn = tableModel.findColumn("LOCATION");
         commentColumn = tableModel.findColumn("COMMENT");
         scaleColumn = tableModel.findColumn("SCALE");
-        
+
         inventoryFactorsAreMissing = amountColumn == -1 || locationColumn == -1 || commentColumn == -1 || scaleColumn == -1;
-        
+
         return inventoryFactorsAreMissing;
     }
 }

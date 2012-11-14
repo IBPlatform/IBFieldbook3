@@ -522,12 +522,12 @@ public final class AdvanceLineTopComponent extends TopComponent {
             DialogDisplayer.getDefault().notify(d);
             return;
         }
-        
-      if (AppServicesProxy.getDefault().appServices().existGermplasmListName(jTextFieldNurseryAdvanceName.getText())) {
+
+        if (AppServicesProxy.getDefault().appServices().existGermplasmListName(jTextFieldNurseryAdvanceName.getText())) {
             NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(AdvanceLineTopComponent.class, "AdvanceLineTopComponent.listNameAlreadyExists"), NotifyDescriptor.ERROR_MESSAGE);
             DialogDisplayer.getDefault().notify(d);
-            return; 
-        }        
+            return;
+        }
 
         if (getConvection() == 0)//IF IS FOR WHEAT
         {
@@ -586,6 +586,7 @@ public final class AdvanceLineTopComponent extends TopComponent {
         int entryCD = tableModel.getHeaderIndex(GermplasmEntriesTableModel.ENTRY);// findColumn("ENTRY");
 
         currentSourceGid = 0;
+        int counter = 1;
 
         for (int index = 0; index < jTableEntries.getRowCount(); index++) {
             Listdata listdata = new Listdata(true);
@@ -604,9 +605,9 @@ public final class AdvanceLineTopComponent extends TopComponent {
                 listdata.setEntrycd("");
             }
 
-            listdata.setSource(this.nurseryName + ":" + index);
-            listdata.setEntrycd("E" + ConvertUtils.getZeroLeading(index, 4));
-            listdata.setGrpname("grp");
+            listdata.setSource(this.nurseryName + ":" + counter);
+            listdata.setEntrycd("E" + ConvertUtils.getZeroLeading(counter, 4));
+            listdata.setGrpname("");
 
             listdata.setLrstatus(0);
             listdata.setGid(0);
@@ -622,6 +623,7 @@ public final class AdvanceLineTopComponent extends TopComponent {
             // asigns GPID1 and GPDI2
             assignGpid1AndGpid2(listdata, index);
             dataList.add(listdata);
+            counter++;
 
         }
         //Integer loggedUserId = AppServicesProxy.getDefault().appServices().getLoggedUserId();
@@ -668,6 +670,8 @@ public final class AdvanceLineTopComponent extends TopComponent {
 
 
         int numOfParents = getNumberOfParents();
+        
+        int counter = 1;
 
         for (int i = 0; i < jTableEntries.getRowCount(); i++) {
 
@@ -702,9 +706,9 @@ public final class AdvanceLineTopComponent extends TopComponent {
             }
 
 
-            listdata.setSource(this.nurseryName + ":" + i);
-            listdata.setEntrycd("E" + ConvertUtils.getZeroLeading(i, 4));
-            listdata.setGrpname("grp");
+            listdata.setSource(this.nurseryName + ":" + counter);
+            listdata.setEntrycd("E" + ConvertUtils.getZeroLeading(counter, 4));
+            listdata.setGrpname("");
 
             listdata.setLrstatus(0);
             listdata.setGid(0);
@@ -720,6 +724,8 @@ public final class AdvanceLineTopComponent extends TopComponent {
             // asigns GPID1 and GPDI2
             assignGpid1AndGpid2(listdata, i);
             dataList.add(listdata);
+            
+            counter++;
 
         }
 
@@ -1039,24 +1045,69 @@ public final class AdvanceLineTopComponent extends TopComponent {
 
         int colSelection = modelo.getHeaderIndex(GermplasmEntriesTableModel.PLANTS_SELECTED);
 
+//        if (renglon < modelo.getRowCount()) {
+//
+//            if (colSelection > 0 && modelo.getValueAt(renglon, colSelection) != null) {
+//                //int elMetodo = Integer.parseInt(modelo.getValueAt(renglon, colSelection).toString());
+//                int elMetodo = ConvertUtils.getValueAsInteger(modelo.getValueAt(renglon, colSelection));
+//
+//                if (elMetodo > 0) {
+//                    return 205;
+//                }
+//
+//                if (elMetodo == 0) {
+//                    return 206;
+//                }
+//
+//                if (elMetodo < 0) {
+//                    return 207;
+//                }
+//            }
+//        } else {
+            GermplasmEntriesTableModel tableModel = (GermplasmEntriesTableModel) this.jTableEntries.getModel();
+            int entryCodeColumn = tableModel.getHeaderIndex(GermplasmEntriesTableModel.ENTRY_CODE);
+            String entryCodeToFind = jTableEntries.getValueAt(renglon, entryCodeColumn).toString();
+            int entryRow = findEntry(entryCodeToFind);
+            if (colSelection > 0 && modelo.getValueAt(entryRow, colSelection) != null) {
+                //int elMetodo = Integer.parseInt(modelo.getValueAt(renglon, colSelection).toString());
+                int elMetodo = ConvertUtils.getValueAsInteger(modelo.getValueAt(entryRow, colSelection));
 
-        if (colSelection > 0 && modelo.getValueAt(renglon, colSelection) != null) {
-            //int elMetodo = Integer.parseInt(modelo.getValueAt(renglon, colSelection).toString());
-            int elMetodo = ConvertUtils.getValueAsInteger(modelo.getValueAt(renglon, colSelection));
+                if (elMetodo > 0) {
+                    return 205;
+                }
 
-            if (elMetodo > 0) {
-                return 205;
-            }
+                if (elMetodo == 0) {
+                    return 206;
+                }
 
-            if (elMetodo == 0) {
-                return 206;
-            }
-
-            if (elMetodo < 0) {
-                return 207;
-            }
+                if (elMetodo < 0) {
+                    return 207;
+                }
+//            }
         }
 
+
         return method;
+    }
+
+    /**
+     * 
+     * @param entryCodeToFind
+     * @return 
+     */
+    private int findEntry(String entryCodeToFind) {
+        int entryRow = -1;
+
+        int entryCodeColumnModel = modelo.getHeaderIndex(GermplasmEntriesTableModel.ENTRY_CODE);
+
+        for (int row = 0; row < modelo.getRowCount(); row++) {
+            String modelEntryCode = modelo.getValueAt(row, entryCodeColumnModel).toString();
+            if (modelEntryCode.equals(entryCodeToFind)) {
+                entryRow = row;
+                break;
+            }
+        
+        }
+        return entryRow;
     }
 }
