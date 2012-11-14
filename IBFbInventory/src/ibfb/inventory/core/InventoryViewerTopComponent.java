@@ -258,10 +258,10 @@ public final class InventoryViewerTopComponent extends TopComponent {
             columns.add(data.getEntry());
             columns.add(data.getDesig());
             columns.add(data.getGid());
-            columns.add(data.getLocationid());
+            columns.add(data.getLocationid()+"-"+data.getLocationName());
             columns.add(data.getComment());
             columns.add(data.getAmmount());
-            columns.add(data.getScale());
+            columns.add(data.getScale()+"-"+data.getScaleName());
             
             rowListInventory.add(columns);
         }   
