@@ -49,8 +49,9 @@ public class ImsTransactionDAO extends AbstractDAO<ImsTransaction, Integer> {
 
     /**
      * Get information data from a List
+     *
      * @param listId Id for LIST
-     * @return 
+     * @return
      */
     public List<InventoryData> getInventoryDataFromList(final Integer listId) {
         List<InventoryData> resultList = new ArrayList<InventoryData>();
@@ -63,14 +64,15 @@ public class ImsTransactionDAO extends AbstractDAO<ImsTransaction, Integer> {
         querySQL.append(" ORDER BY LISTDATA.ENTRYID ");
 
 
+
         resultList = getHibernateTemplate().executeFind(new HibernateCallback() {
 
             @Override
             public Object doInHibernate(Session session)
                     throws HibernateException, SQLException {
-                
+
                 List<InventoryData> resultList = new ArrayList<InventoryData>();
-                
+
                 SQLQuery query = session.createSQLQuery(querySQL.toString());
                 query.addScalar("ENTRYID", Hibernate.INTEGER);
                 query.addScalar("DESIG", Hibernate.STRING);
@@ -79,21 +81,21 @@ public class ImsTransactionDAO extends AbstractDAO<ImsTransaction, Integer> {
                 query.addScalar("COMMENTS", Hibernate.STRING);
                 query.addScalar("TRNQTY", Hibernate.DOUBLE);
                 query.addScalar("SCALEID", Hibernate.INTEGER);
-                
-                List<Object> records =  query.list();
-                
-                for (Object record :records) {
-                    Object[] recordArray = (Object[])record;
+
+                List<Object> records = query.list();
+
+                for (Object record : records) {
+                    Object[] recordArray = (Object[]) record;
                     InventoryData inventoryData = new InventoryData();
-                    
-                    inventoryData.setEntry((Integer)recordArray[0]);
-                    inventoryData.setDesig((String)recordArray[1]);
-                    inventoryData.setGid((Integer)recordArray[2]);
-                    inventoryData.setLocationid((Integer)recordArray[3]);
-                    inventoryData.setComment((String)recordArray[4]);
-                    inventoryData.setAmmount((Double)recordArray[5]);
-                    inventoryData.setScale((Integer)recordArray[6]);
-                    
+
+                    inventoryData.setEntry((Integer) recordArray[0]);
+                    inventoryData.setDesig((String) recordArray[1]);
+                    inventoryData.setGid((Integer) recordArray[2]);
+                    inventoryData.setLocationid((Integer) recordArray[3]);
+                    inventoryData.setComment((String) recordArray[4]);
+                    inventoryData.setAmmount((Double) recordArray[5]);
+                    inventoryData.setScale((Integer) recordArray[6]);
+
                     resultList.add(inventoryData);
                 }
 
@@ -101,5 +103,66 @@ public class ImsTransactionDAO extends AbstractDAO<ImsTransaction, Integer> {
             }
         });
         return resultList;
+    }
+
+    /**
+     * Gets a different list of Location ID for that list
+     * @param listId
+     * @return 
+     */
+    public List<Integer> locationsForInventoryList(final Integer listId) {
+        List<Integer> locationsList = new ArrayList<Integer>();
+
+        locationsList = getHibernateTemplate().executeFind(new DistinctFieldCallBack(listId, "LOCID"));
+
+        return locationsList;
+    }
+
+    /**
+     * Gets a different list of Scales ID for that list
+     * @param listId
+     * @return 
+     */
+    public List<Integer> scalesForInventoryList(final Integer listId) {
+        List<Integer> scalesList = new ArrayList<Integer>();
+        final StringBuilder querySQL = new StringBuilder();
+
+        scalesList = getHibernateTemplate().executeFind(new DistinctFieldCallBack(listId, "SCALEID"));
+
+        return scalesList;
+    }
+
+    /**
+     * Internal class to manage
+     */
+    private class DistinctFieldCallBack implements HibernateCallback {
+
+        private Integer listId;
+        private String fieldName;
+
+        public DistinctFieldCallBack(Integer listId, String fieldName) {
+            this.listId = listId;
+            this.fieldName = fieldName;
+        }
+
+        @Override
+        public Object doInHibernate(Session session) throws HibernateException, SQLException {
+            final StringBuilder querySQL = new StringBuilder();
+            querySQL.append("SELECT  DISTINCT  ").append(fieldName).append(" ");
+            querySQL.append("FROM LISTDATA, IMS_LOT, IMS_TRANSACTION   ");
+            querySQL.append("WHERE (LISTDATA.LISTID = ").append(listId).append(" )  ");
+            querySQL.append(" AND  (IMS_LOT.LOTID = IMS_TRANSACTION.LOTID) AND ( IMS_LOT.EID = LISTDATA.GID)  ");
+
+            List<Integer> distinctList = new ArrayList<Integer>();
+            SQLQuery query = session.createSQLQuery(querySQL.toString());
+            query.addScalar(fieldName, Hibernate.INTEGER);
+            List<Object> records = query.list();
+            for (Object record : records) {
+                
+                distinctList.add((Integer) record);
+            }
+
+            return distinctList;
+        }
     }
 }

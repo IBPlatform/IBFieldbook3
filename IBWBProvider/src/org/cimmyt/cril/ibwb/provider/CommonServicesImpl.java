@@ -3086,6 +3086,25 @@ public class CommonServicesImpl implements CommonServices {
         return imsTransactionDAO.getInventoryDataFromList(listId);
     }
     
+    /**
+     * Gets a different list of Location ID for that list
+     * @param listId
+     * @return 
+     */
+    @Override
+    public List<Integer> locationsForInventoryList(final Integer listId) {
+        return imsTransactionDAO.locationsForInventoryList(listId);
+    }
+    
+    /**
+     * Gets a different list of Scales ID for that list
+     * @param listId
+     * @return 
+     */
+    @Override
+    public List<Integer> scalesForInventoryList(final Integer listId) {
+        return imsTransactionDAO.scalesForInventoryList(listId);
+    }
     //-----------------------------------ContinuousConversion---------------------------
     @Override
     public void addContinuousConversion(ContinuousConversion continuousConversion) {

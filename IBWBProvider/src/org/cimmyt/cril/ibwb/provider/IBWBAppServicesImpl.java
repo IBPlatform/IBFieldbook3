@@ -5,7 +5,9 @@ import ibfb.domain.core.Workbook;
 import ibfb.query.core.QueryCenter;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import org.apache.log4j.Logger;
 import org.cimmyt.cril.ibwb.api.AppServices;
 import org.cimmyt.cril.ibwb.api.CommonServices;
@@ -728,11 +730,12 @@ public class IBWBAppServicesImpl implements AppServices {
         }
         return listnms;
     }
-    
+
     /**
      * Checks if a List already exists in local
+     *
      * @param listName
-     * @return 
+     * @return
      */
     @Override
     public boolean existGermplasmListName(String listName) {
@@ -2333,25 +2336,25 @@ public class IBWBAppServicesImpl implements AppServices {
     @Override
     public boolean existsTratisTable() {
         boolean moreTables = true;
-        
+
         List<Instln> listaInstlns = serviciosCentral.getInstlnList();
-        if(listaInstlns != null){
-            if(listaInstlns.isEmpty()){
+        if (listaInstlns != null) {
+            if (listaInstlns.isEmpty()) {
                 typeDB = TypeDB.OTHER;
-            }else{
+            } else {
                 Instln instln = listaInstlns.get(0);
-                if(instln.getIdesc().contains(TypeDB.IWIS.getNombre())){
+                if (instln.getIdesc().contains(TypeDB.IWIS.getNombre())) {
                     typeDB = TypeDB.IWIS;
-                }else if(instln.getIdesc().contains(TypeDB.IMIS.getNombre())){
+                } else if (instln.getIdesc().contains(TypeDB.IMIS.getNombre())) {
                     typeDB = TypeDB.IMIS;
-                }else{
+                } else {
                     typeDB = TypeDB.OTHER;
                 }
             }
-        }else{
+        } else {
             typeDB = TypeDB.OTHER;
         }
-        
+
         moreTables = this.serviciosCentral.existsTratisTable() && this.serviciosLocal.existsTratisTable();
         if (!moreTables) {
             return moreTables;
@@ -2377,7 +2380,7 @@ public class IBWBAppServicesImpl implements AppServices {
      */
     @Override
     public void createTraitsTables() {
-                
+
         if (!serviciosCentral.existsTratisTable()) {
             serviciosCentral.createTraitsTables();
             MigrateData.insertScaleGroupToScales(serviciosCentral);
@@ -2922,11 +2925,62 @@ public class IBWBAppServicesImpl implements AppServices {
 
     @Override
     public List<InventoryData> getInventoryDataFromList(final Integer listId) {
+        List<InventoryData> inventoryDataList = new ArrayList<InventoryData>();
+        List<Integer> distinctLocationIds = new ArrayList<Integer>();
+        List<Integer> distinctScalesIds = new ArrayList<Integer>();
+        Map<Integer, Location> locationMap = new HashMap<Integer, Location>();
+        Map<Integer, Scales> scalesMap = new HashMap<Integer, Scales>();
+        CommonServices services = null;
+
         if (listId.intValue() > 0) {
-            return serviciosCentral.getInventoryDataFromList(listId);
+            services = serviciosCentral;
         } else {
-            return serviciosLocal.getInventoryDataFromList(listId);
+            services = serviciosLocal;
         }
+        // get all records for the inventory
+        inventoryDataList = services.getInventoryDataFromList(listId);
+        // now get all different locations and scales for inventory
+        distinctLocationIds = services.locationsForInventoryList(listId);
+        distinctScalesIds = services.scalesForInventoryList(listId);
+        // then get all deteail for each location 
+        for (Integer locationId : distinctLocationIds) {
+            Location location = null;
+            if (locationId != null) {
+                if (locationId.intValue() > 0) {
+                    location = serviciosCentral.getLocation(locationId);
+                } else {
+                    location = serviciosLocal.getLocation(locationId);
+                }
+            }
+            locationMap.put(locationId, location);
+        }
+
+        // then get all deteail for each location 
+        for (Integer scaleId : distinctScalesIds) {
+            Scales scales = null;
+            if (scaleId != null) {
+                if (scaleId.intValue() > 0) {
+                    scales = serviciosCentral.getScales(scaleId);
+                } else {
+                    scales = serviciosLocal.getScales(scaleId);
+                }
+                if (scales == null) {
+                    scales = new Scales();
+                    scales.setScaleid(0);
+                    scales.setScname("NOT FOUND");
+                }
+            }
+            scalesMap.put(scaleId, scales);
+        }
+        
+        // finaly assign corresponding location name and scale name
+        for (InventoryData inventoryData:  inventoryDataList) {
+            
+            inventoryData.setLocationName(locationMap.get(inventoryData.getLocationid()).getLname());
+            inventoryData.setScaleName(scalesMap.get(inventoryData.getScale()).getScname());
+        }
+
+        return inventoryDataList;
     }
 
     /**
@@ -3039,13 +3093,12 @@ public class IBWBAppServicesImpl implements AppServices {
             return serviciosLocal.getDataForCimmytWheat(listId);
         }
     }
-
     private IBPMiddlewareClient ibpMiddlewareClient;
-    
+
     public void setIbpMiddlewareClient(IBPMiddlewareClient ibpMiddlewareClient) {
         this.ibpMiddlewareClient = ibpMiddlewareClient;
     }
-    
+
     /**
      * Gets access to Middleware GermplasmManager
      *
