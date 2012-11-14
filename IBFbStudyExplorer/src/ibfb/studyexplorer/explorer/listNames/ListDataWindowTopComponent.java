@@ -298,11 +298,14 @@ public final class ListDataWindowTopComponent extends TopComponent {
         header.append(",");
         header.append(bundle.getString("ListDataWindowTopComponent.headerSource"));
         header.append(",");
+        header.append(bundle.getString("ListDataWindowTopComponent.headerCross"));
+        header.append(",");
         header.append(bundle.getString("ListDataWindowTopComponent.headerEntryId"));
+        
 
         
         lblEntriesFound.setText(listdataEntries.size() + " " + bundle.getString("ListDataWindowTopComponent.entriesFound"));
-        TableBindingUtil.createColumnsFromDB(Listdata.class, listdataEntries, tblListData, "gid,desig,entrycd,source,entryid", header.toString());
+        TableBindingUtil.createColumnsFromDB(Listdata.class, listdataEntries, tblListData, "gid,desig,entrycd,source,grpname,entryid", header.toString());
 
         if(isForWheat()){
             loadData();
