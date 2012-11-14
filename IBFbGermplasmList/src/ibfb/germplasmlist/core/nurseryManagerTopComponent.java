@@ -987,6 +987,9 @@ public final class nurseryManagerTopComponent extends TopComponent {
         int fgidcol = findColumn("FGID");
         int mgidcol = findColumn("MGID");
 
+        int fdesig = findColumn("FDESIG");
+        int mdesig = findColumn("MDESIG");
+
         int gid = 0;
 
         // get selected method from combo
@@ -1030,7 +1033,12 @@ public final class nurseryManagerTopComponent extends TopComponent {
                 listdata.setSource("");
             }
 
-            listdata.setGrpname("-");
+
+            if (fdesig > 0 && mdesig > 0) {
+                listdata.setGrpname(jTableFinalList.getValueAt(i, fdesig).toString()+"/"+jTableFinalList.getValueAt(i, mdesig));
+            } else {
+                listdata.setGrpname("");
+            }
             listdata.setLrstatus(0);
 
             if (gid > 0) {
@@ -1055,6 +1063,15 @@ public final class nurseryManagerTopComponent extends TopComponent {
 
             listdata.setGpid1(gpdi1);
             listdata.setGpid2(gpdi2);
+
+            // clean all html codes
+            String cleanedSource = listdata.getSource();
+            cleanedSource = cleanedSource.replaceAll("<html> <font color='purple'>", "");
+            cleanedSource = cleanedSource.replaceAll("</font>", "");
+            cleanedSource = cleanedSource.replaceAll("<font color='blue'>", "");
+            cleanedSource = cleanedSource.replaceAll("</html>", "");
+            listdata.setSource(cleanedSource);
+
             dataList.add(listdata);
 
         }
@@ -1443,7 +1460,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
             modelo.setValueAt(fgid, i, 5);//FGIG
             modelo.setValueAt(mdesig, i, 6);//MDESIG
             modelo.setValueAt(mgid, i, 7);//MGID  
-            if (jComboBoxConvection.getSelectedIndex() != CONVENTION_CIMMYT_WHEAT ) {
+            if (jComboBoxConvection.getSelectedIndex() != CONVENTION_CIMMYT_WHEAT) {
                 StringBuilder source = new StringBuilder();
                 source.append(femaleListName).append(":").append(fentry);
                 source.append("/");
@@ -1714,13 +1731,13 @@ public final class nurseryManagerTopComponent extends TopComponent {
             DialogDisplayer.getDefault().notify(d);
             return;
         }
-        
+
         if (AppServicesProxy.getDefault().appServices().existGermplasmListName(jTextFieldListName.getText())) {
             NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.listNameAlreadyExists"), NotifyDescriptor.ERROR_MESSAGE);
             DialogDisplayer.getDefault().notify(d);
-            return; 
+            return;
         }
-        
+
         NotifyDescriptor d = new NotifyDescriptor.Confirmation(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.save"), NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.final"),
                 NotifyDescriptor.OK_CANCEL_OPTION);
         if (DialogDisplayer.getDefault().notify(d) == NotifyDescriptor.OK_OPTION) {
