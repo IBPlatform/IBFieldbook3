@@ -21,6 +21,9 @@ public class InventoryData {
     private String comment;
     private Double ammount;
     private Integer scale;
+    
+    private String locationName;
+    private String scaleName;
 
     public InventoryData() {
     }
@@ -94,6 +97,22 @@ public class InventoryData {
     @Override
     public String toString() {
         return "InventoryData{" + "entry=" + entry + ", desig=" + desig + ", gid=" + gid + ", locationid=" + locationid + ", comment=" + comment + ", ammount=" + ammount + ", scale=" + scale + '}';
+    }
+
+    public String getLocationName() {
+        return locationName;
+    }
+
+    public void setLocationName(String locationName) {
+        this.locationName = locationName;
+    }
+
+    public String getScaleName() {
+        return scaleName;
+    }
+
+    public void setScaleName(String scaleName) {
+        this.scaleName = scaleName;
     }
     
     
