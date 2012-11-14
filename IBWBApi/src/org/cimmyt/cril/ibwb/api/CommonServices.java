@@ -3555,6 +3555,20 @@ public interface CommonServices {
      */
     public List<InventoryData> getInventoryDataFromList(final Integer listId);
     
+    /**
+     * Gets a different list of Location ID for that list
+     * @param listId
+     * @return 
+     */
+    public List<Integer> locationsForInventoryList(final Integer listId);
+    
+    /**
+     * Gets a different list of Scales ID for that list
+     * @param listId
+     * @return 
+     */
+    public List<Integer> scalesForInventoryList(final Integer listId);    
+    
     //-----------------------------------ContinuousConversion---------------------------
     public void addContinuousConversion(ContinuousConversion continuousConversion);
     
