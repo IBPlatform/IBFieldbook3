@@ -3,6 +3,7 @@ package ibfb.inventory.core;
 import ibfb.domain.core.Factor;
 import ibfb.domain.core.GermplasmList;
 import ibfb.inventory.export.ExcelTableExporter;
+import ibfb.inventory.export.InventoryExcelExporter;
 import ibfb.inventory.models.GermplasmEntriesTableModel;
 import ibfb.workbook.api.GermplasmAssigmentTool;
 import ibfb.workbook.api.GermplasmListReader;
@@ -45,6 +46,7 @@ public final class InventoryViewerTopComponent extends TopComponent {
     List<List<Object>> rowListDB;
     GermplasmAssigmentTool gat = new GermplasmAssigmentToolImpl();
     private List<Factor> factores;
+    private List<InventoryData> inventoryDataList;
 
     public InventoryViewerTopComponent() {
         initComponents();
@@ -208,7 +210,7 @@ public final class InventoryViewerTopComponent extends TopComponent {
             try {
                 Listnms selectedList = (Listnms) cboGermplasmList.getSelectedItem();
                 
-                List<InventoryData> inventoryDataList = AppServicesProxy.getDefault().appServices().getInventoryDataFromList(selectedList.getListid());
+                this.inventoryDataList = AppServicesProxy.getDefault().appServices().getInventoryDataFromList(selectedList.getListid());
                 setGermplasmListIntoTable(inventoryDataList);
 //                GermplasmList germplasmList = germplasmListReader.getGermPlasmListFromDB();
 //                setGermplasmListIntoTable(germplasmList);
@@ -356,7 +358,7 @@ public final class InventoryViewerTopComponent extends TopComponent {
 
     private void exportToExcel(File file) {
 
-        File archivo = new File(file.getAbsolutePath() + ".xls");
+        File archivo = new File(file.getAbsolutePath() );
         List<String> nombreTabs = new ArrayList<String>();
         nombreTabs.add("Inventory");
 
@@ -364,11 +366,13 @@ public final class InventoryViewerTopComponent extends TopComponent {
         tables.add(this.jTableEntries);
 
         ExcelTableExporter exporter;
+        InventoryExcelExporter inventoryExcelExporter = new InventoryExcelExporter(jTableEntries,archivo.getAbsolutePath(),inventoryDataList);
         try {
-            exporter = new ExcelTableExporter(tables, archivo, nombreTabs);
-            if (exporter.export()) {
+            //exporter = new ExcelTableExporter(tables, archivo, nombreTabs);
+            inventoryExcelExporter.exportToExcel();
+            //if (exporter.export()) {
                 DialogUtil.display("Your list was exported");
-            }
+            //}
 
 
         } catch (Exception ex) {
