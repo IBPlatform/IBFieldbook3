@@ -85,28 +85,56 @@ public class HelperGermplasm {
             String nameGermplasm = listdataT.getDesig();//----------------------->Definir cual es el nombre History
             String nameGermplasmBCID = listdataT.getNameBCID();//----------------------->Definir cual es el nombre BCID
 
-            GermplasmSearch gsf = null;
-            GermplasmSearch gsm = null;
-            int i = listGermplsm.lastIndexOf(listdataT);
-            if (i != -1 && i < lgsf.size()) {
-                gsf = lgsf.get(i);
+            Integer gidWheat = null;
+            boolean existWheatName = verifyExistingWheatName(gidWheat, nameGermplasm, listdataT);
+
+            if (existWheatName ) {
+               servicioLocal.addListdata(listdataT);
+               
+            } else {
+
+                GermplasmSearch gsf = null;
+                GermplasmSearch gsm = null;
+                int i = listGermplsm.lastIndexOf(listdataT);
+                if (i != -1 && i < lgsf.size()) {
+                    gsf = lgsf.get(i);
+                }
+                if (i != -1 && i < lgsm.size()) {
+                    gsm = lgsm.get(i);
+                }
+
+                agregarGermPlasmCimmytWheat(nameGermplasm, nameGermplasmBCID, listdataT, listnms, gsf, gsm, queryCenter);
+                //agregarGermPlasmCimmytWheat(nameGermplasm, nameGermplasmBCID, listdataT);
+
+
+                listdataT.setListdataPK(new ListdataPK(listnms.getListid(), 0));
+                //servicioLocal.addListdata(listdataT);
+                
             }
-            if (i != -1 && i < lgsm.size()) {
-                gsm = lgsm.get(i);
-            }
-
-            agregarGermPlasmCimmytWheat(nameGermplasm, nameGermplasmBCID, listdataT, listnms, gsf, gsm, queryCenter);
-            //agregarGermPlasmCimmytWheat(nameGermplasm, nameGermplasmBCID, listdataT);
-
-
-            listdataT.setListdataPK(new ListdataPK(listnms.getListid(), 0));
-            //servicioLocal.addListdata(listdataT);
             listDatas.add(listdataT);
 
         }
         return listDatas;
     }
 
+    private boolean verifyExistingWheatName(Integer gid, String nameGermplasm, Listdata listdata) {
+        boolean existWheatName = false;
+        Germplsm germplsm = verifyByGid(gid);
+        if (germplsm == null) {
+            Names names = verifyByName(nameGermplasm);
+            if (names == null) {
+               
+            } else {
+                //recuperar names gid
+                listdata.setGid(names.getGid());//Asignando Gid correcto
+                existWheatName = Boolean.TRUE;
+            }
+        } else {
+            existWheatName = Boolean.TRUE;
+        }
+        return existWheatName;
+    }
+    
     public void verificaExistencia(Integer gid, String nameGermplasm, Listdata listdata) {
         Germplsm germplsm = verifyByGid(gid);
         if (germplsm == null) {
@@ -378,6 +406,9 @@ public class HelperGermplasm {
         servicioLocal.addNames(names);
 
         listdata.setGid(germplsm.getGid());
+        
+        listdata.setGrpname(arma_pedigree);
+        
         servicioLocal.addListdata(listdata);
 
         Dmsattr dmsattr = new Dmsattr();
