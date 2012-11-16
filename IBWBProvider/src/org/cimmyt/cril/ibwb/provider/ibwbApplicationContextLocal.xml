@@ -467,4 +467,11 @@
         </property>
         <property name="accessType" value="local"/>
     </bean>
+    
+    <bean id="TmsConsistencyChecksDAOLocal" class="org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO">
+        <property name="sessionFactory">
+            <ref bean="sessionFactoryLocalDMS" />
+        </property>
+        <property name="accessType" value="local"/>
+    </bean>
 </beans>

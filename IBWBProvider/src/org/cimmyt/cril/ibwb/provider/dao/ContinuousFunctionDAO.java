@@ -64,31 +64,31 @@ public class ContinuousFunctionDAO extends AbstractDAO<ContinuousFunction, Integ
      */
     public boolean existsTable() {
         Boolean result = false;
-        log.info("Checking if ContinuousFunction table exists");
+        log.info("Checking if TmsContinuous-function table exists");
         result = (Boolean) getHibernateTemplate().execute(new HibernateCallback() {
 
             @Override
             public Object doInHibernate(Session session) throws HibernateException, SQLException {
                 Boolean result = false;
-                SQLQuery query = session.createSQLQuery("select * from `continuous-function` where 1 = 2");
+                SQLQuery query = session.createSQLQuery("select * from `TmsContinuous-function` where 1 = 2");
                 try {
                     query.list();
                     result = true;
-                    log.info("ContinuousFunction table found!");
+                    log.info("TmsContinuous-function table found!");
                 } catch (Exception e) {
                     result = false;
                     //log.error("ContinuousFunction table not found", e);
-                    log.error("ContinuousFunction table not found");
+                    log.error("TmsContinuous-function table not found");
                 }
                 return result;
             }
         });
-        log.info("Checking if ContinuousFunction table exists DONE....");
+        log.info("Checking if TmsContinuous-function table exists DONE....");
         return result;
     }
     
     public void createTable(){
-        log.info("Creating ContinuousFunction table...");
+        log.info("Creating TmsContinuous-function table...");
         final String sql = getQueryCreateTable();
         getHibernateTemplate().execute(new HibernateCallback() {
             @Override
@@ -98,17 +98,17 @@ public class ContinuousFunctionDAO extends AbstractDAO<ContinuousFunction, Integ
                     query = session.createSQLQuery(sql);
                     query.executeUpdate();
                 } catch (Exception e) {
-                    log.error("Can´t create ContinuousFunction table", e);
+                    log.error("Can´t create TmsContinuous-function table", e);
                 }
                 return null;
             }
         });
-        log.info("Creating Transformations table DONE....");
+        log.info("Creating TmsContinuous-function table DONE....");
     }
     
     private String getQueryCreateTable(){
         StringBuilder s = new StringBuilder();
-        s.append("CREATE TABLE `continuous-function` (");
+        s.append("CREATE TABLE `TmsContinuous-function` (");
         s.append("`transid` INT(10) NOT NULL DEFAULT '0',");
         s.append("`function` VARCHAR(255) NULL DEFAULT NULL,");
         s.append("`funabbr` VARCHAR(255) NULL DEFAULT NULL,");

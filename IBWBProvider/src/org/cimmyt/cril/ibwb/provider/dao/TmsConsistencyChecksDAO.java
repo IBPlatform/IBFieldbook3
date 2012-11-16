@@ -11,7 +11,7 @@ import org.apache.log4j.Logger;
 import org.cimmyt.cril.ibwb.api.dao.AbstractDAO;
 import org.cimmyt.cril.ibwb.api.dao.utils.ValidatingDataType;
 import org.cimmyt.cril.ibwb.domain.Traits;
-import org.cimmyt.cril.ibwb.domain.Transformations;
+import org.cimmyt.cril.ibwb.domain.TmsConsistencyChecks;
 import org.hibernate.HibernateException;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
@@ -22,25 +22,25 @@ import org.springframework.orm.hibernate3.HibernateCallback;
  *
  * @author MasterGama
  */
-public class TransformationsDAO extends AbstractDAO<Transformations, Integer> {
+public class TmsConsistencyChecksDAO extends AbstractDAO<TmsConsistencyChecks, Integer> {
 
     private static Logger log = Logger.getLogger(TransformationsDAO.class);
 
-    public TransformationsDAO() {
-        super(Transformations.class);
+    public TmsConsistencyChecksDAO() {
+        super(TmsConsistencyChecks.class);
     }
 
     @Override
-    public Transformations prepareToCreate(Transformations transformations) {
+    public TmsConsistencyChecks prepareToCreate(TmsConsistencyChecks tmsConsistencyChecks) {
         if (isLocal()) {
             //TODO: Ask if tid and traitid should have same value
-            transformations.setTransid(getNextMin());
+            tmsConsistencyChecks.setImplicationid(getNextMin());
         }
         if (isCentral()) {
             //TODO: Ask if tid and traitid should have same value            
-            transformations.setTransid(getNextMax());
+            tmsConsistencyChecks.setImplicationid(getNextMax());
         }
-        return transformations;
+        return tmsConsistencyChecks;
     }
 
     @Override
@@ -49,75 +49,75 @@ public class TransformationsDAO extends AbstractDAO<Transformations, Integer> {
     }
 
     @Override
-    protected void buildCriteria(DetachedCriteria criteria, Transformations filter) {
+    protected void buildCriteria(DetachedCriteria criteria, TmsConsistencyChecks filter) {
         // TODO Auto-generated method stub
     }
 
     @Override
-    public String getConsulta(Transformations filtro) {
+    public String getConsulta(TmsConsistencyChecks filtro) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     /**
-     * Checks if Transformations table already exists in database
+     * Checks if TmsConsistency-checks table already exists in database
      * @return <code>true</code> if exists, <code>false</code> if does not exist.
      */
     public boolean existsOldTable() {
         Boolean result = false;
-        log.info("Checking if Transformations table exists");
+        log.info("Checking if TmsConsistency-checks table exists");
         result = (Boolean) getHibernateTemplate().execute(new HibernateCallback() {
 
             @Override
             public Object doInHibernate(Session session) throws HibernateException, SQLException {
                 Boolean result = false;
-                SQLQuery query = session.createSQLQuery("select * from transformations where 1 = 2");
+                SQLQuery query = session.createSQLQuery("select * from TmsConsistency-checks where 1 = 2");
                 try {
                     query.list();
                     result = true;
-                    log.info("Transformations table found!");
+                    log.info("TmsConsistency-checks table found!");
                 } catch (Exception e) {
                     result = false;
                     //log.error("Transformations table not found", e);
-                    log.error("Transformations table not found");
+                    log.error("TmsConsistency-checks table not found");
                 }
                 return result;
             }
         });
-        log.info("Checking if Transformations table exists DONE....");
+        log.info("Checking if TmsConsistency-checks table exists DONE....");
         return result;
     }
     
     /**
-     * Checks if TmsTransformations table already exists in database
+     * Checks if TmsConsistency-checks table already exists in database
      * @return <code>true</code> if exists, <code>false</code> if does not exist.
      */
     public boolean existsTable() {
         Boolean result = false;
-        log.info("Checking if TmsTransformations table exists");
+        log.info("Checking if TmsConsistency-checks table exists");
         result = (Boolean) getHibernateTemplate().execute(new HibernateCallback() {
 
             @Override
             public Object doInHibernate(Session session) throws HibernateException, SQLException {
                 Boolean result = false;
-                SQLQuery query = session.createSQLQuery("select * from TmsTransformations where 1 = 2");
+                SQLQuery query = session.createSQLQuery("select * from TmsConsistency-checks where 1 = 2");
                 try {
                     query.list();
                     result = true;
-                    log.info("TmsTransformations table found!");
+                    log.info("TmsConsistency-checks table found!");
                 } catch (Exception e) {
                     result = false;
-                    //log.error("Transformations table not found", e);
-                    log.error("TmsTransformations table not found");
+                    //log.error("TmsConsistency-checks table not found", e);
+                    log.error("TmsConsistency-checks table not found");
                 }
                 return result;
             }
         });
-        log.info("Checking if TmsTransformations table exists DONE....");
+        log.info("Checking if TmsConsistency-checks table exists DONE....");
         return result;
     }
     
     public void createTable(){
-        log.info("Creating TmsTransformations table...");
+        log.info("Creating TmsConsistency-checks table...");
         final String sql = getQueryCreateTable();
         getHibernateTemplate().execute(new HibernateCallback() {
             @Override
@@ -127,17 +127,17 @@ public class TransformationsDAO extends AbstractDAO<Transformations, Integer> {
                     query = session.createSQLQuery(sql);
                     query.executeUpdate();
                 } catch (Exception e) {
-                    log.error("Can´t create TmsTransformations table", e);
+                    log.error("Can´t create TmsConsistency-checks table", e);
                 }
                 return null;
             }
         });
-        log.info("Creating Transformations table DONE....");
+        log.info("Creating TmsConsistency-checks table DONE....");
     }
     
     private String getQueryCreateTable(){
         StringBuilder s = new StringBuilder();
-        s.append("CREATE TABLE `TmsTransformations` (");
+        s.append("CREATE TABLE `TmsConsistency-checks` (");
         s.append("`transid` INT(10) NOT NULL DEFAULT '0',");
         s.append("`fromscaleid` INT(10) NULL DEFAULT NULL,");
         s.append("`toscaleid` INT(10) NULL DEFAULT NULL,");

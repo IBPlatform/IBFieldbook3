@@ -470,4 +470,11 @@
         <property name="accessType" value="central"/>
     </bean>
     
+    <bean id="TmsConsistencyChecksDAOCentral" class="org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO">
+        <property name="sessionFactory">
+            <ref bean="sessionFactoryCentralDMS" />
+        </property>
+        <property name="accessType" value="central"/>
+    </bean>
+    
 </beans>

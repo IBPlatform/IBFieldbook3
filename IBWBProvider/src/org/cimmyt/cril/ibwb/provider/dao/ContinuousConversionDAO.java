@@ -64,31 +64,31 @@ public class ContinuousConversionDAO extends AbstractDAO<ContinuousConversion, I
      */
     public boolean existsTable() {
         Boolean result = false;
-        log.info("Checking if ContinuousConversion table exists");
+        log.info("Checking if TmsContinuous-conversion table exists");
         result = (Boolean) getHibernateTemplate().execute(new HibernateCallback() {
 
             @Override
             public Object doInHibernate(Session session) throws HibernateException, SQLException {
                 Boolean result = false;
-                SQLQuery query = session.createSQLQuery("select * from `continuous-conversion` where 1 = 2");
+                SQLQuery query = session.createSQLQuery("select * from `TmsContinuous-conversion` where 1 = 2");
                 try {
                     query.list();
                     result = true;
-                    log.info("ContinuousConversion table found!");
+                    log.info("TmsContinuous-conversion table found!");
                 } catch (Exception e) {
                     result = false;
                     //log.error("ContinuousConversion table not found", e);
-                    log.error("ContinuousConversion table not found");
+                    log.error("TmsContinuous-conversion table not found");
                 }
                 return result;
             }
         });
-        log.info("Checking if ContinuousConversion table exists DONE....");
+        log.info("Checking if TmsContinuous-conversion table exists DONE....");
         return result;
     }
     
     public void createTable(){
-        log.info("Creating ContinuousConversion table...");
+        log.info("Creating TmsContinuous-conversion table...");
         final String sql = getQueryCreateTable();
         getHibernateTemplate().execute(new HibernateCallback() {
             @Override
@@ -98,19 +98,19 @@ public class ContinuousConversionDAO extends AbstractDAO<ContinuousConversion, I
                     query = session.createSQLQuery(sql);
                     query.executeUpdate();
                 } catch (Exception e) {
-                    log.error("Can´t create ContinuousConversion table", e);
+                    log.error("Can´t create TmsContinuous-conversion table", e);
                 }
                 return null;
             }
         });
-        log.info("Creating ContinuousConversion table DONE....");
+        log.info("Creating TmsContinuous-conversion table DONE....");
     }
     
     private String getQueryCreateTable(){
         StringBuilder s = new StringBuilder();
-        s.append("CREATE TABLE `continuous-conversion` (");
+        s.append("CREATE TABLE `TmsContinuous-conversion` (");
         s.append("`transid` INT(10) NOT NULL DEFAULT '0',");
-        s.append("`operator` DOUBLE NULL DEFAULT NULL,");
+        s.append("`operator` VARCHAR(1) NULL DEFAULT NULL,");
         s.append("`factor` DOUBLE NULL DEFAULT NULL,");
         s.append("PRIMARY KEY (`transid`)");
         s.append(")");

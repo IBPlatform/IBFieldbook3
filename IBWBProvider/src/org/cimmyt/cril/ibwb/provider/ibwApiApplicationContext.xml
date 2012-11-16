@@ -127,6 +127,7 @@
         <property name="discreteConversionDAO" ref="DiscreteConversionDAOLocal"/>
         <property name="continuousFunctionDAO" ref="ContinuousFunctionDAOLocal"/>
         <property name="continuousConversionDAO" ref="ContinuousConversionDAOLocal"/>
+        <property name="tmsConsistencyChecksDAO" ref="TmsConsistencyChecksDAOLocal"/>
     </bean>
 
     <bean name="serviciosCentral" class="org.cimmyt.cril.ibwb.provider.CommonServicesImpl">
@@ -193,6 +194,7 @@
         <property name="discreteConversionDAO" ref="DiscreteConversionDAOCentral"/>
         <property name="continuousFunctionDAO" ref="ContinuousFunctionDAOCentral"/>
         <property name="continuousConversionDAO" ref="ContinuousConversionDAOCentral"/>
+        <property name="tmsConsistencyChecksDAO" ref="TmsConsistencyChecksDAOCentral"/>
     </bean>
 
 

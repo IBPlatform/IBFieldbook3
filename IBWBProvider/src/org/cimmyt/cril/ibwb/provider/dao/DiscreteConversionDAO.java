@@ -64,31 +64,31 @@ public class DiscreteConversionDAO extends AbstractDAO<DiscreteConversion, Integ
      */
     public boolean existsTable() {
         Boolean result = false;
-        log.info("Checking if DiscreteConversion table exists");
+        log.info("Checking if TmsDiscrete-conversion table exists");
         result = (Boolean) getHibernateTemplate().execute(new HibernateCallback() {
 
             @Override
             public Object doInHibernate(Session session) throws HibernateException, SQLException {
                 Boolean result = false;
-                SQLQuery query = session.createSQLQuery("select * from `discrete-conversion` where 1 = 2");
+                SQLQuery query = session.createSQLQuery("select * from `TmsDiscrete-conversion` where 1 = 2");
                 try {
                     query.list();
                     result = true;
-                    log.info("DiscreteConversion table found!");
+                    log.info("TmsDiscrete-conversion table found!");
                 } catch (Exception e) {
                     result = false;
                     //log.error("DiscreteConversion table not found", e);
-                    log.error("DiscreteConversion table not found");
+                    log.error("TmsDiscrete-conversion table not found");
                 }
                 return result;
             }
         });
-        log.info("Checking if DiscreteConversion table exists DONE....");
+        log.info("Checking if TmsDiscrete-conversion table exists DONE....");
         return result;
     }
     
     public void createTable(){
-        log.info("Creating DiscreteConversion table...");
+        log.info("Creating TmsDiscrete-conversion table...");
         final String sql = getQueryCreateTable();
         getHibernateTemplate().execute(new HibernateCallback() {
             @Override
@@ -98,17 +98,17 @@ public class DiscreteConversionDAO extends AbstractDAO<DiscreteConversion, Integ
                     query = session.createSQLQuery(sql);
                     query.executeUpdate();
                 } catch (Exception e) {
-                    log.error("Can´t create DiscreteConversion table", e);
+                    log.error("Can´t create TmsDiscrete-conversion table", e);
                 }
                 return null;
             }
         });
-        log.info("Creating DiscreteConversion table DONE....");
+        log.info("Creating TmsDiscrete-conversion table DONE....");
     }
     
     private String getQueryCreateTable(){
         StringBuilder s = new StringBuilder();
-        s.append("CREATE TABLE `discrete-conversion` (");
+        s.append("CREATE TABLE `TmsDiscrete-conversion` (");
         s.append("`transid` INT(10) NOT NULL DEFAULT '0',");
         s.append("`value1` DOUBLE NULL DEFAULT NULL,");
         s.append("`value2` DOUBLE NULL DEFAULT NULL,");

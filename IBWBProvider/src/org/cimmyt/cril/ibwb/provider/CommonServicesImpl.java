@@ -69,6 +69,7 @@ import org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO;
 import org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO;
 import org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO;
 import org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO;
+import org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -140,6 +141,7 @@ public class CommonServicesImpl implements CommonServices {
     private ContinuousFunctionDAO continuousFunctionDAO;
     private DiscreteConversionDAO discreteConversionDAO;
     private TransformationsDAO transformationsDAO;
+    private TmsConsistencyChecksDAO tmsConsistencyChecksDAO;
 
     public static CommonServices getCommonServices() {
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
@@ -3308,6 +3310,58 @@ public class CommonServicesImpl implements CommonServices {
     public void createTableTransformations(){
         this.getTransformationsDAO().createTable();
     }
+    
+    //-----------------------------------TmsConsistencyChecks---------------------------
+    @Override
+    public void addTmsConsistencyChecks(TmsConsistencyChecks tmsConsistencyChecks) {
+        this.getTmsConsistencyChecksDAO().create(tmsConsistencyChecks);
+    }
+
+    @Override
+    public void updateTmsConsistencyChecks(TmsConsistencyChecks tmsConsistencyChecks) {
+        this.getTmsConsistencyChecksDAO().update(tmsConsistencyChecks);
+    }
+
+    @Override
+    public void deleteTmsConsistencyChecks(TmsConsistencyChecks tmsConsistencyChecks) {
+        this.getTmsConsistencyChecksDAO().delete(tmsConsistencyChecks);
+    }
+
+    @Override
+    public TmsConsistencyChecks getTmsConsistencyChecks(TmsConsistencyChecks tmsConsistencyChecks) {
+        return this.getTmsConsistencyChecksDAO().findById(tmsConsistencyChecks.getImplicationid());
+    }
+
+    @Override
+    public TmsConsistencyChecks getTmsConsistencyChecks(Integer transid) {
+        return this.getTmsConsistencyChecksDAO().findById(transid);
+    }
+
+    @Override
+    public List<TmsConsistencyChecks> getTmsConsistencyChecksList() {
+        return this.getTmsConsistencyChecksDAO().findAll();
+    }
+
+    @Override
+    public int getTotalTmsConsistencyChecks(TmsConsistencyChecks tmsConsistencyChecks) {
+        return this.getTmsConsistencyChecksDAO().getTotal(tmsConsistencyChecks);
+    }
+
+    @Override
+    public List<TmsConsistencyChecks> getListTmsConsistencyChecks(TmsConsistencyChecks filter, int start, int pageSize, boolean paged) {
+        return this.getTmsConsistencyChecksDAO().getList(filter, start, pageSize, paged);
+    }
+    
+    @Override
+    public boolean existsTableTmsConsistencyChecks(){
+        return this.getTmsConsistencyChecksDAO().existsTable();
+    }
+    
+    @Override
+    public void createTableTmsConsistencyChecks(){
+        this.getTmsConsistencyChecksDAO().createTable();
+    }
+    
 
     /**
      * @return the continuousConversionDAO
@@ -3391,5 +3445,19 @@ public class CommonServicesImpl implements CommonServices {
      */
     public void setAccessUrlGms(String accessUrlGms) {
         this.accessUrlGms = accessUrlGms;
+    }
+
+    /**
+     * @return the tmsConsistencyChecksDAO
+     */
+    public TmsConsistencyChecksDAO getTmsConsistencyChecksDAO() {
+        return tmsConsistencyChecksDAO;
+    }
+
+    /**
+     * @param tmsConsistencyChecksDAO the tmsConsistencyChecksDAO to set
+     */
+    public void setTmsConsistencyChecksDAO(TmsConsistencyChecksDAO tmsConsistencyChecksDAO) {
+        this.tmsConsistencyChecksDAO = tmsConsistencyChecksDAO;
     }
 }

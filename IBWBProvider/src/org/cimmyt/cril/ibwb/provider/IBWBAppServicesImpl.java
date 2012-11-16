@@ -2372,6 +2372,10 @@ public class IBWBAppServicesImpl implements AppServices {
             return moreTables;
         }
         moreTables = serviciosCentral.existsTableDiscreteConversion() && serviciosLocal.existsTableDiscreteConversion();
+        if (!moreTables) {
+            return moreTables;
+        }
+        moreTables = serviciosCentral.existsTableDiscreteConversion() && serviciosLocal.existsTableTmsConsistencyChecks();
         return moreTables;
     }
 
@@ -2422,6 +2426,10 @@ public class IBWBAppServicesImpl implements AppServices {
 
         if (!serviciosLocal.existsTableDiscreteConversion()) {
             serviciosLocal.createTableDiscreteConversion();
+        }
+        
+        if (!serviciosLocal.existsTableTmsConsistencyChecks()) {
+            serviciosLocal.createTableTmsConsistencyChecks();
         }
     }
 
