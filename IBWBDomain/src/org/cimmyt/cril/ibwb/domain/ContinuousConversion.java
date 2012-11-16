@@ -19,7 +19,7 @@ import org.cimmyt.cril.ibwb.domain.filter.BaseFilter;
  * @author MasterGama
  */
 @Entity
-@Table(name = "continuous-conversion")
+@Table(name = "TmsContinuous-conversion")
 public class ContinuousConversion extends BaseFilter implements Serializable {
     @Id
     @Basic(optional = false)

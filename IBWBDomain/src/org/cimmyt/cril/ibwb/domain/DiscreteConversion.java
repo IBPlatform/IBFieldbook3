@@ -19,7 +19,7 @@ import org.cimmyt.cril.ibwb.domain.filter.BaseFilter;
  * @author MasterGama
  */
 @Entity
-@Table(name = "discrete-conversion")
+@Table(name = "TmsDiscrete-conversion")
 public class DiscreteConversion extends BaseFilter implements Serializable {
     @Id
     @Basic(optional = false)

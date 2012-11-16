@@ -19,7 +19,7 @@ import org.cimmyt.cril.ibwb.domain.filter.BaseFilter;
  * @author MasterGama
  */
 @Entity
-@Table(name = "continuous-function")
+@Table(name = "TmsContinuous-function")
 public class ContinuousFunction extends BaseFilter implements Serializable {
     @Id
     @Basic(optional = false)

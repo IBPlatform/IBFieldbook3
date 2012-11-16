@@ -19,7 +19,7 @@ import org.cimmyt.cril.ibwb.domain.filter.BaseFilter;
  * @author MasterGama
  */
 @Entity
-@Table(name = "transformations")
+@Table(name = "TmsTransformations")
 public class Transformations extends BaseFilter implements Serializable {
     
     @Id
