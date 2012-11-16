@@ -3653,7 +3653,26 @@ public interface CommonServices {
     
     public void createTableTransformations();
     
+    //-----------------------------------TmsConsistencyChecks---------------------------
+    public void addTmsConsistencyChecks(TmsConsistencyChecks tmsConsistencyChecks);
+
+    public void updateTmsConsistencyChecks(TmsConsistencyChecks tmsConsistencyChecks);
+
+    public void deleteTmsConsistencyChecks(TmsConsistencyChecks tmsConsistencyChecks);
+
+    public TmsConsistencyChecks getTmsConsistencyChecks(TmsConsistencyChecks tmsConsistencyChecks);
+
+    public TmsConsistencyChecks getTmsConsistencyChecks(Integer transid);
+
+    public List<TmsConsistencyChecks> getTmsConsistencyChecksList();
+
+    public int getTotalTmsConsistencyChecks(TmsConsistencyChecks tmsConsistencyChecks);
+
+    public List<TmsConsistencyChecks> getListTmsConsistencyChecks(TmsConsistencyChecks filter, int start, int pageSize, boolean paged);
     
+    public boolean existsTableTmsConsistencyChecks();
+    
+    public void createTableTmsConsistencyChecks();
     
     
 
