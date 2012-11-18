@@ -26,7 +26,7 @@ public class ContinuousConversion extends BaseFilter implements Serializable {
     @Column(name = "transid")
     private Integer transid;
     @Column(name = "operator")
-    private Double operator;
+    private String operator;
     @Column(name = "factor")
     private Double factor;
     
@@ -41,7 +41,7 @@ public class ContinuousConversion extends BaseFilter implements Serializable {
     }
     
     public void setDefault(){
-        setOperator(Double.valueOf("0"));
+        setOperator(String.valueOf("0"));
         setFactor(Double.valueOf("0"));
     }
 
@@ -62,14 +62,14 @@ public class ContinuousConversion extends BaseFilter implements Serializable {
     /**
      * @return the operator
      */
-    public Double getOperator() {
+    public String getOperator() {
         return operator;
     }
 
     /**
      * @param operator the operator to set
      */
-    public void setOperator(Double operator) {
+    public void setOperator(String operator) {
         this.operator = operator;
     }
 

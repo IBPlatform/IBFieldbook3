@@ -183,6 +183,6 @@ public class TmsConsistencyChecks extends BaseFilter implements Serializable {
  
     @Override
     public String toString() {
-        return "org.cimmyt.cril.ibworkbench.services.beans.Transformations[implicationid=" + implicationid + "]";
+        return "org.cimmyt.cril.ibworkbench.services.beans.TmsConsistencyChecks[implicationid=" + implicationid + "]";
     }
 }

@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import org.cimmyt.cril.ibwb.domain.filter.BaseFilter;
 
 /**
@@ -31,7 +32,16 @@ public class Transformations extends BaseFilter implements Serializable {
     @Column(name = "toscaleid")
     private Integer toscaleid;
     @Column(name = "transtype")
-    private Integer transtype;
+    private String transtype;
+    
+    @Transient
+    private ContinuousConversion continuousConversion;
+    
+    @Transient
+    private ContinuousFunction continuousFunction;
+    
+    @Transient
+    private DiscreteConversion discreteConversion;
     
     public Transformations(){
     	setDefault();
@@ -46,7 +56,7 @@ public class Transformations extends BaseFilter implements Serializable {
     public void setDefault(){
         setFromscaleid((Integer) 0);
         setToscaleid((Integer) 0);
-        setTranstype((Integer) 0);
+        setTranstype(String.valueOf('0'));
     }
 
     /**
@@ -94,15 +104,57 @@ public class Transformations extends BaseFilter implements Serializable {
     /**
      * @return the transtype
      */
-    public Integer getTranstype() {
+    public String getTranstype() {
         return transtype;
     }
 
     /**
      * @param transtype the transtype to set
      */
-    public void setTranstype(Integer transtype) {
+    public void setTranstype(String transtype) {
         this.transtype = transtype;
+    }
+
+    /**
+     * @return the continuousConversion
+     */
+    public ContinuousConversion getContinuousConversion() {
+        return continuousConversion;
+    }
+
+    /**
+     * @param continuousConversion the continuousConversion to set
+     */
+    public void setContinuousConversion(ContinuousConversion continuousConversion) {
+        this.continuousConversion = continuousConversion;
+    }
+
+    /**
+     * @return the continuousFunction
+     */
+    public ContinuousFunction getContinuousFunction() {
+        return continuousFunction;
+    }
+
+    /**
+     * @param continuousFunction the continuousFunction to set
+     */
+    public void setContinuousFunction(ContinuousFunction continuousFunction) {
+        this.continuousFunction = continuousFunction;
+    }
+
+    /**
+     * @return the discreteConversion
+     */
+    public DiscreteConversion getDiscreteConversion() {
+        return discreteConversion;
+    }
+
+    /**
+     * @param discreteConversion the discreteConversion to set
+     */
+    public void setDiscreteConversion(DiscreteConversion discreteConversion) {
+        this.discreteConversion = discreteConversion;
     }
 
     @Override
