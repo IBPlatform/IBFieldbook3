@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+		http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util-2.5.xsd
+		http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-2.5.xsd
+		http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+		http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+        "
+>
+    
+    <bean name="serviciosLocal" class="org.cimmyt.cril.ibwb.provider.CommonServicesImpl">
+        <property name="accessType" value="local"/>
+        <property name="accessUrlDms" value="${dmslocal.url}"/>
+        <property name="accessUrlGms" value="${gmslocal.url}"/>
+        <property name="atributsDAO" ref="AtributsDAOLocal" />
+        <property name="bibrefsDAO" ref="BibrefsDAOLocal" />
+        <property name="changesDAO" ref="ChangesDAOLocal" />
+        <property name="cntryDAO" ref="CntryDAOLocal" />
+        <property name="dataCDAO" ref="DataCDAOLocal" />
+        <property name="dataNDAO" ref="DataNDAOLocal" />
+        <property name="dataTDAO" ref="DataTDAOLocal" />
+        <property name="datattrDAO" ref="DatattrDAOLocal" />
+        <property name="dmsattrDAO" ref="DmsattrDAOLocal" />
+        <property name="dMSReaderDAO" ref="DMSReaderDAOLocal" />
+        <property name="dudfldsDAO" ref="DudfldsDAOLocal" />
+        <property name="effectDAO" ref="EffectDAOLocal" />
+        <property name="factorDAO" ref="FactorDAOLocal" />
+        <property name="georefDAO" ref="GeorefDAOLocal" />
+        <property name="germplsmDAO" ref="GermplsmDAOLocal" />
+        <property name="institutDAO" ref="InstitutDAOLocal" />
+        <property name="instlnDAO" ref="InstlnDAOLocal" />
+        <property name="levelCDAO" ref="LevelCDAOLocal" />
+        <property name="levelNDAO" ref="LevelNDAOLocal" />
+        <property name="levelTDAO" ref="LevelTDAOLocal" />
+        <property name="levelsDAO" ref="LevelsDAOLocal" />
+        <property name="listdataDAO" ref="ListdataDAOLocal" />
+        <property name="listnmsDAO" ref="ListnmsDAOLocal" />
+        <property name="locationDAO" ref="LocationDAOLocal" />
+        <property name="locdesDAO" ref="LocdesDAOLocal" />
+        <property name="measuredinDAO" ref="MeasuredinDAOLocal" />
+        <property name="methodsDAO" ref="MethodsDAOLocal" />
+        <property name="namesDAO" ref="NamesDAOLocal" />
+        <property name="obsunitDAO" ref="ObsunitDAOLocal" />
+        <property name="oindexDAO" ref="OindexDAOLocal" />
+        <property name="personsDAO" ref="PersonsDAOLocal" />
+        <property name="progntrsDAO" ref="ProgntrsDAOLocal" />
+        <property name="represtnDAO" ref="ReprestnDAOLocal" />
+        <property name="scaleDAO" ref="ScaleDAOLocal" />
+        <property name="scalesDAO" ref="ScalesDAOLocal" />
+        <property name="scaleconDAO" ref="ScaleconDAOLocal" />
+        <property name="scaledisDAO" ref="ScaledisDAOLocal" />
+        <property name="scaletabDAO" ref="ScaletabDAOLocal" />
+        <property name="sndivsDAO" ref="SndivsDAOLocal" />
+        <property name="steffectDAO" ref="SteffectDAOLocal" />
+        <property name="studyDAO" ref="StudyDAOLocal" />
+        <property name="tmethodDAO" ref="TmethodDAOLocal" />
+        <property name="tmsMethodDAO" ref="TmsMethodDAOLocal" />
+        <property name="tmsScaleConDAO" ref="TmsScaleConDAOLocal" />
+        <property name="tmsScaleDisDAO" ref="TmsScaleDisDAOLocal" />
+        <property name="traitDAO" ref="TraitDAOLocal" />
+        <property name="traitsDAO" ref="TraitsDAOLocal" />
+        <property name="udfldsDAO" ref="UdfldsDAOLocal" />
+        <property name="usersDAO" ref="UsersDAOLocal" />
+        <property name="variateDAO" ref="VariateDAOLocal" />
+        <property name="veffectDAO" ref="VeffectDAOLocal" />   	
+        <property name="imsLabelOtherinfoDAO" ref="ImsLabelOtherInfoDAOLocal"/>
+        <property name="imsLabelinfoDAO" ref="ImsLabelInfoDAOLocal"/>
+        <property name="imsLotDAO" ref="ImsLotDAOLocal"/>
+        <property name="imsTransactionDAO" ref="ImsTransactionDAOLocal"/>
+        
+        <property name="transformationsDAO" ref="TransformationsDAOLocal"/>
+        <property name="discreteConversionDAO" ref="DiscreteConversionDAOLocal"/>
+        <property name="continuousFunctionDAO" ref="ContinuousFunctionDAOLocal"/>
+        <property name="continuousConversionDAO" ref="ContinuousConversionDAOLocal"/>
+        <property name="tmsConsistencyChecksDAO" ref="TmsConsistencyChecksDAOLocal"/>
+    </bean>
+
+    <bean name="serviciosCentral" class="org.cimmyt.cril.ibwb.provider.CommonServicesImpl">
+        <property name="accessType" value="central"/>
+        <property name="accessUrlDms" value="${dmscentral.url}"/>
+        <property name="accessUrlGms" value="${gmscentral.url}"/>
+        <property name="atributsDAO" ref="AtributsDAOCentral" />
+        <property name="bibrefsDAO" ref="BibrefsDAOCentral" />
+        <property name="changesDAO" ref="ChangesDAOCentral" />
+        <property name="cntryDAO" ref="CntryDAOCentral" />
+        <property name="dataCDAO" ref="DataCDAOCentral" />
+        <property name="dataNDAO" ref="DataNDAOCentral" />
+        <property name="dataTDAO" ref="DataTDAOCentral" />
+        <property name="datattrDAO" ref="DatattrDAOCentral" />
+        <property name="dmsattrDAO" ref="DmsattrDAOCentral" />
+        <property name="dMSReaderDAO" ref="DMSReaderDAOCentral" />
+        <property name="dudfldsDAO" ref="DudfldsDAOCentral" />
+        <property name="effectDAO" ref="EffectDAOCentral" />
+        <property name="factorDAO" ref="FactorDAOCentral" />
+        <property name="georefDAO" ref="GeorefDAOCentral" />
+        <property name="germplsmDAO" ref="GermplsmDAOCentral" />
+        <property name="institutDAO" ref="InstitutDAOCentral" />
+        <property name="instlnDAO" ref="InstlnDAOCentral" />
+        <property name="levelCDAO" ref="LevelCDAOCentral" />
+        <property name="levelNDAO" ref="LevelNDAOCentral" />
+        <property name="levelTDAO" ref="LevelTDAOCentral" />
+        <property name="levelsDAO" ref="LevelsDAOCentral" />
+        <property name="listdataDAO" ref="ListdataDAOCentral" />
+        <property name="listnmsDAO" ref="ListnmsDAOCentral" />
+        <property name="locationDAO" ref="LocationDAOCentral" />
+        <property name="locdesDAO" ref="LocdesDAOCentral" />
+        <property name="measuredinDAO" ref="MeasuredinDAOCentral" />
+        <property name="methodsDAO" ref="MethodsDAOCentral" />
+        <property name="namesDAO" ref="NamesDAOCentral" />
+        <property name="obsunitDAO" ref="ObsunitDAOCentral" />
+        <property name="oindexDAO" ref="OindexDAOCentral" />
+        <property name="personsDAO" ref="PersonsDAOCentral" />
+        <property name="progntrsDAO" ref="ProgntrsDAOCentral" />
+        <property name="represtnDAO" ref="ReprestnDAOCentral" />
+        <property name="scaleDAO" ref="ScaleDAOCentral" />
+        <property name="scalesDAO" ref="ScalesDAOCentral" />
+        <property name="scaleconDAO" ref="ScaleconDAOCentral" />
+        <property name="scaledisDAO" ref="ScaledisDAOCentral" />
+        <property name="scaletabDAO" ref="ScaletabDAOCentral" />
+        <property name="sndivsDAO" ref="SndivsDAOCentral" />
+        <property name="steffectDAO" ref="SteffectDAOCentral" />
+        <property name="studyDAO" ref="StudyDAOCentral" />
+        <property name="tmethodDAO" ref="TmethodDAOCentral" />
+        <property name="tmsMethodDAO" ref="TmsMethodDAOCentral" />
+        <property name="tmsScaleConDAO" ref="TmsScaleConDAOCentral" />
+        <property name="tmsScaleDisDAO" ref="TmsScaleDisDAOCentral" />
+        <property name="traitDAO" ref="TraitDAOCentral" />
+        <property name="traitsDAO" ref="TraitsDAOCentral" />
+        <property name="udfldsDAO" ref="UdfldsDAOCentral" />
+        <property name="usersDAO" ref="UsersDAOCentral" />
+        <property name="variateDAO" ref="VariateDAOCentral" />
+        <property name="veffectDAO" ref="VeffectDAOCentral" />
+        <property name="imsLabelOtherinfoDAO" ref="ImsLabelOtherInfoDAOCentral"/>
+        <property name="imsLabelinfoDAO" ref="ImsLabelInfoDAOCentral"/>
+        <property name="imsLotDAO" ref="ImsLotDAOCentral"/>
+        <property name="imsTransactionDAO" ref="ImsTransactionDAOCentral"/>
+        
+        <property name="transformationsDAO" ref="TransformationsDAOCentral"/>
+        <property name="discreteConversionDAO" ref="DiscreteConversionDAOCentral"/>
+        <property name="continuousFunctionDAO" ref="ContinuousFunctionDAOCentral"/>
+        <property name="continuousConversionDAO" ref="ContinuousConversionDAOCentral"/>
+        <property name="tmsConsistencyChecksDAO" ref="TmsConsistencyChecksDAOCentral"/>
+    </bean>
+
+
+    
+    <bean name="IBPMiddlewareClient" class="org.cimmyt.cril.ibwb.provider.datasources.IBPMiddlewareClient">
+        
+    </bean> 
+   
+    <bean name="ibwbAppServices" class="org.cimmyt.cril.ibwb.provider.IBWBAppServicesImpl">
+        <property name="serviciosLocal" ref="serviciosLocal"/>
+        <property name="serviciosCentral" ref="serviciosCentral"/>
+        
+        <property name="ibpMiddlewareClient" ref="IBPMiddlewareClient"/>
+        
+    </bean>
+
+    <context:annotation-config>
+        <context:include-filter
+            type="annotation"
+            expression="org.springframework.stereotype.Service"
+            />
+    </context:annotation-config>
+    <context:component-scan
+        base-package="org.cimmyt.cril.ibworkbench.api.services.provider"
+        />
+        
+  
+</beans>

@@ -66,6 +66,7 @@ public class TestMeasuredin extends TestService {
     public static void main(String[] args) {
         TestMeasuredin testMeasuredin = new TestMeasuredin();
 //        testMeasuredin.testMeasuredinLocalYRemoto();
+        testMeasuredin.testMeasuredinList();
         
     }
 }

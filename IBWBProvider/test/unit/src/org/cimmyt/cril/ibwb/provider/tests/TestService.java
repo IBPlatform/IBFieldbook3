@@ -13,7 +13,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  *
  */
 public class TestService {
-	protected String[] archivos = {"ibwApiApplicationContext.xml"};
+	protected String[] archivos = {"org/cimmyt/cril/ibwb/provider/ibwApiApplicationContext.xml"};
 	protected ApplicationContext context = new ClassPathXmlApplicationContext(archivos);
 	protected AppServices servicios;
 		

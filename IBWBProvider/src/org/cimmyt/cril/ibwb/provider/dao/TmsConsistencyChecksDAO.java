@@ -99,7 +99,7 @@ public class TmsConsistencyChecksDAO extends AbstractDAO<TmsConsistencyChecks, I
             @Override
             public Object doInHibernate(Session session) throws HibernateException, SQLException {
                 Boolean result = false;
-                SQLQuery query = session.createSQLQuery("select * from TmsConsistency-checks where 1 = 2");
+                SQLQuery query = session.createSQLQuery("select * from `TmsConsistency-checks` where 1 = 2");
                 try {
                     query.list();
                     result = true;
@@ -138,11 +138,14 @@ public class TmsConsistencyChecksDAO extends AbstractDAO<TmsConsistencyChecks, I
     private String getQueryCreateTable(){
         StringBuilder s = new StringBuilder();
         s.append("CREATE TABLE `TmsConsistency-checks` (");
-        s.append("`transid` INT(10) NOT NULL DEFAULT '0',");
-        s.append("`fromscaleid` INT(10) NULL DEFAULT NULL,");
-        s.append("`toscaleid` INT(10) NULL DEFAULT NULL,");
-        s.append("`transtype` VARCHAR(1) NULL DEFAULT NULL,");
-        s.append("PRIMARY KEY (`transid`)");
+        s.append("`implicationid` int(11) NOT NULL,");
+        s.append("`logicaloperator` varchar(1) NOT NULL,");
+        s.append("`traitid` int(11) NOT NULL,");
+        s.append("`scaleid` int(11) NOT NULL,");
+        s.append("`methodid` int(11) NOT NULL,");
+        s.append("`value` varchar(255) NOT NULL,");
+        s.append("`link` int(11) NOT NULL,");
+        s.append("PRIMARY KEY (`IMPLICATIONID`)");
         s.append(")");
         return s.toString();
     }
