@@ -1683,7 +1683,9 @@ public interface AppServices {
     
     public List<Transformations> getTransformationsList();
     
-    public Transformations getByTraididScaleidMethodid(Integer traitid, Integer scaleid, Integer methodid);
+    public Transformations getTransformationsByTraididScaleidMethodid(Integer traitid, Integer scaleid, Integer methodid);
+    
+    public Transformations getTransformationsByVariateid(Integer variateid);
     
     //-----------------------------------TmsConsistencyChecks---------------------------
     public void addTmsConsistencyChecks(TmsConsistencyChecks tmsConsistencyChecks);
@@ -1855,6 +1857,20 @@ public interface AppServices {
      * @return List of Variate
      */
     public List<Variate> getListVariateTraitsByEffectid(Integer studyId, Integer effectid);
+    
+    /**
+     * Return a Variate, by variateid
+     * @param variate
+     * @return Variate
+     */
+    public Variate getVariate(Variate variate);
+    
+    /**
+     * Return a Variate, by variateid
+     * @param variate
+     * @return Variate
+     */
+    public Variate getVariate(Integer idVariate);
 
 //-----------------------------------Veffect---------------------------
     /**
