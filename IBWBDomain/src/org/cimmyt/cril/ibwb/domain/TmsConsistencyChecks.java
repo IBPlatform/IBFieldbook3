@@ -19,7 +19,7 @@ import org.cimmyt.cril.ibwb.domain.filter.BaseFilter;
  * @author MasterGama
  */
 @Entity
-@Table(name = "TmsConsistencyChecks")
+@Table(name = "tmsconsistency_checks")
 public class TmsConsistencyChecks extends BaseFilter implements Serializable {
     
     @Id
