@@ -70,7 +70,7 @@ public class ContinuousFunctionDAO extends AbstractDAO<ContinuousFunction, Integ
             @Override
             public Object doInHibernate(Session session) throws HibernateException, SQLException {
                 Boolean result = false;
-                SQLQuery query = session.createSQLQuery("select * from `TmsContinuous-function` where 1 = 2");
+                SQLQuery query = session.createSQLQuery("select * from `TmsContinuous_function` where 1 = 2");
                 try {
                     query.list();
                     result = true;
@@ -108,7 +108,7 @@ public class ContinuousFunctionDAO extends AbstractDAO<ContinuousFunction, Integ
     
     private String getQueryCreateTable(){
         StringBuilder s = new StringBuilder();
-        s.append("CREATE TABLE `TmsContinuous-function` (");
+        s.append("CREATE TABLE `TmsContinuous_function` (");
         s.append("`transid` INT(10) NOT NULL DEFAULT '0',");
         s.append("`function` VARCHAR(255) NULL DEFAULT NULL,");
         s.append("`funabbr` VARCHAR(255) NULL DEFAULT NULL,");

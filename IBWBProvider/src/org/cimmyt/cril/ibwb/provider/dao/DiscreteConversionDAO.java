@@ -70,7 +70,7 @@ public class DiscreteConversionDAO extends AbstractDAO<DiscreteConversion, Integ
             @Override
             public Object doInHibernate(Session session) throws HibernateException, SQLException {
                 Boolean result = false;
-                SQLQuery query = session.createSQLQuery("select * from `TmsDiscrete-conversion` where 1 = 2");
+                SQLQuery query = session.createSQLQuery("select * from `TmsDiscrete_conversion` where 1 = 2");
                 try {
                     query.list();
                     result = true;
@@ -108,7 +108,7 @@ public class DiscreteConversionDAO extends AbstractDAO<DiscreteConversion, Integ
     
     private String getQueryCreateTable(){
         StringBuilder s = new StringBuilder();
-        s.append("CREATE TABLE `TmsDiscrete-conversion` (");
+        s.append("CREATE TABLE `TmsDiscrete_conversion` (");
         s.append("`transid` INT(10) NOT NULL DEFAULT '0',");
         s.append("`value1` DOUBLE NULL DEFAULT NULL,");
         s.append("`value2` DOUBLE NULL DEFAULT NULL,");

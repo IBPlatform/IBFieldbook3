@@ -3107,6 +3107,7 @@ public class CommonServicesImpl implements CommonServices {
     public List<Integer> scalesForInventoryList(final Integer listId) {
         return imsTransactionDAO.scalesForInventoryList(listId);
     }
+    
     //-----------------------------------ContinuousConversion---------------------------
     @Override
     public void addContinuousConversion(ContinuousConversion continuousConversion) {

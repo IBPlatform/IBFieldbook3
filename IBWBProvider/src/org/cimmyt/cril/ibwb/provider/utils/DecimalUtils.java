@@ -87,7 +87,7 @@ public class DecimalUtils {
 //        return isIntegerValue;
     }
     
-    private static boolean isDecimal(String cadena){
+    public static boolean isDecimal(String cadena){
 	try {
             new BigDecimal(cadena);
             return true;

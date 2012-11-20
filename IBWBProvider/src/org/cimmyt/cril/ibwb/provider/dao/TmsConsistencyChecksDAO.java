@@ -64,7 +64,7 @@ public class TmsConsistencyChecksDAO extends AbstractDAO<TmsConsistencyChecks, I
      */
     public boolean existsOldTable() {
         Boolean result = false;
-        log.info("Checking if TmsConsistency-checks table exists");
+        log.info("Checking if TmsConsistency_checks table exists");
         result = (Boolean) getHibernateTemplate().execute(new HibernateCallback() {
 
             @Override
@@ -99,7 +99,7 @@ public class TmsConsistencyChecksDAO extends AbstractDAO<TmsConsistencyChecks, I
             @Override
             public Object doInHibernate(Session session) throws HibernateException, SQLException {
                 Boolean result = false;
-                SQLQuery query = session.createSQLQuery("select * from `TmsConsistency-checks` where 1 = 2");
+                SQLQuery query = session.createSQLQuery("select * from `TmsConsistency_checks` where 1 = 2");
                 try {
                     query.list();
                     result = true;
@@ -117,7 +117,7 @@ public class TmsConsistencyChecksDAO extends AbstractDAO<TmsConsistencyChecks, I
     }
     
     public void createTable(){
-        log.info("Creating TmsConsistency-checks table...");
+        log.info("Creating TmsConsistency_checks table...");
         final String sql = getQueryCreateTable();
         getHibernateTemplate().execute(new HibernateCallback() {
             @Override
@@ -137,7 +137,7 @@ public class TmsConsistencyChecksDAO extends AbstractDAO<TmsConsistencyChecks, I
     
     private String getQueryCreateTable(){
         StringBuilder s = new StringBuilder();
-        s.append("CREATE TABLE `TmsConsistency-checks` (");
+        s.append("CREATE TABLE `TmsConsistency_checks` (");
         s.append("`implicationid` int(11) NOT NULL,");
         s.append("`logicaloperator` varchar(1) NOT NULL,");
         s.append("`traitid` int(11) NOT NULL,");

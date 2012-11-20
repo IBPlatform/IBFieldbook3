@@ -1365,4 +1365,159 @@ public class IBWBAppServicesMemoryImpl implements AppServices {
     public TypeDB getTypeDB() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    @Override
+    public void addTransformations(Transformations transformations) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void updateTransformations(Transformations transformations) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void deleteTransformations(Transformations transformations) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Transformations getTransformations(Transformations transformations) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Transformations getTransformations(Integer transid) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<Transformations> getTransformationsList() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void addTmsConsistencyChecks(TmsConsistencyChecks tmsConsistencyChecks) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void updateTmsConsistencyChecks(TmsConsistencyChecks tmsConsistencyChecks) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void deleteTmsConsistencyChecks(TmsConsistencyChecks tmsConsistencyChecks) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public TmsConsistencyChecks getTmsConsistencyChecks(TmsConsistencyChecks tmsConsistencyChecks) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public TmsConsistencyChecks getTmsConsistencyChecks(Integer transid) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<TmsConsistencyChecks> getTmsConsistencyChecksList() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void addContinuousConversion(ContinuousConversion continuousConversion) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void updateContinuousConversion(ContinuousConversion continuousConversion) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void deleteContinuousConversion(ContinuousConversion continuousConversion) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public ContinuousConversion getContinuousConversion(ContinuousConversion continuousConversion) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public ContinuousConversion getContinuousConversion(Integer transid) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<ContinuousConversion> getContinuousConversionList() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void addContinuousFunction(ContinuousFunction continuousFunction) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void updateContinuousFunction(ContinuousFunction continuousFunction) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void deleteContinuousFunction(ContinuousFunction continuousFunction) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public ContinuousFunction getContinuousFunction(ContinuousFunction continuousFunction) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public ContinuousFunction getContinuousFunction(Integer transid) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<ContinuousFunction> getContinuousFunctionList() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void addDiscreteConversion(DiscreteConversion discreteConversion) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void updateDiscreteConversion(DiscreteConversion discreteConversion) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void deleteDiscreteConversion(DiscreteConversion discreteConversion) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public DiscreteConversion getDiscreteConversion(DiscreteConversion discreteConversion) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public DiscreteConversion getDiscreteConversion(Integer transid) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<DiscreteConversion> getDiscreteConversionList() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Transformations getByTraididScaleidMethodid(Integer traitid, Integer scaleid, Integer methodid) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }

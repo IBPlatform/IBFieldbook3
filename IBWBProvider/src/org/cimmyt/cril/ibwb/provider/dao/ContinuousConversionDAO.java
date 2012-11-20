@@ -70,7 +70,7 @@ public class ContinuousConversionDAO extends AbstractDAO<ContinuousConversion, I
             @Override
             public Object doInHibernate(Session session) throws HibernateException, SQLException {
                 Boolean result = false;
-                SQLQuery query = session.createSQLQuery("select * from `TmsContinuous-conversion` where 1 = 2");
+                SQLQuery query = session.createSQLQuery("select * from `TmsContinuous_conversion` where 1 = 2");
                 try {
                     query.list();
                     result = true;
@@ -108,7 +108,7 @@ public class ContinuousConversionDAO extends AbstractDAO<ContinuousConversion, I
     
     private String getQueryCreateTable(){
         StringBuilder s = new StringBuilder();
-        s.append("CREATE TABLE `TmsContinuous-conversion` (");
+        s.append("CREATE TABLE `TmsContinuous_conversion` (");
         s.append("`transid` INT(10) NOT NULL DEFAULT '0',");
         s.append("`operator` VARCHAR(1) NULL DEFAULT NULL,");
         s.append("`factor` DOUBLE NULL DEFAULT NULL,");

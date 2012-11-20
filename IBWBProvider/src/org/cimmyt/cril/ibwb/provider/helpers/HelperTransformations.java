@@ -12,6 +12,7 @@ import org.cimmyt.cril.ibwb.domain.Measuredin;
 import org.cimmyt.cril.ibwb.domain.Transformations;
 import org.apache.log4j.Logger;
 import org.cimmyt.cril.ibwb.domain.*;
+import org.cimmyt.cril.ibwb.provider.utils.DecimalUtils;
 
 /**
  *
@@ -38,28 +39,40 @@ public class HelperTransformations {
     public Transformations getByTraididScaleidMethodid(Integer traitid, Integer scaleid, Integer methodid) {
         Measuredin measuredin = appServices.getMeasuredinByTraitidScaleidTmethid(traitid, scaleid, methodid);
         if(measuredin != null){
-            Integer transformationId = (Integer.valueOf(measuredin.getFormula()));
-            Transformations transformations = servicioCentral.getTransformations(transformationId);
-            if(transformations.getTranstype() != null){
-                if(transformations.getTranstype().length() != 0){
-                    switch (transformations.getTranstype().charAt(0)){
-                        case 'C':
-                            ContinuousConversion continuousConversion = servicioCentral.getContinuousConversion(transformationId);
-                            transformations.setContinuousConversion(continuousConversion);
-                            return transformations;
-                        case 'D':
-                            break;
-                        case 'F':
-                            break;
-                        default:
-                            log.error("No se reconoce el tipo de transformacion.");
-                            break;
+            if(measuredin.getFormula() != null){
+                if( DecimalUtils.isDecimal(measuredin.getFormula())){
+                    Integer transformationId = (Integer.valueOf(measuredin.getFormula()));
+                    Transformations transformations = appServices.getTransformations(transformationId);
+                    if(transformations.getTranstype() != null){
+                        if(transformations.getTranstype().length() != 0){
+                            switch (transformations.getTranstype().charAt(0)){
+                                case 'C':
+                                    ContinuousConversion continuousConversion = appServices.getContinuousConversion(transformationId);
+                                    transformations.setContinuousConversion(continuousConversion);
+                                    return transformations;
+                                case 'D':
+                                    DiscreteConversion discreteConversion = appServices.getDiscreteConversion(transformationId);
+                                    transformations.setDiscreteConversion(discreteConversion);
+                                    return transformations;
+                                case 'F':
+                                    ContinuousFunction continuousFunction = appServices.getContinuousFunction(transformationId);
+                                    transformations.setContinuousFunction(continuousFunction);
+                                    return transformations;
+                                default:
+                                    log.error("No se reconoce el tipo de transformacion.");
+                                    break;
+                            }
+                        }else{
+                            log.error("El tipo de transformacion esta vacio.");
+                        }
+                    }else{
+                        log.error("El tipo de transformacion es null.");
                     }
                 }else{
-                    log.error("El tipo de transformacion esta vacio.");
+                    log.error("La formula encontrada dentro del TmsMeasuredin es incompatible.");
                 }
             }else{
-                log.error("El tipo de transformacion es null.");
+                log.error("No se encontro ninguna formula.");
             }
         }else{
             log.error("No se encontro ningun measuredin.");
