@@ -1,129 +1,226 @@
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: LEROWS_m (m)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SPAROW_cm (cm)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: NOROWH_integer (integer)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: LEROWH_m (m)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: WEACOM_TEXT (TEXT)
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: NPREIR_integer  VariateId: -31
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: NPOSIR_integer  VariateId: -32
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: IRRCYC_mm  VariateId: -33
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PPN11M_mm  VariateId: -34
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PPN10M_mm  VariateId: -35
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PPN09M_mm  VariateId: -36
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PPN08M_mm  VariateId: -37
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PPN07M_mm  VariateId: -38
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PPN06M_mm  VariateId: -39
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PPN05M_mm  VariateId: -40
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PPN04M_mm  VariateId: -41
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PPN03M_mm  VariateId: -42
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PPN02M_mm  VariateId: -43
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PPN01M_mm  VariateId: -44
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PPN00M_mm  VariateId: -45
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: SOILCL_TEXT  VariateId: -46
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: SOILTX_TEXT  VariateId: -47
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: SOILPH_real T  VariateId: -48
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: SOILOM_%  VariateId: -49
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: ALTOXI_Y/N  VariateId: -50
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: ALCLAS_TEXT  VariateId: -51
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: SOIRBA_Y/N/U  VariateId: -52
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: SOIDBA_cm  VariateId: -53
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: SOIDRZ_cm  VariateId: -54
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: NOROWS_integer  VariateId: -55
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: LEROWS_m  VariateId: -56
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: SPAROW_cm  VariateId: -57
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: NOROWH_integer  VariateId: -58
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: LEROWH_m  VariateId: -59
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: WEACOM_TEXT  VariateId: -60
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: FERKG1_kg/ha  VariateId: -61
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: FERTI1_date  VariateId: -62
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: FER%N1_%  VariateId: -63
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: %P2O51_%  VariateId: -64
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: F%K2O1_%  VariateId: -65
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: OTHEL1_TEXT  VariateId: -66
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: FERTI2_date  VariateId: -67
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: FERKG2_kg/ha  VariateId: -68
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: FER%N2_%  VariateId: -69
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: F%K2O2_%  VariateId: -70
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: %P2O52_%  VariateId: -71
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: OTHEL2_TEXT  VariateId: -72
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: FERTI3_date  VariateId: -73
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: FERKG3_kg/ha  VariateId: -74
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: FER%N3_%  VariateId: -75
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: HERBIC_Y/N  VariateId: -76
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: HERPRO_TEXT  VariateId: -77
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: FUNGIC_Y/N  VariateId: -78
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: FUNPRO_TEXT  VariateId: -79
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PESTIC_Y/N  VariateId: -80
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PESPRO_TEXT  VariateId: -81
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: OTCHEM_Y/N  VariateId: -82
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: OCHPRO_TEXT  VariateId: -83
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: DMGFRS_N/T/S/M/V  VariateId: -84
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: RESH2O_mm  VariateId: -85
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PREIRR_mm  VariateId: -86
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PPNCYC_mm  VariateId: -87
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: OMNTXD_TEXT  VariateId: -88
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: FERTAP_Y/N  VariateId: -89
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: SPKDIS_N/T/S/M/V  VariateId: -90
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: ELODGE_N/T/S/M/V  VariateId: -91
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: BEDSAR_m2  VariateId: -92
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: BEDHAR_m2  VariateId: -93
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: MAJWED_TEXT  VariateId: -94
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: SOISUR_TEXT  VariateId: -95
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: SOILAV_real  VariateId: -96
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: OMNTYN_Y/N  VariateId: -97
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: SPEOFR_TEXT  VariateId: -98
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: USESCR_TEXT  VariateId: -99
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: COOPNT_TEXT  VariateId: -100
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: TP_12M_mm  VariateId: -101
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: EP_12M_mm  VariateId: -102
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: CTWIRR_mm  VariateId: -103
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: GPSLTD_integer  VariateId: -104
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: GPSLTM_integer  VariateId: -105
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: GPSLAT_TEXT  VariateId: -106
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: GPSLND_integer  VariateId: -107
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: GPSLNM_integer  VariateId: -108
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: GPSLON_TEXT  VariateId: -109
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: GPSALT_integer  VariateId: -110
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: COOPEM_TEXT  VariateId: -111
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Study Conditions Data....
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Study Conditions DONE!!!!
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Trial Conditions Data....
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Trial Conditions DONE!!!!....
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Trial Germplasm Data....
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Trial Germplasm DONE!!!
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Observations Data....
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - filling FactorLabelData... 
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperWorkbookReader - Getting trial randomization fast
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperWorkbookReader - Definiendo orden de busquedas
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperWorkbookReader - Getting trial randomization fast.... DONE
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperWorkbookReader - Getting variates fast....
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperWorkbookReader - Getting variates fast.... DONE
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - filling FactorLabelData DONE... 
+INFO SwingWorker-pool-1-thread-4 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Observations Data DONE!!!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Traits table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Traits table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if Transformations table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Transformations table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if Transformations table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if Transformations table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Transformations table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if Transformations table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if ContinuousConversion table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - ContinuousConversion table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if ContinuousConversion table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if ContinuousConversion table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - ContinuousConversion table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if ContinuousConversion table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if ContinuousFunction table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - ContinuousFunction table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if ContinuousFunction table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if ContinuousFunction table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - ContinuousFunction table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if ContinuousFunction table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if DiscreteConversion table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - DiscreteConversion table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if DiscreteConversion table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if DiscreteConversion table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - DiscreteConversion table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if DiscreteConversion table exists DONE....
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Read study full: -2
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Read list all factors.
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -1 factorid: -1
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -2 factorid: -1
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -2 factorid: -5
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -3 factorid: -1
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -3 factorid: -5
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -3 factorid: -11
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -3 factorid: -15
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: STUDY   FactorId: -1
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 2132 scaleid: -1 tmethid: -1
+ERROR SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.IBWBAppServicesImpl - Catnt read tid: 2132
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Read study full: -7
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Read list all factors.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -13 factorid: -111
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -14 factorid: -111
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -14 factorid: -115
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -15 factorid: -111
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -15 factorid: -115
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -15 factorid: -121
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -15 factorid: -125
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: STUDY   FactorId: -111
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 2132 scaleid: -1 tmethid: -1
+ERROR SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.IBWBAppServicesImpl - Catnt read tid: 2132
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Validating Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Opening file...
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Number of sheets in book2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total study conditions found: 3
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total conditions found: 6
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total factors found: 9
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SOWDAT_date (date)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: EMERGE_E/N/L (E/N/L)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: OTHOBS_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: IRRIGD_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SOILCL_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SOILTX_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SOILPH_real T (real T)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: ALTOXI_Y/N (Y/N)
 INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FERKG1_kg/ha (kg/ha)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FERTI1_date (date)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FER%N1_% (%)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: %P2O51_% (%)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: F%K2O1_% (%)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: OTHEL1_TEXT (TEXT)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FERTI2_date (date)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FERKG2_kg/ha (kg/ha)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FER%N2_% (%)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: F%K2O2_% (%)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: %P2O52_% (%)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: OTHEL2_TEXT (TEXT)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FERTI3_date (date)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FERKG3_kg/ha (kg/ha)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FER%N3_% (%)
 INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: HERBIC_Y/N (Y/N)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: HERPRO_TEXT (TEXT)
 INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FUNGIC_Y/N (Y/N)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FUNPRO_TEXT (TEXT)
 INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: PESTIC_Y/N (Y/N)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: PESPRO_TEXT (TEXT)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: OTCHEM_Y/N (Y/N)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: OCHPRO_TEXT (TEXT)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: DMGFRS_N/T/S/M/V (N/T/S/M/V)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: RESH2O_mm (mm)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: PREIRR_mm (mm)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: PPNCYC_mm (mm)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: OMNTXD_TEXT (TEXT)
 INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FERTAP_Y/N (Y/N)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SPKDIS_N/T/S/M/V (N/T/S/M/V)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: ELODGE_N/T/S/M/V (N/T/S/M/V)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: BEDSAR_m2 (m2)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: BEDHAR_m2 (m2)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: MAJWED_TEXT (TEXT)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SOISUR_TEXT (TEXT)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SOILAV_real (real)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: OMNTYN_Y/N (Y/N)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SPEOFR_TEXT (TEXT)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: USESCR_TEXT (TEXT)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: COOPNT_TEXT (TEXT)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: TP_12M_mm (mm)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: EP_12M_mm (mm)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: CTWIRR_mm (mm)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: GPSLTD_integer (integer)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: GPSLTM_integer (integer)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: GPSLAT_TEXT (TEXT)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: GPSLND_integer (integer)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: GPSLNM_integer (integer)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: GPSLON_TEXT (TEXT)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: GPSALT_integer (integer)
-INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: COOPEM_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read END
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Opening file...
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Number of sheets in book2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total study conditions found: 3
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total conditions found: 6
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total factors found: 9
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SOWDAT_date (date)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: EMERGE_E/N/L (E/N/L)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: OTHOBS_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: IRRIGD_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SOILCL_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SOILTX_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SOILPH_real T (real T)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: ALTOXI_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FERKG1_kg/ha (kg/ha)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: HERBIC_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FUNGIC_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: PESTIC_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FERTAP_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read END
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Opening file...
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Number of sheets in book2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total study conditions found: 3
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total conditions found: 6
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total factors found: 9
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SOWDAT_date (date)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: EMERGE_E/N/L (E/N/L)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: OTHOBS_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: IRRIGD_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SOILCL_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SOILTX_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SOILPH_real T (real T)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: ALTOXI_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FERKG1_kg/ha (kg/ha)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: HERBIC_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FUNGIC_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: PESTIC_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FERTAP_Y/N (Y/N)
 INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read END
 INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - Requested for rowIndex 0
 INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - designList.size() 1
-INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - bean ibfb.domain.core.DesignBean@194d7605
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - bean ibfb.domain.core.DesignBean@3b1136d3
 INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - Requested for rowIndex 0
 INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - designList.size() 1
-INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - bean ibfb.domain.core.DesignBean@194d7605
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - bean ibfb.domain.core.DesignBean@3b1136d3
 INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - Requested for rowIndex 0
 INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - designList.size() 1
-INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - bean ibfb.domain.core.DesignBean@194d7605
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - bean ibfb.domain.core.DesignBean@3b1136d3
 INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - Requested for rowIndex 0
 INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - designList.size() 1
-INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - bean ibfb.domain.core.DesignBean@194d7605
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Traits table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Traits table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if Transformations table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Transformations table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if Transformations table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if Transformations table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Transformations table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if Transformations table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if ContinuousConversion table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - ContinuousConversion table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if ContinuousConversion table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if ContinuousConversion table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - ContinuousConversion table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if ContinuousConversion table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if ContinuousFunction table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - ContinuousFunction table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if ContinuousFunction table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if ContinuousFunction table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - ContinuousFunction table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if ContinuousFunction table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if DiscreteConversion table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - DiscreteConversion table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if DiscreteConversion table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if DiscreteConversion table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - DiscreteConversion table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if DiscreteConversion table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Traits table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Traits table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if Transformations table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Transformations table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if Transformations table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if Transformations table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Transformations table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if Transformations table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if ContinuousConversion table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - ContinuousConversion table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if ContinuousConversion table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if ContinuousConversion table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - ContinuousConversion table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if ContinuousConversion table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if ContinuousFunction table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - ContinuousFunction table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if ContinuousFunction table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if ContinuousFunction table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - ContinuousFunction table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if ContinuousFunction table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if DiscreteConversion table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - DiscreteConversion table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if DiscreteConversion table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if DiscreteConversion table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - DiscreteConversion table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if DiscreteConversion table exists DONE....
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - bean ibfb.domain.core.DesignBean@3b1136d3
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - Requested for rowIndex 0
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - designList.size() 1
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - bean ibfb.domain.core.DesignBean@3b1136d3
