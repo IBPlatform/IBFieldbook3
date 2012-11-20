@@ -2029,9 +2029,16 @@ public class IBWBAppServicesImpl implements AppServices {
     }
     
     @Override
-    public Transformations getByTraididScaleidMethodid(Integer traitid, Integer scaleid, Integer methodid){
-        HelperTransformations helperTransformations = new HelperTransformations(this, null, null);
+    public Transformations getTransformationsByTraididScaleidMethodid(Integer traitid, Integer scaleid, Integer methodid){
+        HelperTransformations helperTransformations = new HelperTransformations(this, serviciosCentral, serviciosLocal);
         Transformations transformations = helperTransformations.getByTraididScaleidMethodid(traitid, scaleid, methodid);
+        return transformations;
+    }
+    
+    @Override
+    public Transformations getTransformationsByVariateid(Integer variateid){
+        HelperTransformations helperTransformations = new HelperTransformations(this, serviciosCentral, serviciosLocal);
+        Transformations transformations = helperTransformations.getByVariateid(variateid);
         return transformations;
     }
     
@@ -2299,7 +2306,24 @@ public class IBWBAppServicesImpl implements AppServices {
         return userId;
     }
 //-----------------------------------Variate---------------------------
-
+    @Override
+    public Variate getVariate(Variate variate) {
+        if(variate.getVariatid() > 0){
+            return serviciosCentral.getVariate(variate.getVariatid());
+        }else{
+            return serviciosLocal.getVariate(variate.getVariatid());
+        }
+    }
+    
+    @Override
+    public Variate getVariate(Integer idVariate) {
+        if(idVariate > 0){
+            return serviciosCentral.getVariate(idVariate);
+        }else{
+            return serviciosLocal.getVariate(idVariate);
+        }
+    }
+    
     @Override
     public List<Variate> getVariateList() {
         List<Variate> variates = serviciosCentral.getVariateList();

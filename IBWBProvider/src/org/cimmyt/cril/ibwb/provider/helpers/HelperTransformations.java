@@ -79,6 +79,11 @@ public class HelperTransformations {
         }
         return null;
     }
+    
+    public Transformations getByVariateid(Integer variateid) {
+        Variate variate = appServices.getVariate(variateid);
+        return getByTraididScaleidMethodid(variate.getTid(), variate.getScaleid(), variate.getTmethid());
+    }
 
     /**
      * @return the appServices

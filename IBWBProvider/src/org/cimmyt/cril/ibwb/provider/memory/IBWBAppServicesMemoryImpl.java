@@ -1517,7 +1517,22 @@ public class IBWBAppServicesMemoryImpl implements AppServices {
     }
 
     @Override
-    public Transformations getByTraididScaleidMethodid(Integer traitid, Integer scaleid, Integer methodid) {
+    public Transformations getTransformationsByTraididScaleidMethodid(Integer traitid, Integer scaleid, Integer methodid) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Transformations getTransformationsByVariateid(Integer variateid) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Variate getVariate(Variate variate) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Variate getVariate(Integer idVariate) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 }
