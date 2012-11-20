@@ -47,7 +47,10 @@ import org.cimmyt.cril.ibwb.commongui.OSUtils;
 import org.cimmyt.cril.ibwb.commongui.select.list.DoubleListPanel;
 import org.cimmyt.cril.ibwb.commongui.select.list.DropTargetCommand;
 import org.cimmyt.cril.ibwb.commongui.select.list.SelectCommand;
+import org.cimmyt.cril.ibwb.domain.ContinuousConversion;
+import org.cimmyt.cril.ibwb.domain.TmsConsistencyChecks;
 import org.cimmyt.cril.ibwb.domain.Traits;
+import org.cimmyt.cril.ibwb.domain.Transformations;
 import org.netbeans.api.progress.ProgressHandle;
 import org.netbeans.api.progress.ProgressHandleFactory;
 import org.netbeans.api.settings.ConvertAsProperties;
@@ -136,7 +139,6 @@ public final class StudyEditorTopComponent extends TopComponent {
     private String stringTraitToEvaluate = "GY";
     private boolean forMaster = false;
     private SelectCommand unselectedCommand = new SelectCommand() {
-
         @Override
         public void execute() {
             Variate variate = doubleListPanel.getSelectedSourceItem();
@@ -144,7 +146,6 @@ public final class StudyEditorTopComponent extends TopComponent {
         }
     };
     private SelectCommand selectedCommand = new SelectCommand() {
-
         @Override
         public void execute() {
             Variate variate = doubleListPanel.getSelectedTargetItem();
@@ -242,7 +243,6 @@ public final class StudyEditorTopComponent extends TopComponent {
         jSpinnerTrialStudy.setVisible(false);
         pnlExpConditionTrial.setVisible(false);
 
-        jTabbedPaneEditor.setEnabledAt(8, false);
     }
 
     public ArrayList<String> getChildren() {
@@ -343,6 +343,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         jMenuItemSelect = new javax.swing.JMenuItem();
         jMenuItemSelectAll = new javax.swing.JMenuItem();
         jToolBar1 = new javax.swing.JToolBar();
+        buttonGroupMaster = new javax.swing.ButtonGroup();
         jTabbedPaneEditor = new javax.swing.JTabbedPane();
         pnlGeneralInformation = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -701,7 +702,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                 .addGap(33, 33, 33)
                 .addComponent(lblStudyConditions)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 921, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1026, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -810,7 +811,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                 .addContainerGap()
                 .addComponent(pnlTrialInformationFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1058, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1163, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -909,7 +910,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                 .addContainerGap()
                 .addComponent(pnlExperimentalConditionFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 1058, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 1163, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1016,7 +1017,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                 .addContainerGap()
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 1045, Short.MAX_VALUE)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 1150, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1044,7 +1045,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         pnlOtherTreatmentLayout.setVerticalGroup(
             pnlOtherTreatmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlOtherTreatmentLayout.createSequentialGroup()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 539, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 644, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 599, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -1203,7 +1204,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                 .addContainerGap()
                 .addComponent(pnlExperimConditionsFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 1015, Short.MAX_VALUE)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 1120, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1303,7 +1304,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                     .addGroup(jPanelTraitsLayout.createSequentialGroup()
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(pnlSelectList, javax.swing.GroupLayout.DEFAULT_SIZE, 995, Short.MAX_VALUE))
+                        .addComponent(pnlSelectList, javax.swing.GroupLayout.DEFAULT_SIZE, 1100, Short.MAX_VALUE))
                     .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelTraitsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1323,7 +1324,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         );
         pnlTraitsLayout.setVerticalGroup(
             pnlTraitsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelTraits, javax.swing.GroupLayout.DEFAULT_SIZE, 1150, Short.MAX_VALUE)
+            .addComponent(jPanelTraits, javax.swing.GroupLayout.DEFAULT_SIZE, 1255, Short.MAX_VALUE)
         );
 
         jTabbedPaneEditor.addTab(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.pnlTraits.TabConstraints.tabTitle"), pnlTraits); // NOI18N
@@ -1357,6 +1358,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         });
 
         buttonGroupMeasurements.add(jRadioButtonAllTrials2);
+        jRadioButtonAllTrials2.setSelected(true);
         org.openide.awt.Mnemonics.setLocalizedText(jRadioButtonAllTrials2, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jRadioButtonAllTrials2.text")); // NOI18N
         jRadioButtonAllTrials2.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -1532,8 +1534,8 @@ public final class StudyEditorTopComponent extends TopComponent {
                 .addComponent(pnlMeasurementFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 1058, Short.MAX_VALUE)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 1058, Short.MAX_VALUE))
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 1163, Short.MAX_VALUE)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 1163, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -1545,7 +1547,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         );
         pnlMeasurementLayout.setVerticalGroup(
             pnlMeasurementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, 1150, Short.MAX_VALUE)
+            .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, 1255, Short.MAX_VALUE)
         );
 
         jTabbedPaneEditor.addTab(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.pnlMeasurement.TabConstraints.tabTitle"), pnlMeasurement); // NOI18N
@@ -1620,7 +1622,7 @@ public final class StudyEditorTopComponent extends TopComponent {
 
         pnlMeasurementFilter1.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.pnlMeasurementFilter1.border.title"))); // NOI18N
 
-        buttonGroupMeasurements.add(jRadioButtonFilterTrialMaster);
+        buttonGroupMaster.add(jRadioButtonFilterTrialMaster);
         org.openide.awt.Mnemonics.setLocalizedText(jRadioButtonFilterTrialMaster, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jRadioButtonFilterTrialMaster.text")); // NOI18N
         jRadioButtonFilterTrialMaster.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -1628,7 +1630,7 @@ public final class StudyEditorTopComponent extends TopComponent {
             }
         });
 
-        buttonGroupMeasurements.add(jRadioButtonAllTrialsMaster);
+        buttonGroupMaster.add(jRadioButtonAllTrialsMaster);
         jRadioButtonAllTrialsMaster.setSelected(true);
         org.openide.awt.Mnemonics.setLocalizedText(jRadioButtonAllTrialsMaster, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jRadioButtonAllTrialsMaster.text")); // NOI18N
         jRadioButtonAllTrialsMaster.addItemListener(new java.awt.event.ItemListener() {
@@ -1643,7 +1645,7 @@ public final class StudyEditorTopComponent extends TopComponent {
             }
         });
 
-        buttonGroupMeasurements.add(jRadioButtonFilterEntry1);
+        buttonGroupMaster.add(jRadioButtonFilterEntry1);
         org.openide.awt.Mnemonics.setLocalizedText(jRadioButtonFilterEntry1, org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.jRadioButtonFilterEntry1.text")); // NOI18N
         jRadioButtonFilterEntry1.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -1722,8 +1724,8 @@ public final class StudyEditorTopComponent extends TopComponent {
                 .addComponent(pnlMeasurementFilter1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 1058, Short.MAX_VALUE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 1058, Short.MAX_VALUE))
+                    .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 1163, Short.MAX_VALUE)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 1163, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -1738,7 +1740,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPaneEditor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jTabbedPaneEditor, javax.swing.GroupLayout.DEFAULT_SIZE, 1301, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -2141,7 +2143,6 @@ public final class StudyEditorTopComponent extends TopComponent {
         final ProgressHandle handle = ProgressHandleFactory.createHandle(NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.saving"));
         handle.start();
         (new SwingWorker<String, Object>() {
-
             @Override
             protected String doInBackground() throws Exception {
                 doSaveWorkbook();
@@ -2203,7 +2204,6 @@ public final class StudyEditorTopComponent extends TopComponent {
             final ProgressHandle handle = ProgressHandleFactory.createHandle(NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.generating"));
             handle.start();
             (new SwingWorker<String, Object>() {
-
                 @Override
                 protected String doInBackground() throws Exception {
                     //fillMeasurementsData();
@@ -2350,7 +2350,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         boolean conAlpha = false;
         boolean conRCBD = false;
         boolean conUnreplicated = false;
-        boolean conIndividual=false;
+        boolean conIndividual = false;
 
         boolean hayFactores = !myWorkbook.getOtherFactors().isEmpty();
 
@@ -2372,10 +2372,7 @@ public final class StudyEditorTopComponent extends TopComponent {
             }
         }
 
-
-
         conAlpha = designsUtils.alphaIsValid(numEntries);
-
 
         for (int i = 0; i < this.getMyWorkbook().getStudyConditions().size(); i++) {
             if (this.getMyWorkbook().getStudyConditions().get(i).getProperty().toUpperCase().equals("TRIAL INSTANCE")) {
@@ -2386,56 +2383,32 @@ public final class StudyEditorTopComponent extends TopComponent {
                 }
                 break;
             }
-
         }
 
         for (int i = 0; i < this.getMyWorkbook().getFactors().size(); i++) {
 
             if (this.getMyWorkbook().getFactors().get(i).getProperty().equals("FIELD PLOT")) {
-                hasFIELDfactorfactor = true;               
+                hasFIELDfactorfactor = true;
             }
 
-                if (this.getMyWorkbook().getFactors().get(i).getProperty().equals("BLOCK")) {
-                    hasBLOCKfactor = true;
-                }
+            if (this.getMyWorkbook().getFactors().get(i).getProperty().equals("BLOCK")) {
+                hasBLOCKfactor = true;
+            }
 
-                if (this.getMyWorkbook().getFactors().get(i).getProperty().equals("REPLICATION")) {
-                    hasREPLICATIONfactor = true;
-                }
+            if (this.getMyWorkbook().getFactors().get(i).getProperty().equals("REPLICATION")) {
+                hasREPLICATIONfactor = true;
+            }
 
-                if (this.getMyWorkbook().getFactors().get(i).getProperty().equals("COLUMN")) {
-                    hasCOLfactorfactor = true;
-                }
+            if (this.getMyWorkbook().getFactors().get(i).getProperty().equals("COLUMN")) {
+                hasCOLfactorfactor = true;
+            }
 
-                if (this.getMyWorkbook().getFactors().get(i).getProperty().equals("ROW")) {
-                    hasROWfactorfactor = true;
-                }
-
-
-            
-
-
+            if (this.getMyWorkbook().getFactors().get(i).getProperty().equals("ROW")) {
+                hasROWfactorfactor = true;
+            }
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
 
-        
+
         if (conAlpha && hasBLOCKfactor) {
             conAlpha = true;
         } else {
@@ -2454,7 +2427,7 @@ public final class StudyEditorTopComponent extends TopComponent {
 
 
 
-        String inicio = designsUtils.assignMainCellEditor(conAlpha, conLattice, conRCBD, conUnreplicated,conIndividual);
+        String inicio = designsUtils.assignMainCellEditor(conAlpha, conLattice, conRCBD, conUnreplicated, conIndividual);
 
         for (int j = 0; j < instances; j++) {
             this.jTableDesign.setValueAt(inicio, j, 1);
@@ -2705,7 +2678,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         boolean conAlpha = false;
         boolean conRCBD = false;
         boolean conUnreplicated = false;
-        boolean conIndividual=false;
+        boolean conIndividual = false;
 
 
         boolean hasBLOCKfactor = false;
@@ -2748,21 +2721,16 @@ public final class StudyEditorTopComponent extends TopComponent {
             }
 
             if (this.getMyWorkbook().getFactors().get(i).getProperty().toUpperCase().equals("REPLICATION")) {
-                    hasREPLICATIONfactor = true;
-                }
+                hasREPLICATIONfactor = true;
+            }
 
-                if (this.getMyWorkbook().getFactors().get(i).getProperty().toUpperCase().equals("COLUMN")) {
-                    hasCOLfactorfactor = true;
-                }
+            if (this.getMyWorkbook().getFactors().get(i).getProperty().toUpperCase().equals("COLUMN")) {
+                hasCOLfactorfactor = true;
+            }
 
-                if (this.getMyWorkbook().getFactors().get(i).getProperty().toUpperCase().equals("ROW")) {
-                    hasROWfactorfactor = true;
-                }
-
-
-            
-
-
+            if (this.getMyWorkbook().getFactors().get(i).getProperty().toUpperCase().equals("ROW")) {
+                hasROWfactorfactor = true;
+            }
         }
 
 
@@ -2806,7 +2774,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         }
 
 
-        designsUtils.assignMainCellEditor(conAlpha, conLattice, conRCBD, conUnreplicated,conIndividual);
+        designsUtils.assignMainCellEditor(conAlpha, conLattice, conRCBD, conUnreplicated, conIndividual);
 
         SpinnerModel modeloDesign = jSpinnerTrial.getModel();
         jSpinnerTrialStudy.setModel(modeloDesign);
@@ -2817,9 +2785,10 @@ public final class StudyEditorTopComponent extends TopComponent {
             //designsUtils.assignCellEditorBlockSize(designsUtils.getRep2(),designsUtils.getRep3(),designsUtils.getRep4());
 
             designsUtils.assignCellEditorBlockSize();
-        } else {
-            checkTable();
-        }
+        } 
+//        else {
+//            checkTable();
+//        }
 
         sorterDesign = new TableRowSorter<TableModel>(modeloTabla);
         this.jTableDesign.setRowSorter(sorterDesign);
@@ -2900,7 +2869,7 @@ public final class StudyEditorTopComponent extends TopComponent {
 //            blocksPerRep = this.jTableDesign.getValueAt(i, 4).toString();
             entries = Integer.parseInt(blockSize) * (Integer.parseInt(blocksPerRep));
             if (disenio.startsWith(DesignsClass.USER_DEFINED_DESIGN)) {
-               
+
 
                 if (bean.getUserDefinedDesign() == null) {
                     DialogUtil.displayError(NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.specify"));
@@ -2966,16 +2935,17 @@ public final class StudyEditorTopComponent extends TopComponent {
         for (int i = 0; i < jTableObservations.getColumnCount(); i++) {
             sorterMeasurements.setSortable(i, false);
         }
-        
+
 
         this.jTabbedPaneEditor.setEnabledAt(7, true);
         this.jTabbedPaneEditor.setSelectedIndex(7);
         changeCursorWaitStatus(false);
         ObservationTableTooltips.assignTooltips(jTableObservations);
         // asignaClipboard();
-
+        //   System.out.println("CROP ACTIVO MEASUREMENTES: "+this.getCROP());
 
         if (this.getCROP() == CROP.MAIZE) {
+            System.out.println("LLENAMOS LA MASTER");
             //fillMasterData(fieldbookVariates);
             fillMasterData(selectedVariates);
 
@@ -3004,19 +2974,19 @@ public final class StudyEditorTopComponent extends TopComponent {
         }
 
 
-        System.out.println("TAM 1: " + fieldbookVariatesOK.size());
-
-        Variate var = new Variate();
-        var.setVariateName("GrainYieldTons_FieldWt");
-        var.setMethod("WHITOUT METHOD");
-        var.setScale("NUMBER");
-        var.setDataType("N");
-        var.setDescription("GrainYieldKg_GrainWt");
-        var.setProperty("GrainYieldKg_GrainWt");
-        fieldbookVariatesOK.add(var);
-
-
-        System.out.println("TAM 2: " + fieldbookVariatesOK.size());
+//        System.out.println("TAM 1: " + fieldbookVariatesOK.size());
+//
+//        Variate var = new Variate();
+//        var.setVariateName("GrainYieldTons_FieldWt");
+//        var.setMethod("WHITOUT METHOD");
+//        var.setScale("NUMBER");
+//        var.setDataType("N");
+//        var.setDescription("GrainYieldKg_GrainWt");
+//        var.setProperty("GrainYieldKg_GrainWt");
+//        fieldbookVariatesOK.add(var);
+//
+//
+//        System.out.println("TAM 2: " + fieldbookVariatesOK.size());
 
 
         masterWorkbook = myWorkbook;
@@ -3041,7 +3011,7 @@ public final class StudyEditorTopComponent extends TopComponent {
 
             ArrayList<Object> nueva = new ArrayList(filaOb);
 
-            nueva.add("ok");
+            // nueva.add("ok");
 
 
             tableModelMaster.addRow(nueva);
@@ -3229,11 +3199,11 @@ public final class StudyEditorTopComponent extends TopComponent {
                 for (int m = 0; m < totalRep; m++) {
                     Object[] rowToAdd = new Object[model.getColumnCount()];
                     rowToAdd[model.getHeaderIndex(ObservationsTableModel.TRIAL)] = trial;
-                    if(model.getHeaderIndex(ObservationsTableModel.REPLICATION)>0){
-                    rowToAdd[model.getHeaderIndex(ObservationsTableModel.REPLICATION)] = repet;
+                    if (model.getHeaderIndex(ObservationsTableModel.REPLICATION) > 0) {
+                        rowToAdd[model.getHeaderIndex(ObservationsTableModel.REPLICATION)] = repet;
                     }
-                    if(model.getHeaderIndex(ObservationsTableModel.BLOCK)>0){
-                    rowToAdd[model.getHeaderIndex(ObservationsTableModel.BLOCK)] = 1;
+                    if (model.getHeaderIndex(ObservationsTableModel.BLOCK) > 0) {
+                        rowToAdd[model.getHeaderIndex(ObservationsTableModel.BLOCK)] = 1;
                     }
                     rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = plot;
 
@@ -3382,7 +3352,6 @@ public final class StudyEditorTopComponent extends TopComponent {
 
     private static void changeCursorWaitStatus(final boolean isWaiting) {
         Mutex.EVENT.writeAccess(new Runnable() {
-
             @Override
             public void run() {
                 try {
@@ -3675,7 +3644,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         ObservationsTableModel tableModel = (ObservationsTableModel) this.jTableObservations.getModel();
         ObservationsTableModel tableModelMaster = (ObservationsTableModel) this.jTableMaster.getModel();
 
-
+ tableModelMaster.setIsMasterSheet(false);
         List<Variate> masterVariates = tableModelMaster.getVariateList();
 
         for (int i = 0; i < masterVariates.size(); i++) {
@@ -3683,19 +3652,73 @@ public final class StudyEditorTopComponent extends TopComponent {
             Variate mVariate = masterVariates.get(i);
             String variateToFind = mVariate.getVariateName();
 
+           ContinuousConversion conv=new ContinuousConversion();           
+           List<TmsConsistencyChecks> lista =new ArrayList<TmsConsistencyChecks>();           
+           Transformations trans=new Transformations();
+                       
+            
+            
+            int tipoFuncion = 0; //0=continua, 1=discreta   2=funcion
+            double factor = 2.0;
+            int op = 4; //0=suma,  1=resta,  2=division,  3=multiplicacion
+
+           
             try {
                 int colOriginal = tableModel.findColumn(variateToFind);
                 int colMaster = tableModelMaster.findColumn(mVariate.getVariateName());
+                
+                
+                System.out.println("COL_original: "+colOriginal);
+                System.out.println("colMaster: "+colMaster);
+                
+                
+                
 
                 for (int j = 0; j < tableModel.getRowCount(); j++) {
-                    tableModelMaster.setValueAt(tableModel.getValueAt(j, colOriginal), j, colMaster);
+                    String valCad = "";
+                    Double valor=0.0;
+                    try {
+                       // valCad = tableModel.getValueAt(j, colOriginal).toString();
+                        //System.out.println("VALCAD: "+valCad);
+                       // valor=Double.parseDouble(valCad);
+                        
+                      
+                        
+                        switch (op) {
+                            case 0:
+                                valor = valor + factor;
+                                break;
+                            case 1:
+                                valor = valor - factor;
+                                break;
+                            case 2:
+                                valor = valor / factor;
+                                break;
+                            case 4:
+                                valor = valor * factor;
+                                break;
+
+                        }
+                        
+                        tableModelMaster.setValueAt(tableModel.getValueAt(j, colOriginal), j, colMaster);
+                   
+                    } catch (Exception e) {
+                        System.out.println("ERRORRRU "+e);
+                        tableModelMaster.setValueAt(0.0, j, colMaster);
+                    }
+
+
+                    System.out.println("VALOR A ASIGNAR "+valor);
+                    System.out.println("");
                 }
 
 
             } catch (Exception e) {
+                System.out.println("EROR EN "+e);
+                
             }
         }
-
+ tableModelMaster.setIsMasterSheet(true);
     }
 
     private class TraitsDropTargetCommand implements DropTargetCommand {
@@ -3839,6 +3862,7 @@ public final class StudyEditorTopComponent extends TopComponent {
     private javax.swing.JButton btnPrintLabels;
     private javax.swing.ButtonGroup buttonGroupDesign;
     private javax.swing.ButtonGroup buttonGroupExpConditions;
+    private javax.swing.ButtonGroup buttonGroupMaster;
     private javax.swing.ButtonGroup buttonGroupMeasurements;
     private javax.swing.ButtonGroup buttonGroupTrInformation;
     private javax.swing.JButton jButtonCopyGID;

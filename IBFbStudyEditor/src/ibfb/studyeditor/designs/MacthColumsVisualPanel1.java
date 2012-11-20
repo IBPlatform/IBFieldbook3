@@ -529,16 +529,36 @@ public final class MacthColumsVisualPanel1 extends JPanel {
     public void loadFieldLabels() {
         //TRIAL, ENTRY, PLOT, BLOCK, REP, COL, ROW 
 
+        DefaultListModel listModel = (DefaultListModel) this.jList1.getModel();
 
         this.jLabelTrial.setText(MacthColumsWizardIterator.facDesign.get(0).getFactorName());
-        this.jLabelEntry.setText(MacthColumsWizardIterator.facDesign.get(1).getFactorName());
-        this.jLabelPlot.setText(MacthColumsWizardIterator.facDesign.get(2).getFactorName());
+        if (listModel.contains(MacthColumsWizardIterator.facDesign.get(0).getFactorName())) {
+            this.jTextFieldTrial.setText(MacthColumsWizardIterator.facDesign.get(0).getFactorName());
+            listModel.removeElement(MacthColumsWizardIterator.facDesign.get(0).getFactorName());
+        }
 
+        this.jLabelEntry.setText(MacthColumsWizardIterator.facDesign.get(1).getFactorName());
+        if (listModel.contains(MacthColumsWizardIterator.facDesign.get(1).getFactorName())) {
+            this.jTextFieldEntry.setText(MacthColumsWizardIterator.facDesign.get(1).getFactorName());
+            listModel.removeElement(MacthColumsWizardIterator.facDesign.get(1).getFactorName());
+        }
+
+        this.jLabelPlot.setText(MacthColumsWizardIterator.facDesign.get(2).getFactorName());
+        if (listModel.contains(MacthColumsWizardIterator.facDesign.get(2).getFactorName())) {
+            this.jTextFieldPlot.setText(MacthColumsWizardIterator.facDesign.get(2).getFactorName());
+            listModel.removeElement(MacthColumsWizardIterator.facDesign.get(2).getFactorName());
+        }
 
         if (MacthColumsWizardIterator.facDesign.get(3).isFounded()) {
             this.jLabelBlock.setText(MacthColumsWizardIterator.facDesign.get(3).getFactorName());
             this.jLabelBlock.setVisible(true);
             this.jTextFieldBlock.setVisible(true);
+
+            if (listModel.contains(MacthColumsWizardIterator.facDesign.get(3).getFactorName())) {
+                this.jTextFieldBlock.setText(MacthColumsWizardIterator.facDesign.get(3).getFactorName());
+                listModel.removeElement(MacthColumsWizardIterator.facDesign.get(3).getFactorName());
+            }
+
         } else {
             this.jLabelBlock.setVisible(false);
             this.jTextFieldBlock.setVisible(false);
@@ -548,6 +568,12 @@ public final class MacthColumsVisualPanel1 extends JPanel {
             this.jLabelRep.setText(MacthColumsWizardIterator.facDesign.get(4).getFactorName());
             this.jLabelRep.setVisible(true);
             this.jTextFieldRep.setVisible(true);
+
+            if (listModel.contains(MacthColumsWizardIterator.facDesign.get(4).getFactorName())) {
+                this.jTextFieldRep.setText(MacthColumsWizardIterator.facDesign.get(4).getFactorName());
+                listModel.removeElement(MacthColumsWizardIterator.facDesign.get(4).getFactorName());
+            }
+
         } else {
             this.jLabelRep.setVisible(false);
             this.jTextFieldRep.setVisible(false);
@@ -557,6 +583,13 @@ public final class MacthColumsVisualPanel1 extends JPanel {
             this.jLabelCol.setText(MacthColumsWizardIterator.facDesign.get(5).getFactorName());
             this.jLabelCol.setVisible(true);
             this.jTextFieldCol.setVisible(true);
+
+            if (listModel.contains(MacthColumsWizardIterator.facDesign.get(5).getFactorName())) {
+                this.jLabelCol.setText(MacthColumsWizardIterator.facDesign.get(5).getFactorName());
+                listModel.removeElement(MacthColumsWizardIterator.facDesign.get(5).getFactorName());
+            }
+
+
         } else {
             this.jLabelCol.setVisible(false);
             this.jTextFieldCol.setVisible(false);
@@ -567,6 +600,12 @@ public final class MacthColumsVisualPanel1 extends JPanel {
             this.jLabelRow.setText(MacthColumsWizardIterator.facDesign.get(6).getFactorName());
             this.jLabelRow.setVisible(true);
             this.jTextFieldRow.setVisible(true);
+
+            if (listModel.contains(MacthColumsWizardIterator.facDesign.get(6).getFactorName())) {
+                this.jTextFieldRow.setText(MacthColumsWizardIterator.facDesign.get(6).getFactorName());
+                listModel.removeElement(MacthColumsWizardIterator.facDesign.get(6).getFactorName());
+            }
+
         } else {
             this.jLabelRow.setVisible(false);
             this.jTextFieldRow.setVisible(false);

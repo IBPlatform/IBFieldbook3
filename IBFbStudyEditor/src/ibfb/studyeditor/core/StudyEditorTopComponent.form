@@ -141,6 +141,8 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
     </Container>
+    <Component class="javax.swing.ButtonGroup" name="buttonGroupMaster">
+    </Component>
   </NonVisualComponents>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="1"/>
@@ -163,7 +165,7 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="jTabbedPaneEditor" max="32767" attributes="0"/>
+              <Component id="jTabbedPaneEditor" pref="1301" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -218,7 +220,7 @@
                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                       <Component id="lblStudyConditions" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" pref="942" max="32767" attributes="2"/>
+                      <Component id="jScrollPane2" pref="1026" max="32767" attributes="2"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -565,7 +567,7 @@
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Component id="pnlTrialInformationFilter" min="-2" max="-2" attributes="1"/>
                       <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" pref="1079" max="32767" attributes="2"/>
+                      <Component id="jScrollPane1" pref="1163" max="32767" attributes="2"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -722,7 +724,7 @@
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Component id="pnlExperimentalConditionFilter" min="-2" max="-2" attributes="1"/>
                       <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                      <Component id="jScrollPane5" pref="1079" max="32767" attributes="2"/>
+                      <Component id="jScrollPane5" pref="1163" max="32767" attributes="2"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -877,7 +879,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel13" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane6" pref="1066" max="32767" attributes="2"/>
+                      <Component id="jScrollPane6" pref="1150" max="32767" attributes="2"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -1034,7 +1036,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="jScrollPane4" pref="560" max="32767" attributes="0"/>
+                      <Component id="jScrollPane4" pref="644" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jScrollPane3" min="-2" pref="599" max="-2" attributes="2"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -1108,7 +1110,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="pnlExperimConditionsFilter" min="-2" max="-2" attributes="1"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jScrollPane8" pref="1036" max="32767" attributes="0"/>
+                      <Component id="jScrollPane8" pref="1120" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -1388,7 +1390,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanelTraits" alignment="0" pref="1171" max="32767" attributes="0"/>
+                  <Component id="jPanelTraits" alignment="0" pref="1255" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -1433,7 +1435,7 @@
                               <Group type="102" attributes="0">
                                   <Component id="jPanel9" min="-2" max="-2" attributes="1"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="pnlSelectList" pref="1016" max="32767" attributes="0"/>
+                                  <Component id="pnlSelectList" pref="1100" max="32767" attributes="0"/>
                               </Group>
                               <Component id="jPanel12" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -1603,7 +1605,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanel21" alignment="0" pref="1171" max="32767" attributes="0"/>
+                  <Component id="jPanel21" alignment="0" pref="1255" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -1639,8 +1641,8 @@
                           <Component id="pnlMeasurementFilter" min="-2" max="-2" attributes="1"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jScrollPane7" pref="1079" max="32767" attributes="0"/>
-                              <Component id="jPanel5" pref="1079" max="32767" attributes="2"/>
+                              <Component id="jScrollPane7" pref="1163" max="32767" attributes="0"/>
+                              <Component id="jPanel5" pref="1163" max="32767" attributes="2"/>
                           </Group>
                           <EmptySpace min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -1748,6 +1750,7 @@
                         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                           <ComponentRef name="buttonGroupMeasurements"/>
                         </Property>
+                        <Property name="selected" type="boolean" value="true"/>
                         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                           <ResourceString bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.jRadioButtonAllTrials2.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                         </Property>
@@ -1958,8 +1961,8 @@
                       <Component id="pnlMeasurementFilter1" min="-2" max="-2" attributes="1"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane9" alignment="0" pref="1079" max="32767" attributes="0"/>
-                          <Component id="jPanel6" alignment="0" pref="1079" max="32767" attributes="2"/>
+                          <Component id="jScrollPane9" alignment="0" pref="1163" max="32767" attributes="0"/>
+                          <Component id="jPanel6" alignment="0" pref="1163" max="32767" attributes="2"/>
                       </Group>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -2131,7 +2134,7 @@
                 <Component class="javax.swing.JRadioButton" name="jRadioButtonFilterTrialMaster">
                   <Properties>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                      <ComponentRef name="buttonGroupMeasurements"/>
+                      <ComponentRef name="buttonGroupMaster"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.jRadioButtonFilterTrialMaster.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -2144,7 +2147,7 @@
                 <Component class="javax.swing.JRadioButton" name="jRadioButtonAllTrialsMaster">
                   <Properties>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                      <ComponentRef name="buttonGroupMeasurements"/>
+                      <ComponentRef name="buttonGroupMaster"/>
                     </Property>
                     <Property name="selected" type="boolean" value="true"/>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
@@ -2166,7 +2169,7 @@
                 <Component class="javax.swing.JRadioButton" name="jRadioButtonFilterEntry1">
                   <Properties>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                      <ComponentRef name="buttonGroupMeasurements"/>
+                      <ComponentRef name="buttonGroupMaster"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="ibfb/studyeditor/core/Bundle.properties" key="StudyEditorTopComponent.jRadioButtonFilterEntry1.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
