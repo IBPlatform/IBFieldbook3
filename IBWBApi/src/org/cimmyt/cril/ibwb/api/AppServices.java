@@ -1669,6 +1669,75 @@ public interface AppServices {
      * Add or update a TmsTrait to Database
      */
     public void addOrUpdateTmsTrait(Traits tmsTrait);
+    
+    //-----------------------------------TmsTransformations---------------------------
+    public void addTransformations(Transformations transformations);
+    
+    public void updateTransformations(Transformations transformations);
+    
+    public void deleteTransformations(Transformations transformations);
+    
+    public Transformations getTransformations(Transformations transformations);
+    
+    public Transformations getTransformations(Integer transid);
+    
+    public List<Transformations> getTransformationsList();
+    
+    public Transformations getByTraididScaleidMethodid(Integer traitid, Integer scaleid, Integer methodid);
+    
+    //-----------------------------------TmsConsistencyChecks---------------------------
+    public void addTmsConsistencyChecks(TmsConsistencyChecks tmsConsistencyChecks);
+    
+    public void updateTmsConsistencyChecks(TmsConsistencyChecks tmsConsistencyChecks);
+    
+    public void deleteTmsConsistencyChecks(TmsConsistencyChecks tmsConsistencyChecks);
+    
+    public TmsConsistencyChecks getTmsConsistencyChecks(TmsConsistencyChecks tmsConsistencyChecks);
+    
+    public TmsConsistencyChecks getTmsConsistencyChecks(Integer transid);
+    
+    public List<TmsConsistencyChecks> getTmsConsistencyChecksList();
+    
+    
+    
+    //-----------------------------------ContinuousConversion---------------------------
+    public void addContinuousConversion(ContinuousConversion continuousConversion) ;
+    
+    public void updateContinuousConversion(ContinuousConversion continuousConversion);
+    
+    public void deleteContinuousConversion(ContinuousConversion continuousConversion);
+    
+    public ContinuousConversion getContinuousConversion(ContinuousConversion continuousConversion);
+    
+    public ContinuousConversion getContinuousConversion(Integer transid);
+    
+    public List<ContinuousConversion> getContinuousConversionList();
+    
+    //-----------------------------------ContinuousFunction---------------------------
+    public void addContinuousFunction(ContinuousFunction continuousFunction);
+    
+    public void updateContinuousFunction(ContinuousFunction continuousFunction);
+    
+    public void deleteContinuousFunction(ContinuousFunction continuousFunction);
+    
+    public ContinuousFunction getContinuousFunction(ContinuousFunction continuousFunction);
+    
+    public ContinuousFunction getContinuousFunction(Integer transid);
+    
+    public List<ContinuousFunction> getContinuousFunctionList();
+    
+    //-----------------------------------DiscreteConversion---------------------------
+    public void addDiscreteConversion(DiscreteConversion discreteConversion);
+    
+    public void updateDiscreteConversion(DiscreteConversion discreteConversion);
+    
+    public void deleteDiscreteConversion(DiscreteConversion discreteConversion);
+    
+    public DiscreteConversion getDiscreteConversion(DiscreteConversion discreteConversion);
+    
+    public DiscreteConversion getDiscreteConversion(Integer transid);
+    
+    public List<DiscreteConversion> getDiscreteConversionList();
 
 //-----------------------------------Udflds---------------------------
     /**
