@@ -88,5 +88,6 @@
         <mapping class="org.cimmyt.cril.ibwb.domain.DiscreteConversion" />
         <mapping class="org.cimmyt.cril.ibwb.domain.ContinuousFunction" />
         <mapping class="org.cimmyt.cril.ibwb.domain.ContinuousConversion" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.TmsConsistencyChecks" />
     </session-factory>
 </hibernate-configuration>
