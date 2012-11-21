@@ -58,10 +58,18 @@ public class HelperTransformations {
                                     ContinuousFunction continuousFunction = appServices.getContinuousFunction(transformationId);
                                     TmsConsistencyChecks tmsConsistencyChecks = appServices.getTmsConsistencyChecks(transformationId);
                                     continuousFunction.getTmsConsistencyChecksList().add(tmsConsistencyChecks);
+                                    continuousFunction.setFormulaOriginal(tmsConsistencyChecks.getValue());
                                     while(tmsConsistencyChecks.getLink() != null){
                                         tmsConsistencyChecks = appServices.getTmsConsistencyChecks(tmsConsistencyChecks.getLink());
                                         continuousFunction.getTmsConsistencyChecksList().add(tmsConsistencyChecks);
+                                        continuousFunction.getTmsConsistencyChecksDependencys().add(tmsConsistencyChecks);
                                     }
+                                    String temp = continuousFunction.getFormulaOriginal();
+                                    for(int i = continuousFunction.getTmsConsistencyChecksDependencys().size() - 1 ; i >= 0 ; i-- ){
+                                        TmsConsistencyChecks tmsConsistencyChecksT = continuousFunction.getTmsConsistencyChecksDependencys().get(i);
+                                        temp = temp.replace(tmsConsistencyChecksT.getValue(), "@" + tmsConsistencyChecksT.getTraitid());
+                                    }
+                                    continuousFunction.setFormulaTraducida(temp);
                                     transformations.setContinuousFunction(continuousFunction);
                                     return transformations;
                                 default:

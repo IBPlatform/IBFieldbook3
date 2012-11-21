@@ -46,12 +46,13 @@ public class TestTransformations extends TestService {
                         System.out.println("\t\t" + " Factor: " + transformations.getContinuousConversion().getFactor() + " Operador: " + transformations.getContinuousConversion().getOperator());
                         break;
                     case 'F':
-                        System.out.println("\t\t" + " Factor: " + transformations.getContinuousFunction().getFunction());
+                        System.out.println("\t\t" + " Function: " + transformations.getContinuousFunction().getFunction());
+                        System.out.println("\t\t\t" + " Function original: " + transformations.getContinuousFunction().getFormulaOriginal());
+                        System.out.println("\t\t\t" + " Function traducida: " + transformations.getContinuousFunction().getFormulaTraducida());
                         for(TmsConsistencyChecks tmsConsistencyChecks : transformations.getContinuousFunction().getTmsConsistencyChecksList()){
-                            System.out.println("\t\t\t" + " Implication : " + tmsConsistencyChecks.getImplicationid() + " Value: " + tmsConsistencyChecks.getValue() + " link: " + tmsConsistencyChecks.getLink());
+                            System.out.println("\t\t\t\t" + " Implication : " + tmsConsistencyChecks.getImplicationid() + " Value: " + tmsConsistencyChecks.getValue() + " link: " + tmsConsistencyChecks.getLink());
                         }
                 }
-                
             }else{
                 System.out.println("\t" + measuredin.getMeasuredinid() + " Formula Incompatible ");
             }
