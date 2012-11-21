@@ -5,6 +5,8 @@
 package org.cimmyt.cril.ibwb.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import org.cimmyt.cril.ibwb.domain.filter.BaseFilter;
 
 /**
@@ -30,6 +33,9 @@ public class ContinuousFunction extends BaseFilter implements Serializable {
     @Column(name = "funabbr")
     private String funabbr;
     
+    @Transient
+    private List<TmsConsistencyChecks> tmsConsistencyChecksList = new ArrayList<TmsConsistencyChecks>();
+            
     public ContinuousFunction(){
     	setDefault();
     }
@@ -112,5 +118,19 @@ public class ContinuousFunction extends BaseFilter implements Serializable {
     @Override
     public String toString() {
         return "org.cimmyt.cril.ibworkbench.services.beans.ContinuousFunction[transid=" + transid + "]";
+    }
+
+    /**
+     * @return the tmsConsistencyChecksList
+     */
+    public List<TmsConsistencyChecks> getTmsConsistencyChecksList() {
+        return tmsConsistencyChecksList;
+    }
+
+    /**
+     * @param tmsConsistencyChecksList the tmsConsistencyChecksList to set
+     */
+    public void setTmsConsistencyChecksList(List<TmsConsistencyChecks> tmsConsistencyChecksList) {
+        this.tmsConsistencyChecksList = tmsConsistencyChecksList;
     }
 }
