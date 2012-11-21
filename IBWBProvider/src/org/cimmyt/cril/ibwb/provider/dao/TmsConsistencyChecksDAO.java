@@ -24,7 +24,7 @@ import org.springframework.orm.hibernate3.HibernateCallback;
  */
 public class TmsConsistencyChecksDAO extends AbstractDAO<TmsConsistencyChecks, Integer> {
 
-    private static Logger log = Logger.getLogger(TransformationsDAO.class);
+    private static Logger log = Logger.getLogger(TmsConsistencyChecksDAO.class);
 
     public TmsConsistencyChecksDAO() {
         super(TmsConsistencyChecks.class);
@@ -45,7 +45,7 @@ public class TmsConsistencyChecksDAO extends AbstractDAO<TmsConsistencyChecks, I
 
     @Override
     public String getKeyProperty() {
-        return "transid";
+        return "implicationid";
     }
 
     @Override
@@ -70,7 +70,7 @@ public class TmsConsistencyChecksDAO extends AbstractDAO<TmsConsistencyChecks, I
             @Override
             public Object doInHibernate(Session session) throws HibernateException, SQLException {
                 Boolean result = false;
-                SQLQuery query = session.createSQLQuery("select * from TmsConsistency-checks where 1 = 2");
+                SQLQuery query = session.createSQLQuery("select * from tmsconsistency_checks where 1 = 2");
                 try {
                     query.list();
                     result = true;
@@ -99,7 +99,7 @@ public class TmsConsistencyChecksDAO extends AbstractDAO<TmsConsistencyChecks, I
             @Override
             public Object doInHibernate(Session session) throws HibernateException, SQLException {
                 Boolean result = false;
-                SQLQuery query = session.createSQLQuery("select * from `TmsConsistency_checks` where 1 = 2");
+                SQLQuery query = session.createSQLQuery("select * from `tmsconsistency_checks` where 1 = 2");
                 try {
                     query.list();
                     result = true;
@@ -127,7 +127,7 @@ public class TmsConsistencyChecksDAO extends AbstractDAO<TmsConsistencyChecks, I
                     query = session.createSQLQuery(sql);
                     query.executeUpdate();
                 } catch (Exception e) {
-                    log.error("Can´t create TmsConsistency-checks table", e);
+                    log.error("Can´t create tmsconsistency_checks table", e);
                 }
                 return null;
             }
@@ -137,7 +137,7 @@ public class TmsConsistencyChecksDAO extends AbstractDAO<TmsConsistencyChecks, I
     
     private String getQueryCreateTable(){
         StringBuilder s = new StringBuilder();
-        s.append("CREATE TABLE `TmsConsistency_checks` (");
+        s.append("CREATE TABLE `tmsconsistency_checks` (");
         s.append("`implicationid` int(11) NOT NULL,");
         s.append("`logicaloperator` varchar(1) NOT NULL,");
         s.append("`traitid` int(11) NOT NULL,");

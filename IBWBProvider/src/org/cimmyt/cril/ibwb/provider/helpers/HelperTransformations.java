@@ -56,6 +56,12 @@ public class HelperTransformations {
                                     return transformations;
                                 case 'F':
                                     ContinuousFunction continuousFunction = appServices.getContinuousFunction(transformationId);
+                                    TmsConsistencyChecks tmsConsistencyChecks = appServices.getTmsConsistencyChecks(transformationId);
+                                    continuousFunction.getTmsConsistencyChecksList().add(tmsConsistencyChecks);
+                                    while(tmsConsistencyChecks.getLink() != null){
+                                        tmsConsistencyChecks = appServices.getTmsConsistencyChecks(tmsConsistencyChecks.getLink());
+                                        continuousFunction.getTmsConsistencyChecksList().add(tmsConsistencyChecks);
+                                    }
                                     transformations.setContinuousFunction(continuousFunction);
                                     return transformations;
                                 default:

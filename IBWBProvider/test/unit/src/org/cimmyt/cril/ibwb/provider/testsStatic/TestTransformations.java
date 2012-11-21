@@ -8,6 +8,7 @@ package org.cimmyt.cril.ibwb.provider.testsStatic;
 import java.util.List;
 import org.apache.log4j.Logger;
 import org.cimmyt.cril.ibwb.domain.Measuredin;
+import org.cimmyt.cril.ibwb.domain.TmsConsistencyChecks;
 import org.cimmyt.cril.ibwb.domain.Transformations;
 import org.cimmyt.cril.ibwb.provider.helpers.HelperTransformations;
 import org.cimmyt.cril.ibwb.provider.utils.DecimalUtils;
@@ -40,6 +41,17 @@ public class TestTransformations extends TestService {
             }else if(DecimalUtils.isDecimal(measuredin.getFormula())){
                 Transformations transformations = helperTransformations.getByTraididScaleidMethodid(measuredin.getTraitid(), measuredin.getScaleid(), measuredin.getTmethid());
                 System.out.println("\t" + measuredin.getMeasuredinid() + " Transformation Type: " + transformations.getTranstype());
+                switch(transformations.getTranstype().charAt(0)){
+                    case 'C':
+                        System.out.println("\t\t" + " Factor: " + transformations.getContinuousConversion().getFactor() + " Operador: " + transformations.getContinuousConversion().getOperator());
+                        break;
+                    case 'F':
+                        System.out.println("\t\t" + " Factor: " + transformations.getContinuousFunction().getFunction());
+                        for(TmsConsistencyChecks tmsConsistencyChecks : transformations.getContinuousFunction().getTmsConsistencyChecksList()){
+                            System.out.println("\t\t\t" + " Implication : " + tmsConsistencyChecks.getImplicationid() + " Value: " + tmsConsistencyChecks.getValue() + " link: " + tmsConsistencyChecks.getLink());
+                        }
+                }
+                
             }else{
                 System.out.println("\t" + measuredin.getMeasuredinid() + " Formula Incompatible ");
             }
