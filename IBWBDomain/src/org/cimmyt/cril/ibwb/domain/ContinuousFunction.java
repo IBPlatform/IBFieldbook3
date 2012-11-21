@@ -6,7 +6,9 @@ package org.cimmyt.cril.ibwb.domain;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -35,6 +37,12 @@ public class ContinuousFunction extends BaseFilter implements Serializable {
     
     @Transient
     private List<TmsConsistencyChecks> tmsConsistencyChecksList = new ArrayList<TmsConsistencyChecks>();
+    @Transient
+    private List<TmsConsistencyChecks> tmsConsistencyChecksDependencys = new ArrayList<TmsConsistencyChecks>();
+    @Transient
+    private String formulaOriginal;
+    @Transient
+    private String formulaTraducida;
             
     public ContinuousFunction(){
     	setDefault();
@@ -132,5 +140,40 @@ public class ContinuousFunction extends BaseFilter implements Serializable {
      */
     public void setTmsConsistencyChecksList(List<TmsConsistencyChecks> tmsConsistencyChecksList) {
         this.tmsConsistencyChecksList = tmsConsistencyChecksList;
+    }
+    
+    /**
+     * @return the formulaOriginal
+     */
+    public String getFormulaOriginal() {
+        return formulaOriginal;
+    }
+
+    /**
+     * @param formulaOriginal the formulaOriginal to set
+     */
+    public void setFormulaOriginal(String formulaOriginal) {
+        this.formulaOriginal = formulaOriginal;
+    }
+
+    /**
+     * @return the formulaTraducida
+     */
+    public String getFormulaTraducida() {
+        return formulaTraducida;
+    }
+
+    /**
+     * @param formulaTraducida the formulaTraducida to set
+     */
+    public void setFormulaTraducida(String formulaTraducida) {
+        this.formulaTraducida = formulaTraducida;
+    }
+
+    /**
+     * @return the tmsConsistencyChecksDependencys
+     */
+    public List<TmsConsistencyChecks> getTmsConsistencyChecksDependencys() {
+        return tmsConsistencyChecksDependencys;
     }
 }
