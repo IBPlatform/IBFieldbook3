@@ -8,27 +8,10 @@ import java.util.NoSuchElementException;
 import javax.swing.JComponent;
 import javax.swing.event.ChangeListener;
 import org.openide.WizardDescriptor;
+import org.openide.util.ImageUtilities;
 
 public final class MacthColumsWizardIterator implements WizardDescriptor.Iterator<WizardDescriptor> {
 
-    // Example of invoking this wizard:
-    // @ActionID(category="...", id="...")
-    // @ActionRegistration(displayName="...")
-    // @ActionReference(path="Menu/...")
-    // public static ActionListener run() {
-    //     return new ActionListener() {
-    //         @Override public void actionPerformed(ActionEvent e) {
-    //             WizardDescriptor wiz = new WizardDescriptor(new MacthColumsWizardIterator());
-    //             // {0} will be replaced by WizardDescriptor.Panel.getComponent().getName()
-    //             // {1} will be replaced by WizardDescriptor.Iterator.name()
-    //             wiz.setTitleFormat(new MessageFormat("{0} ({1})"));
-    //             wiz.setTitle("...dialog title...");
-    //             if (DialogDisplayer.getDefault().notify(wiz) == WizardDescriptor.FINISH_OPTION) {
-    //                 ...do something...
-    //             }
-    //         }
-    //     };
-    // }
     private int index;
     private List<WizardDescriptor.Panel<WizardDescriptor>> panels;
     static String[] headers;
@@ -50,6 +33,7 @@ public final class MacthColumsWizardIterator implements WizardDescriptor.Iterato
                     jc.putClientProperty(WizardDescriptor.PROP_AUTO_WIZARD_STYLE, true);
                     jc.putClientProperty(WizardDescriptor.PROP_CONTENT_DISPLAYED, true);
                     jc.putClientProperty(WizardDescriptor.PROP_CONTENT_NUMBERED, true);
+                    jc.putClientProperty("WizardPanel_image", ImageUtilities.loadImage("ibfb/studyeditor/images/logoWizardMatch.png", true));
                 }
             }
         }
@@ -100,8 +84,5 @@ public final class MacthColumsWizardIterator implements WizardDescriptor.Iterato
     @Override
     public void removeChangeListener(ChangeListener l) {
     }
-    // If something changes dynamically (besides moving between panels), e.g.
-    // the number of panels changes in response to user input, then use
-    // ChangeSupport to implement add/removeChangeListener and call fireChange
-    // when needed
+
 }

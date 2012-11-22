@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package ibfb.studyeditor.gywizard;
 
 import java.awt.Component;
@@ -52,7 +49,7 @@ public final class GYwizardWizardIterator implements WizardDescriptor.Iterator<W
                     jc.putClientProperty(WizardDescriptor.PROP_AUTO_WIZARD_STYLE, true);
                     jc.putClientProperty(WizardDescriptor.PROP_CONTENT_DISPLAYED, true);
                     jc.putClientProperty(WizardDescriptor.PROP_CONTENT_NUMBERED, true);
-                     jc.putClientProperty("WizardPanel_image", ImageUtilities.loadImage("ibfb/studyeditor/images/logoWizardGY.png", true));
+                    jc.putClientProperty("WizardPanel_image", ImageUtilities.loadImage("ibfb/studyeditor/images/logoWizardGY.png", true));
 
                 }
             }
@@ -96,7 +93,6 @@ public final class GYwizardWizardIterator implements WizardDescriptor.Iterator<W
         index--;
     }
 
-    // If nothing unusual changes in the middle of the wizard, simply:
     @Override
     public void addChangeListener(ChangeListener l) {
     }
@@ -104,8 +100,5 @@ public final class GYwizardWizardIterator implements WizardDescriptor.Iterator<W
     @Override
     public void removeChangeListener(ChangeListener l) {
     }
-    // If something changes dynamically (besides moving between panels), e.g.
-    // the number of panels changes in response to user input, then use
-    // ChangeSupport to implement add/removeChangeListener and call fireChange
-    // when needed
+
 }
