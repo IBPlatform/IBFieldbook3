@@ -2294,13 +2294,38 @@ public class IBWBAppServicesImpl implements AppServices {
         Users filter = new Users(true);
         filter.setUname(userid);
 
-        List<Users> userList = serviciosLocal.getListUsers(filter, 0, 0, false);
+        if (userId != null && !userid.isEmpty()) {
+            List<Users> userList = serviciosLocal.getListUsers(filter, 0, 0, false);
 
-        if (userList.isEmpty()) {
-            userId = -1;
+            if (userList.isEmpty()) {
+                userList = serviciosCentral.getListUsers(filter, 0, 0, false);
+                if (userList.isEmpty()) {
+                    userId = -1;
+                } else {
+                    userId = userList.get(0).getUserid();
+                }
+            } else {
+                userId = userList.get(0).getUserid();
+            }
+
         } else {
-            userId = userList.get(0).getUserid();
+            // seach in instalation table
+            List<Instln> instlnList = serviciosLocal.getInstlnList();
+            // if is empty then seach in central
+            if (instlnList.isEmpty()) {
+                instlnList = serviciosCentral.getInstlnList();
+                if (instlnList.isEmpty()) {
+                    userId = -1;
+                } else {
+                    Instln instln = instlnList.get(0);
+                    userId = instln.getAdmin();
+                }
+            } else {
+                Instln instln = instlnList.get(0);
+                userId = instln.getAdmin();
+            }
         }
+
 
 
         return userId;
@@ -2698,11 +2723,11 @@ public class IBWBAppServicesImpl implements AppServices {
         if (!serviciosLocal.existsTableDiscreteConversion()) {
             serviciosLocal.createTableDiscreteConversion();
         }
-        
+
         if (!serviciosCentral.existsTableTmsConsistencyChecks()) {
             serviciosCentral.createTableTmsConsistencyChecks();
         }
-        
+
         if (!serviciosLocal.existsTableTmsConsistencyChecks()) {
             serviciosLocal.createTableTmsConsistencyChecks();
         }
@@ -3255,10 +3280,10 @@ public class IBWBAppServicesImpl implements AppServices {
             }
             scalesMap.put(scaleId, scales);
         }
-        
+
         // finaly assign corresponding location name and scale name
-        for (InventoryData inventoryData:  inventoryDataList) {
-            
+        for (InventoryData inventoryData : inventoryDataList) {
+
             inventoryData.setLocationName(locationMap.get(inventoryData.getLocationid()).getLname());
             inventoryData.setScaleName(scalesMap.get(inventoryData.getScale()).getScname());
         }

@@ -240,12 +240,12 @@ public class NamesDAO extends AbstractDAO<Names, Integer> {
                             throws HibernateException, SQLException {
                         for (Listdata listdata : listnms.getLisdatas()) {
                             Integer gid = listdata.getGid();
-                            
+
                             if (gid > 0) {
                                 Germplsm germplasm = getGermplsm(session, gid);
                                 listdata.setGpid1(germplasm.getGpid1());
                                 listdata.setGpid2(germplasm.getGpid2());
-                                
+
                                 listdata.setName1028(getNames(session, gid, 1028));
                                 listdata.setName1027(getNames(session, gid, 1027));
                                 listdata.setName1029(getNames(session, gid, 1029));
@@ -266,7 +266,11 @@ public class NamesDAO extends AbstractDAO<Names, Integer> {
                                 Integer gpid1;
                                 if (gid > 0) {
                                     Germplsm germplsmT = getGermplsm(session, listdata.getGid());
-                                    gpid1 = germplsmT.getGpid1();
+                                    if (germplsmT == null) {
+                                        gpid1 = 0;
+                                    } else {
+                                        gpid1 = germplsmT.getGpid1();
+                                    }
                                 } else {
                                     if (listdata.getGpid1() != null) {
                                         gpid1 = listdata.getGpid1();
@@ -302,23 +306,29 @@ public class NamesDAO extends AbstractDAO<Names, Integer> {
                                 Germplsm germplasm = getGermplsm(session, gid);
                                 listdata.setGpid1(germplasm.getGpid1());
                                 listdata.setGpid2(germplasm.getGpid2());
-                                
+
                                 listdata.setName1028(getNames(session, gid, 1028));
                                 listdata.setName1027(getNames(session, gid, 1027));
                                 listdata.setName1029(getNames(session, gid, 1029));
                                 if (listdata.getName1027() == null
                                         || listdata.getName1029() == null) {
                                     Germplsm germplsmT = getGermplsm(session, gid);
-                                    Integer gpid1 = germplsmT.getGpid1();
-                                    if (gpid1 < 0) {
-                                        if (listdata.getName1027() == null) {
-                                            listdata.setName1027(getNames(session, gpid1, 1027));
-                                        }
-                                        if (listdata.getName1029() == null) {
-                                            listdata.setName1029(getNames(session, gpid1, 1029));
-                                        }
+                                    if (germplsmT == null) {
+                                        
                                     } else {
-                                        listdata.setGpid1(gpid1);
+                                        Integer gpid1 = germplsmT.getGpid1();
+
+
+                                        if (gpid1 < 0) {
+                                            if (listdata.getName1027() == null) {
+                                                listdata.setName1027(getNames(session, gpid1, 1027));
+                                            }
+                                            if (listdata.getName1029() == null) {
+                                                listdata.setName1029(getNames(session, gpid1, 1029));
+                                            }
+                                        } else {
+                                            listdata.setGpid1(gpid1);
+                                        }
                                     }
                                 }
                             }
@@ -355,27 +365,28 @@ public class NamesDAO extends AbstractDAO<Names, Integer> {
         Germplsm germplsmR = (Germplsm) query.uniqueResult();
         return germplsmR;
     }
-    
+
     /**
-     * Gets a list for Wheat Data (cimmyt) related to BCID, Selection history
-     * 1. It looks for all elements in names where gid are used by a list
+     * Gets a list for Wheat Data (cimmyt) related to BCID, Selection history 1.
+     * It looks for all elements in names where gid are used by a list
+     *
      * @param listId
      * @return Gets a list for Wheat Data (cimmyt)
      */
     public List<WheatData> getDataForCimmytWheat(final Integer listId) {
         List<WheatData> wheatDataList = new ArrayList<WheatData>();
         Integer currentGid = -99999999;
-        
+
         final String queryString = " from Names as n where n.gid in "
-                + " (select distinct ld.gid from Listdata as ld where ld.listdataPK.listid = " + listId + " )" +
-                " order by n.gid, n.ntype ";
-        
+                + " (select distinct ld.gid from Listdata as ld where ld.listdataPK.listid = " + listId + " )"
+                + " order by n.gid, n.ntype ";
+
         List<Names> namesList = getHibernateTemplate().find(queryString);
         WheatData wheatDataToAdd = new WheatData();
         for (Names name : namesList) {
-            
+
             if (currentGid.intValue() != name.getGid().intValue()) {
-                wheatDataList.add( wheatDataToAdd);
+                wheatDataList.add(wheatDataToAdd);
                 currentGid = name.getGid();
                 wheatDataToAdd = new WheatData();
                 wheatDataToAdd.setGid(name.getGid());
@@ -384,14 +395,15 @@ public class NamesDAO extends AbstractDAO<Names, Integer> {
                 fillWheatData(wheatDataToAdd, name);
             }
         }
-        
+
         // remove first element because is null;
         wheatDataList.remove(0);
         return wheatDataList;
     }
-    
+
     /**
      * Fills a wheat data comparing ntype values
+     *
      * @param wheatData Wheat Data to fill
      * @param names Names used to check values
      */
@@ -407,7 +419,7 @@ public class NamesDAO extends AbstractDAO<Names, Integer> {
                 case Names.CIMMYT_WHEAT_SELECTION_HISTORY:
                     wheatData.setSelectionHistory(names.getNval());
                     break;
-                   
+
             }
         }
     }

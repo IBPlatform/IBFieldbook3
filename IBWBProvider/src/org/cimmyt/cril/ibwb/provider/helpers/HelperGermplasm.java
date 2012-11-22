@@ -388,7 +388,7 @@ public class HelperGermplasm {
         names.setGid(germplsm.getGid());//gid = germplasm
         names.setNtype(1029);//pedigri = 1029 
         // tmsanchez 20120424
-        names.setNstat(1);//nstat = 0
+        names.setNstat(0);//nstat = 0
 
         names.setNuid(userId);//nuid = numero de usuario tienen que pasar o 0
         String arma_pedigree;
