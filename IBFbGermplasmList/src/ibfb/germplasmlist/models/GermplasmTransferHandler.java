@@ -13,6 +13,7 @@ import javax.swing.TransferHandler;
 
 /**
  * Utility class for handling drag and drop
+ *
  * @author TMSANCHEZ
  */
 public class GermplasmTransferHandler extends TransferHandler {
@@ -21,8 +22,6 @@ public class GermplasmTransferHandler extends TransferHandler {
      * Source table for drag
      */
     private JTable sourceTable;
-    
-    
     private JTable sourceTable2;
     /**
      * Destination table for drop
@@ -40,6 +39,10 @@ public class GermplasmTransferHandler extends TransferHandler {
      * Factores
      */
     private List<Factor> factores;
+    /**
+     * Delete all items in source list
+     */
+    private boolean deleteFromSourceList = true;
 
     public GermplasmTransferHandler(JTable sourceTable, JTable destTable, List<List<Object>> sourceList, List<List<Object>> destList) {
         this.sourceTable = sourceTable;
@@ -47,19 +50,18 @@ public class GermplasmTransferHandler extends TransferHandler {
         this.sourceList = sourceList;
         this.destList = destList;
     }
-    
-        public GermplasmTransferHandler(JTable sourceTable,JTable sourceTable2, JTable destTable, List<List<Object>> sourceList, List<List<Object>> destList) {
+
+    public GermplasmTransferHandler(JTable sourceTable, JTable sourceTable2, JTable destTable, List<List<Object>> sourceList, List<List<Object>> destList) {
         this.sourceTable = sourceTable;
         this.destTable = destTable;
         this.sourceList = sourceList;
         this.destList = destList;
-        this.sourceTable2=sourceTable2;
+        this.sourceTable2 = sourceTable2;
     }
-    
 
     @Override
     protected Transferable createTransferable(JComponent c) {
-       return new DataHandler("",DataFlavor.stringFlavor.getMimeType());
+        return new DataHandler("", DataFlavor.stringFlavor.getMimeType());
     }
 
     @Override
@@ -79,19 +81,21 @@ public class GermplasmTransferHandler extends TransferHandler {
             int[] selectedRows = sourceTable.getSelectedRows();
             for (int i = 0; i < selectedRows.length; i++) {
                 sourceList.get(selectedRows[i]).add(1);
-                sourceList.get(selectedRows[i]).add(1);        
-                
+                sourceList.get(selectedRows[i]).add(1);
+
                 destList.add(sourceList.get(selectedRows[i]));
-               
+
                 toRemove.add(sourceList.get(selectedRows[i]));
             }
-            sourceList.removeAll(toRemove);
+            if (deleteFromSourceList) {
+                sourceList.removeAll(toRemove);
+            }
             sourceTable.getSelectionModel().clearSelection();
             sourceTable.updateUI();
 
             GermplasmEntriesTableModelChecks tableModel = new GermplasmEntriesTableModelChecks(factores, destList);
             tableModel.setHasChecks(true);
-            destTable.setModel(tableModel);           
+            destTable.setModel(tableModel);
             destTable.updateUI();
 
             return true;
@@ -127,15 +131,11 @@ public class GermplasmTransferHandler extends TransferHandler {
     public JTable getSourceTable() {
         return sourceTable;
     }
-    
 
     public void setSourceTable(JTable sourceTable) {
         this.sourceTable = sourceTable;
     }
 
-    
-
-    
     public List<Factor> getFactores() {
         return factores;
     }
@@ -143,4 +143,14 @@ public class GermplasmTransferHandler extends TransferHandler {
     public void setFactores(List<Factor> factores) {
         this.factores = factores;
     }
+
+    public boolean isDeleteFromSourceList() {
+        return deleteFromSourceList;
+    }
+
+    public void setDeleteFromSourceList(boolean deleteFromSourceList) {
+        this.deleteFromSourceList = deleteFromSourceList;
+    }
+    
+    
 }

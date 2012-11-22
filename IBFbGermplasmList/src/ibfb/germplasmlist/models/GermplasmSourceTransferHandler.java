@@ -10,14 +10,17 @@ import javax.swing.JComponent;
 import javax.swing.JTable;
 import javax.swing.TransferHandler;
 
-
 public class GermplasmSourceTransferHandler extends TransferHandler {
 
-    private JTable sourceTable; 
+    private JTable sourceTable;
     private JTable destTable;
     private List<List<Object>> sourceList;
     private List<List<Object>> destList;
     private List<Factor> factores;
+    /**
+     * Delete all items in source list
+     */
+    private boolean deleteFromSourceList = true;
 
     public GermplasmSourceTransferHandler(JTable sourceTable, JTable destTable, List<List<Object>> sourceList, List<List<Object>> destList) {
         this.sourceTable = sourceTable;
@@ -25,11 +28,10 @@ public class GermplasmSourceTransferHandler extends TransferHandler {
         this.sourceList = sourceList;
         this.destList = destList;
     }
-    
 
     @Override
     protected Transferable createTransferable(JComponent c) {
-       return new DataHandler("",DataFlavor.stringFlavor.getMimeType());
+        return new DataHandler("", DataFlavor.stringFlavor.getMimeType());
     }
 
     @Override
@@ -48,16 +50,18 @@ public class GermplasmSourceTransferHandler extends TransferHandler {
             List<List<Object>> toRemove = new ArrayList<List<Object>>();
             int[] selectedRows = sourceTable.getSelectedRows();
             for (int i = 0; i < selectedRows.length; i++) {
-                          
+
                 destList.add(sourceList.get(selectedRows[i]));
                 toRemove.add(sourceList.get(selectedRows[i]));
             }
-            sourceList.removeAll(toRemove);
+            if (deleteFromSourceList) {
+                sourceList.removeAll(toRemove);
+            }
             sourceTable.getSelectionModel().clearSelection();
             sourceTable.updateUI();
 
             GermplasmEntriesTableModelChecks tableModel = new GermplasmEntriesTableModelChecks(factores, destList);
-            destTable.setModel(tableModel);           
+            destTable.setModel(tableModel);
             destTable.updateUI();
             return true;
         }
@@ -91,12 +95,11 @@ public class GermplasmSourceTransferHandler extends TransferHandler {
     public JTable getSourceTable() {
         return sourceTable;
     }
-    
 
     public void setSourceTable(JTable sourceTable) {
         this.sourceTable = sourceTable;
     }
-   
+
     public List<Factor> getFactores() {
         return factores;
     }
@@ -104,4 +107,14 @@ public class GermplasmSourceTransferHandler extends TransferHandler {
     public void setFactores(List<Factor> factores) {
         this.factores = factores;
     }
+
+    public boolean isDeleteFromSourceList() {
+        return deleteFromSourceList;
+    }
+
+    public void setDeleteFromSourceList(boolean deleteFromSourceList) {
+        this.deleteFromSourceList = deleteFromSourceList;
+    }
+    
+    
 }

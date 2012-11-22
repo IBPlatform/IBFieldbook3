@@ -947,6 +947,8 @@ public final class nurseryManagerTopComponent extends TopComponent {
     private void saveList() {
 
         changeCursorWaitStatus(true);
+        
+   Integer loggedUserid = AppServicesProxy.getDefault().appServices().getLoggedUserId(FieldbookSettings.getLocalGmsUserId());        
 
         Listnms listnms = new Listnms();
         listnms.setListname(this.jTextFieldListName.getText());
@@ -960,7 +962,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
 
         listnms.setListdate(fecha);
         listnms.setListtype(Listnms.LIST_TYPE_HARVEST);
-        listnms.setListuid(0);
+        listnms.setListuid(loggedUserid);
         listnms.setListdesc(this.jTextFieldDescription.getText());
         listnms.setLhierarchy(0);
         listnms.setListstatus(1);
@@ -1075,7 +1077,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
             dataList.add(listdata);
 
         }
-        Integer loggedUserid = AppServicesProxy.getDefault().appServices().getLoggedUserId(FieldbookSettings.getLocalGmsUserId());
+     
 
         if (jComboBoxConvection.getSelectedIndex() == CONVENTION_CIMMYT_WHEAT) {
 

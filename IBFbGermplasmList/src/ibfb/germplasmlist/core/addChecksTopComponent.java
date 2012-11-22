@@ -129,9 +129,10 @@ public final class addChecksTopComponent extends TopComponent {
         refreshData();
         asignaTransferSource();
         asignaTransferChecks();
+        fillComboListNames();
     }
 
-    private void fillComboListNames() {
+    public void fillComboListNames() {
         cboGermplasmList.setModel(new DefaultComboBoxModel(new String[]{NbBundle.getMessage(addChecksTopComponent.class, "addChecksTopComponent.selectOne")}));
         cboGermplasmListChecks.setModel(new DefaultComboBoxModel(new String[]{NbBundle.getMessage(addChecksTopComponent.class, "addChecksTopComponent.selectOne")}));
         List<Listnms> germplasmList = AppServicesProxy.getDefault().appServices().getListnmsList();
@@ -1207,6 +1208,7 @@ public final class addChecksTopComponent extends TopComponent {
                         GermplasmList germplasmList = germplasmListReader.getGermPlasmListFromDB(selectedList.getListid());
                         setGermplasmListIntoTable(germplasmList, tabla, 0, 0);
                     } catch (Exception ex) {
+                        ex.printStackTrace();
                         System.out.println("ERROR AL LEER EXCEL GERMPLASM ENTRIES: " + ex);
                     }
                 } else {
@@ -1392,12 +1394,14 @@ public final class addChecksTopComponent extends TopComponent {
     }//GEN-LAST:event_jButtonSaveListActionPerformed
 
     private void saveList() {
+        
+        Integer loggedUserid = AppServicesProxy.getDefault().appServices().getLoggedUserId(FieldbookSettings.getLocalGmsUserId());        
         Listnms listnms = new Listnms();
         listnms.setListname(this.jTextFieldListName.getText());
 
         listnms.setListdate(ConvertUtils.getDateAsInteger(new java.util.Date()));
         listnms.setListtype(Listnms.LIST_TYPE_LIST);
-        listnms.setListuid(0);
+        listnms.setListuid(loggedUserid);
         listnms.setListdesc(this.jTextFieldDescription.getText());
         listnms.setLhierarchy(0);
         listnms.setListstatus(1);
@@ -1458,7 +1462,7 @@ public final class addChecksTopComponent extends TopComponent {
 
         }
 
-        Integer loggedUserid = AppServicesProxy.getDefault().appServices().getLoggedUserId(FieldbookSettings.getLocalGmsUserId());
+
 
         AppServicesProxy.getDefault().appServices().addNewsGermplasm(listnms, dataList, loggedUserid);
 
@@ -3017,6 +3021,7 @@ public final class addChecksTopComponent extends TopComponent {
         jTableEntriesDB.setDropMode(DropMode.INSERT_ROWS);
 
         germplasmSourceTransferHandler = new GermplasmSourceTransferHandler(jTableEntriesDB, jTableFinalSource, rowListDB, toAdd);
+        germplasmSourceTransferHandler.setDeleteFromSourceList(false);
         jTableFinalSource.setTransferHandler(germplasmSourceTransferHandler);
         jScrollFinalSource.setTransferHandler(germplasmSourceTransferHandler);
 
@@ -3034,6 +3039,7 @@ public final class addChecksTopComponent extends TopComponent {
         jTableEntriesDBChecks.setDragEnabled(true);
         jTableEntriesDBChecks.setDropMode(DropMode.INSERT_ROWS);
         germplasmTransferHandler = new GermplasmTransferHandler(jTableEntriesDBChecks, jTableFinalChecks, rowListDBChecks, toAddChecks);
+        germplasmTransferHandler.setDeleteFromSourceList(false);
         jTableFinalChecks.setTransferHandler(germplasmTransferHandler);
         jScrollFinalListChecks.setTransferHandler(germplasmTransferHandler);
 
