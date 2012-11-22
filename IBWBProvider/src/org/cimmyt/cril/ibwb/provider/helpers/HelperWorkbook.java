@@ -781,7 +781,7 @@ public class HelperWorkbook {
 
             mapConstantsVariates.put(variate.getVname(), variate);
             listConstantsVariates.add(variate);
-
+            constant.setVariateId(variate.getVariatid());
             // ADD TO VEFFECT variate ID and  represNO from REPRESTN table for each constant variate
         }
     }
@@ -877,7 +877,7 @@ public class HelperWorkbook {
 
             mapVariatesPure.put(variate.getVname(), variate);
             listVariatesPure.add(variate);
-
+            variateDomain.setVariateId(variate.getVariatid());
             // ADD TO VEFFECT variate ID and  represNO from REPRESTN table for each constant variate
         }
     }
