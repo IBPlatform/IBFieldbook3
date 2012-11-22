@@ -1,4 +1,3 @@
-
 package ibfb.studyeditor.core.model;
 
 import ibfb.domain.core.Condition;
@@ -11,7 +10,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.swing.table.AbstractTableModel;
-import org.cimmyt.cril.ibwb.commongui.ConvertUtils;
 import org.cimmyt.cril.ibwb.commongui.DecimalUtils;
 import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 
@@ -37,11 +35,9 @@ public class ObservationsTableModel extends AbstractTableModel {
     public static final String ROW = "ROWINLAYOUTNUMBER";
     public static final String COL = "COLUMNINLAYOUTNUMBER";
     public static boolean isFromCrossInfo = false;
-    
     /**
      * Prefix to store header index in map for factors
      */
-  
     private static final String FACTOR_PREFIX = "FACTOR_";
     /**
      * Prefix to store header index in map for variates
@@ -71,13 +67,11 @@ public class ObservationsTableModel extends AbstractTableModel {
      * Rows per trial, specially when Fieldbook has different designs
      */
     private Map<Integer, Integer> rowsPerTrial = new HashMap<Integer, Integer>();
-
     /**
      *
      * @param headers
      */
-    
-    private boolean isMasterSheet=false;
+    private boolean isMasterSheet = false;
 
     public boolean isMasterSheet() {
         return isMasterSheet;
@@ -86,8 +80,7 @@ public class ObservationsTableModel extends AbstractTableModel {
     public void setIsMasterSheet(boolean isMasterSheet) {
         this.isMasterSheet = isMasterSheet;
     }
-    
-    
+
     public ObservationsTableModel(Workbook workbook, List<Variate> variateList) {
         this.workbook = workbook;
         this.variateList = variateList;
@@ -213,10 +206,10 @@ public class ObservationsTableModel extends AbstractTableModel {
 
         if (value != null) {
             if (value instanceof Double) {
-               Double doubleValue = (Double)value; 
-               if (DecimalUtils.isIntegerValue(doubleValue)) {
-                   value = DecimalUtils.getValueAsInteger(value);
-               } 
+                Double doubleValue = (Double) value;
+                if (DecimalUtils.isIntegerValue(doubleValue)) {
+                    value = DecimalUtils.getValueAsInteger(value);
+                }
             }
         }
 
@@ -282,11 +275,11 @@ public class ObservationsTableModel extends AbstractTableModel {
     @Override
     public boolean isCellEditable(int rowIndex, int columnIndex) {
         // only cells with a variate column are editable
-        
-        if(isMasterSheet()){
+
+        if (isMasterSheet()) {
             return false;
         }
-        
+
         Object columnObject = headers.get(columnIndex);
         boolean cellEditable = columnObject instanceof Variate;
         return cellEditable;
@@ -483,5 +476,21 @@ public class ObservationsTableModel extends AbstractTableModel {
         }
 
         return rowsPerTrial;
+    }
+
+    public String findColumn(Integer traitid) {
+
+        for (Variate variate : variateList) {
+
+            if (variate.getVariateId() == traitid) {
+                System.out.println("COLUMNA ENCONTRADA");
+                return variate.getVariateName();
+
+            }
+
+        }
+        System.out.println("COLUMNA  NOOOO ENCONTRADA");
+        return "";
+
     }
 }

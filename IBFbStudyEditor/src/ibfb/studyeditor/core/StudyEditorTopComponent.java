@@ -32,13 +32,14 @@ import java.io.File;
 import java.text.MessageFormat;
 import java.util.*;
 import java.util.List;
-import java.util.Random;
 import java.util.concurrent.ExecutionException;
 import java.util.regex.PatternSyntaxException;
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
 import javax.swing.*;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.table.*;
-import javax.swing.text.TableView;
 import net.java.balloontip.BalloonTip;
 import net.java.balloontip.utils.ToolTipUtils;
 import org.cimmyt.cril.ibwb.api.AppServicesProxy;
@@ -48,6 +49,7 @@ import org.cimmyt.cril.ibwb.commongui.select.list.DoubleListPanel;
 import org.cimmyt.cril.ibwb.commongui.select.list.DropTargetCommand;
 import org.cimmyt.cril.ibwb.commongui.select.list.SelectCommand;
 import org.cimmyt.cril.ibwb.domain.ContinuousConversion;
+import org.cimmyt.cril.ibwb.domain.ContinuousFunction;
 import org.cimmyt.cril.ibwb.domain.TmsConsistencyChecks;
 import org.cimmyt.cril.ibwb.domain.Traits;
 import org.cimmyt.cril.ibwb.domain.Transformations;
@@ -242,6 +244,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         jRadioButtonViewAllTrialStudy.setVisible(false);
         jSpinnerTrialStudy.setVisible(false);
         pnlExpConditionTrial.setVisible(false);
+        this.jTabbedPaneEditor.setEnabledAt(8, false);
 
     }
 
@@ -1490,12 +1493,12 @@ public final class StudyEditorTopComponent extends TopComponent {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonImportData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonExportData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonSaveData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnPrintLabels, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(22, Short.MAX_VALUE))
+                    .addComponent(btnPrintLabels, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jButtonExportData, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)
+                    .addComponent(jButtonImportData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1551,6 +1554,8 @@ public final class StudyEditorTopComponent extends TopComponent {
         );
 
         jTabbedPaneEditor.addTab(org.openide.util.NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.pnlMeasurement.TabConstraints.tabTitle"), pnlMeasurement); // NOI18N
+
+        jPanel1.setEnabled(false);
 
         jScrollPane9.setAutoscrolls(true);
         jScrollPane9.setMinimumSize(new java.awt.Dimension(0, 0));
@@ -2785,7 +2790,7 @@ public final class StudyEditorTopComponent extends TopComponent {
             //designsUtils.assignCellEditorBlockSize(designsUtils.getRep2(),designsUtils.getRep3(),designsUtils.getRep4());
 
             designsUtils.assignCellEditorBlockSize();
-        } 
+        }
 //        else {
 //            checkTable();
 //        }
@@ -3639,86 +3644,151 @@ public final class StudyEditorTopComponent extends TopComponent {
         doubleListPanel.fillListItems();
     }
 
+    private void setValuesFunctionForColumn(ContinuousFunction func, String variateToFind) {
+        changeCursorWaitStatus(true);
+        ObservationsTableModel tableModel = (ObservationsTableModel) this.jTableObservations.getModel();
+        ObservationsTableModel tableModelMaster = (ObservationsTableModel) this.jTableMaster.getModel();
+        ScriptEngineManager manager = new ScriptEngineManager();
+        ScriptEngine engine = manager.getEngineByName("js");
+        Object operation = null;
+        String formulaValores = func.getFormulaTraducida();
+        int colMaster = tableModelMaster.findColumn(variateToFind);
+
+        List<TmsConsistencyChecks> dependences = func.getTmsConsistencyChecksDependencys();
+
+        for (int j = 0; j < tableModelMaster.getRowCount(); j++) {
+            boolean hayError = false;
+            formulaValores = func.getFormulaTraducida();
+
+            for (int i = 0; i < dependences.size(); i++) {
+                org.cimmyt.cril.ibwb.domain.Traits trait = AppServicesProxy.getDefault().appServices().getTraits(dependences.get(i).getTraitid());
+                int colOriginal = tableModel.findColumn(trait.getTrname());
+                String var = "@" + String.valueOf(dependences.get(i).getTraitid());
+
+                try {
+                    double valor = Double.valueOf(tableModel.getValueAt(j, colOriginal).toString());
+                    formulaValores = formulaValores.replace(var, String.valueOf(valor));
+                } catch (Exception e) {
+                    hayError = true;
+                }
+
+            }
+
+            System.out.println("Formula " + j + "   :  " + formulaValores);
+
+            if (!hayError) {
+                try {
+                    operation = engine.eval(formulaValores);
+                } catch (ScriptException ex) {
+                    System.out.println("ERROR EN FORMULA " + ex);
+                    operation = 0;
+                }
+
+                System.out.println("Evaluado operacion 1: " + operation);
+                tableModelMaster.setValueAt(String.valueOf(operation), j, colMaster);
+
+            }
+
+        }
+        changeCursorWaitStatus(false);
+
+    }
+
+    private void setValuesContinuousForColumn(String operador, double factor, String variateToFind) {
+        ObservationsTableModel tableModel = (ObservationsTableModel) this.jTableObservations.getModel();
+        ObservationsTableModel tableModelMaster = (ObservationsTableModel) this.jTableMaster.getModel();
+
+        int colOriginal = tableModel.findColumn(variateToFind);
+        int colMaster = tableModelMaster.findColumn(variateToFind);
+
+        for (int i = 0; i < tableModelMaster.getRowCount(); i++) {
+            double datoOriginal = 0;
+            try {
+                datoOriginal = Double.valueOf(tableModel.getValueAt(i, colOriginal).toString());
+            } catch (Exception e) {
+                datoOriginal = 0;
+            }
+            if (operador.equals("+")) {
+                try {
+                    datoOriginal = datoOriginal + factor;
+                } catch (Exception e) {
+                    datoOriginal = -9999;
+                }
+            } else if (operador.equals("-")) {
+                try {
+                    datoOriginal = datoOriginal - factor;
+                } catch (Exception e) {
+                    datoOriginal = -9999;
+                }
+            } else if (operador.equals("*")) {
+                try {
+                    datoOriginal = datoOriginal * factor;
+                } catch (Exception e) {
+                    datoOriginal = -9999;
+                }
+            } else if (operador.equals("/")) {
+                try {
+                    datoOriginal = datoOriginal / factor;
+                } catch (Exception e) {
+                    datoOriginal = -9999;
+                }
+            }
+
+            tableModelMaster.setValueAt(String.valueOf(datoOriginal), i, colMaster);
+        }
+    }
+
     private void calculateMasterData() {
 
         ObservationsTableModel tableModel = (ObservationsTableModel) this.jTableObservations.getModel();
         ObservationsTableModel tableModelMaster = (ObservationsTableModel) this.jTableMaster.getModel();
+        tableModelMaster.setIsMasterSheet(false);
 
- tableModelMaster.setIsMasterSheet(false);
         List<Variate> masterVariates = tableModelMaster.getVariateList();
 
-        for (int i = 0; i < masterVariates.size(); i++) {
 
+        for (int i = 0; i < masterVariates.size(); i++) {
             Variate mVariate = masterVariates.get(i);
             String variateToFind = mVariate.getVariateName();
 
-           ContinuousConversion conv=new ContinuousConversion();           
-           List<TmsConsistencyChecks> lista =new ArrayList<TmsConsistencyChecks>();           
-           Transformations trans=new Transformations();
-                       
+            System.out.println(mVariate.getVariateName());
+            System.out.println(mVariate.getVariateId());
+
+            List<TmsConsistencyChecks> lista = new ArrayList<TmsConsistencyChecks>();
+            Transformations trans=new Transformations();
+            String tipo="D";//Default 
             
-            
-            int tipoFuncion = 0; //0=continua, 1=discreta   2=funcion
-            double factor = 2.0;
-            int op = 4; //0=suma,  1=resta,  2=division,  3=multiplicacion
-
-           
-            try {
-                int colOriginal = tableModel.findColumn(variateToFind);
-                int colMaster = tableModelMaster.findColumn(mVariate.getVariateName());
-                
-                
-                System.out.println("COL_original: "+colOriginal);
-                System.out.println("colMaster: "+colMaster);
-                
-                
-                
-
-                for (int j = 0; j < tableModel.getRowCount(); j++) {
-                    String valCad = "";
-                    Double valor=0.0;
-                    try {
-                       // valCad = tableModel.getValueAt(j, colOriginal).toString();
-                        //System.out.println("VALCAD: "+valCad);
-                       // valor=Double.parseDouble(valCad);
-                        
-                      
-                        
-                        switch (op) {
-                            case 0:
-                                valor = valor + factor;
-                                break;
-                            case 1:
-                                valor = valor - factor;
-                                break;
-                            case 2:
-                                valor = valor / factor;
-                                break;
-                            case 4:
-                                valor = valor * factor;
-                                break;
-
-                        }
-                        
-                        tableModelMaster.setValueAt(tableModel.getValueAt(j, colOriginal), j, colMaster);
-                   
-                    } catch (Exception e) {
-                        System.out.println("ERRORRRU "+e);
-                        tableModelMaster.setValueAt(0.0, j, colMaster);
-                    }
+            try{ 
+            trans = AppServicesProxy.getDefault().appServices().getTransformationsByVariateid(mVariate.getVariateId());
+            tipo = trans.getTranstype();
+            }catch(Exception e){
+            trans=new Transformations();    
+            trans.setTranstype("D");//Default   
+            }
+  
+            System.out.println("EL TIPO ES: " + tipo);
 
 
-                    System.out.println("VALOR A ASIGNAR "+valor);
-                    System.out.println("");
-                }
+            if (tipo.equals("C")) {
+                ContinuousConversion conv = trans.getContinuousConversion();
+                double factor = conv.getFactor();
+                double res = 0;
+                String operador = conv.getOperator();
+                System.out.println("El operador es: " + operador);
+                System.out.println("El factor es: " + factor);
+                setValuesContinuousForColumn(operador, factor, variateToFind);
+            } else if (tipo.equals("F")) {
+                ContinuousFunction func = trans.getContinuousFunction();
+                System.out.println("FUNCION:" + func.getFunction());
+                System.out.println("TRADUCIDA:" + func.getFormulaTraducida());
+                setValuesFunctionForColumn(func, variateToFind);
 
-
-            } catch (Exception e) {
-                System.out.println("EROR EN "+e);
-                
+            } else {
+                setValuesContinuousForColumn("*", 1, variateToFind);
             }
         }
- tableModelMaster.setIsMasterSheet(true);
+
+        tableModelMaster.setIsMasterSheet(true);
     }
 
     private class TraitsDropTargetCommand implements DropTargetCommand {
@@ -3835,6 +3905,8 @@ public final class StudyEditorTopComponent extends TopComponent {
         jButtonSaveData.setEnabled(true);
         jButtonExportData.setEnabled(true);
         jButtonImportData.setEnabled(true);
+        this.jTabbedPaneEditor.setEnabledAt(8, true);
+
     }
 
     /**
