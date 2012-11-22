@@ -11,7 +11,9 @@ import ibfb.workbook.core.GermplasmListReaderImpl;
 import java.awt.Component;
 import java.awt.Cursor;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -19,6 +21,7 @@ import javax.swing.table.DefaultTableColumnModel;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
+import org.apache.poi.hmef.attribute.MAPIAttribute;
 import org.cimmyt.cril.ibwb.api.AppServicesProxy;
 import org.cimmyt.cril.ibwb.commongui.ConvertUtils;
 import org.cimmyt.cril.ibwb.commongui.DialogUtil;
@@ -69,6 +72,7 @@ public final class AdvanceLineTopComponent extends TopComponent {
     ObservationsTableModel modelo;
     List<GermplasmSearch> listFemale;
     List<GermplasmSearch> listMale;
+    private Map<Integer, Methods> methodsMap;
 
     public ObservationsTableModel getModelo() {
         return modelo;
@@ -132,7 +136,7 @@ public final class AdvanceLineTopComponent extends TopComponent {
         setToolTipText(Bundle.HINT_AdvanceLineTopComponent());
         this.jButtonSave.setEnabled(true);
         this.jButtonInventory.setEnabled(false);
-
+        assignMethods();
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -560,6 +564,7 @@ public final class AdvanceLineTopComponent extends TopComponent {
     private void saveList() {
 
         changeCursorWaitStatus(true);
+        Integer loggedUserId = AppServicesProxy.getDefault().appServices().getLoggedUserId(FieldbookSettings.getLocalGmsUserId());
 
         Listnms listnms = new Listnms();
         String nombreLista = this.jTextFieldNurseryAdvanceName.getText();
@@ -568,7 +573,7 @@ public final class AdvanceLineTopComponent extends TopComponent {
         listnms.setListdate(this.harvestDate);
 
         listnms.setListtype(Listnms.LIST_TYPE_HARVEST);
-        listnms.setListuid(0);
+        listnms.setListuid(loggedUserId);
 
 
 
@@ -584,6 +589,7 @@ public final class AdvanceLineTopComponent extends TopComponent {
         int gid = tableModel.getHeaderIndex(GermplasmEntriesTableModel.GID); //findColumn("GID");
         int desig = tableModel.getHeaderIndex(GermplasmEntriesTableModel.DESIG);//findColumn("DESIG");
         int entryCD = tableModel.getHeaderIndex(GermplasmEntriesTableModel.ENTRY);// findColumn("ENTRY");
+        int crossColumn = tableModel.getHeaderIndex(GermplasmEntriesTableModel.CROSS);
 
         currentSourceGid = 0;
         int counter = 1;
@@ -607,7 +613,11 @@ public final class AdvanceLineTopComponent extends TopComponent {
 
             listdata.setSource(this.nurseryName + ":" + counter);
             listdata.setEntrycd("E" + ConvertUtils.getZeroLeading(counter, 4));
-            listdata.setGrpname("");
+            if (crossColumn > -1) {
+                listdata.setGrpname(this.jTableEntries.getValueAt(index, crossColumn).toString());
+            } else {
+                listdata.setGrpname("");
+            }
 
             listdata.setLrstatus(0);
             listdata.setGid(0);
@@ -627,7 +637,7 @@ public final class AdvanceLineTopComponent extends TopComponent {
 
         }
         //Integer loggedUserId = AppServicesProxy.getDefault().appServices().getLoggedUserId();
-        Integer loggedUserId = AppServicesProxy.getDefault().appServices().getLoggedUserId(FieldbookSettings.getLocalGmsUserId());
+
         AppServicesProxy.getDefault().appServices().addNewsGermplasm(listnms, dataList, loggedUserId);
 
         loadListIntoWindow(listnms);
@@ -647,13 +657,16 @@ public final class AdvanceLineTopComponent extends TopComponent {
 
 
         changeCursorWaitStatus(true);
+
+        Integer loggedUserid = AppServicesProxy.getDefault().appServices().getLoggedUserId(FieldbookSettings.getLocalGmsUserId());
+
         Listnms listnms = new Listnms();
         listnms.setListname(this.jTextFieldNurseryAdvanceName.getText());
 
         listnms.setListdate(this.harvestDate);
 
         listnms.setListtype(Listnms.LIST_TYPE_HARVEST);
-        listnms.setListuid(0);
+        listnms.setListuid(loggedUserid);
         listnms.setListdesc(this.jTextFieldDescription.getText());
         listnms.setLhierarchy(0);
         listnms.setListstatus(1);
@@ -670,13 +683,15 @@ public final class AdvanceLineTopComponent extends TopComponent {
 
 
         int numOfParents = getNumberOfParents();
-        
+
         int counter = 1;
+        GermplasmEntriesTableModel tableModel = (GermplasmEntriesTableModel) jTableEntries.getModel();
+        int crossColumn = tableModel.getHeaderIndex(GermplasmEntriesTableModel.CROSSCIMMYTWHEAT);
 
-        for (int i = 0; i < jTableEntries.getRowCount(); i++) {
+        for (int indexRow = 0; indexRow < jTableEntries.getRowCount(); indexRow++) {
 
 
-            int selectedMethodId = giveMethodSelection(i);
+            int selectedMethodId = giveMethodSelection(indexRow);
 
 
             Listdata listdata = new Listdata(true);
@@ -684,14 +699,14 @@ public final class AdvanceLineTopComponent extends TopComponent {
 
             ListdataPK pk1 = new ListdataPK(listnms.getListid(), 0);
             listdata.setListdataPK(pk1);
-            listdata.setEntryid(i + 1);
+            listdata.setEntryid(indexRow + 1);
 
 
-            listdata.setDesig(this.jTableEntries.getValueAt(i, desigColumn).toString());
+            listdata.setDesig(this.jTableEntries.getValueAt(indexRow, desigColumn).toString());
 
 
             if (bcidColumn > 0) {
-                listdata.setNameBCID(this.jTableEntries.getValueAt(i, desigColumn).toString());
+                listdata.setNameBCID(this.jTableEntries.getValueAt(indexRow, desigColumn).toString());
             } else {
                 listdata.setNameBCID("");
 
@@ -700,7 +715,7 @@ public final class AdvanceLineTopComponent extends TopComponent {
 
 
             if (entryCDColumn > 0) {
-                listdata.setEntrycd(this.jTableEntries.getValueAt(i, entryCDColumn).toString());
+                listdata.setEntrycd(this.jTableEntries.getValueAt(indexRow, entryCDColumn).toString());
             } else {
                 listdata.setEntrycd("");
             }
@@ -708,7 +723,13 @@ public final class AdvanceLineTopComponent extends TopComponent {
 
             listdata.setSource(this.nurseryName + ":" + counter);
             listdata.setEntrycd("E" + ConvertUtils.getZeroLeading(counter, 4));
-            listdata.setGrpname("");
+
+            if (crossColumn > -1) {
+                listdata.setGrpname(this.jTableEntries.getValueAt(indexRow, crossColumn).toString());
+            } else {
+                listdata.setGrpname("");
+            }
+
 
             listdata.setLrstatus(0);
             listdata.setGid(0);
@@ -722,14 +743,14 @@ public final class AdvanceLineTopComponent extends TopComponent {
             listdata.setLocationId(locationId);
 
             // asigns GPID1 and GPDI2
-            assignGpid1AndGpid2(listdata, i);
+            assignGpid1AndGpid2(listdata, indexRow);
             dataList.add(listdata);
-            
+
             counter++;
 
         }
 
-        Integer loggedUserid = AppServicesProxy.getDefault().appServices().getLoggedUserId(FieldbookSettings.getLocalGmsUserId());
+
         AppServicesProxy.getDefault().appServices().saveGerplasmCimmytWheat(dataList, listnms, loggedUserid, listFemale, listMale);
 
         loadListIntoWindow(listnms);
@@ -1024,8 +1045,20 @@ public final class AdvanceLineTopComponent extends TopComponent {
                     listdata.setGpid2(0);
                     break;
                 default:
-                    listdata.setGpid1(sourceGermplsm.getGpid1());
-                    listdata.setGpid2(sourceGid);
+                    // first look for source method germplsm
+                    Methods methods = methodsMap.get(sourceGermplsm.getMethn());
+                    // if method for source germplasm was found
+                    if (methods != null) {
+                        // checks if is a GENERATIVE METHOD
+                        String methodType = methods.getMtype().toUpperCase();
+                        if (methodType.equals(Methods.MTYPE_GENERATIVE)) {
+                            listdata.setGpid1(sourceGermplsm.getGpid1());
+                            listdata.setGpid2(sourceGermplsm.getGpid1());
+                        }
+                    } else {
+                        listdata.setGpid1(sourceGermplsm.getGpid1());
+                        listdata.setGpid2(sourceGid);
+                    }
                     break;
             }
 
@@ -1064,25 +1097,25 @@ public final class AdvanceLineTopComponent extends TopComponent {
 //                }
 //            }
 //        } else {
-            GermplasmEntriesTableModel tableModel = (GermplasmEntriesTableModel) this.jTableEntries.getModel();
-            int entryCodeColumn = tableModel.getHeaderIndex(GermplasmEntriesTableModel.ENTRY_CODE);
-            String entryCodeToFind = jTableEntries.getValueAt(renglon, entryCodeColumn).toString();
-            int entryRow = findEntry(entryCodeToFind);
-            if (colSelection > 0 && modelo.getValueAt(entryRow, colSelection) != null) {
-                //int elMetodo = Integer.parseInt(modelo.getValueAt(renglon, colSelection).toString());
-                int elMetodo = ConvertUtils.getValueAsInteger(modelo.getValueAt(entryRow, colSelection));
+        GermplasmEntriesTableModel tableModel = (GermplasmEntriesTableModel) this.jTableEntries.getModel();
+        int entryCodeColumn = tableModel.getHeaderIndex(GermplasmEntriesTableModel.ENTRY_CODE);
+        String entryCodeToFind = jTableEntries.getValueAt(renglon, entryCodeColumn).toString();
+        int entryRow = findEntry(entryCodeToFind);
+        if (colSelection > 0 && modelo.getValueAt(entryRow, colSelection) != null) {
+            //int elMetodo = Integer.parseInt(modelo.getValueAt(renglon, colSelection).toString());
+            int elMetodo = ConvertUtils.getValueAsInteger(modelo.getValueAt(entryRow, colSelection));
 
-                if (elMetodo > 0) {
-                    return 205;
-                }
+            if (elMetodo > 0) {
+                return 205;
+            }
 
-                if (elMetodo == 0) {
-                    return 206;
-                }
+            if (elMetodo == 0) {
+                return 206;
+            }
 
-                if (elMetodo < 0) {
-                    return 207;
-                }
+            if (elMetodo < 0) {
+                return 207;
+            }
 //            }
         }
 
@@ -1091,9 +1124,9 @@ public final class AdvanceLineTopComponent extends TopComponent {
     }
 
     /**
-     * 
+     *
      * @param entryCodeToFind
-     * @return 
+     * @return
      */
     private int findEntry(String entryCodeToFind) {
         int entryRow = -1;
@@ -1106,8 +1139,21 @@ public final class AdvanceLineTopComponent extends TopComponent {
                 entryRow = row;
                 break;
             }
-        
+
         }
         return entryRow;
+    }
+
+    /**
+     * Assign a list of method to methods maps
+     *
+     * @param methodsList
+     */
+    private void assignMethods() {
+        List<Methods> methodsList = AppServicesProxy.getDefault().appServices().getMethodsList();
+        methodsMap = new HashMap<Integer, Methods>();
+        for (Methods method : methodsList) {
+            methodsMap.put(method.getMid(), method);
+        }
     }
 }

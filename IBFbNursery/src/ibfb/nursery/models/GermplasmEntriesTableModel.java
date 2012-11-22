@@ -15,7 +15,8 @@ public class GermplasmEntriesTableModel extends AbstractTableModel {
     public static final String DESIG = "GERMPLASMIDDBCV";
     public static final String GID = "GERMPLASMIDDBID";
     public static final String PLOT = "FIELDPLOTNUMBER";
-    public static final String CROSS = "CROSSNAMENAMENUMBER";
+    public static final String CROSS = "CROSSNAMENUMBER";
+    public static final String CROSSCIMMYTWHEAT = "CROSSNAMENAME";
     public static final String ISCHECKNUMBER = "CHECKCODE";    
     //  public static final String BCID = "GERMPLASMBCIDDBID";
     private boolean hasChecks = false;
@@ -290,12 +291,14 @@ public class GermplasmEntriesTableModel extends AbstractTableModel {
      */
     private void assignHeaders() {
         headers = new ArrayList<Object>();
+        
         int columnIndex = 0;
 
         // add headers from factor section which are TRIAL
         for (Factor factor : factorHeaders) {
             headers.add(factor);
-            headerIndex.put(Workbook.getStringWithOutBlanks(factor.getProperty() + factor.getScale()), columnIndex);
+            String headerName = Workbook.getStringWithOutBlanks(factor.getProperty() + factor.getScale()).toUpperCase();
+            headerIndex.put(headerName, columnIndex);
             columnIndex++;
         }
 
