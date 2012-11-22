@@ -22,6 +22,9 @@ import org.cimmyt.cril.ibwb.domain.filter.BaseFilter;
 @Entity
 @Table(name = "methods")
 public class Methods extends BaseFilter implements Serializable {
+    public static final String MTYPE_GENERATIVE = "GEN";
+    public static final String MTYPE_DERIVATIVE = "DER";
+    
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
