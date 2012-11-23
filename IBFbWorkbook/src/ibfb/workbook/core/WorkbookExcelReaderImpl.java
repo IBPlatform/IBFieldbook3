@@ -108,10 +108,8 @@ public class WorkbookExcelReaderImpl implements WorkbookExcelReader {
 
         }
 
-        System.out.println("TENEMOS DB: " + tipo.getNombre());
-
-
-        theCrop = WHEAT;
+       //  System.out.println("TENEMOS DB: " + tipo.getNombre());
+       // System.out.println("TENEMOS DB type: " + tipo.getType());
 
         return theCrop;
     }
