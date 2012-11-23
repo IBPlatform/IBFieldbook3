@@ -3759,8 +3759,8 @@ public final class StudyEditorTopComponent extends TopComponent {
             trans = AppServicesProxy.getDefault().appServices().getTransformationsByVariateid(mVariate.getVariateId());
             tipo = trans.getTranstype();
             }catch(Exception e){
-            trans=new Transformations();    
-            trans.setTranstype("D");//Default   
+          //  trans=new Transformations();    
+           // trans.setTranstype("D");//Default   
             }
   
             System.out.println("EL TIPO ES: " + tipo);
