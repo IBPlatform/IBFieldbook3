@@ -3887,12 +3887,9 @@ public final class StudyEditorTopComponent extends TopComponent {
 
     private boolean trialNameAlreadyExists(String trialName) {
         boolean result = false;
-
-
         if (AppServicesProxy.getDefault().appServices().getStudyByName(trialName) != null) {
             result = true;
         }
-
         return result;
 
     }
@@ -3902,7 +3899,9 @@ public final class StudyEditorTopComponent extends TopComponent {
         jButtonSaveData.setEnabled(true);
         jButtonExportData.setEnabled(true);
         jButtonImportData.setEnabled(true);
-        this.jTabbedPaneEditor.setEnabledAt(8, true);
+        if(jTabbedPaneEditor.getTabCount()==9){
+          this.jTabbedPaneEditor.setEnabledAt(8, true);
+        }
 
     }
 
