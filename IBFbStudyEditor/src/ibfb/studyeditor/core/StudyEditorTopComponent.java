@@ -22,6 +22,7 @@ import ibfb.studyeditor.roweditors.*;
 import ibfb.studyeditor.util.Clipboard;
 import ibfb.studyeditor.util.DateUtil;
 import ibfb.studyeditor.util.LookupUtil;
+import ibfb.studyeditor.util.MyRenderer;
 import ibfb.studyeditor.util.RefreshBrowserHelper;
 import ibfb.studyexplorer.filters.CSVFiltro;
 import ibfb.studyexplorer.filters.ExcelFiltro;
@@ -1617,7 +1618,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                 .addComponent(jButtonSaveMaster, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonExportMaster, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(957, Short.MAX_VALUE))
         );
 
         jPanel6Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButtonExportMaster, jButtonSaveMaster});
@@ -1724,10 +1725,10 @@ public final class StudyEditorTopComponent extends TopComponent {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(pnlMeasurementFilter1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 1163, Short.MAX_VALUE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 1163, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 1169, Short.MAX_VALUE)
+                    .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -2941,112 +2942,41 @@ public final class StudyEditorTopComponent extends TopComponent {
 
         this.jTabbedPaneEditor.setEnabledAt(7, true);
         this.jTabbedPaneEditor.setSelectedIndex(7);
-        changeCursorWaitStatus(false);
+       
         ObservationTableTooltips.assignTooltips(jTableObservations);
         // asignaClipboard();
-        //   System.out.println("CROP ACTIVO MEASUREMENTES: "+this.getCROP());
-
-        if (this.getCROP() == CROP.MAIZE) {
-            System.out.println("LLENAMOS LA MASTER");
-            //fillMasterData(fieldbookVariates);
+        // System.out.println("CROP ACTIVO MEASUREMENTES: "+this.getCROP());
             fillMasterData(selectedVariates);
-
-        }
+            ajustaColumnsTable(this.jTableMaster, 2);
+            
+ changeCursorWaitStatus(false);
+        
     }
 
     private void fillMasterData(List fieldbookVariates) {
         List<Variate> selectedVariates = doubleListPanel.getTargetList();
         ObservationsTableModel tableModel = (ObservationsTableModel) jTableObservations.getModel();
-//        List masterVariates = new ArrayList();
-//        for (int i = 0; i < selectedVariates.size(); i++) {
-//            Variate masterTrait = selectedVariates.get(i);
-//            if (masterTrait.getVariateName().startsWith("m")) {
-//                masterVariates.add(masterTrait);
-//            }
-//        }
-
         List<Variate> fieldbookVariatesOK = new ArrayList<Variate>();
-
-
-
-
 
         for (int i = 0; i < fieldbookVariates.size(); i++) {
             fieldbookVariatesOK.add(selectedVariates.get(i));
         }
 
-
-//        System.out.println("TAM 1: " + fieldbookVariatesOK.size());
-//
-//        Variate var = new Variate();
-//        var.setVariateName("GrainYieldTons_FieldWt");
-//        var.setMethod("WHITOUT METHOD");
-//        var.setScale("NUMBER");
-//        var.setDataType("N");
-//        var.setDescription("GrainYieldKg_GrainWt");
-//        var.setProperty("GrainYieldKg_GrainWt");
-//        fieldbookVariatesOK.add(var);
-//
-//
-//        System.out.println("TAM 2: " + fieldbookVariatesOK.size());
-
-
         masterWorkbook = myWorkbook;
         masterWorkbook.setVariates(fieldbookVariatesOK);
-
-
-        // ObservationsTableModel tableModelMaster=new ObservationsTableModel(myWorkbook, masterVariates);
-        // ObservationsTableModel tableModelMaster = new ObservationsTableModel(myWorkbook, fieldbookVariates);
-
-
         ObservationsTableModel tableModelMaster = new ObservationsTableModel(masterWorkbook, fieldbookVariatesOK);
-
         tableModelMaster.setIsMasterSheet(true);
 
-
-
-
         for (int i = 0; i < tableModel.getRowCount(); i++) {
-
             List<Object> filaOb = tableModel.getRow(i);
-
-
             ArrayList<Object> nueva = new ArrayList(filaOb);
-
-            // nueva.add("ok");
-
-
             tableModelMaster.addRow(nueva);
         }
-
-
         this.jTableMaster.setModel(tableModelMaster);
         ObservationTableTooltips.assignTooltips(jTableMaster);
     }
 
-//    private void fillDataMaster(ObservationsTableModel tableModel, ObservationsTableModel tableModelMaster, List<Variate> fieldbookVariates, List<Variate> masterVariates) {
-//
-//        MaizeFormulas formulas = new MaizeFormulas();
-//
-//        for (int i = 0; i < masterVariates.size(); i++) {
-//
-//            Variate mVariate = masterVariates.get(i);
-//            String variateToFind = mVariate.getVariateName().substring(1, mVariate.getVariateName().length());
-//
-//            try {
-//                int colOriginal = tableModel.findColumn(variateToFind);
-//                int colMaster = tableModelMaster.findColumn(mVariate.getVariateName());
-//
-//                for (int j = 0; j < tableModel.getRowCount(); j++) {
-//                    tableModelMaster.setValueAt(tableModel.getValueAt(j, colOriginal), j, colMaster);
-//                }
-//
-//
-//            } catch (Exception e) {
-//            }
-//        }
-//
-//    }
+
     private void fillDataWithFormulas(ObservationsTableModel tableModel, ObservationsTableModel tableModelMaster, List<Variate> fieldbookVariates, List<Variate> masterVariates) {
 
         MaizeFormulas formulas = new MaizeFormulas();
@@ -3607,16 +3537,24 @@ public final class StudyEditorTopComponent extends TopComponent {
         this.jSpinnerTrial.setModel(mod1);
         this.jSpinnerEntry.setModel(mod3);
         ajustaColumnsTable(this.jTableObservations, 2);
+
         for (int i = 0; i < jTableObservations.getColumnCount(); i++) {
             sorterMeasurements.setSortable(i, false);
         }
+
         this.jTabbedPaneEditor.setEnabledAt(7, true);
         this.jTabbedPaneEditor.setSelectedIndex(7);
-        changeCursorWaitStatus(false);
 
         ObservationTableTooltips.assignTooltips(jTableObservations);
         enableMeasurementButtons();
-        fillMasterData(myWorkbook.getVariates());
+    
+           if(this.jTabbedPaneEditor.getTabCount()==9){
+            fillMasterData(myWorkbook.getVariates());
+            ajustaColumnsTable(this.jTableMaster, 2);
+           }
+ 
+        changeCursorWaitStatus(false);
+
     }
 
     private int getTotalTrialsFromObservations() {
@@ -3651,6 +3589,8 @@ public final class StudyEditorTopComponent extends TopComponent {
         String formulaValores = func.getFormulaTraducida();
         int colMaster = tableModelMaster.findColumn(variateToFind);
 
+        jTableMaster.getColumnModel().getColumn(colMaster).setHeaderRenderer(new MyRenderer(Color.YELLOW,Color.black));    
+
         List<TmsConsistencyChecks> dependences = func.getTmsConsistencyChecksDependencys();
 
         for (int j = 0; j < tableModelMaster.getRowCount(); j++) {
@@ -3671,7 +3611,7 @@ public final class StudyEditorTopComponent extends TopComponent {
 
             }
 
-            System.out.println("Formula " + j + "   :  " + formulaValores);
+           // System.out.println("Formula " + j + "   :  " + formulaValores);
 
             if (!hayError) {
                 try {
@@ -3681,7 +3621,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                     operation = 0;
                 }
 
-                System.out.println("Evaluado operacion 1: " + operation);
+             //   System.out.println("Evaluado operacion 1: " + operation);
                 tableModelMaster.setValueAt(String.valueOf(operation), j, colMaster);
 
             }
@@ -3752,19 +3692,17 @@ public final class StudyEditorTopComponent extends TopComponent {
             System.out.println(mVariate.getVariateId());
 
             List<TmsConsistencyChecks> lista = new ArrayList<TmsConsistencyChecks>();
-            Transformations trans=new Transformations();
+            Transformations trans = null;
             String tipo="D";//Default 
             
-            try{ 
-            trans = AppServicesProxy.getDefault().appServices().getTransformationsByVariateid(mVariate.getVariateId());
-            tipo = trans.getTranstype();
-            }catch(Exception e){
-          //  trans=new Transformations();    
-           // trans.setTranstype("D");//Default   
+            try {
+                trans = AppServicesProxy.getDefault().appServices().getTransformationsByVariateid(mVariate.getVariateId());
+                tipo = trans.getTranstype();
+                System.out.println("EL TIPO ES: " + tipo);
+            } catch (Exception e) {
+                System.out.println("EL TIPO ERROR ES: " + tipo);
+                 
             }
-  
-            System.out.println("EL TIPO ES: " + tipo);
-
 
             if (tipo.equals("C")) {
                 ContinuousConversion conv = trans.getContinuousConversion();
@@ -3776,8 +3714,8 @@ public final class StudyEditorTopComponent extends TopComponent {
                 setValuesContinuousForColumn(operador, factor, variateToFind);
             } else if (tipo.equals("F")) {
                 ContinuousFunction func = trans.getContinuousFunction();
-                System.out.println("FUNCION:" + func.getFunction());
-                System.out.println("TRADUCIDA:" + func.getFormulaTraducida());
+                //System.out.println("FUNCION:" + func.getFunction());
+               // System.out.println("TRADUCIDA:" + func.getFormulaTraducida());
                 setValuesFunctionForColumn(func, variateToFind);
 
             } else {

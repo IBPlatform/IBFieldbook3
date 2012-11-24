@@ -1960,14 +1960,14 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="pnlMeasurementFilter1" min="-2" max="-2" attributes="1"/>
-                      <EmptySpace pref="18" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jScrollPane9" pref="1163" max="32767" attributes="0"/>
-                          <Component id="jPanel6" pref="1163" max="32767" attributes="2"/>
-                      </Group>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <Component id="pnlMeasurementFilter1" min="-2" max="-2" attributes="1"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jPanel6" pref="1169" max="32767" attributes="2"/>
+                          <Component id="jScrollPane9" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -2036,7 +2036,7 @@
                           <Component id="jButtonSaveMaster" linkSize="14" min="-2" pref="80" max="-2" attributes="1"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jButtonExportMaster" linkSize="14" min="-2" pref="78" max="-2" attributes="1"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="957" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
