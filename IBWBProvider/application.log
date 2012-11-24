@@ -1,3 +1,8 @@
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: StockID  with value: MaizeF_GermplasmList.xls:55/MaizeM_GermplasmList.xls:55
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: BreedersPedigree1  with value: -
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: ENTRY  with value: 56
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: GID  with value: -56
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: DESIG  with value: (CML 451 X (RCYA 99-20)-B-B-42-2)-B-49-1-2/(CML 451 X P 390AM/CML C 4 F 68-B-1-B)-B-32-1-2
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: StockID  with value: MaizeF_GermplasmList.xls:56/MaizeM_GermplasmList.xls:56
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: BreedersPedigree1  with value: -
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: ENTRY  with value: 57
