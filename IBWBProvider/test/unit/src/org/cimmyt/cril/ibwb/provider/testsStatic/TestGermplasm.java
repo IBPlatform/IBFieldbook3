@@ -316,12 +316,20 @@ public class TestGermplasm extends TestService {
         }
     }
     
+    private void getGermplasmByListStudyTrialPlotSelection(){
+        List<GermplasmSearch> germplasmSearchs = HelperGermplasm.getGermplasmByListStudyTrialPlotCross(servicios, getListGermplasmSearchFmale(),  new ArrayList<GermplasmSearch>());
+        for(GermplasmSearch gs : germplasmSearchs){
+            System.out.println("BSCID: " + gs.getBcid() + " LOCID: " + gs.getLid());
+        }
+    }
+    
     public static void main(String[] args) {
         TestGermplasm testGermplasm = new TestGermplasm();
 //        testGermplasm.testSaveWorkbook();
 //        testGermplasm.getGermplasmByStudyIdTrialPlotOneByeOne();
 //        testGermplasm.getGermplasmListByStudyAndTrial();
 //        testGermplasm.getGermplasmByListStudyTrialPlot();
-        testGermplasm.getGermplasmByListStudyTrialPlotCross();
+//        testGermplasm.getGermplasmByListStudyTrialPlotCross();
+        testGermplasm.getGermplasmByListStudyTrialPlotSelection();
     }
 }
