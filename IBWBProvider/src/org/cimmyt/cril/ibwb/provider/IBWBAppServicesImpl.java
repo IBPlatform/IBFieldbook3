@@ -2578,20 +2578,33 @@ public class IBWBAppServicesImpl implements AppServices {
 
     public boolean compareToUrls(String url1, String url2) {
         //jdbc:mysql://localhost:3308/
-        boolean mismoServer = false;
+        boolean mismoServer = true;
+        System.out.println("url1:" + url1);
+        System.out.println("url2:" + url2);
         String[] urlArray1 = url1.split(":");
         String[] urlArray2 = url2.split(":");
         if (urlArray1.length > 2 && urlArray2.length > 2) {
-            for (int i = 0; i <= 3; i++) {
-                if (!urlArray1[i].equals(urlArray2[i])) {
-                    return false;
-                }
-                if (i == 1) {
-                    if (!urlArray1[i].equalsIgnoreCase("mysql")) {
-                        return false;
-                    }
+            for (int i = 0; i < 3; i++) {
+                switch(i){
+                    case 1:
+                        if (!urlArray1[i].equalsIgnoreCase("mysql")) {
+                            return false;
+                        }
+                        break;
+                    default:
+                        if (!urlArray1[i].equals(urlArray2[i])) {
+                            return false;
+                        }
+                        break;
                 }
             }
+        }
+        String ultimaParte1 = urlArray1[urlArray1.length-1];
+        String ultimaParte2 = urlArray2[urlArray2.length-1];
+        String [] ultimaParte1Array = ultimaParte1.split("/");
+        String [] ultimaParte2Array = ultimaParte2.split("/");
+        if(! ultimaParte1Array[0].equals(ultimaParte2Array[0])){
+            return false;
         }
         return mismoServer;
     }
