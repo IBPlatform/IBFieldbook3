@@ -30,6 +30,9 @@ public class Dmsattr extends BaseFilter implements Serializable {
     public static final int DMSATYPE_MTID = 807;
     public static final int DMSATYPE_MOCC = 808;
     public static final int DMSATYPE_MENT = 809;
+    public static final int DMSATYPE_STID = 810;
+    public static final int DMSATYPE_SOCC = 811;
+    public static final int DMSATYPE_SENT = 812;
     
     private static final long serialVersionUID = 1L;
     @Id
