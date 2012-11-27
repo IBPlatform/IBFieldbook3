@@ -745,7 +745,7 @@ public class HelperGermplasm {
     }
 
     /**
-     * This method function by
+     * This method function by generate BCID
      *
      * @param appServices
      * @param listFmale
@@ -770,15 +770,18 @@ public class HelperGermplasm {
                 listStudySearchs.add(studySearch);
                 mapStudySearchs.put(germplasmSearch.getStudyId() + "|" + germplasmSearch.getTrial(), studySearch);
 
+                //Recuperando la organizacion para el estudio solicitado
                 Factor factorOrganization = appServices.getFactorByStudyidAndFname(studySearch.getStudyId(), organization);
                 if (factorOrganization != null) {
                     factorOrganization = HelperFactor.getFactorFillingFull(factorOrganization, appServices, 801);
                     String levelValue = (String) factorOrganization.getLevel(0);
                     if (levelValue != null) {
+                        //Construyendo BCID
                         studySearch.getSb().append(levelValue);
                     }
                 }
 
+                //Recuperando el programa para el estudio solicitado
                 Factor factorProgram = appServices.getFactorByStudyidAndFname(studySearch.getStudyId(), program);
                 if (germplasmSearch.getCrosstype() != null) {
                     studySearch.getSb().append(germplasmSearch.getCrosstype());
@@ -787,25 +790,30 @@ public class HelperGermplasm {
                         factorProgram = HelperFactor.getFactorFillingFull(factorProgram, appServices, 801);
                         String levelValue = (String) factorProgram.getLevel(0);
                         if (levelValue != null) {
+                            //Construyendo BCID
                             studySearch.getSb().append(levelValue);
                         }
                     }
                 }
 
+                //Recuperando el HavDate para el estudio solicitado
                 Factor factorHaveDate = appServices.getFactorByStudyidAndFname(studySearch.getStudyId(), harvdate);
                 if (factorHaveDate != null) {
                     factorHaveDate = HelperFactor.getFactorFillingFull(factorHaveDate, appServices, 801);
                     Double levelValue = (Double) factorHaveDate.getLevel(studySearch.getTrial() - 1);
                     if (levelValue != null) {
+                        //Construyendo BCID
                         studySearch.getSb().append(levelValue.toString().substring(3, 5));
                     }
                 }
 
+                //Recuperando localidad
                 Factor factorLid = appServices.getFactorByStudyidAndFname(studySearch.getStudyId(), lid);
                 if (factorLid != null) {
                     factorLid = HelperFactor.getFactorFillingFull(factorLid, appServices, 801);
                     String levelValue = (String) factorLid.getLevel(studySearch.getTrial() - 1);
                     if (levelValue != null) {
+                        //Construyendo BCID
                         studySearch.getSb().append(levelValue);
                         studySearch.setLid(levelValue);
                     }
@@ -876,6 +884,7 @@ public class HelperGermplasm {
                 log.error("Error al trabajar con el resulset. ", ex);
             }
         }
+        //Recuperando los maximos para el fmale
         log.info("Iniciando el proceso de recuperacion de maximos para los fmale");
         for (GermplasmSearch gs : listFmale) {
 
@@ -942,6 +951,8 @@ public class HelperGermplasm {
 //                gs.setCharBCID("S");
 //                gs.setMethodGermplasm(2);
 //            }
+            
+//----------Asignando metodos y letras finales del BCID
             if (gs.getGermplsm().getGnpgs() < 0) {//Inbred female parent
                 if (gs.getGermplsmMale().getGnpgs() < 0) {//Inbred male parent
                     gs.setMethodGermplasm(101);//Single cross
