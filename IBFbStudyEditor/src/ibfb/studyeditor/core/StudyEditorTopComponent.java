@@ -2377,11 +2377,11 @@ public final class StudyEditorTopComponent extends TopComponent {
 
         conAlpha = designsUtils.alphaIsValid(numEntries);
 
-        for (int i = 0; i < this.getMyWorkbook().getStudyConditions().size(); i++) {
-            if (this.getMyWorkbook().getStudyConditions().get(i).getProperty().toUpperCase().equals("TRIAL INSTANCE")) {
-                if (this.getMyWorkbook().getStudyConditions().get(i).getScale().toUpperCase().equals("NUMBER")) {
-                    conIndividual = false;
-                } else if (this.getMyWorkbook().getStudyConditions().get(i).getScale().toUpperCase().equals("NESTED NUMBER")) {
+        for (int i = 0; i < this.getMyWorkbook().getConditions().size(); i++) {
+            if (this.getMyWorkbook().getConditions().get(i).getProperty().toUpperCase().equals("TRIAL INSTANCE")) {
+                if (this.getMyWorkbook().getConditions().get(i).getScale().toUpperCase().equals("NUMBER")) {
+                    conIndividual = true;
+                } else if (this.getMyWorkbook().getConditions().get(i).getScale().toUpperCase().equals("NESTED NUMBER")) {
                     conIndividual = true;
                 }
                 break;
@@ -2702,10 +2702,10 @@ public final class StudyEditorTopComponent extends TopComponent {
 
 
         for (int i = 0; i < this.getMyWorkbook().getStudyConditions().size(); i++) {
-            if (this.getMyWorkbook().getStudyConditions().get(i).getProperty().toUpperCase().equals("TRIAL INSTANCE")) {
-                if (this.getMyWorkbook().getStudyConditions().get(i).getScale().toUpperCase().equals("NUMBER")) {
-                    conIndividual = false;
-                } else if (this.getMyWorkbook().getStudyConditions().get(i).getScale().toUpperCase().equals("NESTED NUMBER")) {
+            if (this.getMyWorkbook().getConditions().get(i).getProperty().toUpperCase().equals("TRIAL INSTANCE")) {
+                if (this.getMyWorkbook().getConditions().get(i).getScale().toUpperCase().equals("NUMBER")) {
+                    conIndividual = true;
+                } else if (this.getMyWorkbook().getConditions().get(i).getScale().toUpperCase().equals("NESTED NUMBER")) {
                     conIndividual = true;
                 }
                 break;

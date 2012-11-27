@@ -90,8 +90,8 @@ public class DesignsUtils {
 
         if (conIndividual) {
             comboBox.addItem(DesignsClass.USER_DEFINED_DESIGN);
-
         }
+        
 
 
         if (comboBox.getItemCount() > 0) {
@@ -369,6 +369,10 @@ public class DesignsUtils {
         DesignTableModel designTableModel = (DesignTableModel) jTableDesign.getModel();
         DesignBean designBean = designTableModel.getDesignBean(fila);
 
+        if(jTableDesign.getModel().getRowCount()<=0){
+            return;
+        }
+        
         if (designBean.getDesign().equals(DesignsClass.ALFA_DESIGN)) {
             assignCellEditorAlpha(Integer.parseInt(jTextFieldEntries.getText()));
             generateBlocksSize(designBean.getReplications());
@@ -1137,23 +1141,27 @@ public class DesignsUtils {
 
         }
 
-        for (int i = 0; i < myWorkbook.getStudyConditions().size(); i++) {
-            if (myWorkbook.getStudyConditions().get(i).getProperty().toUpperCase().equals("TRIAL INSTANCE") && (myWorkbook.getStudyConditions().get(i).getScale().toUpperCase().equals("NUMBER"))) {
-                facDesign.get(0).setFactorName(myWorkbook.getStudyConditions().get(i).getConditionName());
-                facDesign.get(0).setFactorLabel(myWorkbook.getStudyConditions().get(i).getLabel());
+        
+        
+        for (int i = 0; i < myWorkbook.getConditions().size(); i++) {
+            if (myWorkbook.getConditions().get(i).getProperty().toUpperCase().equals("TRIAL INSTANCE") && (myWorkbook.getConditions().get(i).getScale().toUpperCase().equals("NUMBER"))) {
+                facDesign.get(0).setFactorName(myWorkbook.getConditions().get(i).getConditionName());
+                facDesign.get(0).setFactorLabel(myWorkbook.getConditions().get(i).getLabel());
                 facDesign.get(0).setFounded(true);
                 break;
             }
-
-
-            if (myWorkbook.getStudyConditions().get(i).getProperty().toUpperCase().equals("TRIAL INSTANCE") && (myWorkbook.getStudyConditions().get(i).getScale().toUpperCase().equals("NESTED NUMBER"))) {
-                facDesign.get(0).setFactorName(myWorkbook.getStudyConditions().get(i).getConditionName());
-                facDesign.get(0).setFactorLabel(myWorkbook.getStudyConditions().get(i).getLabel());
+ 
+            else if (myWorkbook.getConditions().get(i).getProperty().toUpperCase().equals("TRIAL INSTANCE") && (myWorkbook.getConditions().get(i).getScale().toUpperCase().equals("NESTED NUMBER"))) {
+                facDesign.get(0).setFactorName(myWorkbook.getConditions().get(i).getConditionName());
+                facDesign.get(0).setFactorLabel(myWorkbook.getConditions().get(i).getLabel());
                 facDesign.get(0).setFounded(true);
                 break;
             }
 
         }
+        
+        
+        
 
         for (int i = 0; i < myWorkbook.getFactors().size(); i++) {
 

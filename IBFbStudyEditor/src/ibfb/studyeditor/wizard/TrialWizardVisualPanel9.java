@@ -427,11 +427,11 @@ public final class TrialWizardVisualPanel9 extends JPanel {
         Workbook myWorkbook = TrialWizardWizardIterator.myExcelReader.getMyWorkbook();
 
         
-        for (int i = 0; i < myWorkbook.getStudyConditions().size(); i++) {          
-            if (myWorkbook.getStudyConditions().get(i).getProperty().toUpperCase().equals("TRIAL INSTANCE")) {
-               if (myWorkbook.getStudyConditions().get(i).getScale().toUpperCase().equals("NUMBER")) {
-                    conIndividual = false;
-                } else if (myWorkbook.getStudyConditions().get(i).getScale().toUpperCase().equals("NESTED NUMBER")) {
+        for (int i = 0; i < myWorkbook.getConditions().size(); i++) {          
+            if (myWorkbook.getConditions().get(i).getProperty().toUpperCase().equals("TRIAL INSTANCE")) {
+               if (myWorkbook.getConditions().get(i).getScale().toUpperCase().equals("NUMBER")) {
+                    conIndividual = true;
+                } else if (myWorkbook.getConditions().get(i).getScale().toUpperCase().equals("NESTED NUMBER")) {
                     conIndividual = true;
                 }
                 break;
@@ -492,9 +492,9 @@ public final class TrialWizardVisualPanel9 extends JPanel {
         }
 
 
-        System.out.println("DISEÑO");
-        System.out.println("conAlpha: " + conAlpha + " conlatice: " + conLattice + " conRCBD: " + conRCBD + " conUnRep: " + conUnreplicated);
-        System.out.println("INSTANCES: " + instances);
+       // System.out.println("DISEÑO");
+       // System.out.println("conAlpha: " + conAlpha + " conlatice: " + conLattice + " conRCBD: " + conRCBD + " conUnRep: " + conUnreplicated);
+      //  System.out.println("INSTANCES: " + instances);
 
         String inicio = designsUtils.assignMainCellEditor(conAlpha, conLattice, conRCBD, conUnreplicated, conIndividual);
 
