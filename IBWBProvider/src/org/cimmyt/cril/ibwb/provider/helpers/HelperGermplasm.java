@@ -379,9 +379,7 @@ public class HelperGermplasm {
         names.setNdate(UtilDate.getDateAsInteger(new Date()));//ndate añomesdia
         names.setNref(0);//nref 0
         servicioLocal.addNames(names);
-
-
-
+        
         names = new Names();
         //names
         //names.setNid(userId);//nid = autoincrement
@@ -389,7 +387,7 @@ public class HelperGermplasm {
         names.setNtype(1029);//pedigri = 1029 
         // tmsanchez 20120424
         names.setNstat(0);//nstat = 0
-
+        
         names.setNuid(userId);//nuid = numero de usuario tienen que pasar o 0
         String arma_pedigree;
         try {
@@ -404,16 +402,37 @@ public class HelperGermplasm {
         names.setNdate(UtilDate.getDateAsInteger(new Date()));//ndate añomesdia
         names.setNref(0);//nref 0
         servicioLocal.addNames(names);
-
+        
         listdata.setGid(germplsm.getGid());
         
         listdata.setGrpname(arma_pedigree);
         
         servicioLocal.addListdata(listdata);
-
+        
         Dmsattr dmsattr = new Dmsattr();
+        //Para seleccion
+        if (gsf != null && gsm == null) {
+            dmsattr.setDmsatype(Dmsattr.DMSATYPE_STID);
+            dmsattr.setDmsatab(Dmsattr.DMSATYPE_LIST);
+            dmsattr.setDmsatrec(listdata.getListdataPK().getLrecid());
+            dmsattr.setDmsatval(gsf.getStudyId().toString());//Studyid
+            servicioLocal.addDmsattr(dmsattr);
 
-        if (gsf != null) {
+            dmsattr.setDmsatype(Dmsattr.DMSATYPE_SOCC);
+            dmsattr.setDmsatab(Dmsattr.DMSATYPE_LIST);
+            dmsattr.setDmsatrec(listdata.getListdataPK().getLrecid());
+            dmsattr.setDmsatval(gsf.getTrial().toString());//Ocurrence
+            servicioLocal.addDmsattr(dmsattr);
+
+            dmsattr.setDmsatype(Dmsattr.DMSATYPE_SENT);
+            dmsattr.setDmsatab(Dmsattr.DMSATYPE_LIST);
+            dmsattr.setDmsatrec(listdata.getListdataPK().getLrecid());
+            dmsattr.setDmsatval(gsf.getPlot().toString());//Plot
+            servicioLocal.addDmsattr(dmsattr);
+        }
+        
+        //Para cruzas
+        if (gsf != null && gsm != null) {
             dmsattr.setDmsatype(Dmsattr.DMSATYPE_FTID);
             dmsattr.setDmsatab(Dmsattr.DMSATYPE_LIST);
             dmsattr.setDmsatrec(listdata.getListdataPK().getLrecid());
@@ -431,9 +450,7 @@ public class HelperGermplasm {
             dmsattr.setDmsatrec(listdata.getListdataPK().getLrecid());
             dmsattr.setDmsatval(gsf.getPlot().toString());//Plot
             servicioLocal.addDmsattr(dmsattr);
-        }
-
-        if (gsm != null) {
+            
             dmsattr.setDmsatype(Dmsattr.DMSATYPE_MTID);
             dmsattr.setDmsatab(Dmsattr.DMSATYPE_LIST);
             dmsattr.setDmsatrec(listdata.getListdataPK().getLrecid());
@@ -458,7 +475,7 @@ public class HelperGermplasm {
     public static Integer getMethod(String name) {
         int defaultMethod = 1;
         log.info("Getting METHOD for NAME = " + name);
-
+        
         if (name.length() <= 5) {
             log.info("Less or equal than 5 chars" + name);
             if (name.contains("-")) {
@@ -475,10 +492,9 @@ public class HelperGermplasm {
                 defaultMethod = 1;
             }
         }
-
         return defaultMethod;
     }
-
+    
     public static Integer getGnpgs(String name) {
         int defaultGnpgs = 1;
         log.info("Getting Gnpgs for NAME = " + name);
