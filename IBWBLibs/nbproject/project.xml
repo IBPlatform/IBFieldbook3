@@ -112,6 +112,10 @@
                 <package>com.thoughtworks.qdox.parser</package>
                 <package>com.thoughtworks.qdox.parser.impl</package>
                 <package>com.thoughtworks.qdox.parser.structs</package>
+                <package>com.toedter.calendar</package>
+                <package>com.toedter.calendar.demo</package>
+                <package>com.toedter.components</package>
+                <package>com.toedter.plaf</package>
                 <package>javanet.staxutils</package>
                 <package>javanet.staxutils.error</package>
                 <package>javanet.staxutils.events</package>
@@ -1038,16 +1042,16 @@
                 <binary-origin>release/modules/ext/stax-api-1.0.1.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
-                <runtime-relative-path>ext/aspectjrt-1.6.9.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/aspectjrt-1.6.9.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
                 <runtime-relative-path>ext/stax-utils-20040917.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/stax-utils-20040917.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/xercesImpl-2.6.2.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/xercesImpl-2.6.2.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/aspectjrt-1.6.9.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/aspectjrt-1.6.9.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/cglib-2.1_3.jar</runtime-relative-path>
@@ -1192,6 +1196,10 @@
             <class-path-extension>
                 <runtime-relative-path>ext/ehcache-1.2.3.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/ehcache-1.2.3.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/jcalendar-1.3.3.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/jcalendar-1.3.3.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/QueryReadCenter-1.1.jar</runtime-relative-path>
