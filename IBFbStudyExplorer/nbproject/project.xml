@@ -195,20 +195,12 @@
                 </test-type>
             </test-dependencies>
             <public-packages>
-                <package>com.toedter.calendar</package>
-                <package>com.toedter.components</package>
-                <package>com.toedter.plaf</package>
                 <package>ibfb.studyexplorer.actions</package>
                 <package>ibfb.studyexplorer.core</package>
                 <package>ibfb.studyexplorer.explorer</package>
-                <package>ibfb.studyexplorer.explorer.Traits</package>
                 <package>ibfb.studyexplorer.explorer.listNames</package>
                 <package>ibfb.studyexplorer.jdialogs</package>
             </public-packages>
-            <class-path-extension>
-                <runtime-relative-path>ext/jcalendar-1.3.3.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/jcalendar-1.3.3.jar</binary-origin>
-            </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/ValidationAPI.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/ValidationAPI.jar</binary-origin>

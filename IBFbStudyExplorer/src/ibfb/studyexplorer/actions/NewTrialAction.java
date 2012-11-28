@@ -36,12 +36,10 @@ displayName = "#CTL_NewTrialAction")
     @ActionReference(path = "Menu/File", position = 1250),
     @ActionReference(path = "Toolbars/File", position = -300)
 })
-
 public final class NewTrialAction extends SystemAction implements ActionListener {
 
     public static Study studyOBJ = new Study();
     private final Study context;
-
     private ResourceBundle bundle = NbBundle.getBundle(NewTrialAction.class);
 
     public NewTrialAction() {
@@ -49,7 +47,7 @@ public final class NewTrialAction extends SystemAction implements ActionListener
         setEnabled(Boolean.TRUE);
         this.context = null;
     }
-    
+
     public NewTrialAction(Study context) {
         this.context = context;
     }
@@ -93,7 +91,7 @@ public final class NewTrialAction extends SystemAction implements ActionListener
 
         TrialWizardWizardIterator.studyTopComponent = studyEditor;
         TrialWizardWizardIterator.resetSettings();
-        
+
         WizardDescriptor.Iterator iterator = new TrialWizardWizardIterator();
         WizardDescriptor wizardDescriptor = new WizardDescriptor(iterator);
         wizardDescriptor.setTitleFormat(new MessageFormat("{0} ({1})"));
@@ -116,11 +114,12 @@ public final class NewTrialAction extends SystemAction implements ActionListener
             String formato = "dd-MMM-yyyy";
             SimpleDateFormat sdf = new SimpleDateFormat(formato);
             try {
-                studyEditor.jDateChooserStart.setText(sdf.format(start));
+                studyEditor.jDateChooserStart.setDate(start);
             } catch (NullPointerException ex) {
             }
             try {
-                studyEditor.jDateChooserEnd.setText(sdf.format(end));
+                studyEditor.jDateChooserEnd.setDate(end);
+
             } catch (NullPointerException ex) {
             }
             try {
@@ -169,7 +168,7 @@ public final class NewTrialAction extends SystemAction implements ActionListener
             } else {
                 studyEditor.jTabbedPaneEditor.setEnabledAt(4, true);
             }
-            
+
             studyEditor.defineTabs();
             studyEditor.open();
             studyEditor.requestActive();
@@ -228,7 +227,7 @@ public final class NewTrialAction extends SystemAction implements ActionListener
 
     @Override
     public String getName() {
-       /// return NbBundle.getMessage(NewTrialAction.class, "CTL_NewTrialAction");
+        /// return NbBundle.getMessage(NewTrialAction.class, "CTL_NewTrialAction");
         return bundle.getString("NewTrialAction.name");
     }
 
@@ -236,6 +235,4 @@ public final class NewTrialAction extends SystemAction implements ActionListener
     public HelpCtx getHelpCtx() {
         return null;
     }
-    
-    
 }

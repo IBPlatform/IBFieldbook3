@@ -504,11 +504,11 @@ public class JDNewOptions extends javax.swing.JDialog {
             SimpleDateFormat sdf = new SimpleDateFormat(formato);
 
             try {
-                studyEditor.jDateChooserStart.setText(sdf.format(start));
+                studyEditor.jDateChooserStart.setDate(start);
             } catch (NullPointerException ex) {
             }
             try {
-                studyEditor.jDateChooserEnd.setText(sdf.format(end));
+                studyEditor.jDateChooserEnd.setDate(end);
             } catch (NullPointerException ex) {
             }
             try {

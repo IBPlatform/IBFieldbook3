@@ -151,12 +151,12 @@ public class OpenStudyAction extends SystemAction {
         
 
         try {
-            studyWindow.jDateChooserStart.setText(sdf.format(start));
+            studyWindow.jDateChooserStart.setDate(start);
         } catch (NullPointerException ex) {
         }
 
         try {
-            studyWindow.jDateChooserEnd.setText(sdf.format(end));
+            studyWindow.jDateChooserEnd.setDate(end);
         } catch (NullPointerException ex) {
         }
         try {
