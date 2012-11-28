@@ -509,6 +509,16 @@ public class Workbook {
                 Integer blockHash = measurement.getBlock();
                 Integer plotHash = measurement.getPlot();
                 
+                if (repHash == null) {
+                    repHash = new Integer("1");
+                }
+                if (blockHash == null) {
+                    blockHash = new Integer("1");
+                }
+                if (plotHash == null) {
+                    plotHash = new Integer("1");
+                }
+                
                 String conbinacion = plotHash.toString()
                         + "|" + repHash.toString()
                         + "|" + blockHash.toString();
