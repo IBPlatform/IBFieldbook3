@@ -1,4 +1,3 @@
-
 package ibfb.nursery.maize;
 
 import java.util.ResourceBundle;
@@ -6,7 +5,7 @@ import javax.swing.JPanel;
 import org.openide.util.NbBundle;
 
 public final class PolinizationVisualPanel1 extends JPanel {
-        
+
     private ResourceBundle bundle = NbBundle.getBundle(PolinizationVisualPanel1.class);
 
     public PolinizationVisualPanel1() {
@@ -18,7 +17,6 @@ public final class PolinizationVisualPanel1 extends JPanel {
         return bundle.getString("PolinizationVisualPanel1.name");
     }
 
-  
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -63,6 +61,11 @@ public final class PolinizationVisualPanel1 extends JPanel {
         buttonGroupPolinization.add(jRadioButtonIndividual);
         jRadioButtonIndividual.setSelected(true);
         org.openide.awt.Mnemonics.setLocalizedText(jRadioButtonIndividual, org.openide.util.NbBundle.getMessage(PolinizationVisualPanel1.class, "PolinizationVisualPanel1.jRadioButtonIndividual.text")); // NOI18N
+        jRadioButtonIndividual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonIndividualActionPerformed(evt);
+            }
+        });
 
         buttonGroupPolinization.add(jRadioButtonBulked);
         org.openide.awt.Mnemonics.setLocalizedText(jRadioButtonBulked, org.openide.util.NbBundle.getMessage(PolinizationVisualPanel1.class, "PolinizationVisualPanel1.jRadioButtonBulked.text")); // NOI18N
@@ -72,6 +75,11 @@ public final class PolinizationVisualPanel1 extends JPanel {
 
         buttonGroupPolinization.add(jRadioButtonColchi);
         org.openide.awt.Mnemonics.setLocalizedText(jRadioButtonColchi, org.openide.util.NbBundle.getMessage(PolinizationVisualPanel1.class, "PolinizationVisualPanel1.jRadioButtonColchi.text")); // NOI18N
+        jRadioButtonColchi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonColchiActionPerformed(evt);
+            }
+        });
 
         org.openide.awt.Mnemonics.setLocalizedText(jCheckBoxParentesis, org.openide.util.NbBundle.getMessage(PolinizationVisualPanel1.class, "PolinizationVisualPanel1.jCheckBoxParentesis.text")); // NOI18N
 
@@ -187,7 +195,7 @@ public final class PolinizationVisualPanel1 extends JPanel {
                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jTextFieldPedigree)
                         .addComponent(jRadioButtonDesconocido, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel2)
@@ -361,76 +369,121 @@ public final class PolinizationVisualPanel1 extends JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    public int getMethodIndex(){
-       
-       int resp=0;
-        if(jRadioButtonIndividual.isSelected()){
+    public int getMethodIndex() {
+
+        int resp = 0;
+        if (jRadioButtonIndividual.isSelected()) {
             return 0;
         }
-        if(jRadioButtonBulked.isSelected()){
+        if (jRadioButtonBulked.isSelected()) {
             return 1;
         }
-        if(jRadioButtonSib.isSelected()){
+        if (jRadioButtonSib.isSelected()) {
             return 2;
         }
-        if(jRadioButtonColchi.isSelected()){
+        if (jRadioButtonColchi.isSelected()) {
+
+            if (jCheckBoxParentesis.isSelected()) {
+            }
             return 3;
         }
-        
-      return resp;  
+
+        return resp;
     }
-    
-    
-    public String getMaizeTooltip(){
-       
-       String resp="";
-        if(jRadioButtonIndividual.isSelected()){
+
+    public int getMethodID() {
+
+        int resp = 0;
+
+        if (jRadioButtonIndividual.isSelected()) {
+            return 205;
+        }
+        if (jRadioButtonBulked.isSelected()) {
+            return 206;
+        }
+        if (jRadioButtonSib.isSelected()) {
+            return 509;
+        }
+        if (jRadioButtonColchi.isSelected()) {
+            return 202;
+        }
+
+        return resp;
+    }
+
+    public String getMaizeTooltip() {
+
+        String resp = "";
+        if (jRadioButtonIndividual.isSelected()) {
             return "Autofecundadas y mazorcas desgranadas individuamente (-)";
         }
-        if(jRadioButtonBulked.isSelected()){
+        if (jRadioButtonBulked.isSelected()) {
             return "Autofecundadas y mazorcas bulked (-B)";
         }
-        if(jRadioButtonSib.isSelected()){
+        if (jRadioButtonSib.isSelected()) {
             return "Sib-Increased (-#)";
         }
-        if(jRadioButtonColchi.isSelected()){
+        if (jRadioButtonColchi.isSelected()) {
             return "Colchicinize";
         }
-        
-      return resp;  
+
+        return resp;
     }
-    
-    public String getMethodName(){
-        String resp="";
-        if(jRadioButtonIndividual.isSelected()){
+
+    public String getMethodName() {
+        String resp = "";
+        if (jRadioButtonIndividual.isSelected()) {
             return "Autofecundadas individuales (-)";
         }
-        if(jRadioButtonBulked.isSelected()){
+        if (jRadioButtonBulked.isSelected()) {
             return "Autofecundadas  bulked (-B)";
         }
-        if(jRadioButtonSib.isSelected()){
+        if (jRadioButtonSib.isSelected()) {
             return "Sib-Increased (-#)";
         }
-        if(jRadioButtonColchi.isSelected()){
+        if (jRadioButtonColchi.isSelected()) {
             return "Colchicinize";
         }
-        
-      return resp;  
+
+        return resp;
     }
-    
-            
-    public int getParentheses(){//0=false,  1=true
-      if(this.jCheckBoxParentesis.isSelected()){
-          return 1;
-      }  else{
-          return 0;
-      }
+
+    public String getMethodNameForMaize() {
+        String resp = "";
+        if (jRadioButtonIndividual.isSelected()) {
+            return "Single plant selection SF";
+        }
+        if (jRadioButtonBulked.isSelected()) {
+            return "Selected bulk SF";
+        }
+        if (jRadioButtonSib.isSelected()) {
+            return "Half mass selection";
+        }
+        if (jRadioButtonColchi.isSelected()) {
+            return "Double Haploid Line";
+        }
+
+        return resp;
     }
-    
-    
+
+    public int getParentheses() {//0=false,  1=true
+        if (this.jCheckBoxParentesis.isSelected()) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
     private void jRadioButtonDesconocidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonDesconocidoActionPerformed
-       
     }//GEN-LAST:event_jRadioButtonDesconocidoActionPerformed
+
+    private void jRadioButtonColchiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonColchiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButtonColchiActionPerformed
+
+    private void jRadioButtonIndividualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonIndividualActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButtonIndividualActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroupDelimitador;

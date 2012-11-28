@@ -1889,7 +1889,11 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
                 int convention = Integer.parseInt(NbPreferences.forModule(AdvanceWizardPanel1.class).get("methodIndex", "0")); //0=wheat  1=maize  1=other crops
                 int samples = Integer.parseInt(NbPreferences.forModule(AdvanceWizardPanel1.class).get("samples", "1"));
                 int samplesMethod = Integer.parseInt(NbPreferences.forModule(AdvanceWizardPanel1.class).get("samplesMethod", "0"));
+                
+                
                 int methodId = NbPreferences.forModule(AdvanceWizardPanel1.class).getInt("MethodId", 0);
+                
+                
                 int locationId = NbPreferences.forModule(AdvanceWizardPanel1.class).getInt("LocationId", 0);
                 int harvestDate = NbPreferences.forModule(AdvanceWizardPanel1.class).getInt("HarvestDate", 0);
                 String locationAbbr = NbPreferences.forModule(AdvanceWizardPanel1.class).get("LAbbr", "");

@@ -1,4 +1,3 @@
-
 package ibfb.nursery.maize;
 
 import javax.swing.event.ChangeListener;
@@ -8,9 +7,7 @@ import org.openide.util.NbPreferences;
 
 public class PolinizationWizardPanel1 implements WizardDescriptor.Panel<WizardDescriptor> {
 
-
     private PolinizationVisualPanel1 component;
-
 
     @Override
     public PolinizationVisualPanel1 getComponent() {
@@ -22,16 +19,16 @@ public class PolinizationWizardPanel1 implements WizardDescriptor.Panel<WizardDe
 
     @Override
     public HelpCtx getHelp() {
-       
+
         return HelpCtx.DEFAULT_HELP;
-    
+
     }
 
     @Override
     public boolean isValid() {
-     
+
         return true;
-        
+
     }
 
     @Override
@@ -44,14 +41,17 @@ public class PolinizationWizardPanel1 implements WizardDescriptor.Panel<WizardDe
 
     @Override
     public void readSettings(WizardDescriptor wiz) {
-      
     }
 
     @Override
     public void storeSettings(WizardDescriptor wiz) {
         NbPreferences.forModule(PolinizationWizardPanel1.class).putInt("maizeMethod", component.getMethodIndex());
-        NbPreferences.forModule(PolinizationWizardPanel1.class).putInt("whitParentheses",component.getParentheses());
-        NbPreferences.forModule(PolinizationWizardPanel1.class).put("maizeMethodName", component.getMethodName());
-        NbPreferences.forModule(PolinizationWizardPanel1.class).put("maizeTooltip",component.getMaizeTooltip());
+        NbPreferences.forModule(PolinizationWizardPanel1.class).putInt("whitParentheses", component.getParentheses());
+        NbPreferences.forModule(PolinizationWizardPanel1.class).put("maizeMethodNameLabel", component.getMethodName());
+        NbPreferences.forModule(PolinizationWizardPanel1.class).put("maizeTooltip", component.getMaizeTooltip());
+        NbPreferences.forModule(PolinizationWizardPanel1.class).put("maizeMethodName", component.getMethodNameForMaize());
+        NbPreferences.forModule(PolinizationWizardPanel1.class).put("maizeMethodID", String.valueOf(component.getMethodID()));
+
+
     }
 }

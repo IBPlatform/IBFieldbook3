@@ -26,8 +26,10 @@ public final class AdvanceVisualPanel1 extends JPanel {
 
     int maizeMethod = 0;
     int whitParentheses = 0; //0= no  1=si
-    String maizeMethodName = "Autofecundadas individuamente (-)";
+    String maizeMethodNameLabel = "Autofecundadas individuamente (-)";
     String maizeTooltip = "Autofecundadas y mazorcas desgranadas individuamente (-)";
+    String maizeMethodID="0";
+    String maizeMethodName="";
     public static final int DEFAULT_METHOD = 205; // SINGLE PLANT
     /**
      * List of sorted methods in combo
@@ -554,10 +556,13 @@ public final class AdvanceVisualPanel1 extends JPanel {
 
             maizeMethod = NbPreferences.forModule(PolinizationWizardPanel1.class).getInt("maizeMethod", 0);
             whitParentheses = NbPreferences.forModule(PolinizationWizardPanel1.class).getInt("whitParentheses", 0);
-            maizeMethodName = NbPreferences.forModule(PolinizationWizardPanel1.class).get("maizeMethodName", "NO METHOD");
+            maizeMethodNameLabel = NbPreferences.forModule(PolinizationWizardPanel1.class).get("maizeMethodNameLabel", "NO METHOD");
             maizeTooltip = NbPreferences.forModule(PolinizationWizardPanel1.class).get("maizeTooltip", "NO TOOLTIP");
-
-            jLabelMaizeMethod.setText(maizeMethodName);
+            maizeMethodID=NbPreferences.forModule(PolinizationWizardPanel1.class).get("maizeMethodID", "NO TOOLTIP");
+            maizeMethodName=NbPreferences.forModule(PolinizationWizardPanel1.class).get("maizeMethodName", "NO TOOLTIP");
+            
+            
+            jLabelMaizeMethod.setText(maizeMethodNameLabel);
             jLabelMaizeMethod.setToolTipText(maizeTooltip);
 
             System.out.println("METODO A REALIZAR: " + maizeMethod);
@@ -703,14 +708,17 @@ public final class AdvanceVisualPanel1 extends JPanel {
 
         Methods selectedMethod = null;
         String methodName = (String) jComboBoxMethods.getSelectedItem();
+        
         for (Methods methods : methodsInCombo) {
-
             if (methods.getMname().toUpperCase().equals(methodName.toUpperCase())) {
                 selectedMethod = methods;
             }
         }
         return selectedMethod;
     }
+    
+    
+  
 
     public Location getSelectedLocation() {
         return selectedLocation;

@@ -62,7 +62,7 @@
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Autopolinizaci&#xf3;n">
+            <TitledBorder title="Autopolination">
               <ResourceString PropertyName="titleX" bundle="ibfb/nursery/maize/Bundle.properties" key="PolinizationVisualPanel1.jPanel2.border.title" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
             </TitledBorder>
           </Border>
@@ -120,6 +120,9 @@
               <ResourceString bundle="ibfb/nursery/maize/Bundle.properties" key="PolinizationVisualPanel1.jRadioButtonIndividual.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonIndividualActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JRadioButton" name="jRadioButtonBulked">
           <Properties>
@@ -150,6 +153,9 @@
               <ResourceString bundle="ibfb/nursery/maize/Bundle.properties" key="PolinizationVisualPanel1.jRadioButtonColchi.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonColchiActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="jCheckBoxParentesis">
           <Properties>
@@ -164,7 +170,7 @@
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Cruzas">
+            <TitledBorder title="Cross">
               <ResourceString PropertyName="titleX" bundle="ibfb/nursery/maize/Bundle.properties" key="PolinizationVisualPanel1.jPanel3.border.title" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
             </TitledBorder>
           </Border>
@@ -276,7 +282,7 @@
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="Delimitador de cruza">
+                <TitledBorder title="Cross delimiter">
                   <ResourceString PropertyName="titleX" bundle="ibfb/nursery/maize/Bundle.properties" key="PolinizationVisualPanel1.jPanel4.border.title" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                 </TitledBorder>
               </Border>
@@ -467,7 +473,7 @@
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Recombinaci&#xf3;n">
+            <TitledBorder title="Recombination">
               <ResourceString PropertyName="titleX" bundle="ibfb/nursery/maize/Bundle.properties" key="PolinizationVisualPanel1.jPanel1.border.title" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
             </TitledBorder>
           </Border>
@@ -510,7 +516,7 @@
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Datos generales">
+            <TitledBorder title="General Data">
               <ResourceString PropertyName="titleX" bundle="ibfb/nursery/maize/Bundle.properties" key="PolinizationVisualPanel1.jPanel6.border.title" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
             </TitledBorder>
           </Border>

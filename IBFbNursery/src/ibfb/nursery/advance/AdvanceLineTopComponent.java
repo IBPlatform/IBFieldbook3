@@ -3,6 +3,7 @@ package ibfb.nursery.advance;
 import ibfb.domain.core.Factor;
 import ibfb.domain.core.GermplasmList;
 import ibfb.nursery.inventory.InventoryTopComponent;
+import ibfb.nursery.maize.PolinizationWizardPanel1;
 import ibfb.nursery.models.GermplasmEntriesTableModel;
 import ibfb.nursery.models.ObservationsTableModel;
 import ibfb.settings.core.FieldbookSettings;
@@ -34,6 +35,7 @@ import org.openide.awt.ActionReference;
 import org.openide.util.Mutex;
 import org.openide.util.NbBundle;
 import org.openide.util.NbBundle.Messages;
+import org.openide.util.NbPreferences;
 import org.openide.windows.TopComponent;
 import org.openide.windows.WindowManager;
 
@@ -378,8 +380,6 @@ public final class AdvanceLineTopComponent extends TopComponent {
             List<List<Object>> germplasmForInventory = tableModel.getGermplasmData();
             List<Factor> factores = tableModel.getFactorHeaders();
 
-
-
             InventoryTopComponent inventario = new InventoryTopComponent();
 
             inventario.assignGermplasmEntries(factores, germplasmForInventory);
@@ -400,7 +400,6 @@ public final class AdvanceLineTopComponent extends TopComponent {
 
     private static void changeCursorWaitStatus(final boolean isWaiting) {
         Mutex.EVENT.writeAccess(new Runnable() {
-
             @Override
             public void run() {
                 try {
@@ -627,7 +626,18 @@ public final class AdvanceLineTopComponent extends TopComponent {
 
             // this values are used when a germplasm is going to be added
             listdata.setHarvestDate(harvestDate);
-            listdata.setMethodId(methodId);
+
+
+            if (getConvection() == 1) {//Maize           
+                int maizeMethodId = NbPreferences.forModule(PolinizationWizardPanel1.class).getInt("maizeMethodID", 0);
+                listdata.setMethodId(maizeMethodId);
+                //System.out.println("METODO MAIZ A GUARDDAR: "+maizeMethodId);
+  
+            } else {//other crops
+                listdata.setMethodId(methodId);
+            }
+
+
             listdata.setLocationId(locationId);
 
             // asigns GPID1 and GPDI2
