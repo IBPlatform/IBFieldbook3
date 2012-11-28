@@ -200,10 +200,6 @@
                 <binary-origin>release/modules/ext/commons-configuration-1.6.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
-                <runtime-relative-path>ext/jcalendar-1.3.3.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/jcalendar-1.3.3.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
                 <runtime-relative-path>ext/javacsv.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/javacsv.jar</binary-origin>
             </class-path-extension>
