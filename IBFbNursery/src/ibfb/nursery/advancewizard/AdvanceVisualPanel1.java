@@ -551,7 +551,9 @@ public final class AdvanceVisualPanel1 extends JPanel {
         // {0} will be replaced by WizardDescriptor.Panel.getComponent().getName()
         // {1} will be replaced by WizardDescriptor.Iterator.name()
         wiz.setTitleFormat(new MessageFormat("{0} ({1})"));
-        wiz.setTitle("...dialog title...");
+        wiz.setTitle(NbBundle.getMessage(AdvanceVisualPanel1.class, "AdvanceVisualPanel1.pollination"));
+                
+                 
         if (DialogDisplayer.getDefault().notify(wiz) == WizardDescriptor.FINISH_OPTION) {
 
             maizeMethod = NbPreferences.forModule(PolinizationWizardPanel1.class).getInt("maizeMethod", 0);
