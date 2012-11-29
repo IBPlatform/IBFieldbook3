@@ -564,6 +564,8 @@ public final class MacthColumsVisualPanel1 extends JPanel {
             this.jTextFieldBlock.setVisible(false);
         }
 
+        
+        
         if (MacthColumsWizardIterator.facDesign.get(4).isFounded()) {
             this.jLabelRep.setText(MacthColumsWizardIterator.facDesign.get(4).getFactorName());
             this.jLabelRep.setVisible(true);
@@ -579,13 +581,17 @@ public final class MacthColumsVisualPanel1 extends JPanel {
             this.jTextFieldRep.setVisible(false);
         }
 
+       
+        
+        
         if (MacthColumsWizardIterator.facDesign.get(5).isFounded()) {
+            
             this.jLabelCol.setText(MacthColumsWizardIterator.facDesign.get(5).getFactorName());
             this.jLabelCol.setVisible(true);
             this.jTextFieldCol.setVisible(true);
 
             if (listModel.contains(MacthColumsWizardIterator.facDesign.get(5).getFactorName())) {
-                this.jLabelCol.setText(MacthColumsWizardIterator.facDesign.get(5).getFactorName());
+                this.jTextFieldCol.setText(MacthColumsWizardIterator.facDesign.get(5).getFactorName());
                 listModel.removeElement(MacthColumsWizardIterator.facDesign.get(5).getFactorName());
             }
 
@@ -596,6 +602,8 @@ public final class MacthColumsVisualPanel1 extends JPanel {
         }
 
 
+       
+        
         if (MacthColumsWizardIterator.facDesign.get(6).isFounded()) {
             this.jLabelRow.setText(MacthColumsWizardIterator.facDesign.get(6).getFactorName());
             this.jLabelRow.setVisible(true);
@@ -620,10 +628,15 @@ public final class MacthColumsVisualPanel1 extends JPanel {
     public void loadColumnsIntoList() {
 
         DefaultListModel listModel = new DefaultListModel();
+        
 
-        String[] headres = MacthColumsWizardIterator.headers;
-        for (int i = 0; i < headres.length; i++) {
-            listModel.addElement(headres[i]);
+        String[] headers = MacthColumsWizardIterator.headers;
+        
+        System.out.println("TAM ITERATOR= "+headers.length);
+        
+        for (int i = 0; i < headers.length; i++) {
+            System.out.println("ELEMENTO: "+headers[i]);
+            listModel.addElement(headers[i]);
         }
 
         this.jList1.setModel(listModel);

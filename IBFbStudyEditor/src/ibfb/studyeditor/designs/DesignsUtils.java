@@ -512,6 +512,8 @@ public class DesignsUtils {
 
                 String[] hs = getHeadersFromFile(designBean.getUserDefinedDesign());
 
+                  System.out.println("TAM HEADER UTIL= "+hs.length);
+                
                 if (hs.length < 3) {
 
                     DialogUtil.displayError(DesignsUtils.class, "DesignsUtils.errorColumns");
