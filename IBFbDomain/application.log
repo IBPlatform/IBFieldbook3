@@ -1,0 +1,268 @@
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Traits table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Traits table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if TmsTransformations table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - TmsTransformations table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if TmsTransformations table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if TmsTransformations table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - TmsTransformations table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if TmsTransformations table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if TmsContinuous-conversion table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - TmsContinuous-conversion table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if TmsContinuous-conversion table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if TmsContinuous-conversion table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - TmsContinuous-conversion table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if TmsContinuous-conversion table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if TmsContinuous-function table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - TmsContinuous-function table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if TmsContinuous-function table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if TmsContinuous-function table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - TmsContinuous-function table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if TmsContinuous-function table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if TmsDiscrete-conversion table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - TmsDiscrete-conversion table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if TmsDiscrete-conversion table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if TmsDiscrete-conversion table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - TmsDiscrete-conversion table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if TmsDiscrete-conversion table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - Checking if TmsConsistency-checks table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - TmsConsistency-checks table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - Checking if TmsConsistency-checks table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - Checking if TmsConsistency-checks table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - TmsConsistency-checks table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - Checking if TmsConsistency-checks table exists DONE....
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Validating Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Opening file...
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Number of sheets in book2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total study conditions found: 3
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total conditions found: 6
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total factors found: 9
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SOWDAT_date (date)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: EMERGE_E/N/L (E/N/L)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: OTHOBS_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: IRRIGD_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SOILCL_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SOILTX_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SOILPH_real T (real T)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: ALTOXI_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FERKG1_kg/ha (kg/ha)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: HERBIC_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FUNGIC_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: PESTIC_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FERTAP_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read END
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Validating Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Opening file...
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Number of sheets in book2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total study conditions found: 3
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total conditions found: 6
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total factors found: 9
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SOWDAT_date (date)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: EMERGE_E/N/L (E/N/L)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: OTHOBS_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: IRRIGD_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SOILCL_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SOILTX_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SOILPH_real T (real T)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: ALTOXI_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FERKG1_kg/ha (kg/ha)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: HERBIC_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FUNGIC_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: PESTIC_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FERTAP_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read END
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - ------------------- INVALID TEMPLATE: /Users/Oziel/Desktop/_IMIS_Trial 2.xls
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Traits table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Traits table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if TmsTransformations table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - TmsTransformations table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if TmsTransformations table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if TmsTransformations table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - TmsTransformations table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if TmsTransformations table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if TmsContinuous-conversion table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - TmsContinuous-conversion table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if TmsContinuous-conversion table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if TmsContinuous-conversion table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - TmsContinuous-conversion table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if TmsContinuous-conversion table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if TmsContinuous-function table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - TmsContinuous-function table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if TmsContinuous-function table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if TmsContinuous-function table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - TmsContinuous-function table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if TmsContinuous-function table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if TmsDiscrete-conversion table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - TmsDiscrete-conversion table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if TmsDiscrete-conversion table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if TmsDiscrete-conversion table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - TmsDiscrete-conversion table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if TmsDiscrete-conversion table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - Checking if TmsConsistency-checks table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - TmsConsistency-checks table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - Checking if TmsConsistency-checks table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - Checking if TmsConsistency-checks table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - TmsConsistency-checks table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - Checking if TmsConsistency-checks table exists DONE....
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Validating Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Opening file...
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Number of sheets in book2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total study conditions found: 3
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total conditions found: 6
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total factors found: 9
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SOWDAT_date (date)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: EMERGE_E/N/L (E/N/L)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: OTHOBS_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: IRRIGD_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SOILCL_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SOILTX_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SOILPH_real T (real T)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: ALTOXI_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FERKG1_kg/ha (kg/ha)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: HERBIC_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FUNGIC_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: PESTIC_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FERTAP_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read END
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - ------------------- INVALID TEMPLATE: /Users/Oziel/Desktop/_IMIS_Trial NOPLOT.xls
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Validating Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Opening file...
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Number of sheets in book2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total study conditions found: 3
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total conditions found: 6
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total factors found: 9
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SOWDAT_date (date)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: EMERGE_E/N/L (E/N/L)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: OTHOBS_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: IRRIGD_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SOILCL_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SOILTX_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SOILPH_real T (real T)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: ALTOXI_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FERKG1_kg/ha (kg/ha)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: HERBIC_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FUNGIC_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: PESTIC_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FERTAP_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read END
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Opening file...
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Number of sheets in book2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total study conditions found: 3
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total conditions found: 6
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total factors found: 9
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SOWDAT_date (date)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: EMERGE_E/N/L (E/N/L)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: OTHOBS_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: IRRIGD_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SOILCL_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SOILTX_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SOILPH_real T (real T)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: ALTOXI_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FERKG1_kg/ha (kg/ha)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: HERBIC_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FUNGIC_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: PESTIC_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FERTAP_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read END
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Opening file...
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Number of sheets in book2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total study conditions found: 3
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total conditions found: 6
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total factors found: 9
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SOWDAT_date (date)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: EMERGE_E/N/L (E/N/L)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: OTHOBS_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: IRRIGD_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SOILCL_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SOILTX_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SOILPH_real T (real T)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: ALTOXI_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FERKG1_kg/ha (kg/ha)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: HERBIC_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FUNGIC_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: PESTIC_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FERTAP_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read END
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - Requested for rowIndex 0
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - designList.size() 1
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - bean ibfb.domain.core.DesignBean@36a70903
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - Requested for rowIndex 0
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - designList.size() 1
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - bean ibfb.domain.core.DesignBean@36a70903
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - Requested for rowIndex 0
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - designList.size() 1
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - bean ibfb.domain.core.DesignBean@36a70903
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - Requested for rowIndex 0
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - designList.size() 1
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - bean ibfb.domain.core.DesignBean@36a70903
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Traits table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Traits table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if TmsTransformations table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - TmsTransformations table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if TmsTransformations table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if TmsTransformations table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - TmsTransformations table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if TmsTransformations table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if TmsContinuous-conversion table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - TmsContinuous-conversion table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if TmsContinuous-conversion table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if TmsContinuous-conversion table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - TmsContinuous-conversion table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if TmsContinuous-conversion table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if TmsContinuous-function table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - TmsContinuous-function table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if TmsContinuous-function table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if TmsContinuous-function table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - TmsContinuous-function table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if TmsContinuous-function table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if TmsDiscrete-conversion table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - TmsDiscrete-conversion table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if TmsDiscrete-conversion table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if TmsDiscrete-conversion table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - TmsDiscrete-conversion table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if TmsDiscrete-conversion table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - Checking if TmsConsistency-checks table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - TmsConsistency-checks table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - Checking if TmsConsistency-checks table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - Checking if TmsConsistency-checks table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - TmsConsistency-checks table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - Checking if TmsConsistency-checks table exists DONE....
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Validating Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Opening file...
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Number of sheets in book2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total study conditions found: 3
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total conditions found: 6
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total factors found: 9
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SOWDAT_date (date)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: EMERGE_E/N/L (E/N/L)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: OTHOBS_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: IRRIGD_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SOILCL_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SOILTX_TEXT (TEXT)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: SOILPH_real T (real T)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: ALTOXI_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FERKG1_kg/ha (kg/ha)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: HERBIC_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FUNGIC_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: PESTIC_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: FERTAP_Y/N (Y/N)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read END
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - ------------------- INVALID TEMPLATE: /Users/Oziel/Desktop/_IMIS_Trial NOPLOT.xls

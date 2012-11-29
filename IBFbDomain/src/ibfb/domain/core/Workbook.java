@@ -33,6 +33,7 @@ public class Workbook {
     public static final String TRIAL_INSTANCE_NUMBER_ENUMERATED_N = "TRIALINSTANCENUMBERENUMERATEDN";
     public static final String GERMPLASM_ENTRY_NUMBER_ENUMERATED_N = "GERMPLASMENTRYNUMBERENUMERATEDN";
     public static final String FIELD_PLOT_NUMBER_ENUMERATED_N = "FIELDPLOTNUMBERENUMERATEDN";
+    public static final String FIELD_PLOT_NESTED_NUMBER_ENUMERATED_N = "FIELDPLOTNESTEDNUMBERENUMERATEDN";
     public static final String CHECK_CODE_ASSIGNED = "CHECKCODEASSIGNED";
     private static final List<String> constraintWords = new ArrayList<String>();
     private Study study;
@@ -667,7 +668,7 @@ public class Workbook {
                     && factor.getFactorName().equals(factor.getLabel())) {
                 hasGermplasmEntry = true;
             }
-            if (FIELD_PLOT_NUMBER_ENUMERATED_N.equals(text)
+            if (FIELD_PLOT_NESTED_NUMBER_ENUMERATED_N.equals(text)
                     && factor.getFactorName().equals(factor.getLabel())) {
                 hasFieldPlot = true;
             }
@@ -685,7 +686,7 @@ public class Workbook {
         
         if (!hasFieldPlot) {
             validationMessage = validationMessage + "\nProperty = FIELD PLOT  \n"
-                    + "Scale = NUMBER \n"
+                    + "Scale = NESTED NUMBER \n"
                     + "Method = ENUMERATED";
         }
         
