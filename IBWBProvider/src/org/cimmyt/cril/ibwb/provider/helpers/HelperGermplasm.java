@@ -267,7 +267,17 @@ public class HelperGermplasm {
         //names
         //names.setNid(userId);//nid = autoincrement
         names.setGid(germplsm.getGid());//gid = germplasm
-        names.setNtype(5);//ntype = 5
+        
+        if (germplsm.getMethn() == Methods.UNKNOWN_DERIVATIVE_METHOD_SF ) {
+            names.setNtype(Names.DERIVATIVE_NAME);
+        } else {
+            if (germplsm.getMethn() == Methods.UNKNOWN_GENERATIVE_METHOD_SF && names.getNval().contains(Names.SLASH_SEPARATOR)) {
+                names.setNtype(Names.CROSS_NAME);
+            } else if (germplsm.getMethn() == Methods.UNKNOWN_GENERATIVE_METHOD_SF && ! names.getNval().contains(Names.SLASH_SEPARATOR)) {
+                names.setNtype(Names.UNNAMED_CROSS);
+            }
+        }
+        
         // tmsanchez 20120424
         names.setNstat(1);//nstat = 0
 
