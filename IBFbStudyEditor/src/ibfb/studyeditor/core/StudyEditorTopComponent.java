@@ -31,6 +31,7 @@ import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.io.File;
 import java.text.MessageFormat;
+import java.text.NumberFormat;
 import java.util.*;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -2378,6 +2379,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         boolean conRCBD = false;
         boolean conUnreplicated = false;
         boolean conIndividual = false;
+        boolean conNested=false;
 
         boolean hayFactores = !myWorkbook.getOtherFactors().isEmpty();
 
@@ -3115,6 +3117,10 @@ public final class StudyEditorTopComponent extends TopComponent {
         TableColumnModel tcm = this.jTableEntries.getColumnModel();
         GermplasmEntriesTableModel entriesTableModel = (GermplasmEntriesTableModel) this.jTableEntries.getModel();
         int total = Integer.parseInt(this.jTextFieldEntries.getText());
+        
+        NumberFormat numberFormat = NumberFormat.getInstance();
+        numberFormat.setMaximumFractionDigits(0);
+        
         for (int i = 0; i < total; i++) {
             for (int j = 0; j < totalRep; j++) {
                 Object[] rowToAdd = new Object[model.getColumnCount()];
@@ -3128,7 +3134,13 @@ public final class StudyEditorTopComponent extends TopComponent {
                     rowToAdd[model.getHeaderIndex(ObservationsTableModel.BLOCK)] = 1;
                 }
 
-                rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = i + 1;
+                //A2*10^(TRUNC(LOG10(MAX(16,5,22)))+1)+B2                
+                
+                int resInt=(int)java.lang.Math.floor(java.lang.Math.log10(total))+1;                                
+                int newPlot=(trial*((int)(Math.pow(10, resInt))))+(i+1);                                                            
+                rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = newPlot;
+                //  rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = i;
+                  
                 //rowToAdd[model.getHeaderIndex(ObservationsTableModel.ENTRY)] = i + 1;
                 int entriesColIndex = 0;
                 for (Factor factor : entriesTableModel.getFactorHeaders()) {

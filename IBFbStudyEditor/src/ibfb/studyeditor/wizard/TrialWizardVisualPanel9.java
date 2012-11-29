@@ -400,6 +400,7 @@ public final class TrialWizardVisualPanel9 extends JPanel {
         boolean conRCBD = false;
         boolean conUnreplicated = false;
         boolean conIndividual=false;
+        boolean conNested=false;
         
         
         designsUtils.setGermplasmEntries(Integer.parseInt(this.jTextFieldEntries.getText()));
@@ -433,6 +434,7 @@ public final class TrialWizardVisualPanel9 extends JPanel {
                     conIndividual = true;
                 } else if (myWorkbook.getConditions().get(i).getScale().toUpperCase().equals("NESTED NUMBER")) {
                     conIndividual = true;
+                    conNested=true;
                 }
                 break;
             } 
