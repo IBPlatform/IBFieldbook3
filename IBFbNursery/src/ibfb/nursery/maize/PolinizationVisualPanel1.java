@@ -10,6 +10,7 @@ public final class PolinizationVisualPanel1 extends JPanel {
 
     public PolinizationVisualPanel1() {
         initComponents();
+        changeLabels();
     }
 
     @Override
@@ -233,4 +234,8 @@ public final class PolinizationVisualPanel1 extends JPanel {
     private javax.swing.JRadioButton jRadioButtonIndividual;
     private javax.swing.JRadioButton jRadioButtonSib;
     // End of variables declaration//GEN-END:variables
+
+    private void changeLabels() {
+       
+    }
 }

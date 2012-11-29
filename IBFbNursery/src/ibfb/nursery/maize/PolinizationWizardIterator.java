@@ -52,16 +52,24 @@ public final class PolinizationWizardIterator implements WizardDescriptor.Iterat
                     jc.putClientProperty(WizardDescriptor.PROP_AUTO_WIZARD_STYLE, true);
                     jc.putClientProperty(WizardDescriptor.PROP_CONTENT_DISPLAYED, true);
                     jc.putClientProperty(WizardDescriptor.PROP_CONTENT_NUMBERED, true);
+                    jc.putClientProperty(WizardDescriptor.PROP_AUTO_WIZARD_STYLE, true);
                     jc.putClientProperty("WizardPanel_image", ImageUtilities.loadImage("ibfb/nursery/images/logoWizardMaize.png", false));
 
                 }
             }
         }
+        
+        
+        
+        
         return panels;
     }
 
     @Override
     public WizardDescriptor.Panel<WizardDescriptor> current() {
+        
+        
+        
         return getPanels().get(index);
     }
 

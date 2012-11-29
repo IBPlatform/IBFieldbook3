@@ -41,6 +41,9 @@ public class PolinizationWizardPanel1 implements WizardDescriptor.Panel<WizardDe
 
     @Override
     public void readSettings(WizardDescriptor wiz) {
+
+wiz.putProperty("text1", "HOLA");
+        
     }
 
     @Override

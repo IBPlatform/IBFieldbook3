@@ -341,11 +341,11 @@ public final class NurseryVisualPanel5 extends JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cboGermplasmList, 0, 235, Short.MAX_VALUE)))
+                        .addComponent(cboGermplasmList, 0, 241, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -404,11 +404,11 @@ public final class NurseryVisualPanel5 extends JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -650,7 +650,7 @@ public final class NurseryVisualPanel5 extends JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jToolBar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTabbedPane1))
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 337, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1266,7 +1266,49 @@ public final class NurseryVisualPanel5 extends JPanel {
         return hayRepetidos;
     }
 
-    public ArrayList<SequenceEntry> calculaPosicionesSecuencia() {
+        public ArrayList<SequenceEntry> calculaPosicionesSecuencia() {
+        posicionesSecuencia = new ArrayList<int[]>();
+        this.totalEntries = maximo;        
+        int total=maximo;
+        GermplasmEntriesTableModel tableModelChecks = (GermplasmEntriesTableModel) this.jTableFinalList.getModel();
+        int colPosition = tableModelChecks.findColumn("Initial position");
+        int colFreq = tableModelChecks.findColumn("Frequency");    
+        int posicion = Integer.parseInt(tableModelChecks.getValueAt(0, colPosition).toString());
+        int freq = Integer.parseInt(tableModelChecks.getValueAt(0, colFreq).toString());;
+        sequenceList = new ArrayList<SequenceEntry>();
+        int add=0;
+        boolean sePuedeAgregar=true;
+       
+            while (sePuedeAgregar) {
+
+                if (posicion <= total + 1) {
+                    total++;
+                    SequenceEntry sequenceEntry = new SequenceEntry();
+                    sequenceEntry.setPosicion(posicion);
+                    sequenceEntry.setEntrada(add);
+                    sequenceList.add(sequenceEntry);                    
+                    add++;
+
+                    if (add >= tableModelChecks.getRowCount()) {
+                        add = 0;
+                    }
+                }
+
+                if ((total - posicion) >= freq) {
+                    posicion = posicion + freq;
+                    sePuedeAgregar = true;
+                }else{
+                     sePuedeAgregar = false;
+                }
+
+            }
+        
+        
+        
+        return sequenceList;
+    }
+    
+    public ArrayList<SequenceEntry> calculaPosicionesSecuenciaForWheat() {
 
         posicionesSecuencia = new ArrayList<int[]>();
         int restantes = 0;
@@ -1427,8 +1469,7 @@ public final class NurseryVisualPanel5 extends JPanel {
      public ArrayList<Integer> calculaPosicionesSecuenciaInteger() {
           ArrayList<Integer> posiciones = new ArrayList();
           for (int i = 0; i < sequenceList.size(); i++) {
-             posiciones.add(sequenceList.get(i).getPosicion());
-             
+             posiciones.add(sequenceList.get(i).getPosicion());             
          }
           
           return posiciones;
@@ -1630,7 +1671,7 @@ public final class NurseryVisualPanel5 extends JPanel {
         this.frequency = Integer.parseInt(this.jSpinnerFrequency.getValue().toString());
     }
 
-    private void loadPositionIntoTable(List<List<Object>> germplasmData, int colPos) {
+        private void loadPositionIntoTableForWheat(List<List<Object>> germplasmData, int colPos) {
 
         int temp = this.initialPosition;
 
@@ -1647,6 +1688,30 @@ public final class NurseryVisualPanel5 extends JPanel {
                 List<Object> gsm = germplasmData.get(j);
                 gsm.set(colPos, temp);
                 temp = temp + this.frequency + 1;
+            }
+
+
+
+        }
+
+    }
+    private void loadPositionIntoTable(List<List<Object>> germplasmData, int colPos) {
+
+        int temp = this.initialPosition;
+
+        if (this.jRadioButtonPosition.isSelected()) {
+            for (int j = 0; j < germplasmData.size(); j++) {
+                List<Object> gsm = germplasmData.get(j);
+                gsm.set(colPos, temp);
+                temp++;
+            }
+        } else {
+
+
+            for (int j = 0; j < germplasmData.size(); j++) {
+                List<Object> gsm = germplasmData.get(j);
+                gsm.set(colPos, temp);
+                temp = temp + this.frequency;
             }
 
 
