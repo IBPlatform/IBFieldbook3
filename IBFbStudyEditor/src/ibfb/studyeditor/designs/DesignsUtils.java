@@ -546,9 +546,9 @@ public class DesignsUtils {
                         jTableDesign.setValueAt(blockPerReplicate, fila, 4);
                         jTableDesign.setValueAt(userDefinedDesign, fila, 5);
 
-                        if (this.getGermplasmEntries() != block) {
-                            DialogUtil.displayWarning(DesignsUtils.class, "DesignsUtils.noMathEntryNumber");
-                        }
+//                        if (this.getGermplasmEntries() != block) {
+//                            DialogUtil.displayWarning(DesignsUtils.class, "DesignsUtils.noMathEntryNumber");
+//                        }
 
                     } else {
 
