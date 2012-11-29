@@ -854,7 +854,7 @@ public final class InventoryTopComponent extends TopComponent {
         seedStockExists = !traitList.isEmpty();
 
         if (!seedStockExists) {
-            DialogUtil.displayError(NbBundle.getMessage(InventoryTopComponent.class, "traitSeedStockDontExist"));
+            DialogUtil.displayError(NbBundle.getMessage(InventoryTopComponent.class, "InventoryTopComponent.traitSeedStockDontExist"));
         }
 
         return seedStockExists;
