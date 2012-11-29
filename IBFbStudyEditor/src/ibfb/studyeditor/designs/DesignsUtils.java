@@ -709,6 +709,11 @@ public class DesignsUtils {
             CsvReader csvReader = new CsvReader(fileName.toString());
             csvReader.readHeaders();
             headers = csvReader.getHeaders();
+//            for (int i = 0; i < headers.length; i++) {
+//                System.out.println("HEADER: "+headers[i]);
+//                
+//            }
+            
             csvReader.close();
 
         } catch (FileNotFoundException ex) {
