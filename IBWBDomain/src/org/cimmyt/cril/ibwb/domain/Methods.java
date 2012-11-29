@@ -24,6 +24,8 @@ import org.cimmyt.cril.ibwb.domain.filter.BaseFilter;
 public class Methods extends BaseFilter implements Serializable {
     public static final String MTYPE_GENERATIVE = "GEN";
     public static final String MTYPE_DERIVATIVE = "DER";
+    public static final int UNKNOWN_DERIVATIVE_METHOD_SF = 31;
+    public static final int UNKNOWN_GENERATIVE_METHOD_SF = 1;
     
     private static final long serialVersionUID = 1L;
     @Id

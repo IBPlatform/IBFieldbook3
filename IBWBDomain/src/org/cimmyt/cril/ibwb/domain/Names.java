@@ -29,6 +29,12 @@ public class Names extends BaseFilter implements Serializable {
      * pedigree or cross name as well
      */
     public static final int CIMMYT_WHEAT_PEDIGREE = 1029;
+    
+    public static final String SLASH_SEPARATOR = "/";
+    
+    public static final int DERIVATIVE_NAME = 5;
+    public static final int CROSS_NAME = 2;
+    public static final int UNNAMED_CROSS = 3;
 
     @Id
     @Basic(optional = false)
