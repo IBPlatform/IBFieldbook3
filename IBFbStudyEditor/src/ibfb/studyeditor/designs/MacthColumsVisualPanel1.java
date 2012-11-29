@@ -632,7 +632,7 @@ public final class MacthColumsVisualPanel1 extends JPanel {
 
         String[] headers = MacthColumsWizardIterator.headers;
         
-        System.out.println("TAM ITERATOR= "+headers.length);
+       // System.out.println("TAM ITERATOR= "+headers.length);
         
         for (int i = 0; i < headers.length; i++) {
             System.out.println("ELEMENTO: "+headers[i]);
