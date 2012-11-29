@@ -1178,7 +1178,7 @@ public class DesignsUtils {
                 facDesign.get(1).setFounded(true);
             }
 
-            if (myWorkbook.getFactors().get(i).getProperty().toUpperCase().equals("FIELD PLOT") && (myWorkbook.getFactors().get(i).getScale().toUpperCase().equals("NUMBER"))) {
+            if (myWorkbook.getFactors().get(i).getProperty().toUpperCase().equals("FIELD PLOT") && (myWorkbook.getFactors().get(i).getScale().toUpperCase().equals("NESTED NUMBER"))) {
                 facDesign.get(2).setFactorName(myWorkbook.getFactors().get(i).getFactorName());
                 facDesign.get(2).setFactorLabel(myWorkbook.getFactors().get(i).getLabel());
                 facDesign.get(2).setFounded(true);
