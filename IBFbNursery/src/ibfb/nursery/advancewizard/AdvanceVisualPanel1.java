@@ -11,6 +11,7 @@ import java.util.Date;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListCellRenderer;
+import javax.swing.JButton;
 import javax.swing.JPanel;
 import org.cimmyt.cril.ibwb.api.AppServicesProxy;
 import org.cimmyt.cril.ibwb.commongui.ConvertUtils;
@@ -551,6 +552,13 @@ public final class AdvanceVisualPanel1 extends JPanel {
         // {0} will be replaced by WizardDescriptor.Panel.getComponent().getName()
         // {1} will be replaced by WizardDescriptor.Iterator.name()
         wiz.setTitleFormat(new MessageFormat("{0} ({1})"));
+        
+        
+        wiz.setOptions(new Object[] { NotifyDescriptor.CANCEL_OPTION, WizardDescriptor.FINISH_OPTION}); 
+        Object [] options = wiz.getOptions ();
+        JButton originalFinish = (JButton) options [1];
+        originalFinish.setText(NbBundle.getMessage(AdvanceVisualPanel1.class, "AdvanceVisualPanel1.finishButton"));
+       
         wiz.setTitle(NbBundle.getMessage(AdvanceVisualPanel1.class, "AdvanceVisualPanel1.pollination"));
                 
                  

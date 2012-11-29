@@ -1880,6 +1880,8 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
             MethodsClass metodos = new MethodsClass();
             MaizeMethods maizeMethod = null;
             WizardDescriptor wiz = new WizardDescriptor(new AdvanceWizardIterator());
+            wiz.setOptions(new Object[] { NotifyDescriptor.CANCEL_OPTION, WizardDescriptor.FINISH_OPTION        }); 
+                                          
             wiz.setTitleFormat(new MessageFormat("{0} ({1})"));
             wiz.setTitle(NbBundle.getMessage(NurseryEditorTopComponent.class, "NurseryEditorTopComponent.wizard"));
             AdvanceWizardIterator.metodo = getMethodName();

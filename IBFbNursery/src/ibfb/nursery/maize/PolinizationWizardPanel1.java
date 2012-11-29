@@ -20,7 +20,7 @@ public class PolinizationWizardPanel1 implements WizardDescriptor.Panel<WizardDe
     @Override
     public HelpCtx getHelp() {
 
-        return HelpCtx.DEFAULT_HELP;
+        return null;
 
     }
 
