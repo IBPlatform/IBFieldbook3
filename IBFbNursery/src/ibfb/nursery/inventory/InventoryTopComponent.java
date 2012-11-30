@@ -771,7 +771,7 @@ public final class InventoryTopComponent extends TopComponent {
             }
 
             if (model.getValueAt(row, scaleColumn) instanceof Scales) {
-                Scales scale = (Scales)model.getValueAt(row, scaleColumn);
+                Scales scale = (Scales) model.getValueAt(row, scaleColumn);
                 data.setScale(scale.getScaleid());
             } else {
                 data.setScale(0);
@@ -788,7 +788,7 @@ public final class InventoryTopComponent extends TopComponent {
         AppServicesProxy.getDefault().appServices().saveInventoryFromList(listToSave, transactionDate, inventoryDataList, loggedUserId);
 
         String saveMsg = bundle.getString("InventoryTopComponent.inventorySaved");
-        NotifyDescriptor inventorySaved = new NotifyDescriptor.Message(saveMsg  , NotifyDescriptor.INFORMATION_MESSAGE);
+        NotifyDescriptor inventorySaved = new NotifyDescriptor.Message(saveMsg, NotifyDescriptor.INFORMATION_MESSAGE);
         DialogDisplayer.getDefault().notify(inventorySaved);
 
     }
@@ -849,7 +849,20 @@ public final class InventoryTopComponent extends TopComponent {
         seedStockTrait.setOntology(InventoryData.TRAIT_SEED_STOCK_ONTOLOGY);
         seedStockTrait.setTraittype(InventoryData.TRAIT_SEED_STOCK_TRAITTYPE);
 
+        // first search in lower case
         List<Traits> traitList = AppServicesProxy.getDefault().appServices().getListTraits(seedStockTrait, 0, 0, false);
+
+        // if not found in lowercase then search for uppercase
+        if (traitList.isEmpty()) {
+            seedStockTrait.setTrname(InventoryData.TRAIT_SEED_STOCK_TRNAME.toUpperCase());
+            seedStockTrait.setTrabbr(InventoryData.TRAIT_SEED_STOCK_TRABBR.toUpperCase());
+            seedStockTrait.setTrdesc(InventoryData.TRAIT_SEED_STOCK_TRDESC.toUpperCase());
+            seedStockTrait.setTnstat(InventoryData.TRAIT_SEED_STOCK_TNSTAT);
+            seedStockTrait.setTraitGroup(InventoryData.TRAIT_SEED_STOCK_TRAITGROUP.toUpperCase());
+            seedStockTrait.setOntology(InventoryData.TRAIT_SEED_STOCK_ONTOLOGY.toUpperCase());
+            seedStockTrait.setTraittype(InventoryData.TRAIT_SEED_STOCK_TRAITTYPE.toUpperCase());
+            traitList = AppServicesProxy.getDefault().appServices().getListTraits(seedStockTrait, 0, 0, false);
+        }
 
         seedStockExists = !traitList.isEmpty();
 
