@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.util.List;
 //import javax.faces.view.Location;
 import org.cimmyt.cril.ibwb.domain.*;
+import org.cimmyt.cril.ibwb.domain.constants.TypeDB;
 import org.cimmyt.cril.ibwb.domain.inventory.InventoryData;
 import org.cimmyt.cril.ibwb.domain.util.WheatData;
 
@@ -1413,7 +1414,7 @@ public interface CommonServices {
 
     public List<Listdata> getListListdataFiltro(Listdata filter, int start, int pageSize, boolean paged);
     
-    public List<Listdata> getListdataByIdlistnms(final Integer idListnms);
+    public List<Listdata> getListdataByIdlistnms(final Integer idListnms, TypeDB typeDb);
 
     //-----------------------------------Listnms---------------------------
     /**
