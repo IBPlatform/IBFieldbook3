@@ -16,6 +16,7 @@ import org.cimmyt.cril.ibwb.domain.util.WheatData;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
+import org.hibernate.Session;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Disjunction;
@@ -428,4 +429,25 @@ public class ListdataDAO extends AbstractDAO<Listdata, ListdataPK> {
             }
         }
     }    
+    
+    /**
+     * Gets all Lrectidbylist according to given list
+     * @param List id
+     */
+    public List<Integer> getLRecidListByListId(final Integer listId) {
+        List<Integer> lrecidList = new ArrayList<Integer>();
+        
+        String queryString = "select listdataPK.lrecid from Listdata where  listdataPK.listid = ? ";
+        lrecidList = getHibernateTemplate().find(queryString,listId);
+//        lrecidList = getHibernateTemplate().executeFind(new HibernateCallback() {
+//
+//            @Override
+//            public Object doInHibernate(Session session) throws HibernateException, SQLException {
+//                
+//            }
+//        });
+        return lrecidList;
+        
+    }
+            
 }

@@ -2,11 +2,13 @@ package org.cimmyt.cril.ibwb.provider;
 
 import ibfb.domain.core.Measurement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import org.cimmyt.cril.ibwb.api.*;
 import org.cimmyt.cril.ibwb.domain.*;
 
 import java.util.List;
 import org.cimmyt.cril.dmsreader.DMSReader;
+import org.cimmyt.cril.ibwb.domain.constants.TypeDB;
 import org.cimmyt.cril.ibwb.domain.inventory.InventoryData;
 import org.cimmyt.cril.ibwb.domain.util.WheatData;
 
@@ -359,8 +361,9 @@ public class CommonServicesImpl implements CommonServices {
 
     /**
      * Retrieve a list of DATA_n records by its Effect ID
+     *
      * @param effectId
-     * @return 
+     * @return
      */
     @Override
     public List<DataC> getDataCByEffectId(final Integer effectId) {
@@ -413,8 +416,9 @@ public class CommonServicesImpl implements CommonServices {
 
     /**
      * Retrieve a list of DATA_n records by its Effect ID
+     *
      * @param effectId
-     * @return 
+     * @return
      */
     @Override
     public List<DataN> getDataNByEffectId(final Integer effectId) {
@@ -673,6 +677,7 @@ public class CommonServicesImpl implements CommonServices {
 
     /**
      * Return a list of grouping factors by study id
+     *
      * @param studyid ID for study
      * @return list of factor or empty list if study id not found
      */
@@ -695,8 +700,8 @@ public class CommonServicesImpl implements CommonServices {
     public List<Factor> getFactorsByFactorsids(List factorIds) {
         return this.factorDAO.getFactorsByFactorsids(factorIds);
     }
-    
-    public Factor getFactorByStudyidAndFname(Integer studyid, String fname){
+
+    public Factor getFactorByStudyidAndFname(Integer studyid, String fname) {
         return this.factorDAO.getFactorByStudyidAndFname(studyid, fname);
     }
 
@@ -1080,10 +1085,15 @@ public class CommonServicesImpl implements CommonServices {
     public List<Listdata> getListListdataFiltro(Listdata filter, int start, int pageSize, boolean paged) {
         return listdataDAO.getList(filter, start, pageSize, paged);
     }
-    
-    public List<Listdata> getListdataByIdlistnms(Integer idListnms){
-        List<Dmsattr> dmsattrList = dmsattrDAO.getDmsAttributesByListId(idListnms);
-        return listdataDAO.getListdataByIdlistnms(idListnms,dmsattrList);
+
+    public List<Listdata> getListdataByIdlistnms(Integer idListnms, TypeDB typeDB) {
+        List<Integer> lrecIdList = new ArrayList<Integer>();
+        List<Dmsattr> dmsattrList = new ArrayList<Dmsattr>();
+        if (typeDB.equals(TypeDB.IWIS)) {
+            lrecIdList = listdataDAO.getLRecidListByListId(idListnms);
+            dmsattrList = dmsattrDAO.getDmsAttributesByListId(idListnms, lrecIdList);
+        }
+        return listdataDAO.getListdataByIdlistnms(idListnms, dmsattrList);
     }
 
 //-----------------------------------Listnms---------------------------
@@ -1129,14 +1139,16 @@ public class CommonServicesImpl implements CommonServices {
 
     /**
      * Checks if a List already exists in local
+     *
      * @param listName
-     * @return 
+     * @return
      */
     @Override
     public boolean existGermplasmListInLocal(String listName) {
         return listnmsDAO.existGermplasmListName(listName);
     }
 //-----------------------------------Location---------------------------
+
     @Override
     public void addLocation(Location location) {
         this.locationDAO.create(location);
@@ -1179,7 +1191,7 @@ public class CommonServicesImpl implements CommonServices {
     public List<Location> getLocationsByCountryLocidRange(final Integer countryId, final Integer fromLocid, final Integer toLocid) {
         return locationDAO.getLocationsByCountryLocidRange(countryId, fromLocid, toLocid);
     }
-    
+
 //-----------------------------------Locdes---------------------------
     @Override
     public void addLocdes(Locdes locdes) {
@@ -1353,37 +1365,38 @@ public class CommonServicesImpl implements CommonServices {
     public List<Names> getListNames(Names filter, int start, int pageSize, boolean paged) {
         return namesDAO.getList(filter, start, pageSize, paged);
     }
-    
-    public String getNextMaxForBCID(String cadena, Integer ntype){
+
+    public String getNextMaxForBCID(String cadena, Integer ntype) {
         return namesDAO.getNextMaxForBCID(cadena, ntype);
     }
-    
-    public Names getNamesByGid(Germplsm germplasm, Boolean preferido){
+
+    public Names getNamesByGid(Germplsm germplasm, Boolean preferido) {
         return namesDAO.getNamesByGid(germplasm, preferido);
     }
-    
-    public Integer getMaxForSelection(String cadena, Integer ntype){
+
+    public Integer getMaxForSelection(String cadena, Integer ntype) {
         return namesDAO.getMaxForSelection(cadena, ntype);
     }
-    
-    public Listnms getNamesCentral(final Listnms listnms){
+
+    public Listnms getNamesCentral(final Listnms listnms) {
         return namesDAO.getNamesCentral(listnms);
     }
-    
-    public Listnms getNamesLocal(final Listnms listnms){
+
+    public Listnms getNamesLocal(final Listnms listnms) {
         return namesDAO.getNamesLocal(listnms);
     }
-    
+
     /**
-     * Gets a list for Wheat Data (cimmyt) related to BCID, Selection history
-     * 1. It looks for all elements in names where gid are used by a list
+     * Gets a list for Wheat Data (cimmyt) related to BCID, Selection history 1.
+     * It looks for all elements in names where gid are used by a list
+     *
      * @param listId
      * @return Gets a list for Wheat Data (cimmyt)
      */
     @Override
     public List<WheatData> getDataForCimmytWheat(final Integer listId) {
         return namesDAO.getDataForCimmytWheat(listId);
-    }    
+    }
 
 //-----------------------------------Obsunit---------------------------
     @Override
@@ -1425,10 +1438,11 @@ public class CommonServicesImpl implements CommonServices {
     }
 
     /**
-     * Get number of rows for an effect id.  For example you can retrieve row number
-     * for Measurement Effect
+     * Get number of rows for an effect id. For example you can retrieve row
+     * number for Measurement Effect
+     *
      * @param effectId
-     * @return 
+     * @return
      */
     @Override
     public int getObservationsCount(final Integer effectId) {
@@ -1437,6 +1451,7 @@ public class CommonServicesImpl implements CommonServices {
 
     /**
      * Gets a list of observations unit for a effect id
+     *
      * @param effectId Effect Id to search
      * @return List of observations units or empty list
      */
@@ -1485,6 +1500,7 @@ public class CommonServicesImpl implements CommonServices {
 
     /**
      * Return a list of Oindex by it represno
+     *
      * @param represno respresno to search
      * @return List of Oindex or empty list if not records match
      */
@@ -1959,7 +1975,7 @@ public class CommonServicesImpl implements CommonServices {
             String nombreTrial) {
         return dMSReaderDAO.getTrialRandomization(studyId, trialFactorId, factoresPrincipales, factoresSalida, nombreTrial);
     }
-    
+
     public List<Measurement> getTrialRandomizationVeryFast(
             Integer studyId,
             Integer trialFactorId,
@@ -1968,7 +1984,7 @@ public class CommonServicesImpl implements CommonServices {
             String nombreTrial) {
         return dMSReaderDAO.getTrialRandomizationVeryFast(studyId, trialFactorId, factoresPrincipales, factoresSalida, nombreTrial);
     }
-    
+
     public ResultSet getTrialRandomizationFast(
             Integer studyId,
             Integer trialFactorId,
@@ -1977,25 +1993,21 @@ public class CommonServicesImpl implements CommonServices {
             String nombreTrial) {
         return dMSReaderDAO.getTrialRandomizationFast(studyId, trialFactorId, factoresPrincipales, factoresSalida, nombreTrial);
     }
-    
+
     public StudySearch getListGermplasmAndPlotByStudyidAndTrial(
             StudySearch studySearch) {
         return dMSReaderDAO.getListGermplasmAndPlotByStudyidAndTrial(studySearch);
     }
-    
+
     public StudySearch getListGermplasmAndPlotByStudyidAndTrial(
             StudySearch studySearch,
             List<String> factorsKey,
-            List<String> factorsReturn
-            ) {
+            List<String> factorsReturn) {
         return dMSReaderDAO.getListGermplasmAndPlotByStudyidAndTrial(
-            studySearch,
-            factorsKey,
-            factorsReturn
-            );
+                studySearch,
+                factorsKey,
+                factorsReturn);
     }
-    
-    
 
     public List<Study> getStudysOnlyTrial() {
         return studyDAO.getStudysOnlyTrial();
@@ -2087,6 +2099,7 @@ public class CommonServicesImpl implements CommonServices {
 
     /**
      * Adds or updates an Object TmsScaleCon to database
+     *
      * @param tmsScaleCon Objeto a agregar
      */
     @Override
@@ -2136,6 +2149,7 @@ public class CommonServicesImpl implements CommonServices {
 
     /**
      * Gets a ScaleCon by Measured In ID
+     *
      * @param Measured In ID
      * @return TmsScaleCon Object if found, if not it returns NULL
      */
@@ -2152,6 +2166,7 @@ public class CommonServicesImpl implements CommonServices {
 
     /**
      * Adds or updates an Object TmsScaleCon to database
+     *
      * @param tmsScaleCon Objeto a agregar
      */
     @Override
@@ -2201,6 +2216,7 @@ public class CommonServicesImpl implements CommonServices {
 
     /**
      * Gets a ScaleCon by Measured In ID
+     *
      * @param Measured In ID
      * @return TmsScaleCon Object if found, if not it returns NULL
      */
@@ -2380,11 +2396,10 @@ public class CommonServicesImpl implements CommonServices {
     }
 
     /**
-     * get ID for logged user according to following parameters
-     * USTATUS = 1
-     * UACC = 100 	LOCAL ICIS ADMINISTRATOR 
-     * UTYPE = 422  LOCAL DATABASE ADMINISTRATOR
-     * @return 
+     * get ID for logged user according to following parameters USTATUS = 1 UACC
+     * = 100 LOCAL ICIS ADMINISTRATOR UTYPE = 422 LOCAL DATABASE ADMINISTRATOR
+     *
+     * @return
      */
     @Override
     public Integer getLoggedUserId() {
@@ -2888,12 +2903,13 @@ public class CommonServicesImpl implements CommonServices {
     public void setImsTransactionDAO(ImsTransactionDAO imsTransactionDAO) {
         this.imsTransactionDAO = imsTransactionDAO;
     }
-    
-    
 
     /**
      * Checks if Tratis, Scales and Measuredin tables already exists in database
-     * @return <code>true</code> if exists, <code>false</code> if does not exist.
+     *
+     * @return
+     * <code>true</code> if exists,
+     * <code>false</code> if does not exist.
      */
     @Override
     public boolean existsTratisTable() {
@@ -2911,6 +2927,7 @@ public class CommonServicesImpl implements CommonServices {
     /**
      * Return a list of Variates where variate ID are stored in VEFFECT table
      * according to represno ID
+     *
      * @param represenoId represno ID for resprestn number
      * @return list of Variates
      */
@@ -3077,7 +3094,8 @@ public class CommonServicesImpl implements CommonServices {
     public List<ImsTransaction> getListImsTransaction(ImsTransaction filter, int start, int pageSize, boolean paged) {
         return imsTransactionDAO.getList(filter, start, pageSize, paged);
     }
-  /**
+
+    /**
      * Get information data from a List
      *
      * @param listId Id for LIST
@@ -3087,27 +3105,29 @@ public class CommonServicesImpl implements CommonServices {
     public List<InventoryData> getInventoryDataFromList(final Integer listId) {
         return imsTransactionDAO.getInventoryDataFromList(listId);
     }
-    
+
     /**
      * Gets a different list of Location ID for that list
+     *
      * @param listId
-     * @return 
+     * @return
      */
     @Override
     public List<Integer> locationsForInventoryList(final Integer listId) {
         return imsTransactionDAO.locationsForInventoryList(listId);
     }
-    
+
     /**
      * Gets a different list of Scales ID for that list
+     *
      * @param listId
-     * @return 
+     * @return
      */
     @Override
     public List<Integer> scalesForInventoryList(final Integer listId) {
         return imsTransactionDAO.scalesForInventoryList(listId);
     }
-    
+
     //-----------------------------------ContinuousConversion---------------------------
     @Override
     public void addContinuousConversion(ContinuousConversion continuousConversion) {
@@ -3148,17 +3168,17 @@ public class CommonServicesImpl implements CommonServices {
     public List<ContinuousConversion> getListContinuousConversion(ContinuousConversion filter, int start, int pageSize, boolean paged) {
         return this.getContinuousConversionDAO().getList(filter, start, pageSize, paged);
     }
-    
+
     @Override
-    public boolean existsTableContinuousConversion(){
+    public boolean existsTableContinuousConversion() {
         return this.getContinuousConversionDAO().existsTable();
     }
-    
+
     @Override
-    public void createTableContinuousConversion(){
+    public void createTableContinuousConversion() {
         this.getContinuousConversionDAO().createTable();
     }
-    
+
     //-----------------------------------ContinuousFunction---------------------------
     @Override
     public void addContinuousFunction(ContinuousFunction continuousFunction) {
@@ -3199,17 +3219,17 @@ public class CommonServicesImpl implements CommonServices {
     public List<ContinuousFunction> getListContinuousFunction(ContinuousFunction filter, int start, int pageSize, boolean paged) {
         return this.getContinuousFunctionDAO().getList(filter, start, pageSize, paged);
     }
-    
+
     @Override
-    public boolean existsTableContinuousFunction(){
+    public boolean existsTableContinuousFunction() {
         return this.getContinuousFunctionDAO().existsTable();
     }
-    
+
     @Override
-    public void createTableContinuousFunction(){
+    public void createTableContinuousFunction() {
         this.getContinuousFunctionDAO().createTable();
     }
-    
+
     //-----------------------------------DiscreteConversion---------------------------
     @Override
     public void addDiscreteConversion(DiscreteConversion discreteConversion) {
@@ -3250,17 +3270,17 @@ public class CommonServicesImpl implements CommonServices {
     public List<DiscreteConversion> getListDiscreteConversion(DiscreteConversion filter, int start, int pageSize, boolean paged) {
         return this.getDiscreteConversionDAO().getList(filter, start, pageSize, paged);
     }
-    
+
     @Override
-    public boolean existsTableDiscreteConversion(){
+    public boolean existsTableDiscreteConversion() {
         return this.getDiscreteConversionDAO().existsTable();
     }
-    
+
     @Override
-    public void createTableDiscreteConversion(){
+    public void createTableDiscreteConversion() {
         this.getDiscreteConversionDAO().createTable();
     }
-    
+
     //-----------------------------------Transformations---------------------------
     @Override
     public void addTransformations(Transformations transformations) {
@@ -3301,17 +3321,17 @@ public class CommonServicesImpl implements CommonServices {
     public List<Transformations> getListTransformations(Transformations filter, int start, int pageSize, boolean paged) {
         return this.getTransformationsDAO().getList(filter, start, pageSize, paged);
     }
-    
+
     @Override
-    public boolean existsTableTransformations(){
+    public boolean existsTableTransformations() {
         return this.getTransformationsDAO().existsTable();
     }
-    
+
     @Override
-    public void createTableTransformations(){
+    public void createTableTransformations() {
         this.getTransformationsDAO().createTable();
     }
-    
+
     //-----------------------------------TmsConsistencyChecks---------------------------
     @Override
     public void addTmsConsistencyChecks(TmsConsistencyChecks tmsConsistencyChecks) {
@@ -3352,17 +3372,16 @@ public class CommonServicesImpl implements CommonServices {
     public List<TmsConsistencyChecks> getListTmsConsistencyChecks(TmsConsistencyChecks filter, int start, int pageSize, boolean paged) {
         return this.getTmsConsistencyChecksDAO().getList(filter, start, pageSize, paged);
     }
-    
+
     @Override
-    public boolean existsTableTmsConsistencyChecks(){
+    public boolean existsTableTmsConsistencyChecks() {
         return this.getTmsConsistencyChecksDAO().existsTable();
     }
-    
+
     @Override
-    public void createTableTmsConsistencyChecks(){
+    public void createTableTmsConsistencyChecks() {
         this.getTmsConsistencyChecksDAO().createTable();
     }
-    
 
     /**
      * @return the continuousConversionDAO

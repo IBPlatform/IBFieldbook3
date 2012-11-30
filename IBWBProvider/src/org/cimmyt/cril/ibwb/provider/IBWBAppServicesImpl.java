@@ -717,16 +717,22 @@ public class IBWBAppServicesImpl implements AppServices {
     public Listnms getFullListnms(Integer idListnms) {
         Listnms listnms;
         if (idListnms.intValue() < 0) {
+
             listnms = this.serviciosLocal.getListnms(idListnms);
-            listnms.setLisdatas(this.serviciosLocal.getListdataByIdlistnms(idListnms));
+
+            listnms.setLisdatas(this.serviciosLocal.getListdataByIdlistnms(idListnms, getTypeDB()));
             listnms = this.serviciosLocal.getNamesLocal(listnms);
-            listnms = this.serviciosCentral.getNamesCentral(listnms);
+            if (getTypeDB().equals(TypeDB.IWIS)) {
+                listnms = this.serviciosCentral.getNamesCentral(listnms);
+            }
             //Recuperar la informacion local pripero y despues la central
         } else {
             listnms = this.serviciosCentral.getListnms(idListnms);
-            listnms.setLisdatas(this.serviciosCentral.getListdataByIdlistnms(idListnms));
+            listnms.setLisdatas(this.serviciosCentral.getListdataByIdlistnms(idListnms, getTypeDB()));
             //Recuperar la informacion central
-            listnms = this.serviciosCentral.getNamesCentral(listnms);
+            if (getTypeDB().equals(TypeDB.IWIS)) {
+                listnms = this.serviciosCentral.getNamesCentral(listnms);
+            }
         }
         return listnms;
     }
@@ -1978,70 +1984,70 @@ public class IBWBAppServicesImpl implements AppServices {
             }
         }
     }
-    
+
     //-----------------------------------TmsTransformations---------------------------
     @Override
     public void addTransformations(Transformations transformations) {
         serviciosLocal.addTransformations(transformations);
     }
-    
+
     @Override
     public void updateTransformations(Transformations transformations) {
-        if(transformations.getTransid() > 0){
+        if (transformations.getTransid() > 0) {
             serviciosCentral.updateTransformations(transformations);
-        }else{
+        } else {
             serviciosLocal.updateTransformations(transformations);
         }
     }
-    
+
     @Override
     public void deleteTransformations(Transformations transformations) {
-        if(transformations.getTransid() > 0){
+        if (transformations.getTransid() > 0) {
             serviciosCentral.deleteTransformations(transformations);
-        }else{
+        } else {
             serviciosLocal.deleteTransformations(transformations);
         }
     }
-    
+
     @Override
     public Transformations getTransformations(Transformations transformations) {
-        if(transformations.getTransid() > 0){
+        if (transformations.getTransid() > 0) {
             return serviciosCentral.getTransformations(transformations);
-        }else{
+        } else {
             return serviciosLocal.getTransformations(transformations);
         }
     }
-    
+
     @Override
     public Transformations getTransformations(Integer transid) {
-        if(transid > 0){
+        if (transid > 0) {
             return serviciosCentral.getTransformations(transid);
-        }else{
+        } else {
             return serviciosLocal.getTransformations(transid);
         }
     }
-    
+
     @Override
     public List<Transformations> getTransformationsList() {
         List<Transformations> result = serviciosCentral.getTransformationsList();
-        result.addAll( serviciosLocal.getTransformationsList());
+        result.addAll(serviciosLocal.getTransformationsList());
         return result;
     }
-    
+
     @Override
-    public Transformations getTransformationsByTraididScaleidMethodid(Integer traitid, Integer scaleid, Integer methodid){
+    public Transformations getTransformationsByTraididScaleidMethodid(Integer traitid, Integer scaleid, Integer methodid) {
         HelperTransformations helperTransformations = new HelperTransformations(this, serviciosCentral, serviciosLocal);
         Transformations transformations = helperTransformations.getByTraididScaleidMethodid(traitid, scaleid, methodid);
         return transformations;
     }
-    
+
     @Override
-    public Transformations getTransformationsByVariateid(Integer variateid){
+    public Transformations getTransformationsByVariateid(Integer variateid) {
         HelperTransformations helperTransformations = new HelperTransformations(this, serviciosCentral, serviciosLocal);
         Transformations transformations = helperTransformations.getByVariateid(variateid);
         return transformations;
     }
-    
+
     //-----------------------------------TmsConsistencyChecks---------------------------
     @Override
     public void addTmsConsistencyChecks(TmsConsistencyChecks tmsConsistencyChecks) {
@@ -2050,36 +2056,36 @@ public class IBWBAppServicesImpl implements AppServices {
 
     @Override
     public void updateTmsConsistencyChecks(TmsConsistencyChecks tmsConsistencyChecks) {
-        if(tmsConsistencyChecks.getImplicationid() > 0 ){
+        if (tmsConsistencyChecks.getImplicationid() > 0) {
             serviciosCentral.updateTmsConsistencyChecks(tmsConsistencyChecks);
-        }else{
+        } else {
             serviciosLocal.updateTmsConsistencyChecks(tmsConsistencyChecks);
         }
     }
 
     @Override
     public void deleteTmsConsistencyChecks(TmsConsistencyChecks tmsConsistencyChecks) {
-        if(tmsConsistencyChecks.getImplicationid() > 0 ){
+        if (tmsConsistencyChecks.getImplicationid() > 0) {
             serviciosCentral.deleteTmsConsistencyChecks(tmsConsistencyChecks);
-        }else{
+        } else {
             serviciosLocal.deleteTmsConsistencyChecks(tmsConsistencyChecks);
         }
     }
-    
+
     @Override
     public TmsConsistencyChecks getTmsConsistencyChecks(TmsConsistencyChecks tmsConsistencyChecks) {
-        if(tmsConsistencyChecks.getImplicationid() > 0){
+        if (tmsConsistencyChecks.getImplicationid() > 0) {
             return serviciosCentral.getTmsConsistencyChecks(tmsConsistencyChecks.getImplicationid());
-        }else{
+        } else {
             return serviciosLocal.getTmsConsistencyChecks(tmsConsistencyChecks.getImplicationid());
         }
     }
 
     @Override
     public TmsConsistencyChecks getTmsConsistencyChecks(Integer transid) {
-        if(transid > 0){
+        if (transid > 0) {
             return serviciosCentral.getTmsConsistencyChecks(transid);
-        }else{
+        } else {
             return serviciosLocal.getTmsConsistencyChecks(transid);
         }
     }
@@ -2090,50 +2096,50 @@ public class IBWBAppServicesImpl implements AppServices {
         listResult.addAll(serviciosLocal.getTmsConsistencyChecksList());
         return listResult;
     }
-    
+
     //-----------------------------------ContinuousConversion---------------------------
     public void addContinuousConversion(ContinuousConversion continuousConversion) {
         serviciosLocal.addContinuousConversion(continuousConversion);
     }
-    
+
     public void updateContinuousConversion(ContinuousConversion continuousConversion) {
-        if(continuousConversion.getTransid() > 0){
+        if (continuousConversion.getTransid() > 0) {
             serviciosCentral.updateContinuousConversion(continuousConversion);
-        }else{
+        } else {
             serviciosLocal.updateContinuousConversion(continuousConversion);
         }
     }
-    
+
     public void deleteContinuousConversion(ContinuousConversion continuousConversion) {
-        if(continuousConversion.getTransid() > 0){
+        if (continuousConversion.getTransid() > 0) {
             serviciosCentral.deleteContinuousConversion(continuousConversion);
-        }else{
+        } else {
             serviciosLocal.deleteContinuousConversion(continuousConversion);
         }
     }
-    
+
     public ContinuousConversion getContinuousConversion(ContinuousConversion continuousConversion) {
-        if(continuousConversion.getTransid() > 0){
+        if (continuousConversion.getTransid() > 0) {
             return serviciosCentral.getContinuousConversion(continuousConversion);
-        }else{
+        } else {
             return serviciosLocal.getContinuousConversion(continuousConversion);
         }
     }
-    
+
     public ContinuousConversion getContinuousConversion(Integer transid) {
-        if(transid > 0){
+        if (transid > 0) {
             return serviciosCentral.getContinuousConversion(transid);
-        }else{
+        } else {
             return serviciosLocal.getContinuousConversion(transid);
         }
     }
-    
+
     public List<ContinuousConversion> getContinuousConversionList() {
-        List<ContinuousConversion> result =  serviciosCentral.getContinuousConversionList();
+        List<ContinuousConversion> result = serviciosCentral.getContinuousConversionList();
         result.addAll(serviciosLocal.getContinuousConversionList());
         return result;
     }
-    
+
     //-----------------------------------ContinuousFunction---------------------------
     @Override
     public void addContinuousFunction(ContinuousFunction continuousFunction) {
@@ -2142,36 +2148,36 @@ public class IBWBAppServicesImpl implements AppServices {
 
     @Override
     public void updateContinuousFunction(ContinuousFunction continuousFunction) {
-        if(continuousFunction.getTransid() > 0){
+        if (continuousFunction.getTransid() > 0) {
             serviciosCentral.updateContinuousFunction(continuousFunction);
-        }else{
+        } else {
             serviciosLocal.updateContinuousFunction(continuousFunction);
         }
     }
 
     @Override
     public void deleteContinuousFunction(ContinuousFunction continuousFunction) {
-        if(continuousFunction.getTransid() > 0){
+        if (continuousFunction.getTransid() > 0) {
             serviciosCentral.deleteContinuousFunction(continuousFunction);
-        }else{
+        } else {
             serviciosLocal.deleteContinuousFunction(continuousFunction);
         }
     }
 
     @Override
     public ContinuousFunction getContinuousFunction(ContinuousFunction continuousFunction) {
-        if(continuousFunction.getTransid() > 0){
+        if (continuousFunction.getTransid() > 0) {
             return serviciosCentral.getContinuousFunction(continuousFunction);
-        }else{
+        } else {
             return serviciosLocal.getContinuousFunction(continuousFunction);
         }
     }
 
     @Override
     public ContinuousFunction getContinuousFunction(Integer transid) {
-        if(transid > 0){
+        if (transid > 0) {
             return serviciosCentral.getContinuousFunction(transid);
-        }else{
+        } else {
             return serviciosLocal.getContinuousFunction(transid);
         }
     }
@@ -2182,7 +2188,7 @@ public class IBWBAppServicesImpl implements AppServices {
         result.addAll(serviciosLocal.getContinuousFunctionList());
         return result;
     }
-    
+
     //-----------------------------------DiscreteConversion---------------------------
     @Override
     public void addDiscreteConversion(DiscreteConversion discreteConversion) {
@@ -2191,36 +2197,36 @@ public class IBWBAppServicesImpl implements AppServices {
 
     @Override
     public void updateDiscreteConversion(DiscreteConversion discreteConversion) {
-        if(discreteConversion.getTransid() > 0){
+        if (discreteConversion.getTransid() > 0) {
             serviciosCentral.updateDiscreteConversion(discreteConversion);
-        }else{
+        } else {
             serviciosLocal.updateDiscreteConversion(discreteConversion);
         }
     }
 
     @Override
     public void deleteDiscreteConversion(DiscreteConversion discreteConversion) {
-        if(discreteConversion.getTransid() > 0){
+        if (discreteConversion.getTransid() > 0) {
             serviciosCentral.deleteDiscreteConversion(discreteConversion);
-        }else{
+        } else {
             serviciosLocal.deleteDiscreteConversion(discreteConversion);
         }
     }
 
     @Override
     public DiscreteConversion getDiscreteConversion(DiscreteConversion discreteConversion) {
-        if(discreteConversion.getTransid() > 0){
+        if (discreteConversion.getTransid() > 0) {
             return serviciosCentral.getDiscreteConversion(discreteConversion);
-        }else{
+        } else {
             return serviciosLocal.getDiscreteConversion(discreteConversion);
         }
     }
 
     @Override
     public DiscreteConversion getDiscreteConversion(Integer transid) {
-        if(transid > 0){
+        if (transid > 0) {
             return serviciosCentral.getDiscreteConversion(transid);
-        }else{
+        } else {
             return serviciosLocal.getDiscreteConversion(transid);
         }
     }
@@ -2231,9 +2237,8 @@ public class IBWBAppServicesImpl implements AppServices {
         result.addAll(serviciosLocal.getDiscreteConversionList());
         return result;
     }
-    
-    //-----------------------------------Udflds---------------------------
 
+    //-----------------------------------Udflds---------------------------
     @Override
     public List<Udflds> getUdfldsList() {
         List<Udflds> udflds = serviciosCentral.getUdfldsList();
@@ -2331,24 +2336,25 @@ public class IBWBAppServicesImpl implements AppServices {
         return userId;
     }
 //-----------------------------------Variate---------------------------
+
     @Override
     public Variate getVariate(Variate variate) {
-        if(variate.getVariatid() > 0){
+        if (variate.getVariatid() > 0) {
             return serviciosCentral.getVariate(variate.getVariatid());
-        }else{
+        } else {
             return serviciosLocal.getVariate(variate.getVariatid());
         }
     }
-    
+
     @Override
     public Variate getVariate(Integer idVariate) {
-        if(idVariate > 0){
+        if (idVariate > 0) {
             return serviciosCentral.getVariate(idVariate);
-        }else{
+        } else {
             return serviciosLocal.getVariate(idVariate);
         }
     }
-    
+
     @Override
     public List<Variate> getVariateList() {
         List<Variate> variates = serviciosCentral.getVariateList();
@@ -2585,7 +2591,7 @@ public class IBWBAppServicesImpl implements AppServices {
         String[] urlArray2 = url2.split(":");
         if (urlArray1.length > 2 && urlArray2.length > 2) {
             for (int i = 0; i < 3; i++) {
-                switch(i){
+                switch (i) {
                     case 1:
                         if (!urlArray1[i].equalsIgnoreCase("mysql")) {
                             return false;
@@ -2599,11 +2605,11 @@ public class IBWBAppServicesImpl implements AppServices {
                 }
             }
         }
-        String ultimaParte1 = urlArray1[urlArray1.length-1];
-        String ultimaParte2 = urlArray2[urlArray2.length-1];
-        String [] ultimaParte1Array = ultimaParte1.split("/");
-        String [] ultimaParte2Array = ultimaParte2.split("/");
-        if(! ultimaParte1Array[0].equals(ultimaParte2Array[0])){
+        String ultimaParte1 = urlArray1[urlArray1.length - 1];
+        String ultimaParte2 = urlArray2[urlArray2.length - 1];
+        String[] ultimaParte1Array = ultimaParte1.split("/");
+        String[] ultimaParte2Array = ultimaParte2.split("/");
+        if (!ultimaParte1Array[0].equals(ultimaParte2Array[0])) {
             return false;
         }
         return mismoServer;

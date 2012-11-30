@@ -1,7 +1,5 @@
 package org.cimmyt.cril.ibwb.provider.dao;
 
-
-
 import org.cimmyt.cril.ibwb.api.dao.AbstractDAO;
 import org.cimmyt.cril.ibwb.domain.Dmsattr;
 import java.sql.SQLException;
@@ -16,13 +14,13 @@ import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.orm.hibernate3.HibernateCallback;
 
 public class DmsattrDAO extends AbstractDAO<Dmsattr, Integer> {
-    
+
     private static Logger log = Logger.getLogger(DmsattrDAO.class);
-    
+
     public DmsattrDAO() {
         super(Dmsattr.class);
     }
-    
+
     @Override
     public Dmsattr prepareToCreate(Dmsattr dmsattr) {
         if (isLocal()) {
@@ -33,79 +31,90 @@ public class DmsattrDAO extends AbstractDAO<Dmsattr, Integer> {
         }
         return dmsattr;
     }
-    
+
     @Override
     protected void buildCriteria(DetachedCriteria criteria, Dmsattr filter) {
         // TODO Auto-generated method stub
     }
-    
+
     @Override
     public String getKeyProperty() {
         return "dmsatid";
     }
-    
+
     @Override
     public String getConsulta(Dmsattr filtro) {
-    	String query = "from Dmsattr as d";
-        
-        if(filtro.getGlobalsearch() == null){
+        String query = "from Dmsattr as d";
+
+        if (filtro.getGlobalsearch() == null) {
             setQuery("d.dmsatid", filtro.getDmsatid());
             setQuery("d.dmsatype", filtro.getDmsatype());
             setQuery("d.dmsatab", filtro.getDmsatab());
             setQuery("d.dmsatrec", filtro.getDmsatrec());
             setQuery("d.dmsatval", filtro.getDmsatval());
-        }else{
+        } else {
             global = true;
-            if(ValidatingDataType.isNumeric(filtro.getGlobalsearch())){
+            if (ValidatingDataType.isNumeric(filtro.getGlobalsearch())) {
                 setQuery("d.dmsatid", Integer.valueOf(filtro.getGlobalsearch()));
                 setQuery("d.dmsatype", Integer.valueOf(filtro.getGlobalsearch()));
                 setQueryInTo("d.dmsatab", filtro.getGlobalsearch());
                 setQuery("d.dmsatrec", Integer.valueOf(filtro.getGlobalsearch()));
                 setQueryInTo("d.dmsatval", filtro.getGlobalsearch());
-            }else{
+            } else {
                 setQueryInTo("d.dmsatab", filtro.getGlobalsearch());
                 setQueryInTo("d.dmsatval", filtro.getGlobalsearch());
             }
         }
         return query;
     }
-    
+
     /**
      * Return a scales
+     *
      * @param scales
      * @return Scales
      */
-    public Dmsattr getDmsattrByDmsatrecAndDmsatype(Dmsattr dmsattr){
+    public Dmsattr getDmsattrByDmsatrecAndDmsatype(Dmsattr dmsattr) {
         StringBuilder sbHql = new StringBuilder();
-        Object [] parametros = {dmsattr.getDmsatype(), dmsattr.getDmsatrec()};
+        Object[] parametros = {dmsattr.getDmsatype(), dmsattr.getDmsatrec()};
         sbHql.append("FROM Dmsattr as d WHERE d.dmsatype = ? and d.dmsatrec = ? ORDER BY d.dmsatid ");
-        if(isLocal()){
+        if (isLocal()) {
             sbHql.append("DESC");
-        }else{
+        } else {
             sbHql.append("ASC");
         }
-    //    log.info(sbHql.toString());
+        //    log.info(sbHql.toString());
         List<Dmsattr> listScales = getHibernateTemplate().find(sbHql.toString(), parametros);
-        if(listScales.size()>0){
+        if (listScales.size() > 0) {
             dmsattr = listScales.get(0);
-        }else{
+        } else {
             dmsattr = null;
         }
         return dmsattr;
     }
-    
-    
- /**
+
+    /**
      * Gets a list of DMSAttrs for each atribute
      *
      * @param listid
      * @return
      */
-    public List<Dmsattr> getDmsAttributesByListId(final Integer listid) {
-        String queryString = "FROM Dmsattr as d WHERE d.dmsatrec in "
-                + " (select l.listdataPK.lrecid from Listdata as l where  l.listdataPK.listid = ?  ) and  "
+    public List<Dmsattr> getDmsAttributesByListId(final Integer listid, final List<Integer> lrecIdList) {
+        final String queryString = "FROM Dmsattr as d WHERE d.dmsatrec in "
+                + " ( :lrecIdList ) and  "
                 + " d.dmsatype in (804,805,806,807,808,809) ";
-        List<Dmsattr> dmsattrList = getHibernateTemplate().find(queryString, listid);
+        //List<Dmsattr> dmsattrList = getHibernateTemplate().find(queryString, listid);
+        List<Dmsattr> dmsattrList = getHibernateTemplate().executeFind(new HibernateCallback() {
+
+            @Override
+            public Object doInHibernate(Session session) throws HibernateException, SQLException {
+                List<Dmsattr> dmsattrList =null;
+                Query query = session.createQuery(queryString);
+                query.setParameterList("lrecIdList", lrecIdList);
+                dmsattrList = query.list();
+                return dmsattrList;
+            }
+        });
         return dmsattrList;
-    }    
+    }
 }
