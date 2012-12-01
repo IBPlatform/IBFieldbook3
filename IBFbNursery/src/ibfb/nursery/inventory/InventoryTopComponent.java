@@ -175,6 +175,7 @@ public final class InventoryTopComponent extends TopComponent {
             }
         });
 
+        jTextFieldLocation.setEditable(false);
         jTextFieldLocation.setText(org.openide.util.NbBundle.getMessage(InventoryTopComponent.class, "InventoryTopComponent.jTextFieldLocation.text")); // NOI18N
         jTextFieldLocation.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -263,8 +264,7 @@ public final class InventoryTopComponent extends TopComponent {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jComboBoxScale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 130, Short.MAX_VALUE)))
+                            .addComponent(jTextFieldAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -740,8 +740,8 @@ public final class InventoryTopComponent extends TopComponent {
 
         for (int row = 0; row < model.getRowCount(); row++) {
             InventoryData data = new InventoryData();
-
-            data.setEntry((Integer) model.getValueAt(row, entryNumberColumn));
+            
+            data.setEntry(ConvertUtils.getValueAsInteger(model.getValueAt(row, entryNumberColumn)));
             data.setDesig((String) model.getValueAt(row, desigColumn));
 
             if (model.getValueAt(row, gidColumn) instanceof String) {
