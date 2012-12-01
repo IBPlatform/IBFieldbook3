@@ -593,10 +593,14 @@ public class Workbook {
                 desigLabel = factor.getFactorName().toUpperCase();
             } else if (GERMPLASM_GID_DBID.equals(text)) {
                 gidLabel = factor.getFactorName().toUpperCase();
-            } else if (FIELD_PLOT_NUMBER.equals(text) || FIELD_PLOT_NESTEDNUMBER.equals(text)) {
+            } else if (FIELD_PLOT_NESTEDNUMBER.equals(text) ) {
                 //PLOT_LABEL =  factor.getLabel().toUpperCase();
                 plotLabel = factor.getFactorName().toUpperCase();
-            } else if (FIELD_PLOT_REP_NUMBER.equals(text)) {
+            } else if (FIELD_PLOT_NUMBER.equals(text)) {
+                //PLOT_LABEL =  factor.getLabel().toUpperCase();
+                plotLabel = factor.getFactorName().toUpperCase();
+            }                     
+            else if (FIELD_PLOT_REP_NUMBER.equals(text)) {
                 repLabel = factor.getFactorName().toUpperCase();
             } else if (FIELD_PLOT_BLOCK_NUMBER.equals(text)) {
                 blockLabel = factor.getFactorName().toUpperCase();
@@ -668,7 +672,7 @@ public class Workbook {
                     && factor.getFactorName().equals(factor.getLabel())) {
                 hasGermplasmEntry = true;
             }
-            if (FIELD_PLOT_NESTED_NUMBER_ENUMERATED_N.equals(text)
+            if ((FIELD_PLOT_NESTED_NUMBER_ENUMERATED_N.equals(text)||(FIELD_PLOT_NUMBER_ENUMERATED_N.equals(text)))
                     && factor.getFactorName().equals(factor.getLabel())) {
                 hasFieldPlot = true;
             }
@@ -702,7 +706,17 @@ public class Workbook {
 
     public static boolean isPlotLabel(String text) {
         String cleanText = getStringWithOutBlanks(text).toUpperCase();
-        return cleanText.equals(FIELD_PLOT_NUMBER) || cleanText.equals(FIELD_PLOT_NESTEDNUMBER);
+        
+        if(cleanText.equals(FIELD_PLOT_NUMBER)){
+           return true; 
+        }else if(cleanText.equals(FIELD_PLOT_NESTEDNUMBER)){
+              return true; 
+        }else{
+              return false; 
+        }
+        
+       
+      //  return cleanText.equals(FIELD_PLOT_NUMBER) || cleanText.equals(FIELD_PLOT_NESTEDNUMBER);
     }
 
     public String getEntryLabel() {
