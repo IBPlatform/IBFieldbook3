@@ -403,10 +403,10 @@ public final class InventoryTopComponent extends TopComponent {
         locationColumn = tableModel.findColumn("LOCATION");
         commentColumn = tableModel.findColumn("COMMENT");
         scaleColumn = tableModel.findColumn("SCALE");
-        entryNumberColumn = tableModel.findColumn("ENTRY NUMBER");
-        entryCodeColumn = tableModel.findColumn("ENTRY CD");
-        desigColumn = tableModel.findColumn("DESIG");
-        gidColumn = tableModel.findColumn("GID");
+        entryNumberColumn = tableModel.getHeaderIndex(GermplasmEntriesTableModel.ENTRY);//;tableModel.findColumn("ENTRY NUMBER");
+        entryCodeColumn =  tableModel.getHeaderIndex(GermplasmEntriesTableModel.ENTRY_CODE); //tableModel.findColumn("ENTRY CD");
+        desigColumn = tableModel.getHeaderIndex(GermplasmEntriesTableModel.DESIG); //tableModel.findColumn("DESIG");
+        gidColumn = tableModel.getHeaderIndex(GermplasmEntriesTableModel.GID); //tableModel.findColumn("GID");
     }
 
     public void setDescription(String description) {
