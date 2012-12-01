@@ -3138,7 +3138,12 @@ public final class StudyEditorTopComponent extends TopComponent {
                 
                 int resInt=(int)java.lang.Math.floor(java.lang.Math.log10(total))+1;                                
                 int newPlot=(trial*((int)(Math.pow(10, resInt))))+(i+1);                                                            
+                
+                if( model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER)>0){
+                      rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER)] = newPlot;
+                  }else{ 
                 rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = newPlot;
+                }
                 //  rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = i;
                   
                 //rowToAdd[model.getHeaderIndex(ObservationsTableModel.ENTRY)] = i + 1;
@@ -3180,7 +3185,21 @@ public final class StudyEditorTopComponent extends TopComponent {
                 if (model.getHeaderIndex(ObservationsTableModel.BLOCK) > 0) {
                     rowToAdd[model.getHeaderIndex(ObservationsTableModel.BLOCK)] = 1;
                 }
-                rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = i + 1;
+               
+                
+                
+                //A2*10^(TRUNC(LOG10(MAX(16,5,22)))+1)+B2                
+                
+                int resInt=(int)java.lang.Math.floor(java.lang.Math.log10(total))+1;                                
+                int newPlot=(trial*((int)(Math.pow(10, resInt))))+(i+1);                                                            
+                
+                if( model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER)>0){
+                      rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER)] = newPlot;
+                  }else{ 
+                
+                rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = newPlot;
+                }
+               // rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = i + 1;
                 //rowToAdd[model.getHeaderIndex(ObservationsTableModel.ENTRY)] = i + 1;
 
                 int entriesColIndex = 0;
@@ -3206,13 +3225,19 @@ public final class StudyEditorTopComponent extends TopComponent {
         int total = Integer.parseInt(this.jTextFieldEntries.getText());
         int plot = 0;
         int repet = 0;
+        
+        //A2*10^(TRUNC(LOG10(MAX(16,5,22)))+1)+B2                                
+                      
         for (int j = 0; j < rep; j++) {
             repet++;
             int vector[] = randomize(total);
-
+  
             for (int i = 0; i < total; i++) {
 
-                plot++;
+               
+                int resInt=(int)java.lang.Math.floor(java.lang.Math.log10(total*rep))+1;                                
+                int newPlot=(trial*((int)(Math.pow(10, resInt))))+(plot+1);  
+                 plot++;
 
                 for (int m = 0; m < totalRep; m++) {
                     Object[] rowToAdd = new Object[model.getColumnCount()];
@@ -3223,7 +3248,13 @@ public final class StudyEditorTopComponent extends TopComponent {
                     if (model.getHeaderIndex(ObservationsTableModel.BLOCK) > 0) {
                         rowToAdd[model.getHeaderIndex(ObservationsTableModel.BLOCK)] = 1;
                     }
-                    rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = plot;
+                    
+                    
+                  if( model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER)>0){
+                      rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER)] = newPlot;
+                  }else{                                 
+                      rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = newPlot;
+                  }
 
 
                     int entriesColIndex = 0;

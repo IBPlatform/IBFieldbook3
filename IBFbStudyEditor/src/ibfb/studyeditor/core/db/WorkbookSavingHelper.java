@@ -345,7 +345,15 @@ public class WorkbookSavingHelper {
                         m.setGid(0);
                     }
                 }
-                colNumber = model.getHeaderIndex(ObservationsTableModel.PLOT);
+                
+                if(model.getHeaderIndex(ObservationsTableModel.PLOT)>0){
+                   colNumber = model.getHeaderIndex(ObservationsTableModel.PLOT);  
+                }else{
+                    colNumber = model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER); 
+                }
+               
+                
+                
                 if (colNumber != -1) {
                     try{
                     m.setPlot(Integer.parseInt(model.getValueAt(row, colNumber).toString()));

@@ -447,6 +447,13 @@ public final class TrialWizardVisualPanel9 extends JPanel {
 
             if (myWorkbook.getFactors().get(i).getProperty().toUpperCase().equals("FIELD PLOT")) {
                 hasFIELDfactorfactor = true;         
+                if(myWorkbook.getFactors().get(i).getScale().toUpperCase().equals("NESTED NUMBER")){
+                    rbtnUseSameDesign.setSelected(true); 
+                    rbtnIndividualDesign.setEnabled(true);
+                }else{
+                    rbtnIndividualDesign.setEnabled(false);
+                }                
+                
             }
 
             if (myWorkbook.getFactors().get(i).getProperty().toUpperCase().equals("BLOCK")) {

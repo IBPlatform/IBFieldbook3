@@ -30,6 +30,7 @@ public class ObservationsTableModel extends AbstractTableModel {
     public static final String CROSS = "CROSSHISTORYPEDIGREESTRING";
     public static final String SOURCE = "SEEDSOURCENAME";
     public static final String PLOT = "FIELDPLOTNESTEDNUMBER";
+    public static final String PLOTNUMBER = "FIELDPLOTNUMBER";
     public static final String REPLICATION = "REPLICATIONNUMBER";
     public static final String BLOCK = "BLOCKNUMBER";
     public static final String ROW = "ROWINLAYOUTNUMBER";
@@ -445,7 +446,20 @@ public class ObservationsTableModel extends AbstractTableModel {
      * @return
      */
     public Map<Integer, Integer> getRowsPerTrial() {
-        int plotColumn = getHeaderIndex(PLOT);
+        
+        int plotColumn =-1;
+        
+        if(getHeaderIndex(PLOT)>0){
+            plotColumn=getHeaderIndex(PLOT);
+        }else{
+             plotColumn=getHeaderIndex(PLOTNUMBER);
+        }
+        
+        
+        
+        
+        
+        
         int trialColumn = 0;//getHeaderIndex(TRIAL);
 
         rowsPerTrial = new HashMap<Integer, Integer>();

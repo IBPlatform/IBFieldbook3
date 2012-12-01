@@ -751,7 +751,11 @@ public class DesignsClass {
                 }
 
                 if (tenemosPlot) {
+                    if( model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER)>0){
+                      rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER)] = plot;
+                  }else{                        
                     rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = plot;
+                    }
                 }
 
                 if (tenemosRow) {
