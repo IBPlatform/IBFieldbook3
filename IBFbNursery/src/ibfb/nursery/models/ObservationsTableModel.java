@@ -24,7 +24,7 @@ public class ObservationsTableModel extends AbstractTableModel {
     public static final String GID = "GERMPLASMIDDBID";
     public static final String CROSS = "CROSSHISTORYPEDIGREESTRING";
     public static final String SOURCE = "SEEDSOURCENAME";
-    public static final String PLOT = "FIELDPLOTNESTEDNUMBER";
+    public static final String PLOT = "FIELDPLOTNUMBER";
     public static final String REPLICATION = "REPLICATIONNUMBER";
     public static final String BLOCK = "BLOCKNUMBER";
     //public static final String CHECK = "ISCHECKNUMBER";

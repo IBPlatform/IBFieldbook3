@@ -2519,7 +2519,10 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
         for (int i = 0; i < total; i++) {
 
             Object[] rowToAdd = new Object[model.getColumnCount()];
-            rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = i + 1;
+            
+         
+           rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = i + 1;
+           
 
 //            if (posiciones.size() > 0) {
 //                System.out.println("ENTRAMOS A PONER ISCHECK");
@@ -2590,7 +2593,12 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
         int colEntry = entriesTableModel.getHeaderIndex(ObservationsTableModel.ENTRY);
         for (int i = 0; i < total; i++) {
             Object[] rowToAdd = new Object[model.getColumnCount()];
-            rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = i + 1;
+            
+             
+            
+           
+           rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = i + 1;
+          
 
             int entriesColIndex = 0;
 
