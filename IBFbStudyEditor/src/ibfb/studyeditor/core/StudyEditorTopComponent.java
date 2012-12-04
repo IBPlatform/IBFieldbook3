@@ -55,6 +55,7 @@ import org.cimmyt.cril.ibwb.domain.ContinuousFunction;
 import org.cimmyt.cril.ibwb.domain.TmsConsistencyChecks;
 import org.cimmyt.cril.ibwb.domain.Traits;
 import org.cimmyt.cril.ibwb.domain.Transformations;
+import org.cimmyt.cril.ibwb.domain.constants.TypeDB;
 import org.netbeans.api.progress.ProgressHandle;
 import org.netbeans.api.progress.ProgressHandleFactory;
 import org.netbeans.api.settings.ConvertAsProperties;
@@ -246,7 +247,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         jRadioButtonViewAllTrialStudy.setVisible(false);
         jSpinnerTrialStudy.setVisible(false);
         pnlExpConditionTrial.setVisible(false);
-        this.jTabbedPaneEditor.setEnabledAt(8, false);
+       // this.jTabbedPaneEditor.setEnabledAt(8, false);
 
     }
 
@@ -3665,8 +3666,9 @@ public final class StudyEditorTopComponent extends TopComponent {
 
         ObservationTableTooltips.assignTooltips(jTableObservations);
         enableMeasurementButtons();
-    
-           if(this.jTabbedPaneEditor.getTabCount()==9){
+             
+        
+        if(giveMeCropFromDatabase()==1){ //If is Maize
             fillMasterData(myWorkbook.getVariates());
             ajustaColumnsTable(this.jTableMaster, 2);
            }
@@ -3955,9 +3957,20 @@ public final class StudyEditorTopComponent extends TopComponent {
         jButtonSaveData.setEnabled(true);
         jButtonExportData.setEnabled(true);
         jButtonImportData.setEnabled(true);
-        if(jTabbedPaneEditor.getTabCount()==9){
+       
+       
+          
+        if(giveMeCropFromDatabase()==1){ //If is Maize
+            System.out.println("TOTAL TAB: "+this.jTabbedPaneEditor.getTabCount());
           this.jTabbedPaneEditor.setEnabledAt(8, true);
+        }else{            
+             if(jTabbedPaneEditor.getTabCount()>8){
+             this.jTabbedPaneEditor.remove(8);
+             }
+        
+        
         }
+        
 
     }
 
@@ -3980,6 +3993,12 @@ public final class StudyEditorTopComponent extends TopComponent {
         if (jtable.getCellEditor() != null) {
             jtable.getCellEditor().stopCellEditing();
         }
+    }
+    
+    public int giveMeCropFromDatabase() {            
+        int theCrop = 2;  //0=Wheat   1=maize   2=other crops
+        TypeDB tipo = AppServicesProxy.getDefault().appServices().getTypeDB();
+        return tipo.getType();
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JPanel JPanelData;
