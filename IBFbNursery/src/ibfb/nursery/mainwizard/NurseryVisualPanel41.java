@@ -42,6 +42,7 @@ import org.netbeans.api.progress.ProgressUtils;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.util.NbBundle;
+import org.openide.util.NbPreferences;
 
 public final class NurseryVisualPanel41 extends JPanel {
 
@@ -500,8 +501,16 @@ public final class NurseryVisualPanel41 extends JPanel {
             selectorArchivo.removeChoosableFileFilter(filtro);
         }
 
-        File myDesktop = new File(FieldbookSettings.getSetting(FieldbookSettings.GERMPLASM_LIST_DEFAULT_FOLDER));
-
+       
+       String customPath=NbPreferences.forModule(NurseryVisualPanel41.class).get("customPathNWVP41", "");        
+        File myDesktop=null;
+        if(!customPath.isEmpty()){
+            myDesktop = new File(customPath);    
+        }else{
+            myDesktop = new File(FieldbookSettings.getSetting(FieldbookSettings.GERMPLASM_LIST_DEFAULT_FOLDER));  
+        } 
+        
+        
         if (myDesktop.exists()) {
             selectorArchivo.setCurrentDirectory(myDesktop);
         } else {
@@ -525,6 +534,7 @@ public final class NurseryVisualPanel41 extends JPanel {
         if (resultado == JFileChooser.CANCEL_OPTION) {
             return;
         }
+        NbPreferences.forModule(NurseryVisualPanel41.class).put("customPathNWVP41", selectorArchivo.getSelectedFile().toString());
 
         this.jTextAreaPath.setText(selectorArchivo.getSelectedFile().toString());
 

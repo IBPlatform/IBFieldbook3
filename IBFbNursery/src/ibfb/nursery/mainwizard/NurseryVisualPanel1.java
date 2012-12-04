@@ -18,6 +18,7 @@ import javax.swing.filechooser.FileFilter;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.util.NbBundle;
+import org.openide.util.NbPreferences;
 
 public final class NurseryVisualPanel1 extends JPanel {
 
@@ -249,7 +250,14 @@ public final class NurseryVisualPanel1 extends JPanel {
         }
 
 
-        File myDesktop = new File(FieldbookSettings.getSetting(FieldbookSettings.TEMPLATES_DEFAULT_FOLDER));
+        
+         String customPath=NbPreferences.forModule(NurseryVisualPanel1.class).get("customPathNWVP1", "");        
+        File myDesktop=null;
+        if(!customPath.isEmpty()){
+            myDesktop = new File(customPath);    
+        }else{
+            myDesktop = new File(FieldbookSettings.getSetting(FieldbookSettings.TEMPLATES_DEFAULT_FOLDER));  
+        } 
 
         System.out.println("IBFbpath ---->" + OSUtils.getTemplatesPath());
 
@@ -268,6 +276,8 @@ public final class NurseryVisualPanel1 extends JPanel {
         if (resultado == JFileChooser.CANCEL_OPTION) {
             return;
         }
+        
+        NbPreferences.forModule(NurseryVisualPanel1.class).put("customPathNWVP1", selectorArchivo.getSelectedFile().toString());
         this.jTextAreaPath.setText(selectorArchivo.getSelectedFile().toString());
 
         WorkbookExcelReader validateExcelReader =  new WorkbookExcelReaderImpl();

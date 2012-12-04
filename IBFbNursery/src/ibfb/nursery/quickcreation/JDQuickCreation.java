@@ -38,6 +38,7 @@ import org.netbeans.api.progress.ProgressHandle;
 import org.netbeans.api.progress.ProgressHandleFactory;
 import org.netbeans.api.progress.ProgressUtils;
 import org.openide.util.NbBundle;
+import org.openide.util.NbPreferences;
 
 public class JDQuickCreation extends javax.swing.JDialog {
 
@@ -812,9 +813,17 @@ public class JDQuickCreation extends javax.swing.JDialog {
         filtros = selectorArchivo.getChoosableFileFilters();
         String path = "";
         path = FieldbookSettings.getSetting(FieldbookSettings.TEMPLATES_DEFAULT_FOLDER);
-        System.out.println("PART TEMPLATES: " + path);
-
-        File myDesktop = new File(path);
+     
+        
+        String customPath=NbPreferences.forModule(JDQuickCreation.class).get("customPathNQC", "");               
+        File myDesktop=null;
+        if(!customPath.isEmpty()){
+            myDesktop = new File(customPath);    
+        }else{
+            myDesktop = new File(FieldbookSettings.getSetting(FieldbookSettings.TEMPLATES_DEFAULT_FOLDER));  
+        }     
+                        
+        
         if (myDesktop.exists()) {
             selectorArchivo.setCurrentDirectory(myDesktop);
         }
@@ -831,6 +840,9 @@ public class JDQuickCreation extends javax.swing.JDialog {
         if (resultado == JFileChooser.CANCEL_OPTION) {
             return;
         }
+       
+        NbPreferences.forModule(JDQuickCreation.class).put("customPathNQC", selectorArchivo.getSelectedFile().toString());
+
         this.jTextAreaPathTemplate.setText(selectorArchivo.getSelectedFile().toString());
         WorkbookExcelReader validateExcelReader = new WorkbookExcelReaderImpl();
         boolean isValidFile = false;
@@ -877,7 +889,20 @@ public class JDQuickCreation extends javax.swing.JDialog {
             selectorArchivo.removeChoosableFileFilter(filtro);
         }
 
-        File myDesktop = new File(FieldbookSettings.getSetting(FieldbookSettings.GERMPLASM_LIST_DEFAULT_FOLDER));
+        
+        
+        String customPath=NbPreferences.forModule(JDQuickCreation.class).get("customPathNQCGsm", "");               
+        File myDesktop=null;
+        if(!customPath.isEmpty()){
+            myDesktop = new File(customPath);    
+        }else{
+            myDesktop = new File(FieldbookSettings.getSetting(FieldbookSettings.GERMPLASM_LIST_DEFAULT_FOLDER));  
+        }     
+        
+        
+        
+        
+        
         if (myDesktop.exists()) {
             selectorArchivo.setCurrentDirectory(myDesktop);
         } else {
@@ -904,6 +929,9 @@ public class JDQuickCreation extends javax.swing.JDialog {
             }
             return;
         }
+        
+        NbPreferences.forModule(JDQuickCreation.class).put("customPathNQCGsm", selectorArchivo.getSelectedFile().toString());
+
         this.jTextAreaPathGSM.setText(selectorArchivo.getSelectedFile().toString());
         this.jButtonFinish.setEnabled(true);
 
