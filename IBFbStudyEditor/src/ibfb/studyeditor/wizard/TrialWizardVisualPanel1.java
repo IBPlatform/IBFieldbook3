@@ -15,6 +15,7 @@ import javax.swing.JTextArea;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.table.DefaultTableModel;
 import org.openide.util.NbBundle;
+import org.openide.util.NbPreferences;
 
 public final class TrialWizardVisualPanel1 extends JPanel {
 
@@ -263,9 +264,18 @@ public final class TrialWizardVisualPanel1 extends JPanel {
         for (int i = 0; i < filtros.length; i++) {
             FileFilter filtro = filtros[i];
             selectorArchivo.removeChoosableFileFilter(filtro);
-        }
-
-        File myDesktop = new File(FieldbookSettings.getSetting(FieldbookSettings.TEMPLATES_DEFAULT_FOLDER));
+        }       
+        
+        
+        String customPath=NbPreferences.forModule(TrialWizardVisualPanel1.class).get("customPathTWVP1", "");        
+        File myDesktop=null;
+        if(!customPath.isEmpty()){
+            myDesktop = new File(customPath);    
+        }else{
+            myDesktop = new File(FieldbookSettings.getSetting(FieldbookSettings.TEMPLATES_DEFAULT_FOLDER));  
+        }       
+        
+       
 
         if (myDesktop.exists()) {
             selectorArchivo.setCurrentDirectory(myDesktop);
@@ -282,6 +292,8 @@ public final class TrialWizardVisualPanel1 extends JPanel {
         if (resultado == JFileChooser.CANCEL_OPTION) {
             return;
         }
+        
+        NbPreferences.forModule(TrialWizardVisualPanel1.class).put("customPathTWVP1", selectorArchivo.getSelectedFile().toString());
         this.jTextAreaPath.setText(selectorArchivo.getSelectedFile().toString());
 
         WorkbookExcelReader validateExcelReader = new WorkbookExcelReaderImpl();
