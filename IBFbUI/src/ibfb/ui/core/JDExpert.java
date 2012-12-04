@@ -36,6 +36,7 @@ import org.netbeans.api.progress.ProgressHandleFactory;
 import org.netbeans.api.progress.ProgressUtils;
 import org.openide.util.Exceptions;
 import org.openide.util.NbBundle;
+import org.openide.util.NbPreferences;
 
 public class JDExpert extends javax.swing.JDialog {
 
@@ -713,8 +714,19 @@ public class JDExpert extends javax.swing.JDialog {
         path = FieldbookSettings.getSetting(FieldbookSettings.TEMPLATES_DEFAULT_FOLDER);
         System.out.println("PART TEMPLATES: " + path);
 
-        File myDesktop = new File(path);
-
+     
+        
+       String customPath=NbPreferences.forModule(JDExpert.class).get("customPathTQC", "");               
+        File myDesktop=null;
+        if(!customPath.isEmpty()){
+            myDesktop = new File(customPath);    
+        }else{
+            myDesktop = new File(FieldbookSettings.getSetting(FieldbookSettings.TEMPLATES_DEFAULT_FOLDER));  
+        }     
+                 
+       
+        
+        
         if (myDesktop.exists()) {
             selectorArchivo.setCurrentDirectory(myDesktop);
         }
@@ -734,6 +746,9 @@ public class JDExpert extends javax.swing.JDialog {
         if (resultado == JFileChooser.CANCEL_OPTION) {
             return;
         }
+      
+        NbPreferences.forModule(JDExpert.class).put("customPathTQC", selectorArchivo.getSelectedFile().toString());
+
         this.jTextAreaPathTemplate.setText(selectorArchivo.getSelectedFile().toString());
         WorkbookExcelReader validateExcelReader = new WorkbookExcelReaderImpl();
         boolean isValidFile = false;
@@ -1152,9 +1167,15 @@ public class JDExpert extends javax.swing.JDialog {
             FileFilter filtro = filtros[i];
             selectorArchivo.removeChoosableFileFilter(filtro);
         }
-
-        //File myDesktop = new File(OSUtils.getGermplasmListsPath());
-        File myDesktop = new File(FieldbookSettings.getSetting(FieldbookSettings.GERMPLASM_LIST_DEFAULT_FOLDER));
+        
+        String customPath=NbPreferences.forModule(JDExpert.class).get("customPathTQCGsm", "");               
+        File myDesktop=null;
+        if(!customPath.isEmpty()){
+            myDesktop = new File(customPath);    
+        }else{
+            myDesktop = new File(FieldbookSettings.getSetting(FieldbookSettings.GERMPLASM_LIST_DEFAULT_FOLDER));  
+        } 
+        
         if (myDesktop.exists()) {
             selectorArchivo.setCurrentDirectory(myDesktop);
         } else {
@@ -1181,6 +1202,9 @@ public class JDExpert extends javax.swing.JDialog {
             }
             return;
         }
+     
+         NbPreferences.forModule(JDExpert.class).put("customPathTQCGsm", selectorArchivo.getSelectedFile().toString());
+
         this.jTextAreaPathGSM.setText(selectorArchivo.getSelectedFile().toString());
         this.jButtonFinishExpert.setEnabled(true);
 
