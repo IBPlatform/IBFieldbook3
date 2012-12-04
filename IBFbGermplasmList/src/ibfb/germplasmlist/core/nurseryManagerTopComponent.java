@@ -48,6 +48,7 @@ import org.openide.util.Exceptions;
 import org.openide.util.Mutex;
 import org.openide.util.NbBundle;
 import org.openide.util.NbBundle.Messages;
+import org.openide.util.NbPreferences;
 import org.openide.windows.TopComponent;
 import org.openide.windows.WindowManager;
 
@@ -1510,7 +1511,15 @@ public final class nurseryManagerTopComponent extends TopComponent {
             selectorArchivo.removeChoosableFileFilter(filtro);
         }
 
-        File myDesktop = new File(FieldbookSettings.getCrossesDefaultFolder());
+        
+        String customPath=NbPreferences.forModule(nurseryManagerTopComponent.class).get("customPathNM", "");               
+        File myDesktop=null;
+        if(!customPath.isEmpty()){
+            myDesktop = new File(customPath);    
+        }else{
+            myDesktop = new File(FieldbookSettings.getCrossesDefaultFolder());  
+        } 
+        
 
         if (myDesktop.exists()) {
             selectorArchivo.setCurrentDirectory(myDesktop);
@@ -1519,6 +1528,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
             selectorArchivo.setSelectedFile(archivoNulo);
         }
 
+        NbPreferences.forModule(nurseryManagerTopComponent.class).put("customPathNM", selectorArchivo.getSelectedFile().toString());
 
         selectorArchivo.setFileSelectionMode(JFileChooser.FILES_ONLY);
         selectorArchivo.addChoosableFileFilter(new ExcelFiltro());
