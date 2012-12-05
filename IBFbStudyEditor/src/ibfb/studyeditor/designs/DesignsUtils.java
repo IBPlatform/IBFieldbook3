@@ -552,8 +552,15 @@ public class DesignsUtils {
                         jTableDesign.setValueAt(blockPerReplicate, fila, 4);
                         jTableDesign.setValueAt(userDefinedDesign, fila, 5);
                         
-                        if (this.getGermplasmEntries() < block) {
-                          
+                        
+                        System.out.println("EL 0: "+designValues[0]);
+                        System.out.println("EL 1: "+designValues[1]);
+                        System.out.println("EL 2: "+designValues[2]);
+                        System.out.println("EL 3: "+designValues[3]);
+                        System.out.println("EL 4: "+designValues[4]);
+                        
+                   // if (this.getGermplasmEntries() < block) {
+                              
                             boolean allInOrder=checkIfEntriesAreAvailable(designBean.getUserDefinedDesign(),designBean);
                             
                             if(!allInOrder){                                
@@ -565,7 +572,7 @@ public class DesignsUtils {
                                 jTableDesign.setValueAt("", fila, 5);
    
                             }                                                                 
-                        }
+                      //  }
 
                     } else {
 
@@ -1265,10 +1272,10 @@ public class DesignsUtils {
             
             
             while (csvReader.readRecord()){
-                int entrada=Integer.parseInt(csvReader.get("ENTRY"));
+                int entrada=Integer.parseInt(csvReader.get(NbPreferences.forModule(MacthColumsWizardPanel1.class).get("ENTRY", "")));
              
                 int index= ArrayUtils.indexOf(entradasModelo,entrada);
-                if(index>0){
+                if(index<0){
                     System.out.println("ENTRADA NO ENCONTRADA.  BUSCANDO-> :"+entrada);
                  return false;   
                 }
