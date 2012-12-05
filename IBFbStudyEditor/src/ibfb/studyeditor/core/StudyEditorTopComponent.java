@@ -3257,11 +3257,10 @@ public final class StudyEditorTopComponent extends TopComponent {
                       rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = newPlot;
                   }
 
-
                     int entriesColIndex = 0;
                     for (Factor factor : entriesTableModel.getFactorHeaders()) {
                         String columnHeader = Workbook.getStringWithOutBlanks(factor.getProperty() + factor.getScale());
-                        rowToAdd[model.getHeaderIndex(columnHeader)] = entriesTableModel.getValueAt(vector[i], entriesColIndex);
+                        rowToAdd[model.getHeaderIndex(columnHeader)] = entriesTableModel.getValueAt(vector[i], entriesColIndex);                                             
                         entriesColIndex++;
                     }
 

@@ -3,8 +3,11 @@ package ibfb.studyeditor.designs;
 import com.csvreader.CsvReader;
 import ibfb.domain.core.DesignBean;
 import ibfb.domain.core.Workbook;
+import ibfb.studyeditor.core.StudyEditorTopComponent;
 import ibfb.studyeditor.core.model.DesignTableModel;
+import ibfb.studyeditor.core.model.GermplasmEntriesTableModel;
 import ibfb.studyeditor.roweditors.AlphaDesignsRowEditor;
+import ibfb.studyeditor.wizard.TrialWizardWizardIterator;
 import java.awt.Color;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -19,6 +22,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableColumn;
+import org.apache.commons.lang.ArrayUtils;
 import org.cimmyt.cril.ibwb.commongui.ConvertUtils;
 import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 import org.cimmyt.cril.ibwb.commongui.FileUtils;
@@ -547,10 +551,21 @@ public class DesignsUtils {
                         jTableDesign.setValueAt(block, fila, 3);
                         jTableDesign.setValueAt(blockPerReplicate, fila, 4);
                         jTableDesign.setValueAt(userDefinedDesign, fila, 5);
-
-//                        if (this.getGermplasmEntries() != block) {
-//                            DialogUtil.displayWarning(DesignsUtils.class, "DesignsUtils.noMathEntryNumber");
-//                        }
+                        
+                        if (this.getGermplasmEntries() < block) {
+                          
+                            boolean allInOrder=checkIfEntriesAreAvailable(designBean.getUserDefinedDesign(),designBean);
+                            
+                            if(!allInOrder){                                
+                                DialogUtil.displayWarning(DesignsUtils.class, "DesignsUtils.noMatchLessEntryNumber");
+                                 jTableDesign.setValueAt(null, fila, 2);
+                                 jTableDesign.setValueAt(null, fila, 3);
+                                 jTableDesign.setValueAt(null, fila, 4);
+                                 jTableDesign.setValueAt(null, fila, 5); 
+                                jTableDesign.setValueAt("", fila, 5);
+   
+                            }                                                                 
+                        }
 
                     } else {
 
@@ -1217,4 +1232,67 @@ public class DesignsUtils {
         }
         DesignsClass.facDesign = facDesign;
     }
+
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    private boolean checkIfEntriesAreAvailable(File userDefinedDesign, DesignBean designBean) {
+        StudyEditorTopComponent studyWindow = TrialWizardWizardIterator.studyTopComponent;
+
+        boolean allEntriesAreAvailable=false;
+        GermplasmEntriesTableModel entriesTableModel = (GermplasmEntriesTableModel) studyWindow.jTableEntries.getModel();
+
+        
+        String[] headers = null;
+        try {
+            CsvReader csvReader = new CsvReader(userDefinedDesign.toString());
+            csvReader.readHeaders();
+            headers = csvReader.getHeaders();
+            
+              
+            int[]entradasModelo=new  int[entriesTableModel.getRowCount()];
+            
+            for (int i = 0; i < entriesTableModel.getRowCount(); i++) {                    
+                    entradasModelo[i]=Integer.parseInt(entriesTableModel.getValueAt(i, 0).toString());                   
+                }
+            
+            
+            while (csvReader.readRecord()){
+                int entrada=Integer.parseInt(csvReader.get("ENTRY"));
+             
+                int index= ArrayUtils.indexOf(entradasModelo,entrada);
+                if(index>0){
+                    System.out.println("ENTRADA NO ENCONTRADA.  BUSCANDO-> :"+entrada);
+                 return false;   
+                }
+            
+               
+            }
+            
+         
+            
+            allEntriesAreAvailable=true;
+            csvReader.close();
+
+        } catch (FileNotFoundException ex) {
+            System.out.println("FILE NOT FOUND. readDATAcsv.\n\t " + ex);
+            
+
+        } catch (IOException e) {
+            System.out.println("IO EXCEPTION. readDATAcsv.\n\t " + e);
+        }
+        catch(Exception e){
+            System.out.println(" EXCEPTION. readDATAcsv.\n\t " + e);
+        }
+        return allEntriesAreAvailable;
+    }
+
+    
 }
