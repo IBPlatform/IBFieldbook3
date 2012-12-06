@@ -181,4 +181,5 @@ public class FieldbookSettings {
         
         return crossesDefaultFolder;
     }
+    
 }
