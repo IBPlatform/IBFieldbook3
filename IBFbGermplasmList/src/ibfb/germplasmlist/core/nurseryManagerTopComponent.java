@@ -30,6 +30,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.table.*;
+import org.apache.log4j.Logger;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
@@ -71,6 +72,7 @@ preferredID = "nurseryManagerTopComponent")
 })
 public final class nurseryManagerTopComponent extends TopComponent {
 
+    private static Logger log = Logger.getLogger(nurseryManagerTopComponent.class);
     private static final int CONVENTION_CIMMYT_WHEAT = 0;
     private static final int CONVENTION_CIMMYT_MAIZE = 1;
     private static final int CONVENTION_OTHER_CROPS = 2;
@@ -948,8 +950,8 @@ public final class nurseryManagerTopComponent extends TopComponent {
     private void saveList() {
 
         changeCursorWaitStatus(true);
-        
-   Integer loggedUserid = AppServicesProxy.getDefault().appServices().getLoggedUserId(FieldbookSettings.getLocalGmsUserId());        
+
+        Integer loggedUserid = AppServicesProxy.getDefault().appServices().getLoggedUserId(FieldbookSettings.getLocalGmsUserId());
 
         Listnms listnms = new Listnms();
         listnms.setListname(this.jTextFieldListName.getText());
@@ -1038,7 +1040,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
 
 
             if (fdesig > 0 && mdesig > 0) {
-                listdata.setGrpname(jTableFinalList.getValueAt(i, fdesig).toString()+"/"+jTableFinalList.getValueAt(i, mdesig));
+                listdata.setGrpname(jTableFinalList.getValueAt(i, fdesig).toString() + "/" + jTableFinalList.getValueAt(i, mdesig));
             } else {
                 listdata.setGrpname("");
             }
@@ -1078,7 +1080,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
             dataList.add(listdata);
 
         }
-     
+
 
         if (jComboBoxConvection.getSelectedIndex() == CONVENTION_CIMMYT_WHEAT) {
 
@@ -1511,15 +1513,15 @@ public final class nurseryManagerTopComponent extends TopComponent {
             selectorArchivo.removeChoosableFileFilter(filtro);
         }
 
-        
-        String customPath=NbPreferences.forModule(nurseryManagerTopComponent.class).get("customPathNM", "");               
-        File myDesktop=null;
-        if(!customPath.isEmpty()){
-            myDesktop = new File(customPath);    
-        }else{
-            myDesktop = new File(FieldbookSettings.getCrossesDefaultFolder());  
-        } 
-        
+
+        String customPath = "";//NbPreferences.forModule(nurseryManagerTopComponent.class).get("customPathNM", "");               
+        File myDesktop = null;
+        if (!customPath.isEmpty()) {
+            myDesktop = new File(customPath);
+        } else {
+            myDesktop = new File(FieldbookSettings.getCrossesDefaultFolder());
+        }
+
 
         if (myDesktop.exists()) {
             selectorArchivo.setCurrentDirectory(myDesktop);
@@ -1528,7 +1530,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
             selectorArchivo.setSelectedFile(archivoNulo);
         }
 
-        NbPreferences.forModule(nurseryManagerTopComponent.class).put("customPathNM", selectorArchivo.getSelectedFile().toString());
+        //NbPreferences.forModule(nurseryManagerTopComponent.class).put("customPathNM", selectorArchivo.getSelectedFile().toString());
 
         selectorArchivo.setFileSelectionMode(JFileChooser.FILES_ONLY);
         selectorArchivo.addChoosableFileFilter(new ExcelFiltro());
@@ -1651,10 +1653,18 @@ public final class nurseryManagerTopComponent extends TopComponent {
             }
 
 
+            log.info("Size for listFemale " + listFemale.size());
+            log.info("Size for listMale " + listMale.size());
+
+            log.info("Getting getGermplasmByListStudyTrialPlotCross ");
+
             List<GermplasmSearch> germplasmSearchs = AppServicesProxy.getDefault().appServices().getGermplasmByListStudyTrialPlotCross(listFemale, listMale);
+
+            log.info("DONE !!!! Getting getGermplasmByListStudyTrialPlotCross ");
 
             for (GermplasmSearch gs : germplasmSearchs) {
 
+                log.info("Value for GMS  var " + gms);
                 gms++;
 
                 int maximo = gs.getMax() + gms;
@@ -1697,18 +1707,21 @@ public final class nurseryManagerTopComponent extends TopComponent {
 
             }
 
+            log.info("Setting model..... ");
             this.jTableFinalList.setModel(modelo);
+            log.info("Setting model DONE..... ");
 
-            ajustaColumnsTable(
-                    this.jTableFinalList);
+            log.info("Adjusting Columns..... ");
+            //ajustaColumnsTable(this.jTableFinalList);
+            log.info("Adjusting Columns DONE..... ");
 
-            changeCursorWaitStatus(
-                    false);
+            changeCursorWaitStatus(false);
 
-            if (this.jTableFinalList.getRowCount()
-                    > 0) {
+            log.info("Enabling button..... ");
+            if (this.jTableFinalList.getRowCount() > 0) {
                 this.jButtonSaveCross.setEnabled(true);
             }
+            log.info("Enabling button DONE..... ");
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("ERROR: " + e);

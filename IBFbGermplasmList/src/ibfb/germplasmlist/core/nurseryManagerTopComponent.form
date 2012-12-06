@@ -141,7 +141,7 @@
                                   <Component id="btnSearchMale" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="60" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="jScrollEntriesDbMale" alignment="1" pref="0" max="32767" attributes="0"/>
+                              <Component id="jScrollEntriesDbMale" alignment="1" pref="467" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="btnRemoveMaleDb" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -164,7 +164,7 @@
                               </Group>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jScrollEntriesDbMale" pref="298" max="32767" attributes="0"/>
+                          <Component id="jScrollEntriesDbMale" pref="308" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="btnRemoveMaleDb" min="-2" max="-2" attributes="0"/>
@@ -360,7 +360,7 @@
                               <Component id="jButtonBrowseExcelMale" alignment="0" max="32767" attributes="1"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jScrollEntiresExcelMale" pref="299" max="32767" attributes="0"/>
+                          <Component id="jScrollEntiresExcelMale" pref="315" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -481,7 +481,7 @@
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jScrollEntriesDbFemale" alignment="1" pref="0" max="32767" attributes="0"/>
+                              <Component id="jScrollEntriesDbFemale" alignment="1" pref="466" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -719,7 +719,7 @@
                               <Component id="jButtonBrowseExcelFemale" alignment="0" max="32767" attributes="1"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jScrollEntiresExcelFemale" pref="299" max="32767" attributes="0"/>
+                          <Component id="jScrollEntiresExcelFemale" pref="315" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="btnRemoveFemaleExcel" min="-2" max="-2" attributes="0"/>
                       </Group>
