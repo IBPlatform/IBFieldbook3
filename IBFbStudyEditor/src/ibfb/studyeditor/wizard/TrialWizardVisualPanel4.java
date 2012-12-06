@@ -637,7 +637,7 @@ public final class TrialWizardVisualPanel4 extends JPanel {
 
        
         
-        String customPath=NbPreferences.forModule(TrialWizardVisualPanel4.class).get("customPathTWVP4", "");        
+        String customPath="";//NbPreferences.forModule(TrialWizardVisualPanel4.class).get("customPathTWVP4", "");        
         File myDesktop=null;
         if(!customPath.isEmpty()){
             myDesktop = new File(customPath);    
@@ -670,7 +670,7 @@ public final class TrialWizardVisualPanel4 extends JPanel {
             return;
         }
         
-        NbPreferences.forModule(TrialWizardVisualPanel4.class).put("customPathTWVP4", selectorArchivo.getSelectedFile().toString());
+        //NbPreferences.forModule(TrialWizardVisualPanel4.class).put("customPathTWVP4", selectorArchivo.getSelectedFile().toString());
 
         this.jTextAreaPath.setText(selectorArchivo.getSelectedFile().toString());
 

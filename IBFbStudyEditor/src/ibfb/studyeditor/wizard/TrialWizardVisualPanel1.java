@@ -267,7 +267,7 @@ public final class TrialWizardVisualPanel1 extends JPanel {
         }       
         
         
-        String customPath=NbPreferences.forModule(TrialWizardVisualPanel1.class).get("customPathTWVP1", "");        
+        String customPath="";//NbPreferences.forModule(TrialWizardVisualPanel1.class).get("customPathTWVP1", "");        
         File myDesktop=null;
         if(!customPath.isEmpty()){
             myDesktop = new File(customPath);    
@@ -293,7 +293,7 @@ public final class TrialWizardVisualPanel1 extends JPanel {
             return;
         }
         
-        NbPreferences.forModule(TrialWizardVisualPanel1.class).put("customPathTWVP1", selectorArchivo.getSelectedFile().toString());
+        //NbPreferences.forModule(TrialWizardVisualPanel1.class).put("customPathTWVP1", selectorArchivo.getSelectedFile().toString());
         this.jTextAreaPath.setText(selectorArchivo.getSelectedFile().toString());
 
         WorkbookExcelReader validateExcelReader = new WorkbookExcelReaderImpl();
