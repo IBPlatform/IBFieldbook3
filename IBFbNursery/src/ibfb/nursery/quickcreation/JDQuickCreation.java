@@ -815,7 +815,7 @@ public class JDQuickCreation extends javax.swing.JDialog {
         path = FieldbookSettings.getSetting(FieldbookSettings.TEMPLATES_DEFAULT_FOLDER);
      
         
-        String customPath=NbPreferences.forModule(JDQuickCreation.class).get("customPathNQC", "");               
+        String customPath="";//NbPreferences.forModule(JDQuickCreation.class).get("customPathNQC", "");               
         File myDesktop=null;
         if(!customPath.isEmpty()){
             myDesktop = new File(customPath);    
@@ -841,7 +841,7 @@ public class JDQuickCreation extends javax.swing.JDialog {
             return;
         }
        
-        NbPreferences.forModule(JDQuickCreation.class).put("customPathNQC", selectorArchivo.getSelectedFile().toString());
+        //NbPreferences.forModule(JDQuickCreation.class).put("customPathNQC", selectorArchivo.getSelectedFile().toString());
 
         this.jTextAreaPathTemplate.setText(selectorArchivo.getSelectedFile().toString());
         WorkbookExcelReader validateExcelReader = new WorkbookExcelReaderImpl();
@@ -891,7 +891,7 @@ public class JDQuickCreation extends javax.swing.JDialog {
 
         
         
-        String customPath=NbPreferences.forModule(JDQuickCreation.class).get("customPathNQCGsm", "");               
+        String customPath="";//NbPreferences.forModule(JDQuickCreation.class).get("customPathNQCGsm", "");               
         File myDesktop=null;
         if(!customPath.isEmpty()){
             myDesktop = new File(customPath);    
@@ -930,7 +930,7 @@ public class JDQuickCreation extends javax.swing.JDialog {
             return;
         }
         
-        NbPreferences.forModule(JDQuickCreation.class).put("customPathNQCGsm", selectorArchivo.getSelectedFile().toString());
+        //NbPreferences.forModule(JDQuickCreation.class).put("customPathNQCGsm", selectorArchivo.getSelectedFile().toString());
 
         this.jTextAreaPathGSM.setText(selectorArchivo.getSelectedFile().toString());
         this.jButtonFinish.setEnabled(true);

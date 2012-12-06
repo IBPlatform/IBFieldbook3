@@ -502,7 +502,7 @@ public final class NurseryVisualPanel41 extends JPanel {
         }
 
        
-       String customPath=NbPreferences.forModule(NurseryVisualPanel41.class).get("customPathNWVP41", "");        
+       String customPath="";//NbPreferences.forModule(NurseryVisualPanel41.class).get("customPathNWVP41", "");        
         File myDesktop=null;
         if(!customPath.isEmpty()){
             myDesktop = new File(customPath);    
@@ -534,7 +534,7 @@ public final class NurseryVisualPanel41 extends JPanel {
         if (resultado == JFileChooser.CANCEL_OPTION) {
             return;
         }
-        NbPreferences.forModule(NurseryVisualPanel41.class).put("customPathNWVP41", selectorArchivo.getSelectedFile().toString());
+        //NbPreferences.forModule(NurseryVisualPanel41.class).put("customPathNWVP41", selectorArchivo.getSelectedFile().toString());
 
         this.jTextAreaPath.setText(selectorArchivo.getSelectedFile().toString());
 
