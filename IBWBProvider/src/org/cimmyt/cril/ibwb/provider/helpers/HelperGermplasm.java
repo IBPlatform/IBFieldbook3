@@ -936,7 +936,9 @@ public class HelperGermplasm {
             listFmale.get(listMale.indexOf(gs)).setNamesMale(gs.getNames());
             listFmale.get(listMale.indexOf(gs)).setSnameMale(gs.getSnameMale());
         }
-
+        log.info("FIN!!!! seteando los datos del male a los objetos GermplasmSearchFmale");
+        
+        log.info("seteando los datos del FEMALE a los objetos GermplasmSearchFmale");
         for (GermplasmSearch gs : listFmale) {
             boolean fmaleFound = false;
             boolean maleFound = false;
@@ -1035,6 +1037,7 @@ public class HelperGermplasm {
                 }
             }
         }
+        log.info("FIN!!!!! seteando los datos del FEMALE a los objetos GermplasmSearchFmale");
         return listFmale;
     }
     
