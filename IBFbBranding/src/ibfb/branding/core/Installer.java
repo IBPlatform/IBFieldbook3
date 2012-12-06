@@ -72,6 +72,8 @@ public class Installer extends ModuleInstall {
 
                 // Change bar title
                 changeTitleBar();
+                
+                // look for logged userid
 
                 TopComponent studyExplorer = WindowManager.getDefault().findTopComponent("StudyExplorerTopComponent");
                 if (studyExplorer != null) {
