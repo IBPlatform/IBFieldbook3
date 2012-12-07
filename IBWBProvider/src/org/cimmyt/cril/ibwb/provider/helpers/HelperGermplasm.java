@@ -88,20 +88,19 @@ public class HelperGermplasm {
             Integer gidWheat = null;
             boolean existWheatName = verifyExistingWheatName(gidWheat, nameGermplasm, listdataT);
 
-            if (existWheatName ) {
-               servicioLocal.addListdata(listdataT);
-               
+            GermplasmSearch gsf = null;
+            GermplasmSearch gsm = null;
+            int i = listGermplsm.lastIndexOf(listdataT);
+            if (i != -1 && i < lgsf.size()) {
+                gsf = lgsf.get(i);
+            }
+            if (i != -1 && i < lgsm.size()) {
+                gsm = lgsm.get(i);
+            }
+            if (existWheatName) {
+                servicioLocal.addListdata(listdataT);
+                saveCimmytDataAtributes(listdataT,gsf,gsm);
             } else {
-
-                GermplasmSearch gsf = null;
-                GermplasmSearch gsm = null;
-                int i = listGermplsm.lastIndexOf(listdataT);
-                if (i != -1 && i < lgsf.size()) {
-                    gsf = lgsf.get(i);
-                }
-                if (i != -1 && i < lgsm.size()) {
-                    gsm = lgsm.get(i);
-                }
 
                 agregarGermPlasmCimmytWheat(nameGermplasm, nameGermplasmBCID, listdataT, listnms, gsf, gsm, queryCenter);
                 //agregarGermPlasmCimmytWheat(nameGermplasm, nameGermplasmBCID, listdataT);
@@ -109,7 +108,7 @@ public class HelperGermplasm {
 
                 listdataT.setListdataPK(new ListdataPK(listnms.getListid(), 0));
                 //servicioLocal.addListdata(listdataT);
-                
+
             }
             listDatas.add(listdataT);
 
@@ -123,7 +122,6 @@ public class HelperGermplasm {
         if (germplsm == null) {
             Names names = verifyByName(nameGermplasm);
             if (names == null) {
-               
             } else {
                 //recuperar names gid
                 listdata.setGid(names.getGid());//Asignando Gid correcto
@@ -134,7 +132,7 @@ public class HelperGermplasm {
         }
         return existWheatName;
     }
-    
+
     public void verificaExistencia(Integer gid, String nameGermplasm, Listdata listdata) {
         Germplsm germplsm = verifyByGid(gid);
         if (germplsm == null) {
@@ -267,17 +265,17 @@ public class HelperGermplasm {
         //names
         //names.setNid(userId);//nid = autoincrement
         names.setGid(germplsm.getGid());//gid = germplasm
-        
-        if (germplsm.getMethn() == Methods.UNKNOWN_DERIVATIVE_METHOD_SF ) {
+
+        if (germplsm.getMethn() == Methods.UNKNOWN_DERIVATIVE_METHOD_SF) {
             names.setNtype(Names.DERIVATIVE_NAME);
         } else {
             if (germplsm.getMethn() == Methods.UNKNOWN_GENERATIVE_METHOD_SF && names.getNval().contains(Names.SLASH_SEPARATOR)) {
                 names.setNtype(Names.CROSS_NAME);
-            } else if (germplsm.getMethn() == Methods.UNKNOWN_GENERATIVE_METHOD_SF && ! names.getNval().contains(Names.SLASH_SEPARATOR)) {
+            } else if (germplsm.getMethn() == Methods.UNKNOWN_GENERATIVE_METHOD_SF && !names.getNval().contains(Names.SLASH_SEPARATOR)) {
                 names.setNtype(Names.UNNAMED_CROSS);
             }
         }
-        
+
         // tmsanchez 20120424
         names.setNstat(1);//nstat = 0
 
@@ -389,7 +387,7 @@ public class HelperGermplasm {
         names.setNdate(UtilDate.getDateAsInteger(new Date()));//ndate añomesdia
         names.setNref(0);//nref 0
         servicioLocal.addNames(names);
-        
+
         names = new Names();
         //names
         //names.setNid(userId);//nid = autoincrement
@@ -397,7 +395,7 @@ public class HelperGermplasm {
         names.setNtype(1029);//pedigri = 1029 
         // tmsanchez 20120424
         names.setNstat(0);//nstat = 0
-        
+
         names.setNuid(userId);//nuid = numero de usuario tienen que pasar o 0
         String arma_pedigree;
         try {
@@ -412,13 +410,13 @@ public class HelperGermplasm {
         names.setNdate(UtilDate.getDateAsInteger(new Date()));//ndate añomesdia
         names.setNref(0);//nref 0
         servicioLocal.addNames(names);
-        
+
         listdata.setGid(germplsm.getGid());
-        
+
         listdata.setGrpname(arma_pedigree);
-        
+
         servicioLocal.addListdata(listdata);
-        
+
         Dmsattr dmsattr = new Dmsattr();
         //Para seleccion
         if (gsf != null && gsm == null) {
@@ -440,7 +438,7 @@ public class HelperGermplasm {
             dmsattr.setDmsatval(gsf.getPlot().toString());//Plot
             servicioLocal.addDmsattr(dmsattr);
         }
-        
+
         //Para cruzas
         if (gsf != null && gsm != null) {
             dmsattr.setDmsatype(Dmsattr.DMSATYPE_FTID);
@@ -460,7 +458,7 @@ public class HelperGermplasm {
             dmsattr.setDmsatrec(listdata.getListdataPK().getLrecid());
             dmsattr.setDmsatval(gsf.getPlot().toString());//Plot
             servicioLocal.addDmsattr(dmsattr);
-            
+
             dmsattr.setDmsatype(Dmsattr.DMSATYPE_MTID);
             dmsattr.setDmsatab(Dmsattr.DMSATYPE_LIST);
             dmsattr.setDmsatrec(listdata.getListdataPK().getLrecid());
@@ -485,7 +483,7 @@ public class HelperGermplasm {
     public static Integer getMethod(String name) {
         int defaultMethod = 1;
         log.info("Getting METHOD for NAME = " + name);
-        
+
         if (name.length() <= 5) {
             log.info("Less or equal than 5 chars" + name);
             if (name.contains("-")) {
@@ -504,7 +502,7 @@ public class HelperGermplasm {
         }
         return defaultMethod;
     }
-    
+
     public static Integer getGnpgs(String name) {
         int defaultGnpgs = 1;
         log.info("Getting Gnpgs for NAME = " + name);
@@ -937,7 +935,7 @@ public class HelperGermplasm {
             listFmale.get(listMale.indexOf(gs)).setSnameMale(gs.getSnameMale());
         }
         log.info("FIN!!!! seteando los datos del male a los objetos GermplasmSearchFmale");
-        
+
         log.info("seteando los datos del FEMALE a los objetos GermplasmSearchFmale");
         for (GermplasmSearch gs : listFmale) {
             boolean fmaleFound = false;
@@ -961,25 +959,25 @@ public class HelperGermplasm {
                 }
             }
 
-            if(gs.getSnameMale().substring(0, 2).equals("F1") && 
-                    gs.getSnameFmale().substring(0, 2).equals("F1")){//Comparar con f1 el inicio de los nombres de ambos
+            if (gs.getSnameMale().substring(0, 2).equals("F1")
+                    && gs.getSnameFmale().substring(0, 2).equals("F1")) {//Comparar con f1 el inicio de los nombres de ambos
                 gs.setCharBCID("D");
 //                gs.setMethodGermplasm(103);
-            }else if(gs.getSnameMale().substring(0, 2).equals("F1") || 
-                    gs.getSnameFmale().substring(0, 2).equals("F1")){//Comparar con f1 el inicio de los nombres de alguno
+            } else if (gs.getSnameMale().substring(0, 2).equals("F1")
+                    || gs.getSnameFmale().substring(0, 2).equals("F1")) {//Comparar con f1 el inicio de los nombres de alguno
                 gs.setCharBCID("T");
 //                gs.setMethodGermplasm(102);
-            }else if(maleFound){//male found
+            } else if (maleFound) {//male found
                 gs.setCharBCID("M");
 //                gs.setMethodGermplasm(107);
-            }else if(fmaleFound){//fmalefound
+            } else if (fmaleFound) {//fmalefound
                 gs.setCharBCID("F");
 //                gs.setMethodGermplasm(107);
-            }else{//simple
+            } else {//simple
                 gs.setCharBCID("S");
 //                gs.setMethodGermplasm(2);
             }
-            
+
 //----------Asignando metodos y letras finales del BCID
             if (gs.getGermplsm().getGnpgs() < 0) {//Inbred female parent
                 if (gs.getGermplsmMale().getGnpgs() < 0) {//Inbred male parent
@@ -1040,7 +1038,7 @@ public class HelperGermplasm {
         log.info("FIN!!!!! seteando los datos del FEMALE a los objetos GermplasmSearchFmale");
         return listFmale;
     }
-    
+
     public static List<Germplsm> getGermplsmListByStudyAndTrial(
             AppServices appServices,
             CommonServices servicioLocal,
@@ -1240,5 +1238,76 @@ public class HelperGermplasm {
         queryReadCenter.setFnamePedigree("cross name");
         queryReadCenter.readFlexPedConfig();
         return queryReadCenter;
+    }
+
+    /**
+     * Save data atributes for germplasm in the linst
+     *
+     * @param listdata
+     * @param gsf
+     * @param gsm
+     */
+    private void saveCimmytDataAtributes(Listdata listdata, GermplasmSearch gsf,
+            GermplasmSearch gsm) {
+        Dmsattr dmsattr = new Dmsattr();
+        //Para seleccion
+        if (gsf != null && gsm == null) {
+            dmsattr.setDmsatype(Dmsattr.DMSATYPE_STID);
+            dmsattr.setDmsatab(Dmsattr.DMSATYPE_LIST);
+            dmsattr.setDmsatrec(listdata.getListdataPK().getLrecid());
+            dmsattr.setDmsatval(gsf.getStudyId().toString());//Studyid
+            servicioLocal.addDmsattr(dmsattr);
+
+            dmsattr.setDmsatype(Dmsattr.DMSATYPE_SOCC);
+            dmsattr.setDmsatab(Dmsattr.DMSATYPE_LIST);
+            dmsattr.setDmsatrec(listdata.getListdataPK().getLrecid());
+            dmsattr.setDmsatval(gsf.getTrial().toString());//Ocurrence
+            servicioLocal.addDmsattr(dmsattr);
+
+            dmsattr.setDmsatype(Dmsattr.DMSATYPE_SENT);
+            dmsattr.setDmsatab(Dmsattr.DMSATYPE_LIST);
+            dmsattr.setDmsatrec(listdata.getListdataPK().getLrecid());
+            dmsattr.setDmsatval(gsf.getPlot().toString());//Plot
+            servicioLocal.addDmsattr(dmsattr);
+        }
+
+        //Para cruzas
+        if (gsf != null && gsm != null) {
+            dmsattr.setDmsatype(Dmsattr.DMSATYPE_FTID);
+            dmsattr.setDmsatab(Dmsattr.DMSATYPE_LIST);
+            dmsattr.setDmsatrec(listdata.getListdataPK().getLrecid());
+            dmsattr.setDmsatval(gsf.getStudyId().toString());//Studyid
+            servicioLocal.addDmsattr(dmsattr);
+
+            dmsattr.setDmsatype(Dmsattr.DMSATYPE_FOCC);
+            dmsattr.setDmsatab(Dmsattr.DMSATYPE_LIST);
+            dmsattr.setDmsatrec(listdata.getListdataPK().getLrecid());
+            dmsattr.setDmsatval(gsf.getTrial().toString());//Ocurrence
+            servicioLocal.addDmsattr(dmsattr);
+
+            dmsattr.setDmsatype(Dmsattr.DMSATYPE_FENT);
+            dmsattr.setDmsatab(Dmsattr.DMSATYPE_LIST);
+            dmsattr.setDmsatrec(listdata.getListdataPK().getLrecid());
+            dmsattr.setDmsatval(gsf.getPlot().toString());//Plot
+            servicioLocal.addDmsattr(dmsattr);
+
+            dmsattr.setDmsatype(Dmsattr.DMSATYPE_MTID);
+            dmsattr.setDmsatab(Dmsattr.DMSATYPE_LIST);
+            dmsattr.setDmsatrec(listdata.getListdataPK().getLrecid());
+            dmsattr.setDmsatval(gsm.getStudyId().toString());//Studyid
+            servicioLocal.addDmsattr(dmsattr);
+
+            dmsattr.setDmsatype(Dmsattr.DMSATYPE_MOCC);
+            dmsattr.setDmsatab(Dmsattr.DMSATYPE_LIST);
+            dmsattr.setDmsatrec(listdata.getListdataPK().getLrecid());
+            dmsattr.setDmsatval(gsm.getTrial().toString());//Ocurrence
+            servicioLocal.addDmsattr(dmsattr);
+
+            dmsattr.setDmsatype(Dmsattr.DMSATYPE_MENT);
+            dmsattr.setDmsatab(Dmsattr.DMSATYPE_LIST);
+            dmsattr.setDmsatrec(listdata.getListdataPK().getLrecid());
+            dmsattr.setDmsatval(gsm.getPlot().toString());//Plot
+            servicioLocal.addDmsattr(dmsattr);
+        }
     }
 }
