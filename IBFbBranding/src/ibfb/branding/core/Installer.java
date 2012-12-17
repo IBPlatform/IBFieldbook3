@@ -53,7 +53,7 @@ public class Installer extends ModuleInstall {
             public void run() {
                 changeCursorWaitStatus(true);
                 
-                
+                AppServicesProxy.getDefault().appServices().readTypeDB();
 
                 String osName = System.getProperty("os.name").toLowerCase();
                 boolean isMacOs = osName.startsWith("mac os x");
