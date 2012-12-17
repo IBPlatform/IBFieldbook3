@@ -2380,7 +2380,6 @@ public final class StudyEditorTopComponent extends TopComponent {
         boolean conRCBD = false;
         boolean conUnreplicated = false;
         boolean conIndividual = false;
-        boolean conNested=false;
 
         boolean hayFactores = !myWorkbook.getOtherFactors().isEmpty();
 
