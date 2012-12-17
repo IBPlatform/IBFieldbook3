@@ -37,6 +37,7 @@ import org.cimmyt.cril.ibwb.api.AppServicesProxy;
 import org.cimmyt.cril.ibwb.commongui.ConvertUtils;
 import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 import org.cimmyt.cril.ibwb.domain.*;
+import org.cimmyt.cril.ibwb.domain.constants.TypeDB;
 import org.netbeans.api.settings.ConvertAsProperties;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
@@ -2771,4 +2772,16 @@ public final class SelectionTopComponent extends TopComponent {
         }
         return selectedMethod;
     }
+    
+        public void selectOptionDB() {
+         TypeDB tipo= AppServicesProxy.getDefault().appServices().getTypeDB();         
+         if(tipo==TypeDB.IWIS){
+             this.jComboBoxConvectionselection.setSelectedIndex(0);             
+         }else if(tipo==TypeDB.IMIS){
+             this.jComboBoxConvectionselection.setSelectedIndex(1);             
+         }else{
+              this.jComboBoxConvectionselection.setSelectedIndex(2);
+         }                  
+    }
+    
 }

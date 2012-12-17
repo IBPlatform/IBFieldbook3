@@ -40,6 +40,7 @@ import org.cimmyt.cril.ibwb.commongui.ConvertUtils;
 import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 import org.cimmyt.cril.ibwb.commongui.FileUtils;
 import org.cimmyt.cril.ibwb.domain.*;
+import org.cimmyt.cril.ibwb.domain.constants.TypeDB;
 import org.netbeans.api.progress.ProgressHandle;
 import org.netbeans.api.progress.ProgressHandleFactory;
 import org.netbeans.api.settings.ConvertAsProperties;
@@ -49,7 +50,6 @@ import org.openide.util.Exceptions;
 import org.openide.util.Mutex;
 import org.openide.util.NbBundle;
 import org.openide.util.NbBundle.Messages;
-import org.openide.util.NbPreferences;
 import org.openide.windows.TopComponent;
 import org.openide.windows.WindowManager;
 
@@ -2744,5 +2744,19 @@ public final class nurseryManagerTopComponent extends TopComponent {
             this.jTextAreaPathMale.setText("");
             this.jTextFieldListEntriesMale.setText("0");
         }
+    }
+
+    public void selectOptionDB() {
+         TypeDB tipo= AppServicesProxy.getDefault().appServices().getTypeDB();
+         
+         if(tipo==TypeDB.IWIS){
+             this.jComboBoxConvection.setSelectedIndex(0);
+             
+         }else if(tipo==TypeDB.IMIS){
+             this.jComboBoxConvection.setSelectedIndex(1);
+             
+         }else{
+              this.jComboBoxConvection.setSelectedIndex(2);
+         }              
     }
 }

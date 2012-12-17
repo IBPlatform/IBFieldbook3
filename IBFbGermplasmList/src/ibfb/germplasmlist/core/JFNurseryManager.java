@@ -124,7 +124,7 @@ public class JFNurseryManager extends javax.swing.JDialog {
     private void jButtonOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOKActionPerformed
         if (jRadioButtonSelection.isSelected()) {
             this.setVisible(false);
-          //  showSelectionWizard();
+          //  showSelectionWizard();           
             showSelectionTopComponent();
 
         } else {
@@ -141,6 +141,7 @@ public class JFNurseryManager extends javax.swing.JDialog {
     
      private void showNurseryManagerTopComponent() {
        nurseryManagerTopComponent manager=new nurseryManagerTopComponent();
+       manager.selectOptionDB();
        manager.open();
        manager.requestActive();
     }
@@ -188,6 +189,7 @@ public class JFNurseryManager extends javax.swing.JDialog {
     
     private void showSelectionTopComponent(){
        SelectionTopComponent manager=new SelectionTopComponent();
+       manager.selectOptionDB();
        manager.open();
        manager.requestActive();
     }

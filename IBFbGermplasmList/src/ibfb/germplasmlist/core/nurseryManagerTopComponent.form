@@ -164,7 +164,7 @@
                               </Group>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jScrollEntriesDbMale" pref="308" max="32767" attributes="0"/>
+                          <Component id="jScrollEntriesDbMale" pref="314" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="btnRemoveMaleDb" min="-2" max="-2" attributes="0"/>
@@ -512,7 +512,7 @@
                               </Group>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jScrollEntriesDbFemale" pref="288" max="32767" attributes="0"/>
+                          <Component id="jScrollEntriesDbFemale" pref="304" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
