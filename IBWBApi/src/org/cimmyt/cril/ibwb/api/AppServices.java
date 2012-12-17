@@ -2271,4 +2271,6 @@ public interface AppServices {
      * @return <code>true</code> if exists, <code>false</code> if not
      */
     public boolean existGermplasmListName(String listName);
+    
+   public void readTypeDB();
 }
