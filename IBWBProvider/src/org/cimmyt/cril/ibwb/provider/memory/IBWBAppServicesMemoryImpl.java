@@ -1535,4 +1535,9 @@ public class IBWBAppServicesMemoryImpl implements AppServices {
     public Variate getVariate(Integer idVariate) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    @Override
+    public void readTypeDB() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }

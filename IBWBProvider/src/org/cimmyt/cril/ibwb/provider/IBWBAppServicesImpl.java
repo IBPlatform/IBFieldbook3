@@ -28,7 +28,7 @@ public class IBWBAppServicesImpl implements AppServices {
     private static Logger log = Logger.getLogger(IBWBAppServicesImpl.class);
     private CommonServices serviciosLocal;
     private CommonServices serviciosCentral;
-    private TypeDB typeDB;
+    public static TypeDB typeDB;
 
     public static AppServices getIBWBAppServices() {
         ApplicationContext context = new ClassPathXmlApplicationContext("ibwApiApplicationContext.xml");
@@ -2098,10 +2098,12 @@ public class IBWBAppServicesImpl implements AppServices {
     }
 
     //-----------------------------------ContinuousConversion---------------------------
+    @Override
     public void addContinuousConversion(ContinuousConversion continuousConversion) {
         serviciosLocal.addContinuousConversion(continuousConversion);
     }
 
+    @Override
     public void updateContinuousConversion(ContinuousConversion continuousConversion) {
         if (continuousConversion.getTransid() > 0) {
             serviciosCentral.updateContinuousConversion(continuousConversion);
@@ -2110,6 +2112,7 @@ public class IBWBAppServicesImpl implements AppServices {
         }
     }
 
+    @Override
     public void deleteContinuousConversion(ContinuousConversion continuousConversion) {
         if (continuousConversion.getTransid() > 0) {
             serviciosCentral.deleteContinuousConversion(continuousConversion);
@@ -2118,6 +2121,7 @@ public class IBWBAppServicesImpl implements AppServices {
         }
     }
 
+    @Override
     public ContinuousConversion getContinuousConversion(ContinuousConversion continuousConversion) {
         if (continuousConversion.getTransid() > 0) {
             return serviciosCentral.getContinuousConversion(continuousConversion);
@@ -2126,6 +2130,7 @@ public class IBWBAppServicesImpl implements AppServices {
         }
     }
 
+    @Override
     public ContinuousConversion getContinuousConversion(Integer transid) {
         if (transid > 0) {
             return serviciosCentral.getContinuousConversion(transid);
@@ -2467,6 +2472,7 @@ public class IBWBAppServicesImpl implements AppServices {
         log.info("Savin workbook DONE!");
     }
 
+    @Override
     public ResultSet getTrialRandomization(
             Integer studyId,
             Integer trialFactorId,
@@ -2486,6 +2492,7 @@ public class IBWBAppServicesImpl implements AppServices {
         }
     }
 
+    @Override
     public ResultSet getTrialRandomizationFast(
             Integer studyId,
             Integer trialFactorId,
@@ -2499,6 +2506,7 @@ public class IBWBAppServicesImpl implements AppServices {
         }
     }
 
+    @Override
     public StudySearch getListGermplasmAndPlotByStudyidAndTrial(
             StudySearch studySearch) {
         if (studySearch.getStudyId() > 0) {
@@ -2545,6 +2553,7 @@ public class IBWBAppServicesImpl implements AppServices {
         }
     }
 
+    @Override
     public List<Listdata> saveGerplasmCimmytWheat(
             List<Listdata> listGermplsm,
             Listnms listnms,
@@ -2555,6 +2564,7 @@ public class IBWBAppServicesImpl implements AppServices {
         return helperGermplasm.saveGerplasmCimmytWheat(listGermplsm, listnms, lgsf, lgsm);
     }
 
+    @Override
     public Listdata agregarGermPlasmCimmytWheat(
             String nameGermplasmHistory,
             String nameGermplasmBCID,
@@ -2575,6 +2585,7 @@ public class IBWBAppServicesImpl implements AppServices {
                 queryCenter);
     }
 
+    @Override
     public List<GermplasmSearch> getGermplasmByListStudyTrialPlotCross(
             AppServices appServices,
             List<GermplasmSearch> listFmale,
@@ -2615,6 +2626,7 @@ public class IBWBAppServicesImpl implements AppServices {
         return mismoServer;
     }
 
+    @Override
     public ResultSet getTrialRandomization(
             Integer studyId,
             Integer trialFactorId,
@@ -2628,6 +2640,7 @@ public class IBWBAppServicesImpl implements AppServices {
         }
     }
 
+    @Override
     public List<Measurement> getTrialRandomizationVeryFast(
             Integer studyId,
             Integer trialFactorId,
@@ -2641,6 +2654,28 @@ public class IBWBAppServicesImpl implements AppServices {
         }
     }
 
+    
+    @Override
+    public void readTypeDB(){
+         List<Instln> listaInstlns = serviciosCentral.getInstlnList();
+        if (listaInstlns != null) {
+            if (listaInstlns.isEmpty()) {
+                typeDB = TypeDB.OTHER;
+            } else {
+                Instln instln = listaInstlns.get(0);
+                if (instln.getIdesc().contains(TypeDB.IWIS.getNombre())) {
+                    typeDB = TypeDB.IWIS;
+                } else if (instln.getIdesc().contains(TypeDB.IMIS.getNombre())) {
+                    typeDB = TypeDB.IMIS;
+                } else {
+                    typeDB = TypeDB.OTHER;
+                }
+            }
+        } else {
+            typeDB = TypeDB.OTHER;
+        }
+    }
+    
     /**
      * Checks if Tratis, Scales and Measuredin tables already exists in database
      *
