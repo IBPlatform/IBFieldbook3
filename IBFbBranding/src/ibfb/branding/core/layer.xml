@@ -24,14 +24,12 @@
                 <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
                 <attr name="position" intvalue="2500"/>
             </file>
+            <file name="ibfb-nursery-actions-QuickCreationAction.shadow_hidden"/>
             <file name="ibfb-studyexplorer-actions-NewSTDAction.shadow" url="ibfb-studyexplorer-actions-NewSTDAction.shadow">
                 <attr name="originalFile" stringvalue="Actions/File/ibfb-studyexplorer-actions-NewSTDAction.instance"/>
                 <attr name="position" intvalue="1200"/>
             </file>
-            <file name="ibfb-studyexplorer-actions-NewTrialAction.shadow" url="ibfb-studyexplorer-actions-NewTrialAction.shadow">
-                <attr name="originalFile" stringvalue="Actions/File/ibfb-studyexplorer-actions-NewTrialAction.instance"/>
-                <attr name="position" intvalue="1250"/>
-            </file>
+            <file name="ibfb-studyexplorer-actions-QuickCreationAction.shadow_hidden"/>
             <file name="ibfb-ui-actions-ShowAboutAction.shadow" url="ibfb-ui-actions-ShowAboutAction.shadow">
                 <attr name="originalFile" stringvalue="Actions/File/ibfb-ui-actions-ShowAboutAction.instance"/>
                 <attr name="position" intvalue="1300"/>
@@ -39,10 +37,6 @@
             <file name="org-netbeans-core-actions-SystemExit.shadow" url="org-netbeans-core-actions-SystemExit.shadow">
                 <attr name="originalFile" stringvalue="Actions/System/org-netbeans-core-actions-SystemExit.instance"/>
                 <attr name="position" intvalue="2600"/>
-            </file>
-            <file name="org-netbeans-modules-print-action-PageSetupAction.shadow" url="org-netbeans-modules-print-action-PageSetupAction.shadow">
-                <attr name="originalFile" stringvalue="Actions/File/org-netbeans-modules-print-action-PageSetupAction.instance"/>
-                <attr name="position" intvalue="2100"/>
             </file>
             <file name="org-netbeans-modules-print-action-PrintAction.shadow" url="org-netbeans-modules-print-action-PrintAction.shadow">
                 <attr name="originalFile" stringvalue="Actions/File/org-netbeans-modules-print-action-PrintAction.instance"/>
@@ -73,6 +67,7 @@
         
         <folder name="Tools">
             <attr name="displayName" bundlevalue="ibfb.branding.core.Bundle#Menu/Tools"/>
+            <file name="PaletteManager_hidden"/>
             <file name="ibfb-ui-actions-CreateTemplateAction.shadow_hidden"/>
         </folder>
         
