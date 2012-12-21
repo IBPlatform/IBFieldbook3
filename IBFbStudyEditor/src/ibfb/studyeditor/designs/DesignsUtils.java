@@ -6,6 +6,7 @@ import ibfb.domain.core.Workbook;
 import ibfb.studyeditor.core.StudyEditorTopComponent;
 import ibfb.studyeditor.core.model.DesignTableModel;
 import ibfb.studyeditor.core.model.GermplasmEntriesTableModel;
+import ibfb.studyeditor.core.model.ObservationsTableModel;
 import ibfb.studyeditor.roweditors.AlphaDesignsRowEditor;
 import ibfb.studyeditor.wizard.TrialWizardWizardIterator;
 import java.awt.Color;
@@ -1253,6 +1254,8 @@ public class DesignsUtils {
     private boolean checkIfEntriesAreAvailable(File userDefinedDesign, DesignBean designBean) {
         StudyEditorTopComponent studyWindow = TrialWizardWizardIterator.studyTopComponent;
 
+ ObservationsTableModel model =   (ObservationsTableModel) studyWindow.jTableObservations.getModel();    
+        
         boolean allEntriesAreAvailable=false;
         GermplasmEntriesTableModel entriesTableModel = (GermplasmEntriesTableModel) studyWindow.jTableEntries.getModel();
 
@@ -1266,9 +1269,28 @@ public class DesignsUtils {
               
             int[]entradasModelo=new  int[entriesTableModel.getRowCount()];
             
-            for (int i = 0; i < entriesTableModel.getRowCount(); i++) {                    
-                    entradasModelo[i]=Integer.parseInt(entriesTableModel.getValueAt(i, 0).toString());                   
+            for (int i = 0; i < entriesTableModel.getRowCount(); i++) {  
+                                 
+                            
+                entradasModelo[i]=Integer.parseInt(entriesTableModel.getValueAt(i, 0).toString());                   
+               
+            
+
+            }
+            
+            
+            
+            
+            for (int i = 0; i < model.getRowCount(); i++) {
+                if(model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER)>0){     
+                    
+                    }else{
+            
+                  entradasModelo[i]=Integer.parseInt(entriesTableModel.getValueAt(i, 0).toString());       
+                
                 }
+                
+            }
             
             
             while (csvReader.readRecord()){

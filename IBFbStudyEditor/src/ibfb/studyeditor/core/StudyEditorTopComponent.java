@@ -3140,9 +3140,9 @@ public final class StudyEditorTopComponent extends TopComponent {
                 int newPlot=(trial*((int)(Math.pow(10, resInt))))+(i+1);                                                            
                 
                 if( model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER)>0){
-                      rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER)] = newPlot;
+                      rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER)] = i+1;
                   }else{ 
-                rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = newPlot;
+                rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = newPlot; //NESTEDNUMBER
                 }
                 //  rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = i;
                   
@@ -3194,10 +3194,10 @@ public final class StudyEditorTopComponent extends TopComponent {
                 int newPlot=(trial*((int)(Math.pow(10, resInt))))+(i+1);                                                            
                 
                 if( model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER)>0){
-                      rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER)] = newPlot;
+                      rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER)] = i+1;
                   }else{ 
                 
-                rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = newPlot;
+                rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = newPlot; //NESTEDNUMBER
                 }
                // rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = i + 1;
                 //rowToAdd[model.getHeaderIndex(ObservationsTableModel.ENTRY)] = i + 1;
@@ -3251,7 +3251,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                     
                     
                   if( model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER)>0){
-                      rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER)] = newPlot;
+                      rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER)] = plot;
                   }else{                                 
                       rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = newPlot;
                   }
