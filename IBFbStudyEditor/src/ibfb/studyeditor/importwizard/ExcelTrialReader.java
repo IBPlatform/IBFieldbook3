@@ -487,7 +487,8 @@ public class ExcelTrialReader {
         int totalValues = sheetObservation.getLastRowNum();
         int totalObservations = observationsModel.getRowsPerTrial().get(trial); //observationsModel.getRowCount() / instances;
 
-
+        System.out.println("TOTAL VALUES: "+totalValues);
+         System.out.println("TOTAL OBSERVATIONS: "+totalObservations);
 
         if (totalValues != totalObservations) {
             DialogUtil.displayError("Template error. The number of rows does not match");

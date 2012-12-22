@@ -449,10 +449,10 @@ public class ObservationsTableModel extends AbstractTableModel {
         
         int plotColumn =-1;
         
-        if(getHeaderIndex(PLOT)>0){
-            plotColumn=getHeaderIndex(PLOT);
+        if(getHeaderIndex(ENTRY)>0){
+            plotColumn=getHeaderIndex(ENTRY);
         }else{
-             plotColumn=getHeaderIndex(PLOTNUMBER);
+             plotColumn=getHeaderIndex(ENTRY);
         }
         
         

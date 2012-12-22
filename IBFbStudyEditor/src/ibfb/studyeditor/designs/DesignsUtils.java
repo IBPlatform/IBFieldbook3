@@ -1269,33 +1269,32 @@ public class DesignsUtils {
               
             int[]entradasModelo=new  int[entriesTableModel.getRowCount()];
             
-            for (int i = 0; i < entriesTableModel.getRowCount(); i++) {  
-                                 
-                            
-                entradasModelo[i]=Integer.parseInt(entriesTableModel.getValueAt(i, 0).toString());                   
-               
-            
-
+            for (int i = 0; i < entriesTableModel.getRowCount(); i++) {                                                 
+                entradasModelo[i]=Integer.parseInt(entriesTableModel.getValueAt(i, 2).toString());                                            
             }
             
             
             
-            
-            for (int i = 0; i < model.getRowCount(); i++) {
-                if(model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER)>0){     
-                    
-                    }else{
-            
-                  entradasModelo[i]=Integer.parseInt(entriesTableModel.getValueAt(i, 0).toString());       
-                
-                }
-                
-            }
+//            
+//            for (int i = 0; i < model.getRowCount(); i++) {
+//                if(model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER)>0){     
+//                    
+//                    }else{
+//            
+//                    int resInt=(int)java.lang.Math.floor(java.lang.Math.log10(total))+1;                                
+//                    int newPlot=(trial*((int)(Math.pow(10, resInt))))+(plot+1);  
+//                    
+//                    
+//                  entradasModelo[i]=Integer.parseInt(entriesTableModel.getValueAt(i, 0).toString());       
+//                
+//                }
+//                
+//            }
             
             
             while (csvReader.readRecord()){
-                int entrada=Integer.parseInt(csvReader.get(NbPreferences.forModule(MacthColumsWizardPanel1.class).get("ENTRY", "")));
-             
+               // int entrada=Integer.parseInt(csvReader.get(NbPreferences.forModule(MacthColumsWizardPanel1.class).get("ENTRY", "")));
+             int entrada=Integer.parseInt(csvReader.get("GID"));
                 int index= ArrayUtils.indexOf(entradasModelo,entrada);
                 if(index<0){
                     System.out.println("ENTRADA NO ENCONTRADA.  BUSCANDO-> :"+entrada);
