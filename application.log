@@ -1,125 +1,308 @@
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - TmsContinuous-function table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if TmsContinuous-function table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if TmsContinuous-function table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - TmsContinuous-function table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if TmsContinuous-function table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if TmsDiscrete-conversion table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - TmsDiscrete-conversion table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if TmsDiscrete-conversion table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if TmsDiscrete-conversion table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - TmsDiscrete-conversion table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if TmsDiscrete-conversion table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - Checking if TmsConsistency-checks table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - TmsConsistency-checks table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - Checking if TmsConsistency-checks table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - Checking if TmsConsistency-checks table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - TmsConsistency-checks table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - Checking if TmsConsistency-checks table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Traits table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Traits table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if TmsTransformations table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - TmsTransformations table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if TmsTransformations table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if TmsTransformations table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - TmsTransformations table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if TmsTransformations table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if TmsContinuous-conversion table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - TmsContinuous-conversion table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if TmsContinuous-conversion table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if TmsContinuous-conversion table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - TmsContinuous-conversion table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if TmsContinuous-conversion table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if TmsContinuous-function table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - TmsContinuous-function table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if TmsContinuous-function table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if TmsContinuous-function table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - TmsContinuous-function table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if TmsContinuous-function table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if TmsDiscrete-conversion table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - TmsDiscrete-conversion table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if TmsDiscrete-conversion table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if TmsDiscrete-conversion table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - TmsDiscrete-conversion table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if TmsDiscrete-conversion table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - Checking if TmsConsistency-checks table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - TmsConsistency-checks table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - Checking if TmsConsistency-checks table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - Checking if TmsConsistency-checks table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - TmsConsistency-checks table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - Checking if TmsConsistency-checks table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Traits table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Traits table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if TmsTransformations table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - TmsTransformations table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if TmsTransformations table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if TmsTransformations table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - TmsTransformations table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if TmsTransformations table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if TmsContinuous-conversion table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - TmsContinuous-conversion table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if TmsContinuous-conversion table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if TmsContinuous-conversion table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - TmsContinuous-conversion table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if TmsContinuous-conversion table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if TmsContinuous-function table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - TmsContinuous-function table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if TmsContinuous-function table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if TmsContinuous-function table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - TmsContinuous-function table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if TmsContinuous-function table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if TmsDiscrete-conversion table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - TmsDiscrete-conversion table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if TmsDiscrete-conversion table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if TmsDiscrete-conversion table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - TmsDiscrete-conversion table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if TmsDiscrete-conversion table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - Checking if TmsConsistency-checks table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - TmsConsistency-checks table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - Checking if TmsConsistency-checks table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - Checking if TmsConsistency-checks table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - TmsConsistency-checks table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - Checking if TmsConsistency-checks table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Traits table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Traits table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if TmsTransformations table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - TmsTransformations table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if TmsTransformations table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if TmsTransformations table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - TmsTransformations table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if TmsTransformations table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if TmsContinuous-conversion table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - TmsContinuous-conversion table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if TmsContinuous-conversion table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if TmsContinuous-conversion table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - TmsContinuous-conversion table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if TmsContinuous-conversion table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if TmsContinuous-function table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - TmsContinuous-function table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if TmsContinuous-function table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if TmsContinuous-function table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - TmsContinuous-function table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if TmsContinuous-function table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if TmsDiscrete-conversion table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - TmsDiscrete-conversion table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if TmsDiscrete-conversion table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if TmsDiscrete-conversion table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - TmsDiscrete-conversion table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if TmsDiscrete-conversion table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - Checking if TmsConsistency-checks table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - TmsConsistency-checks table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - Checking if TmsConsistency-checks table exists DONE....
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - Checking if TmsConsistency-checks table exists
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - TmsConsistency-checks table found!
-INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - Checking if TmsConsistency-checks table exists DONE....
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: GID  with value: 169490
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: ENTRYNO  with value: 92
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: DESIGNATION  with value: CM87360-01TOPM-13Y-0M-0Y-3M-0Y
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: GID  with value: 668493
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: ENTRYNO  with value: 93
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: DESIGNATION  with value: CM87653-03TOPM-5Y-0M-0Y-4M-0Y
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: GID  with value: 87218
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: ENTRYNO  with value: 94
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: DESIGNATION  with value: CM90312-A-2B-12Y-1B-0Y
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: GID  with value: 430390
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: ENTRYNO  with value: 95
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: DESIGNATION  with value: CM90312-A-2B-16Y-3B-0Y
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: GID  with value: 430319
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: ENTRYNO  with value: 96
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: DESIGNATION  with value: CM90312-D-2B-15Y-2B-0Y
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: GID  with value: 86885
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: ENTRYNO  with value: 97
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: DESIGNATION  with value: CM90312-D-3B-8Y-6B-0Y
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: GID  with value: 430174
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: ENTRYNO  with value: 98
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: DESIGNATION  with value: CM90313-A-4B-4Y-2B-0Y
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: GID  with value: 433942
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: ENTRYNO  with value: 99
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: DESIGNATION  with value: CM90313-E-2B-9Y-0B-9M-0Y
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: GID  with value: 433928
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: ENTRYNO  with value: 100
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: DESIGNATION  with value: LOCAL CHECK
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: GID  with value: 304660
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: ENTRYNO  with value: 101
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: DESIGNATION  with value: CM90313-E-2B-9Y-0B-30M-0Y
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: GID  with value: 433903
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: ENTRYNO  with value: 102
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: DESIGNATION  with value: CM90313-E-2B-9Y-0B-31M-0Y
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: GID  with value: 433981
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbook - Saving levels for entrys DONE!
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbook - Saving levels for plots....
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbook - Saving levels for plots DONE!
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.IBWBAppServicesImpl - Savin workbook DONE!
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Ok tenemos study
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 0
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 1
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 2
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 3
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 4
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 5
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 6
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 7
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 8
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda CONDITION encontrada en renglon 8
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 0
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 1
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 2
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 3
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 4
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 5
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 6
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 7
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 8
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 9
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 10
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 11
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 12
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 13
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 14
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 15
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 16
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 17
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 18
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda FACTOR encontrada en renglon 18
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 0
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 1
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 2
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 3
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 4
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 5
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 6
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 7
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 8
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 9
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 10
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 11
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 12
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 13
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 14
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 15
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 16
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 17
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 18
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 19
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 20
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 21
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 22
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 23
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 24
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 25
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda CONSTANT encontrada en renglon 25
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 0
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 1
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 2
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 3
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 4
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 5
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 6
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 7
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 8
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 9
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 10
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 11
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 12
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 13
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 14
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 15
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 16
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 17
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 18
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 19
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 20
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 21
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 22
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 23
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 24
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 25
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 26
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 27
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda VARIATE encontrada en renglon 27
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - TRIAL: 2
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda ENTRYNO encontrada en columna 0
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda PLOT encontrada en columna 3
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Ok tenemos study
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 0
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 1
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 2
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 3
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 4
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 5
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 6
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 7
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 8
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda CONDITION encontrada en renglon 8
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 0
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 1
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 2
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 3
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 4
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 5
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 6
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 7
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 8
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 9
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 10
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 11
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 12
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 13
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 14
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 15
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 16
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 17
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 18
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda FACTOR encontrada en renglon 18
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 0
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 1
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 2
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 3
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 4
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 5
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 6
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 7
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 8
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 9
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 10
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 11
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 12
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 13
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 14
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 15
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 16
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 17
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 18
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 19
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 20
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 21
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 22
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 23
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 24
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 25
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda CONSTANT encontrada en renglon 25
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 0
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 1
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 2
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 3
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 4
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 5
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 6
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 7
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 8
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 9
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 10
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 11
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 12
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 13
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 14
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 15
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 16
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 17
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 18
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 19
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 20
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 21
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 22
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 23
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 24
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 25
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 26
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 27
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda VARIATE encontrada en renglon 27
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - TRIAL: 2
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda ENTRYNO encontrada en columna 0
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda PLOT encontrada en columna 3
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Ok tenemos study
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 0
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 1
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 2
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 3
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 4
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 5
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 6
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 7
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 8
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda CONDITION encontrada en renglon 8
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 0
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 1
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 2
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 3
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 4
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 5
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 6
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 7
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 8
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 9
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 10
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 11
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 12
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 13
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 14
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 15
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 16
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 17
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 18
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda FACTOR encontrada en renglon 18
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 0
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 1
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 2
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 3
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 4
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 5
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 6
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 7
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 8
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 9
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 10
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 11
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 12
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 13
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 14
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 15
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 16
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 17
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 18
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 19
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 20
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 21
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 22
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 23
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 24
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 25
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda CONSTANT encontrada en renglon 25
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 0
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 1
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 2
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 3
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 4
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 5
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 6
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 7
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 8
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 9
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 10
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 11
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 12
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 13
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 14
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 15
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 16
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 17
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 18
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 19
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 20
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 21
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 22
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 23
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 24
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 25
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 26
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 27
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda VARIATE encontrada en renglon 27
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - TRIAL: 2
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda ENTRYNO encontrada en columna 0
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda PLOT encontrada en columna 3
