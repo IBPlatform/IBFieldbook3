@@ -1,21 +1,122 @@
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: GM  VariateId: -898
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: BB  VariateId: -899
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: BS  VariateId: -900
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: STUDY   FactorId: -552
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - Checking if TmsConsistency-checks table exists DONE....
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Read study full: -17
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Read list all factors.
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -46 factorid: -566
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -47 factorid: -566
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -47 factorid: -570
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -48 factorid: -566
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -48 factorid: -570
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -48 factorid: -575
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -48 factorid: -578
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: STUDY   FactorId: -566
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1866 scaleid: 1002 tmethid: 3316
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SITE NO   FactorId: -556
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SITE NO   FactorId: -570
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1864 scaleid: 1001 tmethid: 3001
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: ENTRYNO   FactorId: -561
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: ENTRYNO   FactorId: -575
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1861 scaleid: 1001 tmethid: 3001
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PLOT   FactorId: -564
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PLOT   FactorId: -578
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1865 scaleid: -1 tmethid: 3001
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -43 factorid: -552
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -44 factorid: -552
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -44 factorid: -556
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -45 factorid: -552
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -45 factorid: -556
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -45 factorid: -561
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -45 factorid: -564
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.FactorDAO -  -- getFactorsByFactorsids[-566, -570, -575, -578]
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: STUDY   FactorId: -566
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1866 scaleid: 1002 tmethid: 3316
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: STUDY labelid: -566
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: INVEST   FactorId: -566
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1870 scaleid: 1002 tmethid: 253
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: INVEST labelid: -567
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: DESIGN   FactorId: -566
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: -8 scaleid: -2 tmethid: -3
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: DESIGN labelid: -568
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PLOTSIZE   FactorId: -566
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: -9 scaleid: -3 tmethid: -3
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: PLOTSIZE labelid: -569
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SITE NO   FactorId: -570
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1864 scaleid: 1001 tmethid: 3001
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: SITE NO labelid: -570
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SITE CODE   FactorId: -570
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1871 scaleid: -4 tmethid: 3316
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: SITE CODE labelid: -571
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SITE NAME   FactorId: -570
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1871 scaleid: 1002 tmethid: 3316
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: SITE NAME labelid: -572
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SEEDING   FactorId: -570
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: -10 scaleid: -5 tmethid: 3316
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: SEEDING labelid: -573
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: TPLANTING   FactorId: -570
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: -11 scaleid: -5 tmethid: 3316
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: TPLANTING labelid: -574
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: ENTRYNO   FactorId: -575
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1861 scaleid: 1001 tmethid: 3001
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: ENTRYNO labelid: -575
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: DESIGNATION   FactorId: -575
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1834 scaleid: 1004 tmethid: 253
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: DESIGNATION labelid: -576
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: GID   FactorId: -575
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1834 scaleid: 1005 tmethid: 253
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: GID labelid: -577
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PLOT   FactorId: -578
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1865 scaleid: -1 tmethid: 3001
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: PLOT labelid: -578
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: REP   FactorId: -578
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1854 scaleid: 1001 tmethid: 253
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: REP labelid: -579
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -46 factorid: -566
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -47 factorid: -566
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -47 factorid: -570
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -48 factorid: -566
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -48 factorid: -570
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -48 factorid: -575
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -48 factorid: -578
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: STUDY   FactorId: -566
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1866 scaleid: 1002 tmethid: 3316
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SITE NO   FactorId: -570
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1864 scaleid: 1001 tmethid: 3001
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: ENTRYNO   FactorId: -575
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1861 scaleid: 1001 tmethid: 3001
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PLOT   FactorId: -578
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1865 scaleid: -1 tmethid: 3001
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - fill all variate as traits
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: FDATE  VariateId: -901
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: HDATE  VariateId: -902
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: YIELD  VariateId: -903
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: DFLW  VariateId: -904
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PLTHT  VariateId: -905
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PANH  VariateId: -906
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PANS  VariateId: -907
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PACC  VariateId: -908
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: FETOXP  VariateId: -909
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: FETOXS  VariateId: -910
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: GM  VariateId: -911
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: BB  VariateId: -912
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: BS  VariateId: -913
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: STUDY   FactorId: -566
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1866 scaleid: 1002 tmethid: 3316
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SITE NO   FactorId: -570
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1864 scaleid: 1001 tmethid: 3001
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: ENTRYNO   FactorId: -575
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1861 scaleid: 1001 tmethid: 3001
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PLOT   FactorId: -578
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1865 scaleid: -1 tmethid: 3001
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -46 factorid: -566
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -47 factorid: -566
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -47 factorid: -570
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -48 factorid: -566
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -48 factorid: -570
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -48 factorid: -575
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -48 factorid: -578
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Study Conditions Data....
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Study Conditions DONE!!!!
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Trial Conditions Data....
@@ -118,7 +219,7 @@ INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking f
 INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 26
 INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 27
 INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda VARIATE encontrada en renglon 27
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - TRIAL: 1
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - TRIAL: 2
 INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda ENTRYNO encontrada en columna 0
 INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda PLOT encontrada en columna 3
 INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists
@@ -157,269 +258,136 @@ INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO 
 INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - Checking if TmsConsistency-checks table exists
 INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - TmsConsistency-checks table found!
 INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - Checking if TmsConsistency-checks table exists DONE....
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Read study full: -16
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Read study full: -17
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Read list all factors.
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Read study full: -16
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Read list all factors.
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -43 factorid: -552
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -44 factorid: -552
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -44 factorid: -556
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -45 factorid: -552
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -45 factorid: -556
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -45 factorid: -561
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -45 factorid: -564
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -43 factorid: -552
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -44 factorid: -552
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -44 factorid: -556
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -45 factorid: -552
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -45 factorid: -556
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -45 factorid: -561
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -45 factorid: -564
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: STUDY   FactorId: -552
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -46 factorid: -566
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -47 factorid: -566
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -47 factorid: -570
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -48 factorid: -566
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -48 factorid: -570
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -48 factorid: -575
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -48 factorid: -578
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: STUDY   FactorId: -566
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1866 scaleid: 1002 tmethid: 3316
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: STUDY   FactorId: -552
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1866 scaleid: 1002 tmethid: 3316
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SITE NO   FactorId: -556
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SITE NO   FactorId: -570
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1864 scaleid: 1001 tmethid: 3001
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SITE NO   FactorId: -556
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1864 scaleid: 1001 tmethid: 3001
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: ENTRYNO   FactorId: -561
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: ENTRYNO   FactorId: -561
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: ENTRYNO   FactorId: -575
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1861 scaleid: 1001 tmethid: 3001
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1861 scaleid: 1001 tmethid: 3001
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PLOT   FactorId: -564
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PLOT   FactorId: -578
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1865 scaleid: -1 tmethid: 3001
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PLOT   FactorId: -564
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1865 scaleid: -1 tmethid: 3001
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.FactorDAO -  -- getFactorsByFactorsids[-552, -556, -561, -564]
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.dao.FactorDAO -  -- getFactorsByFactorsids[-552, -556, -561, -564]
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: STUDY   FactorId: -552
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: STUDY   FactorId: -552
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.FactorDAO -  -- getFactorsByFactorsids[-566, -570, -575, -578]
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: STUDY   FactorId: -566
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1866 scaleid: 1002 tmethid: 3316
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1866 scaleid: 1002 tmethid: 3316
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: STUDY labelid: -552
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: STUDY labelid: -566
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: STUDY labelid: -552
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: INVEST   FactorId: -552
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: INVEST   FactorId: -552
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1870 scaleid: 1002 tmethid: 253
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: INVEST   FactorId: -566
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1870 scaleid: 1002 tmethid: 253
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: INVEST labelid: -553
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: INVEST labelid: -553
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: INVEST labelid: -567
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: DESIGN   FactorId: -552
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: -8 scaleid: -2 tmethid: -3
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: DESIGN   FactorId: -552
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: DESIGN   FactorId: -566
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: -8 scaleid: -2 tmethid: -3
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: DESIGN labelid: -554
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: DESIGN labelid: -554
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: DESIGN labelid: -568
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PLOTSIZE   FactorId: -552
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: -9 scaleid: -3 tmethid: -3
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PLOTSIZE   FactorId: -552
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: PLOTSIZE labelid: -555
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PLOTSIZE   FactorId: -566
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: -9 scaleid: -3 tmethid: -3
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SITE NO   FactorId: -556
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1864 scaleid: 1001 tmethid: 3001
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: PLOTSIZE labelid: -555
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: PLOTSIZE labelid: -569
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: SITE NO labelid: -556
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SITE NO   FactorId: -556
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SITE NO   FactorId: -570
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1864 scaleid: 1001 tmethid: 3001
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SITE CODE   FactorId: -556
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: SITE NO labelid: -556
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: SITE NO labelid: -570
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1871 scaleid: -4 tmethid: 3316
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SITE CODE   FactorId: -556
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SITE CODE   FactorId: -570
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1871 scaleid: -4 tmethid: 3316
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: SITE CODE labelid: -557
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SITE NAME   FactorId: -556
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1871 scaleid: 1002 tmethid: 3316
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: SITE CODE labelid: -557
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: SITE CODE labelid: -571
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SITE NAME   FactorId: -556
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: SITE NAME labelid: -558
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SITE NAME   FactorId: -570
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1871 scaleid: 1002 tmethid: 3316
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SEEDING   FactorId: -556
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: -10 scaleid: -5 tmethid: 3316
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: SITE NAME labelid: -558
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: SITE NAME labelid: -572
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SEEDING   FactorId: -556
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: SEEDING labelid: -559
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SEEDING   FactorId: -570
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: -10 scaleid: -5 tmethid: 3316
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: TPLANTING   FactorId: -556
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: -11 scaleid: -5 tmethid: 3316
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: SEEDING labelid: -559
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: SEEDING labelid: -573
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: TPLANTING   FactorId: -556
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: TPLANTING   FactorId: -570
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: -11 scaleid: -5 tmethid: 3316
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: TPLANTING labelid: -560
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: TPLANTING labelid: -560
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: TPLANTING labelid: -574
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: ENTRYNO   FactorId: -561
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1861 scaleid: 1001 tmethid: 3001
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: ENTRYNO   FactorId: -561
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: ENTRYNO   FactorId: -575
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1861 scaleid: 1001 tmethid: 3001
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: ENTRYNO labelid: -561
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: ENTRYNO labelid: -561
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: ENTRYNO labelid: -575
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: DESIGNATION   FactorId: -561
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1834 scaleid: 1004 tmethid: 253
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: DESIGNATION   FactorId: -561
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: DESIGNATION labelid: -562
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: DESIGNATION   FactorId: -575
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1834 scaleid: 1004 tmethid: 253
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: DESIGNATION labelid: -562
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: DESIGNATION labelid: -576
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: GID   FactorId: -561
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1834 scaleid: 1005 tmethid: 253
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: GID   FactorId: -561
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: GID   FactorId: -575
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1834 scaleid: 1005 tmethid: 253
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: GID labelid: -563
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: GID labelid: -563
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: GID labelid: -577
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PLOT   FactorId: -564
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1865 scaleid: -1 tmethid: 3001
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PLOT   FactorId: -564
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PLOT   FactorId: -578
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1865 scaleid: -1 tmethid: 3001
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: PLOT labelid: -564
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: PLOT labelid: -564
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: PLOT labelid: -578
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: REP   FactorId: -564
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: REP   FactorId: -564
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1854 scaleid: 1001 tmethid: 253
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: REP   FactorId: -578
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1854 scaleid: 1001 tmethid: 253
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: REP labelid: -565
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: REP labelid: -565
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: REP labelid: -579
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -43 factorid: -552
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -44 factorid: -552
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -44 factorid: -556
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -45 factorid: -552
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -45 factorid: -556
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -45 factorid: -561
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -45 factorid: -564
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -43 factorid: -552
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -44 factorid: -552
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -44 factorid: -556
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -45 factorid: -552
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -45 factorid: -556
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -45 factorid: -561
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -45 factorid: -564
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: STUDY   FactorId: -552
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: STUDY   FactorId: -552
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1866 scaleid: 1002 tmethid: 3316
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -46 factorid: -566
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -47 factorid: -566
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -47 factorid: -570
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -48 factorid: -566
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -48 factorid: -570
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -48 factorid: -575
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -48 factorid: -578
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: STUDY   FactorId: -566
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1866 scaleid: 1002 tmethid: 3316
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SITE NO   FactorId: -556
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1864 scaleid: 1001 tmethid: 3001
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SITE NO   FactorId: -556
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SITE NO   FactorId: -570
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1864 scaleid: 1001 tmethid: 3001
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: ENTRYNO   FactorId: -561
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: ENTRYNO   FactorId: -561
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1861 scaleid: 1001 tmethid: 3001
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: ENTRYNO   FactorId: -575
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1861 scaleid: 1001 tmethid: 3001
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PLOT   FactorId: -564
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PLOT   FactorId: -564
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1865 scaleid: -1 tmethid: 3001
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PLOT   FactorId: -578
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1865 scaleid: -1 tmethid: 3001
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - fill all variate as traits
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: FDATE  VariateId: -888
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - fill all variate as traits
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: FDATE  VariateId: -888
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: HDATE  VariateId: -889
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: HDATE  VariateId: -889
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: YIELD  VariateId: -890
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: YIELD  VariateId: -890
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: DFLW  VariateId: -891
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: DFLW  VariateId: -891
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PLTHT  VariateId: -892
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PLTHT  VariateId: -892
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PANH  VariateId: -893
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PANH  VariateId: -893
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PANS  VariateId: -894
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PANS  VariateId: -894
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PACC  VariateId: -895
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PACC  VariateId: -895
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: FETOXP  VariateId: -896
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: FETOXP  VariateId: -896
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: FETOXS  VariateId: -897
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: FETOXS  VariateId: -897
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: GM  VariateId: -898
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: GM  VariateId: -898
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: BB  VariateId: -899
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: BB  VariateId: -899
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: BS  VariateId: -900
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: BS  VariateId: -900
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: STUDY   FactorId: -552
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1866 scaleid: 1002 tmethid: 3316
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: STUDY   FactorId: -552
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: FDATE  VariateId: -901
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: HDATE  VariateId: -902
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: YIELD  VariateId: -903
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: DFLW  VariateId: -904
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PLTHT  VariateId: -905
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PANH  VariateId: -906
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PANS  VariateId: -907
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PACC  VariateId: -908
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: FETOXP  VariateId: -909
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: FETOXS  VariateId: -910
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: GM  VariateId: -911
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: BB  VariateId: -912
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: BS  VariateId: -913
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: STUDY   FactorId: -566
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1866 scaleid: 1002 tmethid: 3316
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SITE NO   FactorId: -556
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1864 scaleid: 1001 tmethid: 3001
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SITE NO   FactorId: -556
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SITE NO   FactorId: -570
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1864 scaleid: 1001 tmethid: 3001
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: ENTRYNO   FactorId: -561
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1861 scaleid: 1001 tmethid: 3001
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: ENTRYNO   FactorId: -561
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PLOT   FactorId: -564
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: ENTRYNO   FactorId: -575
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1861 scaleid: 1001 tmethid: 3001
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1865 scaleid: -1 tmethid: 3001
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PLOT   FactorId: -564
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PLOT   FactorId: -578
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1865 scaleid: -1 tmethid: 3001
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -43 factorid: -552
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -44 factorid: -552
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -44 factorid: -556
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -45 factorid: -552
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -45 factorid: -556
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -45 factorid: -561
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -45 factorid: -564
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -43 factorid: -552
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -44 factorid: -552
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -44 factorid: -556
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -45 factorid: -552
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -45 factorid: -556
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -45 factorid: -561
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -45 factorid: -564
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -46 factorid: -566
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -47 factorid: -566
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -47 factorid: -570
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -48 factorid: -566
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -48 factorid: -570
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -48 factorid: -575
+INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -48 factorid: -578
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Study Conditions Data....
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Study Conditions Data....
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Study Conditions DONE!!!!
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Study Conditions DONE!!!!
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Trial Conditions Data....
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Trial Conditions Data....
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Trial Conditions DONE!!!!....
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Trial Germplasm Data....
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Trial Conditions DONE!!!!....
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Trial Germplasm Data....
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Trial Germplasm DONE!!!
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Observations Data....
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - filling FactorLabelData... 
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Trial Germplasm DONE!!!
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Observations Data....
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - filling FactorLabelData... 
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperWorkbookReader - Getting trial randomization fast
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperWorkbookReader - Getting trial randomization fast
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperWorkbookReader - Definiendo orden de busquedas
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperWorkbookReader - Definiendo orden de busquedas
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperWorkbookReader - Getting trial randomization fast.... DONE
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperWorkbookReader - Getting variates fast....
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperWorkbookReader - Getting trial randomization fast.... DONE
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperWorkbookReader - Getting variates fast....
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperWorkbookReader - Getting variates fast.... DONE
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - filling FactorLabelData DONE... 
-INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Observations Data DONE!!!
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperWorkbookReader - Getting variates fast.... DONE
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - filling FactorLabelData DONE... 
 INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Observations Data DONE!!!
@@ -516,6 +484,9 @@ INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda PLO
 INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda FDATE encontrada en columna 5
 INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda HDATE encontrada en columna 6
 INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda YIELD encontrada en columna 7
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - TRAIT: YIELD   VALUE: 1.0
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - TRAIT: YIELD   VALUE: 2.0
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - TRAIT: YIELD   VALUE: 3.0
 INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda DFLW encontrada en columna 8
 INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda PLTHT encontrada en columna 9
 INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda PANH encontrada en columna 10
@@ -526,6 +497,139 @@ INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda FET
 INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda GM encontrada en columna 15
 INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda BB encontrada en columna 16
 INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda BS encontrada en columna 17
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Read study full: -16
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Read list all factors.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -43 factorid: -552
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -44 factorid: -552
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -44 factorid: -556
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -45 factorid: -552
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -45 factorid: -556
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -45 factorid: -561
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -45 factorid: -564
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: STUDY   FactorId: -552
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1866 scaleid: 1002 tmethid: 3316
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SITE NO   FactorId: -556
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1864 scaleid: 1001 tmethid: 3001
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: ENTRYNO   FactorId: -561
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1861 scaleid: 1001 tmethid: 3001
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PLOT   FactorId: -564
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1865 scaleid: -1 tmethid: 3001
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.dao.FactorDAO -  -- getFactorsByFactorsids[-552, -556, -561, -564]
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: STUDY   FactorId: -552
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1866 scaleid: 1002 tmethid: 3316
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: STUDY labelid: -552
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: INVEST   FactorId: -552
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1870 scaleid: 1002 tmethid: 253
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: INVEST labelid: -553
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: DESIGN   FactorId: -552
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: -8 scaleid: -2 tmethid: -3
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: DESIGN labelid: -554
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PLOTSIZE   FactorId: -552
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: -9 scaleid: -3 tmethid: -3
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: PLOTSIZE labelid: -555
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SITE NO   FactorId: -556
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1864 scaleid: 1001 tmethid: 3001
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: SITE NO labelid: -556
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SITE CODE   FactorId: -556
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1871 scaleid: -4 tmethid: 3316
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: SITE CODE labelid: -557
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SITE NAME   FactorId: -556
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1871 scaleid: 1002 tmethid: 3316
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: SITE NAME labelid: -558
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SEEDING   FactorId: -556
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: -10 scaleid: -5 tmethid: 3316
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: SEEDING labelid: -559
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: TPLANTING   FactorId: -556
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: -11 scaleid: -5 tmethid: 3316
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: TPLANTING labelid: -560
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: ENTRYNO   FactorId: -561
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1861 scaleid: 1001 tmethid: 3001
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: ENTRYNO labelid: -561
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: DESIGNATION   FactorId: -561
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1834 scaleid: 1004 tmethid: 253
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: DESIGNATION labelid: -562
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: GID   FactorId: -561
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1834 scaleid: 1005 tmethid: 253
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: GID labelid: -563
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PLOT   FactorId: -564
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1865 scaleid: -1 tmethid: 3001
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: PLOT labelid: -564
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: REP   FactorId: -564
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1854 scaleid: 1001 tmethid: 253
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: REP labelid: -565
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -43 factorid: -552
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -44 factorid: -552
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -44 factorid: -556
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -45 factorid: -552
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -45 factorid: -556
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -45 factorid: -561
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -45 factorid: -564
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: STUDY   FactorId: -552
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1866 scaleid: 1002 tmethid: 3316
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SITE NO   FactorId: -556
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1864 scaleid: 1001 tmethid: 3001
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: ENTRYNO   FactorId: -561
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1861 scaleid: 1001 tmethid: 3001
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PLOT   FactorId: -564
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1865 scaleid: -1 tmethid: 3001
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - fill all variate as traits
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: FDATE  VariateId: -888
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: HDATE  VariateId: -889
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: YIELD  VariateId: -890
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: DFLW  VariateId: -891
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PLTHT  VariateId: -892
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PANH  VariateId: -893
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PANS  VariateId: -894
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PACC  VariateId: -895
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: FETOXP  VariateId: -896
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: FETOXS  VariateId: -897
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: GM  VariateId: -898
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: BB  VariateId: -899
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: BS  VariateId: -900
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: STUDY   FactorId: -552
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1866 scaleid: 1002 tmethid: 3316
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SITE NO   FactorId: -556
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1864 scaleid: 1001 tmethid: 3001
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: ENTRYNO   FactorId: -561
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1861 scaleid: 1001 tmethid: 3001
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PLOT   FactorId: -564
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1865 scaleid: -1 tmethid: 3001
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -43 factorid: -552
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -44 factorid: -552
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -44 factorid: -556
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -45 factorid: -552
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -45 factorid: -556
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -45 factorid: -561
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -45 factorid: -564
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Study Conditions Data....
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Study Conditions DONE!!!!
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Trial Conditions Data....
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Trial Conditions DONE!!!!....
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Trial Germplasm Data....
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Trial Germplasm DONE!!!
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Observations Data....
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - filling FactorLabelData... 
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperWorkbookReader - Getting trial randomization fast
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperWorkbookReader - Definiendo orden de busquedas
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperWorkbookReader - Getting trial randomization fast.... DONE
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperWorkbookReader - Getting variates fast....
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperWorkbookReader - Getting variates fast.... DONE
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - filling FactorLabelData DONE... 
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Observations Data DONE!!!
 INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Ok tenemos study
 INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 0
 INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 1
@@ -613,15 +717,15 @@ INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking f
 INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 26
 INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 27
 INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda VARIATE encontrada en renglon 27
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - TRIAL: 1
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - TRIAL: 2
 INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda ENTRYNO encontrada en columna 0
 INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda PLOT encontrada en columna 3
 INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda FDATE encontrada en columna 5
 INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda HDATE encontrada en columna 6
 INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda YIELD encontrada en columna 7
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - TRAIT: YIELD   VALUE: 1.0
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - TRAIT: YIELD   VALUE: 2.0
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - TRAIT: YIELD   VALUE: 3.0
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - TRAIT: YIELD   VALUE: 10.0
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - TRAIT: YIELD   VALUE: 11.0
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - TRAIT: YIELD   VALUE: 12.0
 INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda DFLW encontrada en columna 8
 INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda PLTHT encontrada en columna 9
 INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda PANH encontrada en columna 10

@@ -712,7 +712,15 @@ public class ExcelTrialReader {
         int desigColumn = observationsModel.getHeaderIndex(ObservationsTableModel.DESIG);
         int gidColumn = observationsModel.getHeaderIndex(ObservationsTableModel.GID);
         int trialColumn = observationsModel.getHeaderIndex(ObservationsTableModel.TRIAL);
+        
         int totalObservations = observationsModel.getRowsPerTrial().get(trial);
+        
+        
+        System.out.println("TotalObservations: "+totalObservations);
+        
+        
+        
+        
         int rowToIncrement = 0;        
         if (trial>1 ) {
             rowToIncrement = totalObservations * (trial - 1);

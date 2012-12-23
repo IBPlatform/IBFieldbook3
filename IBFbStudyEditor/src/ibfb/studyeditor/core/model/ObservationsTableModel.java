@@ -454,15 +454,11 @@ public class ObservationsTableModel extends AbstractTableModel {
         }else{
              plotColumn=getHeaderIndex(ENTRY);
         }
-        
-        
-        
-        
-        
-        
+  
         int trialColumn = 0;//getHeaderIndex(TRIAL);
 
         rowsPerTrial = new HashMap<Integer, Integer>();
+        int mayorPlot=0;
 
         int currentTrial = -999;
 
@@ -474,19 +470,34 @@ public class ObservationsTableModel extends AbstractTableModel {
             } else if (value instanceof Integer) {
                 trialNumber = (Integer) value;
             }
+            
             if (trialNumber != null) {
-                if (trialNumber.intValue() != currentTrial) {
+               // if (trialNumber.intValue() != currentTrial) {
                     currentTrial = trialNumber;
+
                     Object maxPlot = getValueAt(row, plotColumn);
+              //      System.out.println("MAXPLOT LEIDO: "+maxPlot);
+                    
+                    
                     Integer plotValue = 0;
+
+
                     if (maxPlot instanceof Integer) {
                         plotValue = (Integer) maxPlot;
+                        if (plotValue > mayorPlot) {
+                            mayorPlot = plotValue;
+                        }
+
                     } else if (maxPlot instanceof String) {
                         plotValue = Integer.parseInt((String) maxPlot);
+                        if (plotValue > mayorPlot) {
+                            mayorPlot = plotValue;
+                        }
+                    rowsPerTrial.put(currentTrial, mayorPlot);
                     }
-                    rowsPerTrial.put(currentTrial, plotValue);
-                }
+             //   }
             }
+       //     System.out.println("ROW: "+row +"   MAYORPLOT: "+mayorPlot);
         }
 
         return rowsPerTrial;
