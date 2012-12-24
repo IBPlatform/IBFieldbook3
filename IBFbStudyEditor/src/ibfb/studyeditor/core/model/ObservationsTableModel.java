@@ -447,12 +447,12 @@ public class ObservationsTableModel extends AbstractTableModel {
      */
     public Map<Integer, Integer> getRowsPerTrial() {
         
-        int plotColumn =-1;
+        int entryColumn =-1;
         
         if(getHeaderIndex(ENTRY)>0){
-            plotColumn=getHeaderIndex(ENTRY);
+            entryColumn=getHeaderIndex(ENTRY);
         }else{
-             plotColumn=getHeaderIndex(ENTRY);
+             entryColumn=getHeaderIndex(ENTRY);
         }
   
         int trialColumn = 0;//getHeaderIndex(TRIAL);
@@ -475,8 +475,8 @@ public class ObservationsTableModel extends AbstractTableModel {
                // if (trialNumber.intValue() != currentTrial) {
                     currentTrial = trialNumber;
 
-                    Object maxPlot = getValueAt(row, plotColumn);
-              //      System.out.println("MAXPLOT LEIDO: "+maxPlot);
+                    Object maxPlot = getValueAt(row, entryColumn);
+                    System.out.println("MAXPLOT LEIDO: "+maxPlot);
                     
                     
                     Integer plotValue = 0;
@@ -497,7 +497,7 @@ public class ObservationsTableModel extends AbstractTableModel {
                     }
              //   }
             }
-       //     System.out.println("ROW: "+row +"   MAYORPLOT: "+mayorPlot);
+            System.out.println("ROW: "+row +"   MAYORPLOT: "+mayorPlot);
         }
 
         return rowsPerTrial;

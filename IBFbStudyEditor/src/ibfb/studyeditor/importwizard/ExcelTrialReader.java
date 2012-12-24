@@ -713,8 +713,13 @@ public class ExcelTrialReader {
         int gidColumn = observationsModel.getHeaderIndex(ObservationsTableModel.GID);
         int trialColumn = observationsModel.getHeaderIndex(ObservationsTableModel.TRIAL);
         
-        int totalObservations = observationsModel.getRowsPerTrial().get(trial);
+        int totalObservations =0;
         
+        try{
+         totalObservations = observationsModel.getRowsPerTrial().get(trial);
+        }catch(Exception e){
+            System.out.println("ERROR EN validDesigAndGid: "+e);
+        }
         
         System.out.println("TotalObservations: "+totalObservations);
         
