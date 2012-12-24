@@ -476,7 +476,7 @@ public class ObservationsTableModel extends AbstractTableModel {
                     currentTrial = trialNumber;
 
                     Object maxPlot = getValueAt(row, entryColumn);
-                    System.out.println("MAXPLOT LEIDO: "+maxPlot);
+                 //   System.out.println("MAXPLOT LEIDO: "+maxPlot);
                     
                     
                     Integer plotValue = 0;
@@ -497,7 +497,7 @@ public class ObservationsTableModel extends AbstractTableModel {
                     }
              //   }
             }
-            System.out.println("ROW: "+row +"   MAYORPLOT: "+mayorPlot);
+           // System.out.println("ROW: "+row +"   MAYORPLOT: "+mayorPlot);
         }
 
         return rowsPerTrial;
