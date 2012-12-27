@@ -1,330 +1,208 @@
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PLOT   FactorId: -633
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1865 scaleid: -1 tmethid: 3001
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.FactorDAO -  -- getFactorsByFactorsids[-621, -625, -630, -633]
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: STUDY   FactorId: -621
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1866 scaleid: 1002 tmethid: 3316
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: STUDY labelid: -621
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: INVEST   FactorId: -621
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1870 scaleid: 1002 tmethid: 253
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: INVEST labelid: -622
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: DESIGN   FactorId: -621
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: -8 scaleid: -2 tmethid: -3
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: DESIGN labelid: -623
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PLOTSIZE   FactorId: -621
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: -9 scaleid: -3 tmethid: -3
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: PLOTSIZE labelid: -624
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SITE NO   FactorId: -625
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1864 scaleid: 1001 tmethid: 3001
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: SITE NO labelid: -625
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SITE CODE   FactorId: -625
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1871 scaleid: -4 tmethid: 3316
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: SITE CODE labelid: -626
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SITE NAME   FactorId: -625
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1871 scaleid: 1002 tmethid: 3316
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: SITE NAME labelid: -627
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SEEDING   FactorId: -625
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: -10 scaleid: -5 tmethid: 3316
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: SEEDING labelid: -628
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: TPLANTING   FactorId: -625
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: -11 scaleid: -5 tmethid: 3316
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: TPLANTING labelid: -629
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: ENTRYNO   FactorId: -630
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1861 scaleid: 1001 tmethid: 3001
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: ENTRYNO labelid: -630
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: GID   FactorId: -630
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1834 scaleid: 1005 tmethid: 253
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: GID labelid: -631
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: DESIG   FactorId: -630
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1834 scaleid: 1004 tmethid: 253
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: DESIG labelid: -632
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PLOT   FactorId: -633
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1865 scaleid: -1 tmethid: 3001
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: PLOT labelid: -633
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: REP   FactorId: -633
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1854 scaleid: 1001 tmethid: 253
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: REP labelid: -634
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -58 factorid: -621
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -59 factorid: -621
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -59 factorid: -625
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -60 factorid: -621
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -60 factorid: -625
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -60 factorid: -630
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -60 factorid: -633
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: STUDY   FactorId: -621
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1866 scaleid: 1002 tmethid: 3316
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SITE NO   FactorId: -625
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1864 scaleid: 1001 tmethid: 3001
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: ENTRYNO   FactorId: -630
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1861 scaleid: 1001 tmethid: 3001
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PLOT   FactorId: -633
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1865 scaleid: -1 tmethid: 3001
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - fill all variate as traits
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: FDATE  VariateId: -953
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: HDATE  VariateId: -954
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: YIELD  VariateId: -955
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: DFLW  VariateId: -956
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PLTHT  VariateId: -957
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PANH  VariateId: -958
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PANS  VariateId: -959
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PACC  VariateId: -960
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: FETOXP  VariateId: -961
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: FETOXS  VariateId: -962
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: GM  VariateId: -963
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: BB  VariateId: -964
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: BS  VariateId: -965
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: STUDY   FactorId: -621
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1866 scaleid: 1002 tmethid: 3316
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SITE NO   FactorId: -625
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1864 scaleid: 1001 tmethid: 3001
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: ENTRYNO   FactorId: -630
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1861 scaleid: 1001 tmethid: 3001
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PLOT   FactorId: -633
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1865 scaleid: -1 tmethid: 3001
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -58 factorid: -621
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -59 factorid: -621
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -59 factorid: -625
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -60 factorid: -621
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -60 factorid: -625
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -60 factorid: -630
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -60 factorid: -633
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Study Conditions Data....
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Study Conditions DONE!!!!
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Trial Conditions Data....
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Trial Conditions DONE!!!!....
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Trial Germplasm Data....
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Trial Germplasm DONE!!!
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Observations Data....
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - filling FactorLabelData... 
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperWorkbookReader - Getting trial randomization fast
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperWorkbookReader - Definiendo orden de busquedas
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperWorkbookReader - Getting trial randomization fast.... DONE
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperWorkbookReader - Getting variates fast....
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperWorkbookReader - Getting variates fast.... DONE
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - filling FactorLabelData DONE... 
-INFO SwingWorker-pool-1-thread-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Observations Data DONE!!!
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Ok tenemos study
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 0
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 1
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 2
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 3
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 4
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 5
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 6
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 7
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 8
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda CONDITION encontrada en renglon 8
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 0
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 1
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 2
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 3
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 4
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 5
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 6
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 7
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 8
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 9
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 10
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 11
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 12
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 13
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 14
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 15
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 16
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 17
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 18
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda FACTOR encontrada en renglon 18
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 0
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 1
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 2
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 3
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 4
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 5
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 6
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 7
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 8
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 9
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 10
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 11
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 12
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 13
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 14
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 15
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 16
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 17
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 18
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 19
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 20
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 21
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 22
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 23
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 24
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 25
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda CONSTANT encontrada en renglon 25
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 0
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 1
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 2
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 3
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 4
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 5
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 6
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 7
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 8
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 9
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 10
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 11
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 12
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 13
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 14
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 15
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 16
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 17
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 18
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 19
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 20
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 21
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 22
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 23
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 24
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 25
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 26
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 27
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda VARIATE encontrada en renglon 27
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - TRIAL: 1
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda ENTRYNO encontrada en columna 0
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda PLOT encontrada en columna 3
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda FDATE encontrada en columna 5
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda HDATE encontrada en columna 6
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda YIELD encontrada en columna 7
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - TRAIT: YIELD   VALUE: 1.0
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - TRAIT: YIELD   VALUE: 2.0
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - TRAIT: YIELD   VALUE: 3.0
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda DFLW encontrada en columna 8
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda PLTHT encontrada en columna 9
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda PANH encontrada en columna 10
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda PANS encontrada en columna 11
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda PACC encontrada en columna 12
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda FETOXP encontrada en columna 13
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda FETOXS encontrada en columna 14
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda GM encontrada en columna 15
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda BB encontrada en columna 16
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda BS encontrada en columna 17
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Ok tenemos study
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 0
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 1
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 2
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 3
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 4
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 5
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 6
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 7
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 8
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda CONDITION encontrada en renglon 8
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 0
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 1
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 2
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 3
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 4
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 5
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 6
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 7
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 8
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 9
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 10
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 11
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 12
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 13
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 14
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 15
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 16
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 17
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 18
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda FACTOR encontrada en renglon 18
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 0
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 1
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 2
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 3
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 4
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 5
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 6
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 7
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 8
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 9
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 10
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 11
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 12
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 13
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 14
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 15
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 16
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 17
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 18
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 19
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 20
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 21
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 22
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 23
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 24
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 25
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda CONSTANT encontrada en renglon 25
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 0
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 1
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 2
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 3
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 4
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 5
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 6
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 7
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 8
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 9
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 10
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 11
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 12
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 13
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 14
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 15
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 16
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 17
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 18
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 19
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 20
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 21
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 22
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 23
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 24
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 25
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 26
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 27
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda VARIATE encontrada en renglon 27
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - TRIAL: 2
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda ENTRYNO encontrada en columna 0
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda PLOT encontrada en columna 3
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda FDATE encontrada en columna 5
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda HDATE encontrada en columna 6
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda YIELD encontrada en columna 7
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - TRAIT: YIELD   VALUE: 4.0
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - TRAIT: YIELD   VALUE: 5.0
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - TRAIT: YIELD   VALUE: 6.0
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda DFLW encontrada en columna 8
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda PLTHT encontrada en columna 9
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda PANH encontrada en columna 10
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda PANS encontrada en columna 11
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda PACC encontrada en columna 12
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda FETOXP encontrada en columna 13
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda FETOXS encontrada en columna 14
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda GM encontrada en columna 15
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda BB encontrada en columna 16
-INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda BS encontrada en columna 17
+INFO SwingWorker-pool-1-thread-3 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: BreedersPedigree1  with value: -
+INFO SwingWorker-pool-1-thread-3 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: ENTRY  with value: 9
+INFO SwingWorker-pool-1-thread-3 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: GID  with value: -100
+INFO SwingWorker-pool-1-thread-3 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: DESIG  with value: CGSS05B000110T
+INFO SwingWorker-pool-1-thread-3 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: StockID  with value: CGSS05Y00260S
+INFO SwingWorker-pool-1-thread-3 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: BreedersPedigree1  with value: -
+INFO SwingWorker-pool-1-thread-3 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: ENTRY  with value: 10
+INFO SwingWorker-pool-1-thread-3 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: GID  with value: -101
+INFO SwingWorker-pool-1-thread-3 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: DESIG  with value: CGSS05B000111T
+INFO SwingWorker-pool-1-thread-3 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: StockID  with value: CGSS05Y00261S
+INFO SwingWorker-pool-1-thread-3 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Saving level for ENTRY factor: BreedersPedigree1  with value: -
+INFO SwingWorker-pool-1-thread-3 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbook - Saving levels for entrys DONE!
+INFO SwingWorker-pool-1-thread-3 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbook - Saving levels for plots....
+INFO SwingWorker-pool-1-thread-3 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbook - Saving levels for plots DONE!
+INFO SwingWorker-pool-1-thread-3 org.cimmyt.cril.ibwb.provider.IBWBAppServicesImpl - Savin workbook DONE!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Read study full: -44
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Read list all factors.
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -127 factorid: -1048
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -128 factorid: -1048
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -128 factorid: -1051
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -129 factorid: -1048
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -129 factorid: -1051
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -129 factorid: -1059
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -129 factorid: -1064
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: STUDY   FactorId: -1048
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1866 scaleid: 1002 tmethid: 3316
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: TRIAL   FactorId: -1051
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1864 scaleid: 1001 tmethid: 3001
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: ENTRY   FactorId: -1059
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1861 scaleid: 1001 tmethid: 3001
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PLOT   FactorId: -1064
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1865 scaleid: 1001 tmethid: 3001
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.FactorDAO -  -- getFactorsByFactorsids[-1048, -1051, -1059, -1064]
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: STUDY   FactorId: -1048
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1866 scaleid: 1002 tmethid: 3316
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: STUDY labelid: -1048
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PI Name   FactorId: -1048
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1870 scaleid: 1004 tmethid: 253
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: PI Name labelid: -1049
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PI ID   FactorId: -1048
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1870 scaleid: 1005 tmethid: 253
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: PI ID labelid: -1050
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: TRIAL   FactorId: -1051
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1864 scaleid: 1001 tmethid: 3001
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: TRIAL labelid: -1051
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SITE   FactorId: -1051
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1871 scaleid: 1004 tmethid: 253
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: SITE labelid: -1052
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: SITE ID   FactorId: -1051
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1871 scaleid: 1005 tmethid: 253
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: SITE ID labelid: -1053
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PlantingDate   FactorId: -1051
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: -22 scaleid: 51 tmethid: -13
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: PlantingDate labelid: -1054
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: Season   FactorId: -1051
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1869 scaleid: 37 tmethid: -14
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: Season labelid: -1055
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: Collaborator   FactorId: -1051
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1870 scaleid: 1002 tmethid: 253
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: Collaborator labelid: -1056
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: BreedingProg   FactorId: -1051
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: -23 scaleid: 37 tmethid: -15
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: BreedingProg labelid: -1057
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: Harvest Date   FactorId: -1051
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: -24 scaleid: 51 tmethid: -16
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: Harvest Date labelid: -1058
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: ENTRY   FactorId: -1059
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1861 scaleid: 1001 tmethid: 3001
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: ENTRY labelid: -1059
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: GID   FactorId: -1059
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1834 scaleid: 1005 tmethid: 253
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: GID labelid: -1060
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: DESIG   FactorId: -1059
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1834 scaleid: 1004 tmethid: 253
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: DESIG labelid: -1061
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: StockID   FactorId: -1059
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: -25 scaleid: 1002 tmethid: 253
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: StockID labelid: -1062
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: BreedersPedigree1   FactorId: -1059
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: -26 scaleid: -15 tmethid: -17
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: BreedersPedigree1 labelid: -1063
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PLOT   FactorId: -1064
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1865 scaleid: 1001 tmethid: 3001
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: PLOT labelid: -1064
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: REP   FactorId: -1064
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1854 scaleid: 1001 tmethid: 3001
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: REP labelid: -1065
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: BLOCK   FactorId: -1064
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1868 scaleid: 1001 tmethid: 3001
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: BLOCK labelid: -1066
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -127 factorid: -1048
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -128 factorid: -1048
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -128 factorid: -1051
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -129 factorid: -1048
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -129 factorid: -1051
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -129 factorid: -1059
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -129 factorid: -1064
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: STUDY   FactorId: -1048
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1866 scaleid: 1002 tmethid: 3316
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: TRIAL   FactorId: -1051
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1864 scaleid: 1001 tmethid: 3001
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: ENTRY   FactorId: -1059
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1861 scaleid: 1001 tmethid: 3001
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PLOT   FactorId: -1064
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1865 scaleid: 1001 tmethid: 3001
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - fill all variate as traits
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: GY  VariateId: -2092
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: AnthesisDate  VariateId: -2093
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: DaysToSilk  VariateId: -2094
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PlantHeightCm  VariateId: -2095
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: EarHeightCm  VariateId: -2096
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: EndospermHardness1_5  VariateId: -2097
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: GrainTexture1_5  VariateId: -2098
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: EarAspect1_5  VariateId: -2099
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: GrainMoisturePer  VariateId: -2100
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PlantAspect1_5  VariateId: -2101
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PolysoraRust1_5  VariateId: -2102
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: ChuponNum  VariateId: -2103
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: Aphid1_5  VariateId: -2104
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: BrownSpot1_5  VariateId: -2105
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: CornStuntSpiroplasma1_5  VariateId: -2106
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: MaizeBushyStunt1_5  VariateId: -2107
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: EarRotAsp1_5  VariateId: -2108
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: EarRotStenoc1_5  VariateId: -2109
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: Aspergillus_lavus1_5  VariateId: -2110
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: Aspergillus_lavusPPB  VariateId: -2111
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PhaesLeaSpot1_5(1)  VariateId: -2112
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: CommonRust1_5(1)  VariateId: -2113
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: TarspotComplex1_5  VariateId: -2114
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: GrayLeaSpot1_5(1)  VariateId: -2115
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: VirusMaizeStreak1_5(1)  VariateId: -2116
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: CurvulariaLeaSpot1_5  VariateId: -2117
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: BandLeaSheathBlight1_5  VariateId: -2118
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: StalkRotusGramNum(1)  VariateId: -2119
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: StalkRotPythiumNum  VariateId: -2120
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: Striga1_5  VariateId: -2121
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: TropicalRust1_5  VariateId: -2122
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: TryptophanPer_WholeGrain  VariateId: -2123
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: LysinePer_WholeGrain  VariateId: -2124
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: ProteinPer_WholeGrain  VariateId: -2125
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: ArmyWorm1_5  VariateId: -2126
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: EarWormCm  VariateId: -2127
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: StemBorer1_5(1)  VariateId: -2128
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: LargeGrainBorer1_5  VariateId: -2129
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: MaizeWeevil1_5  VariateId: -2130
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: WeevilTotNum  VariateId: -2131
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: WeevilWtLossPer  VariateId: -2132
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: LeaRolling1_5(1)  VariateId: -2133
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: LeaRolling1_5(2)  VariateId: -2134
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: LeaRolling1_5(3)  VariateId: -2135
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: Senescence0_100(1)  VariateId: -2136
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: Senescence0_100(2)  VariateId: -2137
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: Senescence0_100(3)  VariateId: -2138
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: EarRotTotalNum  VariateId: -2139
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: NumEars  VariateId: -2140
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: EarRotTotalPer  VariateId: -2141
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: STUDY   FactorId: -1048
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1866 scaleid: 1002 tmethid: 3316
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: TRIAL   FactorId: -1051
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1864 scaleid: 1001 tmethid: 3001
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: ENTRY   FactorId: -1059
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1861 scaleid: 1001 tmethid: 3001
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PLOT   FactorId: -1064
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1865 scaleid: 1001 tmethid: 3001
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -127 factorid: -1048
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -128 factorid: -1048
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -128 factorid: -1051
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -129 factorid: -1048
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -129 factorid: -1051
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -129 factorid: -1059
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -129 factorid: -1064
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: Environment  VariateId: -2089
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: Plot size  VariateId: -2090
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: Field Management  VariateId: -2091
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Study Conditions Data....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Study Conditions DONE!!!!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Trial Conditions Data....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Trial Conditions DONE!!!!....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Trial Germplasm Data....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Trial Germplasm DONE!!!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Observations Data....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - filling FactorLabelData... 
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperWorkbookReader - Getting trial randomization fast
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperWorkbookReader - Definiendo orden de busquedas
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperWorkbookReader - Getting trial randomization fast.... DONE
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperWorkbookReader - Getting variates fast....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperWorkbookReader - Getting variates fast.... DONE
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - filling FactorLabelData DONE... 
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Observations Data DONE!!!

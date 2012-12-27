@@ -32,6 +32,7 @@ import java.awt.datatransfer.StringSelection;
 import java.io.File;
 import java.text.MessageFormat;
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -45,6 +46,7 @@ import javax.swing.table.*;
 import net.java.balloontip.BalloonTip;
 import net.java.balloontip.utils.ToolTipUtils;
 import org.cimmyt.cril.ibwb.api.AppServicesProxy;
+import org.cimmyt.cril.ibwb.commongui.ConvertUtils;
 import org.cimmyt.cril.ibwb.commongui.DialogUtil;
 import org.cimmyt.cril.ibwb.commongui.OSUtils;
 import org.cimmyt.cril.ibwb.commongui.select.list.DoubleListPanel;
@@ -102,6 +104,7 @@ public final class StudyEditorTopComponent extends TopComponent {
     private CSVOziel csv;
     AlphaDesignsRowEditor alphaRowEditorStudy;
     private Workbook myWorkbook;
+    private Workbook workbookAfterSave;
     private Workbook masterWorkbook;
     private String fileTemplate;
     private DefaultListModel listModelSelected = new DefaultListModel();
@@ -143,6 +146,7 @@ public final class StudyEditorTopComponent extends TopComponent {
     private Variate traitToEvaluate;
     private String stringTraitToEvaluate = "GY";
     private boolean forMaster = false;
+    private boolean conPreguntas = true;
     private SelectCommand unselectedCommand = new SelectCommand() {
         @Override
         public void execute() {
@@ -157,6 +161,14 @@ public final class StudyEditorTopComponent extends TopComponent {
             jTextFieldDescriptionSelected.setText(variate.getDescription());
         }
     };
+
+    public boolean isConPreguntas() {
+        return conPreguntas;
+    }
+
+    public void setConPreguntas(boolean conPreguntas) {
+        this.conPreguntas = conPreguntas;
+    }
 
     public boolean isForMaster() {
         return forMaster;
@@ -247,7 +259,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         jRadioButtonViewAllTrialStudy.setVisible(false);
         jSpinnerTrialStudy.setVisible(false);
         pnlExpConditionTrial.setVisible(false);
-       // this.jTabbedPaneEditor.setEnabledAt(8, false);
+        // this.jTabbedPaneEditor.setEnabledAt(8, false);
 
     }
 
@@ -2175,6 +2187,7 @@ public final class StudyEditorTopComponent extends TopComponent {
             @Override
             protected String doInBackground() throws Exception {
                 doSaveWorkbook();
+
                 return "";
             }
 
@@ -2187,6 +2200,9 @@ public final class StudyEditorTopComponent extends TopComponent {
                     enableMeasurementButtons();
                     RefreshBrowserHelper.refreshStudyBrowser();
 
+                    reLoadStudy();
+
+
                 } catch (InterruptedException ex) {
                     Exceptions.printStackTrace(ex);
                 } catch (ExecutionException ex) {
@@ -2194,16 +2210,145 @@ public final class StudyEditorTopComponent extends TopComponent {
                 } finally {
                     // close the progress handler
                     handle.finish();
+
                 }
             }
         }).execute();
+
+
         return;
     }//GEN-LAST:event_jButtonSaveDataActionPerformed
+
+    private void reLoadStudy() {
+
+        org.cimmyt.cril.ibwb.domain.Study studyAfterSave;
+        studyAfterSave = AppServicesProxy.getDefault().appServices().getStudyByName(this.jTextTrialName.getText());
+
+
+        Workbook workbook = null;
+
+        try {
+            System.out.println("BUSCANDO:" + studyAfterSave.getStudyid());
+            workbook = AppServicesProxy.getDefault().appServices().getWorkbookFull(new Integer(studyAfterSave.getStudyid()), false);
+
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
+
+
+
+        try {
+
+            if (workbook == null) {
+                changeCursorWaitStatus(false);
+                //   String msgSaving = bundle.getString("OpenStudyAction.cannot");
+
+                //      NotifyDescriptor d = new NotifyDescriptor.Message(msgSaving, NotifyDescriptor.ERROR_MESSAGE);
+                //    DialogDisplayer.getDefault().notify(d);
+
+            } else {
+                StudyEditorTopComponent studyWindow = new StudyEditorTopComponent();
+                studyWindow.setStudy(workbook.getStudy());
+                studyWindow.getjTextTrialName().setText(workbook.getStudy().getStudy());
+                studyWindow.setStudyAlreadyExists(true);
+                fillStudyData(studyWindow, workbook.getStudy());
+                studyWindow.assignStudyConditions(workbook.getStudyConditions());
+
+                fillTraits(studyWindow, workbook);
+
+                studyWindow.assignTrialConditions(workbook.getConditionsData());
+
+                studyWindow.assignGermplasmEntries(workbook.getEntryFactors(), workbook.getGermplasmData());
+                studyWindow.assignExperimentalConditions(workbook.getConstants());
+                studyWindow.loadDataFromDB();
+
+                inhabilitaTabs(studyWindow);
+
+                studyWindow.open();
+                studyWindow.requestActive();
+                changeCursorWaitStatus(false);
+                //     DialogUtil.displayInfo(bundle.getString("OpenStudyAction.opened"));
+            }
+        } catch (Exception ex) {
+            Exceptions.printStackTrace(ex);
+        }
+
+
+        this.setConPreguntas(false);
+        cierraTopComponent(this.getName());
+
+    }
+
+    public void cierraTopComponent(String topName) {
+
+        try {
+            ArrayList<TopComponent> opened = new ArrayList<TopComponent>(WindowManager.getDefault().getRegistry().getOpened());
+
+            for (TopComponent t : opened) {
+
+                if (t.getName().equals(topName)) {
+
+                    t.close();
+                }
+            }
+        } catch (NullPointerException ex) {
+        }
+
+    }
+
+    private void inhabilitaTabs(StudyEditorTopComponent studyWindow) {
+        studyWindow.disableTraitsSelection();
+        studyWindow.jTabbedPaneEditor.setEnabledAt(5, false);
+        studyWindow.jTabbedPaneEditor.setEnabledAt(4, false);
+    }
+
+    private void fillTraits(StudyEditorTopComponent studyWindow, Workbook workbook) {
+        studyWindow.assignTraits(new ArrayList<Variate>(), workbook.getVariates());
+        studyWindow.setMyWorkbook(workbook);
+        studyWindow.setSelectedTraits(workbook.getVariates());
+    }
+
+    private void fillStudyData(StudyEditorTopComponent studyWindow, ibfb.domain.core.Study study) {
+        studyWindow.setName(study.getStudy());
+        studyWindow.jTextFieldStudy.setText(study.getStudy());
+        studyWindow.jTextFieldObjective.setText(study.getObjective());
+        studyWindow.jTextFieldTitle.setText(study.getTitle());
+        Date start = study.getStarDate();
+        Date end = study.getEndDate();
+
+        String formato = ConvertUtils.DATE_PATTERN; //"dd-MMM-yyyy";
+        SimpleDateFormat sdf = new SimpleDateFormat(formato);
+
+
+        try {
+            studyWindow.jDateChooserStart.setDate(start);
+        } catch (NullPointerException ex) {
+        }
+
+        try {
+            studyWindow.jDateChooserEnd.setDate(end);
+        } catch (NullPointerException ex) {
+        }
+        try {
+            studyWindow.jTextFieldPMKey.setText(myWorkbook.getStudy().getPmkey());
+        } catch (NullPointerException ex) {
+        }
+        try {
+            studyWindow.jComboBoxStudyType.setSelectedItem(myWorkbook.getStudy().getStudyType());
+        } catch (NullPointerException ex) {
+            studyWindow.jComboBoxStudyType.setSelectedItem(0);
+        }
+
+
+    }
 
     private void doSaveWorkbook() {
         WorkbookSavingHelper.saveFieldbook(this);
         disableTraitsSelection();
         jTextTrialName.setEnabled(false);
+
     }
 
     private void jButtonRefreshDesignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRefreshDesignActionPerformed
@@ -2633,7 +2778,6 @@ public final class StudyEditorTopComponent extends TopComponent {
     }//GEN-LAST:event_jTabbedPaneEditorStateChanged
 
     private void jDateChooserStartInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_jDateChooserStartInputMethodTextChanged
-
    }//GEN-LAST:event_jDateChooserStartInputMethodTextChanged
 
     private void jDateChooserStartPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jDateChooserStartPropertyChange
@@ -2657,7 +2801,6 @@ public final class StudyEditorTopComponent extends TopComponent {
     }//GEN-LAST:event_jDateChooserStartPropertyChange
 
     private void jDateChooserEndInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_jDateChooserEndInputMethodTextChanged
-
    }//GEN-LAST:event_jDateChooserEndInputMethodTextChanged
 
     private void jDateChooserEndPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jDateChooserEndPropertyChange
@@ -3018,15 +3161,15 @@ public final class StudyEditorTopComponent extends TopComponent {
 
         this.jTabbedPaneEditor.setEnabledAt(7, true);
         this.jTabbedPaneEditor.setSelectedIndex(7);
-       
+
         ObservationTableTooltips.assignTooltips(jTableObservations);
         // asignaClipboard();
         // System.out.println("CROP ACTIVO MEASUREMENTES: "+this.getCROP());
-            fillMasterData(selectedVariates);
-            ajustaColumnsTable(this.jTableMaster, 2);
-            
- changeCursorWaitStatus(false);
-        
+        fillMasterData(selectedVariates);
+        ajustaColumnsTable(this.jTableMaster, 2);
+
+        changeCursorWaitStatus(false);
+
     }
 
     private void fillMasterData(List fieldbookVariates) {
@@ -3051,7 +3194,6 @@ public final class StudyEditorTopComponent extends TopComponent {
         this.jTableMaster.setModel(tableModelMaster);
         ObservationTableTooltips.assignTooltips(jTableMaster);
     }
-
 
     private void fillDataWithFormulas(ObservationsTableModel tableModel, ObservationsTableModel tableModelMaster, List<Variate> fieldbookVariates, List<Variate> masterVariates) {
 
@@ -3117,10 +3259,10 @@ public final class StudyEditorTopComponent extends TopComponent {
         TableColumnModel tcm = this.jTableEntries.getColumnModel();
         GermplasmEntriesTableModel entriesTableModel = (GermplasmEntriesTableModel) this.jTableEntries.getModel();
         int total = Integer.parseInt(this.jTextFieldEntries.getText());
-        
+
         NumberFormat numberFormat = NumberFormat.getInstance();
         numberFormat.setMaximumFractionDigits(0);
-        
+
         for (int i = 0; i < total; i++) {
             for (int j = 0; j < totalRep; j++) {
                 Object[] rowToAdd = new Object[model.getColumnCount()];
@@ -3135,17 +3277,17 @@ public final class StudyEditorTopComponent extends TopComponent {
                 }
 
                 //A2*10^(TRUNC(LOG10(MAX(16,5,22)))+1)+B2                
-                
-                int resInt=(int)java.lang.Math.floor(java.lang.Math.log10(total))+1;                                
-                int newPlot=(trial*((int)(Math.pow(10, resInt))))+(i+1);                                                            
-                
-                if( model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER)>0){
-                      rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER)] = i+1;
-                  }else{ 
-                rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = newPlot; //NESTEDNUMBER
+
+                int resInt = (int) java.lang.Math.floor(java.lang.Math.log10(total)) + 1;
+                int newPlot = (trial * ((int) (Math.pow(10, resInt)))) + (i + 1);
+
+                if (model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER) > 0) {
+                    rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER)] = i + 1;
+                } else {
+                    rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = newPlot; //NESTEDNUMBER
                 }
                 //  rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = i;
-                  
+
                 //rowToAdd[model.getHeaderIndex(ObservationsTableModel.ENTRY)] = i + 1;
                 int entriesColIndex = 0;
                 for (Factor factor : entriesTableModel.getFactorHeaders()) {
@@ -3185,21 +3327,21 @@ public final class StudyEditorTopComponent extends TopComponent {
                 if (model.getHeaderIndex(ObservationsTableModel.BLOCK) > 0) {
                     rowToAdd[model.getHeaderIndex(ObservationsTableModel.BLOCK)] = 1;
                 }
-               
-                
-                
+
+
+
                 //A2*10^(TRUNC(LOG10(MAX(16,5,22)))+1)+B2                
-                
-                int resInt=(int)java.lang.Math.floor(java.lang.Math.log10(total))+1;                                
-                int newPlot=(trial*((int)(Math.pow(10, resInt))))+(i+1);                                                            
-                
-                if( model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER)>0){
-                      rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER)] = i+1;
-                  }else{ 
-                
-                rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = newPlot; //NESTEDNUMBER
+
+                int resInt = (int) java.lang.Math.floor(java.lang.Math.log10(total)) + 1;
+                int newPlot = (trial * ((int) (Math.pow(10, resInt)))) + (i + 1);
+
+                if (model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER) > 0) {
+                    rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER)] = i + 1;
+                } else {
+
+                    rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = newPlot; //NESTEDNUMBER
                 }
-               // rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = i + 1;
+                // rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = i + 1;
                 //rowToAdd[model.getHeaderIndex(ObservationsTableModel.ENTRY)] = i + 1;
 
                 int entriesColIndex = 0;
@@ -3225,19 +3367,19 @@ public final class StudyEditorTopComponent extends TopComponent {
         int total = Integer.parseInt(this.jTextFieldEntries.getText());
         int plot = 0;
         int repet = 0;
-        
+
         //A2*10^(TRUNC(LOG10(MAX(16,5,22)))+1)+B2                                
-                      
+
         for (int j = 0; j < rep; j++) {
             repet++;
             int vector[] = randomize(total);
-  
+
             for (int i = 0; i < total; i++) {
 
-               
-                int resInt=(int)java.lang.Math.floor(java.lang.Math.log10(total*rep))+1;                                
-                int newPlot=(trial*((int)(Math.pow(10, resInt))))+(plot+1);  
-                 plot++;
+
+                int resInt = (int) java.lang.Math.floor(java.lang.Math.log10(total * rep)) + 1;
+                int newPlot = (trial * ((int) (Math.pow(10, resInt)))) + (plot + 1);
+                plot++;
 
                 for (int m = 0; m < totalRep; m++) {
                     Object[] rowToAdd = new Object[model.getColumnCount()];
@@ -3248,18 +3390,18 @@ public final class StudyEditorTopComponent extends TopComponent {
                     if (model.getHeaderIndex(ObservationsTableModel.BLOCK) > 0) {
                         rowToAdd[model.getHeaderIndex(ObservationsTableModel.BLOCK)] = 1;
                     }
-                    
-                    
-                  if( model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER)>0){
-                      rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER)] = plot;
-                  }else{                                 
-                      rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = newPlot;
-                  }
+
+
+                    if (model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER) > 0) {
+                        rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER)] = plot;
+                    } else {
+                        rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = newPlot;
+                    }
 
                     int entriesColIndex = 0;
                     for (Factor factor : entriesTableModel.getFactorHeaders()) {
                         String columnHeader = Workbook.getStringWithOutBlanks(factor.getProperty() + factor.getScale());
-                        rowToAdd[model.getHeaderIndex(columnHeader)] = entriesTableModel.getValueAt(vector[i], entriesColIndex);                                             
+                        rowToAdd[model.getHeaderIndex(columnHeader)] = entriesTableModel.getValueAt(vector[i], entriesColIndex);
                         entriesColIndex++;
                     }
 
@@ -3664,13 +3806,13 @@ public final class StudyEditorTopComponent extends TopComponent {
 
         ObservationTableTooltips.assignTooltips(jTableObservations);
         enableMeasurementButtons();
-             
-        
-        if(giveMeCropFromDatabase()==1){ //If is Maize
+
+
+        if (giveMeCropFromDatabase() == 1) { //If is Maize
             fillMasterData(myWorkbook.getVariates());
             ajustaColumnsTable(this.jTableMaster, 2);
-           }
- 
+        }
+
         changeCursorWaitStatus(false);
 
     }
@@ -3707,7 +3849,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         String formulaValores = func.getFormulaTraducida();
         int colMaster = tableModelMaster.findColumn(variateToFind);
 
-        jTableMaster.getColumnModel().getColumn(colMaster).setHeaderRenderer(new MyRenderer(Color.YELLOW,Color.black));    
+        jTableMaster.getColumnModel().getColumn(colMaster).setHeaderRenderer(new MyRenderer(Color.YELLOW, Color.black));
 
         List<TmsConsistencyChecks> dependences = func.getTmsConsistencyChecksDependencys();
 
@@ -3729,7 +3871,7 @@ public final class StudyEditorTopComponent extends TopComponent {
 
             }
 
-           // System.out.println("Formula " + j + "   :  " + formulaValores);
+            // System.out.println("Formula " + j + "   :  " + formulaValores);
 
             if (!hayError) {
                 try {
@@ -3739,7 +3881,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                     operation = 0;
                 }
 
-             //   System.out.println("Evaluado operacion 1: " + operation);
+                //   System.out.println("Evaluado operacion 1: " + operation);
                 tableModelMaster.setValueAt(String.valueOf(operation), j, colMaster);
 
             }
@@ -3811,15 +3953,15 @@ public final class StudyEditorTopComponent extends TopComponent {
 
             List<TmsConsistencyChecks> lista = new ArrayList<TmsConsistencyChecks>();
             Transformations trans = null;
-            String tipo="D";//Default 
-            
+            String tipo = "D";//Default 
+
             try {
                 trans = AppServicesProxy.getDefault().appServices().getTransformationsByVariateid(mVariate.getVariateId());
                 tipo = trans.getTranstype();
                 System.out.println("EL TIPO ES: " + tipo);
             } catch (Exception e) {
                 System.out.println("EL TIPO ERROR ES: " + tipo);
-                 
+
             }
 
             if (tipo.equals("C")) {
@@ -3833,7 +3975,7 @@ public final class StudyEditorTopComponent extends TopComponent {
             } else if (tipo.equals("F")) {
                 ContinuousFunction func = trans.getContinuousFunction();
                 //System.out.println("FUNCION:" + func.getFunction());
-               // System.out.println("TRADUCIDA:" + func.getFormulaTraducida());
+                // System.out.println("TRADUCIDA:" + func.getFormulaTraducida());
                 setValuesFunctionForColumn(func, variateToFind);
 
             } else {
@@ -3842,6 +3984,10 @@ public final class StudyEditorTopComponent extends TopComponent {
         }
 
         tableModelMaster.setIsMasterSheet(true);
+    }
+
+    public void setNewStudy(Workbook savingWorkbook) {
+        this.workbookAfterSave = savingWorkbook;
     }
 
     private class TraitsDropTargetCommand implements DropTargetCommand {
@@ -3917,19 +4063,29 @@ public final class StudyEditorTopComponent extends TopComponent {
     @Override
     public boolean canClose() {
         boolean result = true;
-        String closeTitle = NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.closeFieldbook.title");
-        String closeQuestion = NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.closeFieldbook.question");
-        String provideTrialName = NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.closeFieldbook.provideTrialName");
-        boolean saveFieldbook = DialogUtil.displayConfirmation(closeQuestion, closeTitle, NotifyDescriptor.YES_NO_CANCEL_OPTION);
-        if (saveFieldbook) {
-            if (jTextTrialName.getText().trim().isEmpty()) {
-                DialogUtil.displayError(provideTrialName);
-                result = false;
-            } else {
-                jButtonSaveDataActionPerformed(null);
+
+
+        if (conPreguntas) {
+            String closeTitle = NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.closeFieldbook.title");
+            String closeQuestion = NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.closeFieldbook.question");
+            String provideTrialName = NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.closeFieldbook.provideTrialName");
+            boolean saveFieldbook = DialogUtil.displayConfirmation(closeQuestion, closeTitle, NotifyDescriptor.YES_NO_CANCEL_OPTION);
+
+            if (saveFieldbook) {
+                if (jTextTrialName.getText().trim().isEmpty()) {
+                    DialogUtil.displayError(provideTrialName);
+                    result = false;
+                } else {
+                    jButtonSaveDataActionPerformed(null);
+                }
+
             }
 
+        } else {
+            result = true;
         }
+
+
         return result;
     }
 
@@ -3955,20 +4111,20 @@ public final class StudyEditorTopComponent extends TopComponent {
         jButtonSaveData.setEnabled(true);
         jButtonExportData.setEnabled(true);
         jButtonImportData.setEnabled(true);
-       
-       
-          
-        if(giveMeCropFromDatabase()==1){ //If is Maize
-            System.out.println("TOTAL TAB: "+this.jTabbedPaneEditor.getTabCount());
-          this.jTabbedPaneEditor.setEnabledAt(8, true);
-        }else{            
-             if(jTabbedPaneEditor.getTabCount()>8){
-             this.jTabbedPaneEditor.remove(8);
-             }
-        
-        
+
+
+
+        if (giveMeCropFromDatabase() == 1) { //If is Maize
+            System.out.println("TOTAL TAB: " + this.jTabbedPaneEditor.getTabCount());
+            this.jTabbedPaneEditor.setEnabledAt(8, true);
+        } else {
+            if (jTabbedPaneEditor.getTabCount() > 8) {
+                this.jTabbedPaneEditor.remove(8);
+            }
+
+
         }
-        
+
 
     }
 
@@ -3992,8 +4148,8 @@ public final class StudyEditorTopComponent extends TopComponent {
             jtable.getCellEditor().stopCellEditing();
         }
     }
-    
-    public int giveMeCropFromDatabase() {            
+
+    public int giveMeCropFromDatabase() {
         int theCrop = 2;  //0=Wheat   1=maize   2=other crops
         TypeDB tipo = AppServicesProxy.getDefault().appServices().getTypeDB();
         return tipo.getType();

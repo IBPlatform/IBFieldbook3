@@ -33,11 +33,13 @@ public class WorkbookSavingHelper {
      *
      * @param workbook
      */
+    
     public static void saveFieldbook(StudyEditorTopComponent studyEditor) {
+       
         Workbook savingWorkbook = new Workbook();
-
+        
+        
         savingWorkbook.setStudy(getStudy(studyEditor));
-
         // assign number of instances
         Integer instanceNumber = Integer.parseInt(studyEditor.jLabelInstances.getText());
         savingWorkbook.setInstanceNumber(instanceNumber);
@@ -76,15 +78,26 @@ public class WorkbookSavingHelper {
         // if study already exists then update it
         if (studyEditor.isStudyAlreadyExists()) {
             AppServicesProxy.getDefault().appServices().updateWorkbook(savingWorkbook);
+           
+        
         } else {
             // study does not exist!, then create it 
             AppServicesProxy.getDefault().appServices().saveWorkbookFull(savingWorkbook);
+            
             // but if user press save study already exists
             studyEditor.setStudyAlreadyExists(true);
+           
+            
         }
+       
+        
 
     }
 
+    
+    
+    
+    
     /**
      * Get data for study
      *
