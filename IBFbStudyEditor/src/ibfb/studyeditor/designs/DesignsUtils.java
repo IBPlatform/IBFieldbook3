@@ -37,6 +37,8 @@ import org.openide.util.NbPreferences;
  *
  * @author OZIEL
  */
+
+
 public class DesignsUtils {
 
     private JTable jTableDesign;
