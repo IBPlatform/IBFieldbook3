@@ -4012,11 +4012,11 @@ public final class StudyEditorTopComponent extends TopComponent {
                         variate.setScale(trait.getMeasuredin().getScales().getScname());
                         variate.setDataType(trait.getMeasuredin().getScales().getDtype());
                     }
+                    
                     if (trait.getMeasuredin().getTmsMethod() != null) {
                         variate.setMethod(trait.getMeasuredin().getTmsMethod().getTmname());
                     }
                 }
-
                 doubleListPanel.addToTarget(variate);
             }
         }
