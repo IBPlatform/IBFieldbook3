@@ -533,8 +533,13 @@ public class DesignsClass {
                     rowToAdd[model.getHeaderIndex(ObservationsTableModel.BLOCK)] = block;
                 }
 
-
-                rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = plot;
+                if(model.findColumn(ObservationsTableModel.PLOT)>0){
+                  rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = plot;   
+                }else{
+                  rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER)] = plot;  
+                }
+                
+               
 
 
                 int entriesColIndex = 0;
