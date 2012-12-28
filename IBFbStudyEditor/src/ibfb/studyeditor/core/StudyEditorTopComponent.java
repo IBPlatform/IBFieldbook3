@@ -2489,8 +2489,15 @@ public final class StudyEditorTopComponent extends TopComponent {
         csv.readDATAnew(selectorArchivo.getSelectedFile());
     }
 
-    public void fillDesign() {
-
+   
+    public void fillDesignWorkbook(){
+        
+         designsUtils.setWorkbook(myWorkbook);     
+         designsUtils.setGermplasmEntries(Integer.parseInt(this.jTextFieldEntries.getText()));
+    }
+    
+    public void fillDesign() {      
+        
         boolean hasBLOCKfactor = false;
         boolean hasREPLICATIONfactor = false;
         boolean hasFIELDfactorfactor = false;

@@ -485,6 +485,7 @@ public class DesignsUtils {
 
 
                 readFactorsForDesign();
+                
                 for (int i = 0; i < facDesign.size(); i++) {
                     System.out.println("FACTOR STANDAR: " + facDesign.get(i).getFactorNameDefault());
                     if (facDesign.get(i).isFounded()) {

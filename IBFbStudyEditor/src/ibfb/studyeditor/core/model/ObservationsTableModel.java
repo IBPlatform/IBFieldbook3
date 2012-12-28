@@ -461,6 +461,8 @@ public class ObservationsTableModel extends AbstractTableModel {
         int mayorPlot=0;
 
         int currentTrial = -999;
+        
+        int myrep=1;
 
         for (int row = values.size() - 1; row > 0; row--) {
             Object value = getValueAt(row, trialColumn);
@@ -472,6 +474,7 @@ public class ObservationsTableModel extends AbstractTableModel {
             }
             
             if (trialNumber != null) {
+                
                // if (trialNumber.intValue() != currentTrial) {
                     currentTrial = trialNumber;
 
@@ -484,16 +487,26 @@ public class ObservationsTableModel extends AbstractTableModel {
 
                     if (maxPlot instanceof Integer) {
                         plotValue = (Integer) maxPlot;
+                        
+                        if (plotValue == mayorPlot) {
+                            myrep++; 
+                        }
+                        
                         if (plotValue > mayorPlot) {
                             mayorPlot = plotValue;
                         }
 
                     } else if (maxPlot instanceof String) {
                         plotValue = Integer.parseInt((String) maxPlot);
+                        
+                        if (plotValue == mayorPlot) {
+                             myrep++; 
+                        }
+                        
                         if (plotValue > mayorPlot) {
                             mayorPlot = plotValue;
                         }
-                    rowsPerTrial.put(currentTrial, mayorPlot);
+                    rowsPerTrial.put(currentTrial, mayorPlot*myrep);
                     }
              //   }
             }

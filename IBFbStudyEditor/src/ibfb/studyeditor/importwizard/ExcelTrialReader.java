@@ -487,15 +487,15 @@ public class ExcelTrialReader {
         int totalValues = sheetObservation.getLastRowNum();
         int totalObservations = observationsModel.getRowsPerTrial().get(trial); //observationsModel.getRowCount() / instances;
 
-         // System.out.println("TOTAL VALUES: "+totalValues);
-        // System.out.println("TOTAL OBSERVATIONS: "+totalObservations);
+          System.out.println("TOTAL VALUES: "+totalValues);
+          System.out.println("TOTAL OBSERVATIONS: "+totalObservations);
          
          
-//
-//        if (totalValues != totalObservations) {
-//            DialogUtil.displayError("Template error. The number of rows does not match");
-//            return;
-//        }
+
+        if (totalValues != totalObservations) {
+            DialogUtil.displayError("Template error. The number of rows does not match");
+            return;
+        }
 
         for (int i = 0; i < traits.size(); i++) {//columnas
 
