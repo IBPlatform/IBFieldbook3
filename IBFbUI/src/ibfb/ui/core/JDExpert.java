@@ -610,10 +610,13 @@ public class JDExpert extends javax.swing.JDialog {
                 studyWindow.jTabbedPaneEditor.setEnabledAt(4, true);
             }
 
+            studyWindow.setMyWorkbook(myExcelReader.getMyWorkbook());
             studyWindow.setFileTemplate(this.jTextAreaPathTemplate.getText());
             studyWindow.jTabbedPaneEditor.setEnabledAt(7, false);
             studyWindow.jTabbedPaneEditor.setSelectedIndex(5);
+            studyWindow.fillDesignWorkbook();
             studyWindow.fillDesign();
+            
             studyWindow.defineTabs();
             studyWindow.open();
             studyWindow.requestActive();
