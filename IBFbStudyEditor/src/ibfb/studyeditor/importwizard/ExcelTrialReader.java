@@ -492,10 +492,10 @@ public class ExcelTrialReader {
          
          
 
-        if (totalValues != totalObservations) {
-            DialogUtil.displayError("Template error. The number of rows does not match");
-            return;
-        }
+//        if (totalValues != totalObservations) {
+//            DialogUtil.displayError("Template error. The number of rows does not match");
+//            return;
+//        }
 
         for (int i = 0; i < traits.size(); i++) {//columnas
 

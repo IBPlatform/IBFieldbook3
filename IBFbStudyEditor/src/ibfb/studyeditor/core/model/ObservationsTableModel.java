@@ -30,9 +30,11 @@ public class ObservationsTableModel extends AbstractTableModel {
     public static final String CROSS = "CROSSHISTORYPEDIGREESTRING";
     public static final String SOURCE = "SEEDSOURCENAME";
     public static final String PLOT = "FIELDPLOTNESTEDNUMBER";
+    public static final String PLOT_NESTED = "PLOTNESTEDNUMBER";    
     public static final String PLOTNUMBER = "FIELDPLOTNUMBER";
     public static final String REPLICATION = "REPLICATIONNUMBER";
     public static final String BLOCK = "BLOCKNUMBER";
+    public static final String BLOCK_NESTED = "BLOCKNESTEDNUMBER";
     public static final String ROW = "ROWINLAYOUTNUMBER";
     public static final String COL = "COLUMNINLAYOUTNUMBER";
     public static boolean isFromCrossInfo = false;
