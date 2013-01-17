@@ -46,6 +46,7 @@ import org.openide.util.NbBundle;
 import org.openide.windows.TopComponent;
 import ibfb.germplasmlist.utils.SequenceEntry;
 import java.util.*;
+
 /**
  * Top component which displays something.
  */
@@ -93,7 +94,7 @@ public final class addChecksTopComponent extends TopComponent {
     ArrayList<Integer> posiciones;
     private List<List<Object>> sourceList;
     private List<List<Object>> destList;
-        private int totalEntries=0;
+    private int totalEntries = 0;
     private int[] posicionesSec;
     private ArrayList<int[]> posicionesSecuencia;
     private ArrayList<SequenceEntry> sequenceList;
@@ -1376,11 +1377,11 @@ public final class addChecksTopComponent extends TopComponent {
         if (AppServicesProxy.getDefault().appServices().existGermplasmListName(jTextFieldListName.getText())) {
             NotifyDescriptor d = new NotifyDescriptor.Message(NbBundle.getMessage(addChecksTopComponent.class, "addChecksTopComponent.listNameAlreadyExists"), NotifyDescriptor.ERROR_MESSAGE);
             DialogDisplayer.getDefault().notify(d);
-            return; 
+            return;
         }
 
         System.out.println("ANTES DE GUARDAR LA LISTA");
-        
+
         saveList();
 
         System.out.println("YA GUARDO LA LISTA");
@@ -1394,8 +1395,8 @@ public final class addChecksTopComponent extends TopComponent {
     }//GEN-LAST:event_jButtonSaveListActionPerformed
 
     private void saveList() {
-        
-        Integer loggedUserid = AppServicesProxy.getDefault().appServices().getLoggedUserId(FieldbookSettings.getLocalGmsUserId());        
+
+        Integer loggedUserid = AppServicesProxy.getDefault().appServices().getLoggedUserId(FieldbookSettings.getLocalGmsUserId());
         Listnms listnms = new Listnms();
         listnms.setListname(this.jTextFieldListName.getText());
 
@@ -1650,8 +1651,6 @@ public final class addChecksTopComponent extends TopComponent {
 
     }//GEN-LAST:event_jTabbedPaneChecksStateChanged
 
-    
-    
     public ArrayList<SequenceEntry> calculaPosicionesSecuencia() {
 
         posicionesSecuencia = new ArrayList<int[]>();
@@ -1706,9 +1705,6 @@ public final class addChecksTopComponent extends TopComponent {
         return sequenceList;
     }
 
-    
-    
-    
     private void fillChecks() {
 
 
@@ -1716,10 +1712,10 @@ public final class addChecksTopComponent extends TopComponent {
         List<List<Object>> germplasmData = tableModel.getGermplasmData();
         List<List<Object>> germplasmDataTemp = new ArrayList<List<Object>>();
 
-        
-          tableModel = new GermplasmEntriesTableModelChecks(factores, germplasmDataTemp);
-          this.jTableFinal.setModel(tableModel);
-        
+
+        tableModel = new GermplasmEntriesTableModelChecks(factores, germplasmDataTemp);
+        this.jTableFinal.setModel(tableModel);
+
         if (this.jTableFinalSource.getRowCount() == 0) {
             tableModel = new GermplasmEntriesTableModelChecks(factores, germplasmDataTemp);
             this.jTableFinal.setModel(tableModel);
@@ -1762,42 +1758,38 @@ public final class addChecksTopComponent extends TopComponent {
                 return;
             }
 
-            
-             if (checksInSequence()) {
-                 
-                sequenceList= calculaPosicionesSecuencia();
-                posiciones=calculaPosicionesSecuenciaInteger();
-                        
-              Collections.sort(sequenceList, new MyIntComparable());
 
-              for (int j =0 ; j <sequenceList.size(); j++) {
+            if (checksInSequence()) {
 
-                List<Object> newData = new ArrayList<Object>();
-                
-                Object[] check = germplasmDataChecks.get(sequenceList.get(j).getEntrada()).toArray();                
-                Object[] temp = check.clone();
-                
-                for (int k = 0; k < temp.length; k++) {
-                    newData.add(k, temp[k]);
+                sequenceList = calculaPosicionesSecuencia();
+                posiciones = calculaPosicionesSecuenciaInteger();
+
+                Collections.sort(sequenceList, new MyIntComparable());
+
+                for (int j = 0; j < sequenceList.size(); j++) {
+
+                    List<Object> newData = new ArrayList<Object>();
+
+                    Object[] check = germplasmDataChecks.get(sequenceList.get(j).getEntrada()).toArray();
+                    Object[] temp = check.clone();
+
+                    for (int k = 0; k < temp.length; k++) {
+                        newData.add(k, temp[k]);
+                    }
+
+
+                    //System.out.println("Insertando entrada "+sequenceList.get(j).getEntrada() +"   en pos "+(sequenceList.get(j).getPosicion() - 1));
+
+                    int posToAdd = sequenceList.get(j).getPosicion() - 1;
+                    // System.out.println("POS TO ADD "+posToAdd);
+
+                    germplasmDataTemp.add(posToAdd, newData);
+
+
                 }
 
-                
-               //System.out.println("Insertando entrada "+sequenceList.get(j).getEntrada() +"   en pos "+(sequenceList.get(j).getPosicion() - 1));
-                
-                int posToAdd=sequenceList.get(j).getPosicion()-1;
-               // System.out.println("POS TO ADD "+posToAdd);
-                
-                germplasmDataTemp.add(posToAdd, newData);
 
-
-            }
-
-
-        } 
-            
-            
-            
-            else{
+            } else {
                 int contador = 0;
                 posiciones = calculaPosiciones();
 
@@ -1819,42 +1811,38 @@ public final class addChecksTopComponent extends TopComponent {
                         contador = 0;
                     }
                 }
-            
+
             }
 
         }
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
         recorreIndices(germplasmDataTemp, colEntry);
 
         assignGermplasmEntries(factores, germplasmDataTemp, colEntry);
 
     }
-    
-    
-    public boolean checksInSequence(){
-        if(this.jRadioButtonPosition.isSelected()){
+
+    public boolean checksInSequence() {
+        if (this.jRadioButtonPosition.isSelected()) {
             return false;
-        }else{
+        } else {
             return true;
         }
     }
 
-    
-    
-     public class MyIntComparable implements Comparator<SequenceEntry> {
+    public class MyIntComparable implements Comparator<SequenceEntry> {
 
         @Override
         public int compare(SequenceEntry o1, SequenceEntry o2) {
             return (o1.getPosicion() < o2.getPosicion() ? -1 : (o1.getPosicion() == o2.getPosicion() ? 0 : 1));
         }
     }
-    
-    
+
     private void fillChecks2() {
         GermplasmEntriesTableModelChecks tableModel = (GermplasmEntriesTableModelChecks) this.jTableFinalSource.getModel();
         List<List<Object>> germplasmData = tableModel.getGermplasmData();
@@ -2151,9 +2139,9 @@ public final class addChecksTopComponent extends TopComponent {
 
         List<List<Object>> toRemoveLocal = new ArrayList<List<Object>>();
         int[] selectedRows = sourceTable.getSelectedRows();
-        
-        
-       
+
+
+
         switch (jTabbedPaneSelectChecks.getSelectedIndex()) {
 
             case 0:
@@ -2166,32 +2154,32 @@ public final class addChecksTopComponent extends TopComponent {
             case 1:
                 for (int i = 0; i < selectedRows.length; i++) {
 
-                sourceEntries.get(selectedRows[i]).add(1); 
-                sourceEntries.get(selectedRows[i]).add(1); 
-                    
+                    sourceEntries.get(selectedRows[i]).add(1);
+                    sourceEntries.get(selectedRows[i]).add(1);
+
                     toAddChecks.add(sourceEntries.get(selectedRows[i]));
-                
-                    
+
+
                     toRemoveLocal.add(sourceEntries.get(selectedRows[i]));
                 }
                 break;
         }
-        
-        
-        
-        
 
-        
-        
-        
+
+
+
+
+
+
+
         sourceEntries.removeAll(toRemoveLocal);
 
         GermplasmEntriesTableModelChecks tableModel = new GermplasmEntriesTableModelChecks(factores, toAddChecks);
         tableModel.setHasChecks(hasChecks);
         jTableFinalChecks.setModel(tableModel);
         sourceTable.getSelectionModel().clearSelection();
-      //  jTableFinalChecks.updateUI();
-      //  sourceTable.updateUI();
+        //  jTableFinalChecks.updateUI();
+        //  sourceTable.updateUI();
     }//GEN-LAST:event_jButtonAddChecksActionPerformed
 
     private void btnSearchListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchListActionPerformed
@@ -2412,7 +2400,7 @@ public final class addChecksTopComponent extends TopComponent {
 
         }
 
-        
+
 
     }
 
@@ -2424,7 +2412,7 @@ public final class addChecksTopComponent extends TopComponent {
      */
     private void validateValuesForSource(List<List<Object>> dataList) {
         int SOURCE_COLUMN = 3;
-        if (dataList.get(0).size() !=4) {
+        if (dataList.get(0).size() != 4) {
             return;
         }
 
@@ -2434,16 +2422,26 @@ public final class addChecksTopComponent extends TopComponent {
         switch (jTabbedPaneChecks.getSelectedIndex()) {
             case 0:
                 if (jTabbedPaneSource.getSelectedIndex() == 0) {
-                    Listnms femaleList = (Listnms) cboGermplasmList.getSelectedItem();
-                    listName = femaleList.getListname();
+                    if (cboGermplasmList.getSelectedItem() instanceof Listnms) {
+                        Listnms femaleList = (Listnms) cboGermplasmList.getSelectedItem();
+                        listName = femaleList.getListname();
+                    } else if (cboGermplasmList.getSelectedItem() instanceof String) {
+                        String strListName = (String) cboGermplasmList.getSelectedItem();
+                        listName = strListName;
+                    }
                 } else {
                     listName = FileUtils.extractFileName(jTextAreaPath.getText());
                 }
                 break;
             case 1:
                 if (jTabbedPaneSelectChecks.getSelectedIndex() == 0) {
-                    Listnms femaleList = (Listnms) cboGermplasmListChecks.getSelectedItem();
-                    listName = femaleList.getListname();
+                    if (cboGermplasmListChecks.getSelectedItem() instanceof Listnms) {
+                        Listnms femaleList = (Listnms) cboGermplasmListChecks.getSelectedItem();
+                        listName = femaleList.getListname();
+                    } else if (cboGermplasmListChecks.getSelectedItem() instanceof String) {
+                        String strListName = (String) cboGermplasmListChecks.getSelectedItem();
+                        listName = strListName;
+                    }
                 } else {
                     listName = FileUtils.extractFileName(jTextAreaPathChecks.getText());
                 }
@@ -2454,7 +2452,7 @@ public final class addChecksTopComponent extends TopComponent {
         for (int rowIndex = 0; rowIndex < dataList.size(); rowIndex++) {
             List<Object> columnList = dataList.get(rowIndex);
             String sourceText = (String) columnList.get(SOURCE_COLUMN);
-            
+
             if (sourceText == null) {
                 columnList.set(SOURCE_COLUMN, listName + ":" + rowNumber);
             } else if (sourceText.isEmpty()) {
@@ -2603,7 +2601,7 @@ public final class addChecksTopComponent extends TopComponent {
 
     public boolean validateTable() {
 
-      
+
         if (this.jTableFinalChecks.getRowCount() == 0) {
 
             return true;
@@ -2742,21 +2740,20 @@ public final class addChecksTopComponent extends TopComponent {
 
     }
 
-     public ArrayList<Integer> calculaPosicionesSecuenciaInteger() {
-          ArrayList<Integer> posiciones = new ArrayList();
-          for (int i = 0; i < sequenceList.size(); i++) {
-             posiciones.add(sequenceList.get(i).getPosicion());
-             
-         }
-          
-          return posiciones;
-     }
-    
-    
-    public int getSequenceListSize(){
+    public ArrayList<Integer> calculaPosicionesSecuenciaInteger() {
+        ArrayList<Integer> posiciones = new ArrayList();
+        for (int i = 0; i < sequenceList.size(); i++) {
+            posiciones.add(sequenceList.get(i).getPosicion());
+
+        }
+
+        return posiciones;
+    }
+
+    public int getSequenceListSize() {
         return sequenceList.size();
     }
-    
+
     public ArrayList<Integer> calculaPosiciones() {
 
         ArrayList<Integer> positionsTable = new ArrayList();
@@ -3130,6 +3127,7 @@ public final class addChecksTopComponent extends TopComponent {
                 setGermplasmListIntoTable(germplasmList, this.jTableEntriesDB, 0, 0);
 
             } catch (Exception ex) {
+                ex.printStackTrace();
                 System.out.println("ERROR AL LEER EXCEL GERMPLASM ENTRIES DB: " + ex);
             }
         } else {
@@ -3178,6 +3176,7 @@ public final class addChecksTopComponent extends TopComponent {
         jTableFinalSource.updateUI();
 
     }
+
     private static void printNode(GermplasmPedigreeTreeNode node, int level) {
         StringBuffer tabs = new StringBuffer();
 
