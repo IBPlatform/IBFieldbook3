@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 import org.apache.log4j.Logger;
 
@@ -487,10 +488,10 @@ public class ExcelTrialReader {
         int totalValues = sheetObservation.getLastRowNum();
         int totalObservations = observationsModel.getRowsPerTrial().get(trial); //observationsModel.getRowCount() / instances;
 
-          System.out.println("TOTAL VALUES: "+totalValues);
-          System.out.println("TOTAL OBSERVATIONS: "+totalObservations);
-         
-         
+        System.out.println("TOTAL VALUES: " + totalValues);
+        System.out.println("TOTAL OBSERVATIONS: " + totalObservations);
+
+
 
 //        if (totalValues != totalObservations) {
 //            DialogUtil.displayError("Template error. The number of rows does not match");
@@ -530,7 +531,7 @@ public class ExcelTrialReader {
                     try {
                         Row fila = sheetObservation.getRow(j + 1);
                         Cell celda = fila.getCell(colEntry);
-                        
+
                         int entry = ConvertUtils.getValueAsInteger(celda.getNumericCellValue());
                         celda = fila.getCell(colPlot);
                         int plot = ConvertUtils.getValueAsInteger(celda.getNumericCellValue());
@@ -714,47 +715,54 @@ public class ExcelTrialReader {
         int desigColumn = observationsModel.getHeaderIndex(ObservationsTableModel.DESIG);
         int gidColumn = observationsModel.getHeaderIndex(ObservationsTableModel.GID);
         int trialColumn = observationsModel.getHeaderIndex(ObservationsTableModel.TRIAL);
-        
-        int totalObservations =0;
-        
-        try{
-         totalObservations = observationsModel.getRowsPerTrial().get(trial);
-        }catch(Exception e){
-            System.out.println("ERROR EN validDesigAndGid: "+e);
+
+        int totalObservations = 0;
+
+        Map<Integer, Integer> rowsPerTrial = observationsModel.getRowsPerTrial();
+
+        try {
+            totalObservations = rowsPerTrial.get(trial);
+        } catch (Exception e) {
+            System.out.println("ERROR EN validDesigAndGid: " + e);
         }
-        
-        System.out.println("TotalObservations: "+totalObservations);
-        
-        
-        
-        
-        int rowToIncrement = 0;        
-        if (trial>1 ) {
-            rowToIncrement = totalObservations * (trial - 1);
+
+        System.out.println("TotalObservations: " + totalObservations);
+
+
+
+
+        int rowToIncrement = 0;
+        if (trial > 1) {
+            //rowToIncrement = totalObservations * (trial - 1);
+            //rowToIncrement = totalObservations;
+            for (int previousTrial = trial-1; previousTrial >= 1; previousTrial--) {
+                rowToIncrement = rowToIncrement + rowsPerTrial.get(previousTrial);
+            }
+
         }
 
         for (int row = 0; row <= totalObservations; row++) {
             Row fila = sheetObservation.getRow(row + 1);
             if (fila != null) {
                 // validate same trial
-                String trialFromGrid = observationsModel.getValueAt(row+rowToIncrement, trialColumn).toString();
+                String trialFromGrid = observationsModel.getValueAt(row + rowToIncrement, trialColumn).toString();
                 if (Integer.parseInt(trialFromGrid) == trial) {
                     String desigFromExcel = fila.getCell(desigColumn - 1).getStringCellValue();
                     String gidFromExcel = "";
-                    if (fila.getCell(gidColumn - 1).getCellType() == Cell.CELL_TYPE_STRING){
-                     gidFromExcel = fila.getCell(gidColumn - 1).getStringCellValue();
-                    } else if (fila.getCell(gidColumn - 1).getCellType() == Cell.CELL_TYPE_NUMERIC){
+                    if (fila.getCell(gidColumn - 1).getCellType() == Cell.CELL_TYPE_STRING) {
+                        gidFromExcel = fila.getCell(gidColumn - 1).getStringCellValue();
+                    } else if (fila.getCell(gidColumn - 1).getCellType() == Cell.CELL_TYPE_NUMERIC) {
                         Double gidValue = fila.getCell(gidColumn - 1).getNumericCellValue();
                         gidFromExcel = DecimalUtils.getValueAsInteger(gidValue).toString();
                     }
 
 
-                    String desigFromGrid = observationsModel.getValueAt(row+rowToIncrement, desigColumn).toString();
-                    String gidFromGrid = observationsModel.getValueAt(row+rowToIncrement, gidColumn).toString();
+                    String desigFromGrid = observationsModel.getValueAt(row + rowToIncrement, desigColumn).toString();
+                    String gidFromGrid = observationsModel.getValueAt(row + rowToIncrement, gidColumn).toString();
 
-                    
 
-                    if (!desigFromGrid.equals(desigFromExcel) || !gidFromGrid.equals(gidFromExcel) ) {
+
+                    if (!desigFromGrid.equals(desigFromExcel) || !gidFromGrid.equals(gidFromExcel)) {
                         correctDesigAndGid = false;
                         break;
                     }

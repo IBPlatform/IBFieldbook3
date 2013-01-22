@@ -30,7 +30,7 @@ public class ObservationsTableModel extends AbstractTableModel {
     public static final String CROSS = "CROSSHISTORYPEDIGREESTRING";
     public static final String SOURCE = "SEEDSOURCENAME";
     public static final String PLOT = "FIELDPLOTNESTEDNUMBER";
-    public static final String PLOT_NESTED = "PLOTNESTEDNUMBER";    
+    public static final String PLOT_NESTED = "PLOTNESTEDNUMBER";
     public static final String PLOTNUMBER = "FIELDPLOTNUMBER";
     public static final String REPLICATION = "REPLICATIONNUMBER";
     public static final String BLOCK = "BLOCKNUMBER";
@@ -448,23 +448,33 @@ public class ObservationsTableModel extends AbstractTableModel {
      * @return
      */
     public Map<Integer, Integer> getRowsPerTrial() {
-        
-        int entryColumn =-1;
-        
-        if(getHeaderIndex(ENTRY)>0){
-            entryColumn=getHeaderIndex(ENTRY);
-        }else{
-             entryColumn=getHeaderIndex(ENTRY);
+
+        int entryColumn = -1;
+
+        if (getHeaderIndex(ENTRY) > 0) {
+            entryColumn = getHeaderIndex(ENTRY);
+        } else {
+            entryColumn = getHeaderIndex(ENTRY);
         }
-  
+
         int trialColumn = 0;//getHeaderIndex(TRIAL);
 
         rowsPerTrial = new HashMap<Integer, Integer>();
-        int mayorPlot=0;
+        int mayorPlot = 0;
 
         int currentTrial = -999;
-        
-        int myrep=1;
+
+        int myrep = 1;
+
+        int trialRowCounter = 1;
+
+        Object firstValue = getValueAt(values.size() - 1, trialColumn);
+        //Integer trialNumber = null;
+        if (firstValue instanceof String) {
+            currentTrial = Integer.parseInt((String) firstValue);
+        } else if (firstValue instanceof Integer) {
+            currentTrial = (Integer) firstValue;
+        }
 
         for (int row = values.size() - 1; row > 0; row--) {
             Object value = getValueAt(row, trialColumn);
@@ -474,47 +484,53 @@ public class ObservationsTableModel extends AbstractTableModel {
             } else if (value instanceof Integer) {
                 trialNumber = (Integer) value;
             }
-            
+
             if (trialNumber != null) {
-                
-               // if (trialNumber.intValue() != currentTrial) {
+
+                if (trialNumber.intValue() != currentTrial) {
+
+
+
+
+//                    Object maxPlot = getValueAt(row, entryColumn);
+//                    System.out.println("MAXPLOT LEIDO: " + maxPlot);
+//
+//
+//                    Integer plotValue = 0;
+//
+//
+//                    if (maxPlot instanceof Integer) {
+//                        plotValue = (Integer) maxPlot;
+//
+//                        if (plotValue == mayorPlot) {
+//                            myrep++;
+//                        }
+//
+//                        if (plotValue > mayorPlot) {
+//                            mayorPlot = plotValue;
+//                        }
+//
+//                    } else if (maxPlot instanceof String) {
+//                        plotValue = Integer.parseInt((String) maxPlot);
+//
+//                        if (plotValue == mayorPlot) {
+//                            myrep++;
+//                        }
+//
+//                        if (plotValue > mayorPlot) {
+//                            mayorPlot = plotValue;
+//                        }
+                    rowsPerTrial.put(currentTrial, trialRowCounter);
                     currentTrial = trialNumber;
+                    trialRowCounter = 1;
+                } else {
+                    trialRowCounter++;
 
-                    Object maxPlot = getValueAt(row, entryColumn);
-                   System.out.println("MAXPLOT LEIDO: "+maxPlot);
-                    
-                    
-                    Integer plotValue = 0;
-
-
-                    if (maxPlot instanceof Integer) {
-                        plotValue = (Integer) maxPlot;
-                        
-                        if (plotValue == mayorPlot) {
-                            myrep++; 
-                        }
-                        
-                        if (plotValue > mayorPlot) {
-                            mayorPlot = plotValue;
-                        }
-
-                    } else if (maxPlot instanceof String) {
-                        plotValue = Integer.parseInt((String) maxPlot);
-                        
-                        if (plotValue == mayorPlot) {
-                             myrep++; 
-                        }
-                        
-                        if (plotValue > mayorPlot) {
-                            mayorPlot = plotValue;
-                        }
-                    rowsPerTrial.put(currentTrial, mayorPlot*myrep);
-                    }
-             //   }
+                }
             }
-           System.out.println("ROW: "+row +"   MAYORPLOT: "+mayorPlot);
+            rowsPerTrial.put(trialNumber, trialRowCounter+1);
+            System.out.println("ROW: " + row + "   MAYORPLOT: " + mayorPlot);
         }
-
         return rowsPerTrial;
     }
 
