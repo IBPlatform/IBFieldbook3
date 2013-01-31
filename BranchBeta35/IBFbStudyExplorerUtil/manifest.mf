@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+OpenIDE-Module: ibfb.studyexplorerutil.core
+OpenIDE-Module-Localizing-Bundle: ibfb/studyexplorerutil/core/Bundle.properties
+OpenIDE-Module-Specification-Version: 1.0
+

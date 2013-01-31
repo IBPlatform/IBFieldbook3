@@ -1,0 +1,641 @@
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: -26 scaleid: -15 tmethid: -17
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: BreedersPedigree1 labelid: -1101
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo C.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PLOT   FactorId: -1102
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1865 scaleid: 1001 tmethid: 3001
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: PLOT labelid: -1102
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: REP   FactorId: -1102
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1854 scaleid: 1001 tmethid: 3001
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: REP labelid: -1103
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: BLOCK   FactorId: -1102
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1868 scaleid: 1001 tmethid: 3001
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando levels del factor: BLOCK labelid: -1104
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Level tipo N.
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -133 factorid: -1086
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -134 factorid: -1086
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -134 factorid: -1089
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -135 factorid: -1086
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -135 factorid: -1089
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -135 factorid: -1097
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -135 factorid: -1102
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: STUDY   FactorId: -1086
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1866 scaleid: 1002 tmethid: 3316
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: TRIAL   FactorId: -1089
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1864 scaleid: 1001 tmethid: 3001
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: ENTRY   FactorId: -1097
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1861 scaleid: 1001 tmethid: 3001
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PLOT   FactorId: -1102
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1865 scaleid: 1001 tmethid: 3001
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - fill all variate as traits
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: GY  VariateId: -2198
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: AnthesisDate  VariateId: -2199
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: DaysToSilk  VariateId: -2200
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PlantHeightCm  VariateId: -2201
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: EarHeightCm  VariateId: -2202
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: EndospermHardness1_5  VariateId: -2203
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: GrainTexture1_5  VariateId: -2204
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: EarAspect1_5  VariateId: -2205
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: GrainMoisturePer  VariateId: -2206
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PlantAspect1_5  VariateId: -2207
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PolysoraRust1_5  VariateId: -2208
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: ChuponNum  VariateId: -2209
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: Aphid1_5  VariateId: -2210
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: BrownSpot1_5  VariateId: -2211
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: CornStuntSpiroplasma1_5  VariateId: -2212
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: MaizeBushyStunt1_5  VariateId: -2213
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: EarRotAsp1_5  VariateId: -2214
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: EarRotStenoc1_5  VariateId: -2215
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: Aspergillus_lavus1_5  VariateId: -2216
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: Aspergillus_lavusPPB  VariateId: -2217
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: PhaesLeaSpot1_5(1)  VariateId: -2218
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: CommonRust1_5(1)  VariateId: -2219
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: TarspotComplex1_5  VariateId: -2220
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: GrayLeaSpot1_5(1)  VariateId: -2221
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: VirusMaizeStreak1_5(1)  VariateId: -2222
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: CurvulariaLeaSpot1_5  VariateId: -2223
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: BandLeaSheathBlight1_5  VariateId: -2224
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: StalkRotusGramNum(1)  VariateId: -2225
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: StalkRotPythiumNum  VariateId: -2226
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: Striga1_5  VariateId: -2227
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: TropicalRust1_5  VariateId: -2228
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: TryptophanPer_WholeGrain  VariateId: -2229
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: LysinePer_WholeGrain  VariateId: -2230
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: ProteinPer_WholeGrain  VariateId: -2231
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: ArmyWorm1_5  VariateId: -2232
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: EarWormCm  VariateId: -2233
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: StemBorer1_5(1)  VariateId: -2234
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: LargeGrainBorer1_5  VariateId: -2235
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: MaizeWeevil1_5  VariateId: -2236
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: WeevilTotNum  VariateId: -2237
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: WeevilWtLossPer  VariateId: -2238
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: LeaRolling1_5(1)  VariateId: -2239
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: LeaRolling1_5(2)  VariateId: -2240
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: LeaRolling1_5(3)  VariateId: -2241
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: Senescence0_100(1)  VariateId: -2242
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: Senescence0_100(2)  VariateId: -2243
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: Senescence0_100(3)  VariateId: -2244
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: EarRotTotalNum  VariateId: -2245
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: NumEars  VariateId: -2246
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: EarRotTotalPer  VariateId: -2247
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: STUDY   FactorId: -1086
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1866 scaleid: 1002 tmethid: 3316
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: TRIAL   FactorId: -1089
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1864 scaleid: 1001 tmethid: 3001
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: ENTRY   FactorId: -1097
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1861 scaleid: 1001 tmethid: 3001
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Factor Name: PLOT   FactorId: -1102
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperFactor - Cargando Measuredin con tid: 1865 scaleid: 1001 tmethid: 3001
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -133 factorid: -1086
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -134 factorid: -1086
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -134 factorid: -1089
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -135 factorid: -1086
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -135 factorid: -1089
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -135 factorid: -1097
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperEffect - Effect vale : -135 factorid: -1102
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: Environment  VariateId: -2195
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: Plot size  VariateId: -2196
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperVariate - Filling variate: Field Management  VariateId: -2197
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Study Conditions Data....
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Study Conditions DONE!!!!
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Trial Conditions Data....
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Trial Conditions DONE!!!!....
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Trial Germplasm Data....
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Trial Germplasm DONE!!!
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Observations Data....
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - filling FactorLabelData... 
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperWorkbookReader - Getting trial randomization fast
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperWorkbookReader - Definiendo orden de busquedas
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperWorkbookReader - Getting trial randomization fast.... DONE
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperWorkbookReader - Getting variates fast....
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.dao.helpers.HelperWorkbookReader - Getting variates fast.... DONE
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - filling FactorLabelData DONE... 
+INFO SwingWorker-pool-1-thread-2 org.cimmyt.cril.ibwb.provider.helpers.HelperWorkbookRead - Filling Observations Data DONE!!!
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Ok tenemos study
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 0
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 1
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 2
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 3
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 4
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 5
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 6
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 7
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONDITION in row 8
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda CONDITION encontrada en renglon 8
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 0
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 1
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 2
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 3
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 4
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 5
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 6
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 7
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 8
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 9
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 10
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 11
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 12
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 13
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 14
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 15
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 16
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 17
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 18
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 19
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for FACTOR in row 20
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda FACTOR encontrada en renglon 20
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 0
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 1
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 2
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 3
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 4
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 5
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 6
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 7
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 8
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 9
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 10
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 11
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 12
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 13
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 14
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 15
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 16
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 17
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 18
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 19
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 20
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 21
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 22
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 23
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 24
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 25
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 26
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 27
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 28
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 29
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for CONSTANT in row 30
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda CONSTANT encontrada en renglon 30
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 0
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 1
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 2
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 3
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 4
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 5
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 6
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 7
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 8
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 9
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 10
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 11
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 12
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 13
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 14
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 15
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 16
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 17
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 18
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 19
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 20
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 21
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 22
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 23
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 24
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 25
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 26
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 27
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 28
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 29
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 30
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 31
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 32
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 33
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 34
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Looking for VARIATE in row 35
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda VARIATE encontrada en renglon 35
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - TRIAL: 1
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda ENTRY encontrada en columna 0
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda PLOT encontrada en columna 5
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda GY encontrada en columna 8
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - TRAIT: GY   VALUE: 1.0
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - TRAIT: GY   VALUE: 2.0
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - TRAIT: GY   VALUE: 3.0
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda AnthesisDate encontrada en columna 9
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda DaysToSilk encontrada en columna 10
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda PlantHeightCm encontrada en columna 11
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda EarHeightCm encontrada en columna 12
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda EndospermHardness1_5 encontrada en columna 13
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda GrainTexture1_5 encontrada en columna 14
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda EarAspect1_5 encontrada en columna 15
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda GrainMoisturePer encontrada en columna 16
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda PlantAspect1_5 encontrada en columna 17
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda PolysoraRust1_5 encontrada en columna 18
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda ChuponNum encontrada en columna 19
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda Aphid1_5 encontrada en columna 20
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda BrownSpot1_5 encontrada en columna 21
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda CornStuntSpiroplasma1_5 encontrada en columna 22
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda MaizeBushyStunt1_5 encontrada en columna 23
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda EarRotAsp1_5 encontrada en columna 24
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda EarRotStenoc1_5 encontrada en columna 25
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda Aspergillus_lavus1_5 encontrada en columna 26
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda Aspergillus_lavusPPB encontrada en columna 27
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda PhaesLeaSpot1_5(1) encontrada en columna 28
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda CommonRust1_5(1) encontrada en columna 29
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda TarspotComplex1_5 encontrada en columna 30
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda GrayLeaSpot1_5(1) encontrada en columna 31
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda VirusMaizeStreak1_5(1) encontrada en columna 32
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda CurvulariaLeaSpot1_5 encontrada en columna 33
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda BandLeaSheathBlight1_5 encontrada en columna 34
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda StalkRotusGramNum(1) encontrada en columna 35
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda StalkRotPythiumNum encontrada en columna 36
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda Striga1_5 encontrada en columna 37
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda TropicalRust1_5 encontrada en columna 38
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda TryptophanPer_WholeGrain encontrada en columna 39
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda LysinePer_WholeGrain encontrada en columna 40
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda ProteinPer_WholeGrain encontrada en columna 41
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda ArmyWorm1_5 encontrada en columna 42
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda EarWormCm encontrada en columna 43
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda StemBorer1_5(1) encontrada en columna 44
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda LargeGrainBorer1_5 encontrada en columna 45
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda MaizeWeevil1_5 encontrada en columna 46
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda WeevilTotNum encontrada en columna 47
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda WeevilWtLossPer encontrada en columna 48
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda LeaRolling1_5(1) encontrada en columna 49
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda LeaRolling1_5(2) encontrada en columna 50
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda LeaRolling1_5(3) encontrada en columna 51
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda Senescence0_100(1) encontrada en columna 52
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda Senescence0_100(2) encontrada en columna 53
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda Senescence0_100(3) encontrada en columna 54
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda EarRotTotalNum encontrada en columna 55
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda NumEars encontrada en columna 56
+INFO AWT-EventQueue-1 ibfb.studyeditor.importwizard.ExcelTrialReader - Celda EarRotTotalPer encontrada en columna 57
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Traits table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Traits table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if TmsTransformations table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - TmsTransformations table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if TmsTransformations table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if TmsTransformations table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - TmsTransformations table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if TmsTransformations table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if TmsContinuous-conversion table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - TmsContinuous-conversion table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if TmsContinuous-conversion table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if TmsContinuous-conversion table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - TmsContinuous-conversion table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if TmsContinuous-conversion table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if TmsContinuous-function table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - TmsContinuous-function table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if TmsContinuous-function table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if TmsContinuous-function table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - TmsContinuous-function table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if TmsContinuous-function table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if TmsDiscrete-conversion table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - TmsDiscrete-conversion table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if TmsDiscrete-conversion table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if TmsDiscrete-conversion table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - TmsDiscrete-conversion table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if TmsDiscrete-conversion table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - Checking if TmsConsistency-checks table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - TmsConsistency-checks table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - Checking if TmsConsistency-checks table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - Checking if TmsConsistency-checks table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - TmsConsistency-checks table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - Checking if TmsConsistency-checks table exists DONE....
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Validating Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Opening file...
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Number of sheets in book2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total study conditions found: 2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total conditions found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total factors found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Environment (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Plot size (m)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Field Management (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read END
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Opening file...
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Number of sheets in book2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total study conditions found: 2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total conditions found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total factors found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Environment (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Plot size (m)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Field Management (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read END
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Opening file...
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Number of sheets in book2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total study conditions found: 2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total conditions found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total factors found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Environment (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Plot size (m)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Field Management (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read END
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Opening file...
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Number of sheets in book2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total study conditions found: 2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total conditions found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total factors found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Environment (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Plot size (m)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Field Management (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read END
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Opening file...
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Number of sheets in book2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total study conditions found: 2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total conditions found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total factors found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Environment (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Plot size (m)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Field Management (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read END
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Opening file...
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Number of sheets in book2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total study conditions found: 2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total conditions found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total factors found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Environment (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Plot size (m)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Field Management (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read END
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Opening file...
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Number of sheets in book2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total study conditions found: 2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total conditions found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total factors found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Environment (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Plot size (m)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Field Management (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read END
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Opening file...
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Number of sheets in book2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total study conditions found: 2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total conditions found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total factors found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Environment (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Plot size (m)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Field Management (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read END
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - Requested for rowIndex 0
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - designList.size() 1
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - bean ibfb.domain.core.DesignBean@4620ef51
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - Requested for rowIndex 0
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - designList.size() 1
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - bean ibfb.domain.core.DesignBean@4620ef51
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Traits table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Traits table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if TmsTransformations table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - TmsTransformations table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if TmsTransformations table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if TmsTransformations table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - TmsTransformations table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if TmsTransformations table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if TmsContinuous-conversion table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - TmsContinuous-conversion table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if TmsContinuous-conversion table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if TmsContinuous-conversion table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - TmsContinuous-conversion table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if TmsContinuous-conversion table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if TmsContinuous-function table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - TmsContinuous-function table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if TmsContinuous-function table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if TmsContinuous-function table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - TmsContinuous-function table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if TmsContinuous-function table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if TmsDiscrete-conversion table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - TmsDiscrete-conversion table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if TmsDiscrete-conversion table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if TmsDiscrete-conversion table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - TmsDiscrete-conversion table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if TmsDiscrete-conversion table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - Checking if TmsConsistency-checks table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - TmsConsistency-checks table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - Checking if TmsConsistency-checks table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - Checking if TmsConsistency-checks table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - TmsConsistency-checks table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - Checking if TmsConsistency-checks table exists DONE....
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Validating Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Opening file...
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Number of sheets in book2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total study conditions found: 2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total conditions found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total factors found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Environment (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Plot size (m)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Field Management (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read END
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Opening file...
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Number of sheets in book2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total study conditions found: 2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total conditions found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total factors found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Environment (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Plot size (m)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Field Management (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read END
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Opening file...
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Number of sheets in book2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total study conditions found: 2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total conditions found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total factors found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Environment (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Plot size (m)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Field Management (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read END
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Opening file...
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Number of sheets in book2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total study conditions found: 2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total conditions found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total factors found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Environment (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Plot size (m)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Field Management (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read END
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Opening file...
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Number of sheets in book2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total study conditions found: 2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total conditions found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total factors found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Environment (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Plot size (m)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Field Management (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read END
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Opening file...
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Number of sheets in book2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total study conditions found: 2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total conditions found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total factors found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Environment (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Plot size (m)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Field Management (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read END
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Opening file...
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Number of sheets in book2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total study conditions found: 2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total conditions found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total factors found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Environment (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Plot size (m)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Field Management (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read END
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Opening file...
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Number of sheets in book2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total study conditions found: 2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total conditions found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total factors found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Environment (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Plot size (m)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Field Management (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read END
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - Requested for rowIndex 0
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - designList.size() 1
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - bean ibfb.domain.core.DesignBean@4e202bc7
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - Requested for rowIndex 0
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - designList.size() 1
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - bean ibfb.domain.core.DesignBean@4e202bc7
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Traits table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Traits table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TraitsDAO - Checking if Traits table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if TmsTransformations table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - TmsTransformations table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if TmsTransformations table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if TmsTransformations table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - TmsTransformations table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TransformationsDAO - Checking if TmsTransformations table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if TmsContinuous-conversion table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - TmsContinuous-conversion table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if TmsContinuous-conversion table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if TmsContinuous-conversion table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - TmsContinuous-conversion table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousConversionDAO - Checking if TmsContinuous-conversion table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if TmsContinuous-function table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - TmsContinuous-function table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if TmsContinuous-function table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if TmsContinuous-function table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - TmsContinuous-function table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.ContinuousFunctionDAO - Checking if TmsContinuous-function table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if TmsDiscrete-conversion table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - TmsDiscrete-conversion table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if TmsDiscrete-conversion table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if TmsDiscrete-conversion table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - TmsDiscrete-conversion table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.DiscreteConversionDAO - Checking if TmsDiscrete-conversion table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - Checking if TmsConsistency-checks table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - TmsConsistency-checks table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - Checking if TmsConsistency-checks table exists DONE....
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - Checking if TmsConsistency-checks table exists
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - TmsConsistency-checks table found!
+INFO AWT-EventQueue-1 org.cimmyt.cril.ibwb.provider.dao.TmsConsistencyChecksDAO - Checking if TmsConsistency-checks table exists DONE....
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Validating Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Opening file...
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Number of sheets in book2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total study conditions found: 2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total conditions found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total factors found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Environment (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Plot size (m)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Field Management (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read END
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Opening file...
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Number of sheets in book2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total study conditions found: 2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total conditions found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total factors found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Environment (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Plot size (m)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Field Management (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read END
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Opening file...
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Number of sheets in book2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total study conditions found: 2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total conditions found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total factors found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Environment (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Plot size (m)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Field Management (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read END
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Opening file...
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Number of sheets in book2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total study conditions found: 2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total conditions found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total factors found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Environment (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Plot size (m)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Field Management (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read END
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Opening file...
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Number of sheets in book2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total study conditions found: 2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total conditions found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total factors found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Environment (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Plot size (m)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Field Management (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read END
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Opening file...
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Number of sheets in book2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total study conditions found: 2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total conditions found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total factors found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Environment (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Plot size (m)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Field Management (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read END
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Opening file...
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Number of sheets in book2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total study conditions found: 2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total conditions found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total factors found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Environment (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Plot size (m)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Field Management (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read END
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read BEGIN
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Opening file...
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Number of sheets in book2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total study conditions found: 2
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total conditions found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Total factors found: 8
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Environment (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Plot size (m)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Data for Constant: Field Management (Text)
+INFO AWT-EventQueue-1 ibfb.workbook.core.WorkbookExcelReaderImpl - Excel file read END
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - Requested for rowIndex 0
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - designList.size() 1
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - bean ibfb.domain.core.DesignBean@9747ab4
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - Requested for rowIndex 0
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - designList.size() 1
+INFO AWT-EventQueue-1 ibfb.studyeditor.core.model.DesignTableModel - bean ibfb.domain.core.DesignBean@9747ab4

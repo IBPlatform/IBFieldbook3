@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+OpenIDE-Module: org.cimmyt.cril.ibwb.provider
+OpenIDE-Module-Localizing-Bundle: org/cimmyt/cril/ibwb/provider/Bundle.properties
+OpenIDE-Module-Specification-Version: 1.0
+

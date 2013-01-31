@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">
+			sun.jdbc.odbc.JdbcOdbcDriver
+        </property>
+        <property name="connection.pool_size">10</property>
+        <property name="show_sql">false</property>
+        <property name="dialect">org.cimmyt.cril.ibwb.provider.MSAccessDialect</property>
+        <property name="hibernate.jdbc.batch_size">30</property>
+        <property name="hibernate.cache.use_second_level_cache">false</property>
+		
+	<!-- Mapping files -->
+
+        <mapping class="org.cimmyt.cril.ibwb.domain.Atributs" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.Bibrefs" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.Changes" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.Cntry" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.DataC" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.DataCPK" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.DataN" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.DataNPK" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.DataT" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.DataTPK" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.Datattr" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.Dmsattr" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.Dudflds" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.Effect" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.EffectPK" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.Factor" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.Georef" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.Germplsm" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.Institut" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.Instln" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.LevelC" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.LevelCPK" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.LevelN" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.LevelNPK" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.LevelT" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.LevelTPK" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.Levels" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.Listdata" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.ListdataPK" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.Listnms" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.Location" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.Locdes" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.Measuredin" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.Methods" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.Names" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.Obsunit" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.Oindex" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.OindexPK" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.Persons" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.Progntrs" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.ProgntrsPK" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.Represtn" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.Scale" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.Scales" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.Scalecon" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.ScaleconPK" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.Scaledis" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.ScaledisPK" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.Scaletab" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.Sndivs" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.Steffect" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.Study" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.Tmethod" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.TmsMethod" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.TmsScaleCon" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.TmsScaleDis" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.Trait" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.Traits" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.Udflds" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.Users" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.Variate" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.Veffect" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.VeffectPK" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.ImsLabelOtherinfo" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.ImsLabelinfo" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.ImsLot" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.ImsTransaction" />
+        
+        <mapping class="org.cimmyt.cril.ibwb.domain.Transformations" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.DiscreteConversion" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.ContinuousFunction" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.ContinuousConversion" />
+        <mapping class="org.cimmyt.cril.ibwb.domain.TmsConsistencyChecks" />
+    </session-factory>
+</hibernate-configuration>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="BarCodeReport" language="groovy" columnCount="3" pageWidth="612" pageHeight="792" columnWidth="190" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="trial" class="java.lang.Integer"/>
+	<field name="rep" class="java.lang.Integer"/>
+	<field name="block" class="java.lang.Integer"/>
+	<field name="subBlock" class="java.lang.Integer"/>
+	<field name="plot" class="java.lang.Integer"/>
+	<field name="entry" class="java.lang.Integer"/>
+	<field name="gid" class="java.lang.Integer"/>
+	<field name="desig" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="98" splitType="Stretch">
+			<staticText>
+				<reportElement x="3" y="33" width="28" height="15"/>
+				<textElement/>
+				<text><![CDATA[Trial:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="83" y="33" width="25" height="15"/>
+				<textElement/>
+				<text><![CDATA[Rep:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="51" width="36" height="15"/>
+				<textElement/>
+				<text><![CDATA[Block:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="66" width="29" height="15"/>
+				<textElement/>
+				<text><![CDATA[Entry:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="83" y="66" width="25" height="15"/>
+				<textElement/>
+				<text><![CDATA[GID:]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="2" y="2" width="200" height="31"/>
+				<jr:Code39 xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" textPosition="bottom">
+					<jr:codeExpression><![CDATA[$F{plot}]]></jr:codeExpression>
+				</jr:Code39>
+			</componentElement>
+			<textField>
+				<reportElement x="45" y="33" width="27" height="15"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{trial}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="135" y="33" width="27" height="15"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{rep}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="45" y="51" width="23" height="15"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{block}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="45" y="66" width="30" height="15"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{entry}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="119" y="66" width="83" height="15"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{gid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="26" y="83" width="19" height="15"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{plot}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="3" y="83" width="22" height="15"/>
+				<textElement/>
+				<text><![CDATA[Plot:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="51" y="83" width="35" height="15"/>
+				<textElement/>
+				<text><![CDATA[Desig:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="89" y="83" width="100" height="15"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{desig}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
