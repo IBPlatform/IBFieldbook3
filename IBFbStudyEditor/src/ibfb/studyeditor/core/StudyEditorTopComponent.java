@@ -148,6 +148,7 @@ public final class StudyEditorTopComponent extends TopComponent {
     private boolean forMaster = false;
     private boolean conPreguntas = true;
     private SelectCommand unselectedCommand = new SelectCommand() {
+
         @Override
         public void execute() {
             Variate variate = doubleListPanel.getSelectedSourceItem();
@@ -155,6 +156,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         }
     };
     private SelectCommand selectedCommand = new SelectCommand() {
+
         @Override
         public void execute() {
             Variate variate = doubleListPanel.getSelectedTargetItem();
@@ -212,6 +214,10 @@ public final class StudyEditorTopComponent extends TopComponent {
      */
     private Study studyInfo;
     private BalloonTip tipSavingTrial;
+    /**
+     * Is it closing in progress?
+     */
+    private boolean closingEditor = false;
 
     public StudyEditorTopComponent() {
         initComponents();
@@ -2166,6 +2172,12 @@ public final class StudyEditorTopComponent extends TopComponent {
     }//GEN-LAST:event_jButtonSyncActionPerformed
 
     private void jButtonSaveDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveDataActionPerformed
+        closingEditor = true;
+        saveFieldbook();
+        return;
+    }//GEN-LAST:event_jButtonSaveDataActionPerformed
+
+    private void saveFieldbook() {
         storeCellsInEditMode();
         if (jTextTrialName.getText().trim().isEmpty()) {
             DialogUtil.displayError(NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.fillName"));
@@ -2184,6 +2196,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         final ProgressHandle handle = ProgressHandleFactory.createHandle(NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.saving"));
         handle.start();
         (new SwingWorker<String, Object>() {
+
             @Override
             protected String doInBackground() throws Exception {
                 doSaveWorkbook();
@@ -2199,8 +2212,10 @@ public final class StudyEditorTopComponent extends TopComponent {
                     DialogUtil.displayInfo(NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.saved"));
                     enableMeasurementButtons();
                     RefreshBrowserHelper.refreshStudyBrowser();
-
-                    reLoadStudy();
+                    
+                    if (!closingEditor) {
+                        reLoadStudy();
+                    }
 
 
                 } catch (InterruptedException ex) {
@@ -2216,8 +2231,7 @@ public final class StudyEditorTopComponent extends TopComponent {
         }).execute();
 
 
-        return;
-    }//GEN-LAST:event_jButtonSaveDataActionPerformed
+    }
 
     private void reLoadStudy() {
 
@@ -2378,6 +2392,7 @@ public final class StudyEditorTopComponent extends TopComponent {
             final ProgressHandle handle = ProgressHandleFactory.createHandle(NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.generating"));
             handle.start();
             (new SwingWorker<String, Object>() {
+
                 @Override
                 protected String doInBackground() throws Exception {
                     //fillMeasurementsData();
@@ -2489,15 +2504,14 @@ public final class StudyEditorTopComponent extends TopComponent {
         csv.readDATAnew(selectorArchivo.getSelectedFile());
     }
 
-   
-    public void fillDesignWorkbook(){
-        
-         designsUtils.setWorkbook(myWorkbook);     
-         designsUtils.setGermplasmEntries(Integer.parseInt(this.jTextFieldEntries.getText()));
+    public void fillDesignWorkbook() {
+
+        designsUtils.setWorkbook(myWorkbook);
+        designsUtils.setGermplasmEntries(Integer.parseInt(this.jTextFieldEntries.getText()));
     }
-    
-    public void fillDesign() {      
-        
+
+    public void fillDesign() {
+
         boolean hasBLOCKfactor = false;
         boolean hasREPLICATIONfactor = false;
         boolean hasFIELDfactorfactor = false;
@@ -3549,6 +3563,7 @@ public final class StudyEditorTopComponent extends TopComponent {
 
     private static void changeCursorWaitStatus(final boolean isWaiting) {
         Mutex.EVENT.writeAccess(new Runnable() {
+
             @Override
             public void run() {
                 try {
@@ -4019,7 +4034,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                         variate.setScale(trait.getMeasuredin().getScales().getScname());
                         variate.setDataType(trait.getMeasuredin().getScales().getDtype());
                     }
-                    
+
                     if (trait.getMeasuredin().getTmsMethod() != null) {
                         variate.setMethod(trait.getMeasuredin().getTmsMethod().getTmname());
                     }
@@ -4076,14 +4091,25 @@ public final class StudyEditorTopComponent extends TopComponent {
             String closeTitle = NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.closeFieldbook.title");
             String closeQuestion = NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.closeFieldbook.question");
             String provideTrialName = NbBundle.getMessage(StudyEditorTopComponent.class, "StudyEditorTopComponent.closeFieldbook.provideTrialName");
-            boolean saveFieldbook = DialogUtil.displayConfirmation(closeQuestion, closeTitle, NotifyDescriptor.YES_NO_CANCEL_OPTION);
+            Object response = DialogUtil.displayConfirmationDialog(closeQuestion, closeTitle, NotifyDescriptor.YES_NO_CANCEL_OPTION);
+            boolean saveFieldbook = false;
+
+            if (response.equals(NotifyDescriptor.YES_OPTION)) {
+                saveFieldbook = true;
+            }
+
+            if (response.equals(NotifyDescriptor.CANCEL_OPTION)) {
+                result = false;
+            }
 
             if (saveFieldbook) {
                 if (jTextTrialName.getText().trim().isEmpty()) {
                     DialogUtil.displayError(provideTrialName);
                     result = false;
                 } else {
-                    jButtonSaveDataActionPerformed(null);
+                    closingEditor = true;
+                    saveFieldbook();
+
                 }
 
             }
