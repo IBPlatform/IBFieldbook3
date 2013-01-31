@@ -1416,14 +1416,24 @@ public final class nurseryManagerTopComponent extends TopComponent {
         String maleListName = "";
 
         if (jTabbedPaneFemale.getSelectedIndex() == 0) {
-            Listnms femaleList = (Listnms) cboGermplasmListFemale.getSelectedItem();
-            femaleListName = femaleList.getListname();
+            if (cboGermplasmListFemale.getSelectedItem() instanceof Listnms) {
+                Listnms femaleList = (Listnms) cboGermplasmListFemale.getSelectedItem();
+                femaleListName = femaleList.getListname();
+            } else {
+                String femaleList = (String) cboGermplasmListFemale.getSelectedItem();
+                femaleListName = femaleList;
+            }
         } else {
             femaleListName = FileUtils.extractFileName(jTextAreaPathFemale.getText());
         }
         if (jTabbedPaneMale.getSelectedIndex() == 0) {
-            Listnms maleList = (Listnms) cboGermplasmListMale.getSelectedItem();
-            maleListName = maleList.getListname();
+            if (cboGermplasmListMale.getSelectedItem() instanceof Listnms) {
+                Listnms maleList = (Listnms) cboGermplasmListMale.getSelectedItem();
+                maleListName = maleList.getListname();
+            } else {
+                String maleList = (String) cboGermplasmListMale.getSelectedItem();
+                maleListName = maleList;
+            }
         } else {
             maleListName = FileUtils.extractFileName(jTextAreaPathMale.getText());
         }
@@ -2747,16 +2757,16 @@ public final class nurseryManagerTopComponent extends TopComponent {
     }
 
     public void selectOptionDB() {
-         TypeDB tipo= AppServicesProxy.getDefault().appServices().getTypeDB();
-         
-         if(tipo==TypeDB.IWIS){
-             this.jComboBoxConvection.setSelectedIndex(0);
-             
-         }else if(tipo==TypeDB.IMIS){
-             this.jComboBoxConvection.setSelectedIndex(1);
-             
-         }else{
-              this.jComboBoxConvection.setSelectedIndex(2);
-         }              
+        TypeDB tipo = AppServicesProxy.getDefault().appServices().getTypeDB();
+
+        if (tipo == TypeDB.IWIS) {
+            this.jComboBoxConvection.setSelectedIndex(0);
+
+        } else if (tipo == TypeDB.IMIS) {
+            this.jComboBoxConvection.setSelectedIndex(1);
+
+        } else {
+            this.jComboBoxConvection.setSelectedIndex(2);
+        }
     }
 }
