@@ -122,4 +122,10 @@ public class DialogUtil {
             return false;
         }
     }
+    
+    public static Object displayConfirmationDialog(String message, String title, int optionType) {
+        NotifyDescriptor d = new NotifyDescriptor.Confirmation(message, title, optionType);
+        Object value = getDialogDisplayer().notify(d);
+        return value;
+    }
 }
