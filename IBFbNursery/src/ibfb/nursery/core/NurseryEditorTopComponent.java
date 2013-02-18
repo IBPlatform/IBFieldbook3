@@ -1877,9 +1877,14 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
 
         } else {
             ObservationsTableModel modelo = (ObservationsTableModel) this.jTableObservations.getModel();
+            boolean selectFromEachPlot = selectFromEachPlotEnabled();
             MethodsClass metodos = new MethodsClass();
             MaizeMethods maizeMethod = null;
-            WizardDescriptor wiz = new WizardDescriptor(new AdvanceWizardIterator());
+            
+            AdvanceWizardIterator advanceWizardIterator  = new AdvanceWizardIterator(selectFromEachPlot);
+            
+            WizardDescriptor wiz = new WizardDescriptor(advanceWizardIterator);
+            
             wiz.setOptions(new Object[] { NotifyDescriptor.CANCEL_OPTION, WizardDescriptor.FINISH_OPTION        }); 
                                           
             wiz.setTitleFormat(new MessageFormat("{0} ({1})"));
@@ -3211,6 +3216,26 @@ private void jButtonSelectTraitsActionPerformed(java.awt.event.ActionEvent evt) 
                 tableModel.setValueAt("is check", posiciones.get(i) - 1, checkColum);
             }
         }
+    }
+    
+    /**
+     * It checks if user select at least one plant in plants selected column
+     * @return true if user select at leat one plant, false if not
+     */
+    private boolean selectFromEachPlotEnabled() {
+        boolean selectFromEachPlot = false;
+        ObservationsTableModel modelo = (ObservationsTableModel)jTableObservations.getModel();
+        int plantsSelectedColumn =  modelo.getHeaderIndex(ObservationsTableModel.PLANTS_SELECTED);
+        int totalPlants  = 0;
+        for (int row = 0; row < modelo.getRowCount(); row++) {
+            Integer plantsToSelect = ConvertUtils.getValueAsInteger(modelo.getValueAt(row, plantsSelectedColumn));
+            if (plantsToSelect != null) {
+                //totalPlants += plantsToSelect.intValue();
+                totalPlants += 1;
+            }
+        }
+        selectFromEachPlot = totalPlants > 0;
+        return selectFromEachPlot;
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JPanel JPanelData;

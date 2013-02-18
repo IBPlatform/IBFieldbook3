@@ -1,4 +1,3 @@
-
 package ibfb.nursery.advancewizard;
 
 import java.awt.Component;
@@ -16,11 +15,19 @@ public final class AdvanceWizardIterator implements WizardDescriptor.Iterator<Wi
     private List<WizardDescriptor.Panel<WizardDescriptor>> panels;
     public static String metodo;
     public static Integer breedingMethod;
+    /**
+     * Select from each plot will be enabled?
+     */
+    private boolean selectFromEachPlot;
+
+    public AdvanceWizardIterator(boolean selectFromEachPlot) {
+        this.selectFromEachPlot = selectFromEachPlot;
+    }
 
     private List<WizardDescriptor.Panel<WizardDescriptor>> getPanels() {
         if (panels == null) {
             panels = new ArrayList<WizardDescriptor.Panel<WizardDescriptor>>();
-            panels.add(new AdvanceWizardPanel1());
+            panels.add(new AdvanceWizardPanel1(selectFromEachPlot));
             String[] steps = new String[panels.size()];
             for (int i = 0; i < panels.size(); i++) {
                 Component c = panels.get(i).getComponent();
@@ -48,7 +55,7 @@ public final class AdvanceWizardIterator implements WizardDescriptor.Iterator<Wi
 
     @Override
     public String name() {
-        return index + 1 + ". from " + getPanels().size();
+        return index + 1 + " of " + getPanels().size();
     }
 
     @Override
@@ -89,4 +96,12 @@ public final class AdvanceWizardIterator implements WizardDescriptor.Iterator<Wi
     // the number of panels changes in response to user input, then use
     // ChangeSupport to implement add/removeChangeListener and call fireChange
     // when needed
+
+    public boolean isSelectFromEachPlot() {
+        return selectFromEachPlot;
+    }
+
+    public void setSelectFromEachPlot(boolean selectFromEachPlot) {
+        this.selectFromEachPlot = selectFromEachPlot;
+    }
 }

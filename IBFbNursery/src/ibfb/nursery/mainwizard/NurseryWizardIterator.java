@@ -67,7 +67,7 @@ public final class NurseryWizardIterator implements WizardDescriptor.Iterator {
 
     @Override
     public String name() {
-        return index + 1 + ". from " + getPanels().length;
+        return index + 1 + " of " + getPanels().length;
     }
 
     @Override

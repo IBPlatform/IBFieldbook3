@@ -58,9 +58,7 @@ preferredID = "AdvanceLineTopComponent")
 })
 public final class AdvanceLineTopComponent extends TopComponent {
 
-    private static final int METHOD_UKNOWN_DERIVATE = 31;
-    private static final int METHOD_SINGLE_CROSS = 101;
-    private static final int METHOD_SINGLE_PLANT = 205;
+
     private List<String> factoresCadena;
     private List<Factor> factores;
     private int COL_DESIG = 1;
@@ -400,6 +398,7 @@ public final class AdvanceLineTopComponent extends TopComponent {
 
     private static void changeCursorWaitStatus(final boolean isWaiting) {
         Mutex.EVENT.writeAccess(new Runnable() {
+
             @Override
             public void run() {
                 try {
@@ -632,7 +631,7 @@ public final class AdvanceLineTopComponent extends TopComponent {
                 int maizeMethodId = NbPreferences.forModule(PolinizationWizardPanel1.class).getInt("maizeMethodID", 0);
                 listdata.setMethodId(maizeMethodId);
                 //System.out.println("METODO MAIZ A GUARDDAR: "+maizeMethodId);
-  
+
             } else {//other crops
                 listdata.setMethodId(methodId);
             }
@@ -720,7 +719,7 @@ public final class AdvanceLineTopComponent extends TopComponent {
             } else {
                 listdata.setNameBCID("");
 
-                break;
+                //break;
             }
 
 
@@ -1042,15 +1041,15 @@ public final class AdvanceLineTopComponent extends TopComponent {
         // if germplasm exists then check it method to assign GPID1 and GPAID2
         if (sourceGermplsm != null) {
             switch (sourceGermplsm.getMethn()) {
-                case METHOD_SINGLE_CROSS:
+                case Methods.METHOD_SINGLE_CROSS:
                     listdata.setGpid1(sourceGid);
                     listdata.setGpid2(sourceGid);
                     break;
-                case METHOD_SINGLE_PLANT:
+                case Methods.METHOD_SINGLE_PLANT:
                     listdata.setGpid1(sourceGermplsm.getGpid1());
                     listdata.setGpid2(sourceGid);
                     break;
-                case METHOD_UKNOWN_DERIVATE:
+                case Methods.METHOD_UKNOWN_DERIVATE:
                     listdata.setGpid1(sourceGid);
                     listdata.setGpid2(0);
                     break;
@@ -1109,24 +1108,26 @@ public final class AdvanceLineTopComponent extends TopComponent {
 //        } else {
         GermplasmEntriesTableModel tableModel = (GermplasmEntriesTableModel) this.jTableEntries.getModel();
         int entryCodeColumn = tableModel.getHeaderIndex(GermplasmEntriesTableModel.ENTRY_CODE);
-        String entryCodeToFind = jTableEntries.getValueAt(renglon, entryCodeColumn).toString();
-        int entryRow = findEntry(entryCodeToFind);
-        if (colSelection > 0 && modelo.getValueAt(entryRow, colSelection) != null) {
-            //int elMetodo = Integer.parseInt(modelo.getValueAt(renglon, colSelection).toString());
-            int elMetodo = ConvertUtils.getValueAsInteger(modelo.getValueAt(entryRow, colSelection));
+        if (entryCodeColumn != -1) {
+            String entryCodeToFind = jTableEntries.getValueAt(renglon, entryCodeColumn).toString();
+            int entryRow = findEntry(entryCodeToFind);
+            if (colSelection > 0 && modelo.getValueAt(entryRow, colSelection) != null) {
+                //int elMetodo = Integer.parseInt(modelo.getValueAt(renglon, colSelection).toString());
+                int elMetodo = ConvertUtils.getValueAsInteger(modelo.getValueAt(entryRow, colSelection));
 
-            if (elMetodo > 0) {
-                return 205;
-            }
+                if (elMetodo > 0) {
+                    return Methods.METHOD_SINGLE_PLANT;
+                }
 
-            if (elMetodo == 0) {
-                return 206;
-            }
+                if (elMetodo == 0) {
+                    return Methods.SELECTED_BULK_SF;
+                }
 
-            if (elMetodo < 0) {
-                return 207;
-            }
+                if (elMetodo < 0) {
+                    return Methods.RANDOM_BULK_SF;
+                }
 //            }
+            }
         }
 
 

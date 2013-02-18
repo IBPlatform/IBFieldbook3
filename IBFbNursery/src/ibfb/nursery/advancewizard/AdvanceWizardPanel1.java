@@ -7,13 +7,22 @@ import org.openide.util.NbPreferences;
 
 public class AdvanceWizardPanel1 implements WizardDescriptor.Panel {
 
+    /**
+     * Select from each plot will be enabled?
+     */
+    private boolean selectFromEachPlot;
+
+    public AdvanceWizardPanel1(boolean selectFromEachPlot) {
+        this.selectFromEachPlot = selectFromEachPlot;
+    }
     private AdvanceVisualPanel1 component;
 
     @Override
     public AdvanceVisualPanel1 getComponent() {
         if (component == null) {
-            component = new AdvanceVisualPanel1();
+            component = new AdvanceVisualPanel1(selectFromEachPlot);
         }
+       
         return component;
     }
 

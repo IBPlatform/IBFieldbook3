@@ -17,6 +17,7 @@ import org.cimmyt.cril.ibwb.api.AppServicesProxy;
 import org.cimmyt.cril.ibwb.commongui.ConvertUtils;
 import org.cimmyt.cril.ibwb.domain.Location;
 import org.cimmyt.cril.ibwb.domain.Methods;
+import org.cimmyt.cril.ibwb.domain.constants.TypeDB;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.WizardDescriptor;
@@ -48,8 +49,13 @@ public final class AdvanceVisualPanel1 extends JPanel {
      * Selected breeding method
      */
     private Integer breedingMethod;
+    
+    /**
+     * Select from each plot will be enabled?
+     */
+    private boolean selectFromEachPlot;
 
-    public AdvanceVisualPanel1() {
+    public AdvanceVisualPanel1(boolean selectFromEachPlot) {
         initComponents();
         loadMethodsIntoCombo();
         setDate();
@@ -59,8 +65,31 @@ public final class AdvanceVisualPanel1 extends JPanel {
         fillNamingConvention();
         jComboBoxConvention.setSelectedIndex(2);
         this.breedingMethod = AdvanceWizardIterator.breedingMethod;
+        this.selectFromEachPlot = selectFromEachPlot;
+       
+        disableOptionsForCimmytWheat();
+        
+       
     }
 
+    /**
+     * Disable options not used when user selects CIMMYT Wheat
+     */
+    private void disableOptionsForCimmytWheat() {
+       boolean isCimmytWheat = AppServicesProxy.getDefault().appServices().getTypeDB().equals(TypeDB.IWIS);
+         if (isCimmytWheat) {
+            jComboBoxConvention.setSelectedIndex(0);
+            jComboBoxMethods.setEnabled(false);
+            jRadioButtonSameMethodNO.setEnabled(false);
+            jRadioButtonSameMethodYES.setEnabled(false);
+            jPanelMethod.setEnabled(false);
+            jPnlMethodSelected.setEnabled(false);
+        }
+         jRadioButtonSameNumberNO.setSelected(selectFromEachPlot);
+         this.jComboBoxSamplesPerPlot.setEnabled(!selectFromEachPlot );
+         
+    }
+    
     @Override
     public String getName() {
         return NbBundle.getMessage(AdvanceVisualPanel1.class, "AdvanceVisualPanel1.name");
@@ -119,7 +148,7 @@ public final class AdvanceVisualPanel1 extends JPanel {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
-        jPanel1 = new javax.swing.JPanel();
+        jPanelMethod = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jRadioButtonSameMethodNO = new javax.swing.JRadioButton();
         jRadioButtonSameMethodYES = new javax.swing.JRadioButton();
@@ -143,13 +172,13 @@ public final class AdvanceVisualPanel1 extends JPanel {
         jPanel5 = new javax.swing.JPanel();
         jComboBoxSamplesPerPlot = new javax.swing.JComboBox();
         jLabel4 = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
+        jPnlMethodSelected = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jButtonChange = new javax.swing.JButton();
         jLabelMaizeMethod = new javax.swing.JLabel();
         jComboBoxMethods = new javax.swing.JComboBox();
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(AdvanceVisualPanel1.class, "AdvanceVisualPanel1.jPanel1.border.title"))); // NOI18N
+        jPanelMethod.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(AdvanceVisualPanel1.class, "AdvanceVisualPanel1.jPanelMethod.border.title"))); // NOI18N
 
         org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(AdvanceVisualPanel1.class, "AdvanceVisualPanel1.jLabel1.text")); // NOI18N
 
@@ -172,33 +201,33 @@ public final class AdvanceVisualPanel1 extends JPanel {
 
         org.openide.awt.Mnemonics.setLocalizedText(jLabel5, org.openide.util.NbBundle.getMessage(AdvanceVisualPanel1.class, "AdvanceVisualPanel1.jLabel5.text")); // NOI18N
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(17, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jPanelMethodLayout = new javax.swing.GroupLayout(jPanelMethod);
+        jPanelMethod.setLayout(jPanelMethodLayout);
+        jPanelMethodLayout.setHorizontalGroup(
+            jPanelMethodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelMethodLayout.createSequentialGroup()
+                .addContainerGap(21, Short.MAX_VALUE)
+                .addGroup(jPanelMethodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addComponent(jLabel1))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelMethodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jRadioButtonSameMethodNO)
                     .addComponent(jRadioButtonSameMethodYES))
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+        jPanelMethodLayout.setVerticalGroup(
+            jPanelMethodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelMethodLayout.createSequentialGroup()
+                .addGroup(jPanelMethodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelMethodLayout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addComponent(jRadioButtonSameMethodYES))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelMethodLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel1)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelMethodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jRadioButtonSameMethodNO)
                     .addComponent(jLabel5))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -240,7 +269,7 @@ public final class AdvanceVisualPanel1 extends JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jRadioButtonSameNumberYES)
                     .addComponent(jRadioButtonSameNumberNO))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -398,7 +427,7 @@ public final class AdvanceVisualPanel1 extends JPanel {
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
-        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(AdvanceVisualPanel1.class, "AdvanceVisualPanel1.jPanel6.border.title"))); // NOI18N
+        jPnlMethodSelected.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(AdvanceVisualPanel1.class, "AdvanceVisualPanel1.jPnlMethodSelected.border.title"))); // NOI18N
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         org.openide.awt.Mnemonics.setLocalizedText(jLabel3, org.openide.util.NbBundle.getMessage(AdvanceVisualPanel1.class, "AdvanceVisualPanel1.jLabel3.text")); // NOI18N
@@ -415,31 +444,31 @@ public final class AdvanceVisualPanel1 extends JPanel {
 
         jComboBoxMethods.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Single plants selection" }));
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPnlMethodSelectedLayout = new javax.swing.GroupLayout(jPnlMethodSelected);
+        jPnlMethodSelected.setLayout(jPnlMethodSelectedLayout);
+        jPnlMethodSelectedLayout.setHorizontalGroup(
+            jPnlMethodSelectedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPnlMethodSelectedLayout.createSequentialGroup()
+                .addGroup(jPnlMethodSelectedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPnlMethodSelectedLayout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addComponent(jLabelMaizeMethod, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
+                    .addGroup(jPnlMethodSelectedLayout.createSequentialGroup()
                         .addGap(64, 64, 64)
                         .addComponent(jButtonChange, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
+                    .addGroup(jPnlMethodSelectedLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGroup(jPnlMethodSelectedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPnlMethodSelectedLayout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addComponent(jComboBoxMethods, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
+        jPnlMethodSelectedLayout.setVerticalGroup(
+            jPnlMethodSelectedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPnlMethodSelectedLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -460,9 +489,9 @@ public final class AdvanceVisualPanel1 extends JPanel {
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanelMethod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jPnlMethodSelected, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -470,7 +499,7 @@ public final class AdvanceVisualPanel1 extends JPanel {
                 .addContainerGap())
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jPanel1, jPanel2});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jPanel2, jPanelMethod});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -479,8 +508,8 @@ public final class AdvanceVisualPanel1 extends JPanel {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanelMethod, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPnlMethodSelected, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -643,12 +672,12 @@ public final class AdvanceVisualPanel1 extends JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabelMaizeMethod;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanelMethod;
+    private javax.swing.JPanel jPnlMethodSelected;
     private javax.swing.JRadioButton jRadioButtonSameMethodNO;
     private javax.swing.JRadioButton jRadioButtonSameMethodYES;
     private javax.swing.JRadioButton jRadioButtonSameNumberNO;
