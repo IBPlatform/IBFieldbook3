@@ -36,6 +36,7 @@ public class StudyNode extends AbstractNode {
         actions[2] = SystemAction.get(DeleteStudyAction.class);
         //  actions[2] = SystemAction.get(CloseAction.class ) ;
 
+        actions[0].setEnabled(this.study.getStudyid().intValue() < 0);
         actions[2].setEnabled(this.study.getStudyid().intValue() < 0);
 
         return actions;
