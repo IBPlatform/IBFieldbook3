@@ -60,7 +60,7 @@ public final class TrialWizardWizardIterator implements WizardDescriptor.Iterato
 
     @Override
     public String name() {
-        return index + 1 + ". from " + getPanels().length;
+        return index + 1 + " of " + getPanels().length;
     }
 
     @Override

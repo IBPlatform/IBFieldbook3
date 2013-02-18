@@ -35,7 +35,12 @@ public class DesignsClass {
     private String pathR = "";
     private String pathRWD = "";
     public static List<FactorsForDesign> facDesign;         //TRIAL, ENTRY, PLOT, BLOCK, REP, COL, ROW 
- 
+    
+    /**
+     * workbook object to read if template contains plot nested + number
+     */
+    private Workbook workbook;
+    
 
     public DesignsClass() {
         if (OSUtils.isMacOS()) {
@@ -48,6 +53,7 @@ public class DesignsClass {
             pathR = OSUtils.getRPATH();
             pathRWD = "C:" + File.separator + "R";
         }
+        
     }
 
     public void runR_latticeWindows(int treatments, int rep, int blocksize) {
@@ -502,14 +508,27 @@ public class DesignsClass {
     }
 
     public void readAlphaDesign(int trial, String myDesign, ObservationsTableModel model, JTable germplasmEntries) {
-
         GermplasmEntriesTableModel entriesTableModel = (GermplasmEntriesTableModel) germplasmEntries.getModel();
         System.out.println("Iniciando lectura de csv");
         //String file = this.pathRWD + File.separator + myDesign+trial + ".csv";
         String file = this.pathRWD + File.separator + myDesign + trial + ".csv";
 
-
-
+        int maxPlotsForTrial = getMaxPlotsForTrial(file);
+        int zerosToAdd = 1;
+        if (maxPlotsForTrial < 100 ) {
+            zerosToAdd = 2;
+        }if (maxPlotsForTrial < 1000 ) {
+            zerosToAdd = 3;
+        }
+        
+        int numericPlot = 0;
+        int numericPlotCounter = 1;
+        String currentReplicate = "-1";
+        
+        boolean hasFieldPlotNested = workbook.hasPlotNestedNumber();
+        
+        
+        
         try {
             CsvReader csvReader = new CsvReader(file);
             csvReader.readHeaders();
@@ -522,6 +541,16 @@ public class DesignsClass {
                 String entry = csvReader.get("book.t");
                 int entryIntValue = Integer.parseInt(entry) - 1;
 
+                if (!currentReplicate.equals(rep)) {
+                    numericPlotCounter =1;
+                    currentReplicate = rep;
+                }
+                
+                if (hasFieldPlotNested) {
+                    numericPlot = Integer.valueOf(plot);
+                    plot = "" + trial + ConvertUtils.getZeroLeading(numericPlot, zerosToAdd);
+                }
+                
                 Object[] rowToAdd = new Object[model.getColumnCount()];
                 rowToAdd[model.getHeaderIndex(ObservationsTableModel.TRIAL)] = trial;
 
@@ -529,20 +558,18 @@ public class DesignsClass {
                     rowToAdd[model.getHeaderIndex(ObservationsTableModel.REPLICATION)] = rep;
                 }
                 if (model.getHeaderIndex(ObservationsTableModel.BLOCK) > 0) {
-
                     rowToAdd[model.getHeaderIndex(ObservationsTableModel.BLOCK)] = block;
                 }
-
-                if(model.getHeaderIndex(ObservationsTableModel.PLOT)>0){
-                  rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = plot;   
-                }else if (model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER) > 0){
-                  rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER)] = plot;  
-                } else {
-                    rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER)] = plot;  
-                }
                 
-               
+                
 
+                if (model.getHeaderIndex(ObservationsTableModel.PLOT) > 0) {
+                    rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = plot;
+                } else if (model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER) > 0) {
+                    rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER)] = plot;
+                } else {
+                    rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER)] = plot;
+                }
 
                 int entriesColIndex = 0;
                 for (Factor factor : entriesTableModel.getFactorHeaders()) {
@@ -551,6 +578,8 @@ public class DesignsClass {
                     entriesColIndex++;
                 }
 
+                numericPlotCounter++;
+                
                 model.addRow(rowToAdd);
             }
 
@@ -636,16 +665,16 @@ public class DesignsClass {
         System.out.println("reading user defined design file : " + fileName);
 
         String tr = NbPreferences.forModule(MacthColumsWizardPanel1.class).get("TRIAL", "");
-        
-        
-        
+
+
+
         try {
             CsvReader csvReader = new CsvReader(fileName.toString());
             csvReader.readHeaders();
             String[] headers = csvReader.getHeaders();
 
-           
-            
+
+
             while (csvReader.readRecord()) {
                 //  String trial = csvReader.get(NbPreferences.forModule(MacthColumsWizardPanel1.class).get("TRIAL", "TRIAL"));
                 String trial = csvReader.get(tr);
@@ -684,7 +713,7 @@ public class DesignsClass {
                 String en = NbPreferences.forModule(MacthColumsWizardPanel1.class).get("ENTRY", "");
                 String rw = NbPreferences.forModule(MacthColumsWizardPanel1.class).get("ROW", "");
                 String cl = NbPreferences.forModule(MacthColumsWizardPanel1.class).get("COL", "");
-   
+
                 String rep = "";
                 String block = "";
                 String plot = "";
@@ -758,10 +787,10 @@ public class DesignsClass {
                 }
 
                 if (tenemosPlot) {
-                    if( model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER)>0){
-                      rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER)] = plot;
-                  }else{                        
-                    rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = plot;
+                    if (model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER) > 0) {
+                        rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER)] = plot;
+                    } else {
+                        rowToAdd[model.getHeaderIndex(ObservationsTableModel.PLOT)] = plot;
                     }
                 }
 
@@ -852,4 +881,33 @@ public class DesignsClass {
 
         return existe;
     }
+
+    private int getMaxPlotsForTrial(String fileName) {
+        int maxPlotForTrial = 0;
+        CsvReader csvReader = null;
+        try {
+            csvReader = new CsvReader(fileName);
+            csvReader.readHeaders();
+            //     String[] headers = csvReader.getHeaders();
+
+            while (csvReader.readRecord()) {
+                String plot = csvReader.get("book.plots");
+                Integer intPlot = Integer.valueOf(plot).intValue();
+                maxPlotForTrial = intPlot;
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+           if (csvReader != null) csvReader.close();
+        }
+        System.out.println("*****Max plot for trial = " + maxPlotForTrial);
+        return maxPlotForTrial;
+    }
+
+    public void setWorkbook(Workbook workbook) {
+        this.workbook = workbook;
+    }
+    
+    
 }

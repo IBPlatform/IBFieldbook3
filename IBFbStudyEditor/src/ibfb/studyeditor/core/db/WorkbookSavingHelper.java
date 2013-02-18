@@ -1,4 +1,3 @@
-
 package ibfb.studyeditor.core.db;
 
 import ibfb.domain.core.Condition;
@@ -33,12 +32,11 @@ public class WorkbookSavingHelper {
      *
      * @param workbook
      */
-    
     public static void saveFieldbook(StudyEditorTopComponent studyEditor) {
-       
+
         Workbook savingWorkbook = new Workbook();
-        
-        
+
+
         savingWorkbook.setStudy(getStudy(studyEditor));
         // assign number of instances
         Integer instanceNumber = Integer.parseInt(studyEditor.jLabelInstances.getText());
@@ -78,26 +76,22 @@ public class WorkbookSavingHelper {
         // if study already exists then update it
         if (studyEditor.isStudyAlreadyExists()) {
             AppServicesProxy.getDefault().appServices().updateWorkbook(savingWorkbook);
-           
-        
+
+
         } else {
             // study does not exist!, then create it 
             AppServicesProxy.getDefault().appServices().saveWorkbookFull(savingWorkbook);
-            
+
             // but if user press save study already exists
             studyEditor.setStudyAlreadyExists(true);
-           
-            
+
+
         }
-       
-        
+
+
 
     }
 
-    
-    
-    
-    
     /**
      * Get data for study
      *
@@ -133,7 +127,7 @@ public class WorkbookSavingHelper {
             study.setPmkey(studyEditor.jTextFieldPMKey.getText());
             study.setStarDate(ConvertUtils.getIntegerAsDate(existingStudy.getSdate()));
             study.setEndDate(ConvertUtils.getIntegerAsDate(existingStudy.getEdate()));
-            study.setShierarchy(existingStudy.getShierarchy());            
+            study.setShierarchy(existingStudy.getShierarchy());
         } else {
             study.setStudyid(null);
         }
@@ -323,17 +317,17 @@ public class WorkbookSavingHelper {
 
                 colNumber = model.getHeaderIndex(ObservationsTableModel.TRIAL);
                 if (colNumber != -1) {
-                    try{
-                    m.setTrial(Integer.parseInt(model.getValueAt(row, colNumber).toString()));
+                    try {
+                        m.setTrial(Integer.parseInt(model.getValueAt(row, colNumber).toString()));
                     } catch (NullPointerException ex) {
                         m.setTrial(0);
                     }
                 }
                 colNumber = model.getHeaderIndex(ObservationsTableModel.ENTRY);
                 if (colNumber != -1) {
-                   try{
-                    m.setEntry(Integer.parseInt(model.getValueAt(row, colNumber).toString()));
-                     } catch (NullPointerException ex) {
+                    try {
+                        m.setEntry(Integer.parseInt(model.getValueAt(row, colNumber).toString()));
+                    } catch (NullPointerException ex) {
                         m.setEntry(0);
                     }
                 }
@@ -341,57 +335,59 @@ public class WorkbookSavingHelper {
                 if (colNumber != -1) {
                     //m.set(Integer.parseInt(model.getValueAt(row, colNumber).toString()));                    
                 }
-                
+
                 colNumber = model.getHeaderIndex(ObservationsTableModel.DESIG);
                 if (colNumber != -1) {
-                    try{
-                    m.setDesignation(model.getValueAt(row, colNumber).toString());
-                     } catch (NullPointerException ex) {
+                    try {
+                        m.setDesignation(model.getValueAt(row, colNumber).toString());
+                    } catch (NullPointerException ex) {
                         m.setDesignation("");
                     }
                 }
                 colNumber = model.getHeaderIndex(ObservationsTableModel.GID);
                 if (colNumber != -1) {
-                    try{
-                    m.setGid(Integer.parseInt(model.getValueAt(row, colNumber).toString()));
-                     } catch (NullPointerException ex) {
+                    try {
+                        m.setGid(Integer.parseInt(model.getValueAt(row, colNumber).toString()));
+                    } catch (NullPointerException ex) {
                         m.setGid(0);
                     }
                 }
-                
-                if(model.getHeaderIndex(ObservationsTableModel.PLOT)>0){
-                   colNumber = model.getHeaderIndex(ObservationsTableModel.PLOT);  
-                }else{
-                    colNumber = model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER); 
+
+                if (model.getHeaderIndex(ObservationsTableModel.PLOT) > 0) {
+                    colNumber = model.getHeaderIndex(ObservationsTableModel.PLOT);
+                } else {
+                    colNumber = model.getHeaderIndex(ObservationsTableModel.PLOTNUMBER);
                 }
-               
-                
-                
+
+
+
                 if (colNumber != -1) {
-                    try{
-                    m.setPlot(Integer.parseInt(model.getValueAt(row, colNumber).toString()));
-                     } catch (NullPointerException ex) {
+                    try {
+                        m.setPlot(Integer.parseInt(model.getValueAt(row, colNumber).toString()));
+                    } catch (NullPointerException ex) {
                         m.setPlot(0);
                     }
                 }
                 colNumber = model.getHeaderIndex(ObservationsTableModel.REPLICATION);
                 if (colNumber != -1) {
-                    try{
-                    m.setReplication(Integer.parseInt(model.getValueAt(row, colNumber).toString()));
+                    try {
+                        if (model.getValueAt(row, colNumber).toString() != null && !model.getValueAt(row, colNumber).toString().isEmpty()) {
+                            m.setReplication(Integer.parseInt(model.getValueAt(row, colNumber).toString()));
+                        }
                     } catch (NullPointerException ex) {
                         m.setReplication(0);
                     }
                 }
                 colNumber = model.getHeaderIndex(ObservationsTableModel.BLOCK);
                 if (colNumber != -1) {
-                    try{
-                    m.setBlock(Integer.parseInt(model.getValueAt(row, colNumber).toString()));
+                    try {
+                        m.setBlock(Integer.parseInt(model.getValueAt(row, colNumber).toString()));
                     } catch (NullPointerException ex) {
                         m.setBlock(0);
                     }
 
                 }
-                
+
                 colNumber = model.getHeaderIndex(ObservationsTableModel.ROW);
                 if (colNumber != -1) {
                     try {
@@ -403,8 +399,8 @@ public class WorkbookSavingHelper {
                 }
                 colNumber = model.getHeaderIndex(ObservationsTableModel.COL);
                 if (colNumber != -1) {
-                     try {
-                    m.setColumn(Integer.parseInt(model.getValueAt(row, colNumber).toString()));
+                    try {
+                        m.setColumn(Integer.parseInt(model.getValueAt(row, colNumber).toString()));
                     } catch (NullPointerException ex) {
                         m.setColumn(0);
                     }

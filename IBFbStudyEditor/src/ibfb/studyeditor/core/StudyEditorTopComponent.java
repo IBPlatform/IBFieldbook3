@@ -3120,6 +3120,7 @@ public final class StudyEditorTopComponent extends TopComponent {
                     disenios.readUserDefinedDesign(i + 1, bean.getUserDefinedDesign(), tableModel, this.jTableEntries);
                 }
             } else if (disenio.equals(DesignsClass.ALFA_DESIGN)) {
+                disenios.setWorkbook(myWorkbook);
                 if (OSUtils.isMacOS()) {
                     disenios.runR_alpha(i + 1, entries, Integer.parseInt(rep), Integer.parseInt(blockSize));
 
