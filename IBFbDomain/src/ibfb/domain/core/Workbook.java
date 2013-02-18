@@ -873,4 +873,24 @@ public class Workbook {
         }
         return checkFactor;
     }
+    
+    /**
+     * It checks if template has a factor with plot + nested + number
+     * @return 
+     */
+    public boolean hasPlotNestedNumber() {
+        boolean hasPlotNested = false;
+        
+       for (Factor factor : factors) {
+            String text = getStringWithOutBlanks(factor.getProperty() + factor.getScale() );
+
+            if (FIELD_PLOT_NESTEDNUMBER.equals(text)) {
+               hasPlotNested  = true;
+               break;
+            }
+        }
+        
+        
+        return hasPlotNested;
+    }
 }
