@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package org.cimmyt.cril.ibwb.domain;
 
 import java.io.Serializable;
@@ -22,10 +21,16 @@ import org.cimmyt.cril.ibwb.domain.filter.BaseFilter;
 @Entity
 @Table(name = "methods")
 public class Methods extends BaseFilter implements Serializable {
+
     public static final String MTYPE_GENERATIVE = "GEN";
     public static final String MTYPE_DERIVATIVE = "DER";
     public static final int UNKNOWN_DERIVATIVE_METHOD_SF = 31;
     public static final int UNKNOWN_GENERATIVE_METHOD_SF = 1;
+    public static final int METHOD_UKNOWN_DERIVATE = 31;
+    public static final int METHOD_SINGLE_CROSS = 101;
+    public static final int METHOD_SINGLE_PLANT = 205;
+    public static final int SELECTED_BULK_SF = 206;
+    public static final int RANDOM_BULK_SF = 207;
     
     private static final long serialVersionUID = 1L;
     @Id
@@ -73,29 +78,30 @@ public class Methods extends BaseFilter implements Serializable {
     private Integer mdate;
 
     public Methods() {
-    	setDefault();
+        setDefault();
     }
-    
+
     public Methods(boolean atrNulls) {
-    	if(!atrNulls)
-    		setDefault();
+        if (!atrNulls) {
+            setDefault();
+        }
     }
-    
-    public void setDefault(){
-    	mid = 0;
-    	mtype = "-";
-    	mgrp = "-";
-    	mcode = "-";
-    	mname = "-";
-    	mdesc = "-";
-    	mref = 0;
-    	mprgn = 0;
-    	mfprg = 0;
-    	mattr = 0;
-    	geneq = 0;
-    	muid = 0;
-    	lmid = 0;
-    	mdate = 0;
+
+    public void setDefault() {
+        mid = 0;
+        mtype = "-";
+        mgrp = "-";
+        mcode = "-";
+        mname = "-";
+        mdesc = "-";
+        mref = 0;
+        mprgn = 0;
+        mfprg = 0;
+        mattr = 0;
+        geneq = 0;
+        muid = 0;
+        lmid = 0;
+        mdate = 0;
     }
 
     public Methods(Integer mid) {
@@ -255,5 +261,4 @@ public class Methods extends BaseFilter implements Serializable {
     public String toString() {
         return "org.cimmyt.cril.ibworkbench.services.beans.Methods[mid=" + mid + "]";
     }
-
 }

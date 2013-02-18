@@ -6,11 +6,7 @@
 package org.cimmyt.cril.ibwb.domain;
 
 import java.io.Serializable;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import org.cimmyt.cril.ibwb.domain.filter.BaseFilter;
 
 /**
@@ -30,11 +26,23 @@ public class Names extends BaseFilter implements Serializable {
      */
     public static final int CIMMYT_WHEAT_PEDIGREE = 1029;
     
+    public static final int CIMMYT_COMMON_NAME = 7;
+    
     public static final String SLASH_SEPARATOR = "/";
     
     public static final int DERIVATIVE_NAME = 5;
     public static final int CROSS_NAME = 2;
     public static final int UNNAMED_CROSS = 3;
+    
+    public static final int NSTAT_PREFERED_NAME = 1 ;
+    public static final int NSTAT_PREFERED_ID = 1 ;
+    public static final int NSTAT_PREFERED_ABBREVIATIONS = 2 ;
+    public static final int NSTAT_CHINESSE_GBK = 3 ;
+    public static final int NSTAT_DBCS_NAMES = 4 ;
+    public static final int NSTAT_MARKED_DELETED = 9 ;
+
+
+    
 
     @Id
     @Basic(optional = false)
@@ -65,6 +73,12 @@ public class Names extends BaseFilter implements Serializable {
     @Column(name = "nref")
     private Integer nref;
 
+    /**
+     * Cimmyt pedigree in names where S
+     */
+    @Transient
+    private String cimmytPedigree;    
+    
     public Names() {
     	setDefault();
     }
@@ -186,5 +200,15 @@ public class Names extends BaseFilter implements Serializable {
     public String toString() {
         return "org.cimmyt.cril.ibworkbench.services.beans.Names[namesPK=" + nid + "]";
     }
+
+    public String getCimmytPedigree() {
+        return cimmytPedigree;
+    }
+
+    public void setCimmytPedigree(String cimmytPedigree) {
+        this.cimmytPedigree = cimmytPedigree;
+    }
+
+    
 
 }
