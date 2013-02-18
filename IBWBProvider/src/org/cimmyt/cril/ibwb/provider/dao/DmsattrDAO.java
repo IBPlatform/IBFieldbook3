@@ -104,6 +104,9 @@ public class DmsattrDAO extends AbstractDAO<Dmsattr, Integer> {
                 + " ( :lrecIdList ) and  "
                 + " d.dmsatype in (804,805,806,807,808,809) ";
         //List<Dmsattr> dmsattrList = getHibernateTemplate().find(queryString, listid);
+//        if (lrecIdList.isEmpty()) {
+//            return new ArrayList<Dmsattr>();
+//        }
         List<Dmsattr> dmsattrList = getHibernateTemplate().executeFind(new HibernateCallback() {
 
             @Override

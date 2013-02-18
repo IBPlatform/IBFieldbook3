@@ -111,6 +111,15 @@ public class NamesDAO extends AbstractDAO<Names, Integer> {
         }
     }
 
+    /**
+     * Gets the Name for the desired Germplasm searching by GID
+     *
+     * @param germplasm Germplasm to search, used to retrieve GID
+     * @param preferido when prefereido equals to
+     * <code>true</code> means must return
+     * <code>false</code> = it looks by
+     * @return
+     */
     public Names getNamesByGid(Germplsm germplasm, Boolean preferido) {
         if (germplasm == null) {
             return null;
@@ -123,14 +132,23 @@ public class NamesDAO extends AbstractDAO<Names, Integer> {
                 hqlSB.append(" and n.nstat > 0 ");
             } else {
                 if (germplasm.getGnpgs() == -1) {
-                    hqlSB.append(" and n.ntype = ");
-                    hqlSB.append(1028);
-                    hqlSB.append(" ");
+                    hqlSB.append(" and (  n.ntype = ");
+                    hqlSB.append(Names.CIMMYT_WHEAT_SELECTION_HISTORY);  //1028
+                    hqlSB.append("  ");
+                    hqlSB.append(" or  ");
+                    hqlSB.append(" n.ntype = ");
+                    hqlSB.append(Names.CIMMYT_COMMON_NAME);
+                    hqlSB.append("  ");
                 } else if (germplasm.getGnpgs() == 2) {
-                    hqlSB.append(" and n.ntype = ");
-                    hqlSB.append(1027);
+                    hqlSB.append(" and ( n.ntype = ");
+                    hqlSB.append(Names.CIMMYT_WHEAT_BCID);  //1027
                     hqlSB.append(" ");
                 }
+                hqlSB.append(" or  n.ntype = ");
+                hqlSB.append(Names.CIMMYT_WHEAT_PEDIGREE);  //1029
+                hqlSB.append(" ) ");
+
+
             }
             hqlSB.append("order by n.nstat ");
             hqlSB.append("asc");
@@ -140,7 +158,24 @@ public class NamesDAO extends AbstractDAO<Names, Integer> {
                 return getNamesByGid(germplasm.getGid());
             } else if (listNames.size() > 0) {
                 if (listNames.get(0) != null) {
-                    return listNames.get(0);
+                    Names names = new Names(true);
+                    names = listNames.get(0);
+                    // now iterate over different names to search for pedigree
+                    for (Names nameFound : listNames) {
+                        if (nameFound.getNtype().equals(Names.CIMMYT_WHEAT_PEDIGREE) || nameFound.getNtype().equals(Names.CIMMYT_COMMON_NAME)) {
+                            names.setCimmytPedigree(nameFound.getNval());
+                            break;
+                        }
+                    }
+
+                    if (names.getCimmytPedigree() == null) {
+                        Names pedigreeName = getNamesPedigreeByGid(germplasm.getGpid1());
+                        if (pedigreeName != null) {
+                            names.setCimmytPedigree(pedigreeName.getNval());
+                        }
+                    }
+
+                    return names;
                 } else {
                     return getNamesByGid(germplasm.getGid());
                 }
@@ -158,6 +193,27 @@ public class NamesDAO extends AbstractDAO<Names, Integer> {
             hqlSB.append("from Names as n where n.gid = ");
             hqlSB.append(gid);
             hqlSB.append(" ");
+            List<Names> listNames = this.executeQueryCustomListOfT(hqlSB.toString());
+            if (listNames == null) {
+                return null;
+            } else if (listNames.size() > 0) {
+                return listNames.get(0);
+            } else {
+                return null;
+            }
+        }
+    }
+
+    public Names getNamesPedigreeByGid(Integer gid) {
+        if (gid == null) {
+            return null;
+        } else {
+            StringBuilder hqlSB = new StringBuilder();
+            hqlSB.append("from Names as n where n.gid = ");
+            hqlSB.append(gid);
+            hqlSB.append(" and ntype = ").append(Names.CIMMYT_WHEAT_PEDIGREE);
+            hqlSB.append(" and nstat = ").append(Names.NSTAT_PREFERED_NAME);
+
             List<Names> listNames = this.executeQueryCustomListOfT(hqlSB.toString());
             if (listNames == null) {
                 return null;
@@ -314,7 +370,6 @@ public class NamesDAO extends AbstractDAO<Names, Integer> {
                                         || listdata.getName1029() == null) {
                                     Germplsm germplsmT = getGermplsm(session, gid);
                                     if (germplsmT == null) {
-                                        
                                     } else {
                                         Integer gpid1 = germplsmT.getGpid1();
 

@@ -69,7 +69,8 @@ public class TestGermplasm extends TestService {
         List<GermplasmSearch> result = new ArrayList<GermplasmSearch>();
         for(int i = 1 ; i<11; i++){
             GermplasmSearch gs = new GermplasmSearch();
-            gs.setStudyId(19973);
+            //gs.setStudyId(19973);
+            gs.setStudyId(40170);
             gs.setTrial(1);
             gs.setPlot(i);
             result.add(gs);
@@ -83,7 +84,9 @@ public class TestGermplasm extends TestService {
             GermplasmSearch gs = new GermplasmSearch();
             gs.setStudyId(40165);
             gs.setTrial(1);
-            gs.setPlot(i-300);
+            gs.setCrosstype("SS");
+            //gs.setPlot(i-300);
+            gs.setPlot(i);
             result.add(gs);
         }
         return result;
@@ -93,6 +96,7 @@ public class TestGermplasm extends TestService {
         List<GermplasmSearch> result = new ArrayList<GermplasmSearch>();
         for(int i = 1 ; i<201; i++){
             GermplasmSearch gs = new GermplasmSearch();
+            gs.setCrosstype("SS");
             gs.setStudyId(40170);
             gs.setTrial(1);
             switch(i){
@@ -310,16 +314,17 @@ public class TestGermplasm extends TestService {
     }
     
     private void getGermplasmByListStudyTrialPlotCross(){
+        
         List<GermplasmSearch> germplasmSearchs = HelperGermplasm.getGermplasmByListStudyTrialPlotCross(servicios, getListGermplasmSearchFmale(), getListGermplasmSearchMale());
         for(GermplasmSearch gs : germplasmSearchs){
-            System.out.println("BSCID: " + gs.getBcid() + " LOCID: " + gs.getLid());
+            System.out.println("BSCID: " + gs.getBcid() + " LOCID: " + gs.getLid()+ "PEDIGREE FEMALE   " + gs.getNames().getCimmytPedigree() + " PEDIGREE EMALE    " + gs.getNamesMale().getCimmytPedigree() );
         }
     }
     
     private void getGermplasmByListStudyTrialPlotSelection(){
         List<GermplasmSearch> germplasmSearchs = HelperGermplasm.getGermplasmByListStudyTrialPlotCross(servicios, getListGermplasmSearchFmale(),  new ArrayList<GermplasmSearch>());
         for(GermplasmSearch gs : germplasmSearchs){
-            System.out.println("BSCID: " + gs.getBcid() + " LOCID: " + gs.getLid());
+            System.out.println("BSCID: " + gs.getBcid() + " LOCID: " + gs.getLid() + "   " + gs.getNames().getCimmytPedigree());
         }
     }
     
@@ -329,7 +334,9 @@ public class TestGermplasm extends TestService {
 //        testGermplasm.getGermplasmByStudyIdTrialPlotOneByeOne();
 //        testGermplasm.getGermplasmListByStudyAndTrial();
 //        testGermplasm.getGermplasmByListStudyTrialPlot();
-//        testGermplasm.getGermplasmByListStudyTrialPlotCross();
-        testGermplasm.getGermplasmByListStudyTrialPlotSelection();
+        
+        testGermplasm.getGermplasmByListStudyTrialPlotCross();
+        
+//        testGermplasm.getGermplasmByListStudyTrialPlotSelection();
     }
 }

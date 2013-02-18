@@ -392,7 +392,7 @@ public class HelperGermplasm {
         //names
         //names.setNid(userId);//nid = autoincrement
         names.setGid(germplsm.getGid());//gid = germplasm
-        names.setNtype(1029);//pedigri = 1029 
+        names.setNtype(Names.CIMMYT_WHEAT_PEDIGREE);//pedigri = 1029 
         // tmsanchez 20120424
         names.setNstat(0);//nstat = 0
 
@@ -918,16 +918,17 @@ public class HelperGermplasm {
 //                log.info("Germplasm: " + gs.getGermplsm() + " Names: " + gs.getNames());
 //            }
 
-            if (gs.getGermplsm().getGnpgs() == -1 && gs.getNames().getNtype() == 1028) {
-                gs.setMax(appServices.getMaxForSelection(gs.getStudyId(), gs.getBcid(), 1028));
-            } else if (gs.getGermplsm().getGnpgs() == 2 && gs.getNames().getNtype() == 1027) {
-                Integer max = appServices.getMaxForSelection(gs.getStudyId(), gs.getBcid(), 1027);
+            if (gs.getGermplsm().getGnpgs() == -1 && gs.getNames().getNtype() == Names.CIMMYT_WHEAT_SELECTION_HISTORY) {
+                gs.setMax(appServices.getMaxForSelection(gs.getStudyId(), gs.getBcid(), Names.CIMMYT_WHEAT_SELECTION_HISTORY));
+            } else if (gs.getGermplsm().getGnpgs() == 2 && gs.getNames().getNtype() == Names.CIMMYT_WHEAT_BCID) {
+                Integer max = appServices.getMaxForSelection(gs.getStudyId(), gs.getBcid(), Names.CIMMYT_WHEAT_BCID);
                 gs.setMax(max);
             } else {
                 gs.setMax(0);
             }
 //            log.info("Max: " + gs.getMax());
         }
+        log.info("FIN!!!! Iniciando el proceso de recuperacion de maximos para los fmale");        
         log.info("seteando los datos del male a los objetos GermplasmSearchFmale");
         for (GermplasmSearch gs : listMale) {
             listFmale.get(listMale.indexOf(gs)).setGermplsmMale(gs.getGermplsm());
