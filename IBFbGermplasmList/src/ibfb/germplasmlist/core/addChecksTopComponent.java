@@ -54,7 +54,7 @@ import java.util.*;
 autostore = false)
 @TopComponent.Description(preferredID = "addChecksTopComponent",
 iconBase = "ibfb/germplasmlist/images/germplasmIcon16.png",
-persistenceType = TopComponent.PERSISTENCE_ALWAYS)
+persistenceType = TopComponent.PERSISTENCE_NEVER)
 @TopComponent.Registration(mode = "editor", openAtStartup = false)
 @ActionID(category = "Window", id = "ibfb.germplasmlist.core.addChecksTopComponent")
 @ActionReference(path = "Menu/Window" /*
@@ -115,8 +115,14 @@ public final class addChecksTopComponent extends TopComponent {
         asignaTransferSource();
         asignaTransferChecks();
         asignaTableModelsDefault();
-        this.jButtonSaveList.setEnabled(false);
-
+        
+        
+        // disable panel for checks
+        //jTabbedPaneChecks.setEnabledAt(1, false);
+        jTabbedPaneChecks.remove(jPanel2);
+        this.jButtonSaveList.setEnabled(true);   
+        jRadioButtonWith.setVisible(false);
+        jRadioButtonWithout.setVisible(false);
     }
 
     public void initLists() {
@@ -1635,15 +1641,17 @@ public final class addChecksTopComponent extends TopComponent {
     private void jTabbedPaneChecksStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPaneChecksStateChanged
 
         switch (jTabbedPaneChecks.getSelectedIndex()) {
-            case 2://final list
+           // case 2://final list
+            case 1 : //final list
 
-
-                if (this.jRadioButtonWith.isSelected()) {
-                    fillChecks();
-                } else {
-                    fillWithoutChecks();
-                }
-
+                //
+                //if (this.jRadioButtonWith.isSelected()) {
+                //    fillChecks();
+                //} else {
+                //    fillWithoutChecks();
+                //}
+                // allways fill final list without checks
+                fillWithoutChecks();
                 break;
 
         }

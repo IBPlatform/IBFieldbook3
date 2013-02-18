@@ -8,6 +8,7 @@ import ibfb.germplasmlist.filters.ExcelFiltro;
 import ibfb.germplasmlist.models.GermplasmEntriesTableModel;
 import ibfb.germplasmlist.models.GermplasmTransferHandlerSelection;
 import ibfb.germplasmlist.models.RemoveGermplasmTransferHandler;
+import ibfb.germplasmlist.renders.CrossGridDecorator;
 import ibfb.lists.core.SelectListDialog;
 import ibfb.settings.core.FieldbookSettings;
 import ibfb.studyexplorer.explorer.listNames.ListDataWindowTopComponent;
@@ -112,7 +113,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
     public int CROSSTYPE = 10;
     public int TYPE = 11;
     private String[] headers = {"ENTRY", "BCID", "CROSS", "GID", "METHOD", "FDESIG", "FGID", "MDESIG", "MGID"};
-    private String[] headersScript = {"ENTRY", "BCID", "FEMALE/MALE", "GID", "METHOD", "FTID", "FOCC", "FENTRY", "FDESIG", "FGID", "MTID", "MOCC", "MENTRY", "MDESIG", "MGID"};
+    private String[] headersScript = {"ENTRY", "BCID", "FEMALE PEDIGREE", "MALE PEDIGREE", "FEMALE/MALE", "GID", "METHOD", "FTID", "FOCC", "FENTRY", "FDESIG", "FGID", "MTID", "MOCC", "MENTRY", "MDESIG", "MGID"};
     private String[] otherCropsheaders = {"ENTRY", "CROSS", "GID", "METHOD", "FDESIG", "FGID", "MDESIG", "MGID", "SOURCE"};
     private ArrayList<String> tempListCross;
     List<GermplasmSearch> listFemale;
@@ -1404,6 +1405,8 @@ public final class nurseryManagerTopComponent extends TopComponent {
             }
         };
 
+        jTableFinalList.getTableHeader().setDefaultRenderer(new CrossGridDecorator(OtherCropColumns.FEMALE_COLUMNS,OtherCropColumns.MALE_COLUMNS));
+                
         modelo.setColumnIdentifiers(otherCropsheaders);
         modelo.setRowCount(female);
 
@@ -1602,6 +1605,8 @@ public final class nurseryManagerTopComponent extends TopComponent {
                 return false;
             }
         };
+        
+        jTableFinalList.getTableHeader().setDefaultRenderer(new CrossGridDecorator(WheatColumns.FEMALE_COLUMNS, WheatColumns.MALE_COLUMNS));
 
         modelo.setRowCount(0);
         modelo.setColumnIdentifiers(headersScript);
@@ -1696,24 +1701,28 @@ public final class nurseryManagerTopComponent extends TopComponent {
 
                 // String cross=giveMeCross(gs.getNames().getGid(),gs.getNamesMale().getGid());
 
-                modelo.setValueAt(gms, gms - 1, 0);//ENTRY
-                modelo.setValueAt(gs.getBcid() + maxString, gms - 1, 1);//BCID
-                modelo.setValueAt(cross, gms - 1, 2); //CROSS
-                modelo.setValueAt(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.notAssigned"), gms - 1, 3); //GID                        
+                modelo.setValueAt(gms, gms - 1, WheatColumns.ENTRY);//ENTRY
+                modelo.setValueAt(gs.getBcid() + maxString, gms - 1, WheatColumns.BCID);//BCID
+
+                modelo.setValueAt(getHtmlForText(gs.getNames().getCimmytPedigree(), true), gms - 1, WheatColumns.FEMALE_PEDIGREE);//FPEDIGREE                
+                modelo.setValueAt(getHtmlForText(gs.getNamesMale().getCimmytPedigree(), false), gms - 1, WheatColumns.MALE_PEDIGREE);//MALE PEDIGREE                
+
+                modelo.setValueAt(cross, gms - 1, WheatColumns.FEMALE_MALE); //CROSS
+                modelo.setValueAt(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.notAssigned"), gms - 1, WheatColumns.GID); //GID                        
                 //modelo.setValueAt(NbBundle.getMessage(nurseryManagerTopComponent.class, "nurseryManagerTopComponent.singleCross"), gms - 1, 4);//METHOD
-                modelo.setValueAt(gs.getMethodName(), gms - 1, 4);//METHOD
+                modelo.setValueAt(gs.getMethodName(), gms - 1, WheatColumns.METHOD);//METHOD
 
-                modelo.setValueAt(listFemale.get(gms - 1).getStudyId(), gms - 1, 5);//FTID
-                modelo.setValueAt(listFemale.get(gms - 1).getTrial(), gms - 1, 6);//FOCC
-                modelo.setValueAt(listFemale.get(gms - 1).getPlot(), gms - 1, 7);//FENTRY
-                modelo.setValueAt(gs.getNames().getNval(), gms - 1, 8);//FDESIG
-                modelo.setValueAt(gs.getNames().getGid(), gms - 1, 9);//FGID
+                modelo.setValueAt(listFemale.get(gms - 1).getStudyId(), gms - 1, WheatColumns.FTID);//FTID
+                modelo.setValueAt(listFemale.get(gms - 1).getTrial(), gms - 1, WheatColumns.FOCC);//FOCC
+                modelo.setValueAt(listFemale.get(gms - 1).getPlot(), gms - 1, WheatColumns.FENTRY);//FENTRY
+                modelo.setValueAt(gs.getNames().getNval(), gms - 1, WheatColumns.FDESIG);//FDESIG
+                modelo.setValueAt(gs.getNames().getGid(), gms - 1, WheatColumns.FGID);//FGID
 
-                modelo.setValueAt(listMale.get(gms - 1).getStudyId(), gms - 1, 10);//MTID
-                modelo.setValueAt(listMale.get(gms - 1).getTrial(), gms - 1, 11);//MOCC
-                modelo.setValueAt(listMale.get(gms - 1).getPlot(), gms - 1, 12);//MENTRY
-                modelo.setValueAt(gs.getNamesMale().getNval(), gms - 1, 13);//MDESIG
-                modelo.setValueAt(gs.getNamesMale().getGid(), gms - 1, 14);//MGID
+                modelo.setValueAt(listMale.get(gms - 1).getStudyId(), gms - 1, WheatColumns.MTID);//MTID
+                modelo.setValueAt(listMale.get(gms - 1).getTrial(), gms - 1, WheatColumns.MOCC);//MOCC
+                modelo.setValueAt(listMale.get(gms - 1).getPlot(), gms - 1, WheatColumns.MENTRY);//MENTRY
+                modelo.setValueAt(gs.getNamesMale().getNval(), gms - 1, WheatColumns.MDESIG);//MDESIG
+                modelo.setValueAt(gs.getNamesMale().getGid(), gms - 1, WheatColumns.MGID);//MGID
 
             }
 
@@ -2768,5 +2777,27 @@ public final class nurseryManagerTopComponent extends TopComponent {
         } else {
             this.jComboBoxConvection.setSelectedIndex(2);
         }
+    }
+
+    /**
+     * Gets an string between html code
+     *
+     * @param value String value to enclose
+     * @param female if is female then use purple color, else use blue
+     * @return
+     */
+    private String getHtmlForText(String value, boolean female) {
+        StringBuilder formatedText = new StringBuilder();
+        if (value != null) {
+            formatedText.append("<html> <font color='");
+            if (female) {
+                formatedText.append("purple");
+            } else {
+                formatedText.append("blue");
+            }
+            formatedText.append("'>").append(value);
+            formatedText.append("</font></html>");
+        }
+        return formatedText.toString();
     }
 }
