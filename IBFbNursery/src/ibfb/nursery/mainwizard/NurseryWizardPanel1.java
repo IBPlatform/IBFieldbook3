@@ -123,6 +123,7 @@ public class NurseryWizardPanel1 implements WizardDescriptor.Panel, DocumentList
         NurseryEditorTopComponent nurseryWindow = NurseryWizardIterator.nurseryTopComponent;
         nurseryWindow.setFileTemplate(component.getjTextAreaPath().getText()); 
         NurseryWizardIterator.myExcelReader.readExcelWorkbookTemplate();
+//        NurseryWizardIterator.existenConditions = ! NurseryWizardIterator.myExcelReader.getMyWorkbook().getConditions().isEmpty();
         NurseryWizardIterator.existenConstantes = ! NurseryWizardIterator.myExcelReader.getMyWorkbook().getConstants().isEmpty();
         nurseryWindow.setMyWorkbook(NurseryWizardIterator.myExcelReader.getMyWorkbook());
     }
