@@ -1055,7 +1055,7 @@ public final class nurseryManagerTopComponent extends TopComponent {
 
             // if is cimmyt wheat method will be assigned once germplasm has been saved
             if (jComboBoxConvection.getSelectedIndex() == CONVENTION_CIMMYT_WHEAT) {
-                String methodName = (String) jTableFinalList.getValueAt(i, 4);
+                String methodName = (String) jTableFinalList.getValueAt(i, WheatColumns.METHOD);
                 listdata.setMethodId(GermplasmSearch.getMethodNumber(methodName));
             } else {
                 listdata.setMethodId(selectedMethodId);
