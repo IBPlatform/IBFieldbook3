@@ -9,6 +9,10 @@ package org.cimmyt.cril.ibwb.domain;
  * @author TMSANCHEZ
  */
 public class GermplasmSearch {
+    public static final String BACKCROS_S = "BACKCROSS";
+    public static final String DOUBL_E_CROSS = "DOUBLE CROSS";
+    public static final String THREEWA_Y_CROSS = "THREE-WAY CROSS";
+    public static final String UNKNOW_N_GENERATIVE_METHOD_CF = "UNKNOWN GENERATIVE METHOD CF";
 
     private Integer studyId;
     private Integer trial;
@@ -240,16 +244,16 @@ public class GermplasmSearch {
         String methodName = "";
         switch (this.methodGermplasm) {
             case 2:
-                methodName = "UNKNOWN GENERATIVE METHOD CF";
+                methodName = UNKNOW_N_GENERATIVE_METHOD_CF;
                 break;
             case 102:
-                methodName = "THREE-WAY CROSS";
+                methodName = THREEWA_Y_CROSS;
                 break;
             case 103:
-                methodName = "DOUBLE CROSS";
+                methodName = DOUBL_E_CROSS;
                 break;
             case 107:
-                methodName = "BACKCROSS";
+                methodName = BACKCROS_S;
                 break;
         }
         return methodName;
@@ -257,13 +261,13 @@ public class GermplasmSearch {
 
     public static int getMethodNumber(String methodName) {
         
-        if (methodName.equals("UNKNOWN GENERATIVE METHOD CF")) {
+        if (methodName.equals(UNKNOW_N_GENERATIVE_METHOD_CF)) {
             return 2;
-        } else if (methodName.equals("THREE-WAY CROSS")) {
+        } else if (methodName.equals(THREEWA_Y_CROSS)) {
             return 102;
-        } else if (methodName.equals("DOUBLE CROSS")) {
+        } else if (methodName.equals(DOUBL_E_CROSS)) {
             return 103;
-        } else if (methodName.equals("BACKCROSS")) {
+        } else if (methodName.equals(BACKCROS_S)) {
             return 107;
         } else {
             return 0;
